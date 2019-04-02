@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true
+    },
+    "files": [
+        "alertChannel.ts",
+        "alertCondition.ts",
+        "alertPolicy.ts",
+        "alertPolicyChannel.ts",
+        "config/index.ts",
+        "config/vars.ts",
+        "dashboard.ts",
+        "getAlertChannel.ts",
+        "getAlertPolicy.ts",
+        "getApplication.ts",
+        "getKeyTransaction.ts",
+        "index.ts",
+        "infraAlertCondition.ts",
+        "nrqlAlertCondition.ts",
+        "provider.ts",
+        "synthetics/alertCondition.ts",
+        "synthetics/getMonitor.ts",
+        "synthetics/index.ts",
+        "synthetics/monitor.ts",
+        "synthetics/monitorScript.ts",
+        "utilities.ts"
+    ]
+}
+
