@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *     name: "foo",
  * }));
  * const fooAlertCondition = new newrelic.synthetics.AlertCondition("foo", {
- *     monitorId: fooMonitor.apply(fooMonitor => fooMonitor.id),
+ *     monitorId: fooMonitor.id,
  *     policyId: newrelic_alert_policy_foo.id,
  *     runbookUrl: "https://www.example.com",
  * });
