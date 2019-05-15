@@ -20,8 +20,8 @@ import * as utilities from "./utilities";
  *     name: "foo policy",
  * }));
  * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
- *     channelId: fooAlertChannel.apply(fooAlertChannel => fooAlertChannel.id),
- *     policyId: fooAlertPolicy.apply(fooAlertPolicy => fooAlertPolicy.id),
+ *     channelId: fooAlertChannel.id,
+ *     policyId: fooAlertPolicy.id,
  * });
  * ```
  */

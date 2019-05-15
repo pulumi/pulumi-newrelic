@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * }));
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertCondition = new newrelic.AlertCondition("foo", {
- *     entities: [txn.apply(txn => txn.id)],
+ *     entities: [txn.id],
  *     metric: "error_percentage",
  *     policyId: fooAlertPolicy.id,
  *     runbookUrl: "https://www.example.com",

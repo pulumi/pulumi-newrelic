@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * }));
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertCondition = new newrelic.AlertCondition("foo", {
- *     entities: [app.apply(app => app.id)],
+ *     entities: [app.id],
  *     metric: "apdex",
  *     policyId: fooAlertPolicy.id,
  *     runbookUrl: "https://www.example.com",
