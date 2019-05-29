@@ -16,7 +16,6 @@ func GetApiKey(ctx *pulumi.Context) string {
 	if dv, ok := getEnvOrDefault("", nil, "NEWRELIC_API_KEY").(string); ok {
 		return dv
 	}
-	panic(err.Error())
 	return v
 }
 

@@ -37,44 +37,44 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Bypass HEAD request.
      */
-    public readonly bypassHeadRequest: pulumi.Output<boolean | undefined>;
+    public readonly bypassHeadRequest!: pulumi.Output<boolean | undefined>;
     /**
      * The interval (in minutes) at which this monitor should run.
      */
-    public readonly frequency: pulumi.Output<number>;
+    public readonly frequency!: pulumi.Output<number>;
     /**
      * The locations in which this monitor should be run.
      */
-    public readonly locations: pulumi.Output<string[]>;
+    public readonly locations!: pulumi.Output<string[]>;
     /**
      * The title of this monitor.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The base threshold for the SLA report.
      */
-    public readonly slaThreshold: pulumi.Output<number | undefined>;
+    public readonly slaThreshold!: pulumi.Output<number | undefined>;
     /**
      * The monitor status (i.e. ENABLED, MUTED, DISABLED)
      */
-    public readonly status: pulumi.Output<string>;
-    public readonly treatRedirectAsFailure: pulumi.Output<boolean | undefined>;
+    public readonly status!: pulumi.Output<string>;
+    public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
     /**
      * The monitor type.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The URI for the monitor to hit.
      */
-    public readonly uri: pulumi.Output<string | undefined>;
+    public readonly uri!: pulumi.Output<string | undefined>;
     /**
      * The string to validate against in the response.
      */
-    public readonly validationString: pulumi.Output<string | undefined>;
+    public readonly validationString!: pulumi.Output<string | undefined>;
     /**
      * Verify SSL.
      */
-    public readonly verifySsl: pulumi.Output<boolean | undefined>;
+    public readonly verifySsl!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class Monitor extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MonitorState = argsOrState as MonitorState | undefined;
+            const state = argsOrState as MonitorState | undefined;
             inputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["locations"] = state ? state.locations : undefined;

@@ -36,15 +36,15 @@ export class AlertChannel extends pulumi.CustomResource {
     /**
      * A map of key / value pairs with channel type specific values.
      */
-    public readonly configuration: pulumi.Output<{[key: string]: any}>;
+    public readonly configuration!: pulumi.Output<{[key: string]: any}>;
     /**
      * The name of the channel.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a AlertChannel resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class AlertChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AlertChannelArgs | AlertChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AlertChannelState = argsOrState as AlertChannelState | undefined;
+            const state = argsOrState as AlertChannelState | undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["type"] = state ? state.type : undefined;

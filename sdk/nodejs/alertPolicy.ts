@@ -30,19 +30,19 @@ export class AlertPolicy extends pulumi.CustomResource {
     /**
      * The time the policy was created.
      */
-    public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
-    public readonly incidentPreference: pulumi.Output<string | undefined>;
+    public readonly incidentPreference!: pulumi.Output<string | undefined>;
     /**
      * The name of the policy.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The time the policy was last updated.
      */
-    public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a AlertPolicy resource with the given unique name, arguments, and options.
@@ -55,7 +55,7 @@ export class AlertPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AlertPolicyArgs | AlertPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AlertPolicyState = argsOrState as AlertPolicyState | undefined;
+            const state = argsOrState as AlertPolicyState | undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["incidentPreference"] = state ? state.incidentPreference : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -40,11 +40,11 @@ export class MonitorScript extends pulumi.CustomResource {
     /**
      * The ID of the monitor to attach the script to.
      */
-    public readonly monitorId: pulumi.Output<string>;
+    public readonly monitorId!: pulumi.Output<string>;
     /**
      * plaintext of the monitor script.
      */
-    public readonly text: pulumi.Output<string>;
+    public readonly text!: pulumi.Output<string>;
 
     /**
      * Create a MonitorScript resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class MonitorScript extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MonitorScriptArgs | MonitorScriptState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MonitorScriptState = argsOrState as MonitorScriptState | undefined;
+            const state = argsOrState as MonitorScriptState | undefined;
             inputs["monitorId"] = state ? state.monitorId : undefined;
             inputs["text"] = state ? state.text : undefined;
         } else {

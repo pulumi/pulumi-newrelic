@@ -64,31 +64,31 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The title of the condition
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A NRQL query. See NRQL below for details.
      */
-    public readonly nrql: pulumi.Output<{ query: string, sinceValue: string }>;
+    public readonly nrql!: pulumi.Output<{ query: string, sinceValue: string }>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl: pulumi.Output<string | undefined>;
+    public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    public readonly terms: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
+    public readonly terms!: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
     /**
      * Possible values are `single_value`, `sum`.
      */
-    public readonly valueFunction: pulumi.Output<string | undefined>;
+    public readonly valueFunction!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NrqlAlertCondition resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NrqlAlertConditionArgs | NrqlAlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NrqlAlertConditionState = argsOrState as NrqlAlertConditionState | undefined;
+            const state = argsOrState as NrqlAlertConditionState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nrql"] = state ? state.nrql : undefined;

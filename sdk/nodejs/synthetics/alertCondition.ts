@@ -37,23 +37,23 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Synthetics monitor to be referenced in the alert condition. 
      */
-    public readonly monitorId: pulumi.Output<string>;
+    public readonly monitorId!: pulumi.Output<string>;
     /**
      * The title of this condition.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl: pulumi.Output<string | undefined>;
+    public readonly runbookUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AlertCondition resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class AlertCondition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AlertConditionState = argsOrState as AlertConditionState | undefined;
+            const state = argsOrState as AlertConditionState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["monitorId"] = state ? state.monitorId : undefined;
             inputs["name"] = state ? state.name : undefined;

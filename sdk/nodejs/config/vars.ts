@@ -6,6 +6,6 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("newrelic");
 
-export let apiKey: string = utilities.requireWithDefault(() => __config.require("apiKey"), utilities.getEnv("NEWRELIC_API_KEY"));
+export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("NEWRELIC_API_KEY");
 export let apiUrl: string | undefined = __config.get("apiUrl") || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
 export let infraApiUrl: string | undefined = __config.get("infraApiUrl") || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");

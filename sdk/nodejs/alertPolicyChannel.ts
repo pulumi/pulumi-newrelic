@@ -41,11 +41,11 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     /**
      * The ID of the channel.
      */
-    public readonly channelId: pulumi.Output<number>;
+    public readonly channelId!: pulumi.Output<number>;
     /**
      * The ID of the policy.
      */
-    public readonly policyId: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<number>;
 
     /**
      * Create a AlertPolicyChannel resource with the given unique name, arguments, and options.
@@ -58,7 +58,7 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AlertPolicyChannelArgs | AlertPolicyChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AlertPolicyChannelState = argsOrState as AlertPolicyChannelState | undefined;
+            const state = argsOrState as AlertPolicyChannelState | undefined;
             inputs["channelId"] = state ? state.channelId : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
         } else {
