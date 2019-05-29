@@ -1,4 +1,6 @@
-## 0.17.0 (Released May 29th, 2019)
+## 0.17.2 (Unreleased)
+
+## 0.17.1 (Released May 29th, 2019)
 
 - Update the Pulumi-Terraform bridge to the latest version, which fixes an issue
   where configuration provided via the environment may not be honored.
