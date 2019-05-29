@@ -59,28 +59,28 @@ export class Dashboard extends pulumi.CustomResource {
         return new Dashboard(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly dashboardUrl: pulumi.Output<string>;
+    public /*out*/ readonly dashboardUrl!: pulumi.Output<string>;
     /**
      * Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
      */
-    public readonly editable: pulumi.Output<string | undefined>;
-    public readonly filter: pulumi.Output<{ attributes?: string[], eventTypes: string[] } | undefined>;
+    public readonly editable!: pulumi.Output<string | undefined>;
+    public readonly filter!: pulumi.Output<{ attributes?: string[], eventTypes: string[] } | undefined>;
     /**
      * The icon for the dashboard.  Defaults to `bar-chart`.
      */
-    public readonly icon: pulumi.Output<string | undefined>;
+    public readonly icon!: pulumi.Output<string | undefined>;
     /**
      * The title of the dashboard.
      */
-    public readonly title: pulumi.Output<string>;
+    public readonly title!: pulumi.Output<string>;
     /**
      * Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
      */
-    public readonly visibility: pulumi.Output<string | undefined>;
+    public readonly visibility!: pulumi.Output<string | undefined>;
     /**
      * A widget that describes a visualization. See Widgets below for details.
      */
-    public readonly widgets: pulumi.Output<{ column: number, height?: number, notes?: string, nrql?: string, row: number, title: string, visualization: string, width?: number }[] | undefined>;
+    public readonly widgets!: pulumi.Output<{ column: number, height?: number, notes?: string, nrql?: string, row: number, title: string, visualization: string, width?: number }[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DashboardState = argsOrState as DashboardState | undefined;
+            const state = argsOrState as DashboardState | undefined;
             inputs["dashboardUrl"] = state ? state.dashboardUrl : undefined;
             inputs["editable"] = state ? state.editable : undefined;
             inputs["filter"] = state ? state.filter : undefined;

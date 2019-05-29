@@ -10,7 +10,7 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('newrelic')
 
-api_key = utilities.require_with_default(lambda: __config__.require('apiKey'), utilities.get_env('NEWRELIC_API_KEY'))
+api_key = __config__.get('apiKey') or utilities.get_env('NEWRELIC_API_KEY')
 
 api_url = __config__.get('apiUrl') or (utilities.get_env('NEWRELIC_API_URL') or 'https://api.newrelic.com/v2')
 

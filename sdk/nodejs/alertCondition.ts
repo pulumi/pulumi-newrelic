@@ -57,52 +57,52 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
      */
-    public readonly conditionScope: pulumi.Output<string | undefined>;
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly conditionScope!: pulumi.Output<string | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The instance IDS associated with this condition.
      */
-    public readonly entities: pulumi.Output<number[]>;
+    public readonly entities!: pulumi.Output<number[]>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
      */
-    public readonly gcMetric: pulumi.Output<string | undefined>;
+    public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
      * The metric field accepts parameters based on the `type` set.
      */
-    public readonly metric: pulumi.Output<string>;
+    public readonly metric!: pulumi.Output<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    public readonly policyId: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    public readonly runbookUrl: pulumi.Output<string | undefined>;
+    public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    public readonly terms: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
+    public readonly terms!: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
     /**
      * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * A custom metric to be evaluated.
      */
-    public readonly userDefinedMetric: pulumi.Output<string | undefined>;
+    public readonly userDefinedMetric!: pulumi.Output<string | undefined>;
     /**
      * One of: `average`, `min`, `max`, `total`, or `sample_size`.
      */
-    public readonly userDefinedValueFunction: pulumi.Output<string | undefined>;
+    public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
      * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      */
-    public readonly violationCloseTimer: pulumi.Output<number | undefined>;
+    public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
 
     /**
      * Create a AlertCondition resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class AlertCondition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AlertConditionState = argsOrState as AlertConditionState | undefined;
+            const state = argsOrState as AlertConditionState | undefined;
             inputs["conditionScope"] = state ? state.conditionScope : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["entities"] = state ? state.entities : undefined;

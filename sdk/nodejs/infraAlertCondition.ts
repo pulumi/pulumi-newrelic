@@ -51,53 +51,53 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * The operator used to evaluate the threshold value; "above", "below", "equal".
      */
-    public readonly comparison: pulumi.Output<string | undefined>;
-    public /*out*/ readonly createdAt: pulumi.Output<number>;
+    public readonly comparison!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdAt!: pulumi.Output<number>;
     /**
      * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
      */
-    public readonly critical: pulumi.Output<{ duration: number, timeFunction?: string, value?: number } | undefined>;
+    public readonly critical!: pulumi.Output<{ duration: number, timeFunction?: string, value?: number } | undefined>;
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
      */
-    public readonly event: pulumi.Output<string | undefined>;
+    public readonly event!: pulumi.Output<string | undefined>;
     /**
      * For alerts on integrations, use this instead of `event`. 
      */
-    public readonly integrationProvider: pulumi.Output<string | undefined>;
+    public readonly integrationProvider!: pulumi.Output<string | undefined>;
     /**
      * The Infrastructure alert condition's name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    public readonly policyId: pulumi.Output<number>;
+    public readonly policyId!: pulumi.Output<number>;
     /**
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
-    public readonly processWhere: pulumi.Output<string | undefined>;
+    public readonly processWhere!: pulumi.Output<string | undefined>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
      */
-    public readonly select: pulumi.Output<string | undefined>;
+    public readonly select!: pulumi.Output<string | undefined>;
     /**
      * The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
      */
-    public readonly type: pulumi.Output<string>;
-    public /*out*/ readonly updatedAt: pulumi.Output<number>;
+    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<number>;
     /**
      * Identifies the warning threshold parameters. See Thresholds below for details.
      */
-    public readonly warning: pulumi.Output<{ duration: number, timeFunction?: string, value?: number } | undefined>;
+    public readonly warning!: pulumi.Output<{ duration: number, timeFunction?: string, value?: number } | undefined>;
     /**
      * Infrastructure host filter for the alert condition.
      */
-    public readonly where: pulumi.Output<string | undefined>;
+    public readonly where!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InfraAlertCondition resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InfraAlertConditionArgs | InfraAlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InfraAlertConditionState = argsOrState as InfraAlertConditionState | undefined;
+            const state = argsOrState as InfraAlertConditionState | undefined;
             inputs["comparison"] = state ? state.comparison : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["critical"] = state ? state.critical : undefined;
