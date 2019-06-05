@@ -27,6 +27,20 @@ export class AlertPolicy extends pulumi.CustomResource {
         return new AlertPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:index/alertPolicy:AlertPolicy';
+
+    /**
+     * Returns true if the given object is an instance of AlertPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AlertPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AlertPolicy.__pulumiType;
+    }
+
     /**
      * The time the policy was created.
      */
@@ -67,7 +81,7 @@ export class AlertPolicy extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        super("newrelic:index/alertPolicy:AlertPolicy", name, inputs, opts);
+        super(AlertPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

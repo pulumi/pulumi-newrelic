@@ -59,6 +59,20 @@ export class Dashboard extends pulumi.CustomResource {
         return new Dashboard(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:index/dashboard:Dashboard';
+
+    /**
+     * Returns true if the given object is an instance of Dashboard.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Dashboard {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Dashboard.__pulumiType;
+    }
+
     public /*out*/ readonly dashboardUrl!: pulumi.Output<string>;
     /**
      * Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
@@ -114,7 +128,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["widgets"] = args ? args.widgets : undefined;
             inputs["dashboardUrl"] = undefined /*out*/;
         }
-        super("newrelic:index/dashboard:Dashboard", name, inputs, opts);
+        super(Dashboard.__pulumiType, name, inputs, opts);
     }
 }
 

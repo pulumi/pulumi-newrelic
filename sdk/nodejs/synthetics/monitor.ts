@@ -34,6 +34,20 @@ export class Monitor extends pulumi.CustomResource {
         return new Monitor(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:synthetics/monitor:Monitor';
+
+    /**
+     * Returns true if the given object is an instance of Monitor.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Monitor {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Monitor.__pulumiType;
+    }
+
     /**
      * Bypass HEAD request.
      */
@@ -125,7 +139,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["validationString"] = args ? args.validationString : undefined;
             inputs["verifySsl"] = args ? args.verifySsl : undefined;
         }
-        super("newrelic:synthetics/monitor:Monitor", name, inputs, opts);
+        super(Monitor.__pulumiType, name, inputs, opts);
     }
 }
 

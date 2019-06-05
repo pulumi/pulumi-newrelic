@@ -54,6 +54,20 @@ export class AlertCondition extends pulumi.CustomResource {
         return new AlertCondition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:index/alertCondition:AlertCondition';
+
+    /**
+     * Returns true if the given object is an instance of AlertCondition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AlertCondition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AlertCondition.__pulumiType;
+    }
+
     /**
      * `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
      */
@@ -160,7 +174,7 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
             inputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
         }
-        super("newrelic:index/alertCondition:AlertCondition", name, inputs, opts);
+        super(AlertCondition.__pulumiType, name, inputs, opts);
     }
 }
 

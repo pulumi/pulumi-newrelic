@@ -37,6 +37,20 @@ export class MonitorScript extends pulumi.CustomResource {
         return new MonitorScript(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:synthetics/monitorScript:MonitorScript';
+
+    /**
+     * Returns true if the given object is an instance of MonitorScript.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MonitorScript {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MonitorScript.__pulumiType;
+    }
+
     /**
      * The ID of the monitor to attach the script to.
      */
@@ -71,7 +85,7 @@ export class MonitorScript extends pulumi.CustomResource {
             inputs["monitorId"] = args ? args.monitorId : undefined;
             inputs["text"] = args ? args.text : undefined;
         }
-        super("newrelic:synthetics/monitorScript:MonitorScript", name, inputs, opts);
+        super(MonitorScript.__pulumiType, name, inputs, opts);
     }
 }
 
