@@ -1,8 +1,14 @@
-## 0.18.1 (Released May 29th, 2019)
+CHANGELOG
+=========
 
-- Update the Pulumi-Terraform bridge to the latest version, which fixes an issue
-  where configuration provided via the environment may not be honored.
+## HEAD (Unreleased)
+_(none)_
 
-## 0.18.0 (Released April 10th, 2019)
+---
 
-- First version of the New Relic provider, based on the New Relic Terraform provider revision 3651ee8.
+## 0.18.1 (2019-05-29)
+* Fix an issue where configuration provided via the environment may not be honoured
+
+## 0.18.0 (2019-04-10)
+* Initial release of the New Relic provider, based on revision 3651ee8 of the New Relic Terraform provider
+
