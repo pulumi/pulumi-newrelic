@@ -38,6 +38,20 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         return new AlertPolicyChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:index/alertPolicyChannel:AlertPolicyChannel';
+
+    /**
+     * Returns true if the given object is an instance of AlertPolicyChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AlertPolicyChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AlertPolicyChannel.__pulumiType;
+    }
+
     /**
      * The ID of the channel.
      */
@@ -72,7 +86,7 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
             inputs["channelId"] = args ? args.channelId : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
         }
-        super("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, inputs, opts);
+        super(AlertPolicyChannel.__pulumiType, name, inputs, opts);
     }
 }
 

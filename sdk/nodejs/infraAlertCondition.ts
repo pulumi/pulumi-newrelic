@@ -48,6 +48,20 @@ export class InfraAlertCondition extends pulumi.CustomResource {
         return new InfraAlertCondition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:index/infraAlertCondition:InfraAlertCondition';
+
+    /**
+     * Returns true if the given object is an instance of InfraAlertCondition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is InfraAlertCondition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === InfraAlertCondition.__pulumiType;
+    }
+
     /**
      * The operator used to evaluate the threshold value; "above", "below", "equal".
      */
@@ -148,7 +162,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        super("newrelic:index/infraAlertCondition:InfraAlertCondition", name, inputs, opts);
+        super(InfraAlertCondition.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -34,6 +34,20 @@ export class AlertCondition extends pulumi.CustomResource {
         return new AlertCondition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:synthetics/alertCondition:AlertCondition';
+
+    /**
+     * Returns true if the given object is an instance of AlertCondition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AlertCondition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AlertCondition.__pulumiType;
+    }
+
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
@@ -86,7 +100,7 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
         }
-        super("newrelic:synthetics/alertCondition:AlertCondition", name, inputs, opts);
+        super(AlertCondition.__pulumiType, name, inputs, opts);
     }
 }
 

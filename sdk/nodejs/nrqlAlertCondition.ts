@@ -61,6 +61,20 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
         return new NrqlAlertCondition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'newrelic:index/nrqlAlertCondition:NrqlAlertCondition';
+
+    /**
+     * Returns true if the given object is an instance of NrqlAlertCondition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NrqlAlertCondition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NrqlAlertCondition.__pulumiType;
+    }
+
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
@@ -128,7 +142,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["terms"] = args ? args.terms : undefined;
             inputs["valueFunction"] = args ? args.valueFunction : undefined;
         }
-        super("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, inputs, opts);
+        super(NrqlAlertCondition.__pulumiType, name, inputs, opts);
     }
 }
 
