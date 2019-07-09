@@ -19,13 +19,13 @@ To use from JavaScript or TypeScript in Node.js, install using either
 
 ::
 
-    $ npm install @pulumi/newrelic
+   $ npm install @pulumi/newrelic
 
 or ``yarn``:
 
 ::
 
-    $ yarn add @pulumi/newrelic
+   $ yarn add @pulumi/newrelic
 
 Python
 ~~~~~~
@@ -34,7 +34,7 @@ To use from Python, install using ``pip``:
 
 ::
 
-    $ pip install pulumi_newrelic
+   $ pip install pulumi_newrelic
 
 Go
 ~~
@@ -43,7 +43,7 @@ To use from Go, use ``go get`` to grab the latest version of the library
 
 ::
 
-    $ go get github.com/pulumi/pulumi-newrelic/sdk/go/...
+   $ go get github.com/pulumi/pulumi-newrelic/sdk/go/...
 
 Reference
 ---------
