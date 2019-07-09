@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *     type: "SIMPLE",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
  */
 export class Monitor extends pulumi.CustomResource {
     /**

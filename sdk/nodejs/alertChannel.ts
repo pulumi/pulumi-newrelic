@@ -19,6 +19,8 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
  */
 export class AlertChannel extends pulumi.CustomResource {
     /**

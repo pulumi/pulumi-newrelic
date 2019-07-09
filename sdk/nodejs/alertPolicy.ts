@@ -13,6 +13,8 @@ import * as utilities from "./utilities";
  * 
  * const foo = new newrelic.AlertPolicy("foo", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
  */
 export class AlertPolicy extends pulumi.CustomResource {
     /**

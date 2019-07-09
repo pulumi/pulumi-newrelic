@@ -22,6 +22,8 @@ import * as utilities from "./utilities";
  *     policyId: fooAlertPolicy.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
  */
 export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> {
     return pulumi.runtime.invoke("newrelic:index/getAlertChannel:getAlertChannel", {

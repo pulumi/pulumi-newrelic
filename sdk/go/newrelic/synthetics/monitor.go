@@ -9,6 +9,8 @@ import (
 )
 
 // Use this resource to create, update, and delete a synthetics monitor in New Relic.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
 type Monitor struct {
 	s *pulumi.ResourceState
 }

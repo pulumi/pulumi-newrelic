@@ -66,6 +66,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] uri: The URI for the monitor to hit.
         :param pulumi.Input[str] validation_string: The string to validate against in the response.
         :param pulumi.Input[bool] verify_ssl: Verify SSL.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

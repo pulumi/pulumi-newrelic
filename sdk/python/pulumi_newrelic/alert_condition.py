@@ -84,6 +84,8 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
         :param pulumi.Input[float] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

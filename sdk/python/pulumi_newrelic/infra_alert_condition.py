@@ -83,6 +83,8 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
         :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.
         :param pulumi.Input[str] where: Infrastructure host filter for the alert condition.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

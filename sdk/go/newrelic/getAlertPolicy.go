@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about an specific alert policy in New Relic which already exists.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
 func LookupAlertPolicy(ctx *pulumi.Context, args *GetAlertPolicyArgs) (*GetAlertPolicyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

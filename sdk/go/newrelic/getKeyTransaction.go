@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about a specific key transaction in New Relic.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
 func LookupKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs) (*GetKeyTransactionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

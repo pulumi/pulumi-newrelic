@@ -17,6 +17,8 @@ import (
 //   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
 //   * `threshold` - (Required) Must be 0 or greater.
 //   * `time_function` - (Required) `all` or `any`.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
 type AlertCondition struct {
 	s *pulumi.ResourceState
 }

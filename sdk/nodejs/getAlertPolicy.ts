@@ -24,6 +24,8 @@ import * as utilities from "./utilities";
  *     policyId: fooAlertPolicy.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
  */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
     return pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {

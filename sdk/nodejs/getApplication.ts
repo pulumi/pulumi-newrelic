@@ -32,6 +32,8 @@ import * as utilities from "./utilities";
  *     type: "apm_app_metric",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/application.html.markdown.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     return pulumi.runtime.invoke("newrelic:index/getApplication:getApplication", {

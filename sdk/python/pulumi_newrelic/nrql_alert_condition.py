@@ -65,6 +65,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
