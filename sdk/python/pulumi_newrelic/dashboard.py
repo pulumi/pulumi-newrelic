@@ -53,6 +53,8 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
         :param pulumi.Input[list] widgets: A widget that describes a visualization. See Widgets below for details.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

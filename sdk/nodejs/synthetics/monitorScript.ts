@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this resource to update a synthetics monitor script in New Relic.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
- * import * as newrelic from "@pulumi/newrelic";
- * import * as terraform_template from "@pulumi/terraform-template";
- * 
- * const fooScriptFile = pulumi.output(terraform_template.getFile({
- *     template: fs.readFileSync(`./foo_script.tpl`, "utf-8"),
- * }));
- * const fooScriptMonitorScript = new newrelic.synthetics.MonitorScript("foo_script", {
- *     monitorId: newrelic_synthetics_monitor_foo.id,
- *     text: fooScriptFile.rendered,
- * });
- * ```
- */
 export class MonitorScript extends pulumi.CustomResource {
     /**
      * Get an existing MonitorScript resource's state with the given name, ID, and optional extra

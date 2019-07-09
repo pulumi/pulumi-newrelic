@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const exampledash = new newrelic.Dashboard("exampledash", {
- *     title: "New Relic Terraform Example",
- *     widgets: [
- *         {
- *             column: 1,
- *             nrql: "SELECT AVERAGE(duration) from Transaction FACET appName TIMESERIES auto",
- *             row: 1,
- *             title: "Average Transaction Duration",
- *             visualization: "faceted_line_chart",
- *             width: 2,
- *         },
- *         {
- *             column: 3,
- *             nrql: "SELECT count(*) FROM PageView SINCE 1 week ago",
- *             row: 1,
- *             title: "Page Views",
- *             visualization: "billboard",
- *         },
- *     ],
- * });
- * ```
- * 
- * ## Widgets
- * 
- * The `widget` mapping supports the following arguments:
- * 
- *   * `title` - (Required) A title for the widget.
- *   * `visualization` - (Required) How the widget visualizes data.
- *   * `row` - (Required) Row position of widget from top left, starting at `1`.
- *   * `column` - (Required) Column position of widget from top left, starting at `1`.
- *   * `width` - (Optional) Width of the widget. Defaults to `1`.
- *   * `height` - (Optional) Height of the widget. Defaults to `1`.
- *   * `notes` - (Optional) Description of the widget.
- *   * `nrql` - (Optional) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
- */
 export class Dashboard extends pulumi.CustomResource {
     /**
      * Get an existing Dashboard resource's state with the given name, ID, and optional extra

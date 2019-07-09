@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about a specific application in New Relic.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/application.html.markdown.
 func LookupApplication(ctx *pulumi.Context, args *GetApplicationArgs) (*GetApplicationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

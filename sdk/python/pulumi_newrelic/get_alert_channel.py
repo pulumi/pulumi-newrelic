@@ -38,6 +38,8 @@ class GetAlertChannelResult:
 async def get_alert_channel(name=None,opts=None):
     """
     Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
     """
     __args__ = dict()
 

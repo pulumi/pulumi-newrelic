@@ -24,6 +24,8 @@ import * as utilities from "./utilities";
  *     policyId: fooAlertPolicy.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
  */
 export class AlertPolicyChannel extends pulumi.CustomResource {
     /**

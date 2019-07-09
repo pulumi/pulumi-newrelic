@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     runbookUrl: "https://www.example.com",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     return pulumi.runtime.invoke("newrelic:synthetics/getMonitor:getMonitor", {

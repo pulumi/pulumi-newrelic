@@ -32,6 +32,8 @@ import * as utilities from "./utilities";
  *     type: "apm_kt_metric",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
  */
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
     return pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {

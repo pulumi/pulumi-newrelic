@@ -44,6 +44,8 @@ class GetAlertPolicyResult:
 async def get_alert_policy(incident_preference=None,name=None,opts=None):
     """
     Use this data source to get information about an specific alert policy in New Relic which already exists.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
     """
     __args__ = dict()
 

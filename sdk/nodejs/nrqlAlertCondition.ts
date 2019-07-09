@@ -47,6 +47,8 @@ import * as utilities from "./utilities";
  * 
  *   * `query` - (Required) The NRQL query to execute for the condition.
  *   * `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be: `1`, `2`, `3`, `4`, or `5`.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**

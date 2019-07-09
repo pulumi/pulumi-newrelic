@@ -20,6 +20,8 @@ import (
 //   * `height` - (Optional) Height of the widget. Defaults to `1`.
 //   * `notes` - (Optional) Description of the widget.
 //   * `nrql` - (Optional) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
 type Dashboard struct {
 	s *pulumi.ResourceState
 }

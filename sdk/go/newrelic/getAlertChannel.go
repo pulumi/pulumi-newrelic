@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
 func LookupAlertChannel(ctx *pulumi.Context, args *GetAlertChannelArgs) (*GetAlertChannelResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
