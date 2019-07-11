@@ -54,7 +54,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         The `nrql` attribute supports the following arguments:
         
           * `query` - (Required) The NRQL query to execute for the condition.
-          * `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be: `1`, `2`, `3`, `4`, or `5`.
+          * `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
