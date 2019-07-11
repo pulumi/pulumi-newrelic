@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.5.1 of the NewRelic Terraform Provide
+___NULL___
 
 ---
+
+## 0.18.5 (2019-07-11)
+* Upgrade to v1.5.1 of the NewRelic Terraform Provide
 
 ## 0.18.4 (2019-07-09)
 * Fix detailed diffs with nested computed values.
