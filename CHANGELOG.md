@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Upgrade to v1.5.1 of the NewRelic Terraform Provide
 
 ---
 
