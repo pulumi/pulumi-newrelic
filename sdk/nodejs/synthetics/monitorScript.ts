@@ -68,6 +68,13 @@ export class MonitorScript extends pulumi.CustomResource {
             inputs["monitorId"] = args ? args.monitorId : undefined;
             inputs["text"] = args ? args.text : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MonitorScript.__pulumiType, name, inputs, opts);
     }
 }

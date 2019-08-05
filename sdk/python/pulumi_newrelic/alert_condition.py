@@ -138,6 +138,10 @@ class AlertCondition(pulumi.CustomResource):
 
         __props__['violation_close_timer'] = violation_close_timer
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AlertCondition, __self__).__init__(
             'newrelic:index/alertCondition:AlertCondition',
             resource_name,

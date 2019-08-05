@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
  * The provider type for the newrelic package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
  * construction to achieve fine-grained programmatic control over provider settings. See the
- * [documentation](https://pulumi.io/reference/programming-model.html#providers) for more information.
+ * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/index.html.markdown.
  */
@@ -41,6 +41,13 @@ export class Provider extends pulumi.ProviderResource {
             inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("NEWRELIC_API_KEY");
             inputs["apiUrl"] = (args ? args.apiUrl : undefined) || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
             inputs["infraApiUrl"] = (args ? args.infraApiUrl : undefined) || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }

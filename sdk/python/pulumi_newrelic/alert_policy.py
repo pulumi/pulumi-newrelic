@@ -58,6 +58,10 @@ class AlertPolicy(pulumi.CustomResource):
         __props__['created_at'] = None
         __props__['updated_at'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AlertPolicy, __self__).__init__(
             'newrelic:index/alertPolicy:AlertPolicy',
             resource_name,

@@ -176,6 +176,13 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
             inputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AlertCondition.__pulumiType, name, inputs, opts);
     }
 }

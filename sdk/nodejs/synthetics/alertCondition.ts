@@ -102,6 +102,13 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AlertCondition.__pulumiType, name, inputs, opts);
     }
 }

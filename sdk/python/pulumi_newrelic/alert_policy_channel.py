@@ -51,6 +51,10 @@ class AlertPolicyChannel(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_id'")
         __props__['policy_id'] = policy_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AlertPolicyChannel, __self__).__init__(
             'newrelic:index/alertPolicyChannel:AlertPolicyChannel',
             resource_name,

@@ -51,6 +51,10 @@ class MonitorScript(pulumi.CustomResource):
             raise TypeError("Missing required property 'text'")
         __props__['text'] = text
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MonitorScript, __self__).__init__(
             'newrelic:synthetics/monitorScript:MonitorScript',
             resource_name,
