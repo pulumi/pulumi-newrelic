@@ -144,6 +144,13 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["terms"] = args ? args.terms : undefined;
             inputs["valueFunction"] = args ? args.valueFunction : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NrqlAlertCondition.__pulumiType, name, inputs, opts);
     }
 }

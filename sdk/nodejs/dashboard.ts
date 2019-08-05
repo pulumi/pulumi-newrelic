@@ -89,6 +89,13 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["widgets"] = args ? args.widgets : undefined;
             inputs["dashboardUrl"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Dashboard.__pulumiType, name, inputs, opts);
     }
 }

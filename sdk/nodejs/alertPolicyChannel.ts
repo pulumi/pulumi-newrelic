@@ -88,6 +88,13 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
             inputs["channelId"] = args ? args.channelId : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AlertPolicyChannel.__pulumiType, name, inputs, opts);
     }
 }

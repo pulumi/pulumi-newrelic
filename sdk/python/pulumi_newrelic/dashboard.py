@@ -87,6 +87,10 @@ class Dashboard(pulumi.CustomResource):
 
         __props__['dashboard_url'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Dashboard, __self__).__init__(
             'newrelic:index/dashboard:Dashboard',
             resource_name,

@@ -164,6 +164,13 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(InfraAlertCondition.__pulumiType, name, inputs, opts);
     }
 }

@@ -141,6 +141,13 @@ export class Monitor extends pulumi.CustomResource {
             inputs["validationString"] = args ? args.validationString : undefined;
             inputs["verifySsl"] = args ? args.verifySsl : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Monitor.__pulumiType, name, inputs, opts);
     }
 }

@@ -35,10 +35,19 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
  */
-export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
-    return pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {
+export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> & GetKeyTransactionResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
+    const promise: Promise<GetKeyTransactionResult> = pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

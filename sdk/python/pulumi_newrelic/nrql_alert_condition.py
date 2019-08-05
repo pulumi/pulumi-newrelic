@@ -103,6 +103,10 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         __props__['value_function'] = value_function
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NrqlAlertCondition, __self__).__init__(
             'newrelic:index/nrqlAlertCondition:NrqlAlertCondition',
             resource_name,

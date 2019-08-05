@@ -89,6 +89,13 @@ export class AlertChannel extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AlertChannel.__pulumiType, name, inputs, opts);
     }
 }
