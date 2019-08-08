@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to pulumi-terraform@013b95b1c8
+___NULL___
 
 ---
+
+## 0.18.6 (2019-08-08)
+* Update to pulumi-terraform@013b95b1c8
 
 ## 0.18.5 (2019-07-11)
 * Upgrade to v1.5.1 of the NewRelic Terraform Provide
