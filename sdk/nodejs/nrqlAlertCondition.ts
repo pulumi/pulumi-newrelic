@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *         threshold: 1,
  *         timeFunction: "all",
  *     }],
- *     valueFunction: "single_value",
+ *     valueFunction: "singleValue",
  * });
  * ```
  * 
@@ -39,14 +39,14 @@ import * as utilities from "./utilities";
  *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
  *   * `threshold` - (Required) Must be 0 or greater.
- *   * `time_function` - (Required) `all` or `any`.
+ *   * `timeFunction` - (Required) `all` or `any`.
  * 
  * ## NRQL
  * 
  * The `nrql` attribute supports the following arguments:
  * 
  *   * `query` - (Required) The NRQL query to execute for the condition.
- *   * `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+ *   * `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
  */
@@ -102,7 +102,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
     /**
-     * Possible values are `single_value`, `sum`.
+     * Possible values are `singleValue`, `sum`.
      */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
 
@@ -184,7 +184,7 @@ export interface NrqlAlertConditionState {
      */
     readonly terms?: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
     /**
-     * Possible values are `single_value`, `sum`.
+     * Possible values are `singleValue`, `sum`.
      */
     readonly valueFunction?: pulumi.Input<string>;
 }
@@ -218,7 +218,7 @@ export interface NrqlAlertConditionArgs {
      */
     readonly terms: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
     /**
-     * Possible values are `single_value`, `sum`.
+     * Possible values are `singleValue`, `sum`.
      */
     readonly valueFunction?: pulumi.Input<string>;
 }

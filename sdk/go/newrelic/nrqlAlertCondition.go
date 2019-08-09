@@ -16,14 +16,14 @@ import (
 //   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
 //   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
 //   * `threshold` - (Required) Must be 0 or greater.
-//   * `time_function` - (Required) `all` or `any`.
+//   * `timeFunction` - (Required) `all` or `any`.
 // 
 // ## NRQL
 // 
 // The `nrql` attribute supports the following arguments:
 // 
 //   * `query` - (Required) The NRQL query to execute for the condition.
-//   * `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+//   * `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
 type NrqlAlertCondition struct {
@@ -128,7 +128,7 @@ func (r *NrqlAlertCondition) Terms() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["terms"])
 }
 
-// Possible values are `single_value`, `sum`.
+// Possible values are `singleValue`, `sum`.
 func (r *NrqlAlertCondition) ValueFunction() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["valueFunction"])
 }
@@ -147,7 +147,7 @@ type NrqlAlertConditionState struct {
 	RunbookUrl interface{}
 	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
-	// Possible values are `single_value`, `sum`.
+	// Possible values are `singleValue`, `sum`.
 	ValueFunction interface{}
 }
 
@@ -165,6 +165,6 @@ type NrqlAlertConditionArgs struct {
 	RunbookUrl interface{}
 	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
-	// Possible values are `single_value`, `sum`.
+	// Possible values are `singleValue`, `sum`.
 	ValueFunction interface{}
 }

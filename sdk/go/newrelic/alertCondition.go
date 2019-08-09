@@ -16,7 +16,7 @@ import (
 //   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
 //   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
 //   * `threshold` - (Required) Must be 0 or greater.
-//   * `time_function` - (Required) `all` or `any`.
+//   * `timeFunction` - (Required) `all` or `any`.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
 type AlertCondition struct {
@@ -129,7 +129,7 @@ func (r *AlertCondition) Entities() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["entities"])
 }
 
-// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
+// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 func (r *AlertCondition) GcMetric() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gcMetric"])
 }
@@ -159,7 +159,7 @@ func (r *AlertCondition) Terms() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["terms"])
 }
 
-// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
 func (r *AlertCondition) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -169,7 +169,7 @@ func (r *AlertCondition) UserDefinedMetric() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userDefinedMetric"])
 }
 
-// One of: `average`, `min`, `max`, `total`, or `sample_size`.
+// One of: `average`, `min`, `max`, `total`, or `sampleSize`.
 func (r *AlertCondition) UserDefinedValueFunction() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userDefinedValueFunction"])
 }
@@ -186,7 +186,7 @@ type AlertConditionState struct {
 	Enabled interface{}
 	// The instance IDS associated with this condition.
 	Entities interface{}
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric interface{}
 	// The metric field accepts parameters based on the `type` set.
 	Metric interface{}
@@ -198,11 +198,11 @@ type AlertConditionState struct {
 	RunbookUrl interface{}
 	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
-	// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
 	Type interface{}
 	// A custom metric to be evaluated.
 	UserDefinedMetric interface{}
-	// One of: `average`, `min`, `max`, `total`, or `sample_size`.
+	// One of: `average`, `min`, `max`, `total`, or `sampleSize`.
 	UserDefinedValueFunction interface{}
 	// Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer interface{}
@@ -215,7 +215,7 @@ type AlertConditionArgs struct {
 	Enabled interface{}
 	// The instance IDS associated with this condition.
 	Entities interface{}
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric interface{}
 	// The metric field accepts parameters based on the `type` set.
 	Metric interface{}
@@ -227,11 +227,11 @@ type AlertConditionArgs struct {
 	RunbookUrl interface{}
 	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
-	// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
 	Type interface{}
 	// A custom metric to be evaluated.
 	UserDefinedMetric interface{}
-	// One of: `average`, `min`, `max`, `total`, or `sample_size`.
+	// One of: `average`, `min`, `max`, `total`, or `sampleSize`.
 	UserDefinedValueFunction interface{}
 	// Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
 	ViolationCloseTimer interface{}

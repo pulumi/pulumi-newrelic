@@ -91,7 +91,7 @@ func (r *Dashboard) DashboardUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dashboardUrl"])
 }
 
-// Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+// Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
 func (r *Dashboard) Editable() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["editable"])
 }
@@ -123,7 +123,7 @@ func (r *Dashboard) Widgets() *pulumi.ArrayOutput {
 // Input properties used for looking up and filtering Dashboard resources.
 type DashboardState struct {
 	DashboardUrl interface{}
-	// Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+	// Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
 	Editable interface{}
 	Filter interface{}
 	// The icon for the dashboard.  Defaults to `bar-chart`.
@@ -138,7 +138,7 @@ type DashboardState struct {
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+	// Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
 	Editable interface{}
 	Filter interface{}
 	// The icon for the dashboard.  Defaults to `bar-chart`.

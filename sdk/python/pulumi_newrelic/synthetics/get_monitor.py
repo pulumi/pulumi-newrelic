@@ -25,14 +25,15 @@ class GetMonitorResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetMonitorResult(GetMonitorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetMonitorResult(
+            monitor_id=self.monitor_id,
+            name=self.name,
+            id=self.id)
 
 def get_monitor(name=None,opts=None):
     """
@@ -49,7 +50,7 @@ def get_monitor(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitor:getMonitor', __args__, opts=opts).value
 
-    return GetMonitorResult(
+    return AwaitableGetMonitorResult(
         monitor_id=__ret__.get('monitorId'),
         name=__ret__.get('name'),
         id=__ret__.get('id'))

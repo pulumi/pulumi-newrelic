@@ -22,14 +22,14 @@ class GetKeyTransactionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetKeyTransactionResult(
+            name=self.name,
+            id=self.id)
 
 def get_key_transaction(name=None,opts=None):
     """
@@ -46,6 +46,6 @@ def get_key_transaction(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts).value
 
-    return GetKeyTransactionResult(
+    return AwaitableGetKeyTransactionResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))

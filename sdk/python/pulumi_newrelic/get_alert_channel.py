@@ -34,14 +34,16 @@ class GetAlertChannelResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAlertChannelResult(GetAlertChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAlertChannelResult(
+            name=self.name,
+            policy_ids=self.policy_ids,
+            type=self.type,
+            id=self.id)
 
 def get_alert_channel(name=None,opts=None):
     """
@@ -58,7 +60,7 @@ def get_alert_channel(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertChannel:getAlertChannel', __args__, opts=opts).value
 
-    return GetAlertChannelResult(
+    return AwaitableGetAlertChannelResult(
         name=__ret__.get('name'),
         policy_ids=__ret__.get('policyIds'),
         type=__ret__.get('type'),
