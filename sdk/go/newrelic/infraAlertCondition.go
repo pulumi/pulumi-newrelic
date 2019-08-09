@@ -13,8 +13,8 @@ import (
 // The `critical` and `warning` threshold mapping supports the following arguments:
 // 
 //   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-//   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infra_metric" and "infra_process_running" alert condition types.
-//   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infra_metric" alert condition type.
+//   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infraMetric" and "infraProcessRunning" alert condition types.
+//   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infraMetric" alert condition type.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
 type InfraAlertCondition struct {
@@ -154,7 +154,7 @@ func (r *InfraAlertCondition) Select() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["select"])
 }
 
-// The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
 func (r *InfraAlertCondition) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -194,7 +194,7 @@ type InfraAlertConditionState struct {
 	ProcessWhere interface{}
 	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 	Select interface{}
-	// The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+	// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
 	Type interface{}
 	UpdatedAt interface{}
 	// Identifies the warning threshold parameters. See Thresholds below for details.
@@ -223,7 +223,7 @@ type InfraAlertConditionArgs struct {
 	ProcessWhere interface{}
 	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 	Select interface{}
-	// The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+	// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
 	Type interface{}
 	// Identifies the warning threshold parameters. See Thresholds below for details.
 	Warning interface{}

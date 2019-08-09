@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     event: "StorageSample",
  *     policyId: fooAlertPolicy.id,
  *     select: "diskUsedPercent",
- *     type: "infra_metric",
+ *     type: "infraMetric",
  *     where: "(`hostname` LIKE '%frontend%')",
  * });
  * ```
@@ -32,8 +32,8 @@ import * as utilities from "./utilities";
  * The `critical` and `warning` threshold mapping supports the following arguments:
  * 
  *   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
- *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infra_metric" and "infra_process_running" alert condition types.
- *   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infra_metric" alert condition type.
+ *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infraMetric" and "infraProcessRunning" alert condition types.
+ *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infraMetric" alert condition type.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
  */
@@ -102,7 +102,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly select!: pulumi.Output<string | undefined>;
     /**
-     * The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+     * The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
      */
     public readonly type!: pulumi.Output<string>;
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
@@ -217,7 +217,7 @@ export interface InfraAlertConditionState {
      */
     readonly select?: pulumi.Input<string>;
     /**
-     * The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+     * The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
      */
     readonly type?: pulumi.Input<string>;
     readonly updatedAt?: pulumi.Input<number>;
@@ -272,7 +272,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly select?: pulumi.Input<string>;
     /**
-     * The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+     * The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
      */
     readonly type: pulumi.Input<string>;
     /**

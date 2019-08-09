@@ -34,14 +34,16 @@ class GetApplicationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetApplicationResult(
+            host_ids=self.host_ids,
+            instance_ids=self.instance_ids,
+            name=self.name,
+            id=self.id)
 
 def get_application(name=None,opts=None):
     """
@@ -58,7 +60,7 @@ def get_application(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getApplication:getApplication', __args__, opts=opts).value
 
-    return GetApplicationResult(
+    return AwaitableGetApplicationResult(
         host_ids=__ret__.get('hostIds'),
         instance_ids=__ret__.get('instanceIds'),
         name=__ret__.get('name'),

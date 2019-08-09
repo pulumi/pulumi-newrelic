@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *         threshold: 0.75,
  *         timeFunction: "all",
  *     }],
- *     type: "apm_app_metric",
+ *     type: "apmAppMetric",
  * });
  * ```
  *

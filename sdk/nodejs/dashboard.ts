@@ -36,7 +36,7 @@ export class Dashboard extends pulumi.CustomResource {
 
     public /*out*/ readonly dashboardUrl!: pulumi.Output<string>;
     /**
-     * Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+     * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
      */
     public readonly editable!: pulumi.Output<string | undefined>;
     public readonly filter!: pulumi.Output<{ attributes?: string[], eventTypes: string[] } | undefined>;
@@ -106,7 +106,7 @@ export class Dashboard extends pulumi.CustomResource {
 export interface DashboardState {
     readonly dashboardUrl?: pulumi.Input<string>;
     /**
-     * Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+     * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
      */
     readonly editable?: pulumi.Input<string>;
     readonly filter?: pulumi.Input<{ attributes?: pulumi.Input<pulumi.Input<string>[]>, eventTypes: pulumi.Input<pulumi.Input<string>[]> }>;
@@ -133,7 +133,7 @@ export interface DashboardState {
  */
 export interface DashboardArgs {
     /**
-     * Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+     * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
      */
     readonly editable?: pulumi.Input<string>;
     readonly filter?: pulumi.Input<{ attributes?: pulumi.Input<pulumi.Input<string>[]>, eventTypes: pulumi.Input<pulumi.Input<string>[]> }>;

@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertCondition = new newrelic.AlertCondition("foo", {
  *     entities: [txn.id],
- *     metric: "error_percentage",
+ *     metric: "errorPercentage",
  *     policyId: fooAlertPolicy.id,
  *     runbookUrl: "https://www.example.com",
  *     terms: [{
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *         threshold: 0.75,
  *         timeFunction: "all",
  *     }],
- *     type: "apm_kt_metric",
+ *     type: "apmKtMetric",
  * });
  * ```
  *

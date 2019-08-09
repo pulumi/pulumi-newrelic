@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *         threshold: 0.75,
  *         timeFunction: "all",
  *     }],
- *     type: "apm_app_metric",
+ *     type: "apmAppMetric",
  * });
  * ```
  * 
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
  *   * `threshold` - (Required) Must be 0 or greater.
- *   * `time_function` - (Required) `all` or `any`.
+ *   * `timeFunction` - (Required) `all` or `any`.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
  */
@@ -80,7 +80,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly entities!: pulumi.Output<number[]>;
     /**
-     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
      */
     public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
@@ -104,7 +104,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
     /**
-     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly userDefinedMetric!: pulumi.Output<string | undefined>;
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface AlertConditionState {
      */
     readonly entities?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
      */
     readonly gcMetric?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface AlertConditionState {
      */
     readonly terms?: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
     /**
-     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface AlertConditionState {
      */
     readonly userDefinedMetric?: pulumi.Input<string>;
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
      */
     readonly userDefinedValueFunction?: pulumi.Input<string>;
     /**
@@ -256,7 +256,7 @@ export interface AlertConditionArgs {
      */
     readonly entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
      */
     readonly gcMetric?: pulumi.Input<string>;
     /**
@@ -280,7 +280,7 @@ export interface AlertConditionArgs {
      */
     readonly terms: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
     /**
-     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type: pulumi.Input<string>;
     /**
@@ -288,7 +288,7 @@ export interface AlertConditionArgs {
      */
     readonly userDefinedMetric?: pulumi.Input<string>;
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
      */
     readonly userDefinedValueFunction?: pulumi.Input<string>;
     /**

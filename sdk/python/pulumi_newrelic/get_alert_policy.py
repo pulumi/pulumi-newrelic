@@ -40,14 +40,17 @@ class GetAlertPolicyResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAlertPolicyResult(
+            created_at=self.created_at,
+            incident_preference=self.incident_preference,
+            name=self.name,
+            updated_at=self.updated_at,
+            id=self.id)
 
 def get_alert_policy(incident_preference=None,name=None,opts=None):
     """
@@ -65,7 +68,7 @@ def get_alert_policy(incident_preference=None,name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts).value
 
-    return GetAlertPolicyResult(
+    return AwaitableGetAlertPolicyResult(
         created_at=__ret__.get('createdAt'),
         incident_preference=__ret__.get('incidentPreference'),
         name=__ret__.get('name'),
