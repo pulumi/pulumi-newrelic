@@ -13,9 +13,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const app = pulumi.output(newrelic.getApplication({
+ * const app = newrelic.getApplication({
  *     name: "my-app",
- * }));
+ * });
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertCondition = new newrelic.AlertCondition("foo", {
  *     entities: [app.id],
