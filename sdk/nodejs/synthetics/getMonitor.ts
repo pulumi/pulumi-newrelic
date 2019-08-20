@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const bar = pulumi.output(newrelic.synthetics.getMonitor({
+ * const bar = newrelic.synthetics.getMonitor({
  *     name: "bar",
- * }));
+ * });
  * const baz = new newrelic.synthetics.AlertCondition("baz", {
  *     monitorId: bar.id,
  *     policyId: newrelic_alert_policy_foo.id,

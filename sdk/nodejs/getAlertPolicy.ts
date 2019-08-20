@@ -13,12 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const fooAlertChannel = pulumi.output(newrelic.getAlertChannel({
+ * const fooAlertChannel = newrelic.getAlertChannel({
  *     name: "foo@example.com",
- * }));
- * const fooAlertPolicy = pulumi.output(newrelic.getAlertPolicy({
+ * });
+ * const fooAlertPolicy = newrelic.getAlertPolicy({
  *     name: "foo policy",
- * }));
+ * });
  * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
  *     channelId: fooAlertChannel.id,
  *     policyId: fooAlertPolicy.id,

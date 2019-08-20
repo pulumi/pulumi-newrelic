@@ -13,9 +13,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const txn = pulumi.output(newrelic.getKeyTransaction({
+ * const txn = newrelic.getKeyTransaction({
  *     name: "txn",
- * }));
+ * });
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertCondition = new newrelic.AlertCondition("foo", {
  *     entities: [txn.id],
