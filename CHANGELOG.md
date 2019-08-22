@@ -7,8 +7,10 @@ _(none)_
 ---
 
 ## 0.18.8 (2019-08-20)
-* Upgrade to pulumi-terraform@9db2fc93cd
 * Depend on latest pulumi package
+
+## 0.18.7 (2019-08-09)
+* Upgrade to pulumi-terraform@9db2fc93cd
 
 ## 0.18.6 (2019-08-08)
 * Update to pulumi-terraform@013b95b1c8
