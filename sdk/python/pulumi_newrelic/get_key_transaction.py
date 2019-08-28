@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class GetKeyTransactionResult:
@@ -34,6 +35,8 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
 def get_key_transaction(name=None,opts=None):
     """
     Use this data source to get information about a specific key transaction in New Relic.
+    
+    :param str name: The name of the application in New Relic.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
     """
@@ -41,7 +44,7 @@ def get_key_transaction(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts).value

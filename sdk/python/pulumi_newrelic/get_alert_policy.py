@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class GetAlertPolicyResult:
@@ -55,6 +56,8 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
 def get_alert_policy(incident_preference=None,name=None,opts=None):
     """
     Use this data source to get information about an specific alert policy in New Relic which already exists.
+    
+    :param str name: The name of the alert policy in New Relic.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
     """
@@ -63,7 +66,7 @@ def get_alert_policy(incident_preference=None,name=None,opts=None):
     __args__['incidentPreference'] = incident_preference
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts).value

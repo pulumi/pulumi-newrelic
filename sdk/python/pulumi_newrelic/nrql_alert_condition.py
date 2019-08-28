@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class NrqlAlertCondition(pulumi.CustomResource):
@@ -20,6 +21,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
     nrql: pulumi.Output[dict]
     """
     A NRQL query. See NRQL below for details.
+    
+      * `query` (`str`)
+      * `sinceValue` (`str`)
     """
     policy_id: pulumi.Output[float]
     """
@@ -32,6 +36,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
     terms: pulumi.Output[list]
     """
     A list of terms for this condition. See Terms below for details.
+    
+      * `duration` (`float`)
+      * `operator` (`str`)
+      * `priority` (`str`)
+      * `threshold` (`float`)
+      * `timeFunction` (`str`)
     """
     value_function: pulumi.Output[str]
     """
@@ -65,6 +75,19 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum`.
+        
+        The **nrql** object supports the following:
+        
+          * `query` (`pulumi.Input[str]`)
+          * `sinceValue` (`pulumi.Input[str]`)
+        
+        The **terms** object supports the following:
+        
+          * `duration` (`pulumi.Input[float]`)
+          * `operator` (`pulumi.Input[str]`)
+          * `priority` (`pulumi.Input[str]`)
+          * `threshold` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
         """
@@ -109,6 +132,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         """
         Get an existing NrqlAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,10 +143,23 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum`.
+        
+        The **nrql** object supports the following:
+        
+          * `query` (`pulumi.Input[str]`)
+          * `sinceValue` (`pulumi.Input[str]`)
+        
+        The **terms** object supports the following:
+        
+          * `duration` (`pulumi.Input[float]`)
+          * `operator` (`pulumi.Input[str]`)
+          * `priority` (`pulumi.Input[str]`)
+          * `threshold` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["enabled"] = enabled

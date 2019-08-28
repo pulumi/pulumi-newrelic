@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -102,7 +104,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    public readonly terms!: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
+    public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
      * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
      */
@@ -223,7 +225,7 @@ export interface AlertConditionState {
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    readonly terms?: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
+    readonly terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
      * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
      */
@@ -278,7 +280,7 @@ export interface AlertConditionArgs {
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    readonly terms: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
+    readonly terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
      * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
      */

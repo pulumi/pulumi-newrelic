@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -39,7 +41,7 @@ export class Dashboard extends pulumi.CustomResource {
      * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
      */
     public readonly editable!: pulumi.Output<string | undefined>;
-    public readonly filter!: pulumi.Output<{ attributes?: string[], eventTypes: string[] } | undefined>;
+    public readonly filter!: pulumi.Output<outputs.DashboardFilter | undefined>;
     /**
      * The icon for the dashboard.  Defaults to `bar-chart`.
      */
@@ -55,7 +57,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * A widget that describes a visualization. See Widgets below for details.
      */
-    public readonly widgets!: pulumi.Output<{ column: number, height?: number, notes?: string, nrql?: string, row: number, title: string, visualization: string, width?: number }[] | undefined>;
+    public readonly widgets!: pulumi.Output<outputs.DashboardWidget[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -109,7 +111,7 @@ export interface DashboardState {
      * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
      */
     readonly editable?: pulumi.Input<string>;
-    readonly filter?: pulumi.Input<{ attributes?: pulumi.Input<pulumi.Input<string>[]>, eventTypes: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
      * The icon for the dashboard.  Defaults to `bar-chart`.
      */
@@ -125,7 +127,7 @@ export interface DashboardState {
     /**
      * A widget that describes a visualization. See Widgets below for details.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<{ column: pulumi.Input<number>, height?: pulumi.Input<number>, notes?: pulumi.Input<string>, nrql?: pulumi.Input<string>, row: pulumi.Input<number>, title: pulumi.Input<string>, visualization: pulumi.Input<string>, width?: pulumi.Input<number> }>[]>;
+    readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
 
 /**
@@ -136,7 +138,7 @@ export interface DashboardArgs {
      * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
      */
     readonly editable?: pulumi.Input<string>;
-    readonly filter?: pulumi.Input<{ attributes?: pulumi.Input<pulumi.Input<string>[]>, eventTypes: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
      * The icon for the dashboard.  Defaults to `bar-chart`.
      */
@@ -152,5 +154,5 @@ export interface DashboardArgs {
     /**
      * A widget that describes a visualization. See Widgets below for details.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<{ column: pulumi.Input<number>, height?: pulumi.Input<number>, notes?: pulumi.Input<string>, nrql?: pulumi.Input<string>, row: pulumi.Input<number>, title: pulumi.Input<string>, visualization: pulumi.Input<string>, width?: pulumi.Input<number> }>[]>;
+    readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }

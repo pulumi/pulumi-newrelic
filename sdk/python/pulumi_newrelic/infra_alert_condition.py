@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class InfraAlertCondition(pulumi.CustomResource):
@@ -17,6 +18,10 @@ class InfraAlertCondition(pulumi.CustomResource):
     critical: pulumi.Output[dict]
     """
     Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+    
+      * `duration` (`float`)
+      * `timeFunction` (`str`)
+      * `value` (`float`)
     """
     enabled: pulumi.Output[bool]
     """
@@ -54,6 +59,10 @@ class InfraAlertCondition(pulumi.CustomResource):
     warning: pulumi.Output[dict]
     """
     Identifies the warning threshold parameters. See Thresholds below for details.
+    
+      * `duration` (`float`)
+      * `timeFunction` (`str`)
+      * `value` (`float`)
     """
     where: pulumi.Output[str]
     """
@@ -83,6 +92,18 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
         :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.
         :param pulumi.Input[str] where: Infrastructure host filter for the alert condition.
+        
+        The **critical** object supports the following:
+        
+          * `duration` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
+        
+        The **warning** object supports the following:
+        
+          * `duration` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
         """
@@ -132,6 +153,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,10 +169,22 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
         :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.
         :param pulumi.Input[str] where: Infrastructure host filter for the alert condition.
+        
+        The **critical** object supports the following:
+        
+          * `duration` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
+        
+        The **warning** object supports the following:
+        
+          * `duration` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["comparison"] = comparison

@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class GetMonitorResult:
@@ -38,6 +39,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
 def get_monitor(name=None,opts=None):
     """
     Use this data source to get information about a specific synthetics monitor in New Relic. This can then be used to set up a synthetics alert condition.
+    
+    :param str name: The name of the synthetics monitor in New Relic.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
     """
@@ -45,7 +48,7 @@ def get_monitor(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitor:getMonitor', __args__, opts=opts).value

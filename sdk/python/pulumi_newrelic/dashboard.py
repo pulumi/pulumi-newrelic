@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class Dashboard(pulumi.CustomResource):
@@ -30,6 +31,15 @@ class Dashboard(pulumi.CustomResource):
     widgets: pulumi.Output[list]
     """
     A widget that describes a visualization. See Widgets below for details.
+    
+      * `column` (`float`)
+      * `height` (`float`)
+      * `notes` (`str`)
+      * `nrql` (`str`)
+      * `row` (`float`)
+      * `title` (`str`) - The title of the dashboard.
+      * `visualization` (`str`)
+      * `width` (`float`)
     """
     def __init__(__self__, resource_name, opts=None, editable=None, filter=None, icon=None, title=None, visibility=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -53,6 +63,22 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
         :param pulumi.Input[list] widgets: A widget that describes a visualization. See Widgets below for details.
+        
+        The **filter** object supports the following:
+        
+          * `attributes` (`pulumi.Input[list]`)
+          * `eventTypes` (`pulumi.Input[list]`)
+        
+        The **widgets** object supports the following:
+        
+          * `column` (`pulumi.Input[float]`)
+          * `height` (`pulumi.Input[float]`)
+          * `notes` (`pulumi.Input[str]`)
+          * `nrql` (`pulumi.Input[str]`)
+          * `row` (`pulumi.Input[float]`)
+          * `title` (`pulumi.Input[str]`) - The title of the dashboard.
+          * `visualization` (`pulumi.Input[str]`)
+          * `width` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
         """
@@ -93,6 +119,7 @@ class Dashboard(pulumi.CustomResource):
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,10 +128,26 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
         :param pulumi.Input[list] widgets: A widget that describes a visualization. See Widgets below for details.
+        
+        The **filter** object supports the following:
+        
+          * `attributes` (`pulumi.Input[list]`)
+          * `eventTypes` (`pulumi.Input[list]`)
+        
+        The **widgets** object supports the following:
+        
+          * `column` (`pulumi.Input[float]`)
+          * `height` (`pulumi.Input[float]`)
+          * `notes` (`pulumi.Input[str]`)
+          * `nrql` (`pulumi.Input[str]`)
+          * `row` (`pulumi.Input[float]`)
+          * `title` (`pulumi.Input[str]`) - The title of the dashboard.
+          * `visualization` (`pulumi.Input[str]`)
+          * `width` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["dashboard_url"] = dashboard_url
