@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -72,7 +74,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
      */
-    public readonly critical!: pulumi.Output<{ duration: number, timeFunction?: string, value?: number } | undefined>;
+    public readonly critical!: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
@@ -109,7 +111,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     /**
      * Identifies the warning threshold parameters. See Thresholds below for details.
      */
-    public readonly warning!: pulumi.Output<{ duration: number, timeFunction?: string, value?: number } | undefined>;
+    public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
      * Infrastructure host filter for the alert condition.
      */
@@ -187,7 +189,7 @@ export interface InfraAlertConditionState {
     /**
      * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
      */
-    readonly critical?: pulumi.Input<{ duration: pulumi.Input<number>, timeFunction?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
@@ -224,7 +226,7 @@ export interface InfraAlertConditionState {
     /**
      * Identifies the warning threshold parameters. See Thresholds below for details.
      */
-    readonly warning?: pulumi.Input<{ duration: pulumi.Input<number>, timeFunction?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    readonly warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
      * Infrastructure host filter for the alert condition.
      */
@@ -242,7 +244,7 @@ export interface InfraAlertConditionArgs {
     /**
      * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
      */
-    readonly critical?: pulumi.Input<{ duration: pulumi.Input<number>, timeFunction?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
@@ -278,7 +280,7 @@ export interface InfraAlertConditionArgs {
     /**
      * Identifies the warning threshold parameters. See Thresholds below for details.
      */
-    readonly warning?: pulumi.Input<{ duration: pulumi.Input<number>, timeFunction?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
+    readonly warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
      * Infrastructure host filter for the alert condition.
      */

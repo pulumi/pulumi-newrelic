@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class GetAlertChannelResult:
@@ -48,6 +49,8 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
 def get_alert_channel(name=None,opts=None):
     """
     Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
+    
+    :param str name: The name of the alert channel in New Relic.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
     """
@@ -55,7 +58,7 @@ def get_alert_channel(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertChannel:getAlertChannel', __args__, opts=opts).value

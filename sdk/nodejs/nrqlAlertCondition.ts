@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -88,7 +90,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * A NRQL query. See NRQL below for details.
      */
-    public readonly nrql!: pulumi.Output<{ query: string, sinceValue: string }>;
+    public readonly nrql!: pulumi.Output<outputs.NrqlAlertConditionNrql>;
     /**
      * The ID of the policy where this condition should be used.
      */
@@ -100,7 +102,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    public readonly terms!: pulumi.Output<{ duration: number, operator?: string, priority?: string, threshold: number, timeFunction: string }[]>;
+    public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[]>;
     /**
      * Possible values are `singleValue`, `sum`.
      */
@@ -170,7 +172,7 @@ export interface NrqlAlertConditionState {
     /**
      * A NRQL query. See NRQL below for details.
      */
-    readonly nrql?: pulumi.Input<{ query: pulumi.Input<string>, sinceValue: pulumi.Input<string> }>;
+    readonly nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
      * The ID of the policy where this condition should be used.
      */
@@ -182,7 +184,7 @@ export interface NrqlAlertConditionState {
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    readonly terms?: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
+    readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
      * Possible values are `singleValue`, `sum`.
      */
@@ -204,7 +206,7 @@ export interface NrqlAlertConditionArgs {
     /**
      * A NRQL query. See NRQL below for details.
      */
-    readonly nrql: pulumi.Input<{ query: pulumi.Input<string>, sinceValue: pulumi.Input<string> }>;
+    readonly nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
      * The ID of the policy where this condition should be used.
      */
@@ -216,7 +218,7 @@ export interface NrqlAlertConditionArgs {
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    readonly terms: pulumi.Input<pulumi.Input<{ duration: pulumi.Input<number>, operator?: pulumi.Input<string>, priority?: pulumi.Input<string>, threshold: pulumi.Input<number>, timeFunction: pulumi.Input<string> }>[]>;
+    readonly terms: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
      * Possible values are `singleValue`, `sum`.
      */
