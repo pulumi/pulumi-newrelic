@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform 3f206601e7
+_(none)_
 
 ---
+
+## 0.18.9 (2019-08-29)
+* Upgrade to pulumi-terraform 3f206601e7
 
 ## 0.18.8 (2019-08-20)
 * Depend on latest pulumi package
@@ -33,4 +36,3 @@ CHANGELOG
 
 ## 0.18.0 (2019-04-10)
 * Initial release of the New Relic provider, based on revision 3651ee8 of the New Relic Terraform provider
-
