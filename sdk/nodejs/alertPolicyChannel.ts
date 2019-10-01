@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
+ * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertChannel = new newrelic.AlertChannel("foo", {
  *     configuration: {
  *         include_json_attachment: "1",
@@ -20,7 +21,6 @@ import * as utilities from "./utilities";
  *     },
  *     type: "email",
  * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
  *     channelId: fooAlertChannel.id,
  *     policyId: fooAlertPolicy.id,
