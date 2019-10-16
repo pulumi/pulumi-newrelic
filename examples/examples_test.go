@@ -20,41 +20,39 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
-	"github.com/stretchr/testify/assert"
 )
 
-func TestDomain(t *testing.T) {
-	token := os.Getenv("NEWRELIC_API_KEY")
-	if token == "" {
-		t.Skipf("Skipping test due to missing NEWRELIC_API_KEY environment variable")
-	}
+func TestAccAlertPolicy(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: path.Join(getCwd(t), "alertpolicy"),
+		})
 
+	integration.ProgramTest(t, &test)
+}
+
+func getCwd(t *testing.T) string {
 	cwd, err := os.Getwd()
-	if !assert.NoError(t, err) {
+	if err != nil {
 		t.FailNow()
 	}
 
-	var base = integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
-		Config: map[string]string{
-			"newrelic:api_key": token,
-		},
-	}
+	return cwd
+}
 
+func getBaseOptions() integration.ProgramTestOptions {
+	return integration.ProgramTestOptions{
+		ExpectRefreshChanges: true,
+	}
+}
+
+func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/newrelic",
 		},
 	})
 
-	tests := []integration.ProgramTestOptions{
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alertpolicy")}),
-	}
-
-	for _, ex := range tests {
-		example := ex
-		t.Run(example.Dir, func(t *testing.T) {
-			integration.ProgramTest(t, &example)
-		})
-	}
+	return baseJS
 }
