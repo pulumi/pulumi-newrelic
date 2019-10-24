@@ -13,7 +13,7 @@ require (
 	github.com/pulumi/pulumi v1.0.0
 	github.com/pulumi/pulumi-terraform v0.18.4-0.20190828172748-3f206601e7a1
 	github.com/sirupsen/logrus v1.4.0 // indirect
-	github.com/terraform-providers/terraform-provider-newrelic v1.5.1
+	github.com/terraform-providers/terraform-provider-newrelic v1.5.2
 )
 
 replace (
