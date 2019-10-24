@@ -76,7 +76,7 @@ export class Monitor extends pulumi.CustomResource {
     public readonly status!: pulumi.Output<string>;
     public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
     /**
-     * The monitor type.
+     * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -182,7 +182,7 @@ export interface MonitorState {
     readonly status?: pulumi.Input<string>;
     readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * The monitor type.
+     * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface MonitorArgs {
     readonly status: pulumi.Input<string>;
     readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * The monitor type.
+     * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
      */
     readonly type: pulumi.Input<string>;
     /**

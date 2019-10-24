@@ -53,7 +53,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         
         The `term` mapping supports the following arguments:
         
-          * `duration` - (Required) In minutes, must be: `1`, `2`, `3`, `4`, `5`, `10`, `15`, `30`, `60`, or `120`.
+          * `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
           * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
           * `threshold` - (Required) Must be 0 or greater.

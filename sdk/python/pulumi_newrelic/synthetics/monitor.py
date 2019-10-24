@@ -37,7 +37,7 @@ class Monitor(pulumi.CustomResource):
     treat_redirect_as_failure: pulumi.Output[bool]
     type: pulumi.Output[str]
     """
-    The monitor type.
+    The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
     """
     uri: pulumi.Output[str]
     """
@@ -63,7 +63,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of this monitor.
         :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
         :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED)
-        :param pulumi.Input[str] type: The monitor type.
+        :param pulumi.Input[str] type: The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
         :param pulumi.Input[str] uri: The URI for the monitor to hit.
         :param pulumi.Input[str] validation_string: The string to validate against in the response.
         :param pulumi.Input[bool] verify_ssl: Verify SSL.
@@ -127,7 +127,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of this monitor.
         :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
         :param pulumi.Input[str] status: The monitor status (i.e. ENABLED, MUTED, DISABLED)
-        :param pulumi.Input[str] type: The monitor type.
+        :param pulumi.Input[str] type: The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
         :param pulumi.Input[str] uri: The URI for the monitor to hit.
         :param pulumi.Input[str] validation_string: The string to validate against in the response.
         :param pulumi.Input[bool] verify_ssl: Verify SSL.
