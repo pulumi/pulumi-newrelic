@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Regenerate SDK based on tf2pulumi 0.6.0
-* Upgrade to v1.5.2 of the NewRelic Terraform Provider
+_(none)_
 
 ---
+
+## 1.0.0 (2019-10-24)
+* Regenerate SDK based on tf2pulumi 0.6.0
+* Upgrade to v1.5.2 of the NewRelic Terraform Provider
 
 ## 0.18.10 (2019-09-05)
 * Upgrade to Pulumi v1.0.0
