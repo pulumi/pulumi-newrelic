@@ -132,7 +132,7 @@ func (r *Monitor) TreatRedirectAsFailure() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["treatRedirectAsFailure"])
 }
 
-// The monitor type.
+// The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
 func (r *Monitor) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -167,7 +167,7 @@ type MonitorState struct {
 	// The monitor status (i.e. ENABLED, MUTED, DISABLED)
 	Status interface{}
 	TreatRedirectAsFailure interface{}
-	// The monitor type.
+	// The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
 	Type interface{}
 	// The URI for the monitor to hit.
 	Uri interface{}
@@ -192,7 +192,7 @@ type MonitorArgs struct {
 	// The monitor status (i.e. ENABLED, MUTED, DISABLED)
 	Status interface{}
 	TreatRedirectAsFailure interface{}
-	// The monitor type.
+	// The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
 	Type interface{}
 	// The URI for the monitor to hit.
 	Uri interface{}
