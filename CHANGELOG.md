@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Regenerate SDK based on tf2pulumi 0.6.0
+* Upgrade to v1.5.2 of the NewRelic Terraform Provider
 
 ---
 
@@ -22,7 +23,7 @@ CHANGELOG
 * Update to pulumi-terraform@013b95b1c8
 
 ## 0.18.5 (2019-07-11)
-* Upgrade to v1.5.1 of the NewRelic Terraform Provide
+* Upgrade to v1.5.1 of the NewRelic Terraform Provider
 
 ## 0.18.4 (2019-07-09)
 * Fix detailed diffs with nested computed values.
