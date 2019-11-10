@@ -99,6 +99,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
     public readonly processWhere!: pulumi.Output<string | undefined>;
+    public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
      */
@@ -138,6 +139,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["processWhere"] = state ? state.processWhere : undefined;
+            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
             inputs["select"] = state ? state.select : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["updatedAt"] = state ? state.updatedAt : undefined;
@@ -159,6 +161,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["processWhere"] = args ? args.processWhere : undefined;
+            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             inputs["select"] = args ? args.select : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["warning"] = args ? args.warning : undefined;
@@ -214,6 +217,7 @@ export interface InfraAlertConditionState {
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
     readonly processWhere?: pulumi.Input<string>;
+    readonly runbookUrl?: pulumi.Input<string>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
      */
@@ -269,6 +273,7 @@ export interface InfraAlertConditionArgs {
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
     readonly processWhere?: pulumi.Input<string>;
+    readonly runbookUrl?: pulumi.Input<string>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
      */

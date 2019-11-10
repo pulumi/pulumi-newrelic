@@ -35,6 +35,12 @@ namespace Pulumi.Newrelic
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        [Output("expectedGroups")]
+        public Output<int?> ExpectedGroups { get; private set; } = null!;
+
+        [Output("ignoreOverlap")]
+        public Output<bool?> IgnoreOverlap { get; private set; } = null!;
+
         /// <summary>
         /// The title of the condition
         /// </summary>
@@ -64,6 +70,9 @@ namespace Pulumi.Newrelic
         /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerms>> Terms { get; private set; } = null!;
+
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// Possible values are `single_value`, `sum`.
@@ -123,6 +132,12 @@ namespace Pulumi.Newrelic
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("expectedGroups")]
+        public Input<int>? ExpectedGroups { get; set; }
+
+        [Input("ignoreOverlap")]
+        public Input<bool>? IgnoreOverlap { get; set; }
+
         /// <summary>
         /// The title of the condition
         /// </summary>
@@ -159,6 +174,9 @@ namespace Pulumi.Newrelic
             set => _terms = value;
         }
 
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         /// <summary>
         /// Possible values are `single_value`, `sum`.
         /// </summary>
@@ -177,6 +195,12 @@ namespace Pulumi.Newrelic
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("expectedGroups")]
+        public Input<int>? ExpectedGroups { get; set; }
+
+        [Input("ignoreOverlap")]
+        public Input<bool>? IgnoreOverlap { get; set; }
 
         /// <summary>
         /// The title of the condition
@@ -213,6 +237,9 @@ namespace Pulumi.Newrelic
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermsGetArgs>());
             set => _terms = value;
         }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Possible values are `single_value`, `sum`.

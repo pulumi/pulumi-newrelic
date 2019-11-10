@@ -45,19 +45,25 @@ func NewNrqlAlertCondition(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["enabled"] = nil
+		inputs["expectedGroups"] = nil
+		inputs["ignoreOverlap"] = nil
 		inputs["name"] = nil
 		inputs["nrql"] = nil
 		inputs["policyId"] = nil
 		inputs["runbookUrl"] = nil
 		inputs["terms"] = nil
+		inputs["type"] = nil
 		inputs["valueFunction"] = nil
 	} else {
 		inputs["enabled"] = args.Enabled
+		inputs["expectedGroups"] = args.ExpectedGroups
+		inputs["ignoreOverlap"] = args.IgnoreOverlap
 		inputs["name"] = args.Name
 		inputs["nrql"] = args.Nrql
 		inputs["policyId"] = args.PolicyId
 		inputs["runbookUrl"] = args.RunbookUrl
 		inputs["terms"] = args.Terms
+		inputs["type"] = args.Type
 		inputs["valueFunction"] = args.ValueFunction
 	}
 	s, err := ctx.RegisterResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, true, inputs, opts...)
@@ -74,11 +80,14 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["enabled"] = state.Enabled
+		inputs["expectedGroups"] = state.ExpectedGroups
+		inputs["ignoreOverlap"] = state.IgnoreOverlap
 		inputs["name"] = state.Name
 		inputs["nrql"] = state.Nrql
 		inputs["policyId"] = state.PolicyId
 		inputs["runbookUrl"] = state.RunbookUrl
 		inputs["terms"] = state.Terms
+		inputs["type"] = state.Type
 		inputs["valueFunction"] = state.ValueFunction
 	}
 	s, err := ctx.ReadResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, id, inputs, opts...)
@@ -101,6 +110,14 @@ func (r *NrqlAlertCondition) ID() *pulumi.IDOutput {
 // Set whether to enable the alert condition. Defaults to `true`.
 func (r *NrqlAlertCondition) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+}
+
+func (r *NrqlAlertCondition) ExpectedGroups() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["expectedGroups"])
+}
+
+func (r *NrqlAlertCondition) IgnoreOverlap() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["ignoreOverlap"])
 }
 
 // The title of the condition
@@ -128,6 +145,10 @@ func (r *NrqlAlertCondition) Terms() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["terms"])
 }
 
+func (r *NrqlAlertCondition) Type() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["type"])
+}
+
 // Possible values are `singleValue`, `sum`.
 func (r *NrqlAlertCondition) ValueFunction() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["valueFunction"])
@@ -137,6 +158,8 @@ func (r *NrqlAlertCondition) ValueFunction() *pulumi.StringOutput {
 type NrqlAlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled interface{}
+	ExpectedGroups interface{}
+	IgnoreOverlap interface{}
 	// The title of the condition
 	Name interface{}
 	// A NRQL query. See NRQL below for details.
@@ -147,6 +170,7 @@ type NrqlAlertConditionState struct {
 	RunbookUrl interface{}
 	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
+	Type interface{}
 	// Possible values are `singleValue`, `sum`.
 	ValueFunction interface{}
 }
@@ -155,6 +179,8 @@ type NrqlAlertConditionState struct {
 type NrqlAlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled interface{}
+	ExpectedGroups interface{}
+	IgnoreOverlap interface{}
 	// The title of the condition
 	Name interface{}
 	// A NRQL query. See NRQL below for details.
@@ -165,6 +191,7 @@ type NrqlAlertConditionArgs struct {
 	RunbookUrl interface{}
 	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
+	Type interface{}
 	// Possible values are `singleValue`, `sum`.
 	ValueFunction interface{}
 }
