@@ -14,6 +14,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
     """
     Set whether to enable the alert condition. Defaults to `true`.
     """
+    expected_groups: pulumi.Output[float]
+    ignore_overlap: pulumi.Output[bool]
     name: pulumi.Output[str]
     """
     The title of the condition
@@ -43,11 +45,12 @@ class NrqlAlertCondition(pulumi.CustomResource):
       * `threshold` (`float`)
       * `timeFunction` (`str`)
     """
+    type: pulumi.Output[str]
     value_function: pulumi.Output[str]
     """
     Possible values are `single_value`, `sum`.
     """
-    def __init__(__self__, resource_name, opts=None, enabled=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, value_function=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Terms
         
@@ -109,6 +112,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled'] = enabled
+            __props__['expected_groups'] = expected_groups
+            __props__['ignore_overlap'] = ignore_overlap
             __props__['name'] = name
             if nrql is None:
                 raise TypeError("Missing required property 'nrql'")
@@ -120,6 +125,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             if terms is None:
                 raise TypeError("Missing required property 'terms'")
             __props__['terms'] = terms
+            __props__['type'] = type
             __props__['value_function'] = value_function
         super(NrqlAlertCondition, __self__).__init__(
             'newrelic:index/nrqlAlertCondition:NrqlAlertCondition',
@@ -128,7 +134,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, value_function=None):
+    def get(resource_name, id, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None):
         """
         Get an existing NrqlAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -163,11 +169,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["enabled"] = enabled
+        __props__["expected_groups"] = expected_groups
+        __props__["ignore_overlap"] = ignore_overlap
         __props__["name"] = name
         __props__["nrql"] = nrql
         __props__["policy_id"] = policy_id
         __props__["runbook_url"] = runbook_url
         __props__["terms"] = terms
+        __props__["type"] = type
         __props__["value_function"] = value_function
         return NrqlAlertCondition(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

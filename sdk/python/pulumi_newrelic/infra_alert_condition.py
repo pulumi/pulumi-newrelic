@@ -47,6 +47,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     Any filters applied to processes; for example: `"commandName = 'java'"`.
     """
+    runbook_url: pulumi.Output[str]
     select: pulumi.Output[str]
     """
     The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
@@ -68,7 +69,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     Infrastructure host filter for the alert condition.
     """
-    def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, select=None, type=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Thresholds
         
@@ -134,6 +135,7 @@ class InfraAlertCondition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             __props__['process_where'] = process_where
+            __props__['runbook_url'] = runbook_url
             __props__['select'] = select
             if type is None:
                 raise TypeError("Missing required property 'type'")
@@ -149,7 +151,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, comparison=None, created_at=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, select=None, type=None, updated_at=None, warning=None, where=None):
+    def get(resource_name, id, opts=None, comparison=None, created_at=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, updated_at=None, warning=None, where=None):
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -196,6 +198,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         __props__["name"] = name
         __props__["policy_id"] = policy_id
         __props__["process_where"] = process_where
+        __props__["runbook_url"] = runbook_url
         __props__["select"] = select
         __props__["type"] = type
         __props__["updated_at"] = updated_at

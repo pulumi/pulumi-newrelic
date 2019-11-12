@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for DotNet SDK Generation
+* Upgrade to v1.6.0 of the NewRelic Terraform Provider
 
 ---
 

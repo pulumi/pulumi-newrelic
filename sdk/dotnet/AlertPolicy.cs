@@ -22,7 +22,7 @@ namespace Pulumi.Newrelic
         public Output<string?> IncidentPreference { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy.
+        /// The name of the policy.   Must be between 1 and 64 characters, inclusive.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Newrelic
         public Input<string>? IncidentPreference { get; set; }
 
         /// <summary>
-        /// The name of the policy.
+        /// The name of the policy.   Must be between 1 and 64 characters, inclusive.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -111,7 +111,7 @@ namespace Pulumi.Newrelic
         public Input<string>? IncidentPreference { get; set; }
 
         /// <summary>
-        /// The name of the policy.
+        /// The name of the policy.   Must be between 1 and 64 characters, inclusive.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -71,6 +71,9 @@ namespace Pulumi.Newrelic
         [Output("processWhere")]
         public Output<string?> ProcessWhere { get; private set; } = null!;
 
+        [Output("runbookUrl")]
+        public Output<string?> RunbookUrl { get; private set; } = null!;
+
         /// <summary>
         /// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
         /// </summary>
@@ -192,6 +195,9 @@ namespace Pulumi.Newrelic
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
 
+        [Input("runbookUrl")]
+        public Input<string>? RunbookUrl { get; set; }
+
         /// <summary>
         /// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
         /// </summary>
@@ -273,6 +279,9 @@ namespace Pulumi.Newrelic
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
+
+        [Input("runbookUrl")]
+        public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
         /// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".

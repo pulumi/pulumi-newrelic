@@ -40,6 +40,7 @@ func NewInfraAlertCondition(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["policyId"] = nil
 		inputs["processWhere"] = nil
+		inputs["runbookUrl"] = nil
 		inputs["select"] = nil
 		inputs["type"] = nil
 		inputs["warning"] = nil
@@ -53,6 +54,7 @@ func NewInfraAlertCondition(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["policyId"] = args.PolicyId
 		inputs["processWhere"] = args.ProcessWhere
+		inputs["runbookUrl"] = args.RunbookUrl
 		inputs["select"] = args.Select
 		inputs["type"] = args.Type
 		inputs["warning"] = args.Warning
@@ -82,6 +84,7 @@ func GetInfraAlertCondition(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["policyId"] = state.PolicyId
 		inputs["processWhere"] = state.ProcessWhere
+		inputs["runbookUrl"] = state.RunbookUrl
 		inputs["select"] = state.Select
 		inputs["type"] = state.Type
 		inputs["updatedAt"] = state.UpdatedAt
@@ -149,6 +152,10 @@ func (r *InfraAlertCondition) ProcessWhere() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["processWhere"])
 }
 
+func (r *InfraAlertCondition) RunbookUrl() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
+}
+
 // The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 func (r *InfraAlertCondition) Select() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["select"])
@@ -192,6 +199,7 @@ type InfraAlertConditionState struct {
 	PolicyId interface{}
 	// Any filters applied to processes; for example: `"commandName = 'java'"`.
 	ProcessWhere interface{}
+	RunbookUrl interface{}
 	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 	Select interface{}
 	// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
@@ -221,6 +229,7 @@ type InfraAlertConditionArgs struct {
 	PolicyId interface{}
 	// Any filters applied to processes; for example: `"commandName = 'java'"`.
 	ProcessWhere interface{}
+	RunbookUrl interface{}
 	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 	Select interface{}
 	// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".

@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * });
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertCondition = new newrelic.AlertCondition("foo", {
+ *     conditionScope: "application",
  *     entities: [app.id],
  *     metric: "apdex",
  *     policyId: fooAlertPolicy.id,

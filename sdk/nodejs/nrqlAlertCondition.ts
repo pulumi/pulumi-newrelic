@@ -83,6 +83,8 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      * Set whether to enable the alert condition. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly expectedGroups!: pulumi.Output<number | undefined>;
+    public readonly ignoreOverlap!: pulumi.Output<boolean | undefined>;
     /**
      * The title of the condition
      */
@@ -103,6 +105,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      * A list of terms for this condition. See Terms below for details.
      */
     public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[]>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Possible values are `singleValue`, `sum`.
      */
@@ -121,11 +124,14 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as NrqlAlertConditionState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["expectedGroups"] = state ? state.expectedGroups : undefined;
+            inputs["ignoreOverlap"] = state ? state.ignoreOverlap : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nrql"] = state ? state.nrql : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
             inputs["terms"] = state ? state.terms : undefined;
+            inputs["type"] = state ? state.type : undefined;
             inputs["valueFunction"] = state ? state.valueFunction : undefined;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
@@ -139,11 +145,14 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'terms'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["expectedGroups"] = args ? args.expectedGroups : undefined;
+            inputs["ignoreOverlap"] = args ? args.ignoreOverlap : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nrql"] = args ? args.nrql : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             inputs["terms"] = args ? args.terms : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["valueFunction"] = args ? args.valueFunction : undefined;
         }
         if (!opts) {
@@ -165,6 +174,8 @@ export interface NrqlAlertConditionState {
      * Set whether to enable the alert condition. Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    readonly expectedGroups?: pulumi.Input<number>;
+    readonly ignoreOverlap?: pulumi.Input<boolean>;
     /**
      * The title of the condition
      */
@@ -185,6 +196,7 @@ export interface NrqlAlertConditionState {
      * A list of terms for this condition. See Terms below for details.
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    readonly type?: pulumi.Input<string>;
     /**
      * Possible values are `singleValue`, `sum`.
      */
@@ -199,6 +211,8 @@ export interface NrqlAlertConditionArgs {
      * Set whether to enable the alert condition. Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    readonly expectedGroups?: pulumi.Input<number>;
+    readonly ignoreOverlap?: pulumi.Input<boolean>;
     /**
      * The title of the condition
      */
@@ -219,6 +233,7 @@ export interface NrqlAlertConditionArgs {
      * A list of terms for this condition. See Terms below for details.
      */
     readonly terms: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    readonly type?: pulumi.Input<string>;
     /**
      * Possible values are `singleValue`, `sum`.
      */

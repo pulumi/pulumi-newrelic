@@ -54,7 +54,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly incidentPreference!: pulumi.Output<string | undefined>;
     /**
-     * The name of the policy.
+     * The name of the policy.   Must be between 1 and 64 characters, inclusive.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -109,7 +109,7 @@ export interface AlertPolicyState {
      */
     readonly incidentPreference?: pulumi.Input<string>;
     /**
-     * The name of the policy.
+     * The name of the policy.   Must be between 1 and 64 characters, inclusive.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -127,7 +127,7 @@ export interface AlertPolicyArgs {
      */
     readonly incidentPreference?: pulumi.Input<string>;
     /**
-     * The name of the policy.
+     * The name of the policy.   Must be between 1 and 64 characters, inclusive.
      */
     readonly name?: pulumi.Input<string>;
 }
