@@ -12,18 +12,18 @@ import (
 // 
 // The `term` mapping supports the following arguments:
 // 
-//   * `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
-//   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-//   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-//   * `threshold` - (Required) Must be 0 or greater.
-//   * `timeFunction` - (Required) `all` or `any`.
+// - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
+// - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
+// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+// - `threshold` - (Required) Must be 0 or greater.
+// - `timeFunction` - (Required) `all` or `any`.
 // 
 // ## NRQL
 // 
 // The `nrql` attribute supports the following arguments:
 // 
-//   * `query` - (Required) The NRQL query to execute for the condition.
-//   * `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+// - `query` - (Required) The NRQL query to execute for the condition.
+// - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
 type NrqlAlertCondition struct {
@@ -107,7 +107,6 @@ func (r *NrqlAlertCondition) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Set whether to enable the alert condition. Defaults to `true`.
 func (r *NrqlAlertCondition) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
 }
@@ -120,27 +119,22 @@ func (r *NrqlAlertCondition) IgnoreOverlap() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["ignoreOverlap"])
 }
 
-// The title of the condition
 func (r *NrqlAlertCondition) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A NRQL query. See NRQL below for details.
 func (r *NrqlAlertCondition) Nrql() *pulumi.Output {
 	return r.s.State["nrql"]
 }
 
-// The ID of the policy where this condition should be used.
 func (r *NrqlAlertCondition) PolicyId() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["policyId"])
 }
 
-// Runbook URL to display in notifications.
 func (r *NrqlAlertCondition) RunbookUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
 
-// A list of terms for this condition. See Terms below for details.
 func (r *NrqlAlertCondition) Terms() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["terms"])
 }
@@ -149,49 +143,34 @@ func (r *NrqlAlertCondition) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
 
-// Possible values are `singleValue`, `sum`.
 func (r *NrqlAlertCondition) ValueFunction() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["valueFunction"])
 }
 
 // Input properties used for looking up and filtering NrqlAlertCondition resources.
 type NrqlAlertConditionState struct {
-	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled interface{}
 	ExpectedGroups interface{}
 	IgnoreOverlap interface{}
-	// The title of the condition
 	Name interface{}
-	// A NRQL query. See NRQL below for details.
 	Nrql interface{}
-	// The ID of the policy where this condition should be used.
 	PolicyId interface{}
-	// Runbook URL to display in notifications.
 	RunbookUrl interface{}
-	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
 	Type interface{}
-	// Possible values are `singleValue`, `sum`.
 	ValueFunction interface{}
 }
 
 // The set of arguments for constructing a NrqlAlertCondition resource.
 type NrqlAlertConditionArgs struct {
-	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled interface{}
 	ExpectedGroups interface{}
 	IgnoreOverlap interface{}
-	// The title of the condition
 	Name interface{}
-	// A NRQL query. See NRQL below for details.
 	Nrql interface{}
-	// The ID of the policy where this condition should be used.
 	PolicyId interface{}
-	// Runbook URL to display in notifications.
 	RunbookUrl interface{}
-	// A list of terms for this condition. See Terms below for details.
 	Terms interface{}
 	Type interface{}
-	// Possible values are `singleValue`, `sum`.
 	ValueFunction interface{}
 }

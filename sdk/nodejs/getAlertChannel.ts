@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * });
  * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
  * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
- *     channelId: newrelic_alert_channel_foo.id,
+ *     channelId: fooAlertChannel.id,
  *     policyId: fooAlertPolicy.id,
  * });
  * ```

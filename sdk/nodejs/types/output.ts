@@ -13,22 +13,59 @@ export interface AlertConditionTerm {
 }
 
 export interface DashboardFilter {
+    /**
+     * A list of attributes belonging to the specified event types to enable filtering for.
+     */
     attributes?: string[];
+    /**
+     * A list of event types to enable filtering for.
+     */
     eventTypes: string[];
 }
 
 export interface DashboardWidget {
     column: number;
+    compareWiths?: outputs.DashboardWidgetCompareWith[];
+    drilldownDashboardId?: number;
+    duration?: number;
+    endTime?: number;
+    entityIds?: number[];
+    facet?: string;
     height?: number;
+    limit?: number;
+    metrics?: outputs.DashboardWidgetMetric[];
     notes?: string;
     nrql?: string;
+    orderBy?: string;
+    rawMetricName: string;
     row: number;
+    source?: string;
+    thresholdRed?: number;
+    thresholdYellow?: number;
     /**
      * The title of the dashboard.
      */
     title: string;
     visualization: string;
+    widgetId: number;
     width?: number;
+}
+
+export interface DashboardWidgetCompareWith {
+    offsetDuration: string;
+    presentation: outputs.DashboardWidgetCompareWithPresentation;
+}
+
+export interface DashboardWidgetCompareWithPresentation {
+    color: string;
+    name: string;
+}
+
+export interface DashboardWidgetMetric {
+    name: string;
+    scope?: string;
+    units?: string;
+    values?: string[];
 }
 
 export interface InfraAlertConditionCritical {

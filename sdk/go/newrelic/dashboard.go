@@ -8,18 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// ## Widgets
-// 
-// The `widget` mapping supports the following arguments:
-// 
-//   * `title` - (Required) A title for the widget.
-//   * `visualization` - (Required) How the widget visualizes data.
-//   * `row` - (Required) Row position of widget from top left, starting at `1`.
-//   * `column` - (Required) Column position of widget from top left, starting at `1`.
-//   * `width` - (Optional) Width of the widget. Defaults to `1`.
-//   * `height` - (Optional) Height of the widget. Defaults to `1`.
-//   * `notes` - (Optional) Description of the widget.
-//   * `nrql` - (Optional) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+// This resource can be used to create and manage New Relic dashboards.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
 type Dashboard struct {
@@ -91,16 +80,17 @@ func (r *Dashboard) DashboardUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dashboardUrl"])
 }
 
-// Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
+// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 func (r *Dashboard) Editable() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["editable"])
 }
 
+// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
 func (r *Dashboard) Filter() *pulumi.Output {
 	return r.s.State["filter"]
 }
 
-// The icon for the dashboard.  Defaults to `bar-chart`.
+// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
 func (r *Dashboard) Icon() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["icon"])
 }
@@ -110,12 +100,12 @@ func (r *Dashboard) Title() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["title"])
 }
 
-// Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 func (r *Dashboard) Visibility() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["visibility"])
 }
 
-// A widget that describes a visualization. See Widgets below for details.
+// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
 func (r *Dashboard) Widgets() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["widgets"])
 }
@@ -123,30 +113,32 @@ func (r *Dashboard) Widgets() *pulumi.ArrayOutput {
 // Input properties used for looking up and filtering Dashboard resources.
 type DashboardState struct {
 	DashboardUrl interface{}
-	// Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable interface{}
+	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
 	Filter interface{}
-	// The icon for the dashboard.  Defaults to `bar-chart`.
+	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
 	Icon interface{}
 	// The title of the dashboard.
 	Title interface{}
-	// Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility interface{}
-	// A widget that describes a visualization. See Widgets below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
 	Widgets interface{}
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable interface{}
+	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
 	Filter interface{}
-	// The icon for the dashboard.  Defaults to `bar-chart`.
+	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
 	Icon interface{}
 	// The title of the dashboard.
 	Title interface{}
-	// Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility interface{}
-	// A widget that describes a visualization. See Widgets below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
 	Widgets interface{}
 }

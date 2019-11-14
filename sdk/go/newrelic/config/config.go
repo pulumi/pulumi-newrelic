@@ -30,6 +30,10 @@ func GetApiUrl(ctx *pulumi.Context) string {
 	return v
 }
 
+func GetCacertFile(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:cacertFile")
+}
+
 func GetInfraApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:infraApiUrl")
 	if err == nil {
@@ -39,4 +43,8 @@ func GetInfraApiUrl(ctx *pulumi.Context) string {
 		return dv
 	}
 	return v
+}
+
+func GetInsecureSkipVerify(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "newrelic:insecureSkipVerify")
 }

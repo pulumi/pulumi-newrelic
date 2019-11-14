@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, infra_api_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, cacert_file=None, infra_api_url=None, insecure_skip_verify=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the newrelic package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -45,9 +45,11 @@ class Provider(pulumi.ProviderResource):
             if api_url is None:
                 api_url = (utilities.get_env('NEWRELIC_API_URL') or 'https://api.newrelic.com/v2')
             __props__['api_url'] = api_url
+            __props__['cacert_file'] = cacert_file
             if infra_api_url is None:
                 infra_api_url = (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
             __props__['infra_api_url'] = infra_api_url
+            __props__['insecure_skip_verify'] = pulumi.Output.from_input(insecure_skip_verify).apply(json.dumps) if insecure_skip_verify is not None else None
         super(Provider, __self__).__init__(
             'newrelic',
             resource_name,

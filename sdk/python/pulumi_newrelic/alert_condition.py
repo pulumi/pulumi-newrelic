@@ -12,7 +12,7 @@ from . import utilities, tables
 class AlertCondition(pulumi.CustomResource):
     condition_scope: pulumi.Output[str]
     """
-    `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+    `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
     """
     enabled: pulumi.Output[bool]
     entities: pulumi.Output[list]
@@ -71,7 +71,7 @@ class AlertCondition(pulumi.CustomResource):
         
         The `term` mapping supports the following arguments:
         
-          * `duration` - (Required) In minutes, must be: `5`, `10`, `15`, `30`, `60`, or `120`.
+          * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
           * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
           * `threshold` - (Required) Must be 0 or greater.
@@ -79,7 +79,7 @@ class AlertCondition(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] condition_scope: `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+        :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[list] entities: The instance IDS associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set.
@@ -157,7 +157,7 @@ class AlertCondition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] condition_scope: `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+        :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[list] entities: The instance IDS associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set.

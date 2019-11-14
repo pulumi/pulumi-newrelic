@@ -74,6 +74,9 @@ export class Monitor extends pulumi.CustomResource {
      * The monitor status (i.e. ENABLED, MUTED, DISABLED)
      */
     public readonly status!: pulumi.Output<string>;
+    /**
+     * Fail the monitor check if redirected.
+     */
     public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
     /**
      * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
@@ -180,6 +183,9 @@ export interface MonitorState {
      * The monitor status (i.e. ENABLED, MUTED, DISABLED)
      */
     readonly status?: pulumi.Input<string>;
+    /**
+     * Fail the monitor check if redirected.
+     */
     readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
      * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
@@ -227,6 +233,9 @@ export interface MonitorArgs {
      * The monitor status (i.e. ENABLED, MUTED, DISABLED)
      */
     readonly status: pulumi.Input<string>;
+    /**
+     * Fail the monitor check if redirected.
+     */
     readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
      * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).

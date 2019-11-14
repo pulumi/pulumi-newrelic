@@ -12,7 +12,7 @@ namespace Pulumi.Newrelic
     /// 
     /// The `term` mapping supports the following arguments:
     /// 
-    ///   * `duration` - (Required) In minutes, must be: `5`, `10`, `15`, `30`, `60`, or `120`.
+    ///   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
     ///   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
     ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
     ///   * `threshold` - (Required) Must be 0 or greater.
@@ -23,7 +23,7 @@ namespace Pulumi.Newrelic
     public partial class AlertCondition : Pulumi.CustomResource
     {
         /// <summary>
-        /// `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+        /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         /// </summary>
         [Output("conditionScope")]
         public Output<string?> ConditionScope { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Newrelic
     public sealed class AlertConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+        /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         /// </summary>
         [Input("conditionScope")]
         public Input<string>? ConditionScope { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Newrelic
     public sealed class AlertConditionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+        /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         /// </summary>
         [Input("conditionScope")]
         public Input<string>? ConditionScope { get; set; }

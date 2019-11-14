@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * 
  * The `term` mapping supports the following arguments:
  * 
- *   * `duration` - (Required) In minutes, must be: `5`, `10`, `15`, `30`, `60`, or `120`.
+ *   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
  *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
  *   * `threshold` - (Required) Must be 0 or greater.
@@ -74,7 +74,7 @@ export class AlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     public readonly conditionScope!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -195,7 +195,7 @@ export class AlertCondition extends pulumi.CustomResource {
  */
 export interface AlertConditionState {
     /**
-     * `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     readonly conditionScope?: pulumi.Input<string>;
     readonly enabled?: pulumi.Input<boolean>;
@@ -250,7 +250,7 @@ export interface AlertConditionState {
  */
 export interface AlertConditionArgs {
     /**
-     * `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+     * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     readonly conditionScope?: pulumi.Input<string>;
     readonly enabled?: pulumi.Input<boolean>;

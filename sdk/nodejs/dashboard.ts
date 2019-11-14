@@ -38,12 +38,15 @@ export class Dashboard extends pulumi.CustomResource {
 
     public /*out*/ readonly dashboardUrl!: pulumi.Output<string>;
     /**
-     * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
+     * Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
      */
     public readonly editable!: pulumi.Output<string | undefined>;
+    /**
+     * A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+     */
     public readonly filter!: pulumi.Output<outputs.DashboardFilter | undefined>;
     /**
-     * The icon for the dashboard.  Defaults to `bar-chart`.
+     * The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
      */
     public readonly icon!: pulumi.Output<string | undefined>;
     /**
@@ -51,11 +54,11 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+     * Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
      */
     public readonly visibility!: pulumi.Output<string | undefined>;
     /**
-     * A widget that describes a visualization. See Widgets below for details.
+     * A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
      */
     public readonly widgets!: pulumi.Output<outputs.DashboardWidget[] | undefined>;
 
@@ -108,12 +111,15 @@ export class Dashboard extends pulumi.CustomResource {
 export interface DashboardState {
     readonly dashboardUrl?: pulumi.Input<string>;
     /**
-     * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
+     * Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
      */
     readonly editable?: pulumi.Input<string>;
+    /**
+     * A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+     */
     readonly filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
-     * The icon for the dashboard.  Defaults to `bar-chart`.
+     * The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
      */
     readonly icon?: pulumi.Input<string>;
     /**
@@ -121,11 +127,11 @@ export interface DashboardState {
      */
     readonly title?: pulumi.Input<string>;
     /**
-     * Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+     * Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
      */
     readonly visibility?: pulumi.Input<string>;
     /**
-     * A widget that describes a visualization. See Widgets below for details.
+     * A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
      */
     readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
@@ -135,12 +141,15 @@ export interface DashboardState {
  */
 export interface DashboardArgs {
     /**
-     * Who can edit the dashboard in an account. Must be `readOnly`, `editableByOwner`, `editableByAll`, or `all`. Defaults to `editableByAll`.
+     * Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
      */
     readonly editable?: pulumi.Input<string>;
+    /**
+     * A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+     */
     readonly filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
-     * The icon for the dashboard.  Defaults to `bar-chart`.
+     * The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
      */
     readonly icon?: pulumi.Input<string>;
     /**
@@ -148,11 +157,11 @@ export interface DashboardArgs {
      */
     readonly title: pulumi.Input<string>;
     /**
-     * Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+     * Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
      */
     readonly visibility?: pulumi.Input<string>;
     /**
-     * A widget that describes a visualization. See Widgets below for details.
+     * A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
      */
     readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
