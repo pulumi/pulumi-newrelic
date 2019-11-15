@@ -50,8 +50,14 @@ namespace Pulumi.Newrelic
         [Input("apiUrl")]
         public Input<string>? ApiUrl { get; set; }
 
+        [Input("cacertFile")]
+        public Input<string>? CacertFile { get; set; }
+
         [Input("infraApiUrl")]
         public Input<string>? InfraApiUrl { get; set; }
+
+        [Input("insecureSkipVerify", json: true)]
+        public Input<bool>? InsecureSkipVerify { get; set; }
 
         public ProviderArgs()
         {

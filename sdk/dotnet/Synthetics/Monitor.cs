@@ -50,6 +50,9 @@ namespace Pulumi.Newrelic.Synthetics
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Fail the monitor check if redirected.
+        /// </summary>
         [Output("treatRedirectAsFailure")]
         public Output<bool?> TreatRedirectAsFailure { get; private set; } = null!;
 
@@ -165,6 +168,9 @@ namespace Pulumi.Newrelic.Synthetics
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
+        /// <summary>
+        /// Fail the monitor check if redirected.
+        /// </summary>
         [Input("treatRedirectAsFailure")]
         public Input<bool>? TreatRedirectAsFailure { get; set; }
 
@@ -241,6 +247,9 @@ namespace Pulumi.Newrelic.Synthetics
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Fail the monitor check if redirected.
+        /// </summary>
         [Input("treatRedirectAsFailure")]
         public Input<bool>? TreatRedirectAsFailure { get; set; }
 

@@ -12,7 +12,7 @@ import (
 // 
 // The `term` mapping supports the following arguments:
 // 
-//   * `duration` - (Required) In minutes, must be: `5`, `10`, `15`, `30`, `60`, or `120`.
+//   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
 //   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
 //   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
 //   * `threshold` - (Required) Must be 0 or greater.
@@ -115,7 +115,7 @@ func (r *AlertCondition) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 func (r *AlertCondition) ConditionScope() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["conditionScope"])
 }
@@ -181,7 +181,7 @@ func (r *AlertCondition) ViolationCloseTimer() *pulumi.IntOutput {
 
 // Input properties used for looking up and filtering AlertCondition resources.
 type AlertConditionState struct {
-	// `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope interface{}
 	Enabled interface{}
 	// The instance IDS associated with this condition.
@@ -210,7 +210,7 @@ type AlertConditionState struct {
 
 // The set of arguments for constructing a AlertCondition resource.
 type AlertConditionArgs struct {
-	// `instance` or `application`.  This is required if you are using the JVM plugin in New Relic.
+	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope interface{}
 	Enabled interface{}
 	// The instance IDS associated with this condition.

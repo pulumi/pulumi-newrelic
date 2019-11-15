@@ -12,26 +12,23 @@ namespace Pulumi.Newrelic
     /// 
     /// The `term` mapping supports the following arguments:
     /// 
-    ///   * `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
-    ///   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-    ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-    ///   * `threshold` - (Required) Must be 0 or greater.
-    ///   * `time_function` - (Required) `all` or `any`.
+    /// - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
+    /// - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
+    /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+    /// - `threshold` - (Required) Must be 0 or greater.
+    /// - `time_function` - (Required) `all` or `any`.
     /// 
     /// ## NRQL
     /// 
     /// The `nrql` attribute supports the following arguments:
     /// 
-    ///   * `query` - (Required) The NRQL query to execute for the condition.
-    ///   * `since_value` - (Required) The value to be used in the `SINCE &lt;X&gt; MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+    /// - `query` - (Required) The NRQL query to execute for the condition.
+    /// - `since_value` - (Required) The value to be used in the `SINCE &lt;X&gt; MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
     /// </summary>
     public partial class NrqlAlertCondition : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -41,42 +38,24 @@ namespace Pulumi.Newrelic
         [Output("ignoreOverlap")]
         public Output<bool?> IgnoreOverlap { get; private set; } = null!;
 
-        /// <summary>
-        /// The title of the condition
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A NRQL query. See NRQL below for details.
-        /// </summary>
         [Output("nrql")]
         public Output<Outputs.NrqlAlertConditionNrql> Nrql { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the policy where this condition should be used.
-        /// </summary>
         [Output("policyId")]
         public Output<int> PolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Runbook URL to display in notifications.
-        /// </summary>
         [Output("runbookUrl")]
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of terms for this condition. See Terms below for details.
-        /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerms>> Terms { get; private set; } = null!;
 
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Possible values are `single_value`, `sum`.
-        /// </summary>
         [Output("valueFunction")]
         public Output<string?> ValueFunction { get; private set; } = null!;
 
@@ -126,9 +105,6 @@ namespace Pulumi.Newrelic
 
     public sealed class NrqlAlertConditionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -138,36 +114,20 @@ namespace Pulumi.Newrelic
         [Input("ignoreOverlap")]
         public Input<bool>? IgnoreOverlap { get; set; }
 
-        /// <summary>
-        /// The title of the condition
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A NRQL query. See NRQL below for details.
-        /// </summary>
         [Input("nrql", required: true)]
         public Input<Inputs.NrqlAlertConditionNrqlArgs> Nrql { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the policy where this condition should be used.
-        /// </summary>
         [Input("policyId", required: true)]
         public Input<int> PolicyId { get; set; } = null!;
 
-        /// <summary>
-        /// Runbook URL to display in notifications.
-        /// </summary>
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
 
         [Input("terms", required: true)]
         private InputList<Inputs.NrqlAlertConditionTermsArgs>? _terms;
-
-        /// <summary>
-        /// A list of terms for this condition. See Terms below for details.
-        /// </summary>
         public InputList<Inputs.NrqlAlertConditionTermsArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermsArgs>());
@@ -177,9 +137,6 @@ namespace Pulumi.Newrelic
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Possible values are `single_value`, `sum`.
-        /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
 
@@ -190,9 +147,6 @@ namespace Pulumi.Newrelic
 
     public sealed class NrqlAlertConditionState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -202,36 +156,20 @@ namespace Pulumi.Newrelic
         [Input("ignoreOverlap")]
         public Input<bool>? IgnoreOverlap { get; set; }
 
-        /// <summary>
-        /// The title of the condition
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A NRQL query. See NRQL below for details.
-        /// </summary>
         [Input("nrql")]
         public Input<Inputs.NrqlAlertConditionNrqlGetArgs>? Nrql { get; set; }
 
-        /// <summary>
-        /// The ID of the policy where this condition should be used.
-        /// </summary>
         [Input("policyId")]
         public Input<int>? PolicyId { get; set; }
 
-        /// <summary>
-        /// Runbook URL to display in notifications.
-        /// </summary>
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
 
         [Input("terms")]
         private InputList<Inputs.NrqlAlertConditionTermsGetArgs>? _terms;
-
-        /// <summary>
-        /// A list of terms for this condition. See Terms below for details.
-        /// </summary>
         public InputList<Inputs.NrqlAlertConditionTermsGetArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermsGetArgs>());
@@ -241,9 +179,6 @@ namespace Pulumi.Newrelic
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Possible values are `single_value`, `sum`.
-        /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
 

@@ -13,22 +13,59 @@ export interface AlertConditionTerm {
 }
 
 export interface DashboardFilter {
+    /**
+     * A list of attributes belonging to the specified event types to enable filtering for.
+     */
     attributes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of event types to enable filtering for.
+     */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface DashboardWidget {
     column: pulumi.Input<number>;
+    compareWiths?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetCompareWith>[]>;
+    drilldownDashboardId?: pulumi.Input<number>;
+    duration?: pulumi.Input<number>;
+    endTime?: pulumi.Input<number>;
+    entityIds?: pulumi.Input<pulumi.Input<number>[]>;
+    facet?: pulumi.Input<string>;
     height?: pulumi.Input<number>;
+    limit?: pulumi.Input<number>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetMetric>[]>;
     notes?: pulumi.Input<string>;
     nrql?: pulumi.Input<string>;
+    orderBy?: pulumi.Input<string>;
+    rawMetricName?: pulumi.Input<string>;
     row: pulumi.Input<number>;
+    source?: pulumi.Input<string>;
+    thresholdRed?: pulumi.Input<number>;
+    thresholdYellow?: pulumi.Input<number>;
     /**
      * The title of the dashboard.
      */
     title: pulumi.Input<string>;
     visualization: pulumi.Input<string>;
+    widgetId?: pulumi.Input<number>;
     width?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetCompareWith {
+    offsetDuration: pulumi.Input<string>;
+    presentation: pulumi.Input<inputs.DashboardWidgetCompareWithPresentation>;
+}
+
+export interface DashboardWidgetCompareWithPresentation {
+    color: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetMetric {
+    name: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
+    units?: pulumi.Input<string>;
+    values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface InfraAlertConditionCritical {

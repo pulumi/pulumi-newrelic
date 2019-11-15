@@ -42,7 +42,9 @@ export class Provider extends pulumi.ProviderResource {
         {
             inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("NEWRELIC_API_KEY");
             inputs["apiUrl"] = (args ? args.apiUrl : undefined) || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
+            inputs["cacertFile"] = args ? args.cacertFile : undefined;
             inputs["infraApiUrl"] = (args ? args.infraApiUrl : undefined) || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
+            inputs["insecureSkipVerify"] = pulumi.output(args ? args.insecureSkipVerify : undefined).apply(JSON.stringify);
         }
         if (!opts) {
             opts = {}
@@ -61,5 +63,7 @@ export class Provider extends pulumi.ProviderResource {
 export interface ProviderArgs {
     readonly apiKey?: pulumi.Input<string>;
     readonly apiUrl?: pulumi.Input<string>;
+    readonly cacertFile?: pulumi.Input<string>;
     readonly infraApiUrl?: pulumi.Input<string>;
+    readonly insecureSkipVerify?: pulumi.Input<boolean>;
 }

@@ -8,18 +8,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Newrelic
 {
     /// <summary>
-    /// ## Widgets
-    /// 
-    /// The `widget` mapping supports the following arguments:
-    /// 
-    ///   * `title` - (Required) A title for the widget.
-    ///   * `visualization` - (Required) How the widget visualizes data.
-    ///   * `row` - (Required) Row position of widget from top left, starting at `1`.
-    ///   * `column` - (Required) Column position of widget from top left, starting at `1`.
-    ///   * `width` - (Optional) Width of the widget. Defaults to `1`.
-    ///   * `height` - (Optional) Height of the widget. Defaults to `1`.
-    ///   * `notes` - (Optional) Description of the widget.
-    ///   * `nrql` - (Optional) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+    /// This resource can be used to create and manage New Relic dashboards.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
     /// </summary>
@@ -29,16 +18,19 @@ namespace Pulumi.Newrelic
         public Output<string> DashboardUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+        /// Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         /// </summary>
         [Output("editable")]
         public Output<string?> Editable { get; private set; } = null!;
 
+        /// <summary>
+        /// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        /// </summary>
         [Output("filter")]
         public Output<Outputs.DashboardFilter?> Filter { get; private set; } = null!;
 
         /// <summary>
-        /// The icon for the dashboard.  Defaults to `bar-chart`.
+        /// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         /// </summary>
         [Output("icon")]
         public Output<string?> Icon { get; private set; } = null!;
@@ -50,13 +42,13 @@ namespace Pulumi.Newrelic
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+        /// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
         /// </summary>
         [Output("visibility")]
         public Output<string?> Visibility { get; private set; } = null!;
 
         /// <summary>
-        /// A widget that describes a visualization. See Widgets below for details.
+        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         /// </summary>
         [Output("widgets")]
         public Output<ImmutableArray<Outputs.DashboardWidgets>> Widgets { get; private set; } = null!;
@@ -108,16 +100,19 @@ namespace Pulumi.Newrelic
     public sealed class DashboardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+        /// Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         /// </summary>
         [Input("editable")]
         public Input<string>? Editable { get; set; }
 
+        /// <summary>
+        /// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.DashboardFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// The icon for the dashboard.  Defaults to `bar-chart`.
+        /// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         /// </summary>
         [Input("icon")]
         public Input<string>? Icon { get; set; }
@@ -129,7 +124,7 @@ namespace Pulumi.Newrelic
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+        /// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
@@ -138,7 +133,7 @@ namespace Pulumi.Newrelic
         private InputList<Inputs.DashboardWidgetsArgs>? _widgets;
 
         /// <summary>
-        /// A widget that describes a visualization. See Widgets below for details.
+        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         /// </summary>
         public InputList<Inputs.DashboardWidgetsArgs> Widgets
         {
@@ -157,16 +152,19 @@ namespace Pulumi.Newrelic
         public Input<string>? DashboardUrl { get; set; }
 
         /// <summary>
-        /// Who can edit the dashboard in an account. Must be `read_only`, `editable_by_owner`, `editable_by_all`, or `all`. Defaults to `editable_by_all`.
+        /// Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         /// </summary>
         [Input("editable")]
         public Input<string>? Editable { get; set; }
 
+        /// <summary>
+        /// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.DashboardFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// The icon for the dashboard.  Defaults to `bar-chart`.
+        /// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         /// </summary>
         [Input("icon")]
         public Input<string>? Icon { get; set; }
@@ -178,7 +176,7 @@ namespace Pulumi.Newrelic
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// Who can see the dashboard in an account. Must be `owner` or `all`. Defaults to `all`.
+        /// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
@@ -187,7 +185,7 @@ namespace Pulumi.Newrelic
         private InputList<Inputs.DashboardWidgetsGetArgs>? _widgets;
 
         /// <summary>
-        /// A widget that describes a visualization. See Widgets below for details.
+        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         /// </summary>
         public InputList<Inputs.DashboardWidgetsGetArgs> Widgets
         {
@@ -207,6 +205,10 @@ namespace Pulumi.Newrelic
     {
         [Input("attributes")]
         private InputList<string>? _attributes;
+
+        /// <summary>
+        /// A list of attributes belonging to the specified event types to enable filtering for.
+        /// </summary>
         public InputList<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<string>());
@@ -215,6 +217,10 @@ namespace Pulumi.Newrelic
 
         [Input("eventTypes", required: true)]
         private InputList<string>? _eventTypes;
+
+        /// <summary>
+        /// A list of event types to enable filtering for.
+        /// </summary>
         public InputList<string> EventTypes
         {
             get => _eventTypes ?? (_eventTypes = new InputList<string>());
@@ -230,6 +236,10 @@ namespace Pulumi.Newrelic
     {
         [Input("attributes")]
         private InputList<string>? _attributes;
+
+        /// <summary>
+        /// A list of attributes belonging to the specified event types to enable filtering for.
+        /// </summary>
         public InputList<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<string>());
@@ -238,6 +248,10 @@ namespace Pulumi.Newrelic
 
         [Input("eventTypes", required: true)]
         private InputList<string>? _eventTypes;
+
+        /// <summary>
+        /// A list of event types to enable filtering for.
+        /// </summary>
         public InputList<string> EventTypes
         {
             get => _eventTypes ?? (_eventTypes = new InputList<string>());
@@ -254,8 +268,47 @@ namespace Pulumi.Newrelic
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
+        [Input("compareWiths")]
+        private InputList<DashboardWidgetsCompareWithsArgs>? _compareWiths;
+        public InputList<DashboardWidgetsCompareWithsArgs> CompareWiths
+        {
+            get => _compareWiths ?? (_compareWiths = new InputList<DashboardWidgetsCompareWithsArgs>());
+            set => _compareWiths = value;
+        }
+
+        [Input("drilldownDashboardId")]
+        public Input<int>? DrilldownDashboardId { get; set; }
+
+        [Input("duration")]
+        public Input<int>? Duration { get; set; }
+
+        [Input("endTime")]
+        public Input<int>? EndTime { get; set; }
+
+        [Input("entityIds")]
+        private InputList<int>? _entityIds;
+        public InputList<int> EntityIds
+        {
+            get => _entityIds ?? (_entityIds = new InputList<int>());
+            set => _entityIds = value;
+        }
+
+        [Input("facet")]
+        public Input<string>? Facet { get; set; }
+
         [Input("height")]
         public Input<int>? Height { get; set; }
+
+        [Input("limit")]
+        public Input<int>? Limit { get; set; }
+
+        [Input("metrics")]
+        private InputList<DashboardWidgetsMetricsArgs>? _metrics;
+        public InputList<DashboardWidgetsMetricsArgs> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<DashboardWidgetsMetricsArgs>());
+            set => _metrics = value;
+        }
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
@@ -263,8 +316,23 @@ namespace Pulumi.Newrelic
         [Input("nrql")]
         public Input<string>? Nrql { get; set; }
 
+        [Input("orderBy")]
+        public Input<string>? OrderBy { get; set; }
+
+        [Input("rawMetricName")]
+        public Input<string>? RawMetricName { get; set; }
+
         [Input("row", required: true)]
         public Input<int> Row { get; set; } = null!;
+
+        [Input("source")]
+        public Input<string>? Source { get; set; }
+
+        [Input("thresholdRed")]
+        public Input<double>? ThresholdRed { get; set; }
+
+        [Input("thresholdYellow")]
+        public Input<double>? ThresholdYellow { get; set; }
 
         /// <summary>
         /// The title of the dashboard.
@@ -274,6 +342,9 @@ namespace Pulumi.Newrelic
 
         [Input("visualization", required: true)]
         public Input<string> Visualization { get; set; } = null!;
+
+        [Input("widgetId")]
+        public Input<int>? WidgetId { get; set; }
 
         [Input("width")]
         public Input<int>? Width { get; set; }
@@ -283,13 +354,104 @@ namespace Pulumi.Newrelic
         }
     }
 
+    public sealed class DashboardWidgetsCompareWithsArgs : Pulumi.ResourceArgs
+    {
+        [Input("offsetDuration", required: true)]
+        public Input<string> OffsetDuration { get; set; } = null!;
+
+        [Input("presentation", required: true)]
+        public Input<DashboardWidgetsCompareWithsPresentationArgs> Presentation { get; set; } = null!;
+
+        public DashboardWidgetsCompareWithsArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsCompareWithsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("offsetDuration", required: true)]
+        public Input<string> OffsetDuration { get; set; } = null!;
+
+        [Input("presentation", required: true)]
+        public Input<DashboardWidgetsCompareWithsPresentationGetArgs> Presentation { get; set; } = null!;
+
+        public DashboardWidgetsCompareWithsGetArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsCompareWithsPresentationArgs : Pulumi.ResourceArgs
+    {
+        [Input("color", required: true)]
+        public Input<string> Color { get; set; } = null!;
+
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public DashboardWidgetsCompareWithsPresentationArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsCompareWithsPresentationGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("color", required: true)]
+        public Input<string> Color { get; set; } = null!;
+
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public DashboardWidgetsCompareWithsPresentationGetArgs()
+        {
+        }
+    }
+
     public sealed class DashboardWidgetsGetArgs : Pulumi.ResourceArgs
     {
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
+        [Input("compareWiths")]
+        private InputList<DashboardWidgetsCompareWithsGetArgs>? _compareWiths;
+        public InputList<DashboardWidgetsCompareWithsGetArgs> CompareWiths
+        {
+            get => _compareWiths ?? (_compareWiths = new InputList<DashboardWidgetsCompareWithsGetArgs>());
+            set => _compareWiths = value;
+        }
+
+        [Input("drilldownDashboardId")]
+        public Input<int>? DrilldownDashboardId { get; set; }
+
+        [Input("duration")]
+        public Input<int>? Duration { get; set; }
+
+        [Input("endTime")]
+        public Input<int>? EndTime { get; set; }
+
+        [Input("entityIds")]
+        private InputList<int>? _entityIds;
+        public InputList<int> EntityIds
+        {
+            get => _entityIds ?? (_entityIds = new InputList<int>());
+            set => _entityIds = value;
+        }
+
+        [Input("facet")]
+        public Input<string>? Facet { get; set; }
+
         [Input("height")]
         public Input<int>? Height { get; set; }
+
+        [Input("limit")]
+        public Input<int>? Limit { get; set; }
+
+        [Input("metrics")]
+        private InputList<DashboardWidgetsMetricsGetArgs>? _metrics;
+        public InputList<DashboardWidgetsMetricsGetArgs> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<DashboardWidgetsMetricsGetArgs>());
+            set => _metrics = value;
+        }
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
@@ -297,8 +459,23 @@ namespace Pulumi.Newrelic
         [Input("nrql")]
         public Input<string>? Nrql { get; set; }
 
+        [Input("orderBy")]
+        public Input<string>? OrderBy { get; set; }
+
+        [Input("rawMetricName")]
+        public Input<string>? RawMetricName { get; set; }
+
         [Input("row", required: true)]
         public Input<int> Row { get; set; } = null!;
+
+        [Input("source")]
+        public Input<string>? Source { get; set; }
+
+        [Input("thresholdRed")]
+        public Input<double>? ThresholdRed { get; set; }
+
+        [Input("thresholdYellow")]
+        public Input<double>? ThresholdYellow { get; set; }
 
         /// <summary>
         /// The title of the dashboard.
@@ -309,10 +486,61 @@ namespace Pulumi.Newrelic
         [Input("visualization", required: true)]
         public Input<string> Visualization { get; set; } = null!;
 
+        [Input("widgetId")]
+        public Input<int>? WidgetId { get; set; }
+
         [Input("width")]
         public Input<int>? Width { get; set; }
 
         public DashboardWidgetsGetArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsMetricsArgs : Pulumi.ResourceArgs
+    {
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        [Input("units")]
+        public Input<string>? Units { get; set; }
+
+        [Input("values")]
+        private InputList<string>? _values;
+        public InputList<string> Values
+        {
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
+        }
+
+        public DashboardWidgetsMetricsArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsMetricsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        [Input("units")]
+        public Input<string>? Units { get; set; }
+
+        [Input("values")]
+        private InputList<string>? _values;
+        public InputList<string> Values
+        {
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
+        }
+
+        public DashboardWidgetsMetricsGetArgs()
         {
         }
     }
@@ -324,7 +552,13 @@ namespace Pulumi.Newrelic
     [OutputType]
     public sealed class DashboardFilter
     {
+        /// <summary>
+        /// A list of attributes belonging to the specified event types to enable filtering for.
+        /// </summary>
         public readonly ImmutableArray<string> Attributes;
+        /// <summary>
+        /// A list of event types to enable filtering for.
+        /// </summary>
         public readonly ImmutableArray<string> EventTypes;
 
         [OutputConstructor]
@@ -341,36 +575,132 @@ namespace Pulumi.Newrelic
     public sealed class DashboardWidgets
     {
         public readonly int Column;
+        public readonly ImmutableArray<DashboardWidgetsCompareWiths> CompareWiths;
+        public readonly int? DrilldownDashboardId;
+        public readonly int? Duration;
+        public readonly int? EndTime;
+        public readonly ImmutableArray<int> EntityIds;
+        public readonly string? Facet;
         public readonly int? Height;
+        public readonly int? Limit;
+        public readonly ImmutableArray<DashboardWidgetsMetrics> Metrics;
         public readonly string? Notes;
         public readonly string? Nrql;
+        public readonly string? OrderBy;
+        public readonly string RawMetricName;
         public readonly int Row;
+        public readonly string? Source;
+        public readonly double? ThresholdRed;
+        public readonly double? ThresholdYellow;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
         public readonly string Title;
         public readonly string Visualization;
+        public readonly int WidgetId;
         public readonly int? Width;
 
         [OutputConstructor]
         private DashboardWidgets(
             int column,
+            ImmutableArray<DashboardWidgetsCompareWiths> compareWiths,
+            int? drilldownDashboardId,
+            int? duration,
+            int? endTime,
+            ImmutableArray<int> entityIds,
+            string? facet,
             int? height,
+            int? limit,
+            ImmutableArray<DashboardWidgetsMetrics> metrics,
             string? notes,
             string? nrql,
+            string? orderBy,
+            string rawMetricName,
             int row,
+            string? source,
+            double? thresholdRed,
+            double? thresholdYellow,
             string title,
             string visualization,
+            int widgetId,
             int? width)
         {
             Column = column;
+            CompareWiths = compareWiths;
+            DrilldownDashboardId = drilldownDashboardId;
+            Duration = duration;
+            EndTime = endTime;
+            EntityIds = entityIds;
+            Facet = facet;
             Height = height;
+            Limit = limit;
+            Metrics = metrics;
             Notes = notes;
             Nrql = nrql;
+            OrderBy = orderBy;
+            RawMetricName = rawMetricName;
             Row = row;
+            Source = source;
+            ThresholdRed = thresholdRed;
+            ThresholdYellow = thresholdYellow;
             Title = title;
             Visualization = visualization;
+            WidgetId = widgetId;
             Width = width;
+        }
+    }
+
+    [OutputType]
+    public sealed class DashboardWidgetsCompareWiths
+    {
+        public readonly string OffsetDuration;
+        public readonly DashboardWidgetsCompareWithsPresentation Presentation;
+
+        [OutputConstructor]
+        private DashboardWidgetsCompareWiths(
+            string offsetDuration,
+            DashboardWidgetsCompareWithsPresentation presentation)
+        {
+            OffsetDuration = offsetDuration;
+            Presentation = presentation;
+        }
+    }
+
+    [OutputType]
+    public sealed class DashboardWidgetsCompareWithsPresentation
+    {
+        public readonly string Color;
+        public readonly string Name;
+
+        [OutputConstructor]
+        private DashboardWidgetsCompareWithsPresentation(
+            string color,
+            string name)
+        {
+            Color = color;
+            Name = name;
+        }
+    }
+
+    [OutputType]
+    public sealed class DashboardWidgetsMetrics
+    {
+        public readonly string Name;
+        public readonly string? Scope;
+        public readonly string? Units;
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private DashboardWidgetsMetrics(
+            string name,
+            string? scope,
+            string? units,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Scope = scope;
+            Units = units;
+            Values = values;
         }
     }
     }

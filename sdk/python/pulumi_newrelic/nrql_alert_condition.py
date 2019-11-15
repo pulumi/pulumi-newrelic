@@ -11,73 +11,36 @@ from . import utilities, tables
 
 class NrqlAlertCondition(pulumi.CustomResource):
     enabled: pulumi.Output[bool]
-    """
-    Set whether to enable the alert condition. Defaults to `true`.
-    """
     expected_groups: pulumi.Output[float]
     ignore_overlap: pulumi.Output[bool]
     name: pulumi.Output[str]
-    """
-    The title of the condition
-    """
     nrql: pulumi.Output[dict]
-    """
-    A NRQL query. See NRQL below for details.
-    
-      * `query` (`str`)
-      * `sinceValue` (`str`)
-    """
     policy_id: pulumi.Output[float]
-    """
-    The ID of the policy where this condition should be used.
-    """
     runbook_url: pulumi.Output[str]
-    """
-    Runbook URL to display in notifications.
-    """
     terms: pulumi.Output[list]
-    """
-    A list of terms for this condition. See Terms below for details.
-    
-      * `duration` (`float`)
-      * `operator` (`str`)
-      * `priority` (`str`)
-      * `threshold` (`float`)
-      * `timeFunction` (`str`)
-    """
     type: pulumi.Output[str]
     value_function: pulumi.Output[str]
-    """
-    Possible values are `single_value`, `sum`.
-    """
     def __init__(__self__, resource_name, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Terms
         
         The `term` mapping supports the following arguments:
         
-          * `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
-          * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-          * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-          * `threshold` - (Required) Must be 0 or greater.
-          * `time_function` - (Required) `all` or `any`.
+        - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
+        - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
+        - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+        - `threshold` - (Required) Must be 0 or greater.
+        - `time_function` - (Required) `all` or `any`.
         
         ## NRQL
         
         The `nrql` attribute supports the following arguments:
         
-          * `query` - (Required) The NRQL query to execute for the condition.
-          * `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+        - `query` - (Required) The NRQL query to execute for the condition.
+        - `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] name: The title of the condition
-        :param pulumi.Input[dict] nrql: A NRQL query. See NRQL below for details.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
-        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum`.
         
         The **nrql** object supports the following:
         
@@ -142,13 +105,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] name: The title of the condition
-        :param pulumi.Input[dict] nrql: A NRQL query. See NRQL below for details.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
-        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum`.
         
         The **nrql** object supports the following:
         

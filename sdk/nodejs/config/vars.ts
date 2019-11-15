@@ -8,4 +8,6 @@ let __config = new pulumi.Config("newrelic");
 
 export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("NEWRELIC_API_KEY");
 export let apiUrl: string | undefined = __config.get("apiUrl") || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
+export let cacertFile: string | undefined = __config.get("cacertFile");
 export let infraApiUrl: string | undefined = __config.get("infraApiUrl") || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
+export let insecureSkipVerify: boolean | undefined = __config.getObject<boolean>("insecureSkipVerify");

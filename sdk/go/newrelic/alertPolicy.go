@@ -69,7 +69,7 @@ func (r *AlertPolicy) IncidentPreference() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["incidentPreference"])
 }
 
-// The name of the policy.   Must be between 1 and 64 characters, inclusive.
+// The name of the policy.
 func (r *AlertPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -85,7 +85,7 @@ type AlertPolicyState struct {
 	CreatedAt interface{}
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference interface{}
-	// The name of the policy.   Must be between 1 and 64 characters, inclusive.
+	// The name of the policy.
 	Name interface{}
 	// The time the policy was last updated.
 	UpdatedAt interface{}
@@ -95,6 +95,6 @@ type AlertPolicyState struct {
 type AlertPolicyArgs struct {
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference interface{}
-	// The name of the policy.   Must be between 1 and 64 characters, inclusive.
+	// The name of the policy.
 	Name interface{}
 }

@@ -13,7 +13,11 @@ namespace Pulumi.Newrelic.Config
 
         public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
 
+        public static string? CacertFile { get; set; } = __config.Get("cacertFile");
+
         public static string? InfraApiUrl { get; set; } = __config.Get("infraApiUrl") ?? Utilities.GetEnv("NEWRELIC_INFRA_API_URL") ?? "https://infra-api.newrelic.com/v2";
+
+        public static bool? InsecureSkipVerify { get; set; } = __config.GetBoolean("insecureSkipVerify");
 
     }
     namespace ConfigTypes

@@ -20,7 +20,7 @@ class AlertPolicy(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the policy.   Must be between 1 and 64 characters, inclusive.
+    The name of the policy.
     """
     updated_at: pulumi.Output[str]
     """
@@ -33,7 +33,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
-        :param pulumi.Input[str] name: The name of the policy.   Must be between 1 and 64 characters, inclusive.
+        :param pulumi.Input[str] name: The name of the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
         """
@@ -75,7 +75,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the policy was created.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
-        :param pulumi.Input[str] name: The name of the policy.   Must be between 1 and 64 characters, inclusive.
+        :param pulumi.Input[str] name: The name of the policy.
         :param pulumi.Input[str] updated_at: The time the policy was last updated.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
