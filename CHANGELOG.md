@@ -7,6 +7,9 @@ _(none)_
 ---
 
 ## 1.1.0 (2019-11-15)
+* Removing redundant README.rst from Python package which causes installation problems
+
+## 1.1.0 (2019-11-15)
 * Add support for DotNet SDK Generation
 * Upgrade to v1.7.0 of the NewRelic Terraform Provider
 
