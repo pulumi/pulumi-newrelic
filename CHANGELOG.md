@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to support go 1.13.x
+* Upgrade to v1.8.0 of NewRelic Terraform Provider
 
 ---
 
