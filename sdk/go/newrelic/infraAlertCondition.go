@@ -132,7 +132,7 @@ func (r *InfraAlertCondition) Event() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["event"])
 }
 
-// For alerts on integrations, use this instead of `event`. 
+// For alerts on integrations, use this instead of `event`.
 func (r *InfraAlertCondition) IntegrationProvider() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["integrationProvider"])
 }
@@ -152,6 +152,7 @@ func (r *InfraAlertCondition) ProcessWhere() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["processWhere"])
 }
 
+// Runbook URL to display in notifications.
 func (r *InfraAlertCondition) RunbookUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
@@ -191,7 +192,7 @@ type InfraAlertConditionState struct {
 	Enabled interface{}
 	// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
 	Event interface{}
-	// For alerts on integrations, use this instead of `event`. 
+	// For alerts on integrations, use this instead of `event`.
 	IntegrationProvider interface{}
 	// The Infrastructure alert condition's name.
 	Name interface{}
@@ -199,6 +200,7 @@ type InfraAlertConditionState struct {
 	PolicyId interface{}
 	// Any filters applied to processes; for example: `"commandName = 'java'"`.
 	ProcessWhere interface{}
+	// Runbook URL to display in notifications.
 	RunbookUrl interface{}
 	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 	Select interface{}
@@ -221,7 +223,7 @@ type InfraAlertConditionArgs struct {
 	Enabled interface{}
 	// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
 	Event interface{}
-	// For alerts on integrations, use this instead of `event`. 
+	// For alerts on integrations, use this instead of `event`.
 	IntegrationProvider interface{}
 	// The Infrastructure alert condition's name.
 	Name interface{}
@@ -229,6 +231,7 @@ type InfraAlertConditionArgs struct {
 	PolicyId interface{}
 	// Any filters applied to processes; for example: `"commandName = 'java'"`.
 	ProcessWhere interface{}
+	// Runbook URL to display in notifications.
 	RunbookUrl interface{}
 	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
 	Select interface{}

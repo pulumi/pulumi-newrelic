@@ -29,6 +29,7 @@ import * as utilities from "./utilities";
  *         threshold: 1,
  *         timeFunction: "all",
  *     }],
+ *     type: "static",
  *     valueFunction: "singleValue",
  * });
  * ```
