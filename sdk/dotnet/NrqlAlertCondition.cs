@@ -68,7 +68,7 @@ namespace Pulumi.Newrelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NrqlAlertCondition(string name, NrqlAlertConditionArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, args, MakeResourceOptions(options, ""))
+            : base("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

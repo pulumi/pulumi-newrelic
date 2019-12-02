@@ -15,7 +15,7 @@ namespace Pulumi.Newrelic
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/application.html.markdown.
         /// </summary>
         public static Task<GetApplicationResult> GetApplication(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetApplicationArgs : Pulumi.ResourceArgs

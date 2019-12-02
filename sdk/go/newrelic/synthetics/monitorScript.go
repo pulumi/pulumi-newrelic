@@ -56,23 +56,23 @@ func GetMonitorScript(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MonitorScript) URN() *pulumi.URNOutput {
+func (r *MonitorScript) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MonitorScript) ID() *pulumi.IDOutput {
+func (r *MonitorScript) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the monitor to attach the script to.
-func (r *MonitorScript) MonitorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monitorId"])
+func (r *MonitorScript) MonitorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monitorId"])
 }
 
 // plaintext of the monitor script.
-func (r *MonitorScript) Text() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["text"])
+func (r *MonitorScript) Text() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["text"])
 }
 
 // Input properties used for looking up and filtering MonitorScript resources.

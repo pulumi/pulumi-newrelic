@@ -53,23 +53,23 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AlertPolicyChannel) URN() *pulumi.URNOutput {
+func (r *AlertPolicyChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AlertPolicyChannel) ID() *pulumi.IDOutput {
+func (r *AlertPolicyChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the channel.
-func (r *AlertPolicyChannel) ChannelId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["channelId"])
+func (r *AlertPolicyChannel) ChannelId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["channelId"])
 }
 
 // The ID of the policy.
-func (r *AlertPolicyChannel) PolicyId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["policyId"])
+func (r *AlertPolicyChannel) PolicyId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["policyId"])
 }
 
 // Input properties used for looking up and filtering AlertPolicyChannel resources.

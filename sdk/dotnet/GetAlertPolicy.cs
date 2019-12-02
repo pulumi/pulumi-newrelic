@@ -15,7 +15,7 @@ namespace Pulumi.Newrelic
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
         /// </summary>
         public static Task<GetAlertPolicyResult> GetAlertPolicy(GetAlertPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAlertPolicyArgs : Pulumi.ResourceArgs

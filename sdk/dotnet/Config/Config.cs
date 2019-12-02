@@ -3,7 +3,7 @@
 
 using System.Collections.Immutable;
 
-namespace Pulumi.Newrelic.Config
+namespace Pulumi.Newrelic
 {
     public static class Config
     {

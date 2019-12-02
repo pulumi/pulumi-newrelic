@@ -15,7 +15,7 @@ namespace Pulumi.Newrelic
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
         /// </summary>
         public static Task<GetAlertChannelResult> GetAlertChannel(GetAlertChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAlertChannelArgs : Pulumi.ResourceArgs

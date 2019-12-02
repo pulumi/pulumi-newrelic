@@ -48,7 +48,7 @@ namespace Pulumi.Newrelic.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertCondition(string name, AlertConditionArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:synthetics/alertCondition:AlertCondition", name, args, MakeResourceOptions(options, ""))
+            : base("newrelic:synthetics/alertCondition:AlertCondition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

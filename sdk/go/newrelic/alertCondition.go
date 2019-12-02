@@ -106,77 +106,77 @@ func GetAlertCondition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AlertCondition) URN() *pulumi.URNOutput {
+func (r *AlertCondition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AlertCondition) ID() *pulumi.IDOutput {
+func (r *AlertCondition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
-func (r *AlertCondition) ConditionScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["conditionScope"])
+func (r *AlertCondition) ConditionScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["conditionScope"])
 }
 
-func (r *AlertCondition) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *AlertCondition) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The instance IDS associated with this condition.
-func (r *AlertCondition) Entities() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["entities"])
+func (r *AlertCondition) Entities() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["entities"])
 }
 
 // A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
-func (r *AlertCondition) GcMetric() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gcMetric"])
+func (r *AlertCondition) GcMetric() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gcMetric"])
 }
 
 // The metric field accepts parameters based on the `type` set.
-func (r *AlertCondition) Metric() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metric"])
+func (r *AlertCondition) Metric() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metric"])
 }
 
 // The title of the condition. Must be between 1 and 64 characters, inclusive.
-func (r *AlertCondition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AlertCondition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the policy where this condition should be used.
-func (r *AlertCondition) PolicyId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["policyId"])
+func (r *AlertCondition) PolicyId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["policyId"])
 }
 
 // Runbook URL to display in notifications.
-func (r *AlertCondition) RunbookUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
+func (r *AlertCondition) RunbookUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
 
 // A list of terms for this condition. See Terms below for details.
-func (r *AlertCondition) Terms() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["terms"])
+func (r *AlertCondition) Terms() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["terms"])
 }
 
 // The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
-func (r *AlertCondition) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *AlertCondition) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // A custom metric to be evaluated.
-func (r *AlertCondition) UserDefinedMetric() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userDefinedMetric"])
+func (r *AlertCondition) UserDefinedMetric() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userDefinedMetric"])
 }
 
 // One of: `average`, `min`, `max`, `total`, or `sampleSize`.
-func (r *AlertCondition) UserDefinedValueFunction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userDefinedValueFunction"])
+func (r *AlertCondition) UserDefinedValueFunction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userDefinedValueFunction"])
 }
 
 // Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
-func (r *AlertCondition) ViolationCloseTimer() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["violationCloseTimer"])
+func (r *AlertCondition) ViolationCloseTimer() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["violationCloseTimer"])
 }
 
 // Input properties used for looking up and filtering AlertCondition resources.
