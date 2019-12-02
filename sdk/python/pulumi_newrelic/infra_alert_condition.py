@@ -33,7 +33,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     integration_provider: pulumi.Output[str]
     """
-    For alerts on integrations, use this instead of `event`. 
+    For alerts on integrations, use this instead of `event`.
     """
     name: pulumi.Output[str]
     """
@@ -48,6 +48,9 @@ class InfraAlertCondition(pulumi.CustomResource):
     Any filters applied to processes; for example: `"commandName = 'java'"`.
     """
     runbook_url: pulumi.Output[str]
+    """
+    Runbook URL to display in notifications.
+    """
     select: pulumi.Output[str]
     """
     The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
@@ -85,10 +88,11 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[dict] critical: Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
         :param pulumi.Input[str] event: The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
-        :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`. 
+        :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
         :param pulumi.Input[float] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `"commandName = 'java'"`.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] select: The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
         :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
         :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.
@@ -163,10 +167,11 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[dict] critical: Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
         :param pulumi.Input[str] event: The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
-        :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`. 
+        :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
         :param pulumi.Input[float] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `"commandName = 'java'"`.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] select: The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
         :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
         :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.

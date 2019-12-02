@@ -84,7 +84,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly event!: pulumi.Output<string | undefined>;
     /**
-     * For alerts on integrations, use this instead of `event`. 
+     * For alerts on integrations, use this instead of `event`.
      */
     public readonly integrationProvider!: pulumi.Output<string | undefined>;
     /**
@@ -99,6 +99,9 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
     public readonly processWhere!: pulumi.Output<string | undefined>;
+    /**
+     * Runbook URL to display in notifications.
+     */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
@@ -202,7 +205,7 @@ export interface InfraAlertConditionState {
      */
     readonly event?: pulumi.Input<string>;
     /**
-     * For alerts on integrations, use this instead of `event`. 
+     * For alerts on integrations, use this instead of `event`.
      */
     readonly integrationProvider?: pulumi.Input<string>;
     /**
@@ -217,6 +220,9 @@ export interface InfraAlertConditionState {
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
     readonly processWhere?: pulumi.Input<string>;
+    /**
+     * Runbook URL to display in notifications.
+     */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
@@ -258,7 +264,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly event?: pulumi.Input<string>;
     /**
-     * For alerts on integrations, use this instead of `event`. 
+     * For alerts on integrations, use this instead of `event`.
      */
     readonly integrationProvider?: pulumi.Input<string>;
     /**
@@ -273,6 +279,9 @@ export interface InfraAlertConditionArgs {
      * Any filters applied to processes; for example: `"commandName = 'java'"`.
      */
     readonly processWhere?: pulumi.Input<string>;
+    /**
+     * Runbook URL to display in notifications.
+     */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
      * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".

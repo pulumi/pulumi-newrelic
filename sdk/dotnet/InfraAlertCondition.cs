@@ -48,7 +48,7 @@ namespace Pulumi.Newrelic
         public Output<string?> Event { get; private set; } = null!;
 
         /// <summary>
-        /// For alerts on integrations, use this instead of `event`. 
+        /// For alerts on integrations, use this instead of `event`.
         /// </summary>
         [Output("integrationProvider")]
         public Output<string?> IntegrationProvider { get; private set; } = null!;
@@ -71,6 +71,9 @@ namespace Pulumi.Newrelic
         [Output("processWhere")]
         public Output<string?> ProcessWhere { get; private set; } = null!;
 
+        /// <summary>
+        /// Runbook URL to display in notifications.
+        /// </summary>
         [Output("runbookUrl")]
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
@@ -172,7 +175,7 @@ namespace Pulumi.Newrelic
         public Input<string>? Event { get; set; }
 
         /// <summary>
-        /// For alerts on integrations, use this instead of `event`. 
+        /// For alerts on integrations, use this instead of `event`.
         /// </summary>
         [Input("integrationProvider")]
         public Input<string>? IntegrationProvider { get; set; }
@@ -195,6 +198,9 @@ namespace Pulumi.Newrelic
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
 
+        /// <summary>
+        /// Runbook URL to display in notifications.
+        /// </summary>
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
 
@@ -257,7 +263,7 @@ namespace Pulumi.Newrelic
         public Input<string>? Event { get; set; }
 
         /// <summary>
-        /// For alerts on integrations, use this instead of `event`. 
+        /// For alerts on integrations, use this instead of `event`.
         /// </summary>
         [Input("integrationProvider")]
         public Input<string>? IntegrationProvider { get; set; }
@@ -280,6 +286,9 @@ namespace Pulumi.Newrelic
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
 
+        /// <summary>
+        /// Runbook URL to display in notifications.
+        /// </summary>
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
 
