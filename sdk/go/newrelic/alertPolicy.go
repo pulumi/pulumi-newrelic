@@ -50,33 +50,33 @@ func GetAlertPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AlertPolicy) URN() *pulumi.URNOutput {
+func (r *AlertPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AlertPolicy) ID() *pulumi.IDOutput {
+func (r *AlertPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The time the policy was created.
-func (r *AlertPolicy) CreatedAt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdAt"])
+func (r *AlertPolicy) CreatedAt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdAt"])
 }
 
 // The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
-func (r *AlertPolicy) IncidentPreference() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["incidentPreference"])
+func (r *AlertPolicy) IncidentPreference() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["incidentPreference"])
 }
 
 // The name of the policy.
-func (r *AlertPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AlertPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The time the policy was last updated.
-func (r *AlertPolicy) UpdatedAt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["updatedAt"])
+func (r *AlertPolicy) UpdatedAt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["updatedAt"])
 }
 
 // Input properties used for looking up and filtering AlertPolicy resources.

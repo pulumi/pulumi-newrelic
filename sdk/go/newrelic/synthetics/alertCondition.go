@@ -62,38 +62,38 @@ func GetAlertCondition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AlertCondition) URN() *pulumi.URNOutput {
+func (r *AlertCondition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AlertCondition) ID() *pulumi.IDOutput {
+func (r *AlertCondition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Set whether to enable the alert condition. Defaults to `true`.
-func (r *AlertCondition) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *AlertCondition) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The ID of the Synthetics monitor to be referenced in the alert condition. 
-func (r *AlertCondition) MonitorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monitorId"])
+func (r *AlertCondition) MonitorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monitorId"])
 }
 
 // The title of this condition.
-func (r *AlertCondition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AlertCondition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the policy where this condition should be used.
-func (r *AlertCondition) PolicyId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["policyId"])
+func (r *AlertCondition) PolicyId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["policyId"])
 }
 
 // Runbook URL to display in notifications.
-func (r *AlertCondition) RunbookUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
+func (r *AlertCondition) RunbookUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
 
 // Input properties used for looking up and filtering AlertCondition resources.

@@ -89,68 +89,68 @@ func GetMonitor(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Monitor) URN() *pulumi.URNOutput {
+func (r *Monitor) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Monitor) ID() *pulumi.IDOutput {
+func (r *Monitor) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Bypass HEAD request.
-func (r *Monitor) BypassHeadRequest() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["bypassHeadRequest"])
+func (r *Monitor) BypassHeadRequest() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["bypassHeadRequest"])
 }
 
 // The interval (in minutes) at which this monitor should run.
-func (r *Monitor) Frequency() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["frequency"])
+func (r *Monitor) Frequency() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["frequency"])
 }
 
 // The locations in which this monitor should be run.
-func (r *Monitor) Locations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["locations"])
+func (r *Monitor) Locations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["locations"])
 }
 
 // The title of this monitor.
-func (r *Monitor) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Monitor) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The base threshold for the SLA report.
-func (r *Monitor) SlaThreshold() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["slaThreshold"])
+func (r *Monitor) SlaThreshold() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["slaThreshold"])
 }
 
 // The monitor status (i.e. ENABLED, MUTED, DISABLED)
-func (r *Monitor) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Monitor) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Fail the monitor check if redirected.
-func (r *Monitor) TreatRedirectAsFailure() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["treatRedirectAsFailure"])
+func (r *Monitor) TreatRedirectAsFailure() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["treatRedirectAsFailure"])
 }
 
 // The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
-func (r *Monitor) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Monitor) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // The URI for the monitor to hit.
-func (r *Monitor) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *Monitor) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // The string to validate against in the response.
-func (r *Monitor) ValidationString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["validationString"])
+func (r *Monitor) ValidationString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["validationString"])
 }
 
 // Verify SSL.
-func (r *Monitor) VerifySsl() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["verifySsl"])
+func (r *Monitor) VerifySsl() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["verifySsl"])
 }
 
 // Input properties used for looking up and filtering Monitor resources.

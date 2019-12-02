@@ -98,53 +98,53 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NrqlAlertCondition) URN() *pulumi.URNOutput {
+func (r *NrqlAlertCondition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NrqlAlertCondition) ID() *pulumi.IDOutput {
+func (r *NrqlAlertCondition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *NrqlAlertCondition) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *NrqlAlertCondition) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
-func (r *NrqlAlertCondition) ExpectedGroups() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["expectedGroups"])
+func (r *NrqlAlertCondition) ExpectedGroups() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["expectedGroups"])
 }
 
-func (r *NrqlAlertCondition) IgnoreOverlap() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ignoreOverlap"])
+func (r *NrqlAlertCondition) IgnoreOverlap() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ignoreOverlap"])
 }
 
-func (r *NrqlAlertCondition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NrqlAlertCondition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *NrqlAlertCondition) Nrql() *pulumi.Output {
+func (r *NrqlAlertCondition) Nrql() pulumi.Output {
 	return r.s.State["nrql"]
 }
 
-func (r *NrqlAlertCondition) PolicyId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["policyId"])
+func (r *NrqlAlertCondition) PolicyId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["policyId"])
 }
 
-func (r *NrqlAlertCondition) RunbookUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
+func (r *NrqlAlertCondition) RunbookUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
 
-func (r *NrqlAlertCondition) Terms() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["terms"])
+func (r *NrqlAlertCondition) Terms() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["terms"])
 }
 
-func (r *NrqlAlertCondition) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *NrqlAlertCondition) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *NrqlAlertCondition) ValueFunction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["valueFunction"])
+func (r *NrqlAlertCondition) ValueFunction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["valueFunction"])
 }
 
 // Input properties used for looking up and filtering NrqlAlertCondition resources.

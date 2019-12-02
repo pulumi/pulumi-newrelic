@@ -35,7 +35,7 @@ namespace Pulumi.Newrelic.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MonitorScript(string name, MonitorScriptArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:synthetics/monitorScript:MonitorScript", name, args, MakeResourceOptions(options, ""))
+            : base("newrelic:synthetics/monitorScript:MonitorScript", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

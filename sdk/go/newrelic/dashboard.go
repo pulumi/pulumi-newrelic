@@ -67,47 +67,47 @@ func GetDashboard(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Dashboard) URN() *pulumi.URNOutput {
+func (r *Dashboard) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Dashboard) ID() *pulumi.IDOutput {
+func (r *Dashboard) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Dashboard) DashboardUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dashboardUrl"])
+func (r *Dashboard) DashboardUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dashboardUrl"])
 }
 
 // Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
-func (r *Dashboard) Editable() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["editable"])
+func (r *Dashboard) Editable() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["editable"])
 }
 
 // A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-func (r *Dashboard) Filter() *pulumi.Output {
+func (r *Dashboard) Filter() pulumi.Output {
 	return r.s.State["filter"]
 }
 
 // The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
-func (r *Dashboard) Icon() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["icon"])
+func (r *Dashboard) Icon() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["icon"])
 }
 
 // The title of the dashboard.
-func (r *Dashboard) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *Dashboard) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-func (r *Dashboard) Visibility() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["visibility"])
+func (r *Dashboard) Visibility() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["visibility"])
 }
 
 // A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-func (r *Dashboard) Widgets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["widgets"])
+func (r *Dashboard) Widgets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["widgets"])
 }
 
 // Input properties used for looking up and filtering Dashboard resources.

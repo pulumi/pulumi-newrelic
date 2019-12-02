@@ -56,28 +56,28 @@ func GetAlertChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AlertChannel) URN() *pulumi.URNOutput {
+func (r *AlertChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AlertChannel) ID() *pulumi.IDOutput {
+func (r *AlertChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of key / value pairs with channel type specific values.
-func (r *AlertChannel) Configuration() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["configuration"])
+func (r *AlertChannel) Configuration() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["configuration"])
 }
 
 // The name of the channel.
-func (r *AlertChannel) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AlertChannel) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
-func (r *AlertChannel) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *AlertChannel) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering AlertChannel resources.

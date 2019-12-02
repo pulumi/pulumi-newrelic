@@ -42,7 +42,7 @@ namespace Pulumi.Newrelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertPolicy(string name, AlertPolicyArgs? args = null, CustomResourceOptions? options = null)
-            : base("newrelic:index/alertPolicy:AlertPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("newrelic:index/alertPolicy:AlertPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

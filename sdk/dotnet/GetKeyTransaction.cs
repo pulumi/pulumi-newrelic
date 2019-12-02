@@ -15,7 +15,7 @@ namespace Pulumi.Newrelic
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
         /// </summary>
         public static Task<GetKeyTransactionResult> GetKeyTransaction(GetKeyTransactionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetKeyTransactionArgs : Pulumi.ResourceArgs

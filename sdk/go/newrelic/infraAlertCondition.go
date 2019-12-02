@@ -99,86 +99,86 @@ func GetInfraAlertCondition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *InfraAlertCondition) URN() *pulumi.URNOutput {
+func (r *InfraAlertCondition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *InfraAlertCondition) ID() *pulumi.IDOutput {
+func (r *InfraAlertCondition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The operator used to evaluate the threshold value; "above", "below", "equal".
-func (r *InfraAlertCondition) Comparison() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["comparison"])
+func (r *InfraAlertCondition) Comparison() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["comparison"])
 }
 
-func (r *InfraAlertCondition) CreatedAt() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["createdAt"])
+func (r *InfraAlertCondition) CreatedAt() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["createdAt"])
 }
 
 // Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
-func (r *InfraAlertCondition) Critical() *pulumi.Output {
+func (r *InfraAlertCondition) Critical() pulumi.Output {
 	return r.s.State["critical"]
 }
 
 // Set whether to enable the alert condition. Defaults to `true`.
-func (r *InfraAlertCondition) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *InfraAlertCondition) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
-func (r *InfraAlertCondition) Event() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["event"])
+func (r *InfraAlertCondition) Event() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["event"])
 }
 
 // For alerts on integrations, use this instead of `event`.
-func (r *InfraAlertCondition) IntegrationProvider() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["integrationProvider"])
+func (r *InfraAlertCondition) IntegrationProvider() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["integrationProvider"])
 }
 
 // The Infrastructure alert condition's name.
-func (r *InfraAlertCondition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *InfraAlertCondition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the alert policy where this condition should be used.
-func (r *InfraAlertCondition) PolicyId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["policyId"])
+func (r *InfraAlertCondition) PolicyId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["policyId"])
 }
 
 // Any filters applied to processes; for example: `"commandName = 'java'"`.
-func (r *InfraAlertCondition) ProcessWhere() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["processWhere"])
+func (r *InfraAlertCondition) ProcessWhere() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["processWhere"])
 }
 
 // Runbook URL to display in notifications.
-func (r *InfraAlertCondition) RunbookUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runbookUrl"])
+func (r *InfraAlertCondition) RunbookUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
 
 // The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
-func (r *InfraAlertCondition) Select() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["select"])
+func (r *InfraAlertCondition) Select() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["select"])
 }
 
 // The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
-func (r *InfraAlertCondition) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *InfraAlertCondition) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *InfraAlertCondition) UpdatedAt() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["updatedAt"])
+func (r *InfraAlertCondition) UpdatedAt() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["updatedAt"])
 }
 
 // Identifies the warning threshold parameters. See Thresholds below for details.
-func (r *InfraAlertCondition) Warning() *pulumi.Output {
+func (r *InfraAlertCondition) Warning() pulumi.Output {
 	return r.s.State["warning"]
 }
 
 // Infrastructure host filter for the alert condition.
-func (r *InfraAlertCondition) Where() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["where"])
+func (r *InfraAlertCondition) Where() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["where"])
 }
 
 // Input properties used for looking up and filtering InfraAlertCondition resources.

@@ -15,7 +15,7 @@ namespace Pulumi.Newrelic.Synthetics
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
         /// </summary>
         public static Task<GetMonitorResult> GetMonitor(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetMonitorArgs : Pulumi.ResourceArgs
