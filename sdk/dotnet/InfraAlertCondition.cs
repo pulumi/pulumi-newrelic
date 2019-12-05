@@ -13,15 +13,15 @@ namespace Pulumi.Newrelic
     /// The `critical` and `warning` threshold mapping supports the following arguments:
     /// 
     ///   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-    ///   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infra_metric" and "infra_process_running" alert condition types.
-    ///   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infra_metric" alert condition type.
+    ///   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
+    ///   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
     /// </summary>
     public partial class InfraAlertCondition : Pulumi.CustomResource
     {
         /// <summary>
-        /// The operator used to evaluate the threshold value; "above", "below", "equal".
+        /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
         /// </summary>
         [Output("comparison")]
         public Output<string?> Comparison { get; private set; } = null!;
@@ -30,19 +30,19 @@ namespace Pulumi.Newrelic
         public Output<int> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
         /// </summary>
         [Output("critical")]
         public Output<Outputs.InfraAlertConditionCritical?> Critical { get; private set; } = null!;
 
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
+        /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+        /// The metric event; for example, `SystemSample` or `StorageSample`.
         /// </summary>
         [Output("event")]
         public Output<string?> Event { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Newrelic
         public Output<int> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Any filters applied to processes; for example: `"commandName = 'java'"`.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.
         /// </summary>
         [Output("processWhere")]
         public Output<string?> ProcessWhere { get; private set; } = null!;
@@ -78,13 +78,13 @@ namespace Pulumi.Newrelic
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
         /// </summary>
         [Output("select")]
         public Output<string?> Select { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+        /// The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -93,13 +93,13 @@ namespace Pulumi.Newrelic
         public Output<int> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the warning threshold parameters. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         /// </summary>
         [Output("warning")]
         public Output<Outputs.InfraAlertConditionWarning?> Warning { get; private set; } = null!;
 
         /// <summary>
-        /// Infrastructure host filter for the alert condition.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Output("where")]
         public Output<string?> Where { get; private set; } = null!;
@@ -151,25 +151,25 @@ namespace Pulumi.Newrelic
     public sealed class InfraAlertConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator used to evaluate the threshold value; "above", "below", "equal".
+        /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
         /// </summary>
         [Input("comparison")]
         public Input<string>? Comparison { get; set; }
 
         /// <summary>
-        /// Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.InfraAlertConditionCriticalArgs>? Critical { get; set; }
 
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
+        /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+        /// The metric event; for example, `SystemSample` or `StorageSample`.
         /// </summary>
         [Input("event")]
         public Input<string>? Event { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Newrelic
         public Input<int> PolicyId { get; set; } = null!;
 
         /// <summary>
-        /// Any filters applied to processes; for example: `"commandName = 'java'"`.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
@@ -205,25 +205,25 @@ namespace Pulumi.Newrelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
         /// </summary>
         [Input("select")]
         public Input<string>? Select { get; set; }
 
         /// <summary>
-        /// The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+        /// The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Identifies the warning threshold parameters. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.InfraAlertConditionWarningArgs>? Warning { get; set; }
 
         /// <summary>
-        /// Infrastructure host filter for the alert condition.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Newrelic
     public sealed class InfraAlertConditionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator used to evaluate the threshold value; "above", "below", "equal".
+        /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
         /// </summary>
         [Input("comparison")]
         public Input<string>? Comparison { get; set; }
@@ -245,19 +245,19 @@ namespace Pulumi.Newrelic
         public Input<int>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.InfraAlertConditionCriticalGetArgs>? Critical { get; set; }
 
         /// <summary>
-        /// Set whether to enable the alert condition. Defaults to `true`.
+        /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+        /// The metric event; for example, `SystemSample` or `StorageSample`.
         /// </summary>
         [Input("event")]
         public Input<string>? Event { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Newrelic
         public Input<int>? PolicyId { get; set; }
 
         /// <summary>
-        /// Any filters applied to processes; for example: `"commandName = 'java'"`.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
@@ -293,13 +293,13 @@ namespace Pulumi.Newrelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+        /// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
         /// </summary>
         [Input("select")]
         public Input<string>? Select { get; set; }
 
         /// <summary>
-        /// The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+        /// The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -308,13 +308,13 @@ namespace Pulumi.Newrelic
         public Input<int>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Identifies the warning threshold parameters. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         /// </summary>
         [Input("warning")]
         public Input<Inputs.InfraAlertConditionWarningGetArgs>? Warning { get; set; }
 
         /// <summary>
-        /// Infrastructure host filter for the alert condition.
+        /// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         /// </summary>
         [Input("where")]
         public Input<string>? Where { get; set; }

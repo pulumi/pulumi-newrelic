@@ -45,6 +45,11 @@ export class Provider extends pulumi.ProviderResource {
             inputs["cacertFile"] = args ? args.cacertFile : undefined;
             inputs["infraApiUrl"] = (args ? args.infraApiUrl : undefined) || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
             inputs["insecureSkipVerify"] = pulumi.output(args ? args.insecureSkipVerify : undefined).apply(JSON.stringify);
+            inputs["insightsAccountId"] = args ? args.insightsAccountId : undefined;
+            inputs["insightsInsertKey"] = args ? args.insightsInsertKey : undefined;
+            inputs["insightsInsertUrl"] = args ? args.insightsInsertUrl : undefined;
+            inputs["insightsQueryKey"] = args ? args.insightsQueryKey : undefined;
+            inputs["insightsQueryUrl"] = args ? args.insightsQueryUrl : undefined;
         }
         if (!opts) {
             opts = {}
@@ -66,4 +71,9 @@ export interface ProviderArgs {
     readonly cacertFile?: pulumi.Input<string>;
     readonly infraApiUrl?: pulumi.Input<string>;
     readonly insecureSkipVerify?: pulumi.Input<boolean>;
+    readonly insightsAccountId?: pulumi.Input<string>;
+    readonly insightsInsertKey?: pulumi.Input<string>;
+    readonly insightsInsertUrl?: pulumi.Input<string>;
+    readonly insightsQueryKey?: pulumi.Input<string>;
+    readonly insightsQueryUrl?: pulumi.Input<string>;
 }

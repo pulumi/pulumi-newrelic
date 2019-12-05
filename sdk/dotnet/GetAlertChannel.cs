@@ -10,8 +10,6 @@ namespace Pulumi.Newrelic
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
-        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
         /// </summary>
         public static Task<GetAlertChannelResult> GetAlertChannel(GetAlertChannelArgs args, InvokeOptions? options = null)
@@ -40,7 +38,7 @@ namespace Pulumi.Newrelic
         /// </summary>
         public readonly ImmutableArray<int> PolicyIds;
         /// <summary>
-        /// Alert channel type, either: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`..
+        /// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
         /// </summary>
         public readonly string Type;
         /// <summary>

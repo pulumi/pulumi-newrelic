@@ -21,3 +21,13 @@ infra_api_url = __config__.get('infraApiUrl') or (utilities.get_env('NEWRELIC_IN
 
 insecure_skip_verify = __config__.get('insecureSkipVerify')
 
+insights_account_id = __config__.get('insightsAccountId')
+
+insights_insert_key = __config__.get('insightsInsertKey')
+
+insights_insert_url = __config__.get('insightsInsertUrl')
+
+insights_query_key = __config__.get('insightsQueryKey')
+
+insights_query_url = __config__.get('insightsQueryUrl')
+

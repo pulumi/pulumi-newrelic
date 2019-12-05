@@ -13,8 +13,8 @@ import (
 // The `critical` and `warning` threshold mapping supports the following arguments:
 // 
 //   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-//   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infraMetric" and "infraProcessRunning" alert condition types.
-//   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infraMetric" alert condition type.
+//   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
+//   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
 type InfraAlertCondition struct {
@@ -108,7 +108,7 @@ func (r *InfraAlertCondition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The operator used to evaluate the threshold value; "above", "below", "equal".
+// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
 func (r *InfraAlertCondition) Comparison() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["comparison"])
 }
@@ -117,17 +117,17 @@ func (r *InfraAlertCondition) CreatedAt() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["createdAt"])
 }
 
-// Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
 func (r *InfraAlertCondition) Critical() pulumi.Output {
 	return r.s.State["critical"]
 }
 
-// Set whether to enable the alert condition. Defaults to `true`.
+// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 func (r *InfraAlertCondition) Enabled() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
-// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+// The metric event; for example, `SystemSample` or `StorageSample`.
 func (r *InfraAlertCondition) Event() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["event"])
 }
@@ -147,7 +147,7 @@ func (r *InfraAlertCondition) PolicyId() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["policyId"])
 }
 
-// Any filters applied to processes; for example: `"commandName = 'java'"`.
+// Any filters applied to processes; for example: `commandName = 'java'`.
 func (r *InfraAlertCondition) ProcessWhere() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["processWhere"])
 }
@@ -157,12 +157,12 @@ func (r *InfraAlertCondition) RunbookUrl() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["runbookUrl"])
 }
 
-// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
 func (r *InfraAlertCondition) Select() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["select"])
 }
 
-// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
+// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 func (r *InfraAlertCondition) Type() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["type"])
 }
@@ -171,26 +171,26 @@ func (r *InfraAlertCondition) UpdatedAt() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["updatedAt"])
 }
 
-// Identifies the warning threshold parameters. See Thresholds below for details.
+// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 func (r *InfraAlertCondition) Warning() pulumi.Output {
 	return r.s.State["warning"]
 }
 
-// Infrastructure host filter for the alert condition.
+// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 func (r *InfraAlertCondition) Where() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["where"])
 }
 
 // Input properties used for looking up and filtering InfraAlertCondition resources.
 type InfraAlertConditionState struct {
-	// The operator used to evaluate the threshold value; "above", "below", "equal".
+	// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
 	Comparison interface{}
 	CreatedAt interface{}
-	// Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
 	Critical interface{}
-	// Set whether to enable the alert condition. Defaults to `true`.
+	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled interface{}
-	// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+	// The metric event; for example, `SystemSample` or `StorageSample`.
 	Event interface{}
 	// For alerts on integrations, use this instead of `event`.
 	IntegrationProvider interface{}
@@ -198,30 +198,30 @@ type InfraAlertConditionState struct {
 	Name interface{}
 	// The ID of the alert policy where this condition should be used.
 	PolicyId interface{}
-	// Any filters applied to processes; for example: `"commandName = 'java'"`.
+	// Any filters applied to processes; for example: `commandName = 'java'`.
 	ProcessWhere interface{}
 	// Runbook URL to display in notifications.
 	RunbookUrl interface{}
-	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+	// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
 	Select interface{}
-	// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
+	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type interface{}
 	UpdatedAt interface{}
-	// Identifies the warning threshold parameters. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning interface{}
-	// Infrastructure host filter for the alert condition.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where interface{}
 }
 
 // The set of arguments for constructing a InfraAlertCondition resource.
 type InfraAlertConditionArgs struct {
-	// The operator used to evaluate the threshold value; "above", "below", "equal".
+	// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
 	Comparison interface{}
-	// Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
 	Critical interface{}
-	// Set whether to enable the alert condition. Defaults to `true`.
+	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled interface{}
-	// The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+	// The metric event; for example, `SystemSample` or `StorageSample`.
 	Event interface{}
 	// For alerts on integrations, use this instead of `event`.
 	IntegrationProvider interface{}
@@ -229,16 +229,16 @@ type InfraAlertConditionArgs struct {
 	Name interface{}
 	// The ID of the alert policy where this condition should be used.
 	PolicyId interface{}
-	// Any filters applied to processes; for example: `"commandName = 'java'"`.
+	// Any filters applied to processes; for example: `commandName = 'java'`.
 	ProcessWhere interface{}
 	// Runbook URL to display in notifications.
 	RunbookUrl interface{}
-	// The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+	// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
 	Select interface{}
-	// The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
+	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type interface{}
-	// Identifies the warning threshold parameters. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning interface{}
-	// Infrastructure host filter for the alert condition.
+	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where interface{}
 }

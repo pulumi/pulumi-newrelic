@@ -13,13 +13,7 @@ export interface AlertConditionTerm {
 }
 
 export interface DashboardFilter {
-    /**
-     * A list of attributes belonging to the specified event types to enable filtering for.
-     */
     attributes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of event types to enable filtering for.
-     */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -91,4 +85,28 @@ export interface NrqlAlertConditionTerm {
     priority?: pulumi.Input<string>;
     threshold: pulumi.Input<number>;
     timeFunction: pulumi.Input<string>;
+}
+
+export namespace insights {
+    export interface EventEvent {
+        attributes: pulumi.Input<pulumi.Input<inputs.insights.EventEventAttribute>[]>;
+        timestamp?: pulumi.Input<number>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface EventEventAttribute {
+        key: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
+export namespace plugins {
+    export interface AlertConditionTerm {
+        duration: pulumi.Input<number>;
+        operator?: pulumi.Input<string>;
+        priority?: pulumi.Input<string>;
+        threshold: pulumi.Input<number>;
+        timeFunction: pulumi.Input<string>;
+    }
 }

@@ -20,7 +20,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
     terms: pulumi.Output[list]
     type: pulumi.Output[str]
     value_function: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, __props__=None, __name__=None, __opts__=None):
+    violation_time_limit_seconds: pulumi.Output[float]
+    def __init__(__self__, resource_name, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, violation_time_limit_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Terms
         
@@ -90,6 +91,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['terms'] = terms
             __props__['type'] = type
             __props__['value_function'] = value_function
+            __props__['violation_time_limit_seconds'] = violation_time_limit_seconds
         super(NrqlAlertCondition, __self__).__init__(
             'newrelic:index/nrqlAlertCondition:NrqlAlertCondition',
             resource_name,
@@ -97,7 +99,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None):
+    def get(resource_name, id, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, violation_time_limit_seconds=None):
         """
         Get an existing NrqlAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,6 +136,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__["terms"] = terms
         __props__["type"] = type
         __props__["value_function"] = value_function
+        __props__["violation_time_limit_seconds"] = violation_time_limit_seconds
         return NrqlAlertCondition(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

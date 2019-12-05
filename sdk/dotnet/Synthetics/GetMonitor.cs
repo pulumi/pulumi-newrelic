@@ -34,6 +34,9 @@ namespace Pulumi.Newrelic.Synthetics
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// The ID of the synthetics monitor.
+        /// </summary>
         public readonly string MonitorId;
         public readonly string Name;
         /// <summary>

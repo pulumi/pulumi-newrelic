@@ -4,7 +4,7 @@
 
 import importlib
 # Make subpackages available:
-__all__ = ['config', 'synthetics']
+__all__ = ['config', 'insights', 'plugins', 'synthetics']
 for pkg in __all__:
     if pkg != 'config':
         importlib.import_module(f'{__name__}.{pkg}')

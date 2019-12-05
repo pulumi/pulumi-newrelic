@@ -19,6 +19,16 @@ namespace Pulumi.Newrelic
 
         public static bool? InsecureSkipVerify { get; set; } = __config.GetBoolean("insecureSkipVerify");
 
+        public static string? InsightsAccountId { get; set; } = __config.Get("insightsAccountId");
+
+        public static string? InsightsInsertKey { get; set; } = __config.Get("insightsInsertKey");
+
+        public static string? InsightsInsertUrl { get; set; } = __config.Get("insightsInsertUrl");
+
+        public static string? InsightsQueryKey { get; set; } = __config.Get("insightsQueryKey");
+
+        public static string? InsightsQueryUrl { get; set; } = __config.Get("insightsQueryUrl");
+
     }
     namespace ConfigTypes
     {

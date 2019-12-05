@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  * 
+ * ##### Email
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -17,6 +18,87 @@ import * as utilities from "./utilities";
  *         recipients: "foo@example.com",
  *     },
  *     type: "email",
+ * });
+ * ```
+ * See additional examples.
+ * 
+ * ## Channel Configurations
+ * 
+ * Each supported channel supports a particular set of configuration arguments.
+ * 
+ *   * `email`
+ *     * `recipients` - (Required) Comma delimited list of email addresses.
+ *     * `includeJsonAttachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
+ *   * `slack`
+ *     * `url` - (Required) Your organization's Slack URL.
+ *     * `channel` - (Required) The Slack channel for which to send notifications.
+ *   * `opsgenie`
+ *     * `apiKey` - (Required) Your OpsGenie API key.
+ *     * `teams` - (Optional) Comma delimited list of teams.
+ *     * `tags` - (Optional) Comma delimited list of tags.
+ *     * `recipients` - (Optional) Comma delimited list of email addresses.
+ *   * `pagerduty`
+ *     * `serviceKey` - (Required) Your PagerDuty service key.
+ *   * `victorops`
+ *     * `key` - (Required) Your VictorOps key.
+ *     * `routeKey` - (Required) The route for which to send notifications.
+ * 
+ * ## Additional Examples
+ * 
+ * ##### Slack
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.AlertChannel("foo", {
+ *     configuration: {
+ *         channel: "example-alerts-channel",
+ *         url: "https://<YourOrganization>.slack.com",
+ *     },
+ *     type: "slack",
+ * });
+ * ```
+ * 
+ * ##### OpsGenie
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.AlertChannel("foo", {
+ *     configuration: {
+ *         api_key: "abc123",
+ *         recipients: "user1@domain.com, user2@domain.com",
+ *         tags: "tag1, tag2",
+ *         teams: "team1, team2",
+ *     },
+ *     type: "opsgenie",
+ * });
+ * ```
+ * 
+ * ##### PagerDuty
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.AlertChannel("foo", {
+ *     configuration: {
+ *         service_key: "abc123",
+ *     },
+ *     type: "pagerduty",
+ * });
+ * ```
+ * 
+ * ##### VictorOps
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.AlertChannel("foo", {
+ *     configuration: {
+ *         key: "abc123",
+ *         route_key: "/example",
+ *     },
+ *     type: "victorops",
  * });
  * ```
  *
@@ -50,7 +132,7 @@ export class AlertChannel extends pulumi.CustomResource {
     }
 
     /**
-     * A map of key / value pairs with channel type specific values.
+     * A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
      */
     public readonly configuration!: pulumi.Output<{[key: string]: any}>;
     /**
@@ -58,7 +140,7 @@ export class AlertChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -105,7 +187,7 @@ export class AlertChannel extends pulumi.CustomResource {
  */
 export interface AlertChannelState {
     /**
-     * A map of key / value pairs with channel type specific values.
+     * A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -113,7 +195,7 @@ export interface AlertChannelState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -123,7 +205,7 @@ export interface AlertChannelState {
  */
 export interface AlertChannelArgs {
     /**
-     * A map of key / value pairs with channel type specific values.
+     * A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
      */
     readonly configuration: pulumi.Input<{[key: string]: any}>;
     /**
@@ -131,7 +213,7 @@ export interface AlertChannelArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
     readonly type: pulumi.Input<string>;
 }

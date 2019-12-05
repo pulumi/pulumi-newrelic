@@ -17,6 +17,9 @@ class GetMonitorResult:
         if monitor_id and not isinstance(monitor_id, str):
             raise TypeError("Expected argument 'monitor_id' to be a str")
         __self__.monitor_id = monitor_id
+        """
+        The ID of the synthetics monitor.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name

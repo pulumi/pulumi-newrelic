@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  * 
+ * ##### Type: `static` (default)
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -33,6 +34,7 @@ import * as utilities from "./utilities";
  *     valueFunction: "singleValue",
  * });
  * ```
+ * See additional examples.
  * 
  * ## Terms
  * 
@@ -50,6 +52,35 @@ import * as utilities from "./utilities";
  * 
  * - `query` - (Required) The NRQL query to execute for the condition.
  * - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+ * 
+ * ## Additional Examples
+ * 
+ * ##### Type: `outlier`
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("foo", {
+ *     enabled: true,
+ *     expectedGroups: 2,
+ *     ignoreOverlap: true,
+ *     nrql: {
+ *         query: "SELECT percentile(duration, 99) FROM Transaction FACET remoteIp",
+ *         sinceValue: "3",
+ *     },
+ *     policyId: fooAlertPolicy.id,
+ *     runbookUrl: "https://bar.example.com",
+ *     terms: [{
+ *         duration: 10,
+ *         operator: "above",
+ *         priority: "critical",
+ *         threshold: 0.65,
+ *         timeFunction: "all",
+ *     }],
+ *     type: "outlier",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
  */
@@ -90,6 +121,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[]>;
     public readonly type!: pulumi.Output<string | undefined>;
     public readonly valueFunction!: pulumi.Output<string | undefined>;
+    public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NrqlAlertCondition resource with the given unique name, arguments, and options.
@@ -113,6 +145,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["terms"] = state ? state.terms : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["valueFunction"] = state ? state.valueFunction : undefined;
+            inputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
             if (!args || args.nrql === undefined) {
@@ -134,6 +167,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["terms"] = args ? args.terms : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["valueFunction"] = args ? args.valueFunction : undefined;
+            inputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
         }
         if (!opts) {
             opts = {}
@@ -160,6 +194,7 @@ export interface NrqlAlertConditionState {
     readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     readonly type?: pulumi.Input<string>;
     readonly valueFunction?: pulumi.Input<string>;
+    readonly violationTimeLimitSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -176,4 +211,5 @@ export interface NrqlAlertConditionArgs {
     readonly terms: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     readonly type?: pulumi.Input<string>;
     readonly valueFunction?: pulumi.Input<string>;
+    readonly violationTimeLimitSeconds?: pulumi.Input<number>;
 }

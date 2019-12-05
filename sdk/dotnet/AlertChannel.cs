@@ -7,10 +7,34 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Newrelic
 {
+    /// <summary>
+    /// ## Channel Configurations
+    /// 
+    /// Each supported channel supports a particular set of configuration arguments.
+    /// 
+    ///   * `email`
+    ///     * `recipients` - (Required) Comma delimited list of email addresses.
+    ///     * `include_json_attachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
+    ///   * `slack`
+    ///     * `url` - (Required) Your organization's Slack URL.
+    ///     * `channel` - (Required) The Slack channel for which to send notifications.
+    ///   * `opsgenie`
+    ///     * `api_key` - (Required) Your OpsGenie API key.
+    ///     * `teams` - (Optional) Comma delimited list of teams.
+    ///     * `tags` - (Optional) Comma delimited list of tags.
+    ///     * `recipients` - (Optional) Comma delimited list of email addresses.
+    ///   * `pagerduty`
+    ///     * `service_key` - (Required) Your PagerDuty service key.
+    ///   * `victorops`
+    ///     * `key` - (Required) Your VictorOps key.
+    ///     * `route_key` - (Required) The route for which to send notifications.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
+    /// </summary>
     public partial class AlertChannel : Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of key / value pairs with channel type specific values.
+        /// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
         /// </summary>
         [Output("configuration")]
         public Output<ImmutableDictionary<string, object>> Configuration { get; private set; } = null!;
@@ -22,7 +46,7 @@ namespace Pulumi.Newrelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -77,7 +101,7 @@ namespace Pulumi.Newrelic
         private InputMap<object>? _configuration;
 
         /// <summary>
-        /// A map of key / value pairs with channel type specific values.
+        /// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
         /// </summary>
         public InputMap<object> Configuration
         {
@@ -92,7 +116,7 @@ namespace Pulumi.Newrelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -108,7 +132,7 @@ namespace Pulumi.Newrelic
         private InputMap<object>? _configuration;
 
         /// <summary>
-        /// A map of key / value pairs with channel type specific values.
+        /// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
         /// </summary>
         public InputMap<object> Configuration
         {
@@ -123,7 +147,7 @@ namespace Pulumi.Newrelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

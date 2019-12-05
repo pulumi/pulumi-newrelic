@@ -54,6 +54,7 @@ func NewNrqlAlertCondition(ctx *pulumi.Context,
 		inputs["terms"] = nil
 		inputs["type"] = nil
 		inputs["valueFunction"] = nil
+		inputs["violationTimeLimitSeconds"] = nil
 	} else {
 		inputs["enabled"] = args.Enabled
 		inputs["expectedGroups"] = args.ExpectedGroups
@@ -65,6 +66,7 @@ func NewNrqlAlertCondition(ctx *pulumi.Context,
 		inputs["terms"] = args.Terms
 		inputs["type"] = args.Type
 		inputs["valueFunction"] = args.ValueFunction
+		inputs["violationTimeLimitSeconds"] = args.ViolationTimeLimitSeconds
 	}
 	s, err := ctx.RegisterResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, true, inputs, opts...)
 	if err != nil {
@@ -89,6 +91,7 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 		inputs["terms"] = state.Terms
 		inputs["type"] = state.Type
 		inputs["valueFunction"] = state.ValueFunction
+		inputs["violationTimeLimitSeconds"] = state.ViolationTimeLimitSeconds
 	}
 	s, err := ctx.ReadResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, id, inputs, opts...)
 	if err != nil {
@@ -147,6 +150,10 @@ func (r *NrqlAlertCondition) ValueFunction() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["valueFunction"])
 }
 
+func (r *NrqlAlertCondition) ViolationTimeLimitSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["violationTimeLimitSeconds"])
+}
+
 // Input properties used for looking up and filtering NrqlAlertCondition resources.
 type NrqlAlertConditionState struct {
 	Enabled interface{}
@@ -159,6 +166,7 @@ type NrqlAlertConditionState struct {
 	Terms interface{}
 	Type interface{}
 	ValueFunction interface{}
+	ViolationTimeLimitSeconds interface{}
 }
 
 // The set of arguments for constructing a NrqlAlertCondition resource.
@@ -173,4 +181,5 @@ type NrqlAlertConditionArgs struct {
 	Terms interface{}
 	Type interface{}
 	ValueFunction interface{}
+	ViolationTimeLimitSeconds interface{}
 }

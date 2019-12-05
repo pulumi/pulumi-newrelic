@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, cacert_file=None, infra_api_url=None, insecure_skip_verify=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, cacert_file=None, infra_api_url=None, insecure_skip_verify=None, insights_account_id=None, insights_insert_key=None, insights_insert_url=None, insights_query_key=None, insights_query_url=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the newrelic package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -50,6 +50,11 @@ class Provider(pulumi.ProviderResource):
                 infra_api_url = (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
             __props__['infra_api_url'] = infra_api_url
             __props__['insecure_skip_verify'] = pulumi.Output.from_input(insecure_skip_verify).apply(json.dumps) if insecure_skip_verify is not None else None
+            __props__['insights_account_id'] = insights_account_id
+            __props__['insights_insert_key'] = insights_insert_key
+            __props__['insights_insert_url'] = insights_insert_url
+            __props__['insights_query_key'] = insights_query_key
+            __props__['insights_query_url'] = insights_query_url
         super(Provider, __self__).__init__(
             'newrelic',
             resource_name,

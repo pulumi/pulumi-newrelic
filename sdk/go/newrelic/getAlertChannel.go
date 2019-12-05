@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
-//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
 func LookupAlertChannel(ctx *pulumi.Context, args *GetAlertChannelArgs) (*GetAlertChannelResult, error) {
 	inputs := make(map[string]interface{})
@@ -38,7 +36,7 @@ type GetAlertChannelResult struct {
 	Name interface{}
 	// A list of policy IDs associated with the alert channel.
 	PolicyIds interface{}
-	// Alert channel type, either: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`..
+	// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
 	Type interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
