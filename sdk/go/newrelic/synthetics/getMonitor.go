@@ -34,6 +34,7 @@ type GetMonitorArgs struct {
 
 // A collection of values returned by getMonitor.
 type GetMonitorResult struct {
+	// The ID of the synthetics monitor.
 	MonitorId interface{}
 	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.

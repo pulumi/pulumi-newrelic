@@ -12,7 +12,7 @@ from . import utilities, tables
 class AlertChannel(pulumi.CustomResource):
     configuration: pulumi.Output[dict]
     """
-    A map of key / value pairs with channel type specific values.
+    A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
     """
     name: pulumi.Output[str]
     """
@@ -20,17 +20,36 @@ class AlertChannel(pulumi.CustomResource):
     """
     type: pulumi.Output[str]
     """
-    The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+    The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
     """
     def __init__(__self__, resource_name, opts=None, configuration=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a AlertChannel resource with the given unique name, props, and options.
+        ## Channel Configurations
+        
+        Each supported channel supports a particular set of configuration arguments.
+        
+          * `email`
+            * `recipients` - (Required) Comma delimited list of email addresses.
+            * `include_json_attachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
+          * `slack`
+            * `url` - (Required) Your organization's Slack URL.
+            * `channel` - (Required) The Slack channel for which to send notifications.
+          * `opsgenie`
+            * `api_key` - (Required) Your OpsGenie API key.
+            * `teams` - (Optional) Comma delimited list of teams.
+            * `tags` - (Optional) Comma delimited list of tags.
+            * `recipients` - (Optional) Comma delimited list of email addresses.
+          * `pagerduty`
+            * `service_key` - (Required) Your PagerDuty service key.
+          * `victorops`
+            * `key` - (Required) Your VictorOps key.
+            * `route_key` - (Required) The route for which to send notifications.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] configuration: A map of key / value pairs with channel type specific values.
+        :param pulumi.Input[dict] configuration: A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
         """
@@ -73,9 +92,9 @@ class AlertChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] configuration: A map of key / value pairs with channel type specific values.
+        :param pulumi.Input[dict] configuration: A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
         """

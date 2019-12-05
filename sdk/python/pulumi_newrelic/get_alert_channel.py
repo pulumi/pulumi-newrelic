@@ -27,7 +27,7 @@ class GetAlertChannelResult:
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
-        Alert channel type, either: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`..
+        Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -48,7 +48,7 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
 
 def get_alert_channel(name=None,opts=None):
     """
-    Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
+    Use this data source to access information about an existing resource.
     
     :param str name: The name of the alert channel in New Relic.
 

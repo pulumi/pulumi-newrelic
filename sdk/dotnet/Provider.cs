@@ -59,6 +59,21 @@ namespace Pulumi.Newrelic
         [Input("insecureSkipVerify", json: true)]
         public Input<bool>? InsecureSkipVerify { get; set; }
 
+        [Input("insightsAccountId")]
+        public Input<string>? InsightsAccountId { get; set; }
+
+        [Input("insightsInsertKey")]
+        public Input<string>? InsightsInsertKey { get; set; }
+
+        [Input("insightsInsertUrl")]
+        public Input<string>? InsightsInsertUrl { get; set; }
+
+        [Input("insightsQueryKey")]
+        public Input<string>? InsightsQueryKey { get; set; }
+
+        [Input("insightsQueryUrl")]
+        public Input<string>? InsightsQueryUrl { get; set; }
+
         public ProviderArgs()
         {
             ApiKey = Utilities.GetEnv("NEWRELIC_API_KEY");

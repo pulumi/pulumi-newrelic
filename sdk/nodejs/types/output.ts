@@ -13,13 +13,7 @@ export interface AlertConditionTerm {
 }
 
 export interface DashboardFilter {
-    /**
-     * A list of attributes belonging to the specified event types to enable filtering for.
-     */
     attributes?: string[];
-    /**
-     * A list of event types to enable filtering for.
-     */
     eventTypes: string[];
 }
 
@@ -91,4 +85,28 @@ export interface NrqlAlertConditionTerm {
     priority?: string;
     threshold: number;
     timeFunction: string;
+}
+
+export namespace insights {
+    export interface EventEvent {
+        attributes: outputs.insights.EventEventAttribute[];
+        timestamp?: number;
+        type: string;
+    }
+
+    export interface EventEventAttribute {
+        key: string;
+        type?: string;
+        value: string;
+    }
+}
+
+export namespace plugins {
+    export interface AlertConditionTerm {
+        duration: number;
+        operator?: string;
+        priority?: string;
+        threshold: number;
+        timeFunction: string;
+    }
 }

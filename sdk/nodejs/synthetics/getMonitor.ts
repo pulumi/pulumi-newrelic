@@ -54,6 +54,9 @@ export interface GetMonitorArgs {
  * A collection of values returned by getMonitor.
  */
 export interface GetMonitorResult {
+    /**
+     * The ID of the synthetics monitor.
+     */
     readonly monitorId: string;
     readonly name: string;
     /**

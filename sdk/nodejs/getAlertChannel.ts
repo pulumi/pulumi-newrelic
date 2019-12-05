@@ -7,24 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about an specific alert channel in New Relic which already exists (e.g newrelic user).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const fooAlertChannel = newrelic.getAlertChannel({
- *     name: "foo@example.com",
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
- *     channelId: fooAlertChannel.id,
- *     policyId: fooAlertPolicy.id,
- * });
- * ```
- *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
  */
 export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> & GetAlertChannelResult {
@@ -62,7 +44,7 @@ export interface GetAlertChannelResult {
      */
     readonly policyIds: number[];
     /**
-     * Alert channel type, either: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`..
+     * Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
      */
     readonly type: string;
     /**

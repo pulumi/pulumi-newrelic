@@ -12,12 +12,12 @@ from . import utilities, tables
 class InfraAlertCondition(pulumi.CustomResource):
     comparison: pulumi.Output[str]
     """
-    The operator used to evaluate the threshold value; "above", "below", "equal".
+    The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
     """
     created_at: pulumi.Output[float]
     critical: pulumi.Output[dict]
     """
-    Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+    Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
     
       * `duration` (`float`)
       * `timeFunction` (`str`)
@@ -25,11 +25,11 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     enabled: pulumi.Output[bool]
     """
-    Set whether to enable the alert condition. Defaults to `true`.
+    Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
     """
     event: pulumi.Output[str]
     """
-    The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+    The metric event; for example, `SystemSample` or `StorageSample`.
     """
     integration_provider: pulumi.Output[str]
     """
@@ -45,7 +45,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     process_where: pulumi.Output[str]
     """
-    Any filters applied to processes; for example: `"commandName = 'java'"`.
+    Any filters applied to processes; for example: `commandName = 'java'`.
     """
     runbook_url: pulumi.Output[str]
     """
@@ -53,16 +53,16 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     select: pulumi.Output[str]
     """
-    The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+    The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
     """
     type: pulumi.Output[str]
     """
-    The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
+    The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
     """
     updated_at: pulumi.Output[float]
     warning: pulumi.Output[dict]
     """
-    Identifies the warning threshold parameters. See Thresholds below for details.
+    Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
     
       * `duration` (`float`)
       * `timeFunction` (`str`)
@@ -70,7 +70,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     where: pulumi.Output[str]
     """
-    Infrastructure host filter for the alert condition.
+    If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
     """
     def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -79,24 +79,24 @@ class InfraAlertCondition(pulumi.CustomResource):
         The `critical` and `warning` threshold mapping supports the following arguments:
         
           * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-          * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infra_metric" and "infra_process_running" alert condition types.
-          * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infra_metric" alert condition type.
+          * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
+          * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value; "above", "below", "equal".
-        :param pulumi.Input[dict] critical: Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
-        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] event: The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+        :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
+        :param pulumi.Input[dict] critical: Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+        :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
         :param pulumi.Input[float] policy_id: The ID of the alert policy where this condition should be used.
-        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `"commandName = 'java'"`.
+        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[str] select: The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
-        :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
-        :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.
-        :param pulumi.Input[str] where: Infrastructure host filter for the alert condition.
+        :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
+        :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        :param pulumi.Input[dict] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         
         The **critical** object supports the following:
         
@@ -163,19 +163,19 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value; "above", "below", "equal".
-        :param pulumi.Input[dict] critical: Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
-        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] event: The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+        :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
+        :param pulumi.Input[dict] critical: Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+        :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
         :param pulumi.Input[float] policy_id: The ID of the alert policy where this condition should be used.
-        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `"commandName = 'java'"`.
+        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[str] select: The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
-        :param pulumi.Input[str] type: The type of Infrastructure alert condition: "infra_process_running", "infra_metric", or "infra_host_not_reporting".
-        :param pulumi.Input[dict] warning: Identifies the warning threshold parameters. See Thresholds below for details.
-        :param pulumi.Input[str] where: Infrastructure host filter for the alert condition.
+        :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
+        :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        :param pulumi.Input[dict] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         
         The **critical** object supports the following:
         

@@ -8,6 +8,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// ## Channel Configurations
+// 
+// Each supported channel supports a particular set of configuration arguments.
+// 
+//   * `email`
+//     * `recipients` - (Required) Comma delimited list of email addresses.
+//     * `includeJsonAttachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
+//   * `slack`
+//     * `url` - (Required) Your organization's Slack URL.
+//     * `channel` - (Required) The Slack channel for which to send notifications.
+//   * `opsgenie`
+//     * `apiKey` - (Required) Your OpsGenie API key.
+//     * `teams` - (Optional) Comma delimited list of teams.
+//     * `tags` - (Optional) Comma delimited list of tags.
+//     * `recipients` - (Optional) Comma delimited list of email addresses.
+//   * `pagerduty`
+//     * `serviceKey` - (Required) Your PagerDuty service key.
+//   * `victorops`
+//     * `key` - (Required) Your VictorOps key.
+//     * `routeKey` - (Required) The route for which to send notifications.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
 type AlertChannel struct {
 	s *pulumi.ResourceState
 }
@@ -65,7 +87,7 @@ func (r *AlertChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A map of key / value pairs with channel type specific values.
+// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
 func (r *AlertChannel) Configuration() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["configuration"])
 }
@@ -75,27 +97,27 @@ func (r *AlertChannel) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 func (r *AlertChannel) Type() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering AlertChannel resources.
 type AlertChannelState struct {
-	// A map of key / value pairs with channel type specific values.
+	// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
 	Configuration interface{}
 	// The name of the channel.
 	Name interface{}
-	// The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type interface{}
 }
 
 // The set of arguments for constructing a AlertChannel resource.
 type AlertChannelArgs struct {
-	// A map of key / value pairs with channel type specific values.
+	// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
 	Configuration interface{}
 	// The name of the channel.
 	Name interface{}
-	// The type of channel.  One of: `campfire`, `email`, `hipchat`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type interface{}
 }

@@ -17,9 +17,9 @@ package newrelic
 import (
 	"unicode"
 
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/hashicorp/terraform/terraform"
-	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
 	"github.com/terraform-providers/terraform-provider-newrelic/newrelic"
@@ -32,6 +32,8 @@ const (
 	// modules:
 	mainMod       = "index"
 	syntheticsMod = "synthetics"
+	insightsMod   = "insights"
+	pluginsMod    = "plugins"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -113,6 +115,8 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_synthetics_alert_condition": {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":         {Tok: makeResource(syntheticsMod, "Monitor")},
 			"newrelic_synthetics_monitor_script":  {Tok: makeResource(syntheticsMod, "MonitorScript")},
+			"newrelic_insights_event":             {Tok: makeResource(insightsMod, "Event")},
+			"newrelic_plugins_alert_condition":    {Tok: makeResource(pluginsMod, "AlertCondition")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"newrelic_alert_channel":      {Tok: makeDataSource(mainMod, "getAlertChannel")},
@@ -120,6 +124,8 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_application":        {Tok: makeDataSource(mainMod, "getApplication")},
 			"newrelic_key_transaction":    {Tok: makeDataSource(mainMod, "getKeyTransaction")},
 			"newrelic_synthetics_monitor": {Tok: makeDataSource(syntheticsMod, "getMonitor")},
+			"newrelic_plugin":             {Tok: makeDataSource(pluginsMod, "getPlugin")},
+			"newrelic_plugin_component":   {Tok: makeDataSource(pluginsMod, "getPluginComponent")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

@@ -17,6 +17,8 @@ export * from "./provider";
 
 // Export sub-modules:
 import * as config from "./config/index";
+import * as insights from "./insights/index";
+import * as plugins from "./plugins/index";
 import * as synthetics from "./synthetics/index";
 import * as types from "./types/index";
-export {config, synthetics, types};
+export {config, insights, plugins, synthetics, types};

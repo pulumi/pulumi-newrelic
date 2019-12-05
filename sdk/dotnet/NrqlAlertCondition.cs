@@ -59,6 +59,9 @@ namespace Pulumi.Newrelic
         [Output("valueFunction")]
         public Output<string?> ValueFunction { get; private set; } = null!;
 
+        [Output("violationTimeLimitSeconds")]
+        public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NrqlAlertCondition resource with the given unique name, arguments, and options.
@@ -140,6 +143,9 @@ namespace Pulumi.Newrelic
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
 
+        [Input("violationTimeLimitSeconds")]
+        public Input<int>? ViolationTimeLimitSeconds { get; set; }
+
         public NrqlAlertConditionArgs()
         {
         }
@@ -181,6 +187,9 @@ namespace Pulumi.Newrelic
 
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
+
+        [Input("violationTimeLimitSeconds")]
+        public Input<int>? ViolationTimeLimitSeconds { get; set; }
 
         public NrqlAlertConditionState()
         {

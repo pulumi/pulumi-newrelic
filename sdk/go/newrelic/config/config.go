@@ -48,3 +48,23 @@ func GetInfraApiUrl(ctx *pulumi.Context) string {
 func GetInsecureSkipVerify(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "newrelic:insecureSkipVerify")
 }
+
+func GetInsightsAccountId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:insightsAccountId")
+}
+
+func GetInsightsInsertKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:insightsInsertKey")
+}
+
+func GetInsightsInsertUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:insightsInsertUrl")
+}
+
+func GetInsightsQueryKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:insightsQueryKey")
+}
+
+func GetInsightsQueryUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:insightsQueryUrl")
+}

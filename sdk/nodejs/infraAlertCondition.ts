@@ -13,8 +13,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooInfraAlertCondition = new newrelic.InfraAlertCondition("foo", {
+ * const foo = new newrelic.AlertPolicy("foo", {});
+ * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
  *     comparison: "above",
  *     critical: {
  *         duration: 25,
@@ -22,9 +22,48 @@ import * as utilities from "./utilities";
  *         value: 90,
  *     },
  *     event: "StorageSample",
- *     policyId: fooAlertPolicy.id,
+ *     policyId: foo.id,
  *     select: "diskUsedPercent",
  *     type: "infraMetric",
+ *     warning: {
+ *         duration: 10,
+ *         timeFunction: "all",
+ *         value: 90,
+ *     },
+ *     where: "(`hostname` LIKE '%frontend%')",
+ * });
+ * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
+ *     comparison: "above",
+ *     critical: {
+ *         duration: 25,
+ *         timeFunction: "all",
+ *         value: 90,
+ *     },
+ *     event: "DatastoreSample",
+ *     integrationProvider: "RdsDbInstance",
+ *     policyId: foo.id,
+ *     select: "provider.databaseConnections.Average",
+ *     type: "infraMetric",
+ *     where: "(`hostname` LIKE '%db%')",
+ * });
+ * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
+ *     comparison: "equal",
+ *     critical: {
+ *         duration: 5,
+ *         value: 0,
+ *     },
+ *     policyId: foo.id,
+ *     processWhere: "`commandName` = '/usr/bin/ruby'",
+ *     type: "infraProcessRunning",
+ * });
+ * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
+ *     critical: {
+ *         duration: 5,
+ *     },
+ *     event: "StorageSample",
+ *     policyId: foo.id,
+ *     select: "diskUsedPercent",
+ *     type: "infraHostNotReporting",
  *     where: "(`hostname` LIKE '%frontend%')",
  * });
  * ```
@@ -34,8 +73,8 @@ import * as utilities from "./utilities";
  * The `critical` and `warning` threshold mapping supports the following arguments:
  * 
  *   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
- *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by "infraMetric" and "infraProcessRunning" alert condition types.
- *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the "infraMetric" alert condition type.
+ *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
+ *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
  */
@@ -67,20 +106,20 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * The operator used to evaluate the threshold value; "above", "below", "equal".
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
      */
     public readonly comparison!: pulumi.Output<string | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<number>;
     /**
-     * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
      */
     public readonly critical!: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
     /**
-     * Set whether to enable the alert condition. Defaults to `true`.
+     * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+     * The metric event; for example, `SystemSample` or `StorageSample`.
      */
     public readonly event!: pulumi.Output<string | undefined>;
     /**
@@ -96,7 +135,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<number>;
     /**
-     * Any filters applied to processes; for example: `"commandName = 'java'"`.
+     * Any filters applied to processes; for example: `commandName = 'java'`.
      */
     public readonly processWhere!: pulumi.Output<string | undefined>;
     /**
@@ -104,20 +143,20 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
      */
     public readonly select!: pulumi.Output<string | undefined>;
     /**
-     * The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
+     * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     public readonly type!: pulumi.Output<string>;
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
     /**
-     * Identifies the warning threshold parameters. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
     public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
-     * Infrastructure host filter for the alert condition.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     public readonly where!: pulumi.Output<string | undefined>;
 
@@ -188,20 +227,20 @@ export class InfraAlertCondition extends pulumi.CustomResource {
  */
 export interface InfraAlertConditionState {
     /**
-     * The operator used to evaluate the threshold value; "above", "below", "equal".
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
      */
     readonly comparison?: pulumi.Input<string>;
     readonly createdAt?: pulumi.Input<number>;
     /**
-     * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
      */
     readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
-     * Set whether to enable the alert condition. Defaults to `true`.
+     * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+     * The metric event; for example, `SystemSample` or `StorageSample`.
      */
     readonly event?: pulumi.Input<string>;
     /**
@@ -217,7 +256,7 @@ export interface InfraAlertConditionState {
      */
     readonly policyId?: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: `"commandName = 'java'"`.
+     * Any filters applied to processes; for example: `commandName = 'java'`.
      */
     readonly processWhere?: pulumi.Input<string>;
     /**
@@ -225,20 +264,20 @@ export interface InfraAlertConditionState {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
      */
     readonly select?: pulumi.Input<string>;
     /**
-     * The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
+     * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     readonly type?: pulumi.Input<string>;
     readonly updatedAt?: pulumi.Input<number>;
     /**
-     * Identifies the warning threshold parameters. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
     readonly warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * Infrastructure host filter for the alert condition.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     readonly where?: pulumi.Input<string>;
 }
@@ -248,19 +287,19 @@ export interface InfraAlertConditionState {
  */
 export interface InfraAlertConditionArgs {
     /**
-     * The operator used to evaluate the threshold value; "above", "below", "equal".
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
      */
     readonly comparison?: pulumi.Input<string>;
     /**
-     * Identifies the critical threshold parameters for triggering an alert notification. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
      */
     readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
-     * Set whether to enable the alert condition. Defaults to `true`.
+     * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The metric event; for example, system metrics, process metrics, storage metrics, or network metrics.
+     * The metric event; for example, `SystemSample` or `StorageSample`.
      */
     readonly event?: pulumi.Input<string>;
     /**
@@ -276,7 +315,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly policyId: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: `"commandName = 'java'"`.
+     * Any filters applied to processes; for example: `commandName = 'java'`.
      */
     readonly processWhere?: pulumi.Input<string>;
     /**
@@ -284,19 +323,19 @@ export interface InfraAlertConditionArgs {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * The attribute name to identify the type of metric condition; for example, "network", "process", "system", or "storage".
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
      */
     readonly select?: pulumi.Input<string>;
     /**
-     * The type of Infrastructure alert condition: "infraProcessRunning", "infraMetric", or "infraHostNotReporting".
+     * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     readonly type: pulumi.Input<string>;
     /**
-     * Identifies the warning threshold parameters. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
     readonly warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
-     * Infrastructure host filter for the alert condition.
+     * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
     readonly where?: pulumi.Input<string>;
 }
