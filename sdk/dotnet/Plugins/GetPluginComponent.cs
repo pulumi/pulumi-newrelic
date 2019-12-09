@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Newrelic.Plugins
+namespace Pulumi.NewRelic.Plugins
 {
     public static partial class Invokes
     {

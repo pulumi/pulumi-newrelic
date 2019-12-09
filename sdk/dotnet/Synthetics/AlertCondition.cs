@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Newrelic.Synthetics
+namespace Pulumi.NewRelic.Synthetics
 {
     public partial class AlertCondition : Pulumi.CustomResource
     {
