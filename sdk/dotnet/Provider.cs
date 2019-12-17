@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Newrelic
+namespace Pulumi.NewRelic
 {
     /// <summary>
     /// The provider type for the newrelic package. By default, resources use package-wide configuration

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Newrelic.Synthetics
+namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create, update, and delete a synthetics monitor in New Relic.
