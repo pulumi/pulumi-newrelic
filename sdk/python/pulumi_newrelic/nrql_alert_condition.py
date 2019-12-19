@@ -23,6 +23,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
     violation_time_limit_seconds: pulumi.Output[float]
     def __init__(__self__, resource_name, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, violation_time_limit_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
+        Use this resource to create and manage NRQL alert conditions in New Relic.
+        
         ## Terms
         
         The `term` mapping supports the following arguments:

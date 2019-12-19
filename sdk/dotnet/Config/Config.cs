@@ -13,21 +13,21 @@ namespace Pulumi.NewRelic
 
         public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
 
-        public static string? CacertFile { get; set; } = __config.Get("cacertFile");
+        public static string? CacertFile { get; set; } = __config.Get("cacertFile") ?? Utilities.GetEnv("NEWRELIC_API_CACERT");
 
         public static string? InfraApiUrl { get; set; } = __config.Get("infraApiUrl") ?? Utilities.GetEnv("NEWRELIC_INFRA_API_URL") ?? "https://infra-api.newrelic.com/v2";
 
-        public static bool? InsecureSkipVerify { get; set; } = __config.GetBoolean("insecureSkipVerify");
+        public static bool? InsecureSkipVerify { get; set; } = __config.GetBoolean("insecureSkipVerify") ?? Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
 
-        public static string? InsightsAccountId { get; set; } = __config.Get("insightsAccountId");
+        public static string? InsightsAccountId { get; set; } = __config.Get("insightsAccountId") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
 
-        public static string? InsightsInsertKey { get; set; } = __config.Get("insightsInsertKey");
+        public static string? InsightsInsertKey { get; set; } = __config.Get("insightsInsertKey") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
 
-        public static string? InsightsInsertUrl { get; set; } = __config.Get("insightsInsertUrl");
+        public static string? InsightsInsertUrl { get; set; } = __config.Get("insightsInsertUrl") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
 
-        public static string? InsightsQueryKey { get; set; } = __config.Get("insightsQueryKey");
+        public static string? InsightsQueryKey { get; set; } = __config.Get("insightsQueryKey") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
 
-        public static string? InsightsQueryUrl { get; set; } = __config.Get("insightsQueryUrl");
+        public static string? InsightsQueryUrl { get; set; } = __config.Get("insightsQueryUrl") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
 
     }
     namespace ConfigTypes

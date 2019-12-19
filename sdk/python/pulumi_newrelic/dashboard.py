@@ -76,7 +76,7 @@ class Dashboard(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, editable=None, filter=None, icon=None, title=None, visibility=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
-        This resource can be used to create and manage New Relic dashboards.
+        Use this resource to create and manage New Relic dashboards.
         
         ## Attribute Refence
         

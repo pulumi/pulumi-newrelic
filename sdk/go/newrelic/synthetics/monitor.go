@@ -123,7 +123,7 @@ func (r *Monitor) SlaThreshold() pulumi.Float64Output {
 	return (pulumi.Float64Output)(r.s.State["slaThreshold"])
 }
 
-// The monitor status (i.e. ENABLED, MUTED, DISABLED)
+// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
 func (r *Monitor) Status() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["status"])
 }
@@ -133,7 +133,7 @@ func (r *Monitor) TreatRedirectAsFailure() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["treatRedirectAsFailure"])
 }
 
-// The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
+// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
 func (r *Monitor) Type() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["type"])
 }
@@ -165,11 +165,11 @@ type MonitorState struct {
 	Name interface{}
 	// The base threshold for the SLA report.
 	SlaThreshold interface{}
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
 	Status interface{}
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure interface{}
-	// The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
+	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
 	Type interface{}
 	// The URI for the monitor to hit.
 	Uri interface{}
@@ -191,11 +191,11 @@ type MonitorArgs struct {
 	Name interface{}
 	// The base threshold for the SLA report.
 	SlaThreshold interface{}
-	// The monitor status (i.e. ENABLED, MUTED, DISABLED)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
 	Status interface{}
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure interface{}
-	// The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
+	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
 	Type interface{}
 	// The URI for the monitor to hit.
 	Uri interface{}

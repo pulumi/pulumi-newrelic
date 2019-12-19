@@ -67,6 +67,8 @@ class AlertCondition(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, condition_scope=None, enabled=None, entities=None, gc_metric=None, metric=None, name=None, policy_id=None, runbook_url=None, terms=None, type=None, user_defined_metric=None, user_defined_value_function=None, violation_close_timer=None, __props__=None, __name__=None, __opts__=None):
         """
+        Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
+        
         ## Terms
         
         The `term` mapping supports the following arguments:

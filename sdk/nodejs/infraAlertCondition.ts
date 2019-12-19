@@ -7,66 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const foo = new newrelic.AlertPolicy("foo", {});
- * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
- *     comparison: "above",
- *     critical: {
- *         duration: 25,
- *         timeFunction: "all",
- *         value: 90,
- *     },
- *     event: "StorageSample",
- *     policyId: foo.id,
- *     select: "diskUsedPercent",
- *     type: "infraMetric",
- *     warning: {
- *         duration: 10,
- *         timeFunction: "all",
- *         value: 90,
- *     },
- *     where: "(`hostname` LIKE '%frontend%')",
- * });
- * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
- *     comparison: "above",
- *     critical: {
- *         duration: 25,
- *         timeFunction: "all",
- *         value: 90,
- *     },
- *     event: "DatastoreSample",
- *     integrationProvider: "RdsDbInstance",
- *     policyId: foo.id,
- *     select: "provider.databaseConnections.Average",
- *     type: "infraMetric",
- *     where: "(`hostname` LIKE '%db%')",
- * });
- * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
- *     comparison: "equal",
- *     critical: {
- *         duration: 5,
- *         value: 0,
- *     },
- *     policyId: foo.id,
- *     processWhere: "`commandName` = '/usr/bin/ruby'",
- *     type: "infraProcessRunning",
- * });
- * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
- *     critical: {
- *         duration: 5,
- *     },
- *     event: "StorageSample",
- *     policyId: foo.id,
- *     select: "diskUsedPercent",
- *     type: "infraHostNotReporting",
- *     where: "(`hostname` LIKE '%frontend%')",
- * });
- * ```
+ * Use this resource to create and manage Infrastructure alert conditions in New Relic.
  * 
  * ## Thresholds
  * 
@@ -106,7 +47,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
     public readonly comparison!: pulumi.Output<string | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<number>;
@@ -119,11 +60,11 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The metric event; for example, `SystemSample` or `StorageSample`.
+     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
-    public readonly event!: pulumi.Output<string | undefined>;
+    public readonly event!: pulumi.Output<string>;
     /**
-     * For alerts on integrations, use this instead of `event`.
+     * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
     public readonly integrationProvider!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +76,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<number>;
     /**
-     * Any filters applied to processes; for example: `commandName = 'java'`.
+     * Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
      */
     public readonly processWhere!: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +84,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
     public readonly select!: pulumi.Output<string | undefined>;
     /**
@@ -227,7 +168,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
  */
 export interface InfraAlertConditionState {
     /**
-     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
     readonly comparison?: pulumi.Input<string>;
     readonly createdAt?: pulumi.Input<number>;
@@ -240,11 +181,11 @@ export interface InfraAlertConditionState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The metric event; for example, `SystemSample` or `StorageSample`.
+     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
     readonly event?: pulumi.Input<string>;
     /**
-     * For alerts on integrations, use this instead of `event`.
+     * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
     readonly integrationProvider?: pulumi.Input<string>;
     /**
@@ -256,7 +197,7 @@ export interface InfraAlertConditionState {
      */
     readonly policyId?: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: `commandName = 'java'`.
+     * Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
      */
     readonly processWhere?: pulumi.Input<string>;
     /**
@@ -264,7 +205,7 @@ export interface InfraAlertConditionState {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
     readonly select?: pulumi.Input<string>;
     /**
@@ -287,7 +228,7 @@ export interface InfraAlertConditionState {
  */
 export interface InfraAlertConditionArgs {
     /**
-     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.
+     * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
     readonly comparison?: pulumi.Input<string>;
     /**
@@ -299,11 +240,11 @@ export interface InfraAlertConditionArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The metric event; for example, `SystemSample` or `StorageSample`.
+     * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
     readonly event?: pulumi.Input<string>;
     /**
-     * For alerts on integrations, use this instead of `event`.
+     * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
     readonly integrationProvider?: pulumi.Input<string>;
     /**
@@ -315,7 +256,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly policyId: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: `commandName = 'java'`.
+     * Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
      */
     readonly processWhere?: pulumi.Input<string>;
     /**
@@ -323,7 +264,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.
+     * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
     readonly select?: pulumi.Input<string>;
     /**

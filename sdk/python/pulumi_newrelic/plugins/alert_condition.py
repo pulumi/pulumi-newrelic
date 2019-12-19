@@ -50,6 +50,8 @@ class AlertCondition(pulumi.CustomResource):
     value_function: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, enabled=None, entities=None, metric=None, metric_description=None, name=None, plugin_guid=None, plugin_id=None, policy_id=None, runbook_url=None, terms=None, value_function=None, __props__=None, __name__=None, __opts__=None):
         """
+        Use this resource to create and manage plugins alert conditions in New Relic.
+        
         ## Terms
         
         The `term` mapping supports the following arguments:

@@ -55,7 +55,7 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
 
 def get_alert_policy(incident_preference=None,name=None,opts=None):
     """
-    Use this data source to get information about an specific alert policy in New Relic which already exists.
+    Use this data source to access information about an existing resource.
     
     :param str name: The name of the alert policy in New Relic.
 

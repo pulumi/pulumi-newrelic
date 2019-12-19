@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Use this resource to create and manage synthetics alert conditions in New Relic.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
 type AlertCondition struct {
 	s *pulumi.ResourceState
 }

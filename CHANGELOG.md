@@ -4,6 +4,8 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Namespace names in .NET SDK are adjusted to PascalCase
 ([#37](https://github.com/pulumi/pulumi-newrelic/pull/37)).
+* Upgrade to v1.10.0 of the NewRelic Terraform Provider
+* Upgrade to pulumi-terraform-bridge v1.5.2
 
 ---
 

@@ -7,32 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const fooPlugin = newrelic.plugins.getPlugin({
- *     guid: "com.example.my-plugin",
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooAlertCondition = new newrelic.plugins.AlertCondition("foo", {
- *     metric: "Component/Summary/Consumers[consumers]",
- *     metricDescription: "Queue consumers",
- *     pluginGuid: fooPlugin.guid,
- *     pluginId: fooPlugin.id,
- *     policyId: fooAlertPolicy.id,
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: 0.75,
- *         timeFunction: "all",
- *     }],
- *     valueFunction: "average",
- * });
- * ```
+ * Use this resource to create and manage plugins alert conditions in New Relic.
  * 
  * ## Terms
  * 

@@ -32,7 +32,7 @@ class AlertCondition(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, enabled=None, monitor_id=None, name=None, policy_id=None, runbook_url=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a AlertCondition resource with the given unique name, props, and options.
+        Use this resource to create and manage synthetics alert conditions in New Relic.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

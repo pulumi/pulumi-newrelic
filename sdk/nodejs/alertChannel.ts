@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Use this resource to create and manage New Relic alert policies.
+ * 
  * ## Example Usage
  * 
  * ##### Email

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// This resource can be used to create and manage New Relic dashboards.
+// Use this resource to create and manage New Relic dashboards.
 // 
 // ## Attribute Refence
 // 

@@ -8,6 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Use this resource to create and manage New Relic alert policies.
+// 
 // ## Channel Configurations
 // 
 // Each supported channel supports a particular set of configuration arguments.

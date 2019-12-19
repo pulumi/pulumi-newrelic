@@ -41,7 +41,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
 
 def get_monitor(name=None,opts=None):
     """
-    Use this data source to get information about a specific synthetics monitor in New Relic. This can then be used to set up a synthetics alert condition.
+    Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
     
     :param str name: The name of the synthetics monitor in New Relic.
 

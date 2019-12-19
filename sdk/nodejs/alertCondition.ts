@@ -7,32 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const app = newrelic.getApplication({
- *     name: "my-app",
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooAlertCondition = new newrelic.AlertCondition("foo", {
- *     conditionScope: "application",
- *     entities: [app.id],
- *     metric: "apdex",
- *     policyId: fooAlertPolicy.id,
- *     runbookUrl: "https://www.example.com",
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: 0.75,
- *         timeFunction: "all",
- *     }],
- *     type: "apmAppMetric",
- * });
- * ```
+ * Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
  * 
  * ## Terms
  * 

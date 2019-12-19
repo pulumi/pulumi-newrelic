@@ -5,23 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about a specific synthetics monitor in New Relic. This can then be used to set up a synthetics alert condition.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const bar = newrelic.synthetics.getMonitor({
- *     name: "bar",
- * });
- * const baz = new newrelic.synthetics.AlertCondition("baz", {
- *     monitorId: bar.id,
- *     policyId: newrelic_alert_policy_foo.id,
- *     runbookUrl: "https://www.example.com",
- * });
- * ```
+ * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
  */
