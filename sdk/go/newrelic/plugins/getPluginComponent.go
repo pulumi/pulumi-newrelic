@@ -7,10 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get information about a single plugin component in New Relic.
-// 
-// Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins Alert Conditions.
-//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
 func LookupPluginComponent(ctx *pulumi.Context, args *GetPluginComponentArgs) (*GetPluginComponentResult, error) {
 	inputs := make(map[string]interface{})

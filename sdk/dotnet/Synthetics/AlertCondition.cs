@@ -7,6 +7,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic.Synthetics
 {
+    /// <summary>
+    /// Use this resource to create and manage synthetics alert conditions in New Relic.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
+    /// </summary>
     public partial class AlertCondition : Pulumi.CustomResource
     {
         /// <summary>

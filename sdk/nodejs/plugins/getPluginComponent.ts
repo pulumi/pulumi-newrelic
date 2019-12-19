@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about a single plugin component in New Relic.
- * 
- * Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins Alert Conditions.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const fooPlugin = newrelic.plugins.getPlugin({
- *     guid: "com.example.my-plugin",
- * });
- * const fooPluginComponent = newrelic.plugins.getPluginComponent({
- *     name: "My Plugin Component",
- *     pluginId: Number.parseFloat(fooPlugin.id),
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooAlertCondition = new newrelic.plugins.AlertCondition("foo", {
- *     entities: [Number.parseFloat(fooPluginComponent.id)],
- *     metric: "Component/Summary/Consumers[consumers]",
- *     metricDescription: "Queue consumers",
- *     pluginGuid: fooPlugin.guid,
- *     pluginId: fooPlugin.id,
- *     policyId: fooAlertPolicy.id,
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: 0.75,
- *         timeFunction: "all",
- *     }],
- *     valueFunction: "average",
- * });
- * ```
- *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
  */
 export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> & GetPluginComponentResult {

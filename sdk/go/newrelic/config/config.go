@@ -31,7 +31,14 @@ func GetApiUrl(ctx *pulumi.Context) string {
 }
 
 func GetCacertFile(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:cacertFile")
+	v, err := config.Try(ctx, "newrelic:cacertFile")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "NEWRELIC_API_CACERT").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetInfraApiUrl(ctx *pulumi.Context) string {
@@ -46,25 +53,67 @@ func GetInfraApiUrl(ctx *pulumi.Context) string {
 }
 
 func GetInsecureSkipVerify(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "newrelic:insecureSkipVerify")
+	v, err := config.TryBool(ctx, "newrelic:insecureSkipVerify")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault(false, parseEnvBool, "NEWRELIC_API_SKIP_VERIFY").(bool); ok {
+		return dv
+	}
+	return v
 }
 
 func GetInsightsAccountId(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:insightsAccountId")
+	v, err := config.Try(ctx, "newrelic:insightsAccountId")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_ACCOUNT_ID").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetInsightsInsertKey(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:insightsInsertKey")
+	v, err := config.Try(ctx, "newrelic:insightsInsertKey")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_INSERT_KEY").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetInsightsInsertUrl(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:insightsInsertUrl")
+	v, err := config.Try(ctx, "newrelic:insightsInsertUrl")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("https://insights-collector.newrelic.com/v1/accounts", nil, "NEWRELIC_INSIGHTS_INSERT_URL").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetInsightsQueryKey(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:insightsQueryKey")
+	v, err := config.Try(ctx, "newrelic:insightsQueryKey")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_QUERY_KEY").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetInsightsQueryUrl(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:insightsQueryUrl")
+	v, err := config.Try(ctx, "newrelic:insightsQueryUrl")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEWRELIC_INSIGHTS_QUERY_URL").(string); ok {
+		return dv
+	}
+	return v
 }

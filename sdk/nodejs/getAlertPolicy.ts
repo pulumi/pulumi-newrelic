@@ -7,26 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about an specific alert policy in New Relic which already exists.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const fooAlertChannel = newrelic.getAlertChannel({
- *     name: "foo@example.com",
- * });
- * const fooAlertPolicy = newrelic.getAlertPolicy({
- *     name: "foo policy",
- * });
- * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
- *     channelId: fooAlertChannel.id,
- *     policyId: fooAlertPolicy.id,
- * });
- * ```
- *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
  */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> & GetAlertPolicyResult {

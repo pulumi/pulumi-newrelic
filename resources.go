@@ -107,6 +107,43 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"NEWRELIC_INFRA_API_URL"},
 				},
 			},
+			"insecure_skip_verify": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_API_SKIP_VERIFY"},
+				},
+			},
+			"insights_account_id": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_INSIGHTS_ACCOUNT_ID"},
+				},
+			},
+			"insights_insert_key": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_INSIGHTS_INSERT_KEY"},
+				},
+			},
+			"insights_insert_url": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "https://insights-collector.newrelic.com/v1/accounts",
+					EnvVars: []string{"NEWRELIC_INSIGHTS_INSERT_URL"},
+				},
+			},
+			"insights_query_key": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_INSIGHTS_QUERY_KEY"},
+				},
+			},
+			"insights_query_url": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "https://insights-api.newrelic.com/v1/accounts",
+					EnvVars: []string{"NEWRELIC_INSIGHTS_QUERY_URL"},
+				},
+			},
+			"cacert_file": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_API_CACERT"},
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{

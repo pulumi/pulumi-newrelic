@@ -45,15 +45,29 @@ class Provider(pulumi.ProviderResource):
             if api_url is None:
                 api_url = (utilities.get_env('NEWRELIC_API_URL') or 'https://api.newrelic.com/v2')
             __props__['api_url'] = api_url
+            if cacert_file is None:
+                cacert_file = utilities.get_env('NEWRELIC_API_CACERT')
             __props__['cacert_file'] = cacert_file
             if infra_api_url is None:
                 infra_api_url = (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
             __props__['infra_api_url'] = infra_api_url
+            if insecure_skip_verify is None:
+                insecure_skip_verify = utilities.get_env_bool('NEWRELIC_API_SKIP_VERIFY')
             __props__['insecure_skip_verify'] = pulumi.Output.from_input(insecure_skip_verify).apply(json.dumps) if insecure_skip_verify is not None else None
+            if insights_account_id is None:
+                insights_account_id = utilities.get_env('NEWRELIC_INSIGHTS_ACCOUNT_ID')
             __props__['insights_account_id'] = insights_account_id
+            if insights_insert_key is None:
+                insights_insert_key = utilities.get_env('NEWRELIC_INSIGHTS_INSERT_KEY')
             __props__['insights_insert_key'] = insights_insert_key
+            if insights_insert_url is None:
+                insights_insert_url = (utilities.get_env('NEWRELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
             __props__['insights_insert_url'] = insights_insert_url
+            if insights_query_key is None:
+                insights_query_key = utilities.get_env('NEWRELIC_INSIGHTS_QUERY_KEY')
             __props__['insights_query_key'] = insights_query_key
+            if insights_query_url is None:
+                insights_query_url = (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url
         super(Provider, __self__).__init__(
             'newrelic',

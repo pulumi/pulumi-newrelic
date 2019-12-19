@@ -42,14 +42,14 @@ export class Provider extends pulumi.ProviderResource {
         {
             inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("NEWRELIC_API_KEY");
             inputs["apiUrl"] = (args ? args.apiUrl : undefined) || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
-            inputs["cacertFile"] = args ? args.cacertFile : undefined;
+            inputs["cacertFile"] = (args ? args.cacertFile : undefined) || utilities.getEnv("NEWRELIC_API_CACERT");
             inputs["infraApiUrl"] = (args ? args.infraApiUrl : undefined) || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
-            inputs["insecureSkipVerify"] = pulumi.output(args ? args.insecureSkipVerify : undefined).apply(JSON.stringify);
-            inputs["insightsAccountId"] = args ? args.insightsAccountId : undefined;
-            inputs["insightsInsertKey"] = args ? args.insightsInsertKey : undefined;
-            inputs["insightsInsertUrl"] = args ? args.insightsInsertUrl : undefined;
-            inputs["insightsQueryKey"] = args ? args.insightsQueryKey : undefined;
-            inputs["insightsQueryUrl"] = args ? args.insightsQueryUrl : undefined;
+            inputs["insecureSkipVerify"] = pulumi.output((args ? args.insecureSkipVerify : undefined) || utilities.getEnvBoolean("NEWRELIC_API_SKIP_VERIFY")).apply(JSON.stringify);
+            inputs["insightsAccountId"] = (args ? args.insightsAccountId : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
+            inputs["insightsInsertKey"] = (args ? args.insightsInsertKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
+            inputs["insightsInsertUrl"] = (args ? args.insightsInsertUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
+            inputs["insightsQueryKey"] = (args ? args.insightsQueryKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
+            inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
         }
         if (!opts) {
             opts = {}

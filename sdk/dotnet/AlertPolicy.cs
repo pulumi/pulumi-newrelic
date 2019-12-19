@@ -7,6 +7,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
+    /// <summary>
+    /// Use this resource to create and manage New Relic alert policies.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
+    /// </summary>
     public partial class AlertPolicy : Pulumi.CustomResource
     {
         /// <summary>

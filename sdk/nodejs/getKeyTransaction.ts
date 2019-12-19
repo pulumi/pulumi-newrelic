@@ -7,34 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific key transaction in New Relic.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const txn = newrelic.getKeyTransaction({
- *     name: "txn",
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooAlertCondition = new newrelic.AlertCondition("foo", {
- *     entities: [txn.id],
- *     metric: "errorPercentage",
- *     policyId: fooAlertPolicy.id,
- *     runbookUrl: "https://www.example.com",
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: 0.75,
- *         timeFunction: "all",
- *     }],
- *     type: "apmKtMetric",
- * });
- * ```
- *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
  */
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> & GetKeyTransactionResult {

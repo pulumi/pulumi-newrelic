@@ -10,8 +10,6 @@ namespace Pulumi.NewRelic
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get information about an specific alert policy in New Relic which already exists.
-        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
         /// </summary>
         public static Task<GetAlertPolicyResult> GetAlertPolicy(GetAlertPolicyArgs args, InvokeOptions? options = null)

@@ -10,10 +10,6 @@ namespace Pulumi.NewRelic.Plugins
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get information about a single plugin component in New Relic.
-        /// 
-        /// Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins Alert Conditions.
-        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
         /// </summary>
         public static Task<GetPluginComponentResult> GetPluginComponent(GetPluginComponentArgs args, InvokeOptions? options = null)

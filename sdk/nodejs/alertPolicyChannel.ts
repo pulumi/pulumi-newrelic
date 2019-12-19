@@ -7,25 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const fooAlertPolicy = new newrelic.AlertPolicy("foo", {});
- * const fooAlertChannel = new newrelic.AlertChannel("foo", {
- *     configuration: {
- *         include_json_attachment: "1",
- *         recipients: "foo@example.com",
- *     },
- *     type: "email",
- * });
- * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("foo", {
- *     channelId: fooAlertChannel.id,
- *     policyId: fooAlertPolicy.id,
- * });
- * ```
+ * Use this resource to map alert policies to alert channels in New Relic.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
  */

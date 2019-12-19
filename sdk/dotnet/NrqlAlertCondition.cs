@@ -8,6 +8,8 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// Use this resource to create and manage NRQL alert conditions in New Relic.
+    /// 
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:

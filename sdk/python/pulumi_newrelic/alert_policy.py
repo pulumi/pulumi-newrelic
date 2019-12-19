@@ -28,7 +28,7 @@ class AlertPolicy(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a AlertPolicy resource with the given unique name, props, and options.
+        Use this resource to create and manage New Relic alert policies.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

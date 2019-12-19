@@ -45,9 +45,7 @@ class AwaitableGetPluginComponentResult(GetPluginComponentResult):
 
 def get_plugin_component(name=None,plugin_id=None,opts=None):
     """
-    Use this data source to get information about a single plugin component in New Relic.
-    
-    Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins Alert Conditions.
+    Use this data source to access information about an existing resource.
     
     :param str name: The name of the plugin component.
     :param float plugin_id: The ID of the plugin instance this component belongs to.

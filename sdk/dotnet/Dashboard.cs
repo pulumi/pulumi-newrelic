@@ -8,7 +8,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// This resource can be used to create and manage New Relic dashboards.
+    /// Use this resource to create and manage New Relic dashboards.
     /// 
     /// ## Attribute Refence
     /// 

@@ -8,6 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Use this resource to create and manage NRQL alert conditions in New Relic.
+// 
 // ## Terms
 // 
 // The `term` mapping supports the following arguments:

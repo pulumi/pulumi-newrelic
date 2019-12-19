@@ -15,19 +15,19 @@ api_key = __config__.get('apiKey') or utilities.get_env('NEWRELIC_API_KEY')
 
 api_url = __config__.get('apiUrl') or (utilities.get_env('NEWRELIC_API_URL') or 'https://api.newrelic.com/v2')
 
-cacert_file = __config__.get('cacertFile')
+cacert_file = __config__.get('cacertFile') or utilities.get_env('NEWRELIC_API_CACERT')
 
 infra_api_url = __config__.get('infraApiUrl') or (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
 
-insecure_skip_verify = __config__.get('insecureSkipVerify')
+insecure_skip_verify = __config__.get('insecureSkipVerify') or utilities.get_env_bool('NEWRELIC_API_SKIP_VERIFY')
 
-insights_account_id = __config__.get('insightsAccountId')
+insights_account_id = __config__.get('insightsAccountId') or utilities.get_env('NEWRELIC_INSIGHTS_ACCOUNT_ID')
 
-insights_insert_key = __config__.get('insightsInsertKey')
+insights_insert_key = __config__.get('insightsInsertKey') or utilities.get_env('NEWRELIC_INSIGHTS_INSERT_KEY')
 
-insights_insert_url = __config__.get('insightsInsertUrl')
+insights_insert_url = __config__.get('insightsInsertUrl') or (utilities.get_env('NEWRELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
 
-insights_query_key = __config__.get('insightsQueryKey')
+insights_query_key = __config__.get('insightsQueryKey') or utilities.get_env('NEWRELIC_INSIGHTS_QUERY_KEY')
 
-insights_query_url = __config__.get('insightsQueryUrl')
+insights_query_url = __config__.get('insightsQueryUrl') or (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
 

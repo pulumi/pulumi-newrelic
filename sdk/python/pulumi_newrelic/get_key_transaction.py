@@ -34,7 +34,7 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
 
 def get_key_transaction(name=None,opts=None):
     """
-    Use this data source to get information about a specific key transaction in New Relic.
+    Use this data source to access information about an existing resource.
     
     :param str name: The name of the application in New Relic.
 

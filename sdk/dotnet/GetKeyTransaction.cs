@@ -10,8 +10,6 @@ namespace Pulumi.NewRelic
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get information about a specific key transaction in New Relic.
-        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
         /// </summary>
         public static Task<GetKeyTransactionResult> GetKeyTransaction(GetKeyTransactionArgs args, InvokeOptions? options = null)

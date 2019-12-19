@@ -48,7 +48,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 
 def get_application(name=None,opts=None):
     """
-    Use this data source to get information about a specific application in New Relic.
+    Use this data source to access information about an existing resource.
     
     :param str name: The name of the application in New Relic.
 

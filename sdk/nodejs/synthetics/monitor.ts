@@ -9,6 +9,49 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ##### Type: `SIMPLE`
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.synthetics.Monitor("foo", {
+ *     frequency: 5,
+ *     locations: [
+ *         "AWS_US_EAST_1",
+ *         "AWS_US_EAST_2",
+ *     ],
+ *     status: "ENABLED",
+ *     type: "SIMPLE",
+ *     uri: "https://example.com", // Required for type "SIMPLE" and "BROWSER"
+ *     validationString: "add example validation check here", // Optional for type "SIMPLE" and "BROWSER"
+ *     verifySsl: true, // Optional for type "SIMPLE" and "BROWSER"
+ * });
+ * ```
+ * See additional examples.
+ * 
+ * ## Additional Examples
+ * 
+ * Type: `BROWSER`
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.synthetics.Monitor("foo", {
+ *     bypassHeadRequest: true, // Note: optional for type "BROWSER" only
+ *     frequency: 5,
+ *     locations: ["AWS_US_EAST_1"],
+ *     status: "ENABLED",
+ *     treatRedirectAsFailure: true, // Note: optional for type "BROWSER" only
+ *     type: "BROWSER",
+ *     uri: "https://example.com", // required for type "SIMPLE" and "BROWSER"
+ *     validationString: "add example validation check here", // optional for type "SIMPLE" and "BROWSER"
+ *     verifySsl: true, // optional for type "SIMPLE" and "BROWSER"
+ * });
+ * ```
+ * 
+ * Type: `SCRIPT_BROWSER`
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -17,7 +60,21 @@ import * as utilities from "../utilities";
  *     frequency: 5,
  *     locations: ["AWS_US_EAST_1"],
  *     status: "ENABLED",
- *     type: "SIMPLE",
+ *     type: "SCRIPT_BROWSER",
+ * });
+ * ```
+ * 
+ * Type: `SCRIPT_API`
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.synthetics.Monitor("foo", {
+ *     frequency: 5,
+ *     locations: ["AWS_US_EAST_1"],
+ *     status: "ENABLED",
+ *     type: "SCRIPT_API",
  * });
  * ```
  *
@@ -71,7 +128,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly slaThreshold!: pulumi.Output<number | undefined>;
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED)
+     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -79,7 +136,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
     /**
-     * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
+     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -180,7 +237,7 @@ export interface MonitorState {
      */
     readonly slaThreshold?: pulumi.Input<number>;
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED)
+     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -188,7 +245,7 @@ export interface MonitorState {
      */
     readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
+     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -230,7 +287,7 @@ export interface MonitorArgs {
      */
     readonly slaThreshold?: pulumi.Input<number>;
     /**
-     * The monitor status (i.e. ENABLED, MUTED, DISABLED)
+     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
      */
     readonly status: pulumi.Input<string>;
     /**
@@ -238,7 +295,7 @@ export interface MonitorArgs {
      */
     readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * The monitor type (i.e. SIMPLE, BROWSER, SCRIPT_API, SCRIPT_BROWSER).
+     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
      */
     readonly type: pulumi.Input<string>;
     /**

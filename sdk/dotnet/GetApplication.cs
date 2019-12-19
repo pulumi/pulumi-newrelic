@@ -10,8 +10,6 @@ namespace Pulumi.NewRelic
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get information about a specific application in New Relic.
-        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/application.html.markdown.
         /// </summary>
         public static Task<GetApplicationResult> GetApplication(GetApplicationArgs args, InvokeOptions? options = null)

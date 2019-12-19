@@ -8,6 +8,8 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// Use this resource to create and manage New Relic alert policies.
+    /// 
     /// ## Channel Configurations
     /// 
     /// Each supported channel supports a particular set of configuration arguments.

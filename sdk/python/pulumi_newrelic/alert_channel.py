@@ -24,6 +24,8 @@ class AlertChannel(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, configuration=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
+        Use this resource to create and manage New Relic alert policies.
+        
         ## Channel Configurations
         
         Each supported channel supports a particular set of configuration arguments.

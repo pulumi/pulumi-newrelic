@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get information about a specific synthetics monitor in New Relic. This can then be used to set up a synthetics alert condition.
+// Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
 func LookupMonitor(ctx *pulumi.Context, args *GetMonitorArgs) (*GetMonitorResult, error) {
