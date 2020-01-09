@@ -12,4 +12,7 @@ require (
 	github.com/vmihailenco/msgpack v4.0.2+incompatible // indirect
 )
 
-replace github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
+replace (
+	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
+	golang.org/x/sys v0.0.0-20191008105621-543471e840be => golang.org/x/sys v0.0.0-20190922100055-0a153f010e69
+)
