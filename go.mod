@@ -14,5 +14,5 @@ require (
 
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
-	golang.org/x/sys v0.0.0-20191008105621-543471e840be => golang.org/x/sys v0.0.0-20190922100055-0a153f010e69
+	golang.org/x/sys v0.0.0-20191011191535-87dc89f01550 => golang.org/x/sys v0.0.0-20190922100055-0a153f010e69
 )
