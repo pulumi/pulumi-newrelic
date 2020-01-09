@@ -75,6 +75,9 @@ namespace Pulumi.NewRelic
         [Input("insightsQueryUrl")]
         public Input<string>? InsightsQueryUrl { get; set; }
 
+        [Input("syntheticsApiUrl")]
+        public Input<string>? SyntheticsApiUrl { get; set; }
+
         public ProviderArgs()
         {
             ApiKey = Utilities.GetEnv("NEWRELIC_API_KEY");
@@ -87,6 +90,7 @@ namespace Pulumi.NewRelic
             InsightsInsertUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
             InsightsQueryKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             InsightsQueryUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
+            SyntheticsApiUrl = Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
         }
     }
 }

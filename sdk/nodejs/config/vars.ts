@@ -16,3 +16,4 @@ export let insightsInsertKey: string | undefined = __config.get("insightsInsertK
 export let insightsInsertUrl: string | undefined = __config.get("insightsInsertUrl") || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
 export let insightsQueryKey: string | undefined = __config.get("insightsQueryKey") || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
 export let insightsQueryUrl: string | undefined = __config.get("insightsQueryUrl") || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
+export let syntheticsApiUrl: string | undefined = __config.get("syntheticsApiUrl") || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");

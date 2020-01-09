@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, cacert_file=None, infra_api_url=None, insecure_skip_verify=None, insights_account_id=None, insights_insert_key=None, insights_insert_url=None, insights_query_key=None, insights_query_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, cacert_file=None, infra_api_url=None, insecure_skip_verify=None, insights_account_id=None, insights_insert_key=None, insights_insert_url=None, insights_query_key=None, insights_query_url=None, synthetics_api_url=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the newrelic package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -69,6 +69,9 @@ class Provider(pulumi.ProviderResource):
             if insights_query_url is None:
                 insights_query_url = (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url
+            if synthetics_api_url is None:
+                synthetics_api_url = (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
+            __props__['synthetics_api_url'] = synthetics_api_url
         super(Provider, __self__).__init__(
             'newrelic',
             resource_name,

@@ -117,3 +117,14 @@ func GetInsightsQueryUrl(ctx *pulumi.Context) string {
 	}
 	return v
 }
+
+func GetSyntheticsApiUrl(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "newrelic:syntheticsApiUrl")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("https://synthetics.newrelic.com/synthetics/api/v3", nil, "NEWRELIC_SYNTHETICS_API_URL").(string); ok {
+		return dv
+	}
+	return v
+}

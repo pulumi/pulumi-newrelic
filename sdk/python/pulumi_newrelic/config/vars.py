@@ -31,3 +31,5 @@ insights_query_key = __config__.get('insightsQueryKey') or utilities.get_env('NE
 
 insights_query_url = __config__.get('insightsQueryUrl') or (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
 
+synthetics_api_url = __config__.get('syntheticsApiUrl') or (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
+
