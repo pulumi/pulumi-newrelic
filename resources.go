@@ -144,6 +144,12 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"NEWRELIC_API_CACERT"},
 				},
 			},
+			"synthetics_api_url": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_SYNTHETICS_API_URL"},
+					Value:   "https://synthetics.newrelic.com/synthetics/api/v3",
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{

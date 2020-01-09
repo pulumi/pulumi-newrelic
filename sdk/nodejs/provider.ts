@@ -50,6 +50,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["insightsInsertUrl"] = (args ? args.insightsInsertUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
             inputs["insightsQueryKey"] = (args ? args.insightsQueryKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
+            inputs["syntheticsApiUrl"] = (args ? args.syntheticsApiUrl : undefined) || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");
         }
         if (!opts) {
             opts = {}
@@ -76,4 +77,5 @@ export interface ProviderArgs {
     readonly insightsInsertUrl?: pulumi.Input<string>;
     readonly insightsQueryKey?: pulumi.Input<string>;
     readonly insightsQueryUrl?: pulumi.Input<string>;
+    readonly syntheticsApiUrl?: pulumi.Input<string>;
 }

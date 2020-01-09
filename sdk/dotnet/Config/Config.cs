@@ -29,6 +29,8 @@ namespace Pulumi.NewRelic
 
         public static string? InsightsQueryUrl { get; set; } = __config.Get("insightsQueryUrl") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
 
+        public static string? SyntheticsApiUrl { get; set; } = __config.Get("syntheticsApiUrl") ?? Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
+
     }
     namespace ConfigTypes
     {
