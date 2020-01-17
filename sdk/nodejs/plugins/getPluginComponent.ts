@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
  */
-export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> & GetPluginComponentResult {
+export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,12 +17,10 @@ export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPluginComponentResult> = pulumi.runtime.invoke("newrelic:plugins/getPluginComponent:getPluginComponent", {
+    return pulumi.runtime.invoke("newrelic:plugins/getPluginComponent:getPluginComponent", {
         "name": args.name,
         "pluginId": args.pluginId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

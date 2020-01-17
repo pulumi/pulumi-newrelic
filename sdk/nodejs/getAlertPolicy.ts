@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
  */
-export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> & GetAlertPolicyResult {
+export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,12 +17,10 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAlertPolicyResult> = pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {
+    return pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {
         "incidentPreference": args.incidentPreference,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
