@@ -10,6 +10,7 @@ require (
 	github.com/terraform-providers/terraform-provider-newrelic v1.11.0
 	github.com/ulikunitz/xz v0.5.6 // indirect
 	github.com/vmihailenco/msgpack v4.0.2+incompatible // indirect
+	golang.org/x/sys v0.0.0-20200117145432-59e60aa80a0c // indirect
 )
 
 replace (
