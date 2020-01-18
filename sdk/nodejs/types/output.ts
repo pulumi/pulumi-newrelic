@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as outputs from "../types/output";
 
+export interface AlertChannelConfig {
+    apiKey?: string;
+    authPassword?: string;
+    authType?: string;
+    authUsername?: string;
+    baseUrl?: string;
+    channel?: string;
+    headers?: {[key: string]: string};
+    includeJsonAttachment?: string;
+    key?: string;
+    payload?: {[key: string]: string};
+    payloadType?: string;
+    recipients?: string;
+    region?: string;
+    routeKey?: string;
+    serviceKey?: string;
+    tags?: string;
+    teams?: string;
+    url?: string;
+    userId?: string;
+}
+
 export interface AlertConditionTerm {
     duration: number;
     operator?: string;
@@ -60,6 +82,28 @@ export interface DashboardWidgetMetric {
     scope?: string;
     units?: string;
     values?: string[];
+}
+
+export interface GetAlertChannelConfig {
+    apiKey?: string;
+    authPassword?: string;
+    authType?: string;
+    authUsername?: string;
+    baseUrl?: string;
+    channel?: string;
+    headers?: {[key: string]: string};
+    includeJsonAttachment?: string;
+    key?: string;
+    payload?: {[key: string]: string};
+    payloadType?: string;
+    recipients?: string;
+    region?: string;
+    routeKey?: string;
+    serviceKey?: string;
+    tags?: string;
+    teams?: string;
+    url?: string;
+    userId?: string;
 }
 
 export interface InfraAlertConditionCritical {

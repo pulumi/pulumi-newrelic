@@ -11,36 +11,21 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic alert policies.
     /// 
-    /// ## Channel Configurations
-    /// 
-    /// Each supported channel supports a particular set of configuration arguments.
-    /// 
-    ///   * `email`
-    ///     * `recipients` - (Required) Comma delimited list of email addresses.
-    ///     * `include_json_attachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
-    ///   * `slack`
-    ///     * `url` - (Required) Your organization's Slack URL.
-    ///     * `channel` - (Required) The Slack channel for which to send notifications.
-    ///   * `opsgenie`
-    ///     * `api_key` - (Required) Your OpsGenie API key.
-    ///     * `teams` - (Optional) Comma delimited list of teams.
-    ///     * `tags` - (Optional) Comma delimited list of tags.
-    ///     * `recipients` - (Optional) Comma delimited list of email addresses.
-    ///   * `pagerduty`
-    ///     * `service_key` - (Required) Your PagerDuty service key.
-    ///   * `victorops`
-    ///     * `key` - (Required) Your VictorOps key.
-    ///     * `route_key` - (Required) The route for which to send notifications.
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
     /// </summary>
     public partial class AlertChannel : Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+        /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        /// </summary>
+        [Output("config")]
+        public Output<Outputs.AlertChannelConfig?> Config { get; private set; } = null!;
+
+        /// <summary>
+        /// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         /// </summary>
         [Output("configuration")]
-        public Output<ImmutableDictionary<string, object>> Configuration { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the channel.
@@ -100,11 +85,17 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertChannelArgs : Pulumi.ResourceArgs
     {
-        [Input("configuration", required: true)]
+        /// <summary>
+        /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        /// </summary>
+        [Input("config")]
+        public Input<Inputs.AlertChannelConfigArgs>? Config { get; set; }
+
+        [Input("configuration")]
         private InputMap<object>? _configuration;
 
         /// <summary>
-        /// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+        /// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         /// </summary>
         public InputMap<object> Configuration
         {
@@ -131,11 +122,17 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertChannelState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        /// </summary>
+        [Input("config")]
+        public Input<Inputs.AlertChannelConfigGetArgs>? Config { get; set; }
+
         [Input("configuration")]
         private InputMap<object>? _configuration;
 
         /// <summary>
-        /// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+        /// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         /// </summary>
         public InputMap<object> Configuration
         {
@@ -158,5 +155,228 @@ namespace Pulumi.NewRelic
         public AlertChannelState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class AlertChannelConfigArgs : Pulumi.ResourceArgs
+    {
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
+
+        [Input("authPassword")]
+        public Input<string>? AuthPassword { get; set; }
+
+        [Input("authType")]
+        public Input<string>? AuthType { get; set; }
+
+        [Input("authUsername")]
+        public Input<string>? AuthUsername { get; set; }
+
+        [Input("baseUrl")]
+        public Input<string>? BaseUrl { get; set; }
+
+        [Input("channel")]
+        public Input<string>? Channel { get; set; }
+
+        [Input("headers")]
+        private InputMap<string>? _headers;
+        public InputMap<string> Headers
+        {
+            get => _headers ?? (_headers = new InputMap<string>());
+            set => _headers = value;
+        }
+
+        [Input("includeJsonAttachment")]
+        public Input<string>? IncludeJsonAttachment { get; set; }
+
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        [Input("payload")]
+        private InputMap<string>? _payload;
+        public InputMap<string> Payload
+        {
+            get => _payload ?? (_payload = new InputMap<string>());
+            set => _payload = value;
+        }
+
+        [Input("payloadType")]
+        public Input<string>? PayloadType { get; set; }
+
+        [Input("recipients")]
+        public Input<string>? Recipients { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        [Input("routeKey")]
+        public Input<string>? RouteKey { get; set; }
+
+        [Input("serviceKey")]
+        public Input<string>? ServiceKey { get; set; }
+
+        [Input("tags")]
+        public Input<string>? Tags { get; set; }
+
+        [Input("teams")]
+        public Input<string>? Teams { get; set; }
+
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
+        [Input("userId")]
+        public Input<string>? UserId { get; set; }
+
+        public AlertChannelConfigArgs()
+        {
+        }
+    }
+
+    public sealed class AlertChannelConfigGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
+
+        [Input("authPassword")]
+        public Input<string>? AuthPassword { get; set; }
+
+        [Input("authType")]
+        public Input<string>? AuthType { get; set; }
+
+        [Input("authUsername")]
+        public Input<string>? AuthUsername { get; set; }
+
+        [Input("baseUrl")]
+        public Input<string>? BaseUrl { get; set; }
+
+        [Input("channel")]
+        public Input<string>? Channel { get; set; }
+
+        [Input("headers")]
+        private InputMap<string>? _headers;
+        public InputMap<string> Headers
+        {
+            get => _headers ?? (_headers = new InputMap<string>());
+            set => _headers = value;
+        }
+
+        [Input("includeJsonAttachment")]
+        public Input<string>? IncludeJsonAttachment { get; set; }
+
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        [Input("payload")]
+        private InputMap<string>? _payload;
+        public InputMap<string> Payload
+        {
+            get => _payload ?? (_payload = new InputMap<string>());
+            set => _payload = value;
+        }
+
+        [Input("payloadType")]
+        public Input<string>? PayloadType { get; set; }
+
+        [Input("recipients")]
+        public Input<string>? Recipients { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        [Input("routeKey")]
+        public Input<string>? RouteKey { get; set; }
+
+        [Input("serviceKey")]
+        public Input<string>? ServiceKey { get; set; }
+
+        [Input("tags")]
+        public Input<string>? Tags { get; set; }
+
+        [Input("teams")]
+        public Input<string>? Teams { get; set; }
+
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
+        [Input("userId")]
+        public Input<string>? UserId { get; set; }
+
+        public AlertChannelConfigGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class AlertChannelConfig
+    {
+        public readonly string? ApiKey;
+        public readonly string? AuthPassword;
+        public readonly string? AuthType;
+        public readonly string? AuthUsername;
+        public readonly string? BaseUrl;
+        public readonly string? Channel;
+        public readonly ImmutableDictionary<string, string>? Headers;
+        public readonly string? IncludeJsonAttachment;
+        public readonly string? Key;
+        public readonly ImmutableDictionary<string, string>? Payload;
+        public readonly string? PayloadType;
+        public readonly string? Recipients;
+        public readonly string? Region;
+        public readonly string? RouteKey;
+        public readonly string? ServiceKey;
+        public readonly string? Tags;
+        public readonly string? Teams;
+        public readonly string? Url;
+        public readonly string? UserId;
+
+        [OutputConstructor]
+        private AlertChannelConfig(
+            string? apiKey,
+            string? authPassword,
+            string? authType,
+            string? authUsername,
+            string? baseUrl,
+            string? channel,
+            ImmutableDictionary<string, string>? headers,
+            string? includeJsonAttachment,
+            string? key,
+            ImmutableDictionary<string, string>? payload,
+            string? payloadType,
+            string? recipients,
+            string? region,
+            string? routeKey,
+            string? serviceKey,
+            string? tags,
+            string? teams,
+            string? url,
+            string? userId)
+        {
+            ApiKey = apiKey;
+            AuthPassword = authPassword;
+            AuthType = authType;
+            AuthUsername = authUsername;
+            BaseUrl = baseUrl;
+            Channel = channel;
+            Headers = headers;
+            IncludeJsonAttachment = includeJsonAttachment;
+            Key = key;
+            Payload = payload;
+            PayloadType = payloadType;
+            Recipients = recipients;
+            Region = region;
+            RouteKey = routeKey;
+            ServiceKey = serviceKey;
+            Tags = tags;
+            Teams = teams;
+            Url = url;
+            UserId = userId;
+        }
+    }
     }
 }

@@ -13,7 +13,13 @@ class GetAlertChannelResult:
     """
     A collection of values returned by getAlertChannel.
     """
-    def __init__(__self__, name=None, policy_ids=None, type=None, id=None):
+    def __init__(__self__, config=None, name=None, policy_ids=None, type=None, id=None):
+        if config and not isinstance(config, dict):
+            raise TypeError("Expected argument 'config' to be a dict")
+        __self__.config = config
+        """
+        Alert channel configuration.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -41,6 +47,7 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
         if False:
             yield self
         return GetAlertChannelResult(
+            config=self.config,
             name=self.name,
             policy_ids=self.policy_ids,
             type=self.type,
@@ -64,6 +71,7 @@ def get_alert_channel(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertChannel:getAlertChannel', __args__, opts=opts).value
 
     return AwaitableGetAlertChannelResult(
+        config=__ret__.get('config'),
         name=__ret__.get('name'),
         policy_ids=__ret__.get('policyIds'),
         type=__ret__.get('type'),

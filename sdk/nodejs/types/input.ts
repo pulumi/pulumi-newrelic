@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 
+export interface AlertChannelConfig {
+    apiKey?: pulumi.Input<string>;
+    authPassword?: pulumi.Input<string>;
+    authType?: pulumi.Input<string>;
+    authUsername?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string>;
+    channel?: pulumi.Input<string>;
+    headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    includeJsonAttachment?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    payload?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payloadType?: pulumi.Input<string>;
+    recipients?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    routeKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string>;
+    tags?: pulumi.Input<string>;
+    teams?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
+}
+
 export interface AlertConditionTerm {
     duration: pulumi.Input<number>;
     operator?: pulumi.Input<string>;

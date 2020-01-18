@@ -38,6 +38,10 @@ export interface GetAlertChannelArgs {
  * A collection of values returned by getAlertChannel.
  */
 export interface GetAlertChannelResult {
+    /**
+     * Alert channel configuration.
+     */
+    readonly config: outputs.GetAlertChannelConfig;
     readonly name: string;
     /**
      * A list of policy IDs associated with the alert channel.

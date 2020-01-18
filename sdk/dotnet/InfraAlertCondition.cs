@@ -339,7 +339,7 @@ namespace Pulumi.NewRelic
         public Input<string>? TimeFunction { get; set; }
 
         [Input("value")]
-        public Input<int>? Value { get; set; }
+        public Input<double>? Value { get; set; }
 
         public InfraAlertConditionCriticalArgs()
         {
@@ -355,7 +355,7 @@ namespace Pulumi.NewRelic
         public Input<string>? TimeFunction { get; set; }
 
         [Input("value")]
-        public Input<int>? Value { get; set; }
+        public Input<double>? Value { get; set; }
 
         public InfraAlertConditionCriticalGetArgs()
         {
@@ -371,7 +371,7 @@ namespace Pulumi.NewRelic
         public Input<string>? TimeFunction { get; set; }
 
         [Input("value")]
-        public Input<int>? Value { get; set; }
+        public Input<double>? Value { get; set; }
 
         public InfraAlertConditionWarningArgs()
         {
@@ -387,7 +387,7 @@ namespace Pulumi.NewRelic
         public Input<string>? TimeFunction { get; set; }
 
         [Input("value")]
-        public Input<int>? Value { get; set; }
+        public Input<double>? Value { get; set; }
 
         public InfraAlertConditionWarningGetArgs()
         {
@@ -403,13 +403,13 @@ namespace Pulumi.NewRelic
     {
         public readonly int Duration;
         public readonly string? TimeFunction;
-        public readonly int? Value;
+        public readonly double? Value;
 
         [OutputConstructor]
         private InfraAlertConditionCritical(
             int duration,
             string? timeFunction,
-            int? value)
+            double? value)
         {
             Duration = duration;
             TimeFunction = timeFunction;
@@ -422,13 +422,13 @@ namespace Pulumi.NewRelic
     {
         public readonly int Duration;
         public readonly string? TimeFunction;
-        public readonly int? Value;
+        public readonly double? Value;
 
         [OutputConstructor]
         private InfraAlertConditionWarning(
             int duration,
             string? timeFunction,
-            int? value)
+            double? value)
         {
             Duration = duration;
             TimeFunction = timeFunction;

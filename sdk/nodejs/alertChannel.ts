@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,35 +17,14 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  * 
  * const foo = new newrelic.AlertChannel("foo", {
- *     configuration: {
- *         include_json_attachment: "1",
+ *     config: {
+ *         includeJsonAttachment: "1",
  *         recipients: "foo@example.com",
  *     },
  *     type: "email",
  * });
  * ```
  * See additional examples.
- * 
- * ## Channel Configurations
- * 
- * Each supported channel supports a particular set of configuration arguments.
- * 
- *   * `email`
- *     * `recipients` - (Required) Comma delimited list of email addresses.
- *     * `includeJsonAttachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
- *   * `slack`
- *     * `url` - (Required) Your organization's Slack URL.
- *     * `channel` - (Required) The Slack channel for which to send notifications.
- *   * `opsgenie`
- *     * `apiKey` - (Required) Your OpsGenie API key.
- *     * `teams` - (Optional) Comma delimited list of teams.
- *     * `tags` - (Optional) Comma delimited list of tags.
- *     * `recipients` - (Optional) Comma delimited list of email addresses.
- *   * `pagerduty`
- *     * `serviceKey` - (Required) Your PagerDuty service key.
- *   * `victorops`
- *     * `key` - (Required) Your VictorOps key.
- *     * `routeKey` - (Required) The route for which to send notifications.
  * 
  * ## Additional Examples
  * 
@@ -67,8 +48,8 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  * 
  * const foo = new newrelic.AlertChannel("foo", {
- *     configuration: {
- *         api_key: "abc123",
+ *     config: {
+ *         apiKey: "abc123",
  *         recipients: "user1@domain.com, user2@domain.com",
  *         tags: "tag1, tag2",
  *         teams: "team1, team2",
@@ -83,8 +64,8 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  * 
  * const foo = new newrelic.AlertChannel("foo", {
- *     configuration: {
- *         service_key: "abc123",
+ *     config: {
+ *         serviceKey: "abc123",
  *     },
  *     type: "pagerduty",
  * });
@@ -96,9 +77,9 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  * 
  * const foo = new newrelic.AlertChannel("foo", {
- *     configuration: {
+ *     config: {
  *         key: "abc123",
- *         route_key: "/example",
+ *         routeKey: "/example",
  *     },
  *     type: "victorops",
  * });
@@ -134,9 +115,13 @@ export class AlertChannel extends pulumi.CustomResource {
     }
 
     /**
-     * A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
-    public readonly configuration!: pulumi.Output<{[key: string]: any}>;
+    public readonly config!: pulumi.Output<outputs.AlertChannelConfig | undefined>;
+    /**
+     * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     */
+    public readonly configuration!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the channel.
      */
@@ -158,17 +143,16 @@ export class AlertChannel extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AlertChannelState | undefined;
+            inputs["config"] = state ? state.config : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AlertChannelArgs | undefined;
-            if (!args || args.configuration === undefined) {
-                throw new Error("Missing required property 'configuration'");
-            }
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["config"] = args ? args.config : undefined;
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -189,7 +173,11 @@ export class AlertChannel extends pulumi.CustomResource {
  */
 export interface AlertChannelState {
     /**
-     * A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+     */
+    readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
+    /**
+     * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -207,9 +195,13 @@ export interface AlertChannelState {
  */
 export interface AlertChannelArgs {
     /**
-     * A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+     * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
-    readonly configuration: pulumi.Input<{[key: string]: any}>;
+    readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
+    /**
+     * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     */
+    readonly configuration?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the channel.
      */
