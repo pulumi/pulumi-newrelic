@@ -18,6 +18,7 @@ func LookupAlertChannel(ctx *pulumi.Context, args *GetAlertChannelArgs) (*GetAle
 		return nil, err
 	}
 	return &GetAlertChannelResult{
+		Config: outputs["config"],
 		Name: outputs["name"],
 		PolicyIds: outputs["policyIds"],
 		Type: outputs["type"],
@@ -33,6 +34,8 @@ type GetAlertChannelArgs struct {
 
 // A collection of values returned by getAlertChannel.
 type GetAlertChannelResult struct {
+	// Alert channel configuration.
+	Config interface{}
 	Name interface{}
 	// A list of policy IDs associated with the alert channel.
 	PolicyIds interface{}

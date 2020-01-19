@@ -9,27 +9,6 @@ import (
 )
 
 // Use this resource to create and manage New Relic alert policies.
-// 
-// ## Channel Configurations
-// 
-// Each supported channel supports a particular set of configuration arguments.
-// 
-//   * `email`
-//     * `recipients` - (Required) Comma delimited list of email addresses.
-//     * `includeJsonAttachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
-//   * `slack`
-//     * `url` - (Required) Your organization's Slack URL.
-//     * `channel` - (Required) The Slack channel for which to send notifications.
-//   * `opsgenie`
-//     * `apiKey` - (Required) Your OpsGenie API key.
-//     * `teams` - (Optional) Comma delimited list of teams.
-//     * `tags` - (Optional) Comma delimited list of tags.
-//     * `recipients` - (Optional) Comma delimited list of email addresses.
-//   * `pagerduty`
-//     * `serviceKey` - (Required) Your PagerDuty service key.
-//   * `victorops`
-//     * `key` - (Required) Your VictorOps key.
-//     * `routeKey` - (Required) The route for which to send notifications.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
 type AlertChannel struct {
@@ -39,18 +18,17 @@ type AlertChannel struct {
 // NewAlertChannel registers a new resource with the given unique name, arguments, and options.
 func NewAlertChannel(ctx *pulumi.Context,
 	name string, args *AlertChannelArgs, opts ...pulumi.ResourceOpt) (*AlertChannel, error) {
-	if args == nil || args.Configuration == nil {
-		return nil, errors.New("missing required argument 'Configuration'")
-	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["config"] = nil
 		inputs["configuration"] = nil
 		inputs["name"] = nil
 		inputs["type"] = nil
 	} else {
+		inputs["config"] = args.Config
 		inputs["configuration"] = args.Configuration
 		inputs["name"] = args.Name
 		inputs["type"] = args.Type
@@ -68,6 +46,7 @@ func GetAlertChannel(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *AlertChannelState, opts ...pulumi.ResourceOpt) (*AlertChannel, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["config"] = state.Config
 		inputs["configuration"] = state.Configuration
 		inputs["name"] = state.Name
 		inputs["type"] = state.Type
@@ -89,7 +68,12 @@ func (r *AlertChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+func (r *AlertChannel) Config() pulumi.Output {
+	return r.s.State["config"]
+}
+
+// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
 func (r *AlertChannel) Configuration() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["configuration"])
 }
@@ -106,7 +90,9 @@ func (r *AlertChannel) Type() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering AlertChannel resources.
 type AlertChannelState struct {
-	// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+	Config interface{}
+	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
 	Configuration interface{}
 	// The name of the channel.
 	Name interface{}
@@ -116,7 +102,9 @@ type AlertChannelState struct {
 
 // The set of arguments for constructing a AlertChannel resource.
 type AlertChannelArgs struct {
-	// A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+	Config interface{}
+	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
 	Configuration interface{}
 	// The name of the channel.
 	Name interface{}

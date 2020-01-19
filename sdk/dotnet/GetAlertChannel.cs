@@ -33,6 +33,10 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAlertChannelResult
     {
+        /// <summary>
+        /// Alert channel configuration.
+        /// </summary>
+        public readonly Outputs.GetAlertChannelConfigResult Config;
         public readonly string Name;
         /// <summary>
         /// A list of policy IDs associated with the alert channel.
@@ -49,15 +53,88 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAlertChannelResult(
+            Outputs.GetAlertChannelConfigResult config,
             string name,
             ImmutableArray<int> policyIds,
             string type,
             string id)
         {
+            Config = config;
             Name = name;
             PolicyIds = policyIds;
             Type = type;
             Id = id;
         }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetAlertChannelConfigResult
+    {
+        public readonly string? ApiKey;
+        public readonly string? AuthPassword;
+        public readonly string? AuthType;
+        public readonly string? AuthUsername;
+        public readonly string? BaseUrl;
+        public readonly string? Channel;
+        public readonly ImmutableDictionary<string, string>? Headers;
+        public readonly string? IncludeJsonAttachment;
+        public readonly string? Key;
+        public readonly ImmutableDictionary<string, string>? Payload;
+        public readonly string? PayloadType;
+        public readonly string? Recipients;
+        public readonly string? Region;
+        public readonly string? RouteKey;
+        public readonly string? ServiceKey;
+        public readonly string? Tags;
+        public readonly string? Teams;
+        public readonly string? Url;
+        public readonly string? UserId;
+
+        [OutputConstructor]
+        private GetAlertChannelConfigResult(
+            string? apiKey,
+            string? authPassword,
+            string? authType,
+            string? authUsername,
+            string? baseUrl,
+            string? channel,
+            ImmutableDictionary<string, string>? headers,
+            string? includeJsonAttachment,
+            string? key,
+            ImmutableDictionary<string, string>? payload,
+            string? payloadType,
+            string? recipients,
+            string? region,
+            string? routeKey,
+            string? serviceKey,
+            string? tags,
+            string? teams,
+            string? url,
+            string? userId)
+        {
+            ApiKey = apiKey;
+            AuthPassword = authPassword;
+            AuthType = authType;
+            AuthUsername = authUsername;
+            BaseUrl = baseUrl;
+            Channel = channel;
+            Headers = headers;
+            IncludeJsonAttachment = includeJsonAttachment;
+            Key = key;
+            Payload = payload;
+            PayloadType = payloadType;
+            Recipients = recipients;
+            Region = region;
+            RouteKey = routeKey;
+            ServiceKey = serviceKey;
+            Tags = tags;
+            Teams = teams;
+            Url = url;
+            UserId = userId;
+        }
+    }
     }
 }

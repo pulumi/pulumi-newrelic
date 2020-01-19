@@ -10,9 +10,33 @@ from typing import Union
 from . import utilities, tables
 
 class AlertChannel(pulumi.CustomResource):
+    config: pulumi.Output[dict]
+    """
+    A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+    
+      * `api_key` (`str`)
+      * `authPassword` (`str`)
+      * `authType` (`str`)
+      * `authUsername` (`str`)
+      * `baseUrl` (`str`)
+      * `channel` (`str`)
+      * `headers` (`dict`)
+      * `includeJsonAttachment` (`str`)
+      * `key` (`str`)
+      * `payload` (`dict`)
+      * `payloadType` (`str`)
+      * `recipients` (`str`)
+      * `region` (`str`)
+      * `routeKey` (`str`)
+      * `serviceKey` (`str`)
+      * `tags` (`str`)
+      * `teams` (`str`)
+      * `url` (`str`)
+      * `userId` (`str`)
+    """
     configuration: pulumi.Output[dict]
     """
-    A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+    **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
     """
     name: pulumi.Output[str]
     """
@@ -22,36 +46,38 @@ class AlertChannel(pulumi.CustomResource):
     """
     The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
     """
-    def __init__(__self__, resource_name, opts=None, configuration=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, config=None, configuration=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
         
-        ## Channel Configurations
-        
-        Each supported channel supports a particular set of configuration arguments.
-        
-          * `email`
-            * `recipients` - (Required) Comma delimited list of email addresses.
-            * `include_json_attachment` - (Optional) `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients. Default: `0`
-          * `slack`
-            * `url` - (Required) Your organization's Slack URL.
-            * `channel` - (Required) The Slack channel for which to send notifications.
-          * `opsgenie`
-            * `api_key` - (Required) Your OpsGenie API key.
-            * `teams` - (Optional) Comma delimited list of teams.
-            * `tags` - (Optional) Comma delimited list of tags.
-            * `recipients` - (Optional) Comma delimited list of email addresses.
-          * `pagerduty`
-            * `service_key` - (Required) Your PagerDuty service key.
-          * `victorops`
-            * `key` - (Required) Your VictorOps key.
-            * `route_key` - (Required) The route for which to send notifications.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] configuration: A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+        :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[dict] configuration: **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        
+        The **config** object supports the following:
+        
+          * `api_key` (`pulumi.Input[str]`)
+          * `authPassword` (`pulumi.Input[str]`)
+          * `authType` (`pulumi.Input[str]`)
+          * `authUsername` (`pulumi.Input[str]`)
+          * `baseUrl` (`pulumi.Input[str]`)
+          * `channel` (`pulumi.Input[str]`)
+          * `headers` (`pulumi.Input[dict]`)
+          * `includeJsonAttachment` (`pulumi.Input[str]`)
+          * `key` (`pulumi.Input[str]`)
+          * `payload` (`pulumi.Input[dict]`)
+          * `payloadType` (`pulumi.Input[str]`)
+          * `recipients` (`pulumi.Input[str]`)
+          * `region` (`pulumi.Input[str]`)
+          * `routeKey` (`pulumi.Input[str]`)
+          * `serviceKey` (`pulumi.Input[str]`)
+          * `tags` (`pulumi.Input[str]`)
+          * `teams` (`pulumi.Input[str]`)
+          * `url` (`pulumi.Input[str]`)
+          * `userId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
         """
@@ -72,8 +98,7 @@ class AlertChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if configuration is None:
-                raise TypeError("Missing required property 'configuration'")
+            __props__['config'] = config
             __props__['configuration'] = configuration
             __props__['name'] = name
             if type is None:
@@ -86,7 +111,7 @@ class AlertChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, configuration=None, name=None, type=None):
+    def get(resource_name, id, opts=None, config=None, configuration=None, name=None, type=None):
         """
         Get an existing AlertChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,15 +119,39 @@ class AlertChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] configuration: A map of key / value pairs with channel type specific values. See channel configurations for specific configurations for the different channel types.
+        :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[dict] configuration: **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        
+        The **config** object supports the following:
+        
+          * `api_key` (`pulumi.Input[str]`)
+          * `authPassword` (`pulumi.Input[str]`)
+          * `authType` (`pulumi.Input[str]`)
+          * `authUsername` (`pulumi.Input[str]`)
+          * `baseUrl` (`pulumi.Input[str]`)
+          * `channel` (`pulumi.Input[str]`)
+          * `headers` (`pulumi.Input[dict]`)
+          * `includeJsonAttachment` (`pulumi.Input[str]`)
+          * `key` (`pulumi.Input[str]`)
+          * `payload` (`pulumi.Input[dict]`)
+          * `payloadType` (`pulumi.Input[str]`)
+          * `recipients` (`pulumi.Input[str]`)
+          * `region` (`pulumi.Input[str]`)
+          * `routeKey` (`pulumi.Input[str]`)
+          * `serviceKey` (`pulumi.Input[str]`)
+          * `tags` (`pulumi.Input[str]`)
+          * `teams` (`pulumi.Input[str]`)
+          * `url` (`pulumi.Input[str]`)
+          * `userId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["config"] = config
         __props__["configuration"] = configuration
         __props__["name"] = name
         __props__["type"] = type
