@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  * 
  * const foo = new newrelic.AlertChannel("foo", {
- *     configuration: {
+ *     config: {
  *         channel: "example-alerts-channel",
  *         url: "https://<YourOrganization>.slack.com",
  *     },
