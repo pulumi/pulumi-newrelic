@@ -500,8 +500,8 @@ github.com/newrelic/go-agent/v3 v3.1.0 h1:fd3ILrFgoLOrVrCo9ZGrQ7JwGC/cw8eh7yEbOu
 github.com/newrelic/go-agent/v3 v3.1.0/go.mod h1:H28zDNUC0U/b7kLoY4EFOhuth10Xu/9dchozUiOseQQ=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.5.1 h1:wWwJ4I9vCoqWIT//8v4IX6/UrAhbG6SO1h2dR5XTQdY=
-github.com/newrelic/newrelic-client-go v0.5.1/go.mod h1:cy6GDp11OfIj8Wfg0jfzDycso91NcojANZUqnjU9+QM=
+github.com/newrelic/newrelic-client-go v0.7.1 h1:sW9mvTHfkEqVfuVd2apPR4Xk6xvjymPJTwxleH95HvU=
+github.com/newrelic/newrelic-client-go v0.7.1/go.mod h1:cy6GDp11OfIj8Wfg0jfzDycso91NcojANZUqnjU9+QM=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
@@ -633,8 +633,8 @@ github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832 h1:oun9LXpnh9ou
 github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/subosito/gotenv v1.2.0 h1:Slr1R9HxAlEKefgq5jn9U+DnETlIUa6HfgEzj0g5d7s=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
-github.com/terraform-providers/terraform-provider-newrelic v1.12.1 h1:/+Cvk+IA4BOnKcFEcEfr2lez4cw6oFEKhTbLYcv7baU=
-github.com/terraform-providers/terraform-provider-newrelic v1.12.1/go.mod h1:aUfZkjGgKtmk5+N63myOzZFjS+tP5v1YwFnTQTGmbMw=
+github.com/terraform-providers/terraform-provider-newrelic v1.12.2 h1:NMSFd80+RRTEXAPdyf6qAZpdoSg3KLxQt15VSGEQjl4=
+github.com/terraform-providers/terraform-provider-newrelic v1.12.2/go.mod h1:JHKL7vKhEzY9OVVNEG0CfuT91z5jD/smrQ9pl8rukE4=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e h1:T5PdfK/M1xyrHwynxMIVMWLS7f/qHwfslZphxtGnw7s=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
 github.com/tidwall/pretty v0.0.0-20190325153808-1166b9ac2b65/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
