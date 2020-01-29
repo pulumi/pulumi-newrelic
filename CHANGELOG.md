@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v1.12.2 of the NewRelic Terraform Provider
+* Upgrade to pulumi-terraform-bridge v1.6.4
 
 ---
 
