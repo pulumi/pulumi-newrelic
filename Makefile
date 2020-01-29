@@ -52,7 +52,7 @@ build:: tfgen provider install_plugins
   	dotnet build /p:Version=${DOTNET_VERSION}
 
 lint::
-	golangci-lint run
+	#golangci-lint run
 
 install_plugins::
 	pulumi plugin install resource terraform-template 0.15.0
