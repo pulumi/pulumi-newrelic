@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.12.2 of the NewRelic Terraform Provider
-* Upgrade to pulumi-terraform-bridge v1.6.4
+_(none)_
 
 ---
+
+## 1.5.0 (2020-01-29)
+* Upgrade to v1.12.2 of the NewRelic Terraform Provider
+* Upgrade to pulumi-terraform-bridge v1.6.4
 
 ## 1.4.0 (2019-12-19)
 * Namespace names in .NET SDK are adjusted to PascalCase
