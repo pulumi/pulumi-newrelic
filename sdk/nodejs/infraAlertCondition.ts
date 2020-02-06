@@ -92,6 +92,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
+    public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
@@ -126,6 +127,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["select"] = state ? state.select : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["updatedAt"] = state ? state.updatedAt : undefined;
+            inputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
             inputs["warning"] = state ? state.warning : undefined;
             inputs["where"] = state ? state.where : undefined;
         } else {
@@ -147,6 +149,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             inputs["select"] = args ? args.select : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
             inputs["warning"] = args ? args.warning : undefined;
             inputs["where"] = args ? args.where : undefined;
             inputs["createdAt"] = undefined /*out*/;
@@ -213,6 +216,7 @@ export interface InfraAlertConditionState {
      */
     readonly type?: pulumi.Input<string>;
     readonly updatedAt?: pulumi.Input<number>;
+    readonly violationCloseTimer?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
@@ -271,6 +275,7 @@ export interface InfraAlertConditionArgs {
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     readonly type: pulumi.Input<string>;
+    readonly violationCloseTimer?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */

@@ -49,6 +49,7 @@ type InfraAlertCondition struct {
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	UpdatedAt pulumi.IntOutput `pulumi:"updatedAt"`
+	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrOutput `pulumi:"warning"`
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
@@ -113,6 +114,7 @@ type infraAlertConditionState struct {
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type *string `pulumi:"type"`
 	UpdatedAt *int `pulumi:"updatedAt"`
+	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
@@ -144,6 +146,7 @@ type InfraAlertConditionState struct {
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type pulumi.StringPtrInput
 	UpdatedAt pulumi.IntPtrInput
+	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
@@ -177,6 +180,7 @@ type infraAlertConditionArgs struct {
 	Select *string `pulumi:"select"`
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type string `pulumi:"type"`
+	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
@@ -207,6 +211,7 @@ type InfraAlertConditionArgs struct {
 	Select pulumi.StringPtrInput
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type pulumi.StringInput
+	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.

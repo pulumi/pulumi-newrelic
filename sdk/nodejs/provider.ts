@@ -44,12 +44,14 @@ export class Provider extends pulumi.ProviderResource {
             inputs["apiUrl"] = (args ? args.apiUrl : undefined) || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
             inputs["cacertFile"] = (args ? args.cacertFile : undefined) || utilities.getEnv("NEWRELIC_API_CACERT");
             inputs["infraApiUrl"] = (args ? args.infraApiUrl : undefined) || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
+            inputs["infrastructureApiUrl"] = args ? args.infrastructureApiUrl : undefined;
             inputs["insecureSkipVerify"] = pulumi.output((args ? args.insecureSkipVerify : undefined) || utilities.getEnvBoolean("NEWRELIC_API_SKIP_VERIFY")).apply(JSON.stringify);
             inputs["insightsAccountId"] = (args ? args.insightsAccountId : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
             inputs["insightsInsertKey"] = (args ? args.insightsInsertKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
             inputs["insightsInsertUrl"] = (args ? args.insightsInsertUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
             inputs["insightsQueryKey"] = (args ? args.insightsQueryKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
+            inputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
             inputs["syntheticsApiUrl"] = (args ? args.syntheticsApiUrl : undefined) || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");
         }
         if (!opts) {
@@ -71,11 +73,13 @@ export interface ProviderArgs {
     readonly apiUrl?: pulumi.Input<string>;
     readonly cacertFile?: pulumi.Input<string>;
     readonly infraApiUrl?: pulumi.Input<string>;
+    readonly infrastructureApiUrl?: pulumi.Input<string>;
     readonly insecureSkipVerify?: pulumi.Input<boolean>;
     readonly insightsAccountId?: pulumi.Input<string>;
     readonly insightsInsertKey?: pulumi.Input<string>;
     readonly insightsInsertUrl?: pulumi.Input<string>;
     readonly insightsQueryKey?: pulumi.Input<string>;
     readonly insightsQueryUrl?: pulumi.Input<string>;
+    readonly nerdgraphApiUrl?: pulumi.Input<string>;
     readonly syntheticsApiUrl?: pulumi.Input<string>;
 }

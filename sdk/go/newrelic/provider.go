@@ -73,12 +73,14 @@ type providerArgs struct {
 	ApiUrl *string `pulumi:"apiUrl"`
 	CacertFile *string `pulumi:"cacertFile"`
 	InfraApiUrl *string `pulumi:"infraApiUrl"`
+	InfrastructureApiUrl *string `pulumi:"infrastructureApiUrl"`
 	InsecureSkipVerify *bool `pulumi:"insecureSkipVerify"`
 	InsightsAccountId *string `pulumi:"insightsAccountId"`
 	InsightsInsertKey *string `pulumi:"insightsInsertKey"`
 	InsightsInsertUrl *string `pulumi:"insightsInsertUrl"`
 	InsightsQueryKey *string `pulumi:"insightsQueryKey"`
 	InsightsQueryUrl *string `pulumi:"insightsQueryUrl"`
+	NerdgraphApiUrl *string `pulumi:"nerdgraphApiUrl"`
 	SyntheticsApiUrl *string `pulumi:"syntheticsApiUrl"`
 }
 
@@ -88,12 +90,14 @@ type ProviderArgs struct {
 	ApiUrl pulumi.StringPtrInput
 	CacertFile pulumi.StringPtrInput
 	InfraApiUrl pulumi.StringPtrInput
+	InfrastructureApiUrl pulumi.StringPtrInput
 	InsecureSkipVerify pulumi.BoolPtrInput
 	InsightsAccountId pulumi.StringPtrInput
 	InsightsInsertKey pulumi.StringPtrInput
 	InsightsInsertUrl pulumi.StringPtrInput
 	InsightsQueryKey pulumi.StringPtrInput
 	InsightsQueryUrl pulumi.StringPtrInput
+	NerdgraphApiUrl pulumi.StringPtrInput
 	SyntheticsApiUrl pulumi.StringPtrInput
 }
 

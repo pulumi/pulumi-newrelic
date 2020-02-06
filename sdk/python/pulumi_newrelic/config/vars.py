@@ -19,6 +19,8 @@ cacert_file = __config__.get('cacertFile') or utilities.get_env('NEWRELIC_API_CA
 
 infra_api_url = __config__.get('infraApiUrl') or (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
 
+infrastructure_api_url = __config__.get('infrastructureApiUrl')
+
 insecure_skip_verify = __config__.get('insecureSkipVerify') or utilities.get_env_bool('NEWRELIC_API_SKIP_VERIFY')
 
 insights_account_id = __config__.get('insightsAccountId') or utilities.get_env('NEWRELIC_INSIGHTS_ACCOUNT_ID')
@@ -30,6 +32,8 @@ insights_insert_url = __config__.get('insightsInsertUrl') or (utilities.get_env(
 insights_query_key = __config__.get('insightsQueryKey') or utilities.get_env('NEWRELIC_INSIGHTS_QUERY_KEY')
 
 insights_query_url = __config__.get('insightsQueryUrl') or (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
+
+nerdgraph_api_url = __config__.get('nerdgraphApiUrl')
 
 synthetics_api_url = __config__.get('syntheticsApiUrl') or (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
 

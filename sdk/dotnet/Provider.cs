@@ -57,6 +57,9 @@ namespace Pulumi.NewRelic
         [Input("infraApiUrl")]
         public Input<string>? InfraApiUrl { get; set; }
 
+        [Input("infrastructureApiUrl")]
+        public Input<string>? InfrastructureApiUrl { get; set; }
+
         [Input("insecureSkipVerify", json: true)]
         public Input<bool>? InsecureSkipVerify { get; set; }
 
@@ -74,6 +77,9 @@ namespace Pulumi.NewRelic
 
         [Input("insightsQueryUrl")]
         public Input<string>? InsightsQueryUrl { get; set; }
+
+        [Input("nerdgraphApiUrl")]
+        public Input<string>? NerdgraphApiUrl { get; set; }
 
         [Input("syntheticsApiUrl")]
         public Input<string>? SyntheticsApiUrl { get; set; }

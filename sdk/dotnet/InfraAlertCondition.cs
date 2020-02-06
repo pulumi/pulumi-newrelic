@@ -95,6 +95,9 @@ namespace Pulumi.NewRelic
         [Output("updatedAt")]
         public Output<int> UpdatedAt { get; private set; } = null!;
 
+        [Output("violationCloseTimer")]
+        public Output<int?> ViolationCloseTimer { get; private set; } = null!;
+
         /// <summary>
         /// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         /// </summary>
@@ -219,6 +222,9 @@ namespace Pulumi.NewRelic
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("violationCloseTimer")]
+        public Input<int>? ViolationCloseTimer { get; set; }
+
         /// <summary>
         /// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         /// </summary>
@@ -309,6 +315,9 @@ namespace Pulumi.NewRelic
 
         [Input("updatedAt")]
         public Input<int>? UpdatedAt { get; set; }
+
+        [Input("violationCloseTimer")]
+        public Input<int>? ViolationCloseTimer { get; set; }
 
         /// <summary>
         /// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
