@@ -60,6 +60,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
     """
     updated_at: pulumi.Output[float]
+    violation_close_timer: pulumi.Output[float]
     warning: pulumi.Output[dict]
     """
     Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
@@ -72,7 +73,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
     """
-    def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, violation_close_timer=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
         
@@ -146,6 +147,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['violation_close_timer'] = violation_close_timer
             __props__['warning'] = warning
             __props__['where'] = where
             __props__['created_at'] = None
@@ -157,7 +159,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, comparison=None, created_at=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, updated_at=None, warning=None, where=None):
+    def get(resource_name, id, opts=None, comparison=None, created_at=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, updated_at=None, violation_close_timer=None, warning=None, where=None):
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -209,6 +211,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         __props__["select"] = select
         __props__["type"] = type
         __props__["updated_at"] = updated_at
+        __props__["violation_close_timer"] = violation_close_timer
         __props__["warning"] = warning
         __props__["where"] = where
         return InfraAlertCondition(resource_name, opts=opts, __props__=__props__)

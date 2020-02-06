@@ -17,6 +17,8 @@ namespace Pulumi.NewRelic
 
         public static string? InfraApiUrl { get; set; } = __config.Get("infraApiUrl") ?? Utilities.GetEnv("NEWRELIC_INFRA_API_URL") ?? "https://infra-api.newrelic.com/v2";
 
+        public static string? InfrastructureApiUrl { get; set; } = __config.Get("infrastructureApiUrl");
+
         public static bool? InsecureSkipVerify { get; set; } = __config.GetBoolean("insecureSkipVerify") ?? Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
 
         public static string? InsightsAccountId { get; set; } = __config.Get("insightsAccountId") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
@@ -28,6 +30,8 @@ namespace Pulumi.NewRelic
         public static string? InsightsQueryKey { get; set; } = __config.Get("insightsQueryKey") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
 
         public static string? InsightsQueryUrl { get; set; } = __config.Get("insightsQueryUrl") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
+
+        public static string? NerdgraphApiUrl { get; set; } = __config.Get("nerdgraphApiUrl");
 
         public static string? SyntheticsApiUrl { get; set; } = __config.Get("syntheticsApiUrl") ?? Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
 
