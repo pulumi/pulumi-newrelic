@@ -19,9 +19,11 @@ type AlertChannelConfig struct {
 	BaseUrl *string `pulumi:"baseUrl"`
 	Channel *string `pulumi:"channel"`
 	Headers map[string]string `pulumi:"headers"`
+	HeadersString *string `pulumi:"headersString"`
 	IncludeJsonAttachment *string `pulumi:"includeJsonAttachment"`
 	Key *string `pulumi:"key"`
 	Payload map[string]string `pulumi:"payload"`
+	PayloadString *string `pulumi:"payloadString"`
 	PayloadType *string `pulumi:"payloadType"`
 	Recipients *string `pulumi:"recipients"`
 	Region *string `pulumi:"region"`
@@ -48,9 +50,11 @@ type AlertChannelConfigArgs struct {
 	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
 	Channel pulumi.StringPtrInput `pulumi:"channel"`
 	Headers pulumi.StringMapInput `pulumi:"headers"`
+	HeadersString pulumi.StringPtrInput `pulumi:"headersString"`
 	IncludeJsonAttachment pulumi.StringPtrInput `pulumi:"includeJsonAttachment"`
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	Payload pulumi.StringMapInput `pulumi:"payload"`
+	PayloadString pulumi.StringPtrInput `pulumi:"payloadString"`
 	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
 	Recipients pulumi.StringPtrInput `pulumi:"recipients"`
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -157,6 +161,10 @@ func (o AlertChannelConfigOutput) Headers() pulumi.StringMapOutput {
 	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
+func (o AlertChannelConfigOutput) HeadersString() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
+}
+
 func (o AlertChannelConfigOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
 }
@@ -167,6 +175,10 @@ func (o AlertChannelConfigOutput) Key() pulumi.StringPtrOutput {
 
 func (o AlertChannelConfigOutput) Payload() pulumi.StringMapOutput {
 	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+}
+
+func (o AlertChannelConfigOutput) PayloadString() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertChannelConfigOutput) PayloadType() pulumi.StringPtrOutput {
@@ -251,6 +263,10 @@ func (o AlertChannelConfigPtrOutput) Headers() pulumi.StringMapOutput {
 	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
+func (o AlertChannelConfigPtrOutput) HeadersString() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
+}
+
 func (o AlertChannelConfigPtrOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
 }
@@ -261,6 +277,10 @@ func (o AlertChannelConfigPtrOutput) Key() pulumi.StringPtrOutput {
 
 func (o AlertChannelConfigPtrOutput) Payload() pulumi.StringMapOutput {
 	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+}
+
+func (o AlertChannelConfigPtrOutput) PayloadString() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertChannelConfigPtrOutput) PayloadType() pulumi.StringPtrOutput {

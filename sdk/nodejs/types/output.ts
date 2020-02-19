@@ -12,9 +12,11 @@ export interface AlertChannelConfig {
     baseUrl?: string;
     channel?: string;
     headers?: {[key: string]: string};
+    headersString?: string;
     includeJsonAttachment?: string;
     key?: string;
     payload?: {[key: string]: string};
+    payloadString?: string;
     payloadType?: string;
     recipients?: string;
     region?: string;
