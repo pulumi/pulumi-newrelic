@@ -28,7 +28,7 @@ type AlertCondition struct {
 	pulumi.CustomResourceState
 
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
-	ConditionScope pulumi.StringOutput `pulumi:"conditionScope"`
+	ConditionScope pulumi.StringPtrOutput `pulumi:"conditionScope"`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The instance IDS associated with this condition.
 	Entities pulumi.IntArrayOutput `pulumi:"entities"`
@@ -57,9 +57,6 @@ type AlertCondition struct {
 // NewAlertCondition registers a new resource with the given unique name, arguments, and options.
 func NewAlertCondition(ctx *pulumi.Context,
 	name string, args *AlertConditionArgs, opts ...pulumi.ResourceOption) (*AlertCondition, error) {
-	if args == nil || args.ConditionScope == nil {
-		return nil, errors.New("missing required argument 'ConditionScope'")
-	}
 	if args == nil || args.Entities == nil {
 		return nil, errors.New("missing required argument 'Entities'")
 	}
@@ -161,7 +158,7 @@ func (AlertConditionState) ElementType() reflect.Type {
 
 type alertConditionArgs struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
-	ConditionScope string `pulumi:"conditionScope"`
+	ConditionScope *string `pulumi:"conditionScope"`
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDS associated with this condition.
 	Entities []int `pulumi:"entities"`
@@ -190,7 +187,7 @@ type alertConditionArgs struct {
 // The set of arguments for constructing a AlertCondition resource.
 type AlertConditionArgs struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
-	ConditionScope pulumi.StringInput
+	ConditionScope pulumi.StringPtrInput
 	Enabled pulumi.BoolPtrInput
 	// The instance IDS associated with this condition.
 	Entities pulumi.IntArrayInput

@@ -188,6 +188,9 @@ namespace Pulumi.NewRelic
             set => _headers = value;
         }
 
+        [Input("headersString")]
+        public Input<string>? HeadersString { get; set; }
+
         [Input("includeJsonAttachment")]
         public Input<string>? IncludeJsonAttachment { get; set; }
 
@@ -201,6 +204,9 @@ namespace Pulumi.NewRelic
             get => _payload ?? (_payload = new InputMap<string>());
             set => _payload = value;
         }
+
+        [Input("payloadString")]
+        public Input<string>? PayloadString { get; set; }
 
         [Input("payloadType")]
         public Input<string>? PayloadType { get; set; }
@@ -262,6 +268,9 @@ namespace Pulumi.NewRelic
             set => _headers = value;
         }
 
+        [Input("headersString")]
+        public Input<string>? HeadersString { get; set; }
+
         [Input("includeJsonAttachment")]
         public Input<string>? IncludeJsonAttachment { get; set; }
 
@@ -275,6 +284,9 @@ namespace Pulumi.NewRelic
             get => _payload ?? (_payload = new InputMap<string>());
             set => _payload = value;
         }
+
+        [Input("payloadString")]
+        public Input<string>? PayloadString { get; set; }
 
         [Input("payloadType")]
         public Input<string>? PayloadType { get; set; }
@@ -322,9 +334,11 @@ namespace Pulumi.NewRelic
         public readonly string? BaseUrl;
         public readonly string? Channel;
         public readonly ImmutableDictionary<string, string>? Headers;
+        public readonly string? HeadersString;
         public readonly string? IncludeJsonAttachment;
         public readonly string? Key;
         public readonly ImmutableDictionary<string, string>? Payload;
+        public readonly string? PayloadString;
         public readonly string? PayloadType;
         public readonly string? Recipients;
         public readonly string? Region;
@@ -344,9 +358,11 @@ namespace Pulumi.NewRelic
             string? baseUrl,
             string? channel,
             ImmutableDictionary<string, string>? headers,
+            string? headersString,
             string? includeJsonAttachment,
             string? key,
             ImmutableDictionary<string, string>? payload,
+            string? payloadString,
             string? payloadType,
             string? recipients,
             string? region,
@@ -364,9 +380,11 @@ namespace Pulumi.NewRelic
             BaseUrl = baseUrl;
             Channel = channel;
             Headers = headers;
+            HeadersString = headersString;
             IncludeJsonAttachment = includeJsonAttachment;
             Key = key;
             Payload = payload;
+            PayloadString = payloadString;
             PayloadType = payloadType;
             Recipients = recipients;
             Region = region;

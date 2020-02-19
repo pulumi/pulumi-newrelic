@@ -51,7 +51,7 @@ export class AlertCondition extends pulumi.CustomResource {
     /**
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
-    public readonly conditionScope!: pulumi.Output<string>;
+    public readonly conditionScope!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The instance IDS associated with this condition.
@@ -125,9 +125,6 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if (!args || args.conditionScope === undefined) {
-                throw new Error("Missing required property 'conditionScope'");
-            }
             if (!args || args.entities === undefined) {
                 throw new Error("Missing required property 'entities'");
             }
@@ -230,7 +227,7 @@ export interface AlertConditionArgs {
     /**
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
-    readonly conditionScope: pulumi.Input<string>;
+    readonly conditionScope?: pulumi.Input<string>;
     readonly enabled?: pulumi.Input<boolean>;
     /**
      * The instance IDS associated with this condition.

@@ -121,8 +121,6 @@ class AlertCondition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if condition_scope is None:
-                raise TypeError("Missing required property 'condition_scope'")
             __props__['condition_scope'] = condition_scope
             __props__['enabled'] = enabled
             if entities is None:

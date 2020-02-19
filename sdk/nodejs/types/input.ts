@@ -12,9 +12,11 @@ export interface AlertChannelConfig {
     baseUrl?: pulumi.Input<string>;
     channel?: pulumi.Input<string>;
     headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    headersString?: pulumi.Input<string>;
     includeJsonAttachment?: pulumi.Input<string>;
     key?: pulumi.Input<string>;
     payload?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payloadString?: pulumi.Input<string>;
     payloadType?: pulumi.Input<string>;
     recipients?: pulumi.Input<string>;
     region?: pulumi.Input<string>;

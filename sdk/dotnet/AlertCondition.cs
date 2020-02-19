@@ -29,7 +29,7 @@ namespace Pulumi.NewRelic
         /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         /// </summary>
         [Output("conditionScope")]
-        public Output<string> ConditionScope { get; private set; } = null!;
+        public Output<string?> ConditionScope { get; private set; } = null!;
 
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -149,8 +149,8 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         /// </summary>
-        [Input("conditionScope", required: true)]
-        public Input<string> ConditionScope { get; set; } = null!;
+        [Input("conditionScope")]
+        public Input<string>? ConditionScope { get; set; }
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

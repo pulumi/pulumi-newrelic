@@ -25,65 +25,6 @@ import * as utilities from "./utilities";
  * });
  * ```
  * See additional examples.
- * 
- * ## Additional Examples
- * 
- * ##### Slack
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         channel: "example-alerts-channel",
- *         url: "https://<YourOrganization>.slack.com",
- *     },
- *     type: "slack",
- * });
- * ```
- * 
- * ##### OpsGenie
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         apiKey: "abc123",
- *         recipients: "user1@domain.com, user2@domain.com",
- *         tags: "tag1, tag2",
- *         teams: "team1, team2",
- *     },
- *     type: "opsgenie",
- * });
- * ```
- * 
- * ##### PagerDuty
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         serviceKey: "abc123",
- *     },
- *     type: "pagerduty",
- * });
- * ```
- * 
- * ##### VictorOps
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- * 
- * const foo = new newrelic.AlertChannel("foo", {
- *     config: {
- *         key: "abc123",
- *         routeKey: "/example",
- *     },
- *     type: "victorops",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
  */
