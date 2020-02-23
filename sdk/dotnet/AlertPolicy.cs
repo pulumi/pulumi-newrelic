@@ -15,6 +15,9 @@ namespace Pulumi.NewRelic
     /// </summary>
     public partial class AlertPolicy : Pulumi.CustomResource
     {
+        [Output("channelIds")]
+        public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
+
         /// <summary>
         /// The time the policy was created.
         /// </summary>
@@ -85,6 +88,14 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("channelIds")]
+        private InputList<int>? _channelIds;
+        public InputList<int> ChannelIds
+        {
+            get => _channelIds ?? (_channelIds = new InputList<int>());
+            set => _channelIds = value;
+        }
+
         /// <summary>
         /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         /// </summary>
@@ -104,6 +115,14 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyState : Pulumi.ResourceArgs
     {
+        [Input("channelIds")]
+        private InputList<int>? _channelIds;
+        public InputList<int> ChannelIds
+        {
+            get => _channelIds ?? (_channelIds = new InputList<int>());
+            set => _channelIds = value;
+        }
+
         /// <summary>
         /// The time the policy was created.
         /// </summary>

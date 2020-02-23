@@ -10,6 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class AlertPolicy(pulumi.CustomResource):
+    channel_ids: pulumi.Output[list]
     created_at: pulumi.Output[str]
     """
     The time the policy was created.
@@ -26,7 +27,7 @@ class AlertPolicy(pulumi.CustomResource):
     """
     The time the policy was last updated.
     """
-    def __init__(__self__, resource_name, opts=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, channel_ids=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
         
@@ -54,6 +55,7 @@ class AlertPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['channel_ids'] = channel_ids
             __props__['incident_preference'] = incident_preference
             __props__['name'] = name
             __props__['created_at'] = None
@@ -65,7 +67,7 @@ class AlertPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, created_at=None, incident_preference=None, name=None, updated_at=None):
+    def get(resource_name, id, opts=None, channel_ids=None, created_at=None, incident_preference=None, name=None, updated_at=None):
         """
         Get an existing AlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -83,6 +85,7 @@ class AlertPolicy(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["channel_ids"] = channel_ids
         __props__["created_at"] = created_at
         __props__["incident_preference"] = incident_preference
         __props__["name"] = name
