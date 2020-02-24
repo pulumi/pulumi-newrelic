@@ -16,6 +16,7 @@ import (
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
+	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The time the policy was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
@@ -54,6 +55,7 @@ func GetAlertPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicy resources.
 type alertPolicyState struct {
+	ChannelIds []int `pulumi:"channelIds"`
 	// The time the policy was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
@@ -65,6 +67,7 @@ type alertPolicyState struct {
 }
 
 type AlertPolicyState struct {
+	ChannelIds pulumi.IntArrayInput
 	// The time the policy was created.
 	CreatedAt pulumi.StringPtrInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
@@ -80,6 +83,7 @@ func (AlertPolicyState) ElementType() reflect.Type {
 }
 
 type alertPolicyArgs struct {
+	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the policy.
@@ -88,6 +92,7 @@ type alertPolicyArgs struct {
 
 // The set of arguments for constructing a AlertPolicy resource.
 type AlertPolicyArgs struct {
+	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
 	// The name of the policy.

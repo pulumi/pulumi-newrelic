@@ -15,8 +15,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const foo = new newrelic.AlertPolicy("foo", {});
+ * const foo = new newrelic.AlertPolicy("foo", {
+ *     incidentPreference: "PER_POLICY", // PER_POLICY is default
+ * });
  * ```
+ * See additional examples.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
  */
@@ -47,6 +50,7 @@ export class AlertPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertPolicy.__pulumiType;
     }
 
+    public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
      * The time the policy was created.
      */
@@ -76,12 +80,14 @@ export class AlertPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
+            inputs["channelIds"] = state ? state.channelIds : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["incidentPreference"] = state ? state.incidentPreference : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
+            inputs["channelIds"] = args ? args.channelIds : undefined;
             inputs["incidentPreference"] = args ? args.incidentPreference : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["createdAt"] = undefined /*out*/;
@@ -102,6 +108,7 @@ export class AlertPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertPolicy resources.
  */
 export interface AlertPolicyState {
+    readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The time the policy was created.
      */
@@ -124,6 +131,7 @@ export interface AlertPolicyState {
  * The set of arguments for constructing a AlertPolicy resource.
  */
 export interface AlertPolicyArgs {
+    readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
