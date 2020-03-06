@@ -6,14 +6,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.NewRelic.Plugins
+namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create and manage New Relic Synthetic secure credentials.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
     /// </summary>
-    public partial class SyntheticsSecureCredential : Pulumi.CustomResource
+    public partial class SecureCredential : Pulumi.CustomResource
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -44,19 +44,19 @@ namespace Pulumi.NewRelic.Plugins
 
 
         /// <summary>
-        /// Create a SyntheticsSecureCredential resource with the given unique name, arguments, and options.
+        /// Create a SecureCredential resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SyntheticsSecureCredential(string name, SyntheticsSecureCredentialArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:plugins/syntheticsSecureCredential:SyntheticsSecureCredential", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+        public SecureCredential(string name, SecureCredentialArgs args, CustomResourceOptions? options = null)
+            : base("newrelic:synthetics/secureCredential:SecureCredential", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
-        private SyntheticsSecureCredential(string name, Input<string> id, SyntheticsSecureCredentialState? state = null, CustomResourceOptions? options = null)
-            : base("newrelic:plugins/syntheticsSecureCredential:SyntheticsSecureCredential", name, state, MakeResourceOptions(options, id))
+        private SecureCredential(string name, Input<string> id, SecureCredentialState? state = null, CustomResourceOptions? options = null)
+            : base("newrelic:synthetics/secureCredential:SecureCredential", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,7 +72,7 @@ namespace Pulumi.NewRelic.Plugins
             return merged;
         }
         /// <summary>
-        /// Get an existing SyntheticsSecureCredential resource's state with the given name, ID, and optional extra
+        /// Get an existing SecureCredential resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -80,13 +80,13 @@ namespace Pulumi.NewRelic.Plugins
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SyntheticsSecureCredential Get(string name, Input<string> id, SyntheticsSecureCredentialState? state = null, CustomResourceOptions? options = null)
+        public static SecureCredential Get(string name, Input<string> id, SecureCredentialState? state = null, CustomResourceOptions? options = null)
         {
-            return new SyntheticsSecureCredential(name, id, state, options);
+            return new SecureCredential(name, id, state, options);
         }
     }
 
-    public sealed class SyntheticsSecureCredentialArgs : Pulumi.ResourceArgs
+    public sealed class SecureCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -115,12 +115,12 @@ namespace Pulumi.NewRelic.Plugins
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public SyntheticsSecureCredentialArgs()
+        public SecureCredentialArgs()
         {
         }
     }
 
-    public sealed class SyntheticsSecureCredentialState : Pulumi.ResourceArgs
+    public sealed class SecureCredentialState : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -149,7 +149,7 @@ namespace Pulumi.NewRelic.Plugins
         [Input("value")]
         public Input<string>? Value { get; set; }
 
-        public SyntheticsSecureCredentialState()
+        public SecureCredentialState()
         {
         }
     }

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // nolint: lll
-package plugins
+package synthetics
 
 import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
@@ -13,24 +13,24 @@ import (
 // Note that the secure credential's value is not returned as an attribute for security reasons.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
-func LookupSyntheticsSecureCredential(ctx *pulumi.Context, args *LookupSyntheticsSecureCredentialArgs, opts ...pulumi.InvokeOption) (*LookupSyntheticsSecureCredentialResult, error) {
-	var rv LookupSyntheticsSecureCredentialResult
-	err := ctx.Invoke("newrelic:plugins/getSyntheticsSecureCredential:getSyntheticsSecureCredential", args, &rv, opts...)
+func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArgs, opts ...pulumi.InvokeOption) (*LookupSecureCredentialResult, error) {
+	var rv LookupSecureCredentialResult
+	err := ctx.Invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-// A collection of arguments for invoking getSyntheticsSecureCredential.
-type LookupSyntheticsSecureCredentialArgs struct {
+// A collection of arguments for invoking getSecureCredential.
+type LookupSecureCredentialArgs struct {
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key string `pulumi:"key"`
 }
 
 
-// A collection of values returned by getSyntheticsSecureCredential.
-type LookupSyntheticsSecureCredentialResult struct {
+// A collection of values returned by getSecureCredential.
+type LookupSecureCredentialResult struct {
 	// The time the secure credential was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The secure credential's description.

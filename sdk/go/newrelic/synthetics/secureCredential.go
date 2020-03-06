@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // nolint: lll
-package plugins
+package synthetics
 
 import (
 	"reflect"
@@ -14,7 +14,7 @@ import (
 // Use this resource to create and manage New Relic Synthetic secure credentials.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
-type SyntheticsSecureCredential struct {
+type SecureCredential struct {
 	pulumi.CustomResourceState
 
 	// The time the secure credential was created.
@@ -28,9 +28,9 @@ type SyntheticsSecureCredential struct {
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
-// NewSyntheticsSecureCredential registers a new resource with the given unique name, arguments, and options.
-func NewSyntheticsSecureCredential(ctx *pulumi.Context,
-	name string, args *SyntheticsSecureCredentialArgs, opts ...pulumi.ResourceOption) (*SyntheticsSecureCredential, error) {
+// NewSecureCredential registers a new resource with the given unique name, arguments, and options.
+func NewSecureCredential(ctx *pulumi.Context,
+	name string, args *SecureCredentialArgs, opts ...pulumi.ResourceOption) (*SecureCredential, error) {
 	if args == nil || args.Key == nil {
 		return nil, errors.New("missing required argument 'Key'")
 	}
@@ -38,30 +38,30 @@ func NewSyntheticsSecureCredential(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'Value'")
 	}
 	if args == nil {
-		args = &SyntheticsSecureCredentialArgs{}
+		args = &SecureCredentialArgs{}
 	}
-	var resource SyntheticsSecureCredential
-	err := ctx.RegisterResource("newrelic:plugins/syntheticsSecureCredential:SyntheticsSecureCredential", name, args, &resource, opts...)
+	var resource SecureCredential
+	err := ctx.RegisterResource("newrelic:synthetics/secureCredential:SecureCredential", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetSyntheticsSecureCredential gets an existing SyntheticsSecureCredential resource's state with the given name, ID, and optional
+// GetSecureCredential gets an existing SecureCredential resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetSyntheticsSecureCredential(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *SyntheticsSecureCredentialState, opts ...pulumi.ResourceOption) (*SyntheticsSecureCredential, error) {
-	var resource SyntheticsSecureCredential
-	err := ctx.ReadResource("newrelic:plugins/syntheticsSecureCredential:SyntheticsSecureCredential", name, id, state, &resource, opts...)
+func GetSecureCredential(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *SecureCredentialState, opts ...pulumi.ResourceOption) (*SecureCredential, error) {
+	var resource SecureCredential
+	err := ctx.ReadResource("newrelic:synthetics/secureCredential:SecureCredential", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering SyntheticsSecureCredential resources.
-type syntheticsSecureCredentialState struct {
+// Input properties used for looking up and filtering SecureCredential resources.
+type secureCredentialState struct {
 	// The time the secure credential was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The secure credential's description.
@@ -73,7 +73,7 @@ type syntheticsSecureCredentialState struct {
 	Value *string `pulumi:"value"`
 }
 
-type SyntheticsSecureCredentialState struct {
+type SecureCredentialState struct {
 	// The time the secure credential was created.
 	CreatedAt pulumi.StringPtrInput
 	// The secure credential's description.
@@ -85,11 +85,11 @@ type SyntheticsSecureCredentialState struct {
 	Value pulumi.StringPtrInput
 }
 
-func (SyntheticsSecureCredentialState) ElementType() reflect.Type {
-	return reflect.TypeOf((*syntheticsSecureCredentialState)(nil)).Elem()
+func (SecureCredentialState) ElementType() reflect.Type {
+	return reflect.TypeOf((*secureCredentialState)(nil)).Elem()
 }
 
-type syntheticsSecureCredentialArgs struct {
+type secureCredentialArgs struct {
 	// The time the secure credential was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The secure credential's description.
@@ -101,8 +101,8 @@ type syntheticsSecureCredentialArgs struct {
 	Value string `pulumi:"value"`
 }
 
-// The set of arguments for constructing a SyntheticsSecureCredential resource.
-type SyntheticsSecureCredentialArgs struct {
+// The set of arguments for constructing a SecureCredential resource.
+type SecureCredentialArgs struct {
 	// The time the secure credential was created.
 	CreatedAt pulumi.StringPtrInput
 	// The secure credential's description.
@@ -114,7 +114,7 @@ type SyntheticsSecureCredentialArgs struct {
 	Value pulumi.StringInput
 }
 
-func (SyntheticsSecureCredentialArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*syntheticsSecureCredentialArgs)(nil)).Elem()
+func (SecureCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*secureCredentialArgs)(nil)).Elem()
 }
 

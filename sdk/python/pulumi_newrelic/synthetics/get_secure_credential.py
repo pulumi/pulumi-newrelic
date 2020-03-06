@@ -9,9 +9,9 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-class GetSyntheticsSecureCredentialResult:
+class GetSecureCredentialResult:
     """
-    A collection of values returned by getSyntheticsSecureCredential.
+    A collection of values returned by getSecureCredential.
     """
     def __init__(__self__, created_at=None, description=None, key=None, last_updated=None, id=None):
         if created_at and not isinstance(created_at, str):
@@ -38,19 +38,19 @@ class GetSyntheticsSecureCredentialResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-class AwaitableGetSyntheticsSecureCredentialResult(GetSyntheticsSecureCredentialResult):
+class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSyntheticsSecureCredentialResult(
+        return GetSecureCredentialResult(
             created_at=self.created_at,
             description=self.description,
             key=self.key,
             last_updated=self.last_updated,
             id=self.id)
 
-def get_synthetics_secure_credential(key=None,opts=None):
+def get_secure_credential(key=None,opts=None):
     """
     Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
     
@@ -67,9 +67,9 @@ def get_synthetics_secure_credential(key=None,opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:plugins/getSyntheticsSecureCredential:getSyntheticsSecureCredential', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getSecureCredential:getSecureCredential', __args__, opts=opts).value
 
-    return AwaitableGetSyntheticsSecureCredentialResult(
+    return AwaitableGetSecureCredentialResult(
         created_at=__ret__.get('createdAt'),
         description=__ret__.get('description'),
         key=__ret__.get('key'),

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-class SyntheticsLabel(pulumi.CustomResource):
+class Label(pulumi.CustomResource):
     href: pulumi.Output[str]
     """
     The URL of the Synthetics label.
@@ -65,8 +65,8 @@ class SyntheticsLabel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['href'] = None
-        super(SyntheticsLabel, __self__).__init__(
-            'newrelic:plugins/syntheticsLabel:SyntheticsLabel',
+        super(Label, __self__).__init__(
+            'newrelic:synthetics/label:Label',
             resource_name,
             __props__,
             opts)
@@ -74,7 +74,7 @@ class SyntheticsLabel(pulumi.CustomResource):
     @staticmethod
     def get(resource_name, id, opts=None, href=None, monitor_id=None, type=None, value=None):
         """
-        Get an existing SyntheticsLabel resource's state with the given name, id, and optional extra
+        Get an existing Label resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
         
         :param str resource_name: The unique name of the resulting resource.
@@ -94,7 +94,7 @@ class SyntheticsLabel(pulumi.CustomResource):
         __props__["monitor_id"] = monitor_id
         __props__["type"] = type
         __props__["value"] = value
-        return SyntheticsLabel(resource_name, opts=opts, __props__=__props__)
+        return Label(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

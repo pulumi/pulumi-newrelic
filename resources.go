@@ -173,11 +173,10 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},
 			"newrelic_synthetics_monitor_script":    {Tok: makeResource(syntheticsMod, "MonitorScript")},
+			"newrelic_synthetics_label":             {Tok: makeResource(syntheticsMod, "Label")},
+			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
 			"newrelic_insights_event":               {Tok: makeResource(insightsMod, "Event")},
 			"newrelic_plugins_alert_condition":      {Tok: makeResource(pluginsMod, "AlertCondition")},
-			"newrelic_application_label":            {Tok: makeResource(pluginsMod, "ApplicationLabel")},
-			"newrelic_synthetics_label":             {Tok: makeResource(pluginsMod, "SyntheticsLabel")},
-			"newrelic_synthetics_secure_credential": {Tok: makeResource(pluginsMod, "SyntheticsSecureCredential")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"newrelic_alert_channel":                {Tok: makeDataSource(mainMod, "getAlertChannel")},
@@ -185,9 +184,9 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_application":                  {Tok: makeDataSource(mainMod, "getApplication")},
 			"newrelic_key_transaction":              {Tok: makeDataSource(mainMod, "getKeyTransaction")},
 			"newrelic_synthetics_monitor":           {Tok: makeDataSource(syntheticsMod, "getMonitor")},
+			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},
 			"newrelic_plugin":                       {Tok: makeDataSource(pluginsMod, "getPlugin")},
 			"newrelic_plugin_component":             {Tok: makeDataSource(pluginsMod, "getPluginComponent")},
-			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(pluginsMod, "getSyntheticsSecureCredential")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

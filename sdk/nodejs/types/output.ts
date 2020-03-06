@@ -155,15 +155,4 @@ export namespace plugins {
         threshold: number;
         timeFunction: string;
     }
-
-    export interface ApplicationLabelLink {
-        /**
-         * An array of application IDs.
-         */
-        applications?: number[];
-        /**
-         * An array of server IDs.
-         */
-        servers?: number[];
-    }
 }

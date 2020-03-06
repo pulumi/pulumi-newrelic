@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const foo = newrelic.plugins.getSyntheticsSecureCredential({
+ * const foo = newrelic.synthetics.getSecureCredential({
  *     key: "MY_KEY",
  * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
  */
-export function getSyntheticsSecureCredential(args: GetSyntheticsSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSyntheticsSecureCredentialResult> & GetSyntheticsSecureCredentialResult {
+export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> & GetSecureCredentialResult {
     if (!opts) {
         opts = {}
     }
@@ -32,7 +30,7 @@ export function getSyntheticsSecureCredential(args: GetSyntheticsSecureCredentia
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSyntheticsSecureCredentialResult> = pulumi.runtime.invoke("newrelic:plugins/getSyntheticsSecureCredential:getSyntheticsSecureCredential", {
+    const promise: Promise<GetSecureCredentialResult> = pulumi.runtime.invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", {
         "key": args.key,
     }, opts);
 
@@ -40,9 +38,9 @@ export function getSyntheticsSecureCredential(args: GetSyntheticsSecureCredentia
 }
 
 /**
- * A collection of arguments for invoking getSyntheticsSecureCredential.
+ * A collection of arguments for invoking getSecureCredential.
  */
-export interface GetSyntheticsSecureCredentialArgs {
+export interface GetSecureCredentialArgs {
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
@@ -50,9 +48,9 @@ export interface GetSyntheticsSecureCredentialArgs {
 }
 
 /**
- * A collection of values returned by getSyntheticsSecureCredential.
+ * A collection of values returned by getSecureCredential.
  */
-export interface GetSyntheticsSecureCredentialResult {
+export interface GetSecureCredentialResult {
     /**
      * The time the secure credential was created.
      */

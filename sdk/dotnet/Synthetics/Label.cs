@@ -6,14 +6,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.NewRelic.Plugins
+namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create, update, and delete a Synthetics label in New Relic.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
     /// </summary>
-    public partial class SyntheticsLabel : Pulumi.CustomResource
+    public partial class Label : Pulumi.CustomResource
     {
         /// <summary>
         /// The URL of the Synthetics label.
@@ -41,19 +41,19 @@ namespace Pulumi.NewRelic.Plugins
 
 
         /// <summary>
-        /// Create a SyntheticsLabel resource with the given unique name, arguments, and options.
+        /// Create a Label resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SyntheticsLabel(string name, SyntheticsLabelArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:plugins/syntheticsLabel:SyntheticsLabel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+        public Label(string name, LabelArgs args, CustomResourceOptions? options = null)
+            : base("newrelic:synthetics/label:Label", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
-        private SyntheticsLabel(string name, Input<string> id, SyntheticsLabelState? state = null, CustomResourceOptions? options = null)
-            : base("newrelic:plugins/syntheticsLabel:SyntheticsLabel", name, state, MakeResourceOptions(options, id))
+        private Label(string name, Input<string> id, LabelState? state = null, CustomResourceOptions? options = null)
+            : base("newrelic:synthetics/label:Label", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.NewRelic.Plugins
             return merged;
         }
         /// <summary>
-        /// Get an existing SyntheticsLabel resource's state with the given name, ID, and optional extra
+        /// Get an existing Label resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -77,13 +77,13 @@ namespace Pulumi.NewRelic.Plugins
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SyntheticsLabel Get(string name, Input<string> id, SyntheticsLabelState? state = null, CustomResourceOptions? options = null)
+        public static Label Get(string name, Input<string> id, LabelState? state = null, CustomResourceOptions? options = null)
         {
-            return new SyntheticsLabel(name, id, state, options);
+            return new Label(name, id, state, options);
         }
     }
 
-    public sealed class SyntheticsLabelArgs : Pulumi.ResourceArgs
+    public sealed class LabelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the monitor that will be assigned the label.
@@ -103,12 +103,12 @@ namespace Pulumi.NewRelic.Plugins
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public SyntheticsLabelArgs()
+        public LabelArgs()
         {
         }
     }
 
-    public sealed class SyntheticsLabelState : Pulumi.ResourceArgs
+    public sealed class LabelState : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL of the Synthetics label.
@@ -134,7 +134,7 @@ namespace Pulumi.NewRelic.Plugins
         [Input("value")]
         public Input<string>? Value { get; set; }
 
-        public SyntheticsLabelState()
+        public LabelState()
         {
         }
     }

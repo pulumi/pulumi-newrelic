@@ -133,15 +133,4 @@ export namespace plugins {
         threshold: pulumi.Input<number>;
         timeFunction: pulumi.Input<string>;
     }
-
-    export interface ApplicationLabelLink {
-        /**
-         * An array of application IDs.
-         */
-        applications?: pulumi.Input<pulumi.Input<number>[]>;
-        /**
-         * An array of server IDs.
-         */
-        servers?: pulumi.Input<pulumi.Input<number>[]>;
-    }
 }

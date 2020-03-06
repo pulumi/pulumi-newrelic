@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.NewRelic.Plugins
+namespace Pulumi.NewRelic.Synthetics
 {
     public static partial class Invokes
     {
@@ -17,11 +17,11 @@ namespace Pulumi.NewRelic.Plugins
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
         /// </summary>
-        public static Task<GetSyntheticsSecureCredentialResult> GetSyntheticsSecureCredential(GetSyntheticsSecureCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSyntheticsSecureCredentialResult>("newrelic:plugins/getSyntheticsSecureCredential:getSyntheticsSecureCredential", args ?? InvokeArgs.Empty, options.WithVersion());
+        public static Task<GetSecureCredentialResult> GetSecureCredential(GetSecureCredentialArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
-    public sealed class GetSyntheticsSecureCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetSecureCredentialArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -29,13 +29,13 @@ namespace Pulumi.NewRelic.Plugins
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
-        public GetSyntheticsSecureCredentialArgs()
+        public GetSecureCredentialArgs()
         {
         }
     }
 
     [OutputType]
-    public sealed class GetSyntheticsSecureCredentialResult
+    public sealed class GetSecureCredentialResult
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -53,7 +53,7 @@ namespace Pulumi.NewRelic.Plugins
         public readonly string Id;
 
         [OutputConstructor]
-        private GetSyntheticsSecureCredentialResult(
+        private GetSecureCredentialResult(
             string createdAt,
             string description,
             string key,

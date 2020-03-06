@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-class SyntheticsSecureCredential(pulumi.CustomResource):
+class SecureCredential(pulumi.CustomResource):
     created_at: pulumi.Output[str]
     """
     The time the secure credential was created.
@@ -66,8 +66,8 @@ class SyntheticsSecureCredential(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
-        super(SyntheticsSecureCredential, __self__).__init__(
-            'newrelic:plugins/syntheticsSecureCredential:SyntheticsSecureCredential',
+        super(SecureCredential, __self__).__init__(
+            'newrelic:synthetics/secureCredential:SecureCredential',
             resource_name,
             __props__,
             opts)
@@ -75,7 +75,7 @@ class SyntheticsSecureCredential(pulumi.CustomResource):
     @staticmethod
     def get(resource_name, id, opts=None, created_at=None, description=None, key=None, last_updated=None, value=None):
         """
-        Get an existing SyntheticsSecureCredential resource's state with the given name, id, and optional extra
+        Get an existing SecureCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
         
         :param str resource_name: The unique name of the resulting resource.
@@ -96,7 +96,7 @@ class SyntheticsSecureCredential(pulumi.CustomResource):
         __props__["key"] = key
         __props__["last_updated"] = last_updated
         __props__["value"] = value
-        return SyntheticsSecureCredential(resource_name, opts=opts, __props__=__props__)
+        return SecureCredential(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // nolint: lll
-package plugins
+package synthetics
 
 import (
 	"reflect"
@@ -14,7 +14,7 @@ import (
 // Use this resource to create, update, and delete a Synthetics label in New Relic.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
-type SyntheticsLabel struct {
+type Label struct {
 	pulumi.CustomResourceState
 
 	// The URL of the Synthetics label.
@@ -27,9 +27,9 @@ type SyntheticsLabel struct {
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
-// NewSyntheticsLabel registers a new resource with the given unique name, arguments, and options.
-func NewSyntheticsLabel(ctx *pulumi.Context,
-	name string, args *SyntheticsLabelArgs, opts ...pulumi.ResourceOption) (*SyntheticsLabel, error) {
+// NewLabel registers a new resource with the given unique name, arguments, and options.
+func NewLabel(ctx *pulumi.Context,
+	name string, args *LabelArgs, opts ...pulumi.ResourceOption) (*Label, error) {
 	if args == nil || args.MonitorId == nil {
 		return nil, errors.New("missing required argument 'MonitorId'")
 	}
@@ -40,30 +40,30 @@ func NewSyntheticsLabel(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'Value'")
 	}
 	if args == nil {
-		args = &SyntheticsLabelArgs{}
+		args = &LabelArgs{}
 	}
-	var resource SyntheticsLabel
-	err := ctx.RegisterResource("newrelic:plugins/syntheticsLabel:SyntheticsLabel", name, args, &resource, opts...)
+	var resource Label
+	err := ctx.RegisterResource("newrelic:synthetics/label:Label", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetSyntheticsLabel gets an existing SyntheticsLabel resource's state with the given name, ID, and optional
+// GetLabel gets an existing Label resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetSyntheticsLabel(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *SyntheticsLabelState, opts ...pulumi.ResourceOption) (*SyntheticsLabel, error) {
-	var resource SyntheticsLabel
-	err := ctx.ReadResource("newrelic:plugins/syntheticsLabel:SyntheticsLabel", name, id, state, &resource, opts...)
+func GetLabel(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *LabelState, opts ...pulumi.ResourceOption) (*Label, error) {
+	var resource Label
+	err := ctx.ReadResource("newrelic:synthetics/label:Label", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering SyntheticsLabel resources.
-type syntheticsLabelState struct {
+// Input properties used for looking up and filtering Label resources.
+type labelState struct {
 	// The URL of the Synthetics label.
 	Href *string `pulumi:"href"`
 	// The ID of the monitor that will be assigned the label.
@@ -74,7 +74,7 @@ type syntheticsLabelState struct {
 	Value *string `pulumi:"value"`
 }
 
-type SyntheticsLabelState struct {
+type LabelState struct {
 	// The URL of the Synthetics label.
 	Href pulumi.StringPtrInput
 	// The ID of the monitor that will be assigned the label.
@@ -85,11 +85,11 @@ type SyntheticsLabelState struct {
 	Value pulumi.StringPtrInput
 }
 
-func (SyntheticsLabelState) ElementType() reflect.Type {
-	return reflect.TypeOf((*syntheticsLabelState)(nil)).Elem()
+func (LabelState) ElementType() reflect.Type {
+	return reflect.TypeOf((*labelState)(nil)).Elem()
 }
 
-type syntheticsLabelArgs struct {
+type labelArgs struct {
 	// The ID of the monitor that will be assigned the label.
 	MonitorId string `pulumi:"monitorId"`
 	// A string representing the label key/category.
@@ -98,8 +98,8 @@ type syntheticsLabelArgs struct {
 	Value string `pulumi:"value"`
 }
 
-// The set of arguments for constructing a SyntheticsLabel resource.
-type SyntheticsLabelArgs struct {
+// The set of arguments for constructing a Label resource.
+type LabelArgs struct {
 	// The ID of the monitor that will be assigned the label.
 	MonitorId pulumi.StringInput
 	// A string representing the label key/category.
@@ -108,7 +108,7 @@ type SyntheticsLabelArgs struct {
 	Value pulumi.StringInput
 }
 
-func (SyntheticsLabelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*syntheticsLabelArgs)(nil)).Elem()
+func (LabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*labelArgs)(nil)).Elem()
 }
 
