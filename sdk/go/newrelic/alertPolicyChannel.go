@@ -17,18 +17,14 @@ import (
 type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
-	// The ID of the channel.
-	ChannelId pulumi.IntOutput `pulumi:"channelId"`
-	// The ID of the policy.
+	ChannelId pulumi.IntPtrOutput `pulumi:"channelId"`
+	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 }
 
 // NewAlertPolicyChannel registers a new resource with the given unique name, arguments, and options.
 func NewAlertPolicyChannel(ctx *pulumi.Context,
 	name string, args *AlertPolicyChannelArgs, opts ...pulumi.ResourceOption) (*AlertPolicyChannel, error) {
-	if args == nil || args.ChannelId == nil {
-		return nil, errors.New("missing required argument 'ChannelId'")
-	}
 	if args == nil || args.PolicyId == nil {
 		return nil, errors.New("missing required argument 'PolicyId'")
 	}
@@ -57,16 +53,14 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicyChannel resources.
 type alertPolicyChannelState struct {
-	// The ID of the channel.
 	ChannelId *int `pulumi:"channelId"`
-	// The ID of the policy.
+	ChannelIds []int `pulumi:"channelIds"`
 	PolicyId *int `pulumi:"policyId"`
 }
 
 type AlertPolicyChannelState struct {
-	// The ID of the channel.
 	ChannelId pulumi.IntPtrInput
-	// The ID of the policy.
+	ChannelIds pulumi.IntArrayInput
 	PolicyId pulumi.IntPtrInput
 }
 
@@ -75,17 +69,15 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 }
 
 type alertPolicyChannelArgs struct {
-	// The ID of the channel.
-	ChannelId int `pulumi:"channelId"`
-	// The ID of the policy.
+	ChannelId *int `pulumi:"channelId"`
+	ChannelIds []int `pulumi:"channelIds"`
 	PolicyId int `pulumi:"policyId"`
 }
 
 // The set of arguments for constructing a AlertPolicyChannel resource.
 type AlertPolicyChannelArgs struct {
-	// The ID of the channel.
-	ChannelId pulumi.IntInput
-	// The ID of the policy.
+	ChannelId pulumi.IntPtrInput
+	ChannelIds pulumi.IntArrayInput
 	PolicyId pulumi.IntInput
 }
 

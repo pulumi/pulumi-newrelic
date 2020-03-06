@@ -121,7 +121,107 @@ func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTe
 	}).(AlertConditionTermOutput)
 }
 
+type ApplicationLabelLink struct {
+	// An array of application IDs.
+	Applications []int `pulumi:"applications"`
+	// An array of server IDs.
+	Servers []int `pulumi:"servers"`
+}
+
+type ApplicationLabelLinkInput interface {
+	pulumi.Input
+
+	ToApplicationLabelLinkOutput() ApplicationLabelLinkOutput
+	ToApplicationLabelLinkOutputWithContext(context.Context) ApplicationLabelLinkOutput
+}
+
+type ApplicationLabelLinkArgs struct {
+	// An array of application IDs.
+	Applications pulumi.IntArrayInput `pulumi:"applications"`
+	// An array of server IDs.
+	Servers pulumi.IntArrayInput `pulumi:"servers"`
+}
+
+func (ApplicationLabelLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLabelLink)(nil)).Elem()
+}
+
+func (i ApplicationLabelLinkArgs) ToApplicationLabelLinkOutput() ApplicationLabelLinkOutput {
+	return i.ToApplicationLabelLinkOutputWithContext(context.Background())
+}
+
+func (i ApplicationLabelLinkArgs) ToApplicationLabelLinkOutputWithContext(ctx context.Context) ApplicationLabelLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLabelLinkOutput)
+}
+
+type ApplicationLabelLinkArrayInput interface {
+	pulumi.Input
+
+	ToApplicationLabelLinkArrayOutput() ApplicationLabelLinkArrayOutput
+	ToApplicationLabelLinkArrayOutputWithContext(context.Context) ApplicationLabelLinkArrayOutput
+}
+
+type ApplicationLabelLinkArray []ApplicationLabelLinkInput
+
+func (ApplicationLabelLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationLabelLink)(nil)).Elem()
+}
+
+func (i ApplicationLabelLinkArray) ToApplicationLabelLinkArrayOutput() ApplicationLabelLinkArrayOutput {
+	return i.ToApplicationLabelLinkArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationLabelLinkArray) ToApplicationLabelLinkArrayOutputWithContext(ctx context.Context) ApplicationLabelLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLabelLinkArrayOutput)
+}
+
+type ApplicationLabelLinkOutput struct { *pulumi.OutputState }
+
+func (ApplicationLabelLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLabelLink)(nil)).Elem()
+}
+
+func (o ApplicationLabelLinkOutput) ToApplicationLabelLinkOutput() ApplicationLabelLinkOutput {
+	return o
+}
+
+func (o ApplicationLabelLinkOutput) ToApplicationLabelLinkOutputWithContext(ctx context.Context) ApplicationLabelLinkOutput {
+	return o
+}
+
+// An array of application IDs.
+func (o ApplicationLabelLinkOutput) Applications() pulumi.IntArrayOutput {
+	return o.ApplyT(func (v ApplicationLabelLink) []int { return v.Applications }).(pulumi.IntArrayOutput)
+}
+
+// An array of server IDs.
+func (o ApplicationLabelLinkOutput) Servers() pulumi.IntArrayOutput {
+	return o.ApplyT(func (v ApplicationLabelLink) []int { return v.Servers }).(pulumi.IntArrayOutput)
+}
+
+type ApplicationLabelLinkArrayOutput struct { *pulumi.OutputState}
+
+func (ApplicationLabelLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationLabelLink)(nil)).Elem()
+}
+
+func (o ApplicationLabelLinkArrayOutput) ToApplicationLabelLinkArrayOutput() ApplicationLabelLinkArrayOutput {
+	return o
+}
+
+func (o ApplicationLabelLinkArrayOutput) ToApplicationLabelLinkArrayOutputWithContext(ctx context.Context) ApplicationLabelLinkArrayOutput {
+	return o
+}
+
+func (o ApplicationLabelLinkArrayOutput) Index(i pulumi.IntInput) ApplicationLabelLinkOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApplicationLabelLink {
+		return vs[0].([]ApplicationLabelLink)[vs[1].(int)]
+	}).(ApplicationLabelLinkOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationLabelLinkOutput{})
+	pulumi.RegisterOutputType(ApplicationLabelLinkArrayOutput{})
 }

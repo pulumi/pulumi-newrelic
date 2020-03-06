@@ -25,7 +25,56 @@ class AlertCondition(pulumi.CustomResource):
     """
     metric: pulumi.Output[str]
     """
-    The metric field accepts parameters based on the `type` set.
+    The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+    * `apm_app_metric`
+    * `apdex`
+    * `error_percentage`
+    * `response_time_background`
+    * `response_time_web`
+    * `throughput_background`
+    * `throughput_web`
+    * `user_defined`
+    * `apm_jvm_metric`
+    * `cpu_utilization_time`
+    * `deadlocked_threads`
+    * `gc_cpu_time`
+    * `heap_memory_usage`
+    * `apm_kt_metric`
+    * `apdex`
+    * `error_count`
+    * `error_percentage`
+    * `response_time`
+    * `throughput`
+    * `browser_metric`
+    * `ajax_response_time`
+    * `ajax_throughput`
+    * `dom_processing`
+    * `end_user_apdex`
+    * `network`
+    * `page_rendering`
+    * `page_view_throughput`
+    * `page_views_with_js_errors`
+    * `request_queuing`
+    * `total_page_load`
+    * `user_defined`
+    * `web_application`
+    * `mobile_metric`
+    * `database`
+    * `images`
+    * `json`
+    * `mobile_crash_rate`
+    * `network_error_percentage`
+    * `network`
+    * `status_error_percentage`
+    * `user_defined`
+    * `view_loading`
+    * `servers_metric`
+    * `cpu_percentage`
+    * `disk_io_percentage`
+    * `fullest_disk_percentage`
+    * `load_average_one_minute`
+    * `memory_percentage`
+    * `user_defined`
     """
     name: pulumi.Output[str]
     """
@@ -84,7 +133,56 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[list] entities: The instance IDS associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
-        :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set.
+        :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+               * `apm_app_metric`
+               * `apdex`
+               * `error_percentage`
+               * `response_time_background`
+               * `response_time_web`
+               * `throughput_background`
+               * `throughput_web`
+               * `user_defined`
+               * `apm_jvm_metric`
+               * `cpu_utilization_time`
+               * `deadlocked_threads`
+               * `gc_cpu_time`
+               * `heap_memory_usage`
+               * `apm_kt_metric`
+               * `apdex`
+               * `error_count`
+               * `error_percentage`
+               * `response_time`
+               * `throughput`
+               * `browser_metric`
+               * `ajax_response_time`
+               * `ajax_throughput`
+               * `dom_processing`
+               * `end_user_apdex`
+               * `network`
+               * `page_rendering`
+               * `page_view_throughput`
+               * `page_views_with_js_errors`
+               * `request_queuing`
+               * `total_page_load`
+               * `user_defined`
+               * `web_application`
+               * `mobile_metric`
+               * `database`
+               * `images`
+               * `json`
+               * `mobile_crash_rate`
+               * `network_error_percentage`
+               * `network`
+               * `status_error_percentage`
+               * `user_defined`
+               * `view_loading`
+               * `servers_metric`
+               * `cpu_percentage`
+               * `disk_io_percentage`
+               * `fullest_disk_percentage`
+               * `load_average_one_minute`
+               * `memory_percentage`
+               * `user_defined`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -162,7 +260,56 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[list] entities: The instance IDS associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apm_jvm_metric` with `gc_cpu_time` condition type.
-        :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set.
+        :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+               * `apm_app_metric`
+               * `apdex`
+               * `error_percentage`
+               * `response_time_background`
+               * `response_time_web`
+               * `throughput_background`
+               * `throughput_web`
+               * `user_defined`
+               * `apm_jvm_metric`
+               * `cpu_utilization_time`
+               * `deadlocked_threads`
+               * `gc_cpu_time`
+               * `heap_memory_usage`
+               * `apm_kt_metric`
+               * `apdex`
+               * `error_count`
+               * `error_percentage`
+               * `response_time`
+               * `throughput`
+               * `browser_metric`
+               * `ajax_response_time`
+               * `ajax_throughput`
+               * `dom_processing`
+               * `end_user_apdex`
+               * `network`
+               * `page_rendering`
+               * `page_view_throughput`
+               * `page_views_with_js_errors`
+               * `request_queuing`
+               * `total_page_load`
+               * `user_defined`
+               * `web_application`
+               * `mobile_metric`
+               * `database`
+               * `images`
+               * `json`
+               * `mobile_crash_rate`
+               * `network_error_percentage`
+               * `network`
+               * `status_error_percentage`
+               * `user_defined`
+               * `view_loading`
+               * `servers_metric`
+               * `cpu_percentage`
+               * `disk_io_percentage`
+               * `fullest_disk_percentage`
+               * `load_average_one_minute`
+               * `memory_percentage`
+               * `user_defined`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.

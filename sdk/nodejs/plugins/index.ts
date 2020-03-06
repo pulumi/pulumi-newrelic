@@ -3,5 +3,9 @@
 
 // Export members:
 export * from "./alertCondition";
+export * from "./applicationLabel";
 export * from "./getPlugin";
 export * from "./getPluginComponent";
+export * from "./getSyntheticsSecureCredential";
+export * from "./syntheticsLabel";
+export * from "./syntheticsSecureCredential";

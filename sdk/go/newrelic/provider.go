@@ -39,6 +39,9 @@ func NewProvider(ctx *pulumi.Context,
 	if args.InfraApiUrl == nil {
 		args.InfraApiUrl = pulumi.StringPtr(getEnvOrDefault("https://infra-api.newrelic.com/v2", nil, "NEWRELIC_INFRA_API_URL").(string))
 	}
+	if args.InfrastructureApiUrl == nil {
+		args.InfrastructureApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_INFRASTRUCTURE_API_URL").(string))
+	}
 	if args.InsecureSkipVerify == nil {
 		args.InsecureSkipVerify = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "NEWRELIC_API_SKIP_VERIFY").(bool))
 	}
@@ -56,6 +59,9 @@ func NewProvider(ctx *pulumi.Context,
 	}
 	if args.InsightsQueryUrl == nil {
 		args.InsightsQueryUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEWRELIC_INSIGHTS_QUERY_URL").(string))
+	}
+	if args.NerdgraphApiUrl == nil {
+		args.NerdgraphApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_NERDGRAPH_API_URL").(string))
 	}
 	if args.SyntheticsApiUrl == nil {
 		args.SyntheticsApiUrl = pulumi.StringPtr(getEnvOrDefault("https://synthetics.newrelic.com/synthetics/api/v3", nil, "NEWRELIC_SYNTHETICS_API_URL").(string))

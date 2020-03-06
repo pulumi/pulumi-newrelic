@@ -11,21 +11,14 @@ from . import utilities, tables
 
 class AlertPolicyChannel(pulumi.CustomResource):
     channel_id: pulumi.Output[float]
-    """
-    The ID of the channel.
-    """
+    channel_ids: pulumi.Output[list]
     policy_id: pulumi.Output[float]
-    """
-    The ID of the policy.
-    """
-    def __init__(__self__, resource_name, opts=None, channel_id=None, policy_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, channel_id=None, channel_ids=None, policy_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to map alert policies to alert channels in New Relic.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] channel_id: The ID of the channel.
-        :param pulumi.Input[float] policy_id: The ID of the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
         """
@@ -46,9 +39,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if channel_id is None:
-                raise TypeError("Missing required property 'channel_id'")
             __props__['channel_id'] = channel_id
+            __props__['channel_ids'] = channel_ids
             if policy_id is None:
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
@@ -59,7 +51,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, channel_id=None, policy_id=None):
+    def get(resource_name, id, opts=None, channel_id=None, channel_ids=None, policy_id=None):
         """
         Get an existing AlertPolicyChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -67,8 +59,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] channel_id: The ID of the channel.
-        :param pulumi.Input[float] policy_id: The ID of the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
         """
@@ -76,6 +66,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["channel_id"] = channel_id
+        __props__["channel_ids"] = channel_ids
         __props__["policy_id"] = policy_id
         return AlertPolicyChannel(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
