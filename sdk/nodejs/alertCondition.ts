@@ -62,7 +62,56 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
-     * The metric field accepts parameters based on the `type` set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+     * * `apmAppMetric`
+     * * `apdex`
+     * * `errorPercentage`
+     * * `responseTimeBackground`
+     * * `responseTimeWeb`
+     * * `throughputBackground`
+     * * `throughputWeb`
+     * * `userDefined`
+     * * `apmJvmMetric`
+     * * `cpuUtilizationTime`
+     * * `deadlockedThreads`
+     * * `gcCpuTime`
+     * * `heapMemoryUsage`
+     * * `apmKtMetric`
+     * * `apdex`
+     * * `errorCount`
+     * * `errorPercentage`
+     * * `responseTime`
+     * * `throughput`
+     * * `browserMetric`
+     * * `ajaxResponseTime`
+     * * `ajaxThroughput`
+     * * `domProcessing`
+     * * `endUserApdex`
+     * * `network`
+     * * `pageRendering`
+     * * `pageViewThroughput`
+     * * `pageViewsWithJsErrors`
+     * * `requestQueuing`
+     * * `totalPageLoad`
+     * * `userDefined`
+     * * `webApplication`
+     * * `mobileMetric`
+     * * `database`
+     * * `images`
+     * * `json`
+     * * `mobileCrashRate`
+     * * `networkErrorPercentage`
+     * * `network`
+     * * `statusErrorPercentage`
+     * * `userDefined`
+     * * `viewLoading`
+     * * `serversMetric`
+     * * `cpuPercentage`
+     * * `diskIoPercentage`
+     * * `fullestDiskPercentage`
+     * * `loadAverageOneMinute`
+     * * `memoryPercentage`
+     * * `userDefined`
      */
     public readonly metric!: pulumi.Output<string>;
     /**
@@ -183,7 +232,56 @@ export interface AlertConditionState {
      */
     readonly gcMetric?: pulumi.Input<string>;
     /**
-     * The metric field accepts parameters based on the `type` set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+     * * `apmAppMetric`
+     * * `apdex`
+     * * `errorPercentage`
+     * * `responseTimeBackground`
+     * * `responseTimeWeb`
+     * * `throughputBackground`
+     * * `throughputWeb`
+     * * `userDefined`
+     * * `apmJvmMetric`
+     * * `cpuUtilizationTime`
+     * * `deadlockedThreads`
+     * * `gcCpuTime`
+     * * `heapMemoryUsage`
+     * * `apmKtMetric`
+     * * `apdex`
+     * * `errorCount`
+     * * `errorPercentage`
+     * * `responseTime`
+     * * `throughput`
+     * * `browserMetric`
+     * * `ajaxResponseTime`
+     * * `ajaxThroughput`
+     * * `domProcessing`
+     * * `endUserApdex`
+     * * `network`
+     * * `pageRendering`
+     * * `pageViewThroughput`
+     * * `pageViewsWithJsErrors`
+     * * `requestQueuing`
+     * * `totalPageLoad`
+     * * `userDefined`
+     * * `webApplication`
+     * * `mobileMetric`
+     * * `database`
+     * * `images`
+     * * `json`
+     * * `mobileCrashRate`
+     * * `networkErrorPercentage`
+     * * `network`
+     * * `statusErrorPercentage`
+     * * `userDefined`
+     * * `viewLoading`
+     * * `serversMetric`
+     * * `cpuPercentage`
+     * * `diskIoPercentage`
+     * * `fullestDiskPercentage`
+     * * `loadAverageOneMinute`
+     * * `memoryPercentage`
+     * * `userDefined`
      */
     readonly metric?: pulumi.Input<string>;
     /**
@@ -238,7 +336,56 @@ export interface AlertConditionArgs {
      */
     readonly gcMetric?: pulumi.Input<string>;
     /**
-     * The metric field accepts parameters based on the `type` set.
+     * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+     * * `apmAppMetric`
+     * * `apdex`
+     * * `errorPercentage`
+     * * `responseTimeBackground`
+     * * `responseTimeWeb`
+     * * `throughputBackground`
+     * * `throughputWeb`
+     * * `userDefined`
+     * * `apmJvmMetric`
+     * * `cpuUtilizationTime`
+     * * `deadlockedThreads`
+     * * `gcCpuTime`
+     * * `heapMemoryUsage`
+     * * `apmKtMetric`
+     * * `apdex`
+     * * `errorCount`
+     * * `errorPercentage`
+     * * `responseTime`
+     * * `throughput`
+     * * `browserMetric`
+     * * `ajaxResponseTime`
+     * * `ajaxThroughput`
+     * * `domProcessing`
+     * * `endUserApdex`
+     * * `network`
+     * * `pageRendering`
+     * * `pageViewThroughput`
+     * * `pageViewsWithJsErrors`
+     * * `requestQueuing`
+     * * `totalPageLoad`
+     * * `userDefined`
+     * * `webApplication`
+     * * `mobileMetric`
+     * * `database`
+     * * `images`
+     * * `json`
+     * * `mobileCrashRate`
+     * * `networkErrorPercentage`
+     * * `network`
+     * * `statusErrorPercentage`
+     * * `userDefined`
+     * * `viewLoading`
+     * * `serversMetric`
+     * * `cpuPercentage`
+     * * `diskIoPercentage`
+     * * `fullestDiskPercentage`
+     * * `loadAverageOneMinute`
+     * * `memoryPercentage`
+     * * `userDefined`
      */
     readonly metric: pulumi.Input<string>;
     /**

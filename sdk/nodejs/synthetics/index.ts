@@ -4,5 +4,8 @@
 // Export members:
 export * from "./alertCondition";
 export * from "./getMonitor";
+export * from "./getSecureCredential";
+export * from "./label";
 export * from "./monitor";
 export * from "./monitorScript";
+export * from "./secureCredential";

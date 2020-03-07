@@ -257,8 +257,7 @@ github.com/golangci/golangci-lint v1.21.0 h1:HxAxpR8Z0M8omihvQdsD3PF0qPjlqYqp2vM
 github.com/golangci/golangci-lint v1.21.0/go.mod h1:phxpHK52q7SE+5KpPnti4oZTdFCEsn/tKN+nFvCKXfk=
 github.com/golangci/golangci-lint v1.22.2 h1:iaihss3Tf6NvZVjun3lHimKSgofPV1+FqE/cbehoiRQ=
 github.com/golangci/golangci-lint v1.22.2/go.mod h1:2Bj42k6hPQFTRxkDb7S3TQ+EsnumZXOmIYNqlQrp0FI=
-github.com/golangci/golangci-lint v1.23.6 h1:dxnT1QFIpTeVoFUPaVDeFJJ+To++8ANYsQ2JIxJY02s=
-github.com/golangci/golangci-lint v1.23.6/go.mod h1:g/38bxfhp4rI7zeWSxcdIeHTQGS58TCak8FYcyCmavQ=
+github.com/golangci/golangci-lint v1.23.8/go.mod h1:g/38bxfhp4rI7zeWSxcdIeHTQGS58TCak8FYcyCmavQ=
 github.com/golangci/ineffassign v0.0.0-20190609212857-42439a7714cc h1:gLLhTLMk2/SutryVJ6D4VZCU3CUqr8YloG7FPIBWFpI=
 github.com/golangci/ineffassign v0.0.0-20190609212857-42439a7714cc/go.mod h1:e5tpTHCfVze+7EpLEozzMB3eafxo2KT5veNg1k6byQU=
 github.com/golangci/lint-1 v0.0.0-20191013205115-297bf364a8e0 h1:MfyDlzVjl1hoaPzPD4Gpb/QgoRfSBR0jdhwGyAWwMSA=
@@ -502,8 +501,8 @@ github.com/newrelic/go-agent/v3 v3.3.0 h1:qcdu8gEsvRWCaKIN35Fr7sdwl7fk/DyVw2r1an
 github.com/newrelic/go-agent/v3 v3.3.0/go.mod h1:H28zDNUC0U/b7kLoY4EFOhuth10Xu/9dchozUiOseQQ=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.10.0 h1:r1ujN0Eqo5u6xRm4U+zcPbMdcTp0sI/DCUshMVM2Q98=
-github.com/newrelic/newrelic-client-go v0.10.0/go.mod h1:cy6GDp11OfIj8Wfg0jfzDycso91NcojANZUqnjU9+QM=
+github.com/newrelic/newrelic-client-go v0.13.0 h1:fvuDBRG1JPM071NtB2vGOtCitK6+bytbTqc4EOMvgLc=
+github.com/newrelic/newrelic-client-go v0.13.0/go.mod h1:cy6GDp11OfIj8Wfg0jfzDycso91NcojANZUqnjU9+QM=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
@@ -631,8 +630,8 @@ github.com/stretchr/testify v1.5.1 h1:nOGnQDM7FYENwehXlg/kFVnos3rEvtKTjRvOWSzb6H
 github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5cxcmMvtA=
 github.com/subosito/gotenv v1.2.0 h1:Slr1R9HxAlEKefgq5jn9U+DnETlIUa6HfgEzj0g5d7s=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
-github.com/terraform-providers/terraform-provider-newrelic v1.14.0 h1:2WBl0ZXzQFJargvJLgmv4HsoM9/Woy+5lzWrNpd/vH8=
-github.com/terraform-providers/terraform-provider-newrelic v1.14.0/go.mod h1:Wa9lm1CxA5KriSrafvtaME8t/6YXAnUD0xQDl55B3Tw=
+github.com/terraform-providers/terraform-provider-newrelic v1.15.0 h1:VKHmjSHIMhhKLBJ+LwQUMy+tTsUUIgIYtijDC7TzsaI=
+github.com/terraform-providers/terraform-provider-newrelic v1.15.0/go.mod h1:GO+4m2EPXKvnBrwXZRwNCKcllH3Mg1JQwSuAEVkJBm8=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e h1:T5PdfK/M1xyrHwynxMIVMWLS7f/qHwfslZphxtGnw7s=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
 github.com/tidwall/pretty v0.0.0-20190325153808-1166b9ac2b65/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=

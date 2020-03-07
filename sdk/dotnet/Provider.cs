@@ -90,12 +90,14 @@ namespace Pulumi.NewRelic
             ApiUrl = Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
             CacertFile = Utilities.GetEnv("NEWRELIC_API_CACERT");
             InfraApiUrl = Utilities.GetEnv("NEWRELIC_INFRA_API_URL") ?? "https://infra-api.newrelic.com/v2";
+            InfrastructureApiUrl = Utilities.GetEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
             InsecureSkipVerify = Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
             InsightsAccountId = Utilities.GetEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
             InsightsInsertKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
             InsightsInsertUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
             InsightsQueryKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             InsightsQueryUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
+            NerdgraphApiUrl = Utilities.GetEnv("NEWRELIC_NERDGRAPH_API_URL");
             SyntheticsApiUrl = Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
         }
     }

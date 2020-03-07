@@ -38,13 +38,8 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertPolicyChannel.__pulumiType;
     }
 
-    /**
-     * The ID of the channel.
-     */
-    public readonly channelId!: pulumi.Output<number>;
-    /**
-     * The ID of the policy.
-     */
+    public readonly channelId!: pulumi.Output<number | undefined>;
+    public readonly channelIds!: pulumi.Output<number[] | undefined>;
     public readonly policyId!: pulumi.Output<number>;
 
     /**
@@ -60,16 +55,15 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AlertPolicyChannelState | undefined;
             inputs["channelId"] = state ? state.channelId : undefined;
+            inputs["channelIds"] = state ? state.channelIds : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
         } else {
             const args = argsOrState as AlertPolicyChannelArgs | undefined;
-            if (!args || args.channelId === undefined) {
-                throw new Error("Missing required property 'channelId'");
-            }
             if (!args || args.policyId === undefined) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["channelId"] = args ? args.channelId : undefined;
+            inputs["channelIds"] = args ? args.channelIds : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
         }
         if (!opts) {
@@ -87,13 +81,8 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertPolicyChannel resources.
  */
 export interface AlertPolicyChannelState {
-    /**
-     * The ID of the channel.
-     */
     readonly channelId?: pulumi.Input<number>;
-    /**
-     * The ID of the policy.
-     */
+    readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     readonly policyId?: pulumi.Input<number>;
 }
 
@@ -101,12 +90,7 @@ export interface AlertPolicyChannelState {
  * The set of arguments for constructing a AlertPolicyChannel resource.
  */
 export interface AlertPolicyChannelArgs {
-    /**
-     * The ID of the channel.
-     */
-    readonly channelId: pulumi.Input<number>;
-    /**
-     * The ID of the policy.
-     */
+    readonly channelId?: pulumi.Input<number>;
+    readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     readonly policyId: pulumi.Input<number>;
 }

@@ -15,15 +15,12 @@ namespace Pulumi.NewRelic
     /// </summary>
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the channel.
-        /// </summary>
         [Output("channelId")]
-        public Output<int> ChannelId { get; private set; } = null!;
+        public Output<int?> ChannelId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the policy.
-        /// </summary>
+        [Output("channelIds")]
+        public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
+
         [Output("policyId")]
         public Output<int> PolicyId { get; private set; } = null!;
 
@@ -73,15 +70,17 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the channel.
-        /// </summary>
-        [Input("channelId", required: true)]
-        public Input<int> ChannelId { get; set; } = null!;
+        [Input("channelId")]
+        public Input<int>? ChannelId { get; set; }
 
-        /// <summary>
-        /// The ID of the policy.
-        /// </summary>
+        [Input("channelIds")]
+        private InputList<int>? _channelIds;
+        public InputList<int> ChannelIds
+        {
+            get => _channelIds ?? (_channelIds = new InputList<int>());
+            set => _channelIds = value;
+        }
+
         [Input("policyId", required: true)]
         public Input<int> PolicyId { get; set; } = null!;
 
@@ -92,15 +91,17 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the channel.
-        /// </summary>
         [Input("channelId")]
         public Input<int>? ChannelId { get; set; }
 
-        /// <summary>
-        /// The ID of the policy.
-        /// </summary>
+        [Input("channelIds")]
+        private InputList<int>? _channelIds;
+        public InputList<int> ChannelIds
+        {
+            get => _channelIds ?? (_channelIds = new InputList<int>());
+            set => _channelIds = value;
+        }
+
         [Input("policyId")]
         public Input<int>? PolicyId { get; set; }
 

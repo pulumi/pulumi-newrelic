@@ -51,6 +51,8 @@ class Provider(pulumi.ProviderResource):
             if infra_api_url is None:
                 infra_api_url = (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
             __props__['infra_api_url'] = infra_api_url
+            if infrastructure_api_url is None:
+                infrastructure_api_url = utilities.get_env('NEWRELIC_INFRASTRUCTURE_API_URL')
             __props__['infrastructure_api_url'] = infrastructure_api_url
             if insecure_skip_verify is None:
                 insecure_skip_verify = utilities.get_env_bool('NEWRELIC_API_SKIP_VERIFY')
@@ -70,6 +72,8 @@ class Provider(pulumi.ProviderResource):
             if insights_query_url is None:
                 insights_query_url = (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url
+            if nerdgraph_api_url is None:
+                nerdgraph_api_url = utilities.get_env('NEWRELIC_NERDGRAPH_API_URL')
             __props__['nerdgraph_api_url'] = nerdgraph_api_url
             if synthetics_api_url is None:
                 synthetics_api_url = (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
