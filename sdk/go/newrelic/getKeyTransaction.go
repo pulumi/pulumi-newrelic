@@ -20,7 +20,7 @@ func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ..
 
 // A collection of arguments for invoking getKeyTransaction.
 type GetKeyTransactionArgs struct {
-	// The name of the application in New Relic.
+	// The name of the key transaction in New Relic.
 	Name string `pulumi:"name"`
 }
 

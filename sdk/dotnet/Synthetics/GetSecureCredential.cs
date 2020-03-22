@@ -46,6 +46,9 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         public readonly string Description;
         public readonly string Key;
+        /// <summary>
+        /// The time the secure credential was last updated.
+        /// </summary>
         public readonly string LastUpdated;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.

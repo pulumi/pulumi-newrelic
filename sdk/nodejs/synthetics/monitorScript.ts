@@ -41,7 +41,7 @@ export class MonitorScript extends pulumi.CustomResource {
      */
     public readonly monitorId!: pulumi.Output<string>;
     /**
-     * plaintext of the monitor script.
+     * The plaintext representing the monitor script.
      */
     public readonly text!: pulumi.Output<string>;
 
@@ -90,7 +90,7 @@ export interface MonitorScriptState {
      */
     readonly monitorId?: pulumi.Input<string>;
     /**
-     * plaintext of the monitor script.
+     * The plaintext representing the monitor script.
      */
     readonly text?: pulumi.Input<string>;
 }
@@ -104,7 +104,7 @@ export interface MonitorScriptArgs {
      */
     readonly monitorId: pulumi.Input<string>;
     /**
-     * plaintext of the monitor script.
+     * The plaintext representing the monitor script.
      */
     readonly text: pulumi.Input<string>;
 }

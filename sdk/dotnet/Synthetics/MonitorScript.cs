@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// plaintext of the monitor script.
+        /// The plaintext representing the monitor script.
         /// </summary>
         [Output("text")]
         public Output<string> Text { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string> MonitorId { get; set; } = null!;
 
         /// <summary>
-        /// plaintext of the monitor script.
+        /// The plaintext representing the monitor script.
         /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? MonitorId { get; set; }
 
         /// <summary>
-        /// plaintext of the monitor script.
+        /// The plaintext representing the monitor script.
         /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }

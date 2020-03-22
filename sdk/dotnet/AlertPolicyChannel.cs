@@ -15,12 +15,22 @@ namespace Pulumi.NewRelic
     /// </summary>
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+        /// </summary>
         [Output("channelId")]
         public Output<int?> ChannelId { get; private set; } = null!;
 
+        /// <summary>
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order
+        /// to avoid drift your Terraform state.
+        /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Output("policyId")]
         public Output<int> PolicyId { get; private set; } = null!;
 
@@ -70,17 +80,28 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+        /// </summary>
         [Input("channelId")]
         public Input<int>? ChannelId { get; set; }
 
         [Input("channelIds")]
         private InputList<int>? _channelIds;
+
+        /// <summary>
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order
+        /// to avoid drift your Terraform state.
+        /// </summary>
         public InputList<int> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<int>());
             set => _channelIds = value;
         }
 
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Input("policyId", required: true)]
         public Input<int> PolicyId { get; set; } = null!;
 
@@ -91,17 +112,28 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+        /// </summary>
         [Input("channelId")]
         public Input<int>? ChannelId { get; set; }
 
         [Input("channelIds")]
         private InputList<int>? _channelIds;
+
+        /// <summary>
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order
+        /// to avoid drift your Terraform state.
+        /// </summary>
         public InputList<int> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<int>());
             set => _channelIds = value;
         }
 
+        /// <summary>
+        /// The ID of the policy.
+        /// </summary>
         [Input("policyId")]
         public Input<int>? PolicyId { get; set; }
 

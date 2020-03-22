@@ -19,7 +19,7 @@ type MonitorScript struct {
 
 	// The ID of the monitor to attach the script to.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
-	// plaintext of the monitor script.
+	// The plaintext representing the monitor script.
 	Text pulumi.StringOutput `pulumi:"text"`
 }
 
@@ -59,14 +59,14 @@ func GetMonitorScript(ctx *pulumi.Context,
 type monitorScriptState struct {
 	// The ID of the monitor to attach the script to.
 	MonitorId *string `pulumi:"monitorId"`
-	// plaintext of the monitor script.
+	// The plaintext representing the monitor script.
 	Text *string `pulumi:"text"`
 }
 
 type MonitorScriptState struct {
 	// The ID of the monitor to attach the script to.
 	MonitorId pulumi.StringPtrInput
-	// plaintext of the monitor script.
+	// The plaintext representing the monitor script.
 	Text pulumi.StringPtrInput
 }
 
@@ -77,7 +77,7 @@ func (MonitorScriptState) ElementType() reflect.Type {
 type monitorScriptArgs struct {
 	// The ID of the monitor to attach the script to.
 	MonitorId string `pulumi:"monitorId"`
-	// plaintext of the monitor script.
+	// The plaintext representing the monitor script.
 	Text string `pulumi:"text"`
 }
 
@@ -85,7 +85,7 @@ type monitorScriptArgs struct {
 type MonitorScriptArgs struct {
 	// The ID of the monitor to attach the script to.
 	MonitorId pulumi.StringInput
-	// plaintext of the monitor script.
+	// The plaintext representing the monitor script.
 	Text pulumi.StringInput
 }
 

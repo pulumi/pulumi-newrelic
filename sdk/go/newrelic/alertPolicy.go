@@ -16,6 +16,9 @@ import (
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The time the policy was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -55,6 +58,9 @@ func GetAlertPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicy resources.
 type alertPolicyState struct {
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The time the policy was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -67,6 +73,9 @@ type alertPolicyState struct {
 }
 
 type AlertPolicyState struct {
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds pulumi.IntArrayInput
 	// The time the policy was created.
 	CreatedAt pulumi.StringPtrInput
@@ -83,6 +92,9 @@ func (AlertPolicyState) ElementType() reflect.Type {
 }
 
 type alertPolicyArgs struct {
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -92,6 +104,9 @@ type alertPolicyArgs struct {
 
 // The set of arguments for constructing a AlertPolicy resource.
 type AlertPolicyArgs struct {
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+	// imported via terraform import.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput

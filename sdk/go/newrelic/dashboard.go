@@ -71,6 +71,7 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
+	// The URL for viewing the dashboard.
 	DashboardUrl pulumi.StringOutput `pulumi:"dashboardUrl"`
 	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable pulumi.StringPtrOutput `pulumi:"editable"`
@@ -117,6 +118,7 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
+	// The URL for viewing the dashboard.
 	DashboardUrl *string `pulumi:"dashboardUrl"`
 	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable *string `pulumi:"editable"`
@@ -133,6 +135,7 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
+	// The URL for viewing the dashboard.
 	DashboardUrl pulumi.StringPtrInput
 	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable pulumi.StringPtrInput

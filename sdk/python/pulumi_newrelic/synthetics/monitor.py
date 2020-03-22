@@ -32,7 +32,7 @@ class Monitor(pulumi.CustomResource):
     """
     status: pulumi.Output[str]
     """
-    The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+    The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
     """
     treat_redirect_as_failure: pulumi.Output[bool]
     """
@@ -65,7 +65,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[list] locations: The locations in which this monitor should be run.
         :param pulumi.Input[str] name: The title of this monitor.
         :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
-        :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+        :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
         :param pulumi.Input[bool] treat_redirect_as_failure: Fail the monitor check if redirected.
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
         :param pulumi.Input[str] uri: The URI for the monitor to hit.
@@ -130,7 +130,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[list] locations: The locations in which this monitor should be run.
         :param pulumi.Input[str] name: The title of this monitor.
         :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
-        :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+        :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
         :param pulumi.Input[bool] treat_redirect_as_failure: Fail the monitor check if redirected.
         :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
         :param pulumi.Input[str] uri: The URI for the monitor to hit.

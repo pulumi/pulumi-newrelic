@@ -29,7 +29,7 @@ export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.Inv
  */
 export interface GetKeyTransactionArgs {
     /**
-     * The name of the application in New Relic.
+     * The name of the key transaction in New Relic.
      */
     readonly name: string;
 }

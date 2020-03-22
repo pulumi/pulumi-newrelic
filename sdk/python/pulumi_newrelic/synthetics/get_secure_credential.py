@@ -32,6 +32,9 @@ class GetSecureCredentialResult:
         if last_updated and not isinstance(last_updated, str):
             raise TypeError("Expected argument 'last_updated' to be a str")
         __self__.last_updated = last_updated
+        """
+        The time the secure credential was last updated.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id

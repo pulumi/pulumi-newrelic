@@ -38,8 +38,18 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertPolicyChannel.__pulumiType;
     }
 
+    /**
+     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+     */
     public readonly channelId!: pulumi.Output<number | undefined>;
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to
+     * avoid drift your Terraform state.
+     */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
+    /**
+     * The ID of the policy.
+     */
     public readonly policyId!: pulumi.Output<number>;
 
     /**
@@ -81,8 +91,18 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertPolicyChannel resources.
  */
 export interface AlertPolicyChannelState {
+    /**
+     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+     */
     readonly channelId?: pulumi.Input<number>;
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to
+     * avoid drift your Terraform state.
+     */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The ID of the policy.
+     */
     readonly policyId?: pulumi.Input<number>;
 }
 
@@ -90,7 +110,17 @@ export interface AlertPolicyChannelState {
  * The set of arguments for constructing a AlertPolicyChannel resource.
  */
 export interface AlertPolicyChannelArgs {
+    /**
+     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+     */
     readonly channelId?: pulumi.Input<number>;
+    /**
+     * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to
+     * avoid drift your Terraform state.
+     */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The ID of the policy.
+     */
     readonly policyId: pulumi.Input<number>;
 }

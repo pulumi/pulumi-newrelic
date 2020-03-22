@@ -50,6 +50,11 @@ export class AlertPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertPolicy.__pulumiType;
     }
 
+    /**
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will
+     * result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs
+     * cannot be imported via terraform import.
+     */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
      * The time the policy was created.
@@ -108,6 +113,11 @@ export class AlertPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertPolicy resources.
  */
 export interface AlertPolicyState {
+    /**
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will
+     * result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs
+     * cannot be imported via terraform import.
+     */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The time the policy was created.
@@ -131,6 +141,11 @@ export interface AlertPolicyState {
  * The set of arguments for constructing a AlertPolicy resource.
  */
 export interface AlertPolicyArgs {
+    /**
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will
+     * result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs
+     * cannot be imported via terraform import.
+     */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.

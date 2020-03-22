@@ -60,6 +60,9 @@ export interface GetSecureCredentialResult {
      */
     readonly description: string;
     readonly key: string;
+    /**
+     * The time the secure credential was last updated.
+     */
     readonly lastUpdated: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

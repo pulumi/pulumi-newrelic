@@ -128,7 +128,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly slaThreshold!: pulumi.Output<number | undefined>;
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -237,7 +237,7 @@ export interface MonitorState {
      */
     readonly slaThreshold?: pulumi.Input<number>;
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -287,7 +287,7 @@ export interface MonitorArgs {
      */
     readonly slaThreshold?: pulumi.Input<number>;
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
      */
     readonly status: pulumi.Input<string>;
     /**

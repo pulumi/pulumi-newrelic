@@ -36,7 +36,7 @@ def get_key_transaction(name=None,opts=None):
     """
     Use this data source to access information about an existing resource.
     
-    :param str name: The name of the application in New Relic.
+    :param str name: The name of the key transaction in New Relic.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
     """

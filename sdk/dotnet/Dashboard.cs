@@ -69,6 +69,9 @@ namespace Pulumi.NewRelic
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The URL for viewing the dashboard.
+        /// </summary>
         [Output("dashboardUrl")]
         public Output<string> DashboardUrl { get; private set; } = null!;
 
@@ -203,6 +206,9 @@ namespace Pulumi.NewRelic
 
     public sealed class DashboardState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL for viewing the dashboard.
+        /// </summary>
         [Input("dashboardUrl")]
         public Input<string>? DashboardUrl { get; set; }
 

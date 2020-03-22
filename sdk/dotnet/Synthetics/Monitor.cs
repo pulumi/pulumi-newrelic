@@ -46,7 +46,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<double?> SlaThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<double>? SlaThreshold { get; set; }
 
         /// <summary>
-        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<double>? SlaThreshold { get; set; }
 
         /// <summary>
-        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * 
  *   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
  *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
- *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
+ *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
  *   * `threshold` - (Required) Must be 0 or greater.
  *   * `timeFunction` - (Required) `all` or `any`.
  *
@@ -52,9 +52,12 @@ export class AlertCondition extends pulumi.CustomResource {
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     public readonly conditionScope!: pulumi.Output<string | undefined>;
+    /**
+     * Whether the condition is enabled or not. Defaults to true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The instance IDS associated with this condition.
+     * The instance IDs associated with this condition.
      */
     public readonly entities!: pulumi.Output<number[]>;
     /**
@@ -105,13 +108,6 @@ export class AlertCondition extends pulumi.CustomResource {
      * * `statusErrorPercentage`
      * * `userDefined`
      * * `viewLoading`
-     * * `serversMetric`
-     * * `cpuPercentage`
-     * * `diskIoPercentage`
-     * * `fullestDiskPercentage`
-     * * `loadAverageOneMinute`
-     * * `memoryPercentage`
-     * * `userDefined`
      */
     public readonly metric!: pulumi.Output<string>;
     /**
@@ -131,7 +127,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -222,9 +218,12 @@ export interface AlertConditionState {
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     readonly conditionScope?: pulumi.Input<string>;
+    /**
+     * Whether the condition is enabled or not. Defaults to true.
+     */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The instance IDS associated with this condition.
+     * The instance IDs associated with this condition.
      */
     readonly entities?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -275,13 +274,6 @@ export interface AlertConditionState {
      * * `statusErrorPercentage`
      * * `userDefined`
      * * `viewLoading`
-     * * `serversMetric`
-     * * `cpuPercentage`
-     * * `diskIoPercentage`
-     * * `fullestDiskPercentage`
-     * * `loadAverageOneMinute`
-     * * `memoryPercentage`
-     * * `userDefined`
      */
     readonly metric?: pulumi.Input<string>;
     /**
@@ -301,7 +293,7 @@ export interface AlertConditionState {
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -326,9 +318,12 @@ export interface AlertConditionArgs {
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
     readonly conditionScope?: pulumi.Input<string>;
+    /**
+     * Whether the condition is enabled or not. Defaults to true.
+     */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The instance IDS associated with this condition.
+     * The instance IDs associated with this condition.
      */
     readonly entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -379,13 +374,6 @@ export interface AlertConditionArgs {
      * * `statusErrorPercentage`
      * * `userDefined`
      * * `viewLoading`
-     * * `serversMetric`
-     * * `cpuPercentage`
-     * * `diskIoPercentage`
-     * * `fullestDiskPercentage`
-     * * `loadAverageOneMinute`
-     * * `memoryPercentage`
-     * * `userDefined`
      */
     readonly metric: pulumi.Input<string>;
     /**
@@ -405,7 +393,7 @@ export interface AlertConditionArgs {
      */
     readonly terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type: pulumi.Input<string>;
     /**

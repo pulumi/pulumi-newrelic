@@ -17,7 +17,7 @@ namespace Pulumi.NewRelic
     /// 
     ///   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
     ///   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-    ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
+    ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
     ///   * `threshold` - (Required) Must be 0 or greater.
     ///   * `time_function` - (Required) `all` or `any`.
     /// 
@@ -31,11 +31,14 @@ namespace Pulumi.NewRelic
         [Output("conditionScope")]
         public Output<string?> ConditionScope { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the condition is enabled or not. Defaults to true.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The instance IDS associated with this condition.
+        /// The instance IDs associated with this condition.
         /// </summary>
         [Output("entities")]
         public Output<ImmutableArray<int>> Entities { get; private set; } = null!;
@@ -90,13 +93,6 @@ namespace Pulumi.NewRelic
         /// * `status_error_percentage`
         /// * `user_defined`
         /// * `view_loading`
-        /// * `servers_metric`
-        /// * `cpu_percentage`
-        /// * `disk_io_percentage`
-        /// * `fullest_disk_percentage`
-        /// * `load_average_one_minute`
-        /// * `memory_percentage`
-        /// * `user_defined`
         /// </summary>
         [Output("metric")]
         public Output<string> Metric { get; private set; } = null!;
@@ -126,7 +122,7 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<Outputs.AlertConditionTerms>> Terms { get; private set; } = null!;
 
         /// <summary>
-        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -201,6 +197,9 @@ namespace Pulumi.NewRelic
         [Input("conditionScope")]
         public Input<string>? ConditionScope { get; set; }
 
+        /// <summary>
+        /// Whether the condition is enabled or not. Defaults to true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -208,7 +207,7 @@ namespace Pulumi.NewRelic
         private InputList<int>? _entities;
 
         /// <summary>
-        /// The instance IDS associated with this condition.
+        /// The instance IDs associated with this condition.
         /// </summary>
         public InputList<int> Entities
         {
@@ -266,13 +265,6 @@ namespace Pulumi.NewRelic
         /// * `status_error_percentage`
         /// * `user_defined`
         /// * `view_loading`
-        /// * `servers_metric`
-        /// * `cpu_percentage`
-        /// * `disk_io_percentage`
-        /// * `fullest_disk_percentage`
-        /// * `load_average_one_minute`
-        /// * `memory_percentage`
-        /// * `user_defined`
         /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
@@ -308,7 +300,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -344,6 +336,9 @@ namespace Pulumi.NewRelic
         [Input("conditionScope")]
         public Input<string>? ConditionScope { get; set; }
 
+        /// <summary>
+        /// Whether the condition is enabled or not. Defaults to true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -351,7 +346,7 @@ namespace Pulumi.NewRelic
         private InputList<int>? _entities;
 
         /// <summary>
-        /// The instance IDS associated with this condition.
+        /// The instance IDs associated with this condition.
         /// </summary>
         public InputList<int> Entities
         {
@@ -409,13 +404,6 @@ namespace Pulumi.NewRelic
         /// * `status_error_percentage`
         /// * `user_defined`
         /// * `view_loading`
-        /// * `servers_metric`
-        /// * `cpu_percentage`
-        /// * `disk_io_percentage`
-        /// * `fullest_disk_percentage`
-        /// * `load_average_one_minute`
-        /// * `memory_percentage`
-        /// * `user_defined`
         /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
@@ -451,7 +439,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `servers_metric`, `browser_metric`, `mobile_metric`
+        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

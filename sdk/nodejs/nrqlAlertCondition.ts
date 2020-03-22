@@ -55,16 +55,47 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
         return obj['__pulumiType'] === NrqlAlertCondition.__pulumiType;
     }
 
+    /**
+     * Whether to enable the alert condition.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Number of expected groups when using outlier detection.
+     */
     public readonly expectedGroups!: pulumi.Output<number | undefined>;
+    /**
+     * Whether to look for a convergence of groups when using outlier detection.
+     */
     public readonly ignoreOverlap!: pulumi.Output<boolean | undefined>;
+    /**
+     * The title of the condition.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A NRQL query.
+     */
     public readonly nrql!: pulumi.Output<outputs.NrqlAlertConditionNrql>;
+    /**
+     * The ID of the policy where this condition should be used.
+     */
     public readonly policyId!: pulumi.Output<number>;
+    /**
+     * Runbook URL to display in notifications.
+     */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
+    /**
+     * A list of terms for this condition.
+     */
     public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[]>;
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Possible values are single_value, sum.
+     */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
+    /**
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+     * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
 
     /**
@@ -128,16 +159,47 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NrqlAlertCondition resources.
  */
 export interface NrqlAlertConditionState {
+    /**
+     * Whether to enable the alert condition.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Number of expected groups when using outlier detection.
+     */
     readonly expectedGroups?: pulumi.Input<number>;
+    /**
+     * Whether to look for a convergence of groups when using outlier detection.
+     */
     readonly ignoreOverlap?: pulumi.Input<boolean>;
+    /**
+     * The title of the condition.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A NRQL query.
+     */
     readonly nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
+    /**
+     * The ID of the policy where this condition should be used.
+     */
     readonly policyId?: pulumi.Input<number>;
+    /**
+     * Runbook URL to display in notifications.
+     */
     readonly runbookUrl?: pulumi.Input<string>;
+    /**
+     * A list of terms for this condition.
+     */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     readonly type?: pulumi.Input<string>;
+    /**
+     * Possible values are single_value, sum.
+     */
     readonly valueFunction?: pulumi.Input<string>;
+    /**
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+     * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
 }
 
@@ -145,15 +207,46 @@ export interface NrqlAlertConditionState {
  * The set of arguments for constructing a NrqlAlertCondition resource.
  */
 export interface NrqlAlertConditionArgs {
+    /**
+     * Whether to enable the alert condition.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Number of expected groups when using outlier detection.
+     */
     readonly expectedGroups?: pulumi.Input<number>;
+    /**
+     * Whether to look for a convergence of groups when using outlier detection.
+     */
     readonly ignoreOverlap?: pulumi.Input<boolean>;
+    /**
+     * The title of the condition.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A NRQL query.
+     */
     readonly nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
+    /**
+     * The ID of the policy where this condition should be used.
+     */
     readonly policyId: pulumi.Input<number>;
+    /**
+     * Runbook URL to display in notifications.
+     */
     readonly runbookUrl?: pulumi.Input<string>;
+    /**
+     * A list of terms for this condition.
+     */
     readonly terms: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     readonly type?: pulumi.Input<string>;
+    /**
+     * Possible values are single_value, sum.
+     */
     readonly valueFunction?: pulumi.Input<string>;
+    /**
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+     * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
 }

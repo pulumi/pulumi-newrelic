@@ -48,12 +48,21 @@ export class AlertCondition extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertCondition.__pulumiType;
     }
 
+    /**
+     * Whether or not this condition is enabled.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The plugin component IDs to target.
+     */
     public readonly entities!: pulumi.Output<number[]>;
     /**
-     * The metric field accepts parameters based on the `type` set.
+     * The plugin metric to evaluate.
      */
     public readonly metric!: pulumi.Output<string>;
+    /**
+     * The metric description.
+     */
     public readonly metricDescription!: pulumi.Output<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
@@ -79,6 +88,9 @@ export class AlertCondition extends pulumi.CustomResource {
      * A list of terms for this condition. See Terms below for details.
      */
     public readonly terms!: pulumi.Output<outputs.plugins.AlertConditionTerm[]>;
+    /**
+     * The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+     */
     public readonly valueFunction!: pulumi.Output<string>;
 
     /**
@@ -157,12 +169,21 @@ export class AlertCondition extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertCondition resources.
  */
 export interface AlertConditionState {
+    /**
+     * Whether or not this condition is enabled.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The plugin component IDs to target.
+     */
     readonly entities?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The metric field accepts parameters based on the `type` set.
+     * The plugin metric to evaluate.
      */
     readonly metric?: pulumi.Input<string>;
+    /**
+     * The metric description.
+     */
     readonly metricDescription?: pulumi.Input<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
@@ -188,6 +209,9 @@ export interface AlertConditionState {
      * A list of terms for this condition. See Terms below for details.
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
+    /**
+     * The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+     */
     readonly valueFunction?: pulumi.Input<string>;
 }
 
@@ -195,12 +219,21 @@ export interface AlertConditionState {
  * The set of arguments for constructing a AlertCondition resource.
  */
 export interface AlertConditionArgs {
+    /**
+     * Whether or not this condition is enabled.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The plugin component IDs to target.
+     */
     readonly entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The metric field accepts parameters based on the `type` set.
+     * The plugin metric to evaluate.
      */
     readonly metric: pulumi.Input<string>;
+    /**
+     * The metric description.
+     */
     readonly metricDescription: pulumi.Input<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
@@ -226,5 +259,8 @@ export interface AlertConditionArgs {
      * A list of terms for this condition. See Terms below for details.
      */
     readonly terms: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
+    /**
+     * The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+     */
     readonly valueFunction: pulumi.Input<string>;
 }

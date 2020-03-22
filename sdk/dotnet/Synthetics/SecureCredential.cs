@@ -33,6 +33,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// The time the secure credential was last updated.
+        /// </summary>
         [Output("lastUpdated")]
         public Output<string> LastUpdated { get; private set; } = null!;
 
@@ -106,6 +109,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The time the secure credential was last updated.
+        /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
 
@@ -140,6 +146,9 @@ namespace Pulumi.NewRelic.Synthetics
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The time the secure credential was last updated.
+        /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
 

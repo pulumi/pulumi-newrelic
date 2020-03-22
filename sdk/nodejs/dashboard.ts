@@ -92,6 +92,9 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
+    /**
+     * The URL for viewing the dashboard.
+     */
     public /*out*/ readonly dashboardUrl!: pulumi.Output<string>;
     /**
      * Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
@@ -165,6 +168,9 @@ export class Dashboard extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Dashboard resources.
  */
 export interface DashboardState {
+    /**
+     * The URL for viewing the dashboard.
+     */
     readonly dashboardUrl?: pulumi.Input<string>;
     /**
      * Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.

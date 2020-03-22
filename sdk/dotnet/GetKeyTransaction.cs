@@ -20,7 +20,7 @@ namespace Pulumi.NewRelic
     public sealed class GetKeyTransactionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the application in New Relic.
+        /// The name of the key transaction in New Relic.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

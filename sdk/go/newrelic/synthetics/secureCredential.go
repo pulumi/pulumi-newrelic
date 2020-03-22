@@ -23,6 +23,7 @@ type SecureCredential struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringOutput `pulumi:"key"`
+	// The time the secure credential was last updated.
 	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
 	// The secure credential's value. 
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -68,6 +69,7 @@ type secureCredentialState struct {
 	Description *string `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key *string `pulumi:"key"`
+	// The time the secure credential was last updated.
 	LastUpdated *string `pulumi:"lastUpdated"`
 	// The secure credential's value. 
 	Value *string `pulumi:"value"`
@@ -80,6 +82,7 @@ type SecureCredentialState struct {
 	Description pulumi.StringPtrInput
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringPtrInput
+	// The time the secure credential was last updated.
 	LastUpdated pulumi.StringPtrInput
 	// The secure credential's value. 
 	Value pulumi.StringPtrInput
@@ -96,6 +99,7 @@ type secureCredentialArgs struct {
 	Description *string `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key string `pulumi:"key"`
+	// The time the secure credential was last updated.
 	LastUpdated *string `pulumi:"lastUpdated"`
 	// The secure credential's value. 
 	Value string `pulumi:"value"`
@@ -109,6 +113,7 @@ type SecureCredentialArgs struct {
 	Description pulumi.StringPtrInput
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringInput
+	// The time the secure credential was last updated.
 	LastUpdated pulumi.StringPtrInput
 	// The secure credential's value. 
 	Value pulumi.StringInput

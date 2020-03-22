@@ -27,7 +27,7 @@ type Monitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The base threshold for the SLA report.
 	SlaThreshold pulumi.Float64PtrOutput `pulumi:"slaThreshold"`
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure pulumi.BoolPtrOutput `pulumi:"treatRedirectAsFailure"`
@@ -91,7 +91,7 @@ type monitorState struct {
 	Name *string `pulumi:"name"`
 	// The base threshold for the SLA report.
 	SlaThreshold *float64 `pulumi:"slaThreshold"`
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
 	Status *string `pulumi:"status"`
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
@@ -116,7 +116,7 @@ type MonitorState struct {
 	Name pulumi.StringPtrInput
 	// The base threshold for the SLA report.
 	SlaThreshold pulumi.Float64PtrInput
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
 	Status pulumi.StringPtrInput
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
@@ -145,7 +145,7 @@ type monitorArgs struct {
 	Name *string `pulumi:"name"`
 	// The base threshold for the SLA report.
 	SlaThreshold *float64 `pulumi:"slaThreshold"`
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
 	Status string `pulumi:"status"`
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
@@ -171,7 +171,7 @@ type MonitorArgs struct {
 	Name pulumi.StringPtrInput
 	// The base threshold for the SLA report.
 	SlaThreshold pulumi.Float64PtrInput
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`)
+	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
 	Status pulumi.StringInput
 	// Fail the monitor check if redirected.
 	TreatRedirectAsFailure pulumi.BoolPtrInput

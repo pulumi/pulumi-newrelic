@@ -29,11 +29,14 @@ namespace Pulumi.NewRelic
         [Output("comparison")]
         public Output<string?> Comparison { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp the alert condition was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<int> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
         /// </summary>
         [Output("critical")]
         public Output<Outputs.InfraAlertConditionCritical?> Critical { get; private set; } = null!;
@@ -92,9 +95,15 @@ namespace Pulumi.NewRelic
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp the alert condition was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<int> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
 
@@ -163,7 +172,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Comparison { get; set; }
 
         /// <summary>
-        /// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.InfraAlertConditionCriticalArgs>? Critical { get; set; }
@@ -222,6 +231,9 @@ namespace Pulumi.NewRelic
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
 
@@ -250,11 +262,14 @@ namespace Pulumi.NewRelic
         [Input("comparison")]
         public Input<string>? Comparison { get; set; }
 
+        /// <summary>
+        /// The timestamp the alert condition was created.
+        /// </summary>
         [Input("createdAt")]
         public Input<int>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+        /// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
         /// </summary>
         [Input("critical")]
         public Input<Inputs.InfraAlertConditionCriticalGetArgs>? Critical { get; set; }
@@ -313,9 +328,15 @@ namespace Pulumi.NewRelic
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The timestamp the alert condition was last updated.
+        /// </summary>
         [Input("updatedAt")]
         public Input<int>? UpdatedAt { get; set; }
 
+        /// <summary>
+        /// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
 
