@@ -6,8 +6,8 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk v1.8.0
 	github.com/mattn/go-runewidth v0.0.6 // indirect
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi v1.9.1
-	github.com/pulumi/pulumi-terraform-bridge v1.6.5
+	github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9
+	github.com/pulumi/pulumi-terraform-bridge v1.8.2
 	github.com/terraform-providers/terraform-provider-newrelic v1.15.1
 	github.com/vmihailenco/msgpack v4.0.2+incompatible // indirect
 )
