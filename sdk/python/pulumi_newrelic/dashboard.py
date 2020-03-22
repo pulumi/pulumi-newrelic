@@ -11,6 +11,9 @@ from . import utilities, tables
 
 class Dashboard(pulumi.CustomResource):
     dashboard_url: pulumi.Output[str]
+    """
+    The URL for viewing the dashboard.
+    """
     editable: pulumi.Output[str]
     """
     Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
@@ -18,7 +21,7 @@ class Dashboard(pulumi.CustomResource):
     filter: pulumi.Output[dict]
     """
     A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-    
+
       * `attributes` (`list`)
       * `eventTypes` (`list`)
     """
@@ -37,16 +40,14 @@ class Dashboard(pulumi.CustomResource):
     widgets: pulumi.Output[list]
     """
     A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-    
+
       * `column` (`float`)
       * `compareWiths` (`list`)
-    
         * `offsetDuration` (`str`)
         * `presentation` (`dict`)
-    
           * `color` (`str`)
           * `name` (`str`)
-    
+
       * `drilldownDashboardId` (`float`)
       * `duration` (`float`)
       * `endTime` (`float`)
@@ -55,12 +56,11 @@ class Dashboard(pulumi.CustomResource):
       * `height` (`float`)
       * `limit` (`float`)
       * `metrics` (`list`)
-    
         * `name` (`str`)
         * `scope` (`str`)
         * `units` (`str`)
         * `values` (`list`)
-    
+
       * `notes` (`str`)
       * `nrql` (`str`)
       * `orderBy` (`str`)
@@ -77,17 +77,17 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, editable=None, filter=None, icon=None, title=None, visibility=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic dashboards.
-        
+
         ## Attribute Refence
-        
+
         In addition to all arguments above, the following attributes are exported:
-        
+
           * `dashboard_url` - The URL for viewing the dashboard.
-        
+
         ### Nested `widget` blocks
-        
+
         All nested `widget` blocks support the following common arguments:
-        
+
           * `title` - (Required) A title for the widget.
           * `visualization` - (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
           * `row` - (Required) Row position of widget from top left, starting at `1`.
@@ -95,9 +95,9 @@ class Dashboard(pulumi.CustomResource):
           * `width` - (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
           * `height` - (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
           * `notes` - (Optional) Description of the widget.
-        
+
         Each `visualization` type supports an additional set of arguments:
-        
+
           * `billboard`, `billboard_comparison`:
             * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
             * `threshold_red` - (Optional) Threshold above which the displayed value will be styled with a red color.
@@ -124,14 +124,16 @@ class Dashboard(pulumi.CustomResource):
             * `limit` - (Optional) The limit of distinct data series to display.
           * `application_breakdown`:
             * `entity_ids` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-        
-        
+
+
         ### Nested `filter` block
-        
+
         The optional filter block supports the following arguments:
           * `event_types` - (Optional) A list of event types to enable filtering for.
           * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
@@ -140,23 +142,21 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
         :param pulumi.Input[list] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-        
+
         The **filter** object supports the following:
-        
+
           * `attributes` (`pulumi.Input[list]`)
           * `eventTypes` (`pulumi.Input[list]`)
-        
+
         The **widgets** object supports the following:
-        
+
           * `column` (`pulumi.Input[float]`)
           * `compareWiths` (`pulumi.Input[list]`)
-        
             * `offsetDuration` (`pulumi.Input[str]`)
             * `presentation` (`pulumi.Input[dict]`)
-        
               * `color` (`pulumi.Input[str]`)
               * `name` (`pulumi.Input[str]`)
-        
+
           * `drilldownDashboardId` (`pulumi.Input[float]`)
           * `duration` (`pulumi.Input[float]`)
           * `endTime` (`pulumi.Input[float]`)
@@ -165,12 +165,11 @@ class Dashboard(pulumi.CustomResource):
           * `height` (`pulumi.Input[float]`)
           * `limit` (`pulumi.Input[float]`)
           * `metrics` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`)
             * `scope` (`pulumi.Input[str]`)
             * `units` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
-        
+
           * `notes` (`pulumi.Input[str]`)
           * `nrql` (`pulumi.Input[str]`)
           * `orderBy` (`pulumi.Input[str]`)
@@ -183,8 +182,6 @@ class Dashboard(pulumi.CustomResource):
           * `visualization` (`pulumi.Input[str]`)
           * `widgetId` (`pulumi.Input[float]`)
           * `width` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -223,33 +220,32 @@ class Dashboard(pulumi.CustomResource):
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dashboard_url: The URL for viewing the dashboard.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         :param pulumi.Input[dict] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
         :param pulumi.Input[list] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-        
+
         The **filter** object supports the following:
-        
+
           * `attributes` (`pulumi.Input[list]`)
           * `eventTypes` (`pulumi.Input[list]`)
-        
+
         The **widgets** object supports the following:
-        
+
           * `column` (`pulumi.Input[float]`)
           * `compareWiths` (`pulumi.Input[list]`)
-        
             * `offsetDuration` (`pulumi.Input[str]`)
             * `presentation` (`pulumi.Input[dict]`)
-        
               * `color` (`pulumi.Input[str]`)
               * `name` (`pulumi.Input[str]`)
-        
+
           * `drilldownDashboardId` (`pulumi.Input[float]`)
           * `duration` (`pulumi.Input[float]`)
           * `endTime` (`pulumi.Input[float]`)
@@ -258,12 +254,11 @@ class Dashboard(pulumi.CustomResource):
           * `height` (`pulumi.Input[float]`)
           * `limit` (`pulumi.Input[float]`)
           * `metrics` (`pulumi.Input[list]`)
-        
             * `name` (`pulumi.Input[str]`)
             * `scope` (`pulumi.Input[str]`)
             * `units` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
-        
+
           * `notes` (`pulumi.Input[str]`)
           * `nrql` (`pulumi.Input[str]`)
           * `orderBy` (`pulumi.Input[str]`)
@@ -276,12 +271,11 @@ class Dashboard(pulumi.CustomResource):
           * `visualization` (`pulumi.Input[str]`)
           * `widgetId` (`pulumi.Input[float]`)
           * `width` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["dashboard_url"] = dashboard_url
         __props__["editable"] = editable
         __props__["filter"] = filter

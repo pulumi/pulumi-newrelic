@@ -57,7 +57,9 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bypass_head_request=None, frequency=None, locations=None, name=None, sla_threshold=None, status=None, treat_redirect_as_failure=None, type=None, uri=None, validation_string=None, verify_ssl=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create, update, and delete a synthetics monitor in New Relic.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bypass_head_request: Bypass HEAD request.
@@ -71,8 +73,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] uri: The URI for the monitor to hit.
         :param pulumi.Input[str] validation_string: The string to validate against in the response.
         :param pulumi.Input[bool] verify_ssl: Verify SSL.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class Monitor(pulumi.CustomResource):
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,12 +136,11 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] uri: The URI for the monitor to hit.
         :param pulumi.Input[str] validation_string: The string to validate against in the response.
         :param pulumi.Input[bool] verify_ssl: Verify SSL.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bypass_head_request"] = bypass_head_request
         __props__["frequency"] = frequency
         __props__["locations"] = locations

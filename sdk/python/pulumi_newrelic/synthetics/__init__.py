@@ -4,9 +4,9 @@
 
 # Export this package's modules as members:
 from .alert_condition import *
+from .get_monitor import *
+from .get_secure_credential import *
 from .label import *
 from .monitor import *
 from .monitor_script import *
 from .secure_credential import *
-from .get_monitor import *
-from .get_secure_credential import *

@@ -11,6 +11,11 @@ from . import utilities, tables
 
 class AlertPolicy(pulumi.CustomResource):
     channel_ids: pulumi.Output[list]
+    """
+    An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+    in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+    imported via terraform import.
+    """
     created_at: pulumi.Output[str]
     """
     The time the policy was created.
@@ -30,13 +35,16 @@ class AlertPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, channel_ids=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
-        :param pulumi.Input[str] name: The name of the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+               in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+               imported via terraform import.
+        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        :param pulumi.Input[str] name: The name of the policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,20 +79,22 @@ class AlertPolicy(pulumi.CustomResource):
         """
         Get an existing AlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+               in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+               imported via terraform import.
         :param pulumi.Input[str] created_at: The time the policy was created.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         :param pulumi.Input[str] updated_at: The time the policy was last updated.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["channel_ids"] = channel_ids
         __props__["created_at"] = created_at
         __props__["incident_preference"] = incident_preference

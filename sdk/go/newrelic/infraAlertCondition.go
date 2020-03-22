@@ -12,15 +12,15 @@ import (
 )
 
 // Use this resource to create and manage Infrastructure alert conditions in New Relic.
-// 
+//
 // ## Thresholds
-// 
+//
 // The `critical` and `warning` threshold mapping supports the following arguments:
-// 
+//
 //   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
 //   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
 //   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
 type InfraAlertCondition struct {
 	pulumi.CustomResourceState

@@ -46,13 +46,12 @@ class AwaitableGetPluginComponentResult(GetPluginComponentResult):
 def get_plugin_component(name=None,plugin_id=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
+
     :param str name: The name of the plugin component.
     :param float plugin_id: The ID of the plugin instance this component belongs to.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['pluginId'] = plugin_id

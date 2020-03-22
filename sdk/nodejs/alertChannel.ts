@@ -119,6 +119,8 @@ export interface AlertChannelState {
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     * 
+     * @deprecated use `config` block instead
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -141,6 +143,8 @@ export interface AlertChannelArgs {
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     * 
+     * @deprecated use `config` block instead
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;
     /**

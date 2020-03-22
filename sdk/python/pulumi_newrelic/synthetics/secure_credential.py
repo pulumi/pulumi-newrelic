@@ -23,6 +23,9 @@ class SecureCredential(pulumi.CustomResource):
     The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """
     last_updated: pulumi.Output[str]
+    """
+    The time the secure credential was last updated.
+    """
     value: pulumi.Output[str]
     """
     The secure credential's value. 
@@ -30,15 +33,16 @@ class SecureCredential(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, created_at=None, description=None, key=None, last_updated=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the secure credential was created.
         :param pulumi.Input[str] description: The secure credential's description.
         :param pulumi.Input[str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        :param pulumi.Input[str] last_updated: The time the secure credential was last updated.
         :param pulumi.Input[str] value: The secure credential's value. 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,20 +81,20 @@ class SecureCredential(pulumi.CustomResource):
         """
         Get an existing SecureCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the secure credential was created.
         :param pulumi.Input[str] description: The secure credential's description.
         :param pulumi.Input[str] key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        :param pulumi.Input[str] last_updated: The time the secure credential was last updated.
         :param pulumi.Input[str] value: The secure credential's value. 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["created_at"] = created_at
         __props__["description"] = description
         __props__["key"] = key

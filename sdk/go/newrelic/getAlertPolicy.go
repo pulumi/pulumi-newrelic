@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
 func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAlertPolicyResult, error) {
 	var rv LookupAlertPolicyResult
 	err := ctx.Invoke("newrelic:index/getAlertPolicy:getAlertPolicy", args, &rv, opts...)

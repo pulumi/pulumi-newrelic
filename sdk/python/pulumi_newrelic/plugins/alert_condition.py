@@ -49,7 +49,7 @@ class AlertCondition(pulumi.CustomResource):
     terms: pulumi.Output[list]
     """
     A list of terms for this condition. See Terms below for details.
-    
+
       * `duration` (`float`)
       * `operator` (`str`)
       * `priority` (`str`)
@@ -63,17 +63,19 @@ class AlertCondition(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enabled=None, entities=None, metric=None, metric_description=None, name=None, plugin_guid=None, plugin_id=None, policy_id=None, runbook_url=None, terms=None, value_function=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage plugins alert conditions in New Relic.
-        
+
         ## Terms
-        
+
         The `term` mapping supports the following arguments:
-        
+
           * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
           * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
           * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/plugins_alert_condition.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not this condition is enabled.
@@ -87,16 +89,14 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
-        
+
         The **terms** object supports the following:
-        
+
           * `duration` (`pulumi.Input[float]`)
           * `operator` (`pulumi.Input[str]`)
           * `priority` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
           * `timeFunction` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/plugins_alert_condition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -153,7 +153,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,20 +168,19 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
-        
+
         The **terms** object supports the following:
-        
+
           * `duration` (`pulumi.Input[float]`)
           * `operator` (`pulumi.Input[str]`)
           * `priority` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
           * `timeFunction` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/plugins_alert_condition.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["entities"] = entities
         __props__["metric"] = metric

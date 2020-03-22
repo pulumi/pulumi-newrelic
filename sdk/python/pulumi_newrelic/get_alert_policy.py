@@ -13,12 +13,18 @@ class GetAlertPolicyResult:
     """
     A collection of values returned by getAlertPolicy.
     """
-    def __init__(__self__, created_at=None, incident_preference=None, name=None, updated_at=None, id=None):
+    def __init__(__self__, created_at=None, id=None, incident_preference=None, name=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         __self__.created_at = created_at
         """
         The time the policy was created.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if incident_preference and not isinstance(incident_preference, str):
             raise TypeError("Expected argument 'incident_preference' to be a str")
@@ -35,12 +41,6 @@ class GetAlertPolicyResult:
         """
         The time the policy was last updated.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,20 +48,19 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
             yield self
         return GetAlertPolicyResult(
             created_at=self.created_at,
+            id=self.id,
             incident_preference=self.incident_preference,
             name=self.name,
-            updated_at=self.updated_at,
-            id=self.id)
+            updated_at=self.updated_at)
 
 def get_alert_policy(incident_preference=None,name=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
-    :param str name: The name of the alert policy in New Relic.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_policy.html.markdown.
+    :param str name: The name of the alert policy in New Relic.
     """
     __args__ = dict()
+
 
     __args__['incidentPreference'] = incident_preference
     __args__['name'] = name
@@ -73,7 +72,7 @@ def get_alert_policy(incident_preference=None,name=None,opts=None):
 
     return AwaitableGetAlertPolicyResult(
         created_at=__ret__.get('createdAt'),
+        id=__ret__.get('id'),
         incident_preference=__ret__.get('incidentPreference'),
         name=__ret__.get('name'),
-        updated_at=__ret__.get('updatedAt'),
-        id=__ret__.get('id'))
+        updated_at=__ret__.get('updatedAt'))

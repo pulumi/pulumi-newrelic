@@ -33,7 +33,9 @@ class AlertCondition(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enabled=None, monitor_id=None, name=None, policy_id=None, runbook_url=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage synthetics alert conditions in New Relic.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
@@ -41,8 +43,6 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,7 +81,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,12 +90,11 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["monitor_id"] = monitor_id
         __props__["name"] = name

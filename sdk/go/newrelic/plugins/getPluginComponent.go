@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
 func GetPluginComponent(ctx *pulumi.Context, args *GetPluginComponentArgs, opts ...pulumi.InvokeOption) (*GetPluginComponentResult, error) {
 	var rv GetPluginComponentResult
 	err := ctx.Invoke("newrelic:plugins/getPluginComponent:getPluginComponent", args, &rv, opts...)

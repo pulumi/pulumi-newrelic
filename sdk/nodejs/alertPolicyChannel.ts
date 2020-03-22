@@ -93,6 +93,8 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
 export interface AlertPolicyChannelState {
     /**
      * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+     * 
+     * @deprecated use `channel_ids` argument instead
      */
     readonly channelId?: pulumi.Input<number>;
     /**
@@ -112,6 +114,8 @@ export interface AlertPolicyChannelState {
 export interface AlertPolicyChannelArgs {
     /**
      * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+     * 
+     * @deprecated use `channel_ids` argument instead
      */
     readonly channelId?: pulumi.Input<number>;
     /**

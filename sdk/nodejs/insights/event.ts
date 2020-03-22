@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/insights_event.html.markdown.
- */
 export class Event extends pulumi.CustomResource {
     /**
      * Get an existing Event resource's state with the given name, ID, and optional extra

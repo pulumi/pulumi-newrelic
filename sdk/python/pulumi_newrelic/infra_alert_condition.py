@@ -21,7 +21,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     critical: pulumi.Output[dict]
     """
     Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
-    
+
       * `duration` (`float`)
       * `timeFunction` (`str`)
       * `value` (`float`)
@@ -73,7 +73,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     warning: pulumi.Output[dict]
     """
     Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
-    
+
       * `duration` (`float`)
       * `timeFunction` (`str`)
       * `value` (`float`)
@@ -85,15 +85,17 @@ class InfraAlertCondition(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, violation_close_timer=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
-        
+
         ## Thresholds
-        
+
         The `critical` and `warning` threshold mapping supports the following arguments:
-        
+
           * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
           * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
           * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
@@ -110,20 +112,18 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[float] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
         :param pulumi.Input[dict] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
-        
+
         The **critical** object supports the following:
-        
-          * `duration` (`pulumi.Input[float]`)
-          * `timeFunction` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[float]`)
-        
-        The **warning** object supports the following:
-        
+
           * `duration` (`pulumi.Input[float]`)
           * `timeFunction` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
+        The **warning** object supports the following:
+
+          * `duration` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -173,7 +173,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,24 +193,23 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[float] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
         :param pulumi.Input[dict] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
-        
+
         The **critical** object supports the following:
-        
-          * `duration` (`pulumi.Input[float]`)
-          * `timeFunction` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[float]`)
-        
-        The **warning** object supports the following:
-        
+
           * `duration` (`pulumi.Input[float]`)
           * `timeFunction` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
+        The **warning** object supports the following:
+
+          * `duration` (`pulumi.Input[float]`)
+          * `timeFunction` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["comparison"] = comparison
         __props__["created_at"] = created_at
         __props__["critical"] = critical

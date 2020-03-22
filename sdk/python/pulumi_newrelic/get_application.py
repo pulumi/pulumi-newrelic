@@ -13,12 +13,18 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, host_ids=None, instance_ids=None, name=None, id=None):
+    def __init__(__self__, host_ids=None, id=None, instance_ids=None, name=None):
         if host_ids and not isinstance(host_ids, list):
             raise TypeError("Expected argument 'host_ids' to be a list")
         __self__.host_ids = host_ids
         """
         A list of host IDs associated with the application.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if instance_ids and not isinstance(instance_ids, list):
             raise TypeError("Expected argument 'instance_ids' to be a list")
@@ -29,12 +35,6 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,19 +42,18 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             host_ids=self.host_ids,
+            id=self.id,
             instance_ids=self.instance_ids,
-            name=self.name,
-            id=self.id)
+            name=self.name)
 
 def get_application(name=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
-    :param str name: The name of the application in New Relic.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/application.html.markdown.
+    :param str name: The name of the application in New Relic.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -65,6 +64,6 @@ def get_application(name=None,opts=None):
 
     return AwaitableGetApplicationResult(
         host_ids=__ret__.get('hostIds'),
+        id=__ret__.get('id'),
         instance_ids=__ret__.get('instanceIds'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        name=__ret__.get('name'))

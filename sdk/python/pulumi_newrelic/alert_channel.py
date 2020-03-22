@@ -13,7 +13,7 @@ class AlertChannel(pulumi.CustomResource):
     config: pulumi.Output[dict]
     """
     A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
-    
+
       * `api_key` (`str`)
       * `authPassword` (`str`)
       * `authType` (`str`)
@@ -51,16 +51,18 @@ class AlertChannel(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, config=None, configuration=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[dict] configuration: **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
-        
+
         The **config** object supports the following:
-        
+
           * `api_key` (`pulumi.Input[str]`)
           * `authPassword` (`pulumi.Input[str]`)
           * `authType` (`pulumi.Input[str]`)
@@ -82,8 +84,6 @@ class AlertChannel(pulumi.CustomResource):
           * `teams` (`pulumi.Input[str]`)
           * `url` (`pulumi.Input[str]`)
           * `userId` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class AlertChannel(pulumi.CustomResource):
         """
         Get an existing AlertChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,9 +127,9 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.Input[dict] configuration: **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
-        
+
         The **config** object supports the following:
-        
+
           * `api_key` (`pulumi.Input[str]`)
           * `authPassword` (`pulumi.Input[str]`)
           * `authType` (`pulumi.Input[str]`)
@@ -151,12 +151,11 @@ class AlertChannel(pulumi.CustomResource):
           * `teams` (`pulumi.Input[str]`)
           * `url` (`pulumi.Input[str]`)
           * `userId` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["config"] = config
         __props__["configuration"] = configuration
         __props__["name"] = name

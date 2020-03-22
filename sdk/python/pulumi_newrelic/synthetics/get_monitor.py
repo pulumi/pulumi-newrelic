@@ -13,7 +13,13 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, monitor_id=None, name=None, id=None):
+    def __init__(__self__, id=None, monitor_id=None, name=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if monitor_id and not isinstance(monitor_id, str):
             raise TypeError("Expected argument 'monitor_id' to be a str")
         __self__.monitor_id = monitor_id
@@ -23,31 +29,27 @@ class GetMonitorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetMonitorResult(GetMonitorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetMonitorResult(
+            id=self.id,
             monitor_id=self.monitor_id,
-            name=self.name,
-            id=self.id)
+            name=self.name)
 
 def get_monitor(name=None,opts=None):
     """
     Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
-    
-    :param str name: The name of the synthetics monitor in New Relic.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
+
+
+    :param str name: The name of the synthetics monitor in New Relic.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -57,6 +59,6 @@ def get_monitor(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitor:getMonitor', __args__, opts=opts).value
 
     return AwaitableGetMonitorResult(
+        id=__ret__.get('id'),
         monitor_id=__ret__.get('monitorId'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        name=__ret__.get('name'))
