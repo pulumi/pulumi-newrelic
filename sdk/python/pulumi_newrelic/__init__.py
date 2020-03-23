@@ -15,10 +15,10 @@ from .alert_condition import *
 from .alert_policy import *
 from .alert_policy_channel import *
 from .dashboard import *
-from .infra_alert_condition import *
-from .nrql_alert_condition import *
 from .get_alert_channel import *
 from .get_alert_policy import *
 from .get_application import *
 from .get_key_transaction import *
+from .infra_alert_condition import *
+from .nrql_alert_condition import *
 from .provider import *

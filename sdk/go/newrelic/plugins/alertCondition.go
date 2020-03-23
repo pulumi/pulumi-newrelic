@@ -12,25 +12,28 @@ import (
 )
 
 // Use this resource to create and manage plugins alert conditions in New Relic.
-// 
+//
 // ## Terms
-// 
+//
 // The `term` mapping supports the following arguments:
-// 
+//
 //   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
 //   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
 //   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
 //   * `threshold` - (Required) Must be 0 or greater.
 //   * `timeFunction` - (Required) `all` or `any`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/plugins_alert_condition.html.markdown.
 type AlertCondition struct {
 	pulumi.CustomResourceState
 
+	// Whether or not this condition is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The plugin component IDs to target.
 	Entities pulumi.IntArrayOutput `pulumi:"entities"`
-	// The metric field accepts parameters based on the `type` set.
+	// The plugin metric to evaluate.
 	Metric pulumi.StringOutput `pulumi:"metric"`
+	// The metric description.
 	MetricDescription pulumi.StringOutput `pulumi:"metricDescription"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -44,6 +47,7 @@ type AlertCondition struct {
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayOutput `pulumi:"terms"`
+	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
 	ValueFunction pulumi.StringOutput `pulumi:"valueFunction"`
 }
 
@@ -99,10 +103,13 @@ func GetAlertCondition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertCondition resources.
 type alertConditionState struct {
+	// Whether or not this condition is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// The plugin component IDs to target.
 	Entities []int `pulumi:"entities"`
-	// The metric field accepts parameters based on the `type` set.
+	// The plugin metric to evaluate.
 	Metric *string `pulumi:"metric"`
+	// The metric description.
 	MetricDescription *string `pulumi:"metricDescription"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
@@ -116,14 +123,18 @@ type alertConditionState struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms []AlertConditionTerm `pulumi:"terms"`
+	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
 	ValueFunction *string `pulumi:"valueFunction"`
 }
 
 type AlertConditionState struct {
+	// Whether or not this condition is enabled.
 	Enabled pulumi.BoolPtrInput
+	// The plugin component IDs to target.
 	Entities pulumi.IntArrayInput
-	// The metric field accepts parameters based on the `type` set.
+	// The plugin metric to evaluate.
 	Metric pulumi.StringPtrInput
+	// The metric description.
 	MetricDescription pulumi.StringPtrInput
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
@@ -137,6 +148,7 @@ type AlertConditionState struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayInput
+	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
 	ValueFunction pulumi.StringPtrInput
 }
 
@@ -145,10 +157,13 @@ func (AlertConditionState) ElementType() reflect.Type {
 }
 
 type alertConditionArgs struct {
+	// Whether or not this condition is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// The plugin component IDs to target.
 	Entities []int `pulumi:"entities"`
-	// The metric field accepts parameters based on the `type` set.
+	// The plugin metric to evaluate.
 	Metric string `pulumi:"metric"`
+	// The metric description.
 	MetricDescription string `pulumi:"metricDescription"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
@@ -162,15 +177,19 @@ type alertConditionArgs struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms []AlertConditionTerm `pulumi:"terms"`
+	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
 	ValueFunction string `pulumi:"valueFunction"`
 }
 
 // The set of arguments for constructing a AlertCondition resource.
 type AlertConditionArgs struct {
+	// Whether or not this condition is enabled.
 	Enabled pulumi.BoolPtrInput
+	// The plugin component IDs to target.
 	Entities pulumi.IntArrayInput
-	// The metric field accepts parameters based on the `type` set.
+	// The plugin metric to evaluate.
 	Metric pulumi.StringInput
+	// The metric description.
 	MetricDescription pulumi.StringInput
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
@@ -184,6 +203,7 @@ type AlertConditionArgs struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayInput
+	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
 	ValueFunction pulumi.StringInput
 }
 

@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/application.html.markdown.
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
 	var rv GetApplicationResult
 	err := ctx.Invoke("newrelic:index/getApplication:getApplication", args, &rv, opts...)

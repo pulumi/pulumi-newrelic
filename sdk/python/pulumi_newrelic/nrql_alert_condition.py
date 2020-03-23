@@ -11,54 +11,105 @@ from . import utilities, tables
 
 class NrqlAlertCondition(pulumi.CustomResource):
     enabled: pulumi.Output[bool]
+    """
+    Whether to enable the alert condition.
+    """
     expected_groups: pulumi.Output[float]
+    """
+    Number of expected groups when using outlier detection.
+    """
     ignore_overlap: pulumi.Output[bool]
+    """
+    Whether to look for a convergence of groups when using outlier detection.
+    """
     name: pulumi.Output[str]
+    """
+    The title of the condition.
+    """
     nrql: pulumi.Output[dict]
+    """
+    A NRQL query.
+
+      * `query` (`str`)
+      * `sinceValue` (`str`)
+    """
     policy_id: pulumi.Output[float]
+    """
+    The ID of the policy where this condition should be used.
+    """
     runbook_url: pulumi.Output[str]
+    """
+    Runbook URL to display in notifications.
+    """
     terms: pulumi.Output[list]
+    """
+    A list of terms for this condition.
+
+      * `duration` (`float`)
+      * `operator` (`str`)
+      * `priority` (`str`)
+      * `threshold` (`float`)
+      * `timeFunction` (`str`)
+    """
     type: pulumi.Output[str]
     value_function: pulumi.Output[str]
+    """
+    Possible values are single_value, sum.
+    """
     violation_time_limit_seconds: pulumi.Output[float]
+    """
+    Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+    select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+    """
     def __init__(__self__, resource_name, opts=None, enabled=None, expected_groups=None, ignore_overlap=None, name=None, nrql=None, policy_id=None, runbook_url=None, terms=None, type=None, value_function=None, violation_time_limit_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage NRQL alert conditions in New Relic.
-        
+
         ## Terms
-        
+
         The `term` mapping supports the following arguments:
-        
+
         - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
         - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
         - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
         - `threshold` - (Required) Must be 0 or greater.
         - `time_function` - (Required) `all` or `any`.
-        
+
         ## NRQL
-        
+
         The `nrql` attribute supports the following arguments:
-        
+
         - `query` - (Required) The NRQL query to execute for the condition.
         - `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[bool] enabled: Whether to enable the alert condition.
+        :param pulumi.Input[float] expected_groups: Number of expected groups when using outlier detection.
+        :param pulumi.Input[bool] ignore_overlap: Whether to look for a convergence of groups when using outlier detection.
+        :param pulumi.Input[str] name: The title of the condition.
+        :param pulumi.Input[dict] nrql: A NRQL query.
+        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        :param pulumi.Input[list] terms: A list of terms for this condition.
+        :param pulumi.Input[str] value_function: Possible values are single_value, sum.
+        :param pulumi.Input[float] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+               select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+
         The **nrql** object supports the following:
-        
+
           * `query` (`pulumi.Input[str]`)
           * `sinceValue` (`pulumi.Input[str]`)
-        
+
         The **terms** object supports the following:
-        
+
           * `duration` (`pulumi.Input[float]`)
           * `operator` (`pulumi.Input[str]`)
           * `priority` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
           * `timeFunction` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,29 +156,39 @@ class NrqlAlertCondition(pulumi.CustomResource):
         """
         Get an existing NrqlAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[bool] enabled: Whether to enable the alert condition.
+        :param pulumi.Input[float] expected_groups: Number of expected groups when using outlier detection.
+        :param pulumi.Input[bool] ignore_overlap: Whether to look for a convergence of groups when using outlier detection.
+        :param pulumi.Input[str] name: The title of the condition.
+        :param pulumi.Input[dict] nrql: A NRQL query.
+        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        :param pulumi.Input[list] terms: A list of terms for this condition.
+        :param pulumi.Input[str] value_function: Possible values are single_value, sum.
+        :param pulumi.Input[float] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+               select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+
         The **nrql** object supports the following:
-        
+
           * `query` (`pulumi.Input[str]`)
           * `sinceValue` (`pulumi.Input[str]`)
-        
+
         The **terms** object supports the following:
-        
+
           * `duration` (`pulumi.Input[float]`)
           * `operator` (`pulumi.Input[str]`)
           * `priority` (`pulumi.Input[str]`)
           * `threshold` (`pulumi.Input[float]`)
           * `timeFunction` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enabled"] = enabled
         __props__["expected_groups"] = expected_groups
         __props__["ignore_overlap"] = ignore_overlap

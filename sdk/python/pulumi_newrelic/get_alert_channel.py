@@ -13,12 +13,18 @@ class GetAlertChannelResult:
     """
     A collection of values returned by getAlertChannel.
     """
-    def __init__(__self__, config=None, name=None, policy_ids=None, type=None, id=None):
+    def __init__(__self__, config=None, id=None, name=None, policy_ids=None, type=None):
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         __self__.config = config
         """
         Alert channel configuration.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -35,12 +41,6 @@ class GetAlertChannelResult:
         """
         Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAlertChannelResult(GetAlertChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,20 +48,19 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
             yield self
         return GetAlertChannelResult(
             config=self.config,
+            id=self.id,
             name=self.name,
             policy_ids=self.policy_ids,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_alert_channel(name=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
-    :param str name: The name of the alert channel in New Relic.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
+    :param str name: The name of the alert channel in New Relic.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -72,7 +71,7 @@ def get_alert_channel(name=None,opts=None):
 
     return AwaitableGetAlertChannelResult(
         config=__ret__.get('config'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         policy_ids=__ret__.get('policyIds'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

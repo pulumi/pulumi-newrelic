@@ -12,13 +12,17 @@ import (
 )
 
 // Use this resource to map alert policies to alert channels in New Relic.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
 type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
+	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
 	ChannelId pulumi.IntPtrOutput `pulumi:"channelId"`
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
+	// The ID of the policy.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 }
 
@@ -53,14 +57,22 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicyChannel resources.
 type alertPolicyChannelState struct {
+	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
 	ChannelId *int `pulumi:"channelId"`
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds []int `pulumi:"channelIds"`
+	// The ID of the policy.
 	PolicyId *int `pulumi:"policyId"`
 }
 
 type AlertPolicyChannelState struct {
+	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
 	ChannelId pulumi.IntPtrInput
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds pulumi.IntArrayInput
+	// The ID of the policy.
 	PolicyId pulumi.IntPtrInput
 }
 
@@ -69,15 +81,23 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 }
 
 type alertPolicyChannelArgs struct {
+	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
 	ChannelId *int `pulumi:"channelId"`
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds []int `pulumi:"channelIds"`
+	// The ID of the policy.
 	PolicyId int `pulumi:"policyId"`
 }
 
 // The set of arguments for constructing a AlertPolicyChannel resource.
 type AlertPolicyChannelArgs struct {
+	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
 	ChannelId pulumi.IntPtrInput
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+	// drift your Terraform state.
 	ChannelIds pulumi.IntArrayInput
+	// The ID of the policy.
 	PolicyId pulumi.IntInput
 }
 

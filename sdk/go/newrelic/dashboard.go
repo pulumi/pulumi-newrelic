@@ -12,17 +12,17 @@ import (
 )
 
 // Use this resource to create and manage New Relic dashboards.
-// 
+//
 // ## Attribute Refence
-// 
+//
 // In addition to all arguments above, the following attributes are exported:
-// 
+//
 //   * `dashboardUrl` - The URL for viewing the dashboard.
-// 
+//
 // ### Nested `widget` blocks
-// 
+//
 // All nested `widget` blocks support the following common arguments:
-// 
+//
 //   * `title` - (Required) A title for the widget.
 //   * `visualization` - (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
 //   * `row` - (Required) Row position of widget from top left, starting at `1`.
@@ -30,9 +30,9 @@ import (
 //   * `width` - (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
 //   * `height` - (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
 //   * `notes` - (Optional) Description of the widget.
-// 
+//
 // Each `visualization` type supports an additional set of arguments:
-// 
+//
 //   * `billboard`, `billboardComparison`:
 //     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
 //     * `thresholdRed` - (Optional) Threshold above which the displayed value will be styled with a red color.
@@ -59,18 +59,19 @@ import (
 //     * `limit` - (Optional) The limit of distinct data series to display.
 //   * `applicationBreakdown`:
 //     * `entityIds` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-// 
-// 
+//
+//
 // ### Nested `filter` block
-// 
+//
 // The optional filter block supports the following arguments:
 //   * `eventTypes` - (Optional) A list of event types to enable filtering for.
 //   * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
 type Dashboard struct {
 	pulumi.CustomResourceState
 
+	// The URL for viewing the dashboard.
 	DashboardUrl pulumi.StringOutput `pulumi:"dashboardUrl"`
 	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable pulumi.StringPtrOutput `pulumi:"editable"`
@@ -117,6 +118,7 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
+	// The URL for viewing the dashboard.
 	DashboardUrl *string `pulumi:"dashboardUrl"`
 	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable *string `pulumi:"editable"`
@@ -133,6 +135,7 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
+	// The URL for viewing the dashboard.
 	DashboardUrl pulumi.StringPtrInput
 	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
 	Editable pulumi.StringPtrInput

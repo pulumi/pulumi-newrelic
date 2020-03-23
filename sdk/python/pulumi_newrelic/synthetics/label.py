@@ -29,14 +29,14 @@ class Label(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, monitor_id=None, type=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create, update, and delete a Synthetics label in New Relic.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_id: The ID of the monitor that will be assigned the label.
         :param pulumi.Input[str] type: A string representing the label key/category.
         :param pulumi.Input[str] value: A string representing the label value.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,7 +76,7 @@ class Label(pulumi.CustomResource):
         """
         Get an existing Label resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,12 +84,11 @@ class Label(pulumi.CustomResource):
         :param pulumi.Input[str] monitor_id: The ID of the monitor that will be assigned the label.
         :param pulumi.Input[str] type: A string representing the label key/category.
         :param pulumi.Input[str] value: A string representing the label value.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["href"] = href
         __props__["monitor_id"] = monitor_id
         __props__["type"] = type

@@ -12,38 +12,49 @@ import (
 )
 
 // Use this resource to create and manage NRQL alert conditions in New Relic.
-// 
+//
 // ## Terms
-// 
+//
 // The `term` mapping supports the following arguments:
-// 
+//
 // - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
 // - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
 // - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
 // - `threshold` - (Required) Must be 0 or greater.
 // - `timeFunction` - (Required) `all` or `any`.
-// 
+//
 // ## NRQL
-// 
+//
 // The `nrql` attribute supports the following arguments:
-// 
+//
 // - `query` - (Required) The NRQL query to execute for the condition.
 // - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable the alert condition.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Number of expected groups when using outlier detection.
 	ExpectedGroups pulumi.IntPtrOutput `pulumi:"expectedGroups"`
+	// Whether to look for a convergence of groups when using outlier detection.
 	IgnoreOverlap pulumi.BoolPtrOutput `pulumi:"ignoreOverlap"`
+	// The title of the condition.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A NRQL query.
 	Nrql NrqlAlertConditionNrqlOutput `pulumi:"nrql"`
+	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
+	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
+	// A list of terms for this condition.
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Possible values are single_value, sum.
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
 	ViolationTimeLimitSeconds pulumi.IntPtrOutput `pulumi:"violationTimeLimitSeconds"`
 }
 
@@ -84,30 +95,52 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NrqlAlertCondition resources.
 type nrqlAlertConditionState struct {
+	// Whether to enable the alert condition.
 	Enabled *bool `pulumi:"enabled"`
+	// Number of expected groups when using outlier detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
+	// Whether to look for a convergence of groups when using outlier detection.
 	IgnoreOverlap *bool `pulumi:"ignoreOverlap"`
+	// The title of the condition.
 	Name *string `pulumi:"name"`
+	// A NRQL query.
 	Nrql *NrqlAlertConditionNrql `pulumi:"nrql"`
+	// The ID of the policy where this condition should be used.
 	PolicyId *int `pulumi:"policyId"`
+	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
+	// A list of terms for this condition.
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	Type *string `pulumi:"type"`
+	// Possible values are single_value, sum.
 	ValueFunction *string `pulumi:"valueFunction"`
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
 }
 
 type NrqlAlertConditionState struct {
+	// Whether to enable the alert condition.
 	Enabled pulumi.BoolPtrInput
+	// Number of expected groups when using outlier detection.
 	ExpectedGroups pulumi.IntPtrInput
+	// Whether to look for a convergence of groups when using outlier detection.
 	IgnoreOverlap pulumi.BoolPtrInput
+	// The title of the condition.
 	Name pulumi.StringPtrInput
+	// A NRQL query.
 	Nrql NrqlAlertConditionNrqlPtrInput
+	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntPtrInput
+	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
+	// A list of terms for this condition.
 	Terms NrqlAlertConditionTermArrayInput
 	Type pulumi.StringPtrInput
+	// Possible values are single_value, sum.
 	ValueFunction pulumi.StringPtrInput
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
 }
 
@@ -116,31 +149,53 @@ func (NrqlAlertConditionState) ElementType() reflect.Type {
 }
 
 type nrqlAlertConditionArgs struct {
+	// Whether to enable the alert condition.
 	Enabled *bool `pulumi:"enabled"`
+	// Number of expected groups when using outlier detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
+	// Whether to look for a convergence of groups when using outlier detection.
 	IgnoreOverlap *bool `pulumi:"ignoreOverlap"`
+	// The title of the condition.
 	Name *string `pulumi:"name"`
+	// A NRQL query.
 	Nrql NrqlAlertConditionNrql `pulumi:"nrql"`
+	// The ID of the policy where this condition should be used.
 	PolicyId int `pulumi:"policyId"`
+	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
+	// A list of terms for this condition.
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	Type *string `pulumi:"type"`
+	// Possible values are single_value, sum.
 	ValueFunction *string `pulumi:"valueFunction"`
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
 }
 
 // The set of arguments for constructing a NrqlAlertCondition resource.
 type NrqlAlertConditionArgs struct {
+	// Whether to enable the alert condition.
 	Enabled pulumi.BoolPtrInput
+	// Number of expected groups when using outlier detection.
 	ExpectedGroups pulumi.IntPtrInput
+	// Whether to look for a convergence of groups when using outlier detection.
 	IgnoreOverlap pulumi.BoolPtrInput
+	// The title of the condition.
 	Name pulumi.StringPtrInput
+	// A NRQL query.
 	Nrql NrqlAlertConditionNrqlInput
+	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntInput
+	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
+	// A list of terms for this condition.
 	Terms NrqlAlertConditionTermArrayInput
 	Type pulumi.StringPtrInput
+	// Possible values are single_value, sum.
 	ValueFunction pulumi.StringPtrInput
+	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
 }
 

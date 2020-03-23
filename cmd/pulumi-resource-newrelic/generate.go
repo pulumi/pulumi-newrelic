@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2020, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,18 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// +build ignore
+
 package main
 
-//go:generate go run ./generate.go
-
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
-
-	newrelic "github.com/pulumi/pulumi-newrelic"
-	"github.com/pulumi/pulumi-newrelic/pkg/version"
+	"fmt"
+	"io/ioutil"
+	"log"
 )
 
 func main() {
-	// Modify the path to point to the new provider
-	tfbridge.Main("newrelic", version.Version, newrelic.Provider(), pulumiSchema)
+	contents, err := ioutil.ReadFile("./schema.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = ioutil.WriteFile("./schema.go", []byte(fmt.Sprintf(`package main
+var pulumiSchema = %#v
+`, contents)), 0600)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

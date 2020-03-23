@@ -61,6 +61,9 @@ export class SecureCredential extends pulumi.CustomResource {
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * The time the secure credential was last updated.
+     */
     public readonly lastUpdated!: pulumi.Output<string>;
     /**
      * The secure credential's value. 
@@ -125,6 +128,9 @@ export interface SecureCredentialState {
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
     readonly key?: pulumi.Input<string>;
+    /**
+     * The time the secure credential was last updated.
+     */
     readonly lastUpdated?: pulumi.Input<string>;
     /**
      * The secure credential's value. 
@@ -148,6 +154,9 @@ export interface SecureCredentialArgs {
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
     readonly key: pulumi.Input<string>;
+    /**
+     * The time the secure credential was last updated.
+     */
     readonly lastUpdated?: pulumi.Input<string>;
     /**
      * The secure credential's value. 

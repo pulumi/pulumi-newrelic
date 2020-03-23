@@ -16,18 +16,18 @@ class MonitorScript(pulumi.CustomResource):
     """
     text: pulumi.Output[str]
     """
-    plaintext of the monitor script.
+    The plaintext representing the monitor script.
     """
     def __init__(__self__, resource_name, opts=None, monitor_id=None, text=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to update a synthetics monitor script in New Relic.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor_script.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
-        :param pulumi.Input[str] text: plaintext of the monitor script.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor_script.html.markdown.
+        :param pulumi.Input[str] text: The plaintext representing the monitor script.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class MonitorScript(pulumi.CustomResource):
         """
         Get an existing MonitorScript resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
-        :param pulumi.Input[str] text: plaintext of the monitor script.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor_script.html.markdown.
+        :param pulumi.Input[str] text: The plaintext representing the monitor script.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["monitor_id"] = monitor_id
         __props__["text"] = text
         return MonitorScript(resource_name, opts=opts, __props__=__props__)

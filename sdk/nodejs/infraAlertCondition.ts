@@ -50,9 +50,12 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
     public readonly comparison!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp the alert condition was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<number>;
     /**
-     * Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
     public readonly critical!: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
     /**
@@ -91,7 +94,13 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The timestamp the alert condition was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
+    /**
+     * Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+     */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
@@ -174,9 +183,12 @@ export interface InfraAlertConditionState {
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
     readonly comparison?: pulumi.Input<string>;
+    /**
+     * The timestamp the alert condition was created.
+     */
     readonly createdAt?: pulumi.Input<number>;
     /**
-     * Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
     readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
@@ -215,7 +227,13 @@ export interface InfraAlertConditionState {
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * The timestamp the alert condition was last updated.
+     */
     readonly updatedAt?: pulumi.Input<number>;
+    /**
+     * Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+     */
     readonly violationCloseTimer?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
@@ -236,7 +254,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly comparison?: pulumi.Input<string>;
     /**
-     * Identifies the threshold parameters for opening a critial alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
     readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
@@ -275,6 +293,9 @@ export interface InfraAlertConditionArgs {
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+     */
     readonly violationCloseTimer?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.

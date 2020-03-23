@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/alert_channel.html.markdown.
 func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts ...pulumi.InvokeOption) (*LookupAlertChannelResult, error) {
 	var rv LookupAlertChannelResult
 	err := ctx.Invoke("newrelic:index/getAlertChannel:getAlertChannel", args, &rv, opts...)

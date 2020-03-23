@@ -12,25 +12,26 @@ import (
 )
 
 // Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
-// 
+//
 // ## Terms
-// 
+//
 // The `term` mapping supports the following arguments:
-// 
+//
 //   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
 //   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-//   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
+//   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
 //   * `threshold` - (Required) Must be 0 or greater.
 //   * `timeFunction` - (Required) `all` or `any`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
 type AlertCondition struct {
 	pulumi.CustomResourceState
 
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope pulumi.StringPtrOutput `pulumi:"conditionScope"`
+	// Whether the condition is enabled or not. Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The instance IDS associated with this condition.
+	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayOutput `pulumi:"entities"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric pulumi.StringPtrOutput `pulumi:"gcMetric"`
@@ -77,13 +78,6 @@ type AlertCondition struct {
 	// * `statusErrorPercentage`
 	// * `userDefined`
 	// * `viewLoading`
-	// * `serversMetric`
-	// * `cpuPercentage`
-	// * `diskIoPercentage`
-	// * `fullestDiskPercentage`
-	// * `loadAverageOneMinute`
-	// * `memoryPercentage`
-	// * `userDefined`
 	Metric pulumi.StringOutput `pulumi:"metric"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -93,7 +87,7 @@ type AlertCondition struct {
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayOutput `pulumi:"terms"`
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrOutput `pulumi:"userDefinedMetric"`
@@ -148,8 +142,9 @@ func GetAlertCondition(ctx *pulumi.Context,
 type alertConditionState struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope *string `pulumi:"conditionScope"`
+	// Whether the condition is enabled or not. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The instance IDS associated with this condition.
+	// The instance IDs associated with this condition.
 	Entities []int `pulumi:"entities"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric *string `pulumi:"gcMetric"`
@@ -196,13 +191,6 @@ type alertConditionState struct {
 	// * `statusErrorPercentage`
 	// * `userDefined`
 	// * `viewLoading`
-	// * `serversMetric`
-	// * `cpuPercentage`
-	// * `diskIoPercentage`
-	// * `fullestDiskPercentage`
-	// * `loadAverageOneMinute`
-	// * `memoryPercentage`
-	// * `userDefined`
 	Metric *string `pulumi:"metric"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
@@ -212,7 +200,7 @@ type alertConditionState struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms []AlertConditionTerm `pulumi:"terms"`
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type *string `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
@@ -225,8 +213,9 @@ type alertConditionState struct {
 type AlertConditionState struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope pulumi.StringPtrInput
+	// Whether the condition is enabled or not. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The instance IDS associated with this condition.
+	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayInput
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric pulumi.StringPtrInput
@@ -273,13 +262,6 @@ type AlertConditionState struct {
 	// * `statusErrorPercentage`
 	// * `userDefined`
 	// * `viewLoading`
-	// * `serversMetric`
-	// * `cpuPercentage`
-	// * `diskIoPercentage`
-	// * `fullestDiskPercentage`
-	// * `loadAverageOneMinute`
-	// * `memoryPercentage`
-	// * `userDefined`
 	Metric pulumi.StringPtrInput
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
@@ -289,7 +271,7 @@ type AlertConditionState struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayInput
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type pulumi.StringPtrInput
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput
@@ -306,8 +288,9 @@ func (AlertConditionState) ElementType() reflect.Type {
 type alertConditionArgs struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope *string `pulumi:"conditionScope"`
+	// Whether the condition is enabled or not. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The instance IDS associated with this condition.
+	// The instance IDs associated with this condition.
 	Entities []int `pulumi:"entities"`
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric *string `pulumi:"gcMetric"`
@@ -354,13 +337,6 @@ type alertConditionArgs struct {
 	// * `statusErrorPercentage`
 	// * `userDefined`
 	// * `viewLoading`
-	// * `serversMetric`
-	// * `cpuPercentage`
-	// * `diskIoPercentage`
-	// * `fullestDiskPercentage`
-	// * `loadAverageOneMinute`
-	// * `memoryPercentage`
-	// * `userDefined`
 	Metric string `pulumi:"metric"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
@@ -370,7 +346,7 @@ type alertConditionArgs struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms []AlertConditionTerm `pulumi:"terms"`
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type string `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
@@ -384,8 +360,9 @@ type alertConditionArgs struct {
 type AlertConditionArgs struct {
 	// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
 	ConditionScope pulumi.StringPtrInput
+	// Whether the condition is enabled or not. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The instance IDS associated with this condition.
+	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayInput
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
 	GcMetric pulumi.StringPtrInput
@@ -432,13 +409,6 @@ type AlertConditionArgs struct {
 	// * `statusErrorPercentage`
 	// * `userDefined`
 	// * `viewLoading`
-	// * `serversMetric`
-	// * `cpuPercentage`
-	// * `diskIoPercentage`
-	// * `fullestDiskPercentage`
-	// * `loadAverageOneMinute`
-	// * `memoryPercentage`
-	// * `userDefined`
 	Metric pulumi.StringInput
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
@@ -448,7 +418,7 @@ type AlertConditionArgs struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayInput
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `serversMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type pulumi.StringInput
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput

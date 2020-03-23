@@ -35,12 +35,11 @@ class AwaitableGetPluginResult(GetPluginResult):
 def get_plugin(guid=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
-    :param str guid: The GUID of the plugin in New Relic.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin.html.markdown.
+    :param str guid: The GUID of the plugin in New Relic.
     """
     __args__ = dict()
+
 
     __args__['guid'] = guid
     if opts is None:

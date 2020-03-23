@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/key_transaction.html.markdown.
 func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ...pulumi.InvokeOption) (*GetKeyTransactionResult, error) {
 	var rv GetKeyTransactionResult
 	err := ctx.Invoke("newrelic:index/getKeyTransaction:getKeyTransaction", args, &rv, opts...)
@@ -20,7 +19,7 @@ func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ..
 
 // A collection of arguments for invoking getKeyTransaction.
 type GetKeyTransactionArgs struct {
-	// The name of the application in New Relic.
+	// The name of the key transaction in New Relic.
 	Name string `pulumi:"name"`
 }
 

@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/insights_event.html.markdown.
 type Event struct {
 	pulumi.CustomResourceState
 

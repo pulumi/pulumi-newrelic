@@ -11,16 +11,30 @@ from . import utilities, tables
 
 class AlertPolicyChannel(pulumi.CustomResource):
     channel_id: pulumi.Output[float]
+    """
+    Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+    """
     channel_ids: pulumi.Output[list]
+    """
+    Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+    drift your Terraform state.
+    """
     policy_id: pulumi.Output[float]
+    """
+    The ID of the policy.
+    """
     def __init__(__self__, resource_name, opts=None, channel_id=None, channel_ids=None, policy_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to map alert policies to alert channels in New Relic.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] channel_id: Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+               drift your Terraform state.
+        :param pulumi.Input[float] policy_id: The ID of the policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,16 +69,19 @@ class AlertPolicyChannel(pulumi.CustomResource):
         """
         Get an existing AlertPolicyChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
+        :param pulumi.Input[float] channel_id: Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+               drift your Terraform state.
+        :param pulumi.Input[float] policy_id: The ID of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["channel_id"] = channel_id
         __props__["channel_ids"] = channel_ids
         __props__["policy_id"] = policy_id

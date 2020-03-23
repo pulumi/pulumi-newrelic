@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/plugin_component.html.markdown.
- */
 export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> & GetPluginComponentResult {
     if (!opts) {
         opts = {}
