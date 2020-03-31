@@ -8,7 +8,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi v1.12.2-0.20200313044354-8111d33438b9
 	github.com/pulumi/pulumi-terraform-bridge v1.8.2
-	github.com/terraform-providers/terraform-provider-newrelic v1.15.1
+	github.com/terraform-providers/terraform-provider-newrelic v1.16.0
 	github.com/vmihailenco/msgpack v4.0.2+incompatible // indirect
 )
 
