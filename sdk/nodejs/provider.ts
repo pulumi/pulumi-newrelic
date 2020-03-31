@@ -52,6 +52,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["insightsQueryKey"] = (args ? args.insightsQueryKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
             inputs["nerdgraphApiUrl"] = (args ? args.nerdgraphApiUrl : undefined) || utilities.getEnv("NEWRELIC_NERDGRAPH_API_URL");
+            inputs["personalApiKey"] = args ? args.personalApiKey : undefined;
             inputs["syntheticsApiUrl"] = (args ? args.syntheticsApiUrl : undefined) || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");
         }
         if (!opts) {
@@ -81,5 +82,6 @@ export interface ProviderArgs {
     readonly insightsQueryKey?: pulumi.Input<string>;
     readonly insightsQueryUrl?: pulumi.Input<string>;
     readonly nerdgraphApiUrl?: pulumi.Input<string>;
+    readonly personalApiKey?: pulumi.Input<string>;
     readonly syntheticsApiUrl?: pulumi.Input<string>;
 }

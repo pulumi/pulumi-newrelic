@@ -35,5 +35,7 @@ insights_query_url = __config__.get('insightsQueryUrl') or (utilities.get_env('N
 
 nerdgraph_api_url = __config__.get('nerdgraphApiUrl') or utilities.get_env('NEWRELIC_NERDGRAPH_API_URL')
 
+personal_api_key = __config__.get('personalApiKey')
+
 synthetics_api_url = __config__.get('syntheticsApiUrl') or (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
 

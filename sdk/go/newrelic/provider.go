@@ -87,6 +87,7 @@ type providerArgs struct {
 	InsightsQueryKey *string `pulumi:"insightsQueryKey"`
 	InsightsQueryUrl *string `pulumi:"insightsQueryUrl"`
 	NerdgraphApiUrl *string `pulumi:"nerdgraphApiUrl"`
+	PersonalApiKey *string `pulumi:"personalApiKey"`
 	SyntheticsApiUrl *string `pulumi:"syntheticsApiUrl"`
 }
 
@@ -104,6 +105,7 @@ type ProviderArgs struct {
 	InsightsQueryKey pulumi.StringPtrInput
 	InsightsQueryUrl pulumi.StringPtrInput
 	NerdgraphApiUrl pulumi.StringPtrInput
+	PersonalApiKey pulumi.StringPtrInput
 	SyntheticsApiUrl pulumi.StringPtrInput
 }
 

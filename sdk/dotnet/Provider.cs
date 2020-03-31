@@ -82,6 +82,9 @@ namespace Pulumi.NewRelic
         [Input("nerdgraphApiUrl")]
         public Input<string>? NerdgraphApiUrl { get; set; }
 
+        [Input("personalApiKey")]
+        public Input<string>? PersonalApiKey { get; set; }
+
         [Input("syntheticsApiUrl")]
         public Input<string>? SyntheticsApiUrl { get; set; }
 

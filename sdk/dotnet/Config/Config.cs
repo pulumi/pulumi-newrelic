@@ -33,6 +33,8 @@ namespace Pulumi.NewRelic
 
         public static string? NerdgraphApiUrl { get; set; } = __config.Get("nerdgraphApiUrl") ?? Utilities.GetEnv("NEWRELIC_NERDGRAPH_API_URL");
 
+        public static string? PersonalApiKey { get; set; } = __config.Get("personalApiKey");
+
         public static string? SyntheticsApiUrl { get; set; } = __config.Get("syntheticsApiUrl") ?? Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
 
     }
