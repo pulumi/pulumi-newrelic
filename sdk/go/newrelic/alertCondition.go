@@ -33,7 +33,7 @@ type AlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayOutput `pulumi:"entities"`
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrOutput `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
 	// * `apmAppMetric`
@@ -44,11 +44,6 @@ type AlertCondition struct {
 	// * `throughputBackground`
 	// * `throughputWeb`
 	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
 	// * `apmKtMetric`
 	// * `apdex`
 	// * `errorCount`
@@ -87,7 +82,7 @@ type AlertCondition struct {
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayOutput `pulumi:"terms"`
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrOutput `pulumi:"userDefinedMetric"`
@@ -146,7 +141,7 @@ type alertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
 	Entities []int `pulumi:"entities"`
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
 	// * `apmAppMetric`
@@ -157,11 +152,6 @@ type alertConditionState struct {
 	// * `throughputBackground`
 	// * `throughputWeb`
 	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
 	// * `apmKtMetric`
 	// * `apdex`
 	// * `errorCount`
@@ -200,7 +190,7 @@ type alertConditionState struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms []AlertConditionTerm `pulumi:"terms"`
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type *string `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
@@ -217,7 +207,7 @@ type AlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayInput
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
 	// * `apmAppMetric`
@@ -228,11 +218,6 @@ type AlertConditionState struct {
 	// * `throughputBackground`
 	// * `throughputWeb`
 	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
 	// * `apmKtMetric`
 	// * `apdex`
 	// * `errorCount`
@@ -271,7 +256,7 @@ type AlertConditionState struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayInput
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type pulumi.StringPtrInput
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput
@@ -292,7 +277,7 @@ type alertConditionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The instance IDs associated with this condition.
 	Entities []int `pulumi:"entities"`
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
 	// * `apmAppMetric`
@@ -303,11 +288,6 @@ type alertConditionArgs struct {
 	// * `throughputBackground`
 	// * `throughputWeb`
 	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
 	// * `apmKtMetric`
 	// * `apdex`
 	// * `errorCount`
@@ -346,7 +326,7 @@ type alertConditionArgs struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition. See Terms below for details.
 	Terms []AlertConditionTerm `pulumi:"terms"`
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type string `pulumi:"type"`
 	// A custom metric to be evaluated.
 	UserDefinedMetric *string `pulumi:"userDefinedMetric"`
@@ -364,7 +344,7 @@ type AlertConditionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The instance IDs associated with this condition.
 	Entities pulumi.IntArrayInput
-	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
 	// * `apmAppMetric`
@@ -375,11 +355,6 @@ type AlertConditionArgs struct {
 	// * `throughputBackground`
 	// * `throughputWeb`
 	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
 	// * `apmKtMetric`
 	// * `apdex`
 	// * `errorCount`
@@ -418,7 +393,7 @@ type AlertConditionArgs struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition. See Terms below for details.
 	Terms AlertConditionTermArrayInput
-	// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+	// The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
 	Type pulumi.StringInput
 	// A custom metric to be evaluated.
 	UserDefinedMetric pulumi.StringPtrInput

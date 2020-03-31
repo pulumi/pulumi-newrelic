@@ -61,7 +61,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly entities!: pulumi.Output<number[]>;
     /**
-     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
     public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
@@ -74,11 +74,6 @@ export class AlertCondition extends pulumi.CustomResource {
      * * `throughputBackground`
      * * `throughputWeb`
      * * `userDefined`
-     * * `apmJvmMetric`
-     * * `cpuUtilizationTime`
-     * * `deadlockedThreads`
-     * * `gcCpuTime`
-     * * `heapMemoryUsage`
      * * `apmKtMetric`
      * * `apdex`
      * * `errorCount`
@@ -127,7 +122,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -227,7 +222,7 @@ export interface AlertConditionState {
      */
     readonly entities?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
     readonly gcMetric?: pulumi.Input<string>;
     /**
@@ -240,11 +235,6 @@ export interface AlertConditionState {
      * * `throughputBackground`
      * * `throughputWeb`
      * * `userDefined`
-     * * `apmJvmMetric`
-     * * `cpuUtilizationTime`
-     * * `deadlockedThreads`
-     * * `gcCpuTime`
-     * * `heapMemoryUsage`
      * * `apmKtMetric`
      * * `apdex`
      * * `errorCount`
@@ -293,7 +283,7 @@ export interface AlertConditionState {
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -327,7 +317,7 @@ export interface AlertConditionArgs {
      */
     readonly entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`. This is required if you are using `apmJvmMetric` with `gcCpuTime` condition type.
+     * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
     readonly gcMetric?: pulumi.Input<string>;
     /**
@@ -340,11 +330,6 @@ export interface AlertConditionArgs {
      * * `throughputBackground`
      * * `throughputWeb`
      * * `userDefined`
-     * * `apmJvmMetric`
-     * * `cpuUtilizationTime`
-     * * `deadlockedThreads`
-     * * `gcCpuTime`
-     * * `heapMemoryUsage`
      * * `apmKtMetric`
      * * `apdex`
      * * `errorCount`
@@ -393,7 +378,7 @@ export interface AlertConditionArgs {
      */
     readonly terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type: pulumi.Input<string>;
     /**
