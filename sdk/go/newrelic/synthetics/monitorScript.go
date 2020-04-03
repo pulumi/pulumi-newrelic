@@ -92,4 +92,3 @@ type MonitorScriptArgs struct {
 func (MonitorScriptArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorScriptArgs)(nil)).Elem()
 }
-

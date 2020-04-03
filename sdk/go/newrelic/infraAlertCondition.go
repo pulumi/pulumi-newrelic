@@ -232,4 +232,3 @@ type InfraAlertConditionArgs struct {
 func (InfraAlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*infraAlertConditionArgs)(nil)).Elem()
 }
-

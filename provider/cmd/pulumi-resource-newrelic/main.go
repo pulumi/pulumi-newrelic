@@ -19,8 +19,8 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 
-	newrelic "github.com/pulumi/pulumi-newrelic"
-	"github.com/pulumi/pulumi-newrelic/pkg/version"
+	newrelic "github.com/pulumi/pulumi-newrelic/provider"
+	"github.com/pulumi/pulumi-newrelic/provider/pkg/version"
 )
 
 func main() {

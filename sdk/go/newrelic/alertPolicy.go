@@ -117,4 +117,3 @@ type AlertPolicyArgs struct {
 func (AlertPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyArgs)(nil)).Elem()
 }
-

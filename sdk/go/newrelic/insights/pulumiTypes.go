@@ -13,8 +13,8 @@ import (
 
 type EventEvent struct {
 	Attributes []EventEventAttribute `pulumi:"attributes"`
-	Timestamp *int `pulumi:"timestamp"`
-	Type string `pulumi:"type"`
+	Timestamp  *int                  `pulumi:"timestamp"`
+	Type       string                `pulumi:"type"`
 }
 
 type EventEventInput interface {
@@ -26,8 +26,8 @@ type EventEventInput interface {
 
 type EventEventArgs struct {
 	Attributes EventEventAttributeArrayInput `pulumi:"attributes"`
-	Timestamp pulumi.IntPtrInput `pulumi:"timestamp"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Timestamp  pulumi.IntPtrInput            `pulumi:"timestamp"`
+	Type       pulumi.StringInput            `pulumi:"type"`
 }
 
 func (EventEventArgs) ElementType() reflect.Type {
@@ -63,7 +63,7 @@ func (i EventEventArray) ToEventEventArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EventEventArrayOutput)
 }
 
-type EventEventOutput struct { *pulumi.OutputState }
+type EventEventOutput struct{ *pulumi.OutputState }
 
 func (EventEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventEvent)(nil)).Elem()
@@ -78,18 +78,18 @@ func (o EventEventOutput) ToEventEventOutputWithContext(ctx context.Context) Eve
 }
 
 func (o EventEventOutput) Attributes() EventEventAttributeArrayOutput {
-	return o.ApplyT(func (v EventEvent) []EventEventAttribute { return v.Attributes }).(EventEventAttributeArrayOutput)
+	return o.ApplyT(func(v EventEvent) []EventEventAttribute { return v.Attributes }).(EventEventAttributeArrayOutput)
 }
 
 func (o EventEventOutput) Timestamp() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v EventEvent) *int { return v.Timestamp }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v EventEvent) *int { return v.Timestamp }).(pulumi.IntPtrOutput)
 }
 
 func (o EventEventOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v EventEvent) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventEvent) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type EventEventArrayOutput struct { *pulumi.OutputState}
+type EventEventArrayOutput struct{ *pulumi.OutputState }
 
 func (EventEventArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EventEvent)(nil)).Elem()
@@ -104,15 +104,15 @@ func (o EventEventArrayOutput) ToEventEventArrayOutputWithContext(ctx context.Co
 }
 
 func (o EventEventArrayOutput) Index(i pulumi.IntInput) EventEventOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EventEvent {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventEvent {
 		return vs[0].([]EventEvent)[vs[1].(int)]
 	}).(EventEventOutput)
 }
 
 type EventEventAttribute struct {
-	Key string `pulumi:"key"`
-	Type *string `pulumi:"type"`
-	Value string `pulumi:"value"`
+	Key   string  `pulumi:"key"`
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
 }
 
 type EventEventAttributeInput interface {
@@ -123,9 +123,9 @@ type EventEventAttributeInput interface {
 }
 
 type EventEventAttributeArgs struct {
-	Key pulumi.StringInput `pulumi:"key"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (EventEventAttributeArgs) ElementType() reflect.Type {
@@ -161,7 +161,7 @@ func (i EventEventAttributeArray) ToEventEventAttributeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventEventAttributeArrayOutput)
 }
 
-type EventEventAttributeOutput struct { *pulumi.OutputState }
+type EventEventAttributeOutput struct{ *pulumi.OutputState }
 
 func (EventEventAttributeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventEventAttribute)(nil)).Elem()
@@ -176,18 +176,18 @@ func (o EventEventAttributeOutput) ToEventEventAttributeOutputWithContext(ctx co
 }
 
 func (o EventEventAttributeOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func (v EventEventAttribute) string { return v.Key }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventEventAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
 func (o EventEventAttributeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EventEventAttribute) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EventEventAttribute) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func (o EventEventAttributeOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v EventEventAttribute) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EventEventAttribute) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EventEventAttributeArrayOutput struct { *pulumi.OutputState}
+type EventEventAttributeArrayOutput struct{ *pulumi.OutputState }
 
 func (EventEventAttributeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EventEventAttribute)(nil)).Elem()
@@ -202,7 +202,7 @@ func (o EventEventAttributeArrayOutput) ToEventEventAttributeArrayOutputWithCont
 }
 
 func (o EventEventAttributeArrayOutput) Index(i pulumi.IntInput) EventEventAttributeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EventEventAttribute {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventEventAttribute {
 		return vs[0].([]EventEventAttribute)[vs[1].(int)]
 	}).(EventEventAttributeOutput)
 }

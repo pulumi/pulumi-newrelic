@@ -104,4 +104,3 @@ type AlertPolicyChannelArgs struct {
 func (AlertPolicyChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyChannelArgs)(nil)).Elem()
 }
-

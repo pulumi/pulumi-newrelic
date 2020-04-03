@@ -19,11 +19,11 @@ func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ..
 
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyArgs struct {
+	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
 	Name string `pulumi:"name"`
 }
-
 
 // A collection of values returned by getAlertPolicy.
 type LookupAlertPolicyResult struct {
@@ -33,8 +33,7 @@ type LookupAlertPolicyResult struct {
 	Id string `pulumi:"id"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`
-	Name string `pulumi:"name"`
+	Name               string  `pulumi:"name"`
 	// The time the policy was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
 }
-

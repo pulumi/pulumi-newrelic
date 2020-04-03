@@ -18,7 +18,20 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSecureCredential.InvokeAsync() instead")]
         public static Task<GetSecureCredentialResult> GetSecureCredential(GetSecureCredentialArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSecureCredential
+    {
+        /// <summary>
+        /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
+        /// 
+        /// Note that the secure credential's value is not returned as an attribute for security reasons.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
+        /// </summary>
+        public static Task<GetSecureCredentialResult> InvokeAsync(GetSecureCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

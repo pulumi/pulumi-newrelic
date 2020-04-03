@@ -28,7 +28,6 @@ type LookupSecureCredentialArgs struct {
 	Key string `pulumi:"key"`
 }
 
-
 // A collection of values returned by getSecureCredential.
 type LookupSecureCredentialResult struct {
 	// The time the secure credential was created.
@@ -36,9 +35,8 @@ type LookupSecureCredentialResult struct {
 	// The secure credential's description.
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 	// The time the secure credential was last updated.
 	LastUpdated string `pulumi:"lastUpdated"`
 }
-

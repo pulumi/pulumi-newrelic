@@ -210,4 +210,3 @@ type AlertConditionArgs struct {
 func (AlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertConditionArgs)(nil)).Elem()
 }
-

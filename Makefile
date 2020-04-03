@@ -23,21 +23,21 @@ endif
 TESTPARALLELISM := 4
 
 tfgen::
-	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
 
 generate_schema:: tfgen
-	$(TFGEN) schema --out ./cmd/${PROVIDER}
+	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
-	go generate ${PROJECT}/cmd/${PROVIDER}
-	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	go generate ${PROJECT}/provider/cmd/${PROVIDER}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${PROVIDER}
 
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
 build:: provider install_plugins
-	for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
-		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
+	cd provider && for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
+		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ../${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
@@ -62,7 +62,6 @@ install_plugins::
 	pulumi plugin install resource terraform-template 0.15.0
 
 install:: provider
-	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r ${PACKDIR}/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
@@ -76,9 +75,11 @@ install:: provider
 	[ ! -e "$(PULUMI_NUGET)" ] || rm -rf "$(PULUMI_NUGET)/*"
 	find . -name '*.nupkg' -exec cp -p {} ${PULUMI_NUGET} \;
 
+
+test_fast::
+	cd examples && $(GO_TEST_FAST) .
 test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./tests/...
+	cd examples && $(GO_TEST) .
 
 .PHONY: publish_tgz
 publish_tgz:

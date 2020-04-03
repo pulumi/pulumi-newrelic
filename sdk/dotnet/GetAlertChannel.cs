@@ -11,7 +11,13 @@ namespace Pulumi.NewRelic
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetAlertChannel.InvokeAsync() instead")]
         public static Task<GetAlertChannelResult> GetAlertChannel(GetAlertChannelArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAlertChannel
+    {
+        public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

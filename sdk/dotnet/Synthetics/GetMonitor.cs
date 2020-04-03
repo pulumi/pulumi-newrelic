@@ -16,7 +16,18 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
         /// </summary>
+        [Obsolete("Use GetMonitor.InvokeAsync() instead")]
         public static Task<GetMonitorResult> GetMonitor(GetMonitorArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetMonitor
+    {
+        /// <summary>
+        /// Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
+        /// </summary>
+        public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

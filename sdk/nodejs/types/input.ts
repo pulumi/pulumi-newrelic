@@ -5,25 +5,90 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 
 export interface AlertChannelConfig {
+    /**
+     * The API key for integrating with OpsGenie.
+     */
     apiKey?: pulumi.Input<string>;
+    /**
+     * Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
+     */
     authPassword?: pulumi.Input<string>;
+    /**
+     * Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
+     */
     authType?: pulumi.Input<string>;
+    /**
+     * Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
+     */
     authUsername?: pulumi.Input<string>;
+    /**
+     * The base URL of the webhook destination.
+     */
     baseUrl?: pulumi.Input<string>;
+    /**
+     * The Slack channel to send notifications to.
+     * * `opsgenie`
+     */
     channel?: pulumi.Input<string>;
+    /**
+     * A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
+     */
     headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
+     */
     headersString?: pulumi.Input<string>;
+    /**
+     * `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+     * * `webhook`
+     */
     includeJsonAttachment?: pulumi.Input<string>;
+    /**
+     * The key for integrating with VictorOps.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
+     */
     payload?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
+     */
     payloadString?: pulumi.Input<string>;
+    /**
+     * Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+     * * `pagerduty`
+     */
     payloadType?: pulumi.Input<string>;
+    /**
+     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     */
     recipients?: pulumi.Input<string>;
+    /**
+     * The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
+     */
     region?: pulumi.Input<string>;
+    /**
+     * The route key for integrating with VictorOps.
+     * * `slack`
+     */
     routeKey?: pulumi.Input<string>;
+    /**
+     * Specifies the service key for integrating with Pagerduty.
+     * * `victorops`
+     */
     serviceKey?: pulumi.Input<string>;
+    /**
+     * A set of tags for targeting notifications. Multiple values are comma separated.
+     */
     tags?: pulumi.Input<string>;
+    /**
+     * A set of teams for targeting notifications. Multiple values are comma separated.
+     */
     teams?: pulumi.Input<string>;
+    /**
+     * Your organization's Slack URL.
+     */
     url?: pulumi.Input<string>;
     userId?: pulumi.Input<string>;
 }
