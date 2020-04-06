@@ -18,7 +18,6 @@ import (
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/index.html.markdown.
 type Provider struct {
 	pulumi.ProviderResourceState
-
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -75,41 +74,40 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey *string `pulumi:"apiKey"`
-	ApiUrl *string `pulumi:"apiUrl"`
-	CacertFile *string `pulumi:"cacertFile"`
-	InfraApiUrl *string `pulumi:"infraApiUrl"`
+	ApiKey               *string `pulumi:"apiKey"`
+	ApiUrl               *string `pulumi:"apiUrl"`
+	CacertFile           *string `pulumi:"cacertFile"`
+	InfraApiUrl          *string `pulumi:"infraApiUrl"`
 	InfrastructureApiUrl *string `pulumi:"infrastructureApiUrl"`
-	InsecureSkipVerify *bool `pulumi:"insecureSkipVerify"`
-	InsightsAccountId *string `pulumi:"insightsAccountId"`
-	InsightsInsertKey *string `pulumi:"insightsInsertKey"`
-	InsightsInsertUrl *string `pulumi:"insightsInsertUrl"`
-	InsightsQueryKey *string `pulumi:"insightsQueryKey"`
-	InsightsQueryUrl *string `pulumi:"insightsQueryUrl"`
-	NerdgraphApiUrl *string `pulumi:"nerdgraphApiUrl"`
-	PersonalApiKey *string `pulumi:"personalApiKey"`
-	SyntheticsApiUrl *string `pulumi:"syntheticsApiUrl"`
+	InsecureSkipVerify   *bool   `pulumi:"insecureSkipVerify"`
+	InsightsAccountId    *string `pulumi:"insightsAccountId"`
+	InsightsInsertKey    *string `pulumi:"insightsInsertKey"`
+	InsightsInsertUrl    *string `pulumi:"insightsInsertUrl"`
+	InsightsQueryKey     *string `pulumi:"insightsQueryKey"`
+	InsightsQueryUrl     *string `pulumi:"insightsQueryUrl"`
+	NerdgraphApiUrl      *string `pulumi:"nerdgraphApiUrl"`
+	PersonalApiKey       *string `pulumi:"personalApiKey"`
+	SyntheticsApiUrl     *string `pulumi:"syntheticsApiUrl"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey pulumi.StringPtrInput
-	ApiUrl pulumi.StringPtrInput
-	CacertFile pulumi.StringPtrInput
-	InfraApiUrl pulumi.StringPtrInput
+	ApiKey               pulumi.StringPtrInput
+	ApiUrl               pulumi.StringPtrInput
+	CacertFile           pulumi.StringPtrInput
+	InfraApiUrl          pulumi.StringPtrInput
 	InfrastructureApiUrl pulumi.StringPtrInput
-	InsecureSkipVerify pulumi.BoolPtrInput
-	InsightsAccountId pulumi.StringPtrInput
-	InsightsInsertKey pulumi.StringPtrInput
-	InsightsInsertUrl pulumi.StringPtrInput
-	InsightsQueryKey pulumi.StringPtrInput
-	InsightsQueryUrl pulumi.StringPtrInput
-	NerdgraphApiUrl pulumi.StringPtrInput
-	PersonalApiKey pulumi.StringPtrInput
-	SyntheticsApiUrl pulumi.StringPtrInput
+	InsecureSkipVerify   pulumi.BoolPtrInput
+	InsightsAccountId    pulumi.StringPtrInput
+	InsightsInsertKey    pulumi.StringPtrInput
+	InsightsInsertUrl    pulumi.StringPtrInput
+	InsightsQueryKey     pulumi.StringPtrInput
+	InsightsQueryUrl     pulumi.StringPtrInput
+	NerdgraphApiUrl      pulumi.StringPtrInput
+	PersonalApiKey       pulumi.StringPtrInput
+	SyntheticsApiUrl     pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
 }
-

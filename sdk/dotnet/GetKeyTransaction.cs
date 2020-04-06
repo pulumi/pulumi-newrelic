@@ -11,7 +11,13 @@ namespace Pulumi.NewRelic
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetKeyTransaction.InvokeAsync() instead")]
         public static Task<GetKeyTransactionResult> GetKeyTransaction(GetKeyTransactionArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetKeyTransaction
+    {
+        public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

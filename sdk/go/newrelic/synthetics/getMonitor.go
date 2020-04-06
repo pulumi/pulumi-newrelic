@@ -26,13 +26,11 @@ type LookupMonitorArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getMonitor.
 type LookupMonitorResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the synthetics monitor.
 	MonitorId string `pulumi:"monitorId"`
-	Name string `pulumi:"name"`
+	Name      string `pulumi:"name"`
 }
-

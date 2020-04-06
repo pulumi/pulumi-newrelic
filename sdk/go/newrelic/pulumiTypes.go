@@ -12,26 +12,51 @@ import (
 )
 
 type AlertChannelConfig struct {
+	// The API key for integrating with OpsGenie.
 	ApiKey *string `pulumi:"apiKey"`
+	// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
 	AuthPassword *string `pulumi:"authPassword"`
+	// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
 	AuthType *string `pulumi:"authType"`
+	// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
 	AuthUsername *string `pulumi:"authUsername"`
+	// The base URL of the webhook destination.
 	BaseUrl *string `pulumi:"baseUrl"`
+	// The Slack channel to send notifications to.
+	// * `opsgenie`
 	Channel *string `pulumi:"channel"`
+	// A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 	Headers map[string]string `pulumi:"headers"`
+	// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 	HeadersString *string `pulumi:"headersString"`
+	// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+	// * `webhook`
 	IncludeJsonAttachment *string `pulumi:"includeJsonAttachment"`
+	// The key for integrating with VictorOps.
 	Key *string `pulumi:"key"`
+	// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
 	Payload map[string]string `pulumi:"payload"`
+	// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
 	PayloadString *string `pulumi:"payloadString"`
+	// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+	// * `pagerduty`
 	PayloadType *string `pulumi:"payloadType"`
+	// A set of recipients for targeting notifications.  Multiple values are comma separated.
 	Recipients *string `pulumi:"recipients"`
+	// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 	Region *string `pulumi:"region"`
+	// The route key for integrating with VictorOps.
+	// * `slack`
 	RouteKey *string `pulumi:"routeKey"`
+	// Specifies the service key for integrating with Pagerduty.
+	// * `victorops`
 	ServiceKey *string `pulumi:"serviceKey"`
+	// A set of tags for targeting notifications. Multiple values are comma separated.
 	Tags *string `pulumi:"tags"`
+	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams *string `pulumi:"teams"`
-	Url *string `pulumi:"url"`
+	// Your organization's Slack URL.
+	Url    *string `pulumi:"url"`
 	UserId *string `pulumi:"userId"`
 }
 
@@ -43,26 +68,51 @@ type AlertChannelConfigInput interface {
 }
 
 type AlertChannelConfigArgs struct {
+	// The API key for integrating with OpsGenie.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
 	AuthPassword pulumi.StringPtrInput `pulumi:"authPassword"`
+	// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
 	AuthUsername pulumi.StringPtrInput `pulumi:"authUsername"`
+	// The base URL of the webhook destination.
 	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
+	// The Slack channel to send notifications to.
+	// * `opsgenie`
 	Channel pulumi.StringPtrInput `pulumi:"channel"`
+	// A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 	Headers pulumi.StringMapInput `pulumi:"headers"`
+	// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 	HeadersString pulumi.StringPtrInput `pulumi:"headersString"`
+	// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+	// * `webhook`
 	IncludeJsonAttachment pulumi.StringPtrInput `pulumi:"includeJsonAttachment"`
+	// The key for integrating with VictorOps.
 	Key pulumi.StringPtrInput `pulumi:"key"`
+	// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
 	Payload pulumi.StringMapInput `pulumi:"payload"`
+	// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
 	PayloadString pulumi.StringPtrInput `pulumi:"payloadString"`
+	// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+	// * `pagerduty`
 	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
+	// A set of recipients for targeting notifications.  Multiple values are comma separated.
 	Recipients pulumi.StringPtrInput `pulumi:"recipients"`
+	// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The route key for integrating with VictorOps.
+	// * `slack`
 	RouteKey pulumi.StringPtrInput `pulumi:"routeKey"`
+	// Specifies the service key for integrating with Pagerduty.
+	// * `victorops`
 	ServiceKey pulumi.StringPtrInput `pulumi:"serviceKey"`
+	// A set of tags for targeting notifications. Multiple values are comma separated.
 	Tags pulumi.StringPtrInput `pulumi:"tags"`
+	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams pulumi.StringPtrInput `pulumi:"teams"`
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	// Your organization's Slack URL.
+	Url    pulumi.StringPtrInput `pulumi:"url"`
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
@@ -95,7 +145,8 @@ type AlertChannelConfigPtrInput interface {
 
 type alertChannelConfigPtrType AlertChannelConfigArgs
 
-func AlertChannelConfigPtr(v *AlertChannelConfigArgs) AlertChannelConfigPtrInput {	return (*alertChannelConfigPtrType)(v)
+func AlertChannelConfigPtr(v *AlertChannelConfigArgs) AlertChannelConfigPtrInput {
+	return (*alertChannelConfigPtrType)(v)
 }
 
 func (*alertChannelConfigPtrType) ElementType() reflect.Type {
@@ -110,7 +161,7 @@ func (i *alertChannelConfigPtrType) ToAlertChannelConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelConfigPtrOutput)
 }
 
-type AlertChannelConfigOutput struct { *pulumi.OutputState }
+type AlertChannelConfigOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertChannelConfig)(nil)).Elem()
@@ -133,91 +184,117 @@ func (o AlertChannelConfigOutput) ToAlertChannelConfigPtrOutputWithContext(ctx c
 		return &v
 	}).(AlertChannelConfigPtrOutput)
 }
+
+// The API key for integrating with OpsGenie.
 func (o AlertChannelConfigOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
 func (o AlertChannelConfigOutput) AuthPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
 func (o AlertChannelConfigOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
 func (o AlertChannelConfigOutput) AuthUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
 }
 
+// The base URL of the webhook destination.
 func (o AlertChannelConfigOutput) BaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
 }
 
+// The Slack channel to send notifications to.
+// * `opsgenie`
 func (o AlertChannelConfigOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
 }
 
+// A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 func (o AlertChannelConfigOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
+// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 func (o AlertChannelConfigOutput) HeadersString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
 }
 
+// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+// * `webhook`
 func (o AlertChannelConfigOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
 }
 
+// The key for integrating with VictorOps.
 func (o AlertChannelConfigOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
 func (o AlertChannelConfigOutput) Payload() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
 }
 
+// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
 func (o AlertChannelConfigOutput) PayloadString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
 }
 
+// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+// * `pagerduty`
 func (o AlertChannelConfigOutput) PayloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
 }
 
+// A set of recipients for targeting notifications.  Multiple values are comma separated.
 func (o AlertChannelConfigOutput) Recipients() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
 }
 
+// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 func (o AlertChannelConfigOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// The route key for integrating with VictorOps.
+// * `slack`
 func (o AlertChannelConfigOutput) RouteKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the service key for integrating with Pagerduty.
+// * `victorops`
 func (o AlertChannelConfigOutput) ServiceKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
 }
 
+// A set of tags for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigOutput) Tags() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
 }
 
+// A set of teams for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigOutput) Teams() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
+// Your organization's Slack URL.
 func (o AlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertChannelConfigOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
-type AlertChannelConfigPtrOutput struct { *pulumi.OutputState}
+type AlertChannelConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertChannelConfig)(nil)).Elem()
@@ -232,99 +309,124 @@ func (o AlertChannelConfigPtrOutput) ToAlertChannelConfigPtrOutputWithContext(ct
 }
 
 func (o AlertChannelConfigPtrOutput) Elem() AlertChannelConfigOutput {
-	return o.ApplyT(func (v *AlertChannelConfig) AlertChannelConfig { return *v }).(AlertChannelConfigOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) AlertChannelConfig { return *v }).(AlertChannelConfigOutput)
 }
 
+// The API key for integrating with OpsGenie.
 func (o AlertChannelConfigPtrOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
 func (o AlertChannelConfigPtrOutput) AuthPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
 func (o AlertChannelConfigPtrOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
 func (o AlertChannelConfigPtrOutput) AuthUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
 }
 
+// The base URL of the webhook destination.
 func (o AlertChannelConfigPtrOutput) BaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
 }
 
+// The Slack channel to send notifications to.
+// * `opsgenie`
 func (o AlertChannelConfigPtrOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
 }
 
+// A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 func (o AlertChannelConfigPtrOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
+// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 func (o AlertChannelConfigPtrOutput) HeadersString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
 }
 
+// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+// * `webhook`
 func (o AlertChannelConfigPtrOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
 }
 
+// The key for integrating with VictorOps.
 func (o AlertChannelConfigPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
 func (o AlertChannelConfigPtrOutput) Payload() pulumi.StringMapOutput {
-	return o.ApplyT(func (v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
 }
 
+// Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
 func (o AlertChannelConfigPtrOutput) PayloadString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
 }
 
+// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
+// * `pagerduty`
 func (o AlertChannelConfigPtrOutput) PayloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
 }
 
+// A set of recipients for targeting notifications.  Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Recipients() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
 }
 
+// The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 func (o AlertChannelConfigPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
+// The route key for integrating with VictorOps.
+// * `slack`
 func (o AlertChannelConfigPtrOutput) RouteKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the service key for integrating with Pagerduty.
+// * `victorops`
 func (o AlertChannelConfigPtrOutput) ServiceKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
 }
 
+// A set of tags for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Tags() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
 }
 
+// A set of teams for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Teams() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
+// Your organization's Slack URL.
 func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertChannelConfigPtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 type AlertConditionTerm struct {
-	Duration int `pulumi:"duration"`
-	Operator *string `pulumi:"operator"`
-	Priority *string `pulumi:"priority"`
-	Threshold float64 `pulumi:"threshold"`
-	TimeFunction string `pulumi:"timeFunction"`
+	Duration     int     `pulumi:"duration"`
+	Operator     *string `pulumi:"operator"`
+	Priority     *string `pulumi:"priority"`
+	Threshold    float64 `pulumi:"threshold"`
+	TimeFunction string  `pulumi:"timeFunction"`
 }
 
 type AlertConditionTermInput interface {
@@ -335,11 +437,11 @@ type AlertConditionTermInput interface {
 }
 
 type AlertConditionTermArgs struct {
-	Duration pulumi.IntInput `pulumi:"duration"`
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	TimeFunction pulumi.StringInput `pulumi:"timeFunction"`
+	Duration     pulumi.IntInput       `pulumi:"duration"`
+	Operator     pulumi.StringPtrInput `pulumi:"operator"`
+	Priority     pulumi.StringPtrInput `pulumi:"priority"`
+	Threshold    pulumi.Float64Input   `pulumi:"threshold"`
+	TimeFunction pulumi.StringInput    `pulumi:"timeFunction"`
 }
 
 func (AlertConditionTermArgs) ElementType() reflect.Type {
@@ -375,7 +477,7 @@ func (i AlertConditionTermArray) ToAlertConditionTermArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionTermArrayOutput)
 }
 
-type AlertConditionTermOutput struct { *pulumi.OutputState }
+type AlertConditionTermOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionTermOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertConditionTerm)(nil)).Elem()
@@ -390,26 +492,26 @@ func (o AlertConditionTermOutput) ToAlertConditionTermOutputWithContext(ctx cont
 }
 
 func (o AlertConditionTermOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v AlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o AlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertConditionTermOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func (v AlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
+	return o.ApplyT(func(v AlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
 func (o AlertConditionTermOutput) TimeFunction() pulumi.StringOutput {
-	return o.ApplyT(func (v AlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
 }
 
-type AlertConditionTermArrayOutput struct { *pulumi.OutputState}
+type AlertConditionTermArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionTermArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AlertConditionTerm)(nil)).Elem()
@@ -424,7 +526,7 @@ func (o AlertConditionTermArrayOutput) ToAlertConditionTermArrayOutputWithContex
 }
 
 func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTermOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AlertConditionTerm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertConditionTerm {
 		return vs[0].([]AlertConditionTerm)[vs[1].(int)]
 	}).(AlertConditionTermOutput)
 }
@@ -475,7 +577,8 @@ type DashboardFilterPtrInput interface {
 
 type dashboardFilterPtrType DashboardFilterArgs
 
-func DashboardFilterPtr(v *DashboardFilterArgs) DashboardFilterPtrInput {	return (*dashboardFilterPtrType)(v)
+func DashboardFilterPtr(v *DashboardFilterArgs) DashboardFilterPtrInput {
+	return (*dashboardFilterPtrType)(v)
 }
 
 func (*dashboardFilterPtrType) ElementType() reflect.Type {
@@ -490,7 +593,7 @@ func (i *dashboardFilterPtrType) ToDashboardFilterPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardFilterPtrOutput)
 }
 
-type DashboardFilterOutput struct { *pulumi.OutputState }
+type DashboardFilterOutput struct{ *pulumi.OutputState }
 
 func (DashboardFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DashboardFilter)(nil)).Elem()
@@ -514,14 +617,14 @@ func (o DashboardFilterOutput) ToDashboardFilterPtrOutputWithContext(ctx context
 	}).(DashboardFilterPtrOutput)
 }
 func (o DashboardFilterOutput) Attributes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
 func (o DashboardFilterOutput) EventTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
 
-type DashboardFilterPtrOutput struct { *pulumi.OutputState}
+type DashboardFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (DashboardFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DashboardFilter)(nil)).Elem()
@@ -536,41 +639,41 @@ func (o DashboardFilterPtrOutput) ToDashboardFilterPtrOutputWithContext(ctx cont
 }
 
 func (o DashboardFilterPtrOutput) Elem() DashboardFilterOutput {
-	return o.ApplyT(func (v *DashboardFilter) DashboardFilter { return *v }).(DashboardFilterOutput)
+	return o.ApplyT(func(v *DashboardFilter) DashboardFilter { return *v }).(DashboardFilterOutput)
 }
 
 func (o DashboardFilterPtrOutput) Attributes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
 func (o DashboardFilterPtrOutput) EventTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
 
 type DashboardWidget struct {
-	Column int `pulumi:"column"`
-	CompareWiths []DashboardWidgetCompareWith `pulumi:"compareWiths"`
-	DrilldownDashboardId *int `pulumi:"drilldownDashboardId"`
-	Duration *int `pulumi:"duration"`
-	EndTime *int `pulumi:"endTime"`
-	EntityIds []int `pulumi:"entityIds"`
-	Facet *string `pulumi:"facet"`
-	Height *int `pulumi:"height"`
-	Limit *int `pulumi:"limit"`
-	Metrics []DashboardWidgetMetric `pulumi:"metrics"`
-	Notes *string `pulumi:"notes"`
-	Nrql *string `pulumi:"nrql"`
-	OrderBy *string `pulumi:"orderBy"`
-	RawMetricName *string `pulumi:"rawMetricName"`
-	Row int `pulumi:"row"`
-	Source *string `pulumi:"source"`
-	ThresholdRed *float64 `pulumi:"thresholdRed"`
-	ThresholdYellow *float64 `pulumi:"thresholdYellow"`
+	Column               int                          `pulumi:"column"`
+	CompareWiths         []DashboardWidgetCompareWith `pulumi:"compareWiths"`
+	DrilldownDashboardId *int                         `pulumi:"drilldownDashboardId"`
+	Duration             *int                         `pulumi:"duration"`
+	EndTime              *int                         `pulumi:"endTime"`
+	EntityIds            []int                        `pulumi:"entityIds"`
+	Facet                *string                      `pulumi:"facet"`
+	Height               *int                         `pulumi:"height"`
+	Limit                *int                         `pulumi:"limit"`
+	Metrics              []DashboardWidgetMetric      `pulumi:"metrics"`
+	Notes                *string                      `pulumi:"notes"`
+	Nrql                 *string                      `pulumi:"nrql"`
+	OrderBy              *string                      `pulumi:"orderBy"`
+	RawMetricName        *string                      `pulumi:"rawMetricName"`
+	Row                  int                          `pulumi:"row"`
+	Source               *string                      `pulumi:"source"`
+	ThresholdRed         *float64                     `pulumi:"thresholdRed"`
+	ThresholdYellow      *float64                     `pulumi:"thresholdYellow"`
 	// The title of the dashboard.
-	Title string `pulumi:"title"`
+	Title         string `pulumi:"title"`
 	Visualization string `pulumi:"visualization"`
-	WidgetId *int `pulumi:"widgetId"`
-	Width *int `pulumi:"width"`
+	WidgetId      *int   `pulumi:"widgetId"`
+	Width         *int   `pulumi:"width"`
 }
 
 type DashboardWidgetInput interface {
@@ -581,29 +684,29 @@ type DashboardWidgetInput interface {
 }
 
 type DashboardWidgetArgs struct {
-	Column pulumi.IntInput `pulumi:"column"`
-	CompareWiths DashboardWidgetCompareWithArrayInput `pulumi:"compareWiths"`
-	DrilldownDashboardId pulumi.IntPtrInput `pulumi:"drilldownDashboardId"`
-	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
-	EntityIds pulumi.IntArrayInput `pulumi:"entityIds"`
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	Height pulumi.IntPtrInput `pulumi:"height"`
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	Metrics DashboardWidgetMetricArrayInput `pulumi:"metrics"`
-	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	Nrql pulumi.StringPtrInput `pulumi:"nrql"`
-	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
-	RawMetricName pulumi.StringPtrInput `pulumi:"rawMetricName"`
-	Row pulumi.IntInput `pulumi:"row"`
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	ThresholdRed pulumi.Float64PtrInput `pulumi:"thresholdRed"`
-	ThresholdYellow pulumi.Float64PtrInput `pulumi:"thresholdYellow"`
+	Column               pulumi.IntInput                      `pulumi:"column"`
+	CompareWiths         DashboardWidgetCompareWithArrayInput `pulumi:"compareWiths"`
+	DrilldownDashboardId pulumi.IntPtrInput                   `pulumi:"drilldownDashboardId"`
+	Duration             pulumi.IntPtrInput                   `pulumi:"duration"`
+	EndTime              pulumi.IntPtrInput                   `pulumi:"endTime"`
+	EntityIds            pulumi.IntArrayInput                 `pulumi:"entityIds"`
+	Facet                pulumi.StringPtrInput                `pulumi:"facet"`
+	Height               pulumi.IntPtrInput                   `pulumi:"height"`
+	Limit                pulumi.IntPtrInput                   `pulumi:"limit"`
+	Metrics              DashboardWidgetMetricArrayInput      `pulumi:"metrics"`
+	Notes                pulumi.StringPtrInput                `pulumi:"notes"`
+	Nrql                 pulumi.StringPtrInput                `pulumi:"nrql"`
+	OrderBy              pulumi.StringPtrInput                `pulumi:"orderBy"`
+	RawMetricName        pulumi.StringPtrInput                `pulumi:"rawMetricName"`
+	Row                  pulumi.IntInput                      `pulumi:"row"`
+	Source               pulumi.StringPtrInput                `pulumi:"source"`
+	ThresholdRed         pulumi.Float64PtrInput               `pulumi:"thresholdRed"`
+	ThresholdYellow      pulumi.Float64PtrInput               `pulumi:"thresholdYellow"`
 	// The title of the dashboard.
-	Title pulumi.StringInput `pulumi:"title"`
+	Title         pulumi.StringInput `pulumi:"title"`
 	Visualization pulumi.StringInput `pulumi:"visualization"`
-	WidgetId pulumi.IntPtrInput `pulumi:"widgetId"`
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	WidgetId      pulumi.IntPtrInput `pulumi:"widgetId"`
+	Width         pulumi.IntPtrInput `pulumi:"width"`
 }
 
 func (DashboardWidgetArgs) ElementType() reflect.Type {
@@ -639,7 +742,7 @@ func (i DashboardWidgetArray) ToDashboardWidgetArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetArrayOutput)
 }
 
-type DashboardWidgetOutput struct { *pulumi.OutputState }
+type DashboardWidgetOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DashboardWidget)(nil)).Elem()
@@ -654,95 +757,95 @@ func (o DashboardWidgetOutput) ToDashboardWidgetOutputWithContext(ctx context.Co
 }
 
 func (o DashboardWidgetOutput) Column() pulumi.IntOutput {
-	return o.ApplyT(func (v DashboardWidget) int { return v.Column }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DashboardWidget) int { return v.Column }).(pulumi.IntOutput)
 }
 
 func (o DashboardWidgetOutput) CompareWiths() DashboardWidgetCompareWithArrayOutput {
-	return o.ApplyT(func (v DashboardWidget) []DashboardWidgetCompareWith { return v.CompareWiths }).(DashboardWidgetCompareWithArrayOutput)
+	return o.ApplyT(func(v DashboardWidget) []DashboardWidgetCompareWith { return v.CompareWiths }).(DashboardWidgetCompareWithArrayOutput)
 }
 
 func (o DashboardWidgetOutput) DrilldownDashboardId() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.DrilldownDashboardId }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.DrilldownDashboardId }).(pulumi.IntPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Duration() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.Duration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
 func (o DashboardWidgetOutput) EndTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.EndTime }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
 func (o DashboardWidgetOutput) EntityIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func (v DashboardWidget) []int { return v.EntityIds }).(pulumi.IntArrayOutput)
+	return o.ApplyT(func(v DashboardWidget) []int { return v.EntityIds }).(pulumi.IntArrayOutput)
 }
 
 func (o DashboardWidgetOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *string { return v.Facet }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Height() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.Height }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.Limit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Metrics() DashboardWidgetMetricArrayOutput {
-	return o.ApplyT(func (v DashboardWidget) []DashboardWidgetMetric { return v.Metrics }).(DashboardWidgetMetricArrayOutput)
+	return o.ApplyT(func(v DashboardWidget) []DashboardWidgetMetric { return v.Metrics }).(DashboardWidgetMetricArrayOutput)
 }
 
 func (o DashboardWidgetOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *string { return v.Notes }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Nrql() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *string { return v.Nrql }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *string { return v.Nrql }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetOutput) OrderBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetOutput) RawMetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *string { return v.RawMetricName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *string { return v.RawMetricName }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Row() pulumi.IntOutput {
-	return o.ApplyT(func (v DashboardWidget) int { return v.Row }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DashboardWidget) int { return v.Row }).(pulumi.IntOutput)
 }
 
 func (o DashboardWidgetOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *string { return v.Source }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetOutput) ThresholdRed() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *float64 { return v.ThresholdRed }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *float64 { return v.ThresholdRed }).(pulumi.Float64PtrOutput)
 }
 
 func (o DashboardWidgetOutput) ThresholdYellow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *float64 { return v.ThresholdYellow }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *float64 { return v.ThresholdYellow }).(pulumi.Float64PtrOutput)
 }
 
 // The title of the dashboard.
 func (o DashboardWidgetOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func (v DashboardWidget) string { return v.Title }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DashboardWidget) string { return v.Title }).(pulumi.StringOutput)
 }
 
 func (o DashboardWidgetOutput) Visualization() pulumi.StringOutput {
-	return o.ApplyT(func (v DashboardWidget) string { return v.Visualization }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DashboardWidget) string { return v.Visualization }).(pulumi.StringOutput)
 }
 
 func (o DashboardWidgetOutput) WidgetId() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.WidgetId }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.WidgetId }).(pulumi.IntPtrOutput)
 }
 
 func (o DashboardWidgetOutput) Width() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DashboardWidget) *int { return v.Width }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DashboardWidget) *int { return v.Width }).(pulumi.IntPtrOutput)
 }
 
-type DashboardWidgetArrayOutput struct { *pulumi.OutputState}
+type DashboardWidgetArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DashboardWidget)(nil)).Elem()
@@ -757,14 +860,14 @@ func (o DashboardWidgetArrayOutput) ToDashboardWidgetArrayOutputWithContext(ctx 
 }
 
 func (o DashboardWidgetArrayOutput) Index(i pulumi.IntInput) DashboardWidgetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DashboardWidget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidget {
 		return vs[0].([]DashboardWidget)[vs[1].(int)]
 	}).(DashboardWidgetOutput)
 }
 
 type DashboardWidgetCompareWith struct {
-	OffsetDuration string `pulumi:"offsetDuration"`
-	Presentation DashboardWidgetCompareWithPresentation `pulumi:"presentation"`
+	OffsetDuration string                                 `pulumi:"offsetDuration"`
+	Presentation   DashboardWidgetCompareWithPresentation `pulumi:"presentation"`
 }
 
 type DashboardWidgetCompareWithInput interface {
@@ -775,8 +878,8 @@ type DashboardWidgetCompareWithInput interface {
 }
 
 type DashboardWidgetCompareWithArgs struct {
-	OffsetDuration pulumi.StringInput `pulumi:"offsetDuration"`
-	Presentation DashboardWidgetCompareWithPresentationInput `pulumi:"presentation"`
+	OffsetDuration pulumi.StringInput                          `pulumi:"offsetDuration"`
+	Presentation   DashboardWidgetCompareWithPresentationInput `pulumi:"presentation"`
 }
 
 func (DashboardWidgetCompareWithArgs) ElementType() reflect.Type {
@@ -812,7 +915,7 @@ func (i DashboardWidgetCompareWithArray) ToDashboardWidgetCompareWithArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetCompareWithArrayOutput)
 }
 
-type DashboardWidgetCompareWithOutput struct { *pulumi.OutputState }
+type DashboardWidgetCompareWithOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetCompareWithOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DashboardWidgetCompareWith)(nil)).Elem()
@@ -827,14 +930,14 @@ func (o DashboardWidgetCompareWithOutput) ToDashboardWidgetCompareWithOutputWith
 }
 
 func (o DashboardWidgetCompareWithOutput) OffsetDuration() pulumi.StringOutput {
-	return o.ApplyT(func (v DashboardWidgetCompareWith) string { return v.OffsetDuration }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DashboardWidgetCompareWith) string { return v.OffsetDuration }).(pulumi.StringOutput)
 }
 
 func (o DashboardWidgetCompareWithOutput) Presentation() DashboardWidgetCompareWithPresentationOutput {
-	return o.ApplyT(func (v DashboardWidgetCompareWith) DashboardWidgetCompareWithPresentation { return v.Presentation }).(DashboardWidgetCompareWithPresentationOutput)
+	return o.ApplyT(func(v DashboardWidgetCompareWith) DashboardWidgetCompareWithPresentation { return v.Presentation }).(DashboardWidgetCompareWithPresentationOutput)
 }
 
-type DashboardWidgetCompareWithArrayOutput struct { *pulumi.OutputState}
+type DashboardWidgetCompareWithArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetCompareWithArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DashboardWidgetCompareWith)(nil)).Elem()
@@ -849,14 +952,14 @@ func (o DashboardWidgetCompareWithArrayOutput) ToDashboardWidgetCompareWithArray
 }
 
 func (o DashboardWidgetCompareWithArrayOutput) Index(i pulumi.IntInput) DashboardWidgetCompareWithOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DashboardWidgetCompareWith {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetCompareWith {
 		return vs[0].([]DashboardWidgetCompareWith)[vs[1].(int)]
 	}).(DashboardWidgetCompareWithOutput)
 }
 
 type DashboardWidgetCompareWithPresentation struct {
 	Color string `pulumi:"color"`
-	Name string `pulumi:"name"`
+	Name  string `pulumi:"name"`
 }
 
 type DashboardWidgetCompareWithPresentationInput interface {
@@ -868,7 +971,7 @@ type DashboardWidgetCompareWithPresentationInput interface {
 
 type DashboardWidgetCompareWithPresentationArgs struct {
 	Color pulumi.StringInput `pulumi:"color"`
-	Name pulumi.StringInput `pulumi:"name"`
+	Name  pulumi.StringInput `pulumi:"name"`
 }
 
 func (DashboardWidgetCompareWithPresentationArgs) ElementType() reflect.Type {
@@ -883,7 +986,7 @@ func (i DashboardWidgetCompareWithPresentationArgs) ToDashboardWidgetCompareWith
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetCompareWithPresentationOutput)
 }
 
-type DashboardWidgetCompareWithPresentationOutput struct { *pulumi.OutputState }
+type DashboardWidgetCompareWithPresentationOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetCompareWithPresentationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DashboardWidgetCompareWithPresentation)(nil)).Elem()
@@ -898,17 +1001,17 @@ func (o DashboardWidgetCompareWithPresentationOutput) ToDashboardWidgetCompareWi
 }
 
 func (o DashboardWidgetCompareWithPresentationOutput) Color() pulumi.StringOutput {
-	return o.ApplyT(func (v DashboardWidgetCompareWithPresentation) string { return v.Color }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DashboardWidgetCompareWithPresentation) string { return v.Color }).(pulumi.StringOutput)
 }
 
 func (o DashboardWidgetCompareWithPresentationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DashboardWidgetCompareWithPresentation) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DashboardWidgetCompareWithPresentation) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type DashboardWidgetMetric struct {
-	Name string `pulumi:"name"`
-	Scope *string `pulumi:"scope"`
-	Units *string `pulumi:"units"`
+	Name   string   `pulumi:"name"`
+	Scope  *string  `pulumi:"scope"`
+	Units  *string  `pulumi:"units"`
 	Values []string `pulumi:"values"`
 }
 
@@ -920,9 +1023,9 @@ type DashboardWidgetMetricInput interface {
 }
 
 type DashboardWidgetMetricArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	Units pulumi.StringPtrInput `pulumi:"units"`
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Scope  pulumi.StringPtrInput   `pulumi:"scope"`
+	Units  pulumi.StringPtrInput   `pulumi:"units"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -959,7 +1062,7 @@ func (i DashboardWidgetMetricArray) ToDashboardWidgetMetricArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetMetricArrayOutput)
 }
 
-type DashboardWidgetMetricOutput struct { *pulumi.OutputState }
+type DashboardWidgetMetricOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DashboardWidgetMetric)(nil)).Elem()
@@ -974,22 +1077,22 @@ func (o DashboardWidgetMetricOutput) ToDashboardWidgetMetricOutputWithContext(ct
 }
 
 func (o DashboardWidgetMetricOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DashboardWidgetMetric) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DashboardWidgetMetric) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o DashboardWidgetMetricOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidgetMetric) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidgetMetric) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetMetricOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DashboardWidgetMetric) *string { return v.Units }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DashboardWidgetMetric) *string { return v.Units }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardWidgetMetricOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DashboardWidgetMetric) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DashboardWidgetMetric) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type DashboardWidgetMetricArrayOutput struct { *pulumi.OutputState}
+type DashboardWidgetMetricArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardWidgetMetricArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DashboardWidgetMetric)(nil)).Elem()
@@ -1004,15 +1107,15 @@ func (o DashboardWidgetMetricArrayOutput) ToDashboardWidgetMetricArrayOutputWith
 }
 
 func (o DashboardWidgetMetricArrayOutput) Index(i pulumi.IntInput) DashboardWidgetMetricOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DashboardWidgetMetric {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetMetric {
 		return vs[0].([]DashboardWidgetMetric)[vs[1].(int)]
 	}).(DashboardWidgetMetricOutput)
 }
 
 type InfraAlertConditionCritical struct {
-	Duration int `pulumi:"duration"`
-	TimeFunction *string `pulumi:"timeFunction"`
-	Value *float64 `pulumi:"value"`
+	Duration     int      `pulumi:"duration"`
+	TimeFunction *string  `pulumi:"timeFunction"`
+	Value        *float64 `pulumi:"value"`
 }
 
 type InfraAlertConditionCriticalInput interface {
@@ -1023,9 +1126,9 @@ type InfraAlertConditionCriticalInput interface {
 }
 
 type InfraAlertConditionCriticalArgs struct {
-	Duration pulumi.IntInput `pulumi:"duration"`
-	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Duration     pulumi.IntInput        `pulumi:"duration"`
+	TimeFunction pulumi.StringPtrInput  `pulumi:"timeFunction"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (InfraAlertConditionCriticalArgs) ElementType() reflect.Type {
@@ -1057,7 +1160,8 @@ type InfraAlertConditionCriticalPtrInput interface {
 
 type infraAlertConditionCriticalPtrType InfraAlertConditionCriticalArgs
 
-func InfraAlertConditionCriticalPtr(v *InfraAlertConditionCriticalArgs) InfraAlertConditionCriticalPtrInput {	return (*infraAlertConditionCriticalPtrType)(v)
+func InfraAlertConditionCriticalPtr(v *InfraAlertConditionCriticalArgs) InfraAlertConditionCriticalPtrInput {
+	return (*infraAlertConditionCriticalPtrType)(v)
 }
 
 func (*infraAlertConditionCriticalPtrType) ElementType() reflect.Type {
@@ -1072,7 +1176,7 @@ func (i *infraAlertConditionCriticalPtrType) ToInfraAlertConditionCriticalPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionCriticalPtrOutput)
 }
 
-type InfraAlertConditionCriticalOutput struct { *pulumi.OutputState }
+type InfraAlertConditionCriticalOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionCriticalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InfraAlertConditionCritical)(nil)).Elem()
@@ -1096,18 +1200,18 @@ func (o InfraAlertConditionCriticalOutput) ToInfraAlertConditionCriticalPtrOutpu
 	}).(InfraAlertConditionCriticalPtrOutput)
 }
 func (o InfraAlertConditionCriticalOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v InfraAlertConditionCritical) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v InfraAlertConditionCritical) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o InfraAlertConditionCriticalOutput) TimeFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
 
 func (o InfraAlertConditionCriticalOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionCritical) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionCritical) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-type InfraAlertConditionCriticalPtrOutput struct { *pulumi.OutputState}
+type InfraAlertConditionCriticalPtrOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionCriticalPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InfraAlertConditionCritical)(nil)).Elem()
@@ -1122,25 +1226,25 @@ func (o InfraAlertConditionCriticalPtrOutput) ToInfraAlertConditionCriticalPtrOu
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Elem() InfraAlertConditionCriticalOutput {
-	return o.ApplyT(func (v *InfraAlertConditionCritical) InfraAlertConditionCritical { return *v }).(InfraAlertConditionCriticalOutput)
+	return o.ApplyT(func(v *InfraAlertConditionCritical) InfraAlertConditionCritical { return *v }).(InfraAlertConditionCriticalOutput)
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v InfraAlertConditionCritical) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v InfraAlertConditionCritical) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionCritical) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionCritical) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
 type InfraAlertConditionWarning struct {
-	Duration int `pulumi:"duration"`
-	TimeFunction *string `pulumi:"timeFunction"`
-	Value *float64 `pulumi:"value"`
+	Duration     int      `pulumi:"duration"`
+	TimeFunction *string  `pulumi:"timeFunction"`
+	Value        *float64 `pulumi:"value"`
 }
 
 type InfraAlertConditionWarningInput interface {
@@ -1151,9 +1255,9 @@ type InfraAlertConditionWarningInput interface {
 }
 
 type InfraAlertConditionWarningArgs struct {
-	Duration pulumi.IntInput `pulumi:"duration"`
-	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Duration     pulumi.IntInput        `pulumi:"duration"`
+	TimeFunction pulumi.StringPtrInput  `pulumi:"timeFunction"`
+	Value        pulumi.Float64PtrInput `pulumi:"value"`
 }
 
 func (InfraAlertConditionWarningArgs) ElementType() reflect.Type {
@@ -1185,7 +1289,8 @@ type InfraAlertConditionWarningPtrInput interface {
 
 type infraAlertConditionWarningPtrType InfraAlertConditionWarningArgs
 
-func InfraAlertConditionWarningPtr(v *InfraAlertConditionWarningArgs) InfraAlertConditionWarningPtrInput {	return (*infraAlertConditionWarningPtrType)(v)
+func InfraAlertConditionWarningPtr(v *InfraAlertConditionWarningArgs) InfraAlertConditionWarningPtrInput {
+	return (*infraAlertConditionWarningPtrType)(v)
 }
 
 func (*infraAlertConditionWarningPtrType) ElementType() reflect.Type {
@@ -1200,7 +1305,7 @@ func (i *infraAlertConditionWarningPtrType) ToInfraAlertConditionWarningPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionWarningPtrOutput)
 }
 
-type InfraAlertConditionWarningOutput struct { *pulumi.OutputState }
+type InfraAlertConditionWarningOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionWarningOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InfraAlertConditionWarning)(nil)).Elem()
@@ -1224,18 +1329,18 @@ func (o InfraAlertConditionWarningOutput) ToInfraAlertConditionWarningPtrOutputW
 	}).(InfraAlertConditionWarningPtrOutput)
 }
 func (o InfraAlertConditionWarningOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v InfraAlertConditionWarning) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v InfraAlertConditionWarning) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o InfraAlertConditionWarningOutput) TimeFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
 
 func (o InfraAlertConditionWarningOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionWarning) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionWarning) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-type InfraAlertConditionWarningPtrOutput struct { *pulumi.OutputState}
+type InfraAlertConditionWarningPtrOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionWarningPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InfraAlertConditionWarning)(nil)).Elem()
@@ -1250,23 +1355,23 @@ func (o InfraAlertConditionWarningPtrOutput) ToInfraAlertConditionWarningPtrOutp
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Elem() InfraAlertConditionWarningOutput {
-	return o.ApplyT(func (v *InfraAlertConditionWarning) InfraAlertConditionWarning { return *v }).(InfraAlertConditionWarningOutput)
+	return o.ApplyT(func(v *InfraAlertConditionWarning) InfraAlertConditionWarning { return *v }).(InfraAlertConditionWarningOutput)
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v InfraAlertConditionWarning) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v InfraAlertConditionWarning) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o InfraAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v InfraAlertConditionWarning) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v InfraAlertConditionWarning) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
 type NrqlAlertConditionNrql struct {
-	Query string `pulumi:"query"`
+	Query      string `pulumi:"query"`
 	SinceValue string `pulumi:"sinceValue"`
 }
 
@@ -1278,7 +1383,7 @@ type NrqlAlertConditionNrqlInput interface {
 }
 
 type NrqlAlertConditionNrqlArgs struct {
-	Query pulumi.StringInput `pulumi:"query"`
+	Query      pulumi.StringInput `pulumi:"query"`
 	SinceValue pulumi.StringInput `pulumi:"sinceValue"`
 }
 
@@ -1311,7 +1416,8 @@ type NrqlAlertConditionNrqlPtrInput interface {
 
 type nrqlAlertConditionNrqlPtrType NrqlAlertConditionNrqlArgs
 
-func NrqlAlertConditionNrqlPtr(v *NrqlAlertConditionNrqlArgs) NrqlAlertConditionNrqlPtrInput {	return (*nrqlAlertConditionNrqlPtrType)(v)
+func NrqlAlertConditionNrqlPtr(v *NrqlAlertConditionNrqlArgs) NrqlAlertConditionNrqlPtrInput {
+	return (*nrqlAlertConditionNrqlPtrType)(v)
 }
 
 func (*nrqlAlertConditionNrqlPtrType) ElementType() reflect.Type {
@@ -1326,7 +1432,7 @@ func (i *nrqlAlertConditionNrqlPtrType) ToNrqlAlertConditionNrqlPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionNrqlPtrOutput)
 }
 
-type NrqlAlertConditionNrqlOutput struct { *pulumi.OutputState }
+type NrqlAlertConditionNrqlOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionNrqlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NrqlAlertConditionNrql)(nil)).Elem()
@@ -1350,14 +1456,14 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
 func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
 }
 
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringOutput {
-	return o.ApplyT(func (v NrqlAlertConditionNrql) string { return v.SinceValue }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.SinceValue }).(pulumi.StringOutput)
 }
 
-type NrqlAlertConditionNrqlPtrOutput struct { *pulumi.OutputState}
+type NrqlAlertConditionNrqlPtrOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionNrqlPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NrqlAlertConditionNrql)(nil)).Elem()
@@ -1372,23 +1478,23 @@ func (o NrqlAlertConditionNrqlPtrOutput) ToNrqlAlertConditionNrqlPtrOutputWithCo
 }
 
 func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
-	return o.ApplyT(func (v *NrqlAlertConditionNrql) NrqlAlertConditionNrql { return *v }).(NrqlAlertConditionNrqlOutput)
+	return o.ApplyT(func(v *NrqlAlertConditionNrql) NrqlAlertConditionNrql { return *v }).(NrqlAlertConditionNrqlOutput)
 }
 
 func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
 }
 
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringOutput {
-	return o.ApplyT(func (v NrqlAlertConditionNrql) string { return v.SinceValue }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.SinceValue }).(pulumi.StringOutput)
 }
 
 type NrqlAlertConditionTerm struct {
-	Duration int `pulumi:"duration"`
-	Operator *string `pulumi:"operator"`
-	Priority *string `pulumi:"priority"`
-	Threshold float64 `pulumi:"threshold"`
-	TimeFunction string `pulumi:"timeFunction"`
+	Duration     int     `pulumi:"duration"`
+	Operator     *string `pulumi:"operator"`
+	Priority     *string `pulumi:"priority"`
+	Threshold    float64 `pulumi:"threshold"`
+	TimeFunction string  `pulumi:"timeFunction"`
 }
 
 type NrqlAlertConditionTermInput interface {
@@ -1399,11 +1505,11 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
-	Duration pulumi.IntInput `pulumi:"duration"`
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	TimeFunction pulumi.StringInput `pulumi:"timeFunction"`
+	Duration     pulumi.IntInput       `pulumi:"duration"`
+	Operator     pulumi.StringPtrInput `pulumi:"operator"`
+	Priority     pulumi.StringPtrInput `pulumi:"priority"`
+	Threshold    pulumi.Float64Input   `pulumi:"threshold"`
+	TimeFunction pulumi.StringInput    `pulumi:"timeFunction"`
 }
 
 func (NrqlAlertConditionTermArgs) ElementType() reflect.Type {
@@ -1439,7 +1545,7 @@ func (i NrqlAlertConditionTermArray) ToNrqlAlertConditionTermArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionTermArrayOutput)
 }
 
-type NrqlAlertConditionTermOutput struct { *pulumi.OutputState }
+type NrqlAlertConditionTermOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionTermOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NrqlAlertConditionTerm)(nil)).Elem()
@@ -1454,26 +1560,26 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(
 }
 
 func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v NrqlAlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v NrqlAlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o NrqlAlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NrqlAlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 func (o NrqlAlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NrqlAlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
 func (o NrqlAlertConditionTermOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func (v NrqlAlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
+	return o.ApplyT(func(v NrqlAlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
 func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringOutput {
-	return o.ApplyT(func (v NrqlAlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NrqlAlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
 }
 
-type NrqlAlertConditionTermArrayOutput struct { *pulumi.OutputState}
+type NrqlAlertConditionTermArrayOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionTermArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]NrqlAlertConditionTerm)(nil)).Elem()
@@ -1488,31 +1594,31 @@ func (o NrqlAlertConditionTermArrayOutput) ToNrqlAlertConditionTermArrayOutputWi
 }
 
 func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertConditionTermOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) NrqlAlertConditionTerm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NrqlAlertConditionTerm {
 		return vs[0].([]NrqlAlertConditionTerm)[vs[1].(int)]
 	}).(NrqlAlertConditionTermOutput)
 }
 
 type GetAlertChannelConfig struct {
-	ApiKey *string `pulumi:"apiKey"`
-	AuthPassword *string `pulumi:"authPassword"`
-	AuthType *string `pulumi:"authType"`
-	AuthUsername *string `pulumi:"authUsername"`
-	BaseUrl *string `pulumi:"baseUrl"`
-	Channel *string `pulumi:"channel"`
-	Headers map[string]string `pulumi:"headers"`
-	IncludeJsonAttachment *string `pulumi:"includeJsonAttachment"`
-	Key *string `pulumi:"key"`
-	Payload map[string]string `pulumi:"payload"`
-	PayloadType *string `pulumi:"payloadType"`
-	Recipients *string `pulumi:"recipients"`
-	Region *string `pulumi:"region"`
-	RouteKey *string `pulumi:"routeKey"`
-	ServiceKey *string `pulumi:"serviceKey"`
-	Tags *string `pulumi:"tags"`
-	Teams *string `pulumi:"teams"`
-	Url *string `pulumi:"url"`
-	UserId *string `pulumi:"userId"`
+	ApiKey                *string           `pulumi:"apiKey"`
+	AuthPassword          *string           `pulumi:"authPassword"`
+	AuthType              *string           `pulumi:"authType"`
+	AuthUsername          *string           `pulumi:"authUsername"`
+	BaseUrl               *string           `pulumi:"baseUrl"`
+	Channel               *string           `pulumi:"channel"`
+	Headers               map[string]string `pulumi:"headers"`
+	IncludeJsonAttachment *string           `pulumi:"includeJsonAttachment"`
+	Key                   *string           `pulumi:"key"`
+	Payload               map[string]string `pulumi:"payload"`
+	PayloadType           *string           `pulumi:"payloadType"`
+	Recipients            *string           `pulumi:"recipients"`
+	Region                *string           `pulumi:"region"`
+	RouteKey              *string           `pulumi:"routeKey"`
+	ServiceKey            *string           `pulumi:"serviceKey"`
+	Tags                  *string           `pulumi:"tags"`
+	Teams                 *string           `pulumi:"teams"`
+	Url                   *string           `pulumi:"url"`
+	UserId                *string           `pulumi:"userId"`
 }
 
 type GetAlertChannelConfigInput interface {
@@ -1523,25 +1629,25 @@ type GetAlertChannelConfigInput interface {
 }
 
 type GetAlertChannelConfigArgs struct {
-	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
-	AuthPassword pulumi.StringPtrInput `pulumi:"authPassword"`
-	AuthType pulumi.StringPtrInput `pulumi:"authType"`
-	AuthUsername pulumi.StringPtrInput `pulumi:"authUsername"`
-	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
-	Channel pulumi.StringPtrInput `pulumi:"channel"`
-	Headers pulumi.StringMapInput `pulumi:"headers"`
+	ApiKey                pulumi.StringPtrInput `pulumi:"apiKey"`
+	AuthPassword          pulumi.StringPtrInput `pulumi:"authPassword"`
+	AuthType              pulumi.StringPtrInput `pulumi:"authType"`
+	AuthUsername          pulumi.StringPtrInput `pulumi:"authUsername"`
+	BaseUrl               pulumi.StringPtrInput `pulumi:"baseUrl"`
+	Channel               pulumi.StringPtrInput `pulumi:"channel"`
+	Headers               pulumi.StringMapInput `pulumi:"headers"`
 	IncludeJsonAttachment pulumi.StringPtrInput `pulumi:"includeJsonAttachment"`
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	Payload pulumi.StringMapInput `pulumi:"payload"`
-	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
-	Recipients pulumi.StringPtrInput `pulumi:"recipients"`
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	RouteKey pulumi.StringPtrInput `pulumi:"routeKey"`
-	ServiceKey pulumi.StringPtrInput `pulumi:"serviceKey"`
-	Tags pulumi.StringPtrInput `pulumi:"tags"`
-	Teams pulumi.StringPtrInput `pulumi:"teams"`
-	Url pulumi.StringPtrInput `pulumi:"url"`
-	UserId pulumi.StringPtrInput `pulumi:"userId"`
+	Key                   pulumi.StringPtrInput `pulumi:"key"`
+	Payload               pulumi.StringMapInput `pulumi:"payload"`
+	PayloadType           pulumi.StringPtrInput `pulumi:"payloadType"`
+	Recipients            pulumi.StringPtrInput `pulumi:"recipients"`
+	Region                pulumi.StringPtrInput `pulumi:"region"`
+	RouteKey              pulumi.StringPtrInput `pulumi:"routeKey"`
+	ServiceKey            pulumi.StringPtrInput `pulumi:"serviceKey"`
+	Tags                  pulumi.StringPtrInput `pulumi:"tags"`
+	Teams                 pulumi.StringPtrInput `pulumi:"teams"`
+	Url                   pulumi.StringPtrInput `pulumi:"url"`
+	UserId                pulumi.StringPtrInput `pulumi:"userId"`
 }
 
 func (GetAlertChannelConfigArgs) ElementType() reflect.Type {
@@ -1556,7 +1662,7 @@ func (i GetAlertChannelConfigArgs) ToGetAlertChannelConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertChannelConfigOutput)
 }
 
-type GetAlertChannelConfigOutput struct { *pulumi.OutputState }
+type GetAlertChannelConfigOutput struct{ *pulumi.OutputState }
 
 func (GetAlertChannelConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetAlertChannelConfig)(nil)).Elem()
@@ -1571,79 +1677,79 @@ func (o GetAlertChannelConfigOutput) ToGetAlertChannelConfigOutputWithContext(ct
 }
 
 func (o GetAlertChannelConfigOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) AuthPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) AuthUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) BaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
 func (o GetAlertChannelConfigOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Payload() pulumi.StringMapOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
 }
 
 func (o GetAlertChannelConfigOutput) PayloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Recipients() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) RouteKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) ServiceKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Tags() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Teams() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetAlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

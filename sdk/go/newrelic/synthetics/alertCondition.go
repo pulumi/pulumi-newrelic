@@ -19,7 +19,7 @@ type AlertCondition struct {
 
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The ID of the Synthetics monitor to be referenced in the alert condition. 
+	// The ID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
 	// The title of this condition.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -65,7 +65,7 @@ func GetAlertCondition(ctx *pulumi.Context,
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The ID of the Synthetics monitor to be referenced in the alert condition. 
+	// The ID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId *string `pulumi:"monitorId"`
 	// The title of this condition.
 	Name *string `pulumi:"name"`
@@ -78,7 +78,7 @@ type alertConditionState struct {
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The ID of the Synthetics monitor to be referenced in the alert condition. 
+	// The ID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringPtrInput
 	// The title of this condition.
 	Name pulumi.StringPtrInput
@@ -95,7 +95,7 @@ func (AlertConditionState) ElementType() reflect.Type {
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The ID of the Synthetics monitor to be referenced in the alert condition. 
+	// The ID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId string `pulumi:"monitorId"`
 	// The title of this condition.
 	Name *string `pulumi:"name"`
@@ -109,7 +109,7 @@ type alertConditionArgs struct {
 type AlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The ID of the Synthetics monitor to be referenced in the alert condition. 
+	// The ID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringInput
 	// The title of this condition.
 	Name pulumi.StringPtrInput
@@ -122,4 +122,3 @@ type AlertConditionArgs struct {
 func (AlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertConditionArgs)(nil)).Elem()
 }
-

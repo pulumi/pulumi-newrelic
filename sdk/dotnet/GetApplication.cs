@@ -11,7 +11,13 @@ namespace Pulumi.NewRelic
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetApplication.InvokeAsync() instead")]
         public static Task<GetApplicationResult> GetApplication(GetApplicationArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetApplication
+    {
+        public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

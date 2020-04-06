@@ -23,11 +23,9 @@ type GetPluginArgs struct {
 	Guid string `pulumi:"guid"`
 }
 
-
 // A collection of values returned by getPlugin.
 type GetPluginResult struct {
 	Guid string `pulumi:"guid"`
 	// The ID of the installed plugin instance.
 	Id string `pulumi:"id"`
 }
-

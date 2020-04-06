@@ -23,17 +23,15 @@ type LookupAlertChannelArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getAlertChannel.
 type LookupAlertChannelResult struct {
 	// Alert channel configuration.
 	Config GetAlertChannelConfig `pulumi:"config"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A list of policy IDs associated with the alert channel.
 	PolicyIds []int `pulumi:"policyIds"`
 	// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
 	Type string `pulumi:"type"`
 }
-

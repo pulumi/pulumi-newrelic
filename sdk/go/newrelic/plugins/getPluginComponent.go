@@ -25,14 +25,12 @@ type GetPluginComponentArgs struct {
 	PluginId int `pulumi:"pluginId"`
 }
 
-
 // A collection of values returned by getPluginComponent.
 type GetPluginComponentResult struct {
 	// The health status of the plugin component.
 	HealthStatus string `pulumi:"healthStatus"`
 	// The ID of the plugin component.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	PluginId int `pulumi:"pluginId"`
+	Id       string `pulumi:"id"`
+	Name     string `pulumi:"name"`
+	PluginId int    `pulumi:"pluginId"`
 }
-

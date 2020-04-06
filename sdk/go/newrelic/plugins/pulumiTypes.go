@@ -12,11 +12,11 @@ import (
 )
 
 type AlertConditionTerm struct {
-	Duration int `pulumi:"duration"`
-	Operator *string `pulumi:"operator"`
-	Priority *string `pulumi:"priority"`
-	Threshold float64 `pulumi:"threshold"`
-	TimeFunction string `pulumi:"timeFunction"`
+	Duration     int     `pulumi:"duration"`
+	Operator     *string `pulumi:"operator"`
+	Priority     *string `pulumi:"priority"`
+	Threshold    float64 `pulumi:"threshold"`
+	TimeFunction string  `pulumi:"timeFunction"`
 }
 
 type AlertConditionTermInput interface {
@@ -27,11 +27,11 @@ type AlertConditionTermInput interface {
 }
 
 type AlertConditionTermArgs struct {
-	Duration pulumi.IntInput `pulumi:"duration"`
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	TimeFunction pulumi.StringInput `pulumi:"timeFunction"`
+	Duration     pulumi.IntInput       `pulumi:"duration"`
+	Operator     pulumi.StringPtrInput `pulumi:"operator"`
+	Priority     pulumi.StringPtrInput `pulumi:"priority"`
+	Threshold    pulumi.Float64Input   `pulumi:"threshold"`
+	TimeFunction pulumi.StringInput    `pulumi:"timeFunction"`
 }
 
 func (AlertConditionTermArgs) ElementType() reflect.Type {
@@ -67,7 +67,7 @@ func (i AlertConditionTermArray) ToAlertConditionTermArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionTermArrayOutput)
 }
 
-type AlertConditionTermOutput struct { *pulumi.OutputState }
+type AlertConditionTermOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionTermOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertConditionTerm)(nil)).Elem()
@@ -82,26 +82,26 @@ func (o AlertConditionTermOutput) ToAlertConditionTermOutputWithContext(ctx cont
 }
 
 func (o AlertConditionTermOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func (v AlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
+	return o.ApplyT(func(v AlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 func (o AlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v AlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
 func (o AlertConditionTermOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func (v AlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
+	return o.ApplyT(func(v AlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
 func (o AlertConditionTermOutput) TimeFunction() pulumi.StringOutput {
-	return o.ApplyT(func (v AlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
+	return o.ApplyT(func(v AlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
 }
 
-type AlertConditionTermArrayOutput struct { *pulumi.OutputState}
+type AlertConditionTermArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionTermArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]AlertConditionTerm)(nil)).Elem()
@@ -116,7 +116,7 @@ func (o AlertConditionTermArrayOutput) ToAlertConditionTermArrayOutputWithContex
 }
 
 func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTermOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AlertConditionTerm {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertConditionTerm {
 		return vs[0].([]AlertConditionTerm)[vs[1].(int)]
 	}).(AlertConditionTermOutput)
 }

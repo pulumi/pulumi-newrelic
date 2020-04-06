@@ -23,7 +23,6 @@ type GetApplicationArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getApplication.
 type GetApplicationResult struct {
 	// A list of host IDs associated with the application.
@@ -31,7 +30,6 @@ type GetApplicationResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of instance IDs associated with the application.
-	InstanceIds []int `pulumi:"instanceIds"`
-	Name string `pulumi:"name"`
+	InstanceIds []int  `pulumi:"instanceIds"`
+	Name        string `pulumi:"name"`
 }
-

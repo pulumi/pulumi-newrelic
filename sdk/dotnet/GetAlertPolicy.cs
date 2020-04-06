@@ -11,12 +11,21 @@ namespace Pulumi.NewRelic
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetAlertPolicy.InvokeAsync() instead")]
         public static Task<GetAlertPolicyResult> GetAlertPolicy(GetAlertPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAlertPolicy
+    {
+        public static Task<GetAlertPolicyResult> InvokeAsync(GetAlertPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAlertPolicyArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+        /// </summary>
         [Input("incidentPreference")]
         public string? IncidentPreference { get; set; }
 

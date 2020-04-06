@@ -57,6 +57,7 @@ def get_alert_policy(incident_preference=None,name=None,opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
     :param str name: The name of the alert policy in New Relic.
     """
     __args__ = dict()

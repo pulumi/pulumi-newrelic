@@ -26,6 +26,9 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAlertPolicy.
  */
 export interface GetAlertPolicyArgs {
+    /**
+     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     */
     readonly incidentPreference?: string;
     /**
      * The name of the alert policy in New Relic.

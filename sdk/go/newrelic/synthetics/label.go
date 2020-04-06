@@ -111,4 +111,3 @@ type LabelArgs struct {
 func (LabelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*labelArgs)(nil)).Elem()
 }
-

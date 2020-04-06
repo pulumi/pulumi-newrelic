@@ -50,7 +50,7 @@ type NrqlAlertCondition struct {
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
 	// A list of terms for this condition.
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type  pulumi.StringPtrOutput            `pulumi:"type"`
 	// Possible values are single_value, sum.
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -111,7 +111,7 @@ type nrqlAlertConditionState struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition.
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
-	Type *string `pulumi:"type"`
+	Type  *string                  `pulumi:"type"`
 	// Possible values are single_value, sum.
 	ValueFunction *string `pulumi:"valueFunction"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -136,7 +136,7 @@ type NrqlAlertConditionState struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition.
 	Terms NrqlAlertConditionTermArrayInput
-	Type pulumi.StringPtrInput
+	Type  pulumi.StringPtrInput
 	// Possible values are single_value, sum.
 	ValueFunction pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -165,7 +165,7 @@ type nrqlAlertConditionArgs struct {
 	RunbookUrl *string `pulumi:"runbookUrl"`
 	// A list of terms for this condition.
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
-	Type *string `pulumi:"type"`
+	Type  *string                  `pulumi:"type"`
 	// Possible values are single_value, sum.
 	ValueFunction *string `pulumi:"valueFunction"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -191,7 +191,7 @@ type NrqlAlertConditionArgs struct {
 	RunbookUrl pulumi.StringPtrInput
 	// A list of terms for this condition.
 	Terms NrqlAlertConditionTermArrayInput
-	Type pulumi.StringPtrInput
+	Type  pulumi.StringPtrInput
 	// Possible values are single_value, sum.
 	ValueFunction pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -202,4 +202,3 @@ type NrqlAlertConditionArgs struct {
 func (NrqlAlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nrqlAlertConditionArgs)(nil)).Elem()
 }
-

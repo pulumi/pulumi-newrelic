@@ -11,7 +11,13 @@ namespace Pulumi.NewRelic.Plugins
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetPlugin.InvokeAsync() instead")]
         public static Task<GetPluginResult> GetPlugin(GetPluginArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPlugin
+    {
+        public static Task<GetPluginResult> InvokeAsync(GetPluginArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
