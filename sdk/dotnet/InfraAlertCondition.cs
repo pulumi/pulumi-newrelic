@@ -12,6 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage Infrastructure alert conditions in New Relic.
     /// 
+    /// 
     /// ## Thresholds
     /// 
     /// The `critical` and `warning` threshold mapping supports the following arguments:

@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> & GetPluginComponentResult {
+export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,12 +14,10 @@ export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPluginComponentResult> = pulumi.runtime.invoke("newrelic:plugins/getPluginComponent:getPluginComponent", {
+    return pulumi.runtime.invoke("newrelic:plugins/getPluginComponent:getPluginComponent", {
         "name": args.name,
         "pluginId": args.pluginId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

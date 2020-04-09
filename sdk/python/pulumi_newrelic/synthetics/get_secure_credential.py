@@ -59,6 +59,8 @@ def get_secure_credential(key=None,opts=None):
 
     Note that the secure credential's value is not returned as an attribute for security reasons.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
 
 

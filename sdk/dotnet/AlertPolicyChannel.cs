@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to map alert policies to alert channels in New Relic.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
     /// </summary>
     public partial class AlertPolicyChannel : Pulumi.CustomResource

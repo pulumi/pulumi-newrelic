@@ -16,6 +16,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// Note that the secure credential's value is not returned as an attribute for security reasons.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
         /// </summary>
         [Obsolete("Use GetSecureCredential.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.NewRelic.Synthetics
         /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
         /// 
         /// Note that the secure credential's value is not returned as an attribute for security reasons.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
         /// </summary>

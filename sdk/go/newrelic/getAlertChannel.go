@@ -5,7 +5,7 @@
 package newrelic
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts ...pulumi.InvokeOption) (*LookupAlertChannelResult, error) {

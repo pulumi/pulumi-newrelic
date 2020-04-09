@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create and manage New Relic Synthetic secure credentials.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
     /// </summary>
     public partial class SecureCredential : Pulumi.CustomResource

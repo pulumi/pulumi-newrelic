@@ -30,6 +30,8 @@ class Label(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics label in New Relic.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
 
         :param str resource_name: The name of the resource.

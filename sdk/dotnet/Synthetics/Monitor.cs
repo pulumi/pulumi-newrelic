@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create, update, and delete a synthetics monitor in New Relic.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource

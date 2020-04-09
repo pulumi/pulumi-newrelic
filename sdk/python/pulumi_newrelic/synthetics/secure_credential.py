@@ -34,6 +34,8 @@ class SecureCredential(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
 
         :param str resource_name: The name of the resource.

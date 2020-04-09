@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create, update, and delete a Synthetics label in New Relic.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
     /// </summary>
     public partial class Label : Pulumi.CustomResource

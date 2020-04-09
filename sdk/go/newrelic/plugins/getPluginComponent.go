@@ -5,7 +5,7 @@
 package plugins
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 func GetPluginComponent(ctx *pulumi.Context, args *GetPluginComponentArgs, opts ...pulumi.InvokeOption) (*GetPluginComponentResult, error) {

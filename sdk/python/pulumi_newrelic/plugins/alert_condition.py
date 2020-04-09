@@ -64,6 +64,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage plugins alert conditions in New Relic.
 
+
         ## Terms
 
         The `term` mapping supports the following arguments:

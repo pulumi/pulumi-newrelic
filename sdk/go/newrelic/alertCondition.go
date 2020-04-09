@@ -8,10 +8,11 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
+//
 //
 // ## Terms
 //

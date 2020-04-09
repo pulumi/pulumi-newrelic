@@ -36,6 +36,8 @@ class AlertPolicy(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic alert policies.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
 
         :param str resource_name: The name of the resource.
