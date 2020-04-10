@@ -132,8 +132,6 @@ class Dashboard(pulumi.CustomResource):
           * `event_types` - (Optional) A list of event types to enable filtering for.
           * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.

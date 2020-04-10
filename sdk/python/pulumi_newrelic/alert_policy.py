@@ -38,8 +38,6 @@ class AlertPolicy(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result

@@ -61,8 +61,6 @@ def get_secure_credential(key=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
-
 
     :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """

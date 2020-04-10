@@ -45,8 +45,6 @@ def get_monitor(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
-
 
     :param str name: The name of the synthetics monitor in New Relic.
     """

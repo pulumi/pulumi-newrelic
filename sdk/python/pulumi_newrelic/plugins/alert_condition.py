@@ -75,8 +75,6 @@ class AlertCondition(pulumi.CustomResource):
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/plugins_alert_condition.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not this condition is enabled.

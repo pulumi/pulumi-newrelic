@@ -29,8 +29,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] channel_id: Deprecated. The ID of the channel. Please use the channel_ids argument instead.
