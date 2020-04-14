@@ -2,11 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+## 1.11.0 (2020-04-14)
 * Refactor layout to support Go modules
 * Upgrade to Pulumi v1.13.1
 * Upgrade to pulumi-terraform-bridge v1.8.4
-
----
 
 ## 1.10.0 (2020-03-31)
 * Upgrade to v1.16.0 of the NewRelic Terraform Provider
