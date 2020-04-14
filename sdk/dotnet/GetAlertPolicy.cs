@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetAlertPolicy.InvokeAsync() instead")]
-        public static Task<GetAlertPolicyResult> GetAlertPolicy(GetAlertPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAlertPolicy
     {
         public static Task<GetAlertPolicyResult> InvokeAsync(GetAlertPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAlertPolicyArgs : Pulumi.InvokeArgs
     {
@@ -40,6 +35,7 @@ namespace Pulumi.NewRelic
         }
     }
 
+
     [OutputType]
     public sealed class GetAlertPolicyResult
     {
@@ -47,6 +43,10 @@ namespace Pulumi.NewRelic
         /// The time the policy was created.
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
         /// </summary>
@@ -56,24 +56,24 @@ namespace Pulumi.NewRelic
         /// The time the policy was last updated.
         /// </summary>
         public readonly string UpdatedAt;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAlertPolicyResult(
             string createdAt,
+
+            string id,
+
             string? incidentPreference,
+
             string name,
-            string updatedAt,
-            string id)
+
+            string updatedAt)
         {
             CreatedAt = createdAt;
+            Id = id;
             IncidentPreference = incidentPreference;
             Name = name;
             UpdatedAt = updatedAt;
-            Id = id;
         }
     }
 }

@@ -11,7 +11,8 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage
  * 
- * ##### Email
+ * ### Email
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -24,7 +25,6 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
- * See additional examples.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
  */

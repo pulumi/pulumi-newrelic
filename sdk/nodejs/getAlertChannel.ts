@@ -6,7 +6,7 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> & GetAlertChannelResult {
+export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,11 +14,9 @@ export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAlertChannelResult> = pulumi.runtime.invoke("newrelic:index/getAlertChannel:getAlertChannel", {
+    return pulumi.runtime.invoke("newrelic:index/getAlertChannel:getAlertChannel", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

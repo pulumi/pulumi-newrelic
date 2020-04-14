@@ -9,19 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic.Synthetics
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
-        /// 
-        /// Note that the secure credential's value is not returned as an attribute for security reasons.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSecureCredential.InvokeAsync() instead")]
-        public static Task<GetSecureCredentialResult> GetSecureCredential(GetSecureCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSecureCredential
     {
         /// <summary>
@@ -29,11 +16,13 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// Note that the secure credential's value is not returned as an attribute for security reasons.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecureCredentialResult> InvokeAsync(GetSecureCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSecureCredentialArgs : Pulumi.InvokeArgs
     {
@@ -48,6 +37,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
+
     [OutputType]
     public sealed class GetSecureCredentialResult
     {
@@ -59,29 +49,33 @@ namespace Pulumi.NewRelic.Synthetics
         /// The secure credential's description.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Key;
         /// <summary>
         /// The time the secure credential was last updated.
         /// </summary>
         public readonly string LastUpdated;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSecureCredentialResult(
             string createdAt,
+
             string description,
+
+            string id,
+
             string key,
-            string lastUpdated,
-            string id)
+
+            string lastUpdated)
         {
             CreatedAt = createdAt;
             Description = description;
+            Id = id;
             Key = key;
             LastUpdated = lastUpdated;
-            Id = id;
         }
     }
 }

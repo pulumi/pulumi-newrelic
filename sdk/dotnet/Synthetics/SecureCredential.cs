@@ -11,8 +11,6 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create and manage New Relic Synthetic secure credentials.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
     /// </summary>
     public partial class SecureCredential : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecureCredential(string name, SecureCredentialArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:synthetics/secureCredential:SecureCredential", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:synthetics/secureCredential:SecureCredential", name, args ?? new SecureCredentialArgs(), MakeResourceOptions(options, ""))
         {
         }
 

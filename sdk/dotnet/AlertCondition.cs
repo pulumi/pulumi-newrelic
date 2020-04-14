@@ -12,6 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
     /// 
+    /// 
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:
@@ -21,8 +22,6 @@ namespace Pulumi.NewRelic
     ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
     ///   * `threshold` - (Required) Must be 0 or greater.
     ///   * `time_function` - (Required) `all` or `any`.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
     /// </summary>
     public partial class AlertCondition : Pulumi.CustomResource
     {
@@ -115,7 +114,7 @@ namespace Pulumi.NewRelic
         /// A list of terms for this condition. See Terms below for details.
         /// </summary>
         [Output("terms")]
-        public Output<ImmutableArray<Outputs.AlertConditionTerms>> Terms { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AlertConditionTerm>> Terms { get; private set; } = null!;
 
         /// <summary>
         /// The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
@@ -150,7 +149,7 @@ namespace Pulumi.NewRelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertCondition(string name, AlertConditionArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:index/alertCondition:AlertCondition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:index/alertCondition:AlertCondition", name, args ?? new AlertConditionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -279,14 +278,14 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         [Input("terms", required: true)]
-        private InputList<Inputs.AlertConditionTermsArgs>? _terms;
+        private InputList<Inputs.AlertConditionTermArgs>? _terms;
 
         /// <summary>
         /// A list of terms for this condition. See Terms below for details.
         /// </summary>
-        public InputList<Inputs.AlertConditionTermsArgs> Terms
+        public InputList<Inputs.AlertConditionTermArgs> Terms
         {
-            get => _terms ?? (_terms = new InputList<Inputs.AlertConditionTermsArgs>());
+            get => _terms ?? (_terms = new InputList<Inputs.AlertConditionTermArgs>());
             set => _terms = value;
         }
 
@@ -413,14 +412,14 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         [Input("terms")]
-        private InputList<Inputs.AlertConditionTermsGetArgs>? _terms;
+        private InputList<Inputs.AlertConditionTermGetArgs>? _terms;
 
         /// <summary>
         /// A list of terms for this condition. See Terms below for details.
         /// </summary>
-        public InputList<Inputs.AlertConditionTermsGetArgs> Terms
+        public InputList<Inputs.AlertConditionTermGetArgs> Terms
         {
-            get => _terms ?? (_terms = new InputList<Inputs.AlertConditionTermsGetArgs>());
+            get => _terms ?? (_terms = new InputList<Inputs.AlertConditionTermGetArgs>());
             set => _terms = value;
         }
 
@@ -451,82 +450,5 @@ namespace Pulumi.NewRelic
         public AlertConditionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AlertConditionTermsArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
-
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
-
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        [Input("timeFunction", required: true)]
-        public Input<string> TimeFunction { get; set; } = null!;
-
-        public AlertConditionTermsArgs()
-        {
-        }
-    }
-
-    public sealed class AlertConditionTermsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
-
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
-
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        [Input("timeFunction", required: true)]
-        public Input<string> TimeFunction { get; set; } = null!;
-
-        public AlertConditionTermsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AlertConditionTerms
-    {
-        public readonly int Duration;
-        public readonly string? Operator;
-        public readonly string? Priority;
-        public readonly double Threshold;
-        public readonly string TimeFunction;
-
-        [OutputConstructor]
-        private AlertConditionTerms(
-            int duration,
-            string? @operator,
-            string? priority,
-            double threshold,
-            string timeFunction)
-        {
-            Duration = duration;
-            Operator = @operator;
-            Priority = priority;
-            Threshold = threshold;
-            TimeFunction = timeFunction;
-        }
-    }
     }
 }

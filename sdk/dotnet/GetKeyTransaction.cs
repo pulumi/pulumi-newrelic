@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetKeyTransaction.InvokeAsync() instead")]
-        public static Task<GetKeyTransactionResult> GetKeyTransaction(GetKeyTransactionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetKeyTransaction
     {
         public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetKeyTransactionArgs : Pulumi.InvokeArgs
     {
@@ -34,22 +29,24 @@ namespace Pulumi.NewRelic
         }
     }
 
+
     [OutputType]
     public sealed class GetKeyTransactionResult
     {
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetKeyTransactionResult(
-            string name,
-            string id)
+            string id,
+
+            string name)
         {
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

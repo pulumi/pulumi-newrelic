@@ -11,8 +11,6 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to update a synthetics monitor script in New Relic.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor_script.html.markdown.
     /// </summary>
     public partial class MonitorScript : Pulumi.CustomResource
     {
@@ -37,7 +35,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MonitorScript(string name, MonitorScriptArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:synthetics/monitorScript:MonitorScript", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:synthetics/monitorScript:MonitorScript", name, args ?? new MonitorScriptArgs(), MakeResourceOptions(options, ""))
         {
         }
 

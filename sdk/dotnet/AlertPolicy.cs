@@ -11,15 +11,13 @@ namespace Pulumi.NewRelic
 {
     /// <summary>
     /// Use this resource to create and manage New Relic alert policies.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
     /// </summary>
     public partial class AlertPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array
-        /// will result in a new alert policy resource being created and the old one being destroyed. Also note that
-        /// channel IDs cannot be imported via terraform import.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
@@ -57,7 +55,7 @@ namespace Pulumi.NewRelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertPolicy(string name, AlertPolicyArgs? args = null, CustomResourceOptions? options = null)
-            : base("newrelic:index/alertPolicy:AlertPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:index/alertPolicy:AlertPolicy", name, args ?? new AlertPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -98,9 +96,9 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array
-        /// will result in a new alert policy resource being created and the old one being destroyed. Also note that
-        /// channel IDs cannot be imported via terraform import.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         public InputList<int> ChannelIds
         {
@@ -131,9 +129,9 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array
-        /// will result in a new alert policy resource being created and the old one being destroyed. Also note that
-        /// channel IDs cannot be imported via terraform import.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         public InputList<int> ChannelIds
         {

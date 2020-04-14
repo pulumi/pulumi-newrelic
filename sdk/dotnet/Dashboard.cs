@@ -65,8 +65,6 @@ namespace Pulumi.NewRelic
     /// The optional filter block supports the following arguments:
     ///   * `event_types` - (Optional) A list of event types to enable filtering for.
     ///   * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/dashboard.html.markdown.
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {
@@ -110,7 +108,7 @@ namespace Pulumi.NewRelic
         /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         /// </summary>
         [Output("widgets")]
-        public Output<ImmutableArray<Outputs.DashboardWidgets>> Widgets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DashboardWidget>> Widgets { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,7 +119,7 @@ namespace Pulumi.NewRelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:index/dashboard:Dashboard", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:index/dashboard:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -189,14 +187,14 @@ namespace Pulumi.NewRelic
         public Input<string>? Visibility { get; set; }
 
         [Input("widgets")]
-        private InputList<Inputs.DashboardWidgetsArgs>? _widgets;
+        private InputList<Inputs.DashboardWidgetArgs>? _widgets;
 
         /// <summary>
         /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         /// </summary>
-        public InputList<Inputs.DashboardWidgetsArgs> Widgets
+        public InputList<Inputs.DashboardWidgetArgs> Widgets
         {
-            get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetsArgs>());
+            get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetArgs>());
             set => _widgets = value;
         }
 
@@ -244,504 +242,19 @@ namespace Pulumi.NewRelic
         public Input<string>? Visibility { get; set; }
 
         [Input("widgets")]
-        private InputList<Inputs.DashboardWidgetsGetArgs>? _widgets;
+        private InputList<Inputs.DashboardWidgetGetArgs>? _widgets;
 
         /// <summary>
         /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         /// </summary>
-        public InputList<Inputs.DashboardWidgetsGetArgs> Widgets
+        public InputList<Inputs.DashboardWidgetGetArgs> Widgets
         {
-            get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetsGetArgs>());
+            get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetGetArgs>());
             set => _widgets = value;
         }
 
         public DashboardState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DashboardFilterArgs : Pulumi.ResourceArgs
-    {
-        [Input("attributes")]
-        private InputList<string>? _attributes;
-        public InputList<string> Attributes
-        {
-            get => _attributes ?? (_attributes = new InputList<string>());
-            set => _attributes = value;
-        }
-
-        [Input("eventTypes", required: true)]
-        private InputList<string>? _eventTypes;
-        public InputList<string> EventTypes
-        {
-            get => _eventTypes ?? (_eventTypes = new InputList<string>());
-            set => _eventTypes = value;
-        }
-
-        public DashboardFilterArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardFilterGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("attributes")]
-        private InputList<string>? _attributes;
-        public InputList<string> Attributes
-        {
-            get => _attributes ?? (_attributes = new InputList<string>());
-            set => _attributes = value;
-        }
-
-        [Input("eventTypes", required: true)]
-        private InputList<string>? _eventTypes;
-        public InputList<string> EventTypes
-        {
-            get => _eventTypes ?? (_eventTypes = new InputList<string>());
-            set => _eventTypes = value;
-        }
-
-        public DashboardFilterGetArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsArgs : Pulumi.ResourceArgs
-    {
-        [Input("column", required: true)]
-        public Input<int> Column { get; set; } = null!;
-
-        [Input("compareWiths")]
-        private InputList<DashboardWidgetsCompareWithsArgs>? _compareWiths;
-        public InputList<DashboardWidgetsCompareWithsArgs> CompareWiths
-        {
-            get => _compareWiths ?? (_compareWiths = new InputList<DashboardWidgetsCompareWithsArgs>());
-            set => _compareWiths = value;
-        }
-
-        [Input("drilldownDashboardId")]
-        public Input<int>? DrilldownDashboardId { get; set; }
-
-        [Input("duration")]
-        public Input<int>? Duration { get; set; }
-
-        [Input("endTime")]
-        public Input<int>? EndTime { get; set; }
-
-        [Input("entityIds")]
-        private InputList<int>? _entityIds;
-        public InputList<int> EntityIds
-        {
-            get => _entityIds ?? (_entityIds = new InputList<int>());
-            set => _entityIds = value;
-        }
-
-        [Input("facet")]
-        public Input<string>? Facet { get; set; }
-
-        [Input("height")]
-        public Input<int>? Height { get; set; }
-
-        [Input("limit")]
-        public Input<int>? Limit { get; set; }
-
-        [Input("metrics")]
-        private InputList<DashboardWidgetsMetricsArgs>? _metrics;
-        public InputList<DashboardWidgetsMetricsArgs> Metrics
-        {
-            get => _metrics ?? (_metrics = new InputList<DashboardWidgetsMetricsArgs>());
-            set => _metrics = value;
-        }
-
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
-
-        [Input("nrql")]
-        public Input<string>? Nrql { get; set; }
-
-        [Input("orderBy")]
-        public Input<string>? OrderBy { get; set; }
-
-        [Input("rawMetricName")]
-        public Input<string>? RawMetricName { get; set; }
-
-        [Input("row", required: true)]
-        public Input<int> Row { get; set; } = null!;
-
-        [Input("source")]
-        public Input<string>? Source { get; set; }
-
-        [Input("thresholdRed")]
-        public Input<double>? ThresholdRed { get; set; }
-
-        [Input("thresholdYellow")]
-        public Input<double>? ThresholdYellow { get; set; }
-
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
-        [Input("visualization", required: true)]
-        public Input<string> Visualization { get; set; } = null!;
-
-        [Input("widgetId")]
-        public Input<int>? WidgetId { get; set; }
-
-        [Input("width")]
-        public Input<int>? Width { get; set; }
-
-        public DashboardWidgetsArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsCompareWithsArgs : Pulumi.ResourceArgs
-    {
-        [Input("offsetDuration", required: true)]
-        public Input<string> OffsetDuration { get; set; } = null!;
-
-        [Input("presentation", required: true)]
-        public Input<DashboardWidgetsCompareWithsPresentationArgs> Presentation { get; set; } = null!;
-
-        public DashboardWidgetsCompareWithsArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsCompareWithsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("offsetDuration", required: true)]
-        public Input<string> OffsetDuration { get; set; } = null!;
-
-        [Input("presentation", required: true)]
-        public Input<DashboardWidgetsCompareWithsPresentationGetArgs> Presentation { get; set; } = null!;
-
-        public DashboardWidgetsCompareWithsGetArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsCompareWithsPresentationArgs : Pulumi.ResourceArgs
-    {
-        [Input("color", required: true)]
-        public Input<string> Color { get; set; } = null!;
-
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public DashboardWidgetsCompareWithsPresentationArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsCompareWithsPresentationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("color", required: true)]
-        public Input<string> Color { get; set; } = null!;
-
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public DashboardWidgetsCompareWithsPresentationGetArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("column", required: true)]
-        public Input<int> Column { get; set; } = null!;
-
-        [Input("compareWiths")]
-        private InputList<DashboardWidgetsCompareWithsGetArgs>? _compareWiths;
-        public InputList<DashboardWidgetsCompareWithsGetArgs> CompareWiths
-        {
-            get => _compareWiths ?? (_compareWiths = new InputList<DashboardWidgetsCompareWithsGetArgs>());
-            set => _compareWiths = value;
-        }
-
-        [Input("drilldownDashboardId")]
-        public Input<int>? DrilldownDashboardId { get; set; }
-
-        [Input("duration")]
-        public Input<int>? Duration { get; set; }
-
-        [Input("endTime")]
-        public Input<int>? EndTime { get; set; }
-
-        [Input("entityIds")]
-        private InputList<int>? _entityIds;
-        public InputList<int> EntityIds
-        {
-            get => _entityIds ?? (_entityIds = new InputList<int>());
-            set => _entityIds = value;
-        }
-
-        [Input("facet")]
-        public Input<string>? Facet { get; set; }
-
-        [Input("height")]
-        public Input<int>? Height { get; set; }
-
-        [Input("limit")]
-        public Input<int>? Limit { get; set; }
-
-        [Input("metrics")]
-        private InputList<DashboardWidgetsMetricsGetArgs>? _metrics;
-        public InputList<DashboardWidgetsMetricsGetArgs> Metrics
-        {
-            get => _metrics ?? (_metrics = new InputList<DashboardWidgetsMetricsGetArgs>());
-            set => _metrics = value;
-        }
-
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
-
-        [Input("nrql")]
-        public Input<string>? Nrql { get; set; }
-
-        [Input("orderBy")]
-        public Input<string>? OrderBy { get; set; }
-
-        [Input("rawMetricName")]
-        public Input<string>? RawMetricName { get; set; }
-
-        [Input("row", required: true)]
-        public Input<int> Row { get; set; } = null!;
-
-        [Input("source")]
-        public Input<string>? Source { get; set; }
-
-        [Input("thresholdRed")]
-        public Input<double>? ThresholdRed { get; set; }
-
-        [Input("thresholdYellow")]
-        public Input<double>? ThresholdYellow { get; set; }
-
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
-        [Input("visualization", required: true)]
-        public Input<string> Visualization { get; set; } = null!;
-
-        [Input("widgetId")]
-        public Input<int>? WidgetId { get; set; }
-
-        [Input("width")]
-        public Input<int>? Width { get; set; }
-
-        public DashboardWidgetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsMetricsArgs : Pulumi.ResourceArgs
-    {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("units")]
-        public Input<string>? Units { get; set; }
-
-        [Input("values")]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public DashboardWidgetsMetricsArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardWidgetsMetricsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        [Input("units")]
-        public Input<string>? Units { get; set; }
-
-        [Input("values")]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public DashboardWidgetsMetricsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DashboardFilter
-    {
-        public readonly ImmutableArray<string> Attributes;
-        public readonly ImmutableArray<string> EventTypes;
-
-        [OutputConstructor]
-        private DashboardFilter(
-            ImmutableArray<string> attributes,
-            ImmutableArray<string> eventTypes)
-        {
-            Attributes = attributes;
-            EventTypes = eventTypes;
-        }
-    }
-
-    [OutputType]
-    public sealed class DashboardWidgets
-    {
-        public readonly int Column;
-        public readonly ImmutableArray<DashboardWidgetsCompareWiths> CompareWiths;
-        public readonly int? DrilldownDashboardId;
-        public readonly int? Duration;
-        public readonly int? EndTime;
-        public readonly ImmutableArray<int> EntityIds;
-        public readonly string? Facet;
-        public readonly int? Height;
-        public readonly int? Limit;
-        public readonly ImmutableArray<DashboardWidgetsMetrics> Metrics;
-        public readonly string? Notes;
-        public readonly string? Nrql;
-        public readonly string? OrderBy;
-        public readonly string RawMetricName;
-        public readonly int Row;
-        public readonly string? Source;
-        public readonly double? ThresholdRed;
-        public readonly double? ThresholdYellow;
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
-        public readonly string Title;
-        public readonly string Visualization;
-        public readonly int WidgetId;
-        public readonly int? Width;
-
-        [OutputConstructor]
-        private DashboardWidgets(
-            int column,
-            ImmutableArray<DashboardWidgetsCompareWiths> compareWiths,
-            int? drilldownDashboardId,
-            int? duration,
-            int? endTime,
-            ImmutableArray<int> entityIds,
-            string? facet,
-            int? height,
-            int? limit,
-            ImmutableArray<DashboardWidgetsMetrics> metrics,
-            string? notes,
-            string? nrql,
-            string? orderBy,
-            string rawMetricName,
-            int row,
-            string? source,
-            double? thresholdRed,
-            double? thresholdYellow,
-            string title,
-            string visualization,
-            int widgetId,
-            int? width)
-        {
-            Column = column;
-            CompareWiths = compareWiths;
-            DrilldownDashboardId = drilldownDashboardId;
-            Duration = duration;
-            EndTime = endTime;
-            EntityIds = entityIds;
-            Facet = facet;
-            Height = height;
-            Limit = limit;
-            Metrics = metrics;
-            Notes = notes;
-            Nrql = nrql;
-            OrderBy = orderBy;
-            RawMetricName = rawMetricName;
-            Row = row;
-            Source = source;
-            ThresholdRed = thresholdRed;
-            ThresholdYellow = thresholdYellow;
-            Title = title;
-            Visualization = visualization;
-            WidgetId = widgetId;
-            Width = width;
-        }
-    }
-
-    [OutputType]
-    public sealed class DashboardWidgetsCompareWiths
-    {
-        public readonly string OffsetDuration;
-        public readonly DashboardWidgetsCompareWithsPresentation Presentation;
-
-        [OutputConstructor]
-        private DashboardWidgetsCompareWiths(
-            string offsetDuration,
-            DashboardWidgetsCompareWithsPresentation presentation)
-        {
-            OffsetDuration = offsetDuration;
-            Presentation = presentation;
-        }
-    }
-
-    [OutputType]
-    public sealed class DashboardWidgetsCompareWithsPresentation
-    {
-        public readonly string Color;
-        public readonly string Name;
-
-        [OutputConstructor]
-        private DashboardWidgetsCompareWithsPresentation(
-            string color,
-            string name)
-        {
-            Color = color;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class DashboardWidgetsMetrics
-    {
-        public readonly string Name;
-        public readonly string? Scope;
-        public readonly string? Units;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private DashboardWidgetsMetrics(
-            string name,
-            string? scope,
-            string? units,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Scope = scope;
-            Units = units;
-            Values = values;
-        }
-    }
     }
 }

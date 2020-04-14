@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -22,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
  */
-export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> & GetSecureCredentialResult {
+export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +32,9 @@ export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSecureCredentialResult> = pulumi.runtime.invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", {
+    return pulumi.runtime.invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", {
         "key": args.key,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

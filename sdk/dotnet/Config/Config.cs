@@ -8,7 +8,6 @@ namespace Pulumi.NewRelic
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("newrelic");
-
         public static string? ApiKey { get; set; } = __config.Get("apiKey") ?? Utilities.GetEnv("NEWRELIC_API_KEY");
 
         public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
@@ -37,8 +36,5 @@ namespace Pulumi.NewRelic
 
         public static string? SyntheticsApiUrl { get; set; } = __config.Get("syntheticsApiUrl") ?? Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
 
-    }
-    namespace ConfigTypes
-    {
     }
 }

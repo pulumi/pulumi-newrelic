@@ -15,7 +15,7 @@ namespace Pulumi.NewRelic.Insights
         /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         /// </summary>
         [Output("events")]
-        public Output<ImmutableArray<Outputs.EventEvents>> Events { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EventEvent>> Events { get; private set; } = null!;
 
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.NewRelic.Insights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Event(string name, EventArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:insights/event:Event", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:insights/event:Event", name, args ?? new EventArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -64,14 +64,14 @@ namespace Pulumi.NewRelic.Insights
     public sealed class EventArgs : Pulumi.ResourceArgs
     {
         [Input("events", required: true)]
-        private InputList<Inputs.EventEventsArgs>? _events;
+        private InputList<Inputs.EventEventArgs>? _events;
 
         /// <summary>
         /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         /// </summary>
-        public InputList<Inputs.EventEventsArgs> Events
+        public InputList<Inputs.EventEventArgs> Events
         {
-            get => _events ?? (_events = new InputList<Inputs.EventEventsArgs>());
+            get => _events ?? (_events = new InputList<Inputs.EventEventArgs>());
             set => _events = value;
         }
 
@@ -83,139 +83,19 @@ namespace Pulumi.NewRelic.Insights
     public sealed class EventState : Pulumi.ResourceArgs
     {
         [Input("events")]
-        private InputList<Inputs.EventEventsGetArgs>? _events;
+        private InputList<Inputs.EventEventGetArgs>? _events;
 
         /// <summary>
         /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         /// </summary>
-        public InputList<Inputs.EventEventsGetArgs> Events
+        public InputList<Inputs.EventEventGetArgs> Events
         {
-            get => _events ?? (_events = new InputList<Inputs.EventEventsGetArgs>());
+            get => _events ?? (_events = new InputList<Inputs.EventEventGetArgs>());
             set => _events = value;
         }
 
         public EventState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EventEventsArgs : Pulumi.ResourceArgs
-    {
-        [Input("attributes", required: true)]
-        private InputList<EventEventsAttributesArgs>? _attributes;
-        public InputList<EventEventsAttributesArgs> Attributes
-        {
-            get => _attributes ?? (_attributes = new InputList<EventEventsAttributesArgs>());
-            set => _attributes = value;
-        }
-
-        [Input("timestamp")]
-        public Input<int>? Timestamp { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public EventEventsArgs()
-        {
-        }
-    }
-
-    public sealed class EventEventsAttributesArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EventEventsAttributesArgs()
-        {
-        }
-    }
-
-    public sealed class EventEventsAttributesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EventEventsAttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class EventEventsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("attributes", required: true)]
-        private InputList<EventEventsAttributesGetArgs>? _attributes;
-        public InputList<EventEventsAttributesGetArgs> Attributes
-        {
-            get => _attributes ?? (_attributes = new InputList<EventEventsAttributesGetArgs>());
-            set => _attributes = value;
-        }
-
-        [Input("timestamp")]
-        public Input<int>? Timestamp { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public EventEventsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EventEvents
-    {
-        public readonly ImmutableArray<EventEventsAttributes> Attributes;
-        public readonly int? Timestamp;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private EventEvents(
-            ImmutableArray<EventEventsAttributes> attributes,
-            int? timestamp,
-            string type)
-        {
-            Attributes = attributes;
-            Timestamp = timestamp;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class EventEventsAttributes
-    {
-        public readonly string Key;
-        public readonly string? Type;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private EventEventsAttributes(
-            string key,
-            string? type,
-            string value)
-        {
-            Key = key;
-            Type = type;
-            Value = value;
-        }
-    }
     }
 }

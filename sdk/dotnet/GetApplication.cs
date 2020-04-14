@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetApplication.InvokeAsync() instead")]
-        public static Task<GetApplicationResult> GetApplication(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetApplication
     {
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("newrelic:index/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
     }
+
 
     public sealed class GetApplicationArgs : Pulumi.InvokeArgs
     {
@@ -34,6 +29,7 @@ namespace Pulumi.NewRelic
         }
     }
 
+
     [OutputType]
     public sealed class GetApplicationResult
     {
@@ -42,26 +38,29 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly ImmutableArray<int> HostIds;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A list of instance IDs associated with the application.
         /// </summary>
         public readonly ImmutableArray<int> InstanceIds;
         public readonly string Name;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetApplicationResult(
             ImmutableArray<int> hostIds,
+
+            string id,
+
             ImmutableArray<int> instanceIds,
-            string name,
-            string id)
+
+            string name)
         {
             HostIds = hostIds;
+            Id = id;
             InstanceIds = instanceIds;
             Name = name;
-            Id = id;
         }
     }
 }

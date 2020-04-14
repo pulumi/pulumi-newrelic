@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -19,7 +21,6 @@ import * as utilities from "./utilities";
  *     incidentPreference: "PER_POLICY", // PER_POLICY is default
  * });
  * ```
- * See additional examples.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
  */

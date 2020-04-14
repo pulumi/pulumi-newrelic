@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic.Synthetics
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetMonitor.InvokeAsync() instead")]
-        public static Task<GetMonitorResult> GetMonitor(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetMonitor
     {
         /// <summary>
         /// Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
     }
+
 
     public sealed class GetMonitorArgs : Pulumi.InvokeArgs
     {
@@ -44,28 +35,31 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
+
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ID of the synthetics monitor.
         /// </summary>
         public readonly string MonitorId;
         public readonly string Name;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetMonitorResult(
+            string id,
+
             string monitorId,
-            string name,
-            string id)
+
+            string name)
         {
+            Id = id;
             MonitorId = monitorId;
             Name = name;
-            Id = id;
         }
     }
 }

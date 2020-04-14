@@ -11,8 +11,6 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create, update, and delete a synthetics monitor in New Relic.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {
@@ -91,7 +89,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Monitor(string name, MonitorArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:synthetics/monitor:Monitor", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:synthetics/monitor:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 

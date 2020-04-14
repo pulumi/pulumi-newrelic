@@ -12,6 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage Infrastructure alert conditions in New Relic.
     /// 
+    /// 
     /// ## Thresholds
     /// 
     /// The `critical` and `warning` threshold mapping supports the following arguments:
@@ -19,8 +20,6 @@ namespace Pulumi.NewRelic
     ///   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
     ///   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
     ///   * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/infra_alert_condition.html.markdown.
     /// </summary>
     public partial class InfraAlertCondition : Pulumi.CustomResource
     {
@@ -129,7 +128,7 @@ namespace Pulumi.NewRelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InfraAlertCondition(string name, InfraAlertConditionArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:index/infraAlertCondition:InfraAlertCondition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:index/infraAlertCondition:InfraAlertCondition", name, args ?? new InfraAlertConditionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -356,115 +355,5 @@ namespace Pulumi.NewRelic
         public InfraAlertConditionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class InfraAlertConditionCriticalArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("timeFunction")]
-        public Input<string>? TimeFunction { get; set; }
-
-        [Input("value")]
-        public Input<double>? Value { get; set; }
-
-        public InfraAlertConditionCriticalArgs()
-        {
-        }
-    }
-
-    public sealed class InfraAlertConditionCriticalGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("timeFunction")]
-        public Input<string>? TimeFunction { get; set; }
-
-        [Input("value")]
-        public Input<double>? Value { get; set; }
-
-        public InfraAlertConditionCriticalGetArgs()
-        {
-        }
-    }
-
-    public sealed class InfraAlertConditionWarningArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("timeFunction")]
-        public Input<string>? TimeFunction { get; set; }
-
-        [Input("value")]
-        public Input<double>? Value { get; set; }
-
-        public InfraAlertConditionWarningArgs()
-        {
-        }
-    }
-
-    public sealed class InfraAlertConditionWarningGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("timeFunction")]
-        public Input<string>? TimeFunction { get; set; }
-
-        [Input("value")]
-        public Input<double>? Value { get; set; }
-
-        public InfraAlertConditionWarningGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class InfraAlertConditionCritical
-    {
-        public readonly int Duration;
-        public readonly string? TimeFunction;
-        public readonly double? Value;
-
-        [OutputConstructor]
-        private InfraAlertConditionCritical(
-            int duration,
-            string? timeFunction,
-            double? value)
-        {
-            Duration = duration;
-            TimeFunction = timeFunction;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class InfraAlertConditionWarning
-    {
-        public readonly int Duration;
-        public readonly string? TimeFunction;
-        public readonly double? Value;
-
-        [OutputConstructor]
-        private InfraAlertConditionWarning(
-            int duration,
-            string? timeFunction,
-            double? value)
-        {
-            Duration = duration;
-            TimeFunction = timeFunction;
-            Value = value;
-        }
-    }
     }
 }

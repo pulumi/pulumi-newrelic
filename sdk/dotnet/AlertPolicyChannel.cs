@@ -11,8 +11,6 @@ namespace Pulumi.NewRelic
 {
     /// <summary>
     /// Use this resource to map alert policies to alert channels in New Relic.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
     /// </summary>
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
@@ -23,8 +21,8 @@ namespace Pulumi.NewRelic
         public Output<int?> ChannelId { get; private set; } = null!;
 
         /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order
-        /// to avoid drift your Terraform state.
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        /// drift your Terraform state.
         /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
@@ -44,7 +42,7 @@ namespace Pulumi.NewRelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertPolicyChannel(string name, AlertPolicyChannelArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, args ?? new AlertPolicyChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -91,8 +89,8 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order
-        /// to avoid drift your Terraform state.
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        /// drift your Terraform state.
         /// </summary>
         public InputList<int> ChannelIds
         {
@@ -123,8 +121,8 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order
-        /// to avoid drift your Terraform state.
+        /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
+        /// drift your Terraform state.
         /// </summary>
         public InputList<int> ChannelIds
         {

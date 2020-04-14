@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
  * 
+ * 
  * ## Terms
  * 
  * The `term` mapping supports the following arguments:

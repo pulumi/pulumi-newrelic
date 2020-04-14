@@ -12,6 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage NRQL alert conditions in New Relic.
     /// 
+    /// 
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:
@@ -28,8 +29,6 @@ namespace Pulumi.NewRelic
     /// 
     /// - `query` - (Required) The NRQL query to execute for the condition.
     /// - `since_value` - (Required) The value to be used in the `SINCE &lt;X&gt; MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
     /// </summary>
     public partial class NrqlAlertCondition : Pulumi.CustomResource
     {
@@ -79,7 +78,7 @@ namespace Pulumi.NewRelic
         /// A list of terms for this condition.
         /// </summary>
         [Output("terms")]
-        public Output<ImmutableArray<Outputs.NrqlAlertConditionTerms>> Terms { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NrqlAlertConditionTerm>> Terms { get; private set; } = null!;
 
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -91,8 +90,8 @@ namespace Pulumi.NewRelic
         public Output<string?> ValueFunction { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time
-        /// limit you select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+        /// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
         /// </summary>
         [Output("violationTimeLimitSeconds")]
         public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
@@ -106,7 +105,7 @@ namespace Pulumi.NewRelic
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NrqlAlertCondition(string name, NrqlAlertConditionArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, args ?? new NrqlAlertConditionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -186,14 +185,14 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         [Input("terms", required: true)]
-        private InputList<Inputs.NrqlAlertConditionTermsArgs>? _terms;
+        private InputList<Inputs.NrqlAlertConditionTermArgs>? _terms;
 
         /// <summary>
         /// A list of terms for this condition.
         /// </summary>
-        public InputList<Inputs.NrqlAlertConditionTermsArgs> Terms
+        public InputList<Inputs.NrqlAlertConditionTermArgs> Terms
         {
-            get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermsArgs>());
+            get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermArgs>());
             set => _terms = value;
         }
 
@@ -207,8 +206,8 @@ namespace Pulumi.NewRelic
         public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time
-        /// limit you select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+        /// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
@@ -263,14 +262,14 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         [Input("terms")]
-        private InputList<Inputs.NrqlAlertConditionTermsGetArgs>? _terms;
+        private InputList<Inputs.NrqlAlertConditionTermGetArgs>? _terms;
 
         /// <summary>
         /// A list of terms for this condition.
         /// </summary>
-        public InputList<Inputs.NrqlAlertConditionTermsGetArgs> Terms
+        public InputList<Inputs.NrqlAlertConditionTermGetArgs> Terms
         {
-            get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermsGetArgs>());
+            get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermGetArgs>());
             set => _terms = value;
         }
 
@@ -284,8 +283,8 @@ namespace Pulumi.NewRelic
         public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time
-        /// limit you select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
+        /// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
@@ -293,124 +292,5 @@ namespace Pulumi.NewRelic
         public NrqlAlertConditionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NrqlAlertConditionNrqlArgs : Pulumi.ResourceArgs
-    {
-        [Input("query", required: true)]
-        public Input<string> Query { get; set; } = null!;
-
-        [Input("sinceValue", required: true)]
-        public Input<string> SinceValue { get; set; } = null!;
-
-        public NrqlAlertConditionNrqlArgs()
-        {
-        }
-    }
-
-    public sealed class NrqlAlertConditionNrqlGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("query", required: true)]
-        public Input<string> Query { get; set; } = null!;
-
-        [Input("sinceValue", required: true)]
-        public Input<string> SinceValue { get; set; } = null!;
-
-        public NrqlAlertConditionNrqlGetArgs()
-        {
-        }
-    }
-
-    public sealed class NrqlAlertConditionTermsArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
-
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
-
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        [Input("timeFunction", required: true)]
-        public Input<string> TimeFunction { get; set; } = null!;
-
-        public NrqlAlertConditionTermsArgs()
-        {
-        }
-    }
-
-    public sealed class NrqlAlertConditionTermsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
-
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
-
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
-
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        [Input("timeFunction", required: true)]
-        public Input<string> TimeFunction { get; set; } = null!;
-
-        public NrqlAlertConditionTermsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NrqlAlertConditionNrql
-    {
-        public readonly string Query;
-        public readonly string SinceValue;
-
-        [OutputConstructor]
-        private NrqlAlertConditionNrql(
-            string query,
-            string sinceValue)
-        {
-            Query = query;
-            SinceValue = sinceValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class NrqlAlertConditionTerms
-    {
-        public readonly int Duration;
-        public readonly string? Operator;
-        public readonly string? Priority;
-        public readonly double Threshold;
-        public readonly string TimeFunction;
-
-        [OutputConstructor]
-        private NrqlAlertConditionTerms(
-            int duration,
-            string? @operator,
-            string? priority,
-            double threshold,
-            string timeFunction)
-        {
-            Duration = duration;
-            Operator = @operator;
-            Priority = priority;
-            Threshold = threshold;
-            TimeFunction = timeFunction;
-        }
-    }
     }
 }

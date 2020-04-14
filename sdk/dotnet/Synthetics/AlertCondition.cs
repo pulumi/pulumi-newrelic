@@ -11,8 +11,6 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create and manage synthetics alert conditions in New Relic.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
     /// </summary>
     public partial class AlertCondition : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertCondition(string name, AlertConditionArgs args, CustomResourceOptions? options = null)
-            : base("newrelic:synthetics/alertCondition:AlertCondition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("newrelic:synthetics/alertCondition:AlertCondition", name, args ?? new AlertConditionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

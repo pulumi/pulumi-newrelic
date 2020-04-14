@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetAlertChannel.InvokeAsync() instead")]
-        public static Task<GetAlertChannelResult> GetAlertChannel(GetAlertChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAlertChannel
     {
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAlertChannelArgs : Pulumi.InvokeArgs
     {
@@ -34,6 +29,7 @@ namespace Pulumi.NewRelic
         }
     }
 
+
     [OutputType]
     public sealed class GetAlertChannelResult
     {
@@ -41,6 +37,10 @@ namespace Pulumi.NewRelic
         /// Alert channel configuration.
         /// </summary>
         public readonly Outputs.GetAlertChannelConfigResult Config;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// A list of policy IDs associated with the alert channel.
@@ -50,95 +50,24 @@ namespace Pulumi.NewRelic
         /// Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAlertChannelResult(
             Outputs.GetAlertChannelConfigResult config,
+
+            string id,
+
             string name,
+
             ImmutableArray<int> policyIds,
-            string type,
-            string id)
+
+            string type)
         {
             Config = config;
+            Id = id;
             Name = name;
             PolicyIds = policyIds;
             Type = type;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAlertChannelConfigResult
-    {
-        public readonly string? ApiKey;
-        public readonly string? AuthPassword;
-        public readonly string? AuthType;
-        public readonly string? AuthUsername;
-        public readonly string? BaseUrl;
-        public readonly string? Channel;
-        public readonly ImmutableDictionary<string, string>? Headers;
-        public readonly string? IncludeJsonAttachment;
-        public readonly string? Key;
-        public readonly ImmutableDictionary<string, string>? Payload;
-        public readonly string? PayloadType;
-        public readonly string? Recipients;
-        public readonly string? Region;
-        public readonly string? RouteKey;
-        public readonly string? ServiceKey;
-        public readonly string? Tags;
-        public readonly string? Teams;
-        public readonly string? Url;
-        public readonly string? UserId;
-
-        [OutputConstructor]
-        private GetAlertChannelConfigResult(
-            string? apiKey,
-            string? authPassword,
-            string? authType,
-            string? authUsername,
-            string? baseUrl,
-            string? channel,
-            ImmutableDictionary<string, string>? headers,
-            string? includeJsonAttachment,
-            string? key,
-            ImmutableDictionary<string, string>? payload,
-            string? payloadType,
-            string? recipients,
-            string? region,
-            string? routeKey,
-            string? serviceKey,
-            string? tags,
-            string? teams,
-            string? url,
-            string? userId)
-        {
-            ApiKey = apiKey;
-            AuthPassword = authPassword;
-            AuthType = authType;
-            AuthUsername = authUsername;
-            BaseUrl = baseUrl;
-            Channel = channel;
-            Headers = headers;
-            IncludeJsonAttachment = includeJsonAttachment;
-            Key = key;
-            Payload = payload;
-            PayloadType = payloadType;
-            Recipients = recipients;
-            Region = region;
-            RouteKey = routeKey;
-            ServiceKey = serviceKey;
-            Tags = tags;
-            Teams = teams;
-            Url = url;
-            UserId = userId;
-        }
-    }
     }
 }

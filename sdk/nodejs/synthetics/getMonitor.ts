@@ -6,10 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_monitor.html.markdown.
  */
-export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> & GetMonitorResult {
+export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,11 +18,9 @@ export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetMonitorResult> = pulumi.runtime.invoke("newrelic:synthetics/getMonitor:getMonitor", {
+    return pulumi.runtime.invoke("newrelic:synthetics/getMonitor:getMonitor", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

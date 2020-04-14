@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic.Plugins
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetPlugin.InvokeAsync() instead")]
-        public static Task<GetPluginResult> GetPlugin(GetPluginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPlugin
     {
         public static Task<GetPluginResult> InvokeAsync(GetPluginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? new GetPluginArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPluginArgs : Pulumi.InvokeArgs
     {
@@ -34,6 +29,7 @@ namespace Pulumi.NewRelic.Plugins
         }
     }
 
+
     [OutputType]
     public sealed class GetPluginResult
     {
@@ -46,6 +42,7 @@ namespace Pulumi.NewRelic.Plugins
         [OutputConstructor]
         private GetPluginResult(
             string guid,
+
             string id)
         {
             Guid = guid;

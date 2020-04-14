@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic.Plugins
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetPluginComponent.InvokeAsync() instead")]
-        public static Task<GetPluginComponentResult> GetPluginComponent(GetPluginComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPluginComponent
     {
         public static Task<GetPluginComponentResult> InvokeAsync(GetPluginComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? new GetPluginComponentArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPluginComponentArgs : Pulumi.InvokeArgs
     {
@@ -40,6 +35,7 @@ namespace Pulumi.NewRelic.Plugins
         }
     }
 
+
     [OutputType]
     public sealed class GetPluginComponentResult
     {
@@ -57,8 +53,11 @@ namespace Pulumi.NewRelic.Plugins
         [OutputConstructor]
         private GetPluginComponentResult(
             string healthStatus,
+
             string id,
+
             string name,
+
             int pluginId)
         {
             HealthStatus = healthStatus;
