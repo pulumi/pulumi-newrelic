@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Regenerate datasource examples to be async
 
 ---
 ## 2.0.0 (2020-04-17)
