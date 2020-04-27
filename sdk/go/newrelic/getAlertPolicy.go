@@ -28,7 +28,7 @@ type LookupAlertPolicyArgs struct {
 type LookupAlertPolicyResult struct {
 	// The time the policy was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`

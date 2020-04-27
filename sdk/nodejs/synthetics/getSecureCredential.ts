@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  * 
- * const foo = newrelic.synthetics.getSecureCredential({
+ * const foo = pulumi.output(newrelic.synthetics.getSecureCredential({
  *     key: "MY_KEY",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
@@ -65,7 +65,7 @@ export interface GetSecureCredentialResult {
      */
     readonly lastUpdated: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

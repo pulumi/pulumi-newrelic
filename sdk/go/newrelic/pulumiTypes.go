@@ -327,111 +327,216 @@ func (o AlertChannelConfigPtrOutput) Elem() AlertChannelConfigOutput {
 
 // The API key for integrating with OpsGenie.
 func (o AlertChannelConfigPtrOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
 func (o AlertChannelConfigPtrOutput) AuthPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthPassword
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
 func (o AlertChannelConfigPtrOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
 func (o AlertChannelConfigPtrOutput) AuthUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.AuthUsername }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthUsername
+	}).(pulumi.StringPtrOutput)
 }
 
 // The base URL of the webhook destination.
 func (o AlertChannelConfigPtrOutput) BaseUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Slack channel to send notifications to.
 // * `opsgenie`
 func (o AlertChannelConfigPtrOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Channel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Channel
+	}).(pulumi.StringPtrOutput)
 }
 
 // A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
 func (o AlertChannelConfigPtrOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
 }
 
 // Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 func (o AlertChannelConfigPtrOutput) HeadersString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersString
+	}).(pulumi.StringPtrOutput)
 }
 
 // `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 // * `webhook`
 func (o AlertChannelConfigPtrOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeJsonAttachment
+	}).(pulumi.StringPtrOutput)
 }
 
 // The key for integrating with VictorOps.
 func (o AlertChannelConfigPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
 }
 
 // A map of key/value pairs that represents the webhook payload.  Must provide `payloadType` if setting this argument.
 func (o AlertChannelConfigPtrOutput) Payload() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Payload
+	}).(pulumi.StringMapOutput)
 }
 
 // Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
 func (o AlertChannelConfigPtrOutput) PayloadString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadString
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
 // * `pagerduty`
 func (o AlertChannelConfigPtrOutput) PayloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadType
+	}).(pulumi.StringPtrOutput)
 }
 
 // A set of recipients for targeting notifications.  Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Recipients() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Recipients }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Recipients
+	}).(pulumi.StringPtrOutput)
 }
 
 // The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
 func (o AlertChannelConfigPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
 }
 
 // The route key for integrating with VictorOps.
 // * `slack`
 func (o AlertChannelConfigPtrOutput) RouteKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the service key for integrating with Pagerduty.
 // * `victorops`
 func (o AlertChannelConfigPtrOutput) ServiceKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.ServiceKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // A set of tags for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Tags() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Tags }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringPtrOutput)
 }
 
 // A set of teams for targeting notifications. Multiple values are comma separated.
 func (o AlertChannelConfigPtrOutput) Teams() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Teams
+	}).(pulumi.StringPtrOutput)
 }
 
 // Your organization's Slack URL.
 func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AlertChannelConfigPtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
 }
 
 type AlertConditionTerm struct {
@@ -680,11 +785,21 @@ func (o DashboardFilterPtrOutput) Elem() DashboardFilterOutput {
 }
 
 func (o DashboardFilterPtrOutput) Attributes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DashboardFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o DashboardFilterPtrOutput) EventTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DashboardFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EventTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 type DashboardWidget struct {
@@ -1315,16 +1430,31 @@ func (o InfraAlertConditionCriticalPtrOutput) Elem() InfraAlertConditionCritical
 	return o.ApplyT(func(v *InfraAlertConditionCritical) InfraAlertConditionCritical { return *v }).(InfraAlertConditionCriticalOutput)
 }
 
-func (o InfraAlertConditionCriticalPtrOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v InfraAlertConditionCritical) int { return v.Duration }).(pulumi.IntOutput)
+func (o InfraAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfraAlertConditionCritical) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InfraAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InfraAlertConditionCritical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFunction
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v InfraAlertConditionCritical) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v *InfraAlertConditionCritical) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
 }
 
 type InfraAlertConditionWarning struct {
@@ -1458,16 +1588,31 @@ func (o InfraAlertConditionWarningPtrOutput) Elem() InfraAlertConditionWarningOu
 	return o.ApplyT(func(v *InfraAlertConditionWarning) InfraAlertConditionWarning { return *v }).(InfraAlertConditionWarningOutput)
 }
 
-func (o InfraAlertConditionWarningPtrOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v InfraAlertConditionWarning) int { return v.Duration }).(pulumi.IntOutput)
+func (o InfraAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfraAlertConditionWarning) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o InfraAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InfraAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InfraAlertConditionWarning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFunction
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v InfraAlertConditionWarning) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v *InfraAlertConditionWarning) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
 }
 
 type NrqlAlertConditionNrql struct {
@@ -1595,12 +1740,22 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) NrqlAlertConditionNrql { return *v }).(NrqlAlertConditionNrqlOutput)
 }
 
-func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
+func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringOutput {
-	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.SinceValue }).(pulumi.StringOutput)
+func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SinceValue
+	}).(pulumi.StringPtrOutput)
 }
 
 type NrqlAlertConditionTerm struct {
