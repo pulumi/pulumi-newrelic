@@ -31,7 +31,7 @@ type LookupSecureCredentialResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// The secure credential's description.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 	// The time the secure credential was last updated.
