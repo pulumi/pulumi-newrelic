@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-newrelic/sdk
+module github.com/pulumi/pulumi-newrelic/sdk/v2
 
 go 1.13
 
