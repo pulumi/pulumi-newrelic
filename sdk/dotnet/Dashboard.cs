@@ -87,6 +87,12 @@ namespace Pulumi.NewRelic
         public Output<Outputs.DashboardFilter?> Filter { get; private set; } = null!;
 
         /// <summary>
+        /// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        /// </summary>
+        [Output("gridColumnCount")]
+        public Output<int?> GridColumnCount { get; private set; } = null!;
+
+        /// <summary>
         /// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         /// </summary>
         [Output("icon")]
@@ -169,6 +175,12 @@ namespace Pulumi.NewRelic
         public Input<Inputs.DashboardFilterArgs>? Filter { get; set; }
 
         /// <summary>
+        /// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        /// </summary>
+        [Input("gridColumnCount")]
+        public Input<int>? GridColumnCount { get; set; }
+
+        /// <summary>
         /// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         /// </summary>
         [Input("icon")]
@@ -222,6 +234,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("filter")]
         public Input<Inputs.DashboardFilterGetArgs>? Filter { get; set; }
+
+        /// <summary>
+        /// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        /// </summary>
+        [Input("gridColumnCount")]
+        public Input<int>? GridColumnCount { get; set; }
 
         /// <summary>
         /// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.

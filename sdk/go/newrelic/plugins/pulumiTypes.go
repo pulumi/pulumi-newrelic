@@ -130,7 +130,108 @@ func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTe
 	}).(AlertConditionTermOutput)
 }
 
+type WorkloadEntitySearchQuery struct {
+	// The query.
+	Query string `pulumi:"query"`
+}
+
+// WorkloadEntitySearchQueryInput is an input type that accepts WorkloadEntitySearchQueryArgs and WorkloadEntitySearchQueryOutput values.
+// You can construct a concrete instance of `WorkloadEntitySearchQueryInput` via:
+//
+// 		 WorkloadEntitySearchQueryArgs{...}
+//
+type WorkloadEntitySearchQueryInput interface {
+	pulumi.Input
+
+	ToWorkloadEntitySearchQueryOutput() WorkloadEntitySearchQueryOutput
+	ToWorkloadEntitySearchQueryOutputWithContext(context.Context) WorkloadEntitySearchQueryOutput
+}
+
+type WorkloadEntitySearchQueryArgs struct {
+	// The query.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (WorkloadEntitySearchQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadEntitySearchQuery)(nil)).Elem()
+}
+
+func (i WorkloadEntitySearchQueryArgs) ToWorkloadEntitySearchQueryOutput() WorkloadEntitySearchQueryOutput {
+	return i.ToWorkloadEntitySearchQueryOutputWithContext(context.Background())
+}
+
+func (i WorkloadEntitySearchQueryArgs) ToWorkloadEntitySearchQueryOutputWithContext(ctx context.Context) WorkloadEntitySearchQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadEntitySearchQueryOutput)
+}
+
+// WorkloadEntitySearchQueryArrayInput is an input type that accepts WorkloadEntitySearchQueryArray and WorkloadEntitySearchQueryArrayOutput values.
+// You can construct a concrete instance of `WorkloadEntitySearchQueryArrayInput` via:
+//
+// 		 WorkloadEntitySearchQueryArray{ WorkloadEntitySearchQueryArgs{...} }
+//
+type WorkloadEntitySearchQueryArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadEntitySearchQueryArrayOutput() WorkloadEntitySearchQueryArrayOutput
+	ToWorkloadEntitySearchQueryArrayOutputWithContext(context.Context) WorkloadEntitySearchQueryArrayOutput
+}
+
+type WorkloadEntitySearchQueryArray []WorkloadEntitySearchQueryInput
+
+func (WorkloadEntitySearchQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadEntitySearchQuery)(nil)).Elem()
+}
+
+func (i WorkloadEntitySearchQueryArray) ToWorkloadEntitySearchQueryArrayOutput() WorkloadEntitySearchQueryArrayOutput {
+	return i.ToWorkloadEntitySearchQueryArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadEntitySearchQueryArray) ToWorkloadEntitySearchQueryArrayOutputWithContext(ctx context.Context) WorkloadEntitySearchQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadEntitySearchQueryArrayOutput)
+}
+
+type WorkloadEntitySearchQueryOutput struct{ *pulumi.OutputState }
+
+func (WorkloadEntitySearchQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadEntitySearchQuery)(nil)).Elem()
+}
+
+func (o WorkloadEntitySearchQueryOutput) ToWorkloadEntitySearchQueryOutput() WorkloadEntitySearchQueryOutput {
+	return o
+}
+
+func (o WorkloadEntitySearchQueryOutput) ToWorkloadEntitySearchQueryOutputWithContext(ctx context.Context) WorkloadEntitySearchQueryOutput {
+	return o
+}
+
+// The query.
+func (o WorkloadEntitySearchQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadEntitySearchQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type WorkloadEntitySearchQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadEntitySearchQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadEntitySearchQuery)(nil)).Elem()
+}
+
+func (o WorkloadEntitySearchQueryArrayOutput) ToWorkloadEntitySearchQueryArrayOutput() WorkloadEntitySearchQueryArrayOutput {
+	return o
+}
+
+func (o WorkloadEntitySearchQueryArrayOutput) ToWorkloadEntitySearchQueryArrayOutputWithContext(ctx context.Context) WorkloadEntitySearchQueryArrayOutput {
+	return o
+}
+
+func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadEntitySearchQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadEntitySearchQuery {
+		return vs[0].([]WorkloadEntitySearchQuery)[vs[1].(int)]
+	}).(WorkloadEntitySearchQueryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadEntitySearchQueryOutput{})
+	pulumi.RegisterOutputType(WorkloadEntitySearchQueryArrayOutput{})
 }

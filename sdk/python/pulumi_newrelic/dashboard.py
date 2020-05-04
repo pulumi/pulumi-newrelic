@@ -25,6 +25,10 @@ class Dashboard(pulumi.CustomResource):
       * `attributes` (`list`)
       * `eventTypes` (`list`)
     """
+    grid_column_count: pulumi.Output[float]
+    """
+    The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+    """
     icon: pulumi.Output[str]
     """
     The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
@@ -74,7 +78,7 @@ class Dashboard(pulumi.CustomResource):
       * `widgetId` (`float`)
       * `width` (`float`)
     """
-    def __init__(__self__, resource_name, opts=None, editable=None, filter=None, icon=None, title=None, visibility=None, widgets=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, editable=None, filter=None, grid_column_count=None, icon=None, title=None, visibility=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic dashboards.
 
@@ -136,6 +140,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         :param pulumi.Input[dict] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        :param pulumi.Input[float] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
@@ -200,6 +205,7 @@ class Dashboard(pulumi.CustomResource):
 
             __props__['editable'] = editable
             __props__['filter'] = filter
+            __props__['grid_column_count'] = grid_column_count
             __props__['icon'] = icon
             if title is None:
                 raise TypeError("Missing required property 'title'")
@@ -214,7 +220,7 @@ class Dashboard(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dashboard_url=None, editable=None, filter=None, icon=None, title=None, visibility=None, widgets=None):
+    def get(resource_name, id, opts=None, dashboard_url=None, editable=None, filter=None, grid_column_count=None, icon=None, title=None, visibility=None, widgets=None):
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -225,6 +231,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] dashboard_url: The URL for viewing the dashboard.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         :param pulumi.Input[dict] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        :param pulumi.Input[float] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
@@ -277,6 +284,7 @@ class Dashboard(pulumi.CustomResource):
         __props__["dashboard_url"] = dashboard_url
         __props__["editable"] = editable
         __props__["filter"] = filter
+        __props__["grid_column_count"] = grid_column_count
         __props__["icon"] = icon
         __props__["title"] = title
         __props__["visibility"] = visibility

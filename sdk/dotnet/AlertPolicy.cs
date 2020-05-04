@@ -23,7 +23,7 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
 
         /// <summary>
-        /// The time the policy was created.
+        /// **DEPRECATED:** The time the policy was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The time the policy was last updated.
+        /// **DEPRECATED:** The time the policy was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The time the policy was created.
+        /// **DEPRECATED:** The time the policy was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -158,7 +158,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The time the policy was last updated.
+        /// **DEPRECATED:** The time the policy was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

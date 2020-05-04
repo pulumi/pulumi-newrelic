@@ -105,6 +105,10 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly filter!: pulumi.Output<outputs.DashboardFilter | undefined>;
     /**
+     * The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+     */
+    public readonly gridColumnCount!: pulumi.Output<number | undefined>;
+    /**
      * The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
      */
     public readonly icon!: pulumi.Output<string | undefined>;
@@ -136,6 +140,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["dashboardUrl"] = state ? state.dashboardUrl : undefined;
             inputs["editable"] = state ? state.editable : undefined;
             inputs["filter"] = state ? state.filter : undefined;
+            inputs["gridColumnCount"] = state ? state.gridColumnCount : undefined;
             inputs["icon"] = state ? state.icon : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["visibility"] = state ? state.visibility : undefined;
@@ -147,6 +152,7 @@ export class Dashboard extends pulumi.CustomResource {
             }
             inputs["editable"] = args ? args.editable : undefined;
             inputs["filter"] = args ? args.filter : undefined;
+            inputs["gridColumnCount"] = args ? args.gridColumnCount : undefined;
             inputs["icon"] = args ? args.icon : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["visibility"] = args ? args.visibility : undefined;
@@ -181,6 +187,10 @@ export interface DashboardState {
      */
     readonly filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
+     * The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+     */
+    readonly gridColumnCount?: pulumi.Input<number>;
+    /**
      * The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
      */
     readonly icon?: pulumi.Input<string>;
@@ -210,6 +220,10 @@ export interface DashboardArgs {
      * A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
      */
     readonly filter?: pulumi.Input<inputs.DashboardFilter>;
+    /**
+     * The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+     */
+    readonly gridColumnCount?: pulumi.Input<number>;
     /**
      * The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
      */

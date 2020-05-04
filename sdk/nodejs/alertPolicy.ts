@@ -58,7 +58,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
-     * The time the policy was created.
+     * **DEPRECATED:** The time the policy was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The time the policy was last updated.
+     * **DEPRECATED:** The time the policy was last updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
@@ -121,7 +121,9 @@ export interface AlertPolicyState {
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The time the policy was created.
+     * **DEPRECATED:** The time the policy was created.
+     * 
+     * @deprecated Unavailable attribute in NerdGraph.
      */
     readonly createdAt?: pulumi.Input<string>;
     /**
@@ -133,7 +135,9 @@ export interface AlertPolicyState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The time the policy was last updated.
+     * **DEPRECATED:** The time the policy was last updated.
+     * 
+     * @deprecated Unavailable attribute in NerdGraph.
      */
     readonly updatedAt?: pulumi.Input<string>;
 }
