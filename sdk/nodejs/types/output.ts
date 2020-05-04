@@ -220,4 +220,11 @@ export namespace plugins {
         threshold: number;
         timeFunction: string;
     }
+
+    export interface WorkloadEntitySearchQuery {
+        /**
+         * The query.
+         */
+        query: string;
+    }
 }

@@ -33,6 +33,7 @@
         "plugins/getPlugin.ts",
         "plugins/getPluginComponent.ts",
         "plugins/index.ts",
+        "plugins/workload.ts",
         "provider.ts",
         "synthetics/alertCondition.ts",
         "synthetics/getMonitor.ts",

@@ -198,4 +198,11 @@ export namespace plugins {
         threshold: pulumi.Input<number>;
         timeFunction: pulumi.Input<string>;
     }
+
+    export interface WorkloadEntitySearchQuery {
+        /**
+         * The query.
+         */
+        query: pulumi.Input<string>;
+    }
 }

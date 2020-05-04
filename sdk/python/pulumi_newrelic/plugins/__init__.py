@@ -6,3 +6,4 @@
 from .alert_condition import *
 from .get_plugin import *
 from .get_plugin_component import *
+from .workload import *

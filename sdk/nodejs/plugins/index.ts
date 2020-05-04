@@ -5,3 +5,4 @@
 export * from "./alertCondition";
 export * from "./getPlugin";
 export * from "./getPluginComponent";
+export * from "./workload";

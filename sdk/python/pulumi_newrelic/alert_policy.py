@@ -18,7 +18,7 @@ class AlertPolicy(pulumi.CustomResource):
     """
     created_at: pulumi.Output[str]
     """
-    The time the policy was created.
+    **DEPRECATED:** The time the policy was created.
     """
     incident_preference: pulumi.Output[str]
     """
@@ -30,7 +30,7 @@ class AlertPolicy(pulumi.CustomResource):
     """
     updated_at: pulumi.Output[str]
     """
-    The time the policy was last updated.
+    **DEPRECATED:** The time the policy was last updated.
     """
     def __init__(__self__, resource_name, opts=None, channel_ids=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -86,10 +86,10 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
                in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
                imported via terraform import.
-        :param pulumi.Input[str] created_at: The time the policy was created.
+        :param pulumi.Input[str] created_at: **DEPRECATED:** The time the policy was created.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] updated_at: The time the policy was last updated.
+        :param pulumi.Input[str] updated_at: **DEPRECATED:** The time the policy was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

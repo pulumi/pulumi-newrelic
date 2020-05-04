@@ -177,6 +177,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
 			"newrelic_insights_event":               {Tok: makeResource(insightsMod, "Event")},
 			"newrelic_plugins_alert_condition":      {Tok: makeResource(pluginsMod, "AlertCondition")},
+			"newrelic_workload":                     {Tok: makeResource(pluginsMod, "Workload")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"newrelic_alert_channel":                {Tok: makeDataSource(mainMod, "getAlertChannel")},
