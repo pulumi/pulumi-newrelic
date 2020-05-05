@@ -504,8 +504,8 @@ github.com/newrelic/go-agent/v3 v3.4.0 h1:PZTDUw+8h0yRkpkkXKrHSlRsDk0uYJ4I3Dv2lr
 github.com/newrelic/go-agent/v3 v3.4.0/go.mod h1:H28zDNUC0U/b7kLoY4EFOhuth10Xu/9dchozUiOseQQ=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.23.0 h1:SNqudEOG0DBmRsBdsWNfWlPF8P6Csfnnhv3+D9XGI24=
-github.com/newrelic/newrelic-client-go v0.23.0/go.mod h1:Kql4o4D5et8WS8c4O/7ZdH2QcTX6zYtoIrbdlhwg+Oc=
+github.com/newrelic/newrelic-client-go v0.23.1 h1:7LEo9zZVy6A51KNb+OVez3dXKMZOSzkkH+iw6av703A=
+github.com/newrelic/newrelic-client-go v0.23.1/go.mod h1:Kql4o4D5et8WS8c4O/7ZdH2QcTX6zYtoIrbdlhwg+Oc=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
@@ -632,8 +632,8 @@ github.com/stretchr/testify v1.5.1 h1:nOGnQDM7FYENwehXlg/kFVnos3rEvtKTjRvOWSzb6H
 github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5cxcmMvtA=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/tdakkota/asciicheck v0.0.0-20200416190851-d7f85be797a2/go.mod h1:yHp0ai0Z9gUljN3o0xMhYJnH/IcvkdTBOX2fmJ93JEM=
-github.com/terraform-providers/terraform-provider-newrelic v1.17.0 h1:vna3ZxOQAdsk3CpsIh5iRtZQ0n5OzS924u70wv/Y3cU=
-github.com/terraform-providers/terraform-provider-newrelic v1.17.0/go.mod h1:TEwgqfZM24jzBkDewNw8cqeSouMH041OXsmIPv0Q1NY=
+github.com/terraform-providers/terraform-provider-newrelic v1.17.1 h1:OAqrizfAEqUYuo65xHI5JVqK+GIz5rcj8LB0AD/mFKE=
+github.com/terraform-providers/terraform-provider-newrelic v1.17.1/go.mod h1:ufUhV5zU/eYCY2mQdWtGUu/cuNFnQMqxO8FTO3CyISo=
 github.com/tetafro/godot v0.3.3/go.mod h1:pT6/T8+h6//L/LwQcFc4C0xpfy1euZwzS1sHdrFCms0=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 h1:9VTskZOIRf2vKF3UL8TuWElry5pgUpV1tFSe/e/0m/E=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
