@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.17.0 of the NewRelic Terraform Provider
+_(none)_
 
 ---
+
+## 2.2.1 (2020-05-05)
+* Upgrade to v1.17.0 of the NewRelic Terraform Provider
 
 ## 2.2.0 (2020-05-04)
 * Upgrade to v1.17.0 of the NewRelic Terraform Provider
