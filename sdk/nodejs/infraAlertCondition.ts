@@ -9,6 +9,68 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage Infrastructure alert conditions in New Relic.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const foo = new newrelic.AlertPolicy("foo", {});
+ * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
+ *     policyId: foo.id,
+ *     type: "infraMetric",
+ *     event: "StorageSample",
+ *     select: "diskUsedPercent",
+ *     comparison: "above",
+ *     where: `(`hostname` LIKE '%frontend%')`,
+ *     critical: {
+ *         duration: 25,
+ *         value: 90,
+ *         timeFunction: "all",
+ *     },
+ *     warning: {
+ *         duration: 10,
+ *         value: 90,
+ *         timeFunction: "all",
+ *     },
+ * });
+ * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
+ *     policyId: foo.id,
+ *     type: "infraMetric",
+ *     event: "DatastoreSample",
+ *     select: "provider.databaseConnections.Average",
+ *     comparison: "above",
+ *     where: `(`hostname` LIKE '%db%')`,
+ *     integrationProvider: "RdsDbInstance",
+ *     critical: {
+ *         duration: 25,
+ *         value: 90,
+ *         timeFunction: "all",
+ *     },
+ * });
+ * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
+ *     policyId: foo.id,
+ *     type: "infraProcessRunning",
+ *     comparison: "equal",
+ *     processWhere: "`commandName` = '/usr/bin/ruby'",
+ *     critical: {
+ *         duration: 5,
+ *         value: 0,
+ *     },
+ * });
+ * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
+ *     policyId: foo.id,
+ *     type: "infraHostNotReporting",
+ *     event: "StorageSample",
+ *     select: "diskUsedPercent",
+ *     where: `(`hostname` LIKE '%frontend%')`,
+ *     critical: {
+ *         duration: 5,
+ *     },
+ * });
+ * ```
  * 
  * ## Thresholds
  * 

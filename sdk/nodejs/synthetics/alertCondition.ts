@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create and manage synthetics alert conditions in New Relic.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const fooMonitor = newrelic.synthetics.getMonitor({
+ *     name: "foo",
+ * });
+ * const fooAlertCondition = new newrelic.synthetics.AlertCondition("fooAlertCondition", {
+ *     policyId: newrelic_alert_policy.foo.id,
+ *     monitorId: fooMonitor.then(fooMonitor => fooMonitor.id),
+ *     runbookUrl: "https://www.example.com",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_alert_condition.html.markdown.
  */

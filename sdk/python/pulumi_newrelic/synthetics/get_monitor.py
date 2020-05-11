@@ -43,6 +43,20 @@ def get_monitor(name=None,opts=None):
     """
     Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    bar = newrelic.synthetics.get_monitor(name="bar")
+    baz = newrelic.synthetics.AlertCondition("baz",
+        policy_id=newrelic_alert_policy["foo"]["id"],
+        monitor_id=bar.id,
+        runbook_url="https://www.example.com")
+    ```
 
 
 

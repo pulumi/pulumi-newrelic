@@ -9,6 +9,34 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  * 
+ * ## Example Usage
+ * 
+ * ### Type: `static` (default)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "static",
+ *     runbookUrl: "https://www.example.com",
+ *     enabled: true,
+ *     term: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: "1",
+ *         timeFunction: "all",
+ *     }],
+ *     nrql: {
+ *         query: "SELECT count(*) FROM SyntheticCheck WHERE monitorId = '<monitorId>'",
+ *         sinceValue: "3",
+ *     },
+ *     valueFunction: "singleValue",
+ * });
+ * ```
  * 
  * ## Terms
  * 
@@ -26,6 +54,35 @@ import * as utilities from "./utilities";
  * 
  * - `query` - (Required) The NRQL query to execute for the condition.
  * - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+ * 
+ * ## Additional Examples
+ * 
+ * ##### Type: `outlier`
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     runbookUrl: "https://bar.example.com",
+ *     enabled: true,
+ *     term: [{
+ *         duration: 10,
+ *         operator: "above",
+ *         priority: "critical",
+ *         threshold: "0.65",
+ *         timeFunction: "all",
+ *     }],
+ *     nrql: {
+ *         query: "SELECT percentile(duration, 99) FROM Transaction FACET remoteIp",
+ *         sinceValue: "3",
+ *     },
+ *     type: "outlier",
+ *     expectedGroups: 2,
+ *     ignoreOverlap: true,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
  */

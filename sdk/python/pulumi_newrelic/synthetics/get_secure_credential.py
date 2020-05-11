@@ -59,6 +59,16 @@ def get_secure_credential(key=None,opts=None):
 
     Note that the secure credential's value is not returned as an attribute for security reasons.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.synthetics.get_secure_credential(key="MY_KEY")
+    ```
 
 
 

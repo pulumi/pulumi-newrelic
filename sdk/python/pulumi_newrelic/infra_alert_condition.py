@@ -86,6 +86,64 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertPolicy("foo")
+        high_disk_usage = newrelic.InfraAlertCondition("highDiskUsage",
+            policy_id=foo.id,
+            type="infra_metric",
+            event="StorageSample",
+            select="diskUsedPercent",
+            comparison="above",
+            where="(`hostname` LIKE '%frontend%')",
+            critical={
+                "duration": 25,
+                "value": 90,
+                "timeFunction": "all",
+            },
+            warning={
+                "duration": 10,
+                "value": 90,
+                "timeFunction": "all",
+            })
+        high_db_conn_count = newrelic.InfraAlertCondition("highDbConnCount",
+            policy_id=foo.id,
+            type="infra_metric",
+            event="DatastoreSample",
+            select="provider.databaseConnections.Average",
+            comparison="above",
+            where="(`hostname` LIKE '%db%')",
+            integration_provider="RdsDbInstance",
+            critical={
+                "duration": 25,
+                "value": 90,
+                "timeFunction": "all",
+            })
+        process_not_running = newrelic.InfraAlertCondition("processNotRunning",
+            policy_id=foo.id,
+            type="infra_process_running",
+            comparison="equal",
+            process_where="`commandName` = '/usr/bin/ruby'",
+            critical={
+                "duration": 5,
+                "value": 0,
+            })
+        host_not_reporting = newrelic.InfraAlertCondition("hostNotReporting",
+            policy_id=foo.id,
+            type="infra_host_not_reporting",
+            event="StorageSample",
+            select="diskUsedPercent",
+            where="(`hostname` LIKE '%frontend%')",
+            critical={
+                "duration": 5,
+            })
+        ```
 
         ## Thresholds
 

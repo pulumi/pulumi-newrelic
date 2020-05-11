@@ -65,6 +65,33 @@ class NrqlAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage NRQL alert conditions in New Relic.
 
+        ## Example Usage
+
+        ### Type: `static` (default)
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+            policy_id=foo_alert_policy.id,
+            type="static",
+            runbook_url="https://www.example.com",
+            enabled=True,
+            term=[{
+                "duration": 5,
+                "operator": "below",
+                "priority": "critical",
+                "threshold": "1",
+                "timeFunction": "all",
+            }],
+            nrql={
+                "query": "SELECT count(*) FROM SyntheticCheck WHERE monitorId = '<monitorId>'",
+                "sinceValue": "3",
+            },
+            value_function="single_value")
+        ```
 
         ## Terms
 
@@ -82,6 +109,34 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         - `query` - (Required) The NRQL query to execute for the condition.
         - `since_value` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+
+        ## Additional Examples
+
+        ##### Type: `outlier`
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+        foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
+            policy_id=foo_alert_policy.id,
+            runbook_url="https://bar.example.com",
+            enabled=True,
+            term=[{
+                "duration": 10,
+                "operator": "above",
+                "priority": "critical",
+                "threshold": "0.65",
+                "timeFunction": "all",
+            }],
+            nrql={
+                "query": "SELECT percentile(duration, 99) FROM Transaction FACET remote_ip",
+                "sinceValue": "3",
+            },
+            type="outlier",
+            expected_groups=2,
+            ignore_overlap=True)
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

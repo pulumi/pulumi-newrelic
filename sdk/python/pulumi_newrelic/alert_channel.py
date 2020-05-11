@@ -14,7 +14,7 @@ class AlertChannel(pulumi.CustomResource):
     """
     A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 
-      * `api_key` (`str`) - The API key for integrating with OpsGenie.
+      * `apiKey` (`str`) - The API key for integrating with OpsGenie.
       * `authPassword` (`str`) - Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
       * `authType` (`str`) - Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
       * `authUsername` (`str`) - Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
@@ -57,7 +57,118 @@ class AlertChannel(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic alert policies.
 
+        ## Example Usage
 
+        ### Email
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config={
+                "includeJsonAttachment": "1",
+                "recipients": "foo@example.com",
+            },
+            type="email")
+        ```
+
+        ## Additional Examples
+
+        ##### Slack
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config={
+                "channel": "example-alerts-channel",
+                "url": "https://<YourOrganization>.slack.com",
+            },
+            type="slack")
+        ```
+
+        ##### OpsGenie
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config={
+                "apiKey": "abc123",
+                "recipients": "user1@domain.com, user2@domain.com",
+                "tags": "tag1, tag2",
+                "teams": "team1, team2",
+            },
+            type="opsgenie")
+        ```
+
+        ##### PagerDuty
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config={
+                "serviceKey": "abc123",
+            },
+            type="pagerduty")
+        ```
+
+        ##### VictorOps
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config={
+                "key": "abc123",
+                "routeKey": "/example",
+            },
+            type="victorops")
+        ```
+
+        ##### Webhook
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            type="webhook",
+            config={
+                "baseUrl": "http://www.test.com",
+                "payloadType": "application/json",
+                "payload": {
+                    "condition_name": "$CONDITION_NAME",
+                    "policy_name": "$POLICY_NAME",
+                },
+                "headers": {
+                    "header1": value1,
+                    "header2": value2,
+                },
+            })
+        ```
+
+        ##### Webhook with complex payload
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertChannel("foo",
+            config={
+                "baseUrl": "http://www.test.com",
+                "payloadString": \"\"\"{
+          "my_custom_values": {
+            "condition_name": "$$CONDITION_NAME",
+            "policy_name": "$$POLICY_NAME"
+          }
+        }
+
+        \"\"\",
+                "payloadType": "application/json",
+            },
+            type="webhook")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -68,7 +179,7 @@ class AlertChannel(pulumi.CustomResource):
 
         The **config** object supports the following:
 
-          * `api_key` (`pulumi.Input[str]`) - The API key for integrating with OpsGenie.
+          * `apiKey` (`pulumi.Input[str]`) - The API key for integrating with OpsGenie.
           * `authPassword` (`pulumi.Input[str]`) - Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
           * `authType` (`pulumi.Input[str]`) - Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
           * `authUsername` (`pulumi.Input[str]`) - Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
@@ -140,7 +251,7 @@ class AlertChannel(pulumi.CustomResource):
 
         The **config** object supports the following:
 
-          * `api_key` (`pulumi.Input[str]`) - The API key for integrating with OpsGenie.
+          * `apiKey` (`pulumi.Input[str]`) - The API key for integrating with OpsGenie.
           * `authPassword` (`pulumi.Input[str]`) - Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
           * `authType` (`pulumi.Input[str]`) - Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
           * `authUsername` (`pulumi.Input[str]`) - Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
