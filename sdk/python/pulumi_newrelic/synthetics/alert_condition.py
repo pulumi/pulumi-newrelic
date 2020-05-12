@@ -34,6 +34,20 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_monitor = newrelic.synthetics.get_monitor(name="foo")
+        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
+            policy_id=newrelic_alert_policy["foo"]["id"],
+            monitor_id=foo_monitor.id,
+            runbook_url="https://www.example.com")
+        ```
 
 
         :param str resource_name: The name of the resource.

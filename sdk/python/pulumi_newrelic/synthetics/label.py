@@ -30,6 +30,19 @@ class Label(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a Synthetics label in New Relic.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Label("foo",
+            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
+            type="MyCategory",
+            value="MyValue")
+        ```
 
 
         :param str resource_name: The name of the resource.

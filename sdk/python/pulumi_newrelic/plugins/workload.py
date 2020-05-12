@@ -56,6 +56,22 @@ class Workload(pulumi.CustomResource):
         attribute in the `provider` block or the `NEWRELIC_PERSONAL_API_KEY` environment
         variable with your Personal API key,
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[{
+                "query": "name like 'Example application'",
+            }],
+            scope_account_ids=[12345678])
+        ```
 
 
         :param str resource_name: The name of the resource.

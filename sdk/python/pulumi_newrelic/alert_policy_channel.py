@@ -27,6 +27,38 @@ class AlertPolicyChannel(pulumi.CustomResource):
         """
         Use this resource to map alert policies to alert channels in New Relic.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        example_policy = newrelic.get_alert_policy(name="my-alert-policy")
+        # Creates an email alert channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config={
+                "recipients": "foo@example.com",
+                "includeJsonAttachment": "1",
+            })
+        # Creates a Slack alert channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config={
+                "channel": "#example-channel",
+                "url": "http://example-org.slack.com",
+            })
+        # Applies the created channels above to the alert policy
+        # referenced at the top of the config.
+        foo = newrelic.AlertPolicyChannel("foo",
+            policy_id=newrelic_alert_policy["example_policy"]["id"],
+            channel_ids=[
+                email_channel.id,
+                slack_channel.id,
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

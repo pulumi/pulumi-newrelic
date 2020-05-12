@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create and manage plugins alert conditions in New Relic.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * 
+ * const fooPlugin = newrelic.plugins.getPlugin({
+ *     guid: "com.example.my-plugin",
+ * });
+ * const fooPluginComponent = fooPlugin.then(fooPlugin => newrelic.plugins.getPluginComponent({
+ *     pluginId: fooPlugin.id,
+ *     name: "MyPlugin",
+ * }));
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.plugins.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     entities: [fooPluginComponent.then(fooPluginComponent => fooPluginComponent.id)],
+ *     metric: "Component/Summary/Consumers[consumers]",
+ *     pluginId: fooPlugin.then(fooPlugin => fooPlugin.id),
+ *     pluginGuid: fooPlugin.then(fooPlugin => fooPlugin.guid),
+ *     valueFunction: "average",
+ *     metricDescription: "Queue consumers",
+ *     term: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: "0.75",
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
  * 
  * ## Terms
  * 

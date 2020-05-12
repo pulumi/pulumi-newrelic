@@ -190,7 +190,6 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_plugin_component":             {Tok: makeDataSource(pluginsMod, "getPluginComponent")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
 			},

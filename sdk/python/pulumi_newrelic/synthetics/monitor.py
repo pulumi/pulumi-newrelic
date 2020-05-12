@@ -58,7 +58,74 @@ class Monitor(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a synthetics monitor in New Relic.
 
+        ## Example Usage
 
+        ### Type: `SIMPLE`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            frequency=5,
+            locations=[
+                "AWS_US_EAST_1",
+                "AWS_US_EAST_2",
+            ],
+            status="ENABLED",
+            type="SIMPLE",
+            uri="https://example.com",
+            validation_string="add example validation check here",
+            verify_ssl=True)
+        # Optional for type "SIMPLE" and "BROWSER"
+        ```
+
+        ## Additional Examples
+
+        Type: `BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            bypass_head_request=True,
+            frequency=5,
+            locations=["AWS_US_EAST_1"],
+            status="ENABLED",
+            treat_redirect_as_failure=True,
+            type="BROWSER",
+            uri="https://example.com",
+            validation_string="add example validation check here",
+            verify_ssl=True)
+        # optional for type "SIMPLE" and "BROWSER"
+        ```
+
+        Type: `SCRIPT_BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            frequency=5,
+            locations=["AWS_US_EAST_1"],
+            status="ENABLED",
+            type="SCRIPT_BROWSER")
+        ```
+
+        Type: `SCRIPT_API`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            frequency=5,
+            locations=["AWS_US_EAST_1"],
+            status="ENABLED",
+            type="SCRIPT_API")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

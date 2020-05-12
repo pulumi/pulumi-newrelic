@@ -34,6 +34,19 @@ class SecureCredential(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.SecureCredential("foo",
+            description="My description",
+            key="MY_KEY",
+            value="My value")
+        ```
 
 
         :param str resource_name: The name of the resource.
