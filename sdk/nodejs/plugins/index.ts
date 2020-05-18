@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./alertCondition";
+export * from "./applicationSettings";
 export * from "./getPlugin";
 export * from "./getPluginComponent";
 export * from "./workload";

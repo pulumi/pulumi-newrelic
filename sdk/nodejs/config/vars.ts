@@ -18,5 +18,5 @@ export let insightsInsertUrl: string | undefined = __config.get("insightsInsertU
 export let insightsQueryKey: string | undefined = __config.get("insightsQueryKey") || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
 export let insightsQueryUrl: string | undefined = __config.get("insightsQueryUrl") || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
 export let nerdgraphApiUrl: string | undefined = __config.get("nerdgraphApiUrl") || utilities.getEnv("NEWRELIC_NERDGRAPH_API_URL");
-export let personalApiKey: string | undefined = __config.get("personalApiKey");
+export let personalApiKey: string | undefined = __config.get("personalApiKey") || utilities.getEnv("NEWRELIC_PERSONAL_API_KEY");
 export let syntheticsApiUrl: string | undefined = __config.get("syntheticsApiUrl") || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");

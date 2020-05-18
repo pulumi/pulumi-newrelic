@@ -4,6 +4,7 @@
 
 _SNAKE_TO_CAMEL_CASE_TABLE = {
     "account_id": "accountId",
+    "app_apdex_threshold": "appApdexThreshold",
     "bypass_head_request": "bypassHeadRequest",
     "channel_id": "channelId",
     "channel_ids": "channelIds",
@@ -11,6 +12,8 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "condition_scope": "conditionScope",
     "created_at": "createdAt",
     "dashboard_url": "dashboardUrl",
+    "enable_real_user_monitoring": "enableRealUserMonitoring",
+    "end_user_apdex_threshold": "endUserApdexThreshold",
     "entity_guids": "entityGuids",
     "entity_search_queries": "entitySearchQueries",
     "expected_groups": "expectedGroups",
@@ -43,6 +46,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
 
 _CAMEL_TO_SNAKE_CASE_TABLE = {
     "accountId": "account_id",
+    "appApdexThreshold": "app_apdex_threshold",
     "bypassHeadRequest": "bypass_head_request",
     "channelId": "channel_id",
     "channelIds": "channel_ids",
@@ -50,6 +54,8 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "conditionScope": "condition_scope",
     "createdAt": "created_at",
     "dashboardUrl": "dashboard_url",
+    "enableRealUserMonitoring": "enable_real_user_monitoring",
+    "endUserApdexThreshold": "end_user_apdex_threshold",
     "entityGuids": "entity_guids",
     "entitySearchQueries": "entity_search_queries",
     "expectedGroups": "expected_groups",

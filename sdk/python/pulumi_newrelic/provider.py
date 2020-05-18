@@ -73,6 +73,8 @@ class Provider(pulumi.ProviderResource):
             if nerdgraph_api_url is None:
                 nerdgraph_api_url = utilities.get_env('NEWRELIC_NERDGRAPH_API_URL')
             __props__['nerdgraph_api_url'] = nerdgraph_api_url
+            if personal_api_key is None:
+                personal_api_key = utilities.get_env('NEWRELIC_PERSONAL_API_KEY')
             __props__['personal_api_key'] = personal_api_key
             if synthetics_api_url is None:
                 synthetics_api_url = (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')

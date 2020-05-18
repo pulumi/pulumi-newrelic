@@ -100,6 +100,7 @@ namespace Pulumi.NewRelic
             InsightsQueryKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             InsightsQueryUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
             NerdgraphApiUrl = Utilities.GetEnv("NEWRELIC_NERDGRAPH_API_URL");
+            PersonalApiKey = Utilities.GetEnv("NEWRELIC_PERSONAL_API_KEY");
             SyntheticsApiUrl = Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
         }
     }

@@ -59,6 +59,9 @@ func NewProvider(ctx *pulumi.Context,
 	if args.NerdgraphApiUrl == nil {
 		args.NerdgraphApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_NERDGRAPH_API_URL").(string))
 	}
+	if args.PersonalApiKey == nil {
+		args.PersonalApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_PERSONAL_API_KEY").(string))
+	}
 	if args.SyntheticsApiUrl == nil {
 		args.SyntheticsApiUrl = pulumi.StringPtr(getEnvOrDefault("https://synthetics.newrelic.com/synthetics/api/v3", nil, "NEWRELIC_SYNTHETICS_API_URL").(string))
 	}

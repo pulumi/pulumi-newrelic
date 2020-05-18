@@ -30,6 +30,7 @@
         "insights/index.ts",
         "nrqlAlertCondition.ts",
         "plugins/alertCondition.ts",
+        "plugins/applicationSettings.ts",
         "plugins/getPlugin.ts",
         "plugins/getPluginComponent.ts",
         "plugins/index.ts",
