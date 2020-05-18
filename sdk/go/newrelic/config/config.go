@@ -93,7 +93,11 @@ func GetNerdgraphApiUrl(ctx *pulumi.Context) string {
 	return getEnvOrDefault("", nil, "NEWRELIC_NERDGRAPH_API_URL").(string)
 }
 func GetPersonalApiKey(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:personalApiKey")
+	v, err := config.Try(ctx, "newrelic:personalApiKey")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "NEWRELIC_PERSONAL_API_KEY").(string)
 }
 func GetSyntheticsApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:syntheticsApiUrl")

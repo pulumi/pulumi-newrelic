@@ -160,6 +160,11 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"NEWRELIC_NERDGRAPH_API_URL"},
 				},
 			},
+			"personal_api_key": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_PERSONAL_API_KEY"},
+				},
+			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
@@ -178,6 +183,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_insights_event":               {Tok: makeResource(insightsMod, "Event")},
 			"newrelic_plugins_alert_condition":      {Tok: makeResource(pluginsMod, "AlertCondition")},
 			"newrelic_workload":                     {Tok: makeResource(pluginsMod, "Workload")},
+			"newrelic_application_settings":         {Tok: makeResource(pluginsMod, "ApplicationSettings")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"newrelic_alert_channel":                {Tok: makeDataSource(mainMod, "getAlertChannel")},
