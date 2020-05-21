@@ -6,23 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this resource to create and manage New Relic Synthetic secure credentials.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.synthetics.SecureCredential("foo", {
  *     description: "My description",
  *     key: "MY_KEY",
  *     value: "My value",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_secure_credential.html.markdown.
  */
 export class SecureCredential extends pulumi.CustomResource {
     /**

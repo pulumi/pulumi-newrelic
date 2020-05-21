@@ -15,6 +15,8 @@ type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
 	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+	//
+	// Deprecated: use `channel_ids` argument instead
 	ChannelId pulumi.IntPtrOutput `pulumi:"channelId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
 	// drift your Terraform state.
@@ -55,6 +57,8 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertPolicyChannel resources.
 type alertPolicyChannelState struct {
 	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+	//
+	// Deprecated: use `channel_ids` argument instead
 	ChannelId *int `pulumi:"channelId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
 	// drift your Terraform state.
@@ -65,6 +69,8 @@ type alertPolicyChannelState struct {
 
 type AlertPolicyChannelState struct {
 	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+	//
+	// Deprecated: use `channel_ids` argument instead
 	ChannelId pulumi.IntPtrInput
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
 	// drift your Terraform state.
@@ -79,6 +85,8 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 
 type alertPolicyChannelArgs struct {
 	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+	//
+	// Deprecated: use `channel_ids` argument instead
 	ChannelId *int `pulumi:"channelId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
 	// drift your Terraform state.
@@ -90,6 +98,8 @@ type alertPolicyChannelArgs struct {
 // The set of arguments for constructing a AlertPolicyChannel resource.
 type AlertPolicyChannelArgs struct {
 	// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
+	//
+	// Deprecated: use `channel_ids` argument instead
 	ChannelId pulumi.IntPtrInput
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
 	// drift your Terraform state.

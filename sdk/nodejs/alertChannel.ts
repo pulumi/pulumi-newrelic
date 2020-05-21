@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this resource to create and manage New Relic alert policies.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Email
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         includeJsonAttachment: "1",
@@ -25,14 +25,14 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
- * 
+ *
  * ## Additional Examples
- * 
+ *
  * ##### Slack
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         channel: "example-alerts-channel",
@@ -41,12 +41,12 @@ import * as utilities from "./utilities";
  *     type: "slack",
  * });
  * ```
- * 
+ *
  * ##### OpsGenie
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         apiKey: "abc123",
@@ -57,12 +57,12 @@ import * as utilities from "./utilities";
  *     type: "opsgenie",
  * });
  * ```
- * 
+ *
  * ##### PagerDuty
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         serviceKey: "abc123",
@@ -70,12 +70,12 @@ import * as utilities from "./utilities";
  *     type: "pagerduty",
  * });
  * ```
- * 
+ *
  * ##### VictorOps
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         key: "abc123",
@@ -84,12 +84,12 @@ import * as utilities from "./utilities";
  *     type: "victorops",
  * });
  * ```
- * 
+ *
  * ##### Webhook
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     type: "webhook",
  *     config: {
@@ -106,12 +106,12 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ##### Webhook with complex payload
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         baseUrl: "http://www.test.com",
@@ -127,8 +127,6 @@ import * as utilities from "./utilities";
  *     type: "webhook",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_channel.html.markdown.
  */
 export class AlertChannel extends pulumi.CustomResource {
     /**
@@ -221,7 +219,6 @@ export interface AlertChannelState {
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-     * 
      * @deprecated use `config` block instead
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;
@@ -245,7 +242,6 @@ export interface AlertChannelArgs {
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-     * 
      * @deprecated use `config` block instead
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;

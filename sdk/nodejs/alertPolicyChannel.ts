@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this resource to map alert policies to alert channels in New Relic.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const examplePolicy = newrelic.getAlertPolicy({
  *     name: "my-alert-policy",
  * });
@@ -46,8 +46,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy_channel.html.markdown.
  */
 export class AlertPolicyChannel extends pulumi.CustomResource {
     /**
@@ -130,8 +128,19 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
  */
 export interface AlertPolicyChannelState {
     /**
-     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-     * 
+     * Deprecated.     * 
+ The     * 
+ ID     * 
+ of     * 
+ the     * 
+ channel.     * 
+ Please     * 
+ use     * 
+ the     * 
+ channel_ids     * 
+ argument     * 
+ instead.     * 
+
      * @deprecated use `channel_ids` argument instead
      */
     readonly channelId?: pulumi.Input<number>;
@@ -151,8 +160,19 @@ export interface AlertPolicyChannelState {
  */
 export interface AlertPolicyChannelArgs {
     /**
-     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-     * 
+     * Deprecated.     * 
+ The     * 
+ ID     * 
+ of     * 
+ the     * 
+ channel.     * 
+ Please     * 
+ use     * 
+ the     * 
+ channel_ids     * 
+ argument     * 
+ instead.     * 
+
      * @deprecated use `channel_ids` argument instead
      */
     readonly channelId?: pulumi.Input<number>;

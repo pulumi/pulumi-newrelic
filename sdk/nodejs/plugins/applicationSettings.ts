@@ -7,31 +7,29 @@ import * as utilities from "../utilities";
 /**
  * > **NOTE:** Applications are not created by this resource, but are created by
  * a reporting agent.
- * 
+ *
  * Use this resource to manage configuration for an application that already
  * exists in New Relic.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const app = new newrelic.plugins.ApplicationSettings("app", {
  *     appApdexThreshold: 0.7,
  *     enableRealUserMonitoring: false,
  *     endUserApdexThreshold: 0.8,
  * });
  * ```
- * 
+ *
  * ## Notes
- * 
+ *
  * > **NOTE:** Applications that have reported data in the last twelve hours
  * cannot be deleted.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/application_settings.html.markdown.
  */
 export class ApplicationSettings extends pulumi.CustomResource {
     /**

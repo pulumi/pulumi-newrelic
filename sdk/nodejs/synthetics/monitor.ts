@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this resource to create, update, and delete a synthetics monitor in New Relic.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Type: `SIMPLE`
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.synthetics.Monitor("foo", {
  *     frequency: 5,
  *     locations: [
@@ -28,15 +28,15 @@ import * as utilities from "../utilities";
  *     verifySsl: true, // Optional for type "SIMPLE" and "BROWSER"
  * });
  * ```
- * 
+ *
  * ## Additional Examples
- * 
+ *
  * Type: `BROWSER`
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.synthetics.Monitor("foo", {
  *     bypassHeadRequest: true, // Note: optional for type "BROWSER" only
  *     frequency: 5,
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     verifySsl: true, // optional for type "SIMPLE" and "BROWSER"
  * });
  * ```
- * 
+ *
  * Type: `SCRIPT_BROWSER`
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.synthetics.Monitor("foo", {
  *     frequency: 5,
  *     locations: ["AWS_US_EAST_1"],
@@ -63,13 +63,13 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_BROWSER",
  * });
  * ```
- * 
+ *
  * Type: `SCRIPT_API`
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.synthetics.Monitor("foo", {
  *     frequency: 5,
  *     locations: ["AWS_US_EAST_1"],
@@ -77,8 +77,6 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_API",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_monitor.html.markdown.
  */
 export class Monitor extends pulumi.CustomResource {
     /**

@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this resource to create, update, and delete a New Relic One workload.
- * 
+ *
  * A New Relic Personal API key is required to provision this resource.  Set the `providerApiKey`
  * attribute in the `provider` block or the `NEWRELIC_PERSONAL_API_KEY` environment
  * variable with your Personal API key,
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.plugins.Workload("foo", {
  *     accountId: 12345678,
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     scopeAccountIds: [12345678],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/workload.html.markdown.
  */
 export class Workload extends pulumi.CustomResource {
     /**
