@@ -1,0 +1,3455 @@
+{
+    "name": "newrelic",
+    "description": "A Pulumi package for creating and managing New Relic resources.",
+    "keywords": [
+        "pulumi",
+        "new relic"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`newrelic` Terraform Provider](https://github.com/terraform-providers/terraform-provider-newrelic).",
+    "repository": "https://github.com/pulumi/pulumi-newrelic",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "apiKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_KEY"
+                    ]
+                }
+            },
+            "apiUrl": {
+                "type": "string",
+                "default": "https://api.newrelic.com/v2",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_URL"
+                    ]
+                }
+            },
+            "cacertFile": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_CACERT"
+                    ]
+                }
+            },
+            "infraApiUrl": {
+                "type": "string",
+                "default": "https://infra-api.newrelic.com/v2",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INFRA_API_URL"
+                    ]
+                }
+            },
+            "infrastructureApiUrl": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INFRASTRUCTURE_API_URL"
+                    ]
+                }
+            },
+            "insecureSkipVerify": {
+                "type": "boolean",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_SKIP_VERIFY"
+                    ]
+                }
+            },
+            "insightsAccountId": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_ACCOUNT_ID"
+                    ]
+                }
+            },
+            "insightsInsertKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_INSERT_KEY"
+                    ]
+                }
+            },
+            "insightsInsertUrl": {
+                "type": "string",
+                "default": "https://insights-collector.newrelic.com/v1/accounts",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_INSERT_URL"
+                    ]
+                }
+            },
+            "insightsQueryKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_QUERY_KEY"
+                    ]
+                }
+            },
+            "insightsQueryUrl": {
+                "type": "string",
+                "default": "https://insights-api.newrelic.com/v1/accounts",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_QUERY_URL"
+                    ]
+                }
+            },
+            "nerdgraphApiUrl": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_NERDGRAPH_API_URL"
+                    ]
+                }
+            },
+            "personalApiKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_PERSONAL_API_KEY"
+                    ]
+                }
+            },
+            "syntheticsApiUrl": {
+                "type": "string",
+                "default": "https://synthetics.newrelic.com/synthetics/api/v3",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_SYNTHETICS_API_URL"
+                    ]
+                }
+            }
+        }
+    },
+    "types": {
+        "newrelic:/AlertChannelConfig:AlertChannelConfig": {
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "description": "The API key for integrating with OpsGenie.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authPassword": {
+                    "type": "string",
+                    "description": "Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authType": {
+                    "type": "string",
+                    "description": "Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authUsername": {
+                    "type": "string",
+                    "description": "Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "baseUrl": {
+                    "type": "string",
+                    "description": "The base URL of the webhook destination.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "channel": {
+                    "type": "string",
+                    "description": "The Slack channel to send notifications to.\n* `opsgenie`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "headersString": {
+                    "type": "string",
+                    "description": "Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeJsonAttachment": {
+                    "type": "string",
+                    "description": "`0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.\n* `webhook`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The key for integrating with VictorOps.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "payload": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "payloadString": {
+                    "type": "string",
+                    "description": "Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "payloadType": {
+                    "type": "string",
+                    "description": "Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.\n* `pagerduty`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "recipients": {
+                    "type": "string",
+                    "description": "A set of recipients for targeting notifications.  Multiple values are comma separated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "routeKey": {
+                    "type": "string",
+                    "description": "The route key for integrating with VictorOps.\n* `slack`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceKey": {
+                    "type": "string",
+                    "description": "Specifies the service key for integrating with Pagerduty.\n* `victorops`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tags": {
+                    "type": "string",
+                    "description": "A set of tags for targeting notifications. Multiple values are comma separated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "teams": {
+                    "type": "string",
+                    "description": "A set of teams for targeting notifications. Multiple values are comma separated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Your organization's Slack URL.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "userId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:/AlertConditionTerm:AlertConditionTerm": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "threshold": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeFunction": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "threshold",
+                "timeFunction"
+            ]
+        },
+        "newrelic:/DashboardFilter:DashboardFilter": {
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "eventTypes"
+            ]
+        },
+        "newrelic:/DashboardWidget:DashboardWidget": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "compareWiths": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/DashboardWidgetCompareWith:DashboardWidgetCompareWith"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "drilldownDashboardId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endTime": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "entityIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/DashboardWidgetMetric:DashboardWidgetMetric"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notes": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "orderBy": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rawMetricName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "thresholdRed": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "thresholdYellow": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "visualization": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "row",
+                "title",
+                "visualization"
+            ]
+        },
+        "newrelic:/DashboardWidgetCompareWith:DashboardWidgetCompareWith": {
+            "properties": {
+                "offsetDuration": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "presentation": {
+                    "$ref": "#/types/newrelic:/DashboardWidgetCompareWithPresentation:DashboardWidgetCompareWithPresentation",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "offsetDuration",
+                "presentation"
+            ]
+        },
+        "newrelic:/DashboardWidgetCompareWithPresentation:DashboardWidgetCompareWithPresentation": {
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "color",
+                "name"
+            ]
+        },
+        "newrelic:/DashboardWidgetMetric:DashboardWidgetMetric": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scope": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "units": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeFunction": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration"
+            ]
+        },
+        "newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeFunction": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration"
+            ]
+        },
+        "newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sinceValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query",
+                "sinceValue"
+            ]
+        },
+        "newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "threshold": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeFunction": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "threshold",
+                "timeFunction"
+            ]
+        },
+        "newrelic:/getAlertChannelConfig:getAlertChannelConfig": {
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authPassword": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authUsername": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "baseUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "channel": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includeJsonAttachment": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "payload": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "payloadType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "recipients": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "routeKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tags": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "teams": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "userId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "newrelic:insights/EventEvent:EventEvent": {
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:insights/EventEventAttribute:EventEventAttribute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "attributes",
+                "type"
+            ]
+        },
+        "newrelic:insights/EventEventAttribute:EventEventAttribute": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "newrelic:plugins/AlertConditionTerm:AlertConditionTerm": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "threshold": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeFunction": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "threshold",
+                "timeFunction"
+            ]
+        },
+        "newrelic:plugins/WorkloadEntitySearchQuery:WorkloadEntitySearchQuery": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "The query.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the newrelic package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "inputProperties": {
+            "apiKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_KEY"
+                    ]
+                }
+            },
+            "apiUrl": {
+                "type": "string",
+                "default": "https://api.newrelic.com/v2",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_URL"
+                    ]
+                }
+            },
+            "cacertFile": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_CACERT"
+                    ]
+                }
+            },
+            "infraApiUrl": {
+                "type": "string",
+                "default": "https://infra-api.newrelic.com/v2",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INFRA_API_URL"
+                    ]
+                }
+            },
+            "infrastructureApiUrl": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INFRASTRUCTURE_API_URL"
+                    ]
+                }
+            },
+            "insecureSkipVerify": {
+                "type": "boolean",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_API_SKIP_VERIFY"
+                    ]
+                }
+            },
+            "insightsAccountId": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_ACCOUNT_ID"
+                    ]
+                }
+            },
+            "insightsInsertKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_INSERT_KEY"
+                    ]
+                }
+            },
+            "insightsInsertUrl": {
+                "type": "string",
+                "default": "https://insights-collector.newrelic.com/v1/accounts",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_INSERT_URL"
+                    ]
+                }
+            },
+            "insightsQueryKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_QUERY_KEY"
+                    ]
+                }
+            },
+            "insightsQueryUrl": {
+                "type": "string",
+                "default": "https://insights-api.newrelic.com/v1/accounts",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_INSIGHTS_QUERY_URL"
+                    ]
+                }
+            },
+            "nerdgraphApiUrl": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_NERDGRAPH_API_URL"
+                    ]
+                }
+            },
+            "personalApiKey": {
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_PERSONAL_API_KEY"
+                    ]
+                }
+            },
+            "syntheticsApiUrl": {
+                "type": "string",
+                "default": "https://synthetics.newrelic.com/synthetics/api/v3",
+                "defaultInfo": {
+                    "environment": [
+                        "NEWRELIC_SYNTHETICS_API_URL"
+                    ]
+                }
+            }
+        }
+    },
+    "resources": {
+        "newrelic:index/alertChannel:AlertChannel": {
+            "description": "Use this resource to create and manage New Relic alert policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Email\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        includeJsonAttachment: \"1\",\n        recipients: \"foo@example.com\",\n    },\n    type: \"email\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"includeJsonAttachment\": \"1\",\n        \"recipients\": \"foo@example.com\",\n    },\n    type=\"email\")\n```\nSee additional examples.\n\n{{% /example %}}\n{{% /examples %}}\n## Additional Examples\n\n##### Slack\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        channel: \"example-alerts-channel\",\n        url: \"https://\u003cYourOrganization\u003e.slack.com\",\n    },\n    type: \"slack\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"channel\": \"example-alerts-channel\",\n        \"url\": \"https://\u003cYourOrganization\u003e.slack.com\",\n    },\n    type=\"slack\")\n```\n\n##### OpsGenie\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        apiKey: \"abc123\",\n        recipients: \"user1@domain.com, user2@domain.com\",\n        tags: \"tag1, tag2\",\n        teams: \"team1, team2\",\n    },\n    type: \"opsgenie\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"apiKey\": \"abc123\",\n        \"recipients\": \"user1@domain.com, user2@domain.com\",\n        \"tags\": \"tag1, tag2\",\n        \"teams\": \"team1, team2\",\n    },\n    type=\"opsgenie\")\n```\n\n##### PagerDuty\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        serviceKey: \"abc123\",\n    },\n    type: \"pagerduty\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"serviceKey\": \"abc123\",\n    },\n    type=\"pagerduty\")\n```\n\n##### VictorOps\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        key: \"abc123\",\n        routeKey: \"/example\",\n    },\n    type: \"victorops\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"key\": \"abc123\",\n        \"routeKey\": \"/example\",\n    },\n    type=\"victorops\")\n```\n\n##### Webhook\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    type: \"webhook\",\n    config: {\n        baseUrl: \"http://www.test.com\",\n        payloadType: \"application/json\",\n        payload: {\n            condition_name: `$CONDITION_NAME`,\n            policy_name: `$POLICY_NAME`,\n        },\n        headers: {\n            header1: value1,\n            header2: value2,\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    type=\"webhook\",\n    config={\n        \"baseUrl\": \"http://www.test.com\",\n        \"payloadType\": \"application/json\",\n        \"payload\": {\n            \"condition_name\": \"$CONDITION_NAME\",\n            \"policy_name\": \"$POLICY_NAME\",\n        },\n        \"headers\": {\n            \"header1\": value1,\n            \"header2\": value2,\n        },\n    })\n```\n\n##### Webhook with complex payload\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        baseUrl: \"http://www.test.com\",\n        payloadString: `{\n  \"my_custom_values\": {\n    \"condition_name\": \"$CONDITION_NAME\",\n    \"policy_name\": \"$POLICY_NAME\"\n  }\n}\n`,\n        payloadType: \"application/json\",\n    },\n    type: \"webhook\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"baseUrl\": \"http://www.test.com\",\n        \"payloadString\": \"\"\"{\n  \"my_custom_values\": {\n    \"condition_name\": \"$$CONDITION_NAME\",\n    \"policy_name\": \"$$POLICY_NAME\"\n  }\n}\n\n\"\"\",\n        \"payloadType\": \"application/json\",\n    },\n    type=\"webhook\")\n```\n",
+            "properties": {
+                "config": {
+                    "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
+                    "description": "A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.\n"
+                },
+                "configuration": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "**Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.\n",
+                    "deprecationMessage": "use `config` block instead"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the channel.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.\n"
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "inputProperties": {
+                "config": {
+                    "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
+                    "description": "A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.\n"
+                },
+                "configuration": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "**Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.\n",
+                    "deprecationMessage": "use `config` block instead"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the channel.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.\n"
+                }
+            },
+            "requiredInputs": [
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertChannel resources.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
+                        "description": "A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.\n"
+                    },
+                    "configuration": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "description": "**Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.\n",
+                        "deprecationMessage": "use `config` block instead"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the channel.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/alertCondition:AlertCondition": {
+            "description": "Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst app = newrelic.getApplication({\n    name: \"my-app\",\n});\nconst fooAlertPolicy = new newrelic.AlertPolicy(\"fooAlertPolicy\", {});\nconst fooAlertCondition = new newrelic.AlertCondition(\"fooAlertCondition\", {\n    policyId: fooAlertPolicy.id,\n    type: \"apm_app_metric\",\n    entities: [app.then(app =\u003e app.id)],\n    metric: \"apdex\",\n    runbookUrl: \"https://www.example.com\",\n    conditionScope: \"application\",\n    term: [{\n        duration: 5,\n        operator: \"below\",\n        priority: \"critical\",\n        threshold: \"0.75\",\n        timeFunction: \"all\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\napp = newrelic.get_application(name=\"my-app\")\nfoo_alert_policy = newrelic.AlertPolicy(\"fooAlertPolicy\")\nfoo_alert_condition = newrelic.AlertCondition(\"fooAlertCondition\",\n    policy_id=foo_alert_policy.id,\n    type=\"apm_app_metric\",\n    entities=[app.id],\n    metric=\"apdex\",\n    runbook_url=\"https://www.example.com\",\n    condition_scope=\"application\",\n    term=[{\n        \"duration\": 5,\n        \"operator\": \"below\",\n        \"priority\": \"critical\",\n        \"threshold\": \"0.75\",\n        \"timeFunction\": \"all\",\n    }])\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Terms\n\nThe `term` mapping supports the following arguments:\n\n  * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.\n  * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.\n  * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term\n  * `threshold` - (Required) Must be 0 or greater.\n  * `time_function` - (Required) `all` or `any`.\n",
+            "properties": {
+                "conditionScope": {
+                    "type": "string",
+                    "description": "`application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the condition is enabled or not. Defaults to true.\n"
+                },
+                "entities": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "The instance IDs associated with this condition.\n"
+                },
+                "gcMetric": {
+                    "type": "string",
+                    "description": "A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.\n"
+                },
+                "metric": {
+                    "type": "string",
+                    "description": "The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:\n* `apm_app_metric`\n* `apdex`\n* `error_percentage`\n* `response_time_background`\n* `response_time_web`\n* `throughput_background`\n* `throughput_web`\n* `user_defined`\n* `apm_kt_metric`\n* `apdex`\n* `error_count`\n* `error_percentage`\n* `response_time`\n* `throughput`\n* `browser_metric`\n* `ajax_response_time`\n* `ajax_throughput`\n* `dom_processing`\n* `end_user_apdex`\n* `network`\n* `page_rendering`\n* `page_view_throughput`\n* `page_views_with_js_errors`\n* `request_queuing`\n* `total_page_load`\n* `user_defined`\n* `web_application`\n* `mobile_metric`\n* `database`\n* `images`\n* `json`\n* `mobile_crash_rate`\n* `network_error_percentage`\n* `network`\n* `status_error_percentage`\n* `user_defined`\n* `view_loading`\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the condition. Must be between 1 and 64 characters, inclusive.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "terms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/AlertConditionTerm:AlertConditionTerm"
+                    },
+                    "description": "A list of terms for this condition. See Terms below for details.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`\n"
+                },
+                "userDefinedMetric": {
+                    "type": "string",
+                    "description": "A custom metric to be evaluated.\n"
+                },
+                "userDefinedValueFunction": {
+                    "type": "string",
+                    "description": "One of: `average`, `min`, `max`, `total`, or `sample_size`.\n"
+                },
+                "violationCloseTimer": {
+                    "type": "integer",
+                    "description": "Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.\n"
+                }
+            },
+            "required": [
+                "entities",
+                "metric",
+                "name",
+                "policyId",
+                "terms",
+                "type"
+            ],
+            "inputProperties": {
+                "conditionScope": {
+                    "type": "string",
+                    "description": "`application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the condition is enabled or not. Defaults to true.\n"
+                },
+                "entities": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "The instance IDs associated with this condition.\n"
+                },
+                "gcMetric": {
+                    "type": "string",
+                    "description": "A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.\n"
+                },
+                "metric": {
+                    "type": "string",
+                    "description": "The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:\n* `apm_app_metric`\n* `apdex`\n* `error_percentage`\n* `response_time_background`\n* `response_time_web`\n* `throughput_background`\n* `throughput_web`\n* `user_defined`\n* `apm_kt_metric`\n* `apdex`\n* `error_count`\n* `error_percentage`\n* `response_time`\n* `throughput`\n* `browser_metric`\n* `ajax_response_time`\n* `ajax_throughput`\n* `dom_processing`\n* `end_user_apdex`\n* `network`\n* `page_rendering`\n* `page_view_throughput`\n* `page_views_with_js_errors`\n* `request_queuing`\n* `total_page_load`\n* `user_defined`\n* `web_application`\n* `mobile_metric`\n* `database`\n* `images`\n* `json`\n* `mobile_crash_rate`\n* `network_error_percentage`\n* `network`\n* `status_error_percentage`\n* `user_defined`\n* `view_loading`\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the condition. Must be between 1 and 64 characters, inclusive.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "terms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/AlertConditionTerm:AlertConditionTerm"
+                    },
+                    "description": "A list of terms for this condition. See Terms below for details.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`\n"
+                },
+                "userDefinedMetric": {
+                    "type": "string",
+                    "description": "A custom metric to be evaluated.\n"
+                },
+                "userDefinedValueFunction": {
+                    "type": "string",
+                    "description": "One of: `average`, `min`, `max`, `total`, or `sample_size`.\n"
+                },
+                "violationCloseTimer": {
+                    "type": "integer",
+                    "description": "Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.\n"
+                }
+            },
+            "requiredInputs": [
+                "entities",
+                "metric",
+                "policyId",
+                "terms",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertCondition resources.\n",
+                "properties": {
+                    "conditionScope": {
+                        "type": "string",
+                        "description": "`application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the condition is enabled or not. Defaults to true.\n"
+                    },
+                    "entities": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "The instance IDs associated with this condition.\n"
+                    },
+                    "gcMetric": {
+                        "type": "string",
+                        "description": "A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.\n"
+                    },
+                    "metric": {
+                        "type": "string",
+                        "description": "The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:\n* `apm_app_metric`\n* `apdex`\n* `error_percentage`\n* `response_time_background`\n* `response_time_web`\n* `throughput_background`\n* `throughput_web`\n* `user_defined`\n* `apm_kt_metric`\n* `apdex`\n* `error_count`\n* `error_percentage`\n* `response_time`\n* `throughput`\n* `browser_metric`\n* `ajax_response_time`\n* `ajax_throughput`\n* `dom_processing`\n* `end_user_apdex`\n* `network`\n* `page_rendering`\n* `page_view_throughput`\n* `page_views_with_js_errors`\n* `request_queuing`\n* `total_page_load`\n* `user_defined`\n* `web_application`\n* `mobile_metric`\n* `database`\n* `images`\n* `json`\n* `mobile_crash_rate`\n* `network_error_percentage`\n* `network`\n* `status_error_percentage`\n* `user_defined`\n* `view_loading`\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The title of the condition. Must be between 1 and 64 characters, inclusive.\n"
+                    },
+                    "policyId": {
+                        "type": "integer",
+                        "description": "The ID of the policy where this condition should be used.\n"
+                    },
+                    "runbookUrl": {
+                        "type": "string",
+                        "description": "Runbook URL to display in notifications.\n"
+                    },
+                    "terms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:/AlertConditionTerm:AlertConditionTerm"
+                        },
+                        "description": "A list of terms for this condition. See Terms below for details.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`\n"
+                    },
+                    "userDefinedMetric": {
+                        "type": "string",
+                        "description": "A custom metric to be evaluated.\n"
+                    },
+                    "userDefinedValueFunction": {
+                        "type": "string",
+                        "description": "One of: `average`, `min`, `max`, `total`, or `sample_size`.\n"
+                    },
+                    "violationCloseTimer": {
+                        "type": "integer",
+                        "description": "Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/alertPolicy:AlertPolicy": {
+            "description": "Use this resource to create and manage New Relic alert policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertPolicy(\"foo\", {\n    incidentPreference: \"PER_POLICY\", // PER_POLICY is default\n});\n```\nSee additional examples.\n\n{{% /example %}}\n{{% /examples %}}\n## Additional Examples\n\n##### Provision multiple notification channels and add those channels to a policy\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\n// Provision a Slack notification channel.\nconst slackChannel = new newrelic.AlertChannel(\"slackChannel\", {\n    type: \"slack\",\n    config: {\n        url: \"https://hooks.slack.com/services/\u003c*****\u003e/\u003c*****\u003e\",\n        channel: \"example-alerts-channel\",\n    },\n});\n// Provision an email notification channel.\nconst emailChannel = new newrelic.AlertChannel(\"emailChannel\", {\n    type: \"email\",\n    config: {\n        recipients: \"example@testing.com\",\n        includeJsonAttachment: \"1\",\n    },\n});\n// Provision the alert policy.\nconst policyWithChannels = new newrelic.AlertPolicy(\"policyWithChannels\", {\n    incidentPreference: \"PER_CONDITION\",\n    channelIds: [\n        slackChannel.id,\n        emailChannel.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\n# Provision a Slack notification channel.\nslack_channel = newrelic.AlertChannel(\"slackChannel\",\n    type=\"slack\",\n    config={\n        \"url\": \"https://hooks.slack.com/services/\u003c*****\u003e/\u003c*****\u003e\",\n        \"channel\": \"example-alerts-channel\",\n    })\n# Provision an email notification channel.\nemail_channel = newrelic.AlertChannel(\"emailChannel\",\n    type=\"email\",\n    config={\n        \"recipients\": \"example@testing.com\",\n        \"includeJsonAttachment\": \"1\",\n    })\n# Provision the alert policy.\npolicy_with_channels = newrelic.AlertPolicy(\"policyWithChannels\",\n    incident_preference=\"PER_CONDITION\",\n    channel_ids=[\n        slack_channel.id,\n        email_channel.id,\n    ])\n```\n\u003cbr\u003e\n\n##### Reference existing notification channels and add those channel to a policy\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst slackChannel = newrelic.getAlertChannel({\n    name: \"slack-channel-notification\",\n});\nconst emailChannel = newrelic.getAlertChannel({\n    name: \"test@example.com\",\n});\n// Provision the alert policy.\nconst policyWithChannels = new newrelic.AlertPolicy(\"policyWithChannels\", {\n    incidentPreference: \"PER_CONDITION\",\n    channelIds: [\n        slackChannel.then(slackChannel =\u003e slackChannel.id),\n        emailChannel.then(emailChannel =\u003e emailChannel.id),\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nslack_channel = newrelic.get_alert_channel(name=\"slack-channel-notification\")\nemail_channel = newrelic.get_alert_channel(name=\"test@example.com\")\n# Provision the alert policy.\npolicy_with_channels = newrelic.AlertPolicy(\"policyWithChannels\",\n    incident_preference=\"PER_CONDITION\",\n    channel_ids=[\n        slack_channel.id,\n        email_channel.id,\n    ])\n```\n",
+            "properties": {
+                "channelIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "**DEPRECATED:** The time the policy was created.\n",
+                    "deprecationMessage": "Unavailable attribute in NerdGraph."
+                },
+                "incidentPreference": {
+                    "type": "string",
+                    "description": "The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "**DEPRECATED:** The time the policy was last updated.\n",
+                    "deprecationMessage": "Unavailable attribute in NerdGraph."
+                }
+            },
+            "required": [
+                "createdAt",
+                "name",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "channelIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n"
+                },
+                "incidentPreference": {
+                    "type": "string",
+                    "description": "The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertPolicy resources.\n",
+                "properties": {
+                    "channelIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "**DEPRECATED:** The time the policy was created.\n",
+                        "deprecationMessage": "Unavailable attribute in NerdGraph."
+                    },
+                    "incidentPreference": {
+                        "type": "string",
+                        "description": "The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the policy.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "**DEPRECATED:** The time the policy was last updated.\n",
+                        "deprecationMessage": "Unavailable attribute in NerdGraph."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/alertPolicyChannel:AlertPolicyChannel": {
+            "description": "Use this resource to map alert policies to alert channels in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nThe example below will apply multiple alert channels to an existing New Relic alert policy.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst examplePolicy = newrelic.getAlertPolicy({\n    name: \"my-alert-policy\",\n});\n// Creates an email alert channel.\nconst emailChannel = new newrelic.AlertChannel(\"emailChannel\", {\n    type: \"email\",\n    config: {\n        recipients: \"foo@example.com\",\n        includeJsonAttachment: \"1\",\n    },\n});\n// Creates a Slack alert channel.\nconst slackChannel = new newrelic.AlertChannel(\"slackChannel\", {\n    type: \"slack\",\n    config: {\n        channel: \"#example-channel\",\n        url: \"http://example-org.slack.com\",\n    },\n});\n// Applies the created channels above to the alert policy\n// referenced at the top of the config.\nconst foo = new newrelic.AlertPolicyChannel(\"foo\", {\n    policyId: newrelic_alert_policy.example_policy.id,\n    channelIds: [\n        emailChannel.id,\n        slackChannel.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nexample_policy = newrelic.get_alert_policy(name=\"my-alert-policy\")\n# Creates an email alert channel.\nemail_channel = newrelic.AlertChannel(\"emailChannel\",\n    type=\"email\",\n    config={\n        \"recipients\": \"foo@example.com\",\n        \"includeJsonAttachment\": \"1\",\n    })\n# Creates a Slack alert channel.\nslack_channel = newrelic.AlertChannel(\"slackChannel\",\n    type=\"slack\",\n    config={\n        \"channel\": \"#example-channel\",\n        \"url\": \"http://example-org.slack.com\",\n    })\n# Applies the created channels above to the alert policy\n# referenced at the top of the config.\nfoo = newrelic.AlertPolicyChannel(\"foo\",\n    policy_id=newrelic_alert_policy[\"example_policy\"][\"id\"],\n    channel_ids=[\n        email_channel.id,\n        slack_channel.id,\n    ])\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "channelId": {
+                    "type": "integer",
+                    "description": "Deprecated. The ID of the channel. Please use the channel_ids argument instead.\n",
+                    "deprecationMessage": "use `channel_ids` argument instead"
+                },
+                "channelIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid\ndrift your Terraform state.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy.\n"
+                }
+            },
+            "required": [
+                "policyId"
+            ],
+            "inputProperties": {
+                "channelId": {
+                    "type": "integer",
+                    "description": "Deprecated. The ID of the channel. Please use the channel_ids argument instead.\n",
+                    "deprecationMessage": "use `channel_ids` argument instead"
+                },
+                "channelIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid\ndrift your Terraform state.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy.\n"
+                }
+            },
+            "requiredInputs": [
+                "policyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertPolicyChannel resources.\n",
+                "properties": {
+                    "channelId": {
+                        "type": "integer",
+                        "description": "Deprecated. The ID of the channel. Please use the channel_ids argument instead.\n",
+                        "deprecationMessage": "use `channel_ids` argument instead"
+                    },
+                    "channelIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid\ndrift your Terraform state.\n"
+                    },
+                    "policyId": {
+                        "type": "integer",
+                        "description": "The ID of the policy.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/dashboard:Dashboard": {
+            "properties": {
+                "dashboardUrl": {
+                    "type": "string",
+                    "description": "The URL for viewing the dashboard.\n"
+                },
+                "editable": {
+                    "type": "string",
+                    "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
+                },
+                "filter": {
+                    "$ref": "#/types/newrelic:/DashboardFilter:DashboardFilter",
+                    "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
+                },
+                "gridColumnCount": {
+                    "type": "integer",
+                    "description": "The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.\n"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.\n"
+                },
+                "widgets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
+                    },
+                    "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.\n"
+                }
+            },
+            "required": [
+                "dashboardUrl",
+                "title"
+            ],
+            "inputProperties": {
+                "editable": {
+                    "type": "string",
+                    "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
+                },
+                "filter": {
+                    "$ref": "#/types/newrelic:/DashboardFilter:DashboardFilter",
+                    "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
+                },
+                "gridColumnCount": {
+                    "type": "integer",
+                    "description": "The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.\n"
+                },
+                "icon": {
+                    "type": "string",
+                    "description": "The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.\n"
+                },
+                "widgets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
+                    },
+                    "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "title"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Dashboard resources.\n",
+                "properties": {
+                    "dashboardUrl": {
+                        "type": "string",
+                        "description": "The URL for viewing the dashboard.\n"
+                    },
+                    "editable": {
+                        "type": "string",
+                        "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
+                    },
+                    "filter": {
+                        "$ref": "#/types/newrelic:/DashboardFilter:DashboardFilter",
+                        "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
+                    },
+                    "gridColumnCount": {
+                        "type": "integer",
+                        "description": "The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.\n"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the dashboard.\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.\n"
+                    },
+                    "widgets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
+                        },
+                        "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/infraAlertCondition:InfraAlertCondition": {
+            "description": "Use this resource to create and manage Infrastructure alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertPolicy(\"foo\", {});\nconst highDiskUsage = new newrelic.InfraAlertCondition(\"highDiskUsage\", {\n    policyId: foo.id,\n    type: \"infra_metric\",\n    event: \"StorageSample\",\n    select: \"diskUsedPercent\",\n    comparison: \"above\",\n    where: `(`hostname` LIKE '%frontend%')`,\n    critical: {\n        duration: 25,\n        value: 90,\n        timeFunction: \"all\",\n    },\n    warning: {\n        duration: 10,\n        value: 90,\n        timeFunction: \"all\",\n    },\n});\nconst highDbConnCount = new newrelic.InfraAlertCondition(\"highDbConnCount\", {\n    policyId: foo.id,\n    type: \"infra_metric\",\n    event: \"DatastoreSample\",\n    select: \"provider.databaseConnections.Average\",\n    comparison: \"above\",\n    where: `(`hostname` LIKE '%db%')`,\n    integrationProvider: \"RdsDbInstance\",\n    critical: {\n        duration: 25,\n        value: 90,\n        timeFunction: \"all\",\n    },\n});\nconst processNotRunning = new newrelic.InfraAlertCondition(\"processNotRunning\", {\n    policyId: foo.id,\n    type: \"infra_process_running\",\n    comparison: \"equal\",\n    processWhere: \"`commandName` = '/usr/bin/ruby'\",\n    critical: {\n        duration: 5,\n        value: 0,\n    },\n});\nconst hostNotReporting = new newrelic.InfraAlertCondition(\"hostNotReporting\", {\n    policyId: foo.id,\n    type: \"infra_host_not_reporting\",\n    event: \"StorageSample\",\n    select: \"diskUsedPercent\",\n    where: `(`hostname` LIKE '%frontend%')`,\n    critical: {\n        duration: 5,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertPolicy(\"foo\")\nhigh_disk_usage = newrelic.InfraAlertCondition(\"highDiskUsage\",\n    policy_id=foo.id,\n    type=\"infra_metric\",\n    event=\"StorageSample\",\n    select=\"diskUsedPercent\",\n    comparison=\"above\",\n    where=\"(`hostname` LIKE '%frontend%')\",\n    critical={\n        \"duration\": 25,\n        \"value\": 90,\n        \"timeFunction\": \"all\",\n    },\n    warning={\n        \"duration\": 10,\n        \"value\": 90,\n        \"timeFunction\": \"all\",\n    })\nhigh_db_conn_count = newrelic.InfraAlertCondition(\"highDbConnCount\",\n    policy_id=foo.id,\n    type=\"infra_metric\",\n    event=\"DatastoreSample\",\n    select=\"provider.databaseConnections.Average\",\n    comparison=\"above\",\n    where=\"(`hostname` LIKE '%db%')\",\n    integration_provider=\"RdsDbInstance\",\n    critical={\n        \"duration\": 25,\n        \"value\": 90,\n        \"timeFunction\": \"all\",\n    })\nprocess_not_running = newrelic.InfraAlertCondition(\"processNotRunning\",\n    policy_id=foo.id,\n    type=\"infra_process_running\",\n    comparison=\"equal\",\n    process_where=\"`commandName` = '/usr/bin/ruby'\",\n    critical={\n        \"duration\": 5,\n        \"value\": 0,\n    })\nhost_not_reporting = newrelic.InfraAlertCondition(\"hostNotReporting\",\n    policy_id=foo.id,\n    type=\"infra_host_not_reporting\",\n    event=\"StorageSample\",\n    select=\"diskUsedPercent\",\n    where=\"(`hostname` LIKE '%frontend%')\",\n    critical={\n        \"duration\": 5,\n    })\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Thresholds\n\nThe `critical` and `warning` threshold mapping supports the following arguments:\n\n  * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).\n  * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.\n  * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.\n",
+            "properties": {
+                "comparison": {
+                    "type": "string",
+                    "description": "The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.\n"
+                },
+                "createdAt": {
+                    "type": "integer",
+                    "description": "The timestamp the alert condition was created.\n"
+                },
+                "critical": {
+                    "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
+                    "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.\n"
+                },
+                "event": {
+                    "type": "string",
+                    "description": "The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.\n"
+                },
+                "integrationProvider": {
+                    "type": "string",
+                    "description": "For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Infrastructure alert condition's name.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the alert policy where this condition should be used.\n"
+                },
+                "processWhere": {
+                    "type": "string",
+                    "description": "Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "select": {
+                    "type": "string",
+                    "description": "The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.\n"
+                },
+                "updatedAt": {
+                    "type": "integer",
+                    "description": "The timestamp the alert condition was last updated.\n"
+                },
+                "violationCloseTimer": {
+                    "type": "integer",
+                    "description": "Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.\n"
+                },
+                "warning": {
+                    "$ref": "#/types/newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning",
+                    "description": "Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.\n"
+                },
+                "where": {
+                    "type": "string",
+                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "event",
+                "name",
+                "policyId",
+                "type",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "comparison": {
+                    "type": "string",
+                    "description": "The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.\n"
+                },
+                "critical": {
+                    "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
+                    "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.\n"
+                },
+                "event": {
+                    "type": "string",
+                    "description": "The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.\n"
+                },
+                "integrationProvider": {
+                    "type": "string",
+                    "description": "For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Infrastructure alert condition's name.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the alert policy where this condition should be used.\n"
+                },
+                "processWhere": {
+                    "type": "string",
+                    "description": "Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "select": {
+                    "type": "string",
+                    "description": "The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.\n"
+                },
+                "violationCloseTimer": {
+                    "type": "integer",
+                    "description": "Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.\n"
+                },
+                "warning": {
+                    "$ref": "#/types/newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning",
+                    "description": "Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.\n"
+                },
+                "where": {
+                    "type": "string",
+                    "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
+                }
+            },
+            "requiredInputs": [
+                "policyId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering InfraAlertCondition resources.\n",
+                "properties": {
+                    "comparison": {
+                        "type": "string",
+                        "description": "The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.\n"
+                    },
+                    "createdAt": {
+                        "type": "integer",
+                        "description": "The timestamp the alert condition was created.\n"
+                    },
+                    "critical": {
+                        "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
+                        "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.\n"
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.\n"
+                    },
+                    "integrationProvider": {
+                        "type": "string",
+                        "description": "For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The Infrastructure alert condition's name.\n"
+                    },
+                    "policyId": {
+                        "type": "integer",
+                        "description": "The ID of the alert policy where this condition should be used.\n"
+                    },
+                    "processWhere": {
+                        "type": "string",
+                        "description": "Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.\n"
+                    },
+                    "runbookUrl": {
+                        "type": "string",
+                        "description": "Runbook URL to display in notifications.\n"
+                    },
+                    "select": {
+                        "type": "string",
+                        "description": "The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.\n"
+                    },
+                    "updatedAt": {
+                        "type": "integer",
+                        "description": "The timestamp the alert condition was last updated.\n"
+                    },
+                    "violationCloseTimer": {
+                        "type": "integer",
+                        "description": "Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.\n"
+                    },
+                    "warning": {
+                        "$ref": "#/types/newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning",
+                        "description": "Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.\n"
+                    },
+                    "where": {
+                        "type": "string",
+                        "description": "If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/nrqlAlertCondition:NrqlAlertCondition": {
+            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Type: `static` (default)\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst fooAlertPolicy = new newrelic.AlertPolicy(\"fooAlertPolicy\", {});\nconst fooNrqlAlertCondition = new newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\", {\n    policyId: fooAlertPolicy.id,\n    type: \"static\",\n    runbookUrl: \"https://www.example.com\",\n    enabled: true,\n    term: [{\n        duration: 5,\n        operator: \"below\",\n        priority: \"critical\",\n        threshold: \"1\",\n        timeFunction: \"all\",\n    }],\n    nrql: {\n        query: \"SELECT count(*) FROM SyntheticCheck WHERE monitorId = '\u003cmonitorId\u003e'\",\n        sinceValue: \"3\",\n    },\n    valueFunction: \"single_value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo_alert_policy = newrelic.AlertPolicy(\"fooAlertPolicy\")\nfoo_nrql_alert_condition = newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\",\n    policy_id=foo_alert_policy.id,\n    type=\"static\",\n    runbook_url=\"https://www.example.com\",\n    enabled=True,\n    term=[{\n        \"duration\": 5,\n        \"operator\": \"below\",\n        \"priority\": \"critical\",\n        \"threshold\": \"1\",\n        \"timeFunction\": \"all\",\n    }],\n    nrql={\n        \"query\": \"SELECT count(*) FROM SyntheticCheck WHERE monitorId = '\u003cmonitorId\u003e'\",\n        \"sinceValue\": \"3\",\n    },\n    value_function=\"single_value\")\n```\nSee additional examples.\n\n{{% /example %}}\n{{% /examples %}}\n## Terms\n\nThe `term` mapping supports the following arguments:\n\n- `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.\n- `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.\n- `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.\n- `threshold` - (Required) Must be 0 or greater.\n- `time_function` - (Required) `all` or `any`.\n\n## NRQL\n\nThe `nrql` attribute supports the following arguments:\n\n- `query` - (Required) The NRQL query to execute for the condition.\n- `since_value` - (Required) The value to be used in the `SINCE \u003cX\u003e MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.\n\n## Additional Examples\n\n##### Type: `outlier`\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst fooAlertPolicy = new newrelic.AlertPolicy(\"fooAlertPolicy\", {});\nconst fooNrqlAlertCondition = new newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\", {\n    policyId: fooAlertPolicy.id,\n    runbookUrl: \"https://bar.example.com\",\n    enabled: true,\n    term: [{\n        duration: 10,\n        operator: \"above\",\n        priority: \"critical\",\n        threshold: \"0.65\",\n        timeFunction: \"all\",\n    }],\n    nrql: {\n        query: \"SELECT percentile(duration, 99) FROM Transaction FACET remote_ip\",\n        sinceValue: \"3\",\n    },\n    type: \"outlier\",\n    expectedGroups: 2,\n    ignoreOverlap: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo_alert_policy = newrelic.AlertPolicy(\"fooAlertPolicy\")\nfoo_nrql_alert_condition = newrelic.NrqlAlertCondition(\"fooNrqlAlertCondition\",\n    policy_id=foo_alert_policy.id,\n    runbook_url=\"https://bar.example.com\",\n    enabled=True,\n    term=[{\n        \"duration\": 10,\n        \"operator\": \"above\",\n        \"priority\": \"critical\",\n        \"threshold\": \"0.65\",\n        \"timeFunction\": \"all\",\n    }],\n    nrql={\n        \"query\": \"SELECT percentile(duration, 99) FROM Transaction FACET remote_ip\",\n        \"sinceValue\": \"3\",\n    },\n    type=\"outlier\",\n    expected_groups=2,\n    ignore_overlap=True)\n```\n",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether to enable the alert condition.\n"
+                },
+                "expectedGroups": {
+                    "type": "integer",
+                    "description": "Number of expected groups when using outlier detection.\n"
+                },
+                "ignoreOverlap": {
+                    "type": "boolean",
+                    "description": "Whether to look for a convergence of groups when using outlier detection.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the condition.\n"
+                },
+                "nrql": {
+                    "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
+                    "description": "A NRQL query.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "terms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
+                    },
+                    "description": "A list of terms for this condition.\n"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "valueFunction": {
+                    "type": "string",
+                    "description": "Possible values are single_value, sum.\n"
+                },
+                "violationTimeLimitSeconds": {
+                    "type": "integer",
+                    "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.\n"
+                }
+            },
+            "required": [
+                "name",
+                "nrql",
+                "policyId",
+                "terms"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether to enable the alert condition.\n"
+                },
+                "expectedGroups": {
+                    "type": "integer",
+                    "description": "Number of expected groups when using outlier detection.\n"
+                },
+                "ignoreOverlap": {
+                    "type": "boolean",
+                    "description": "Whether to look for a convergence of groups when using outlier detection.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the condition.\n"
+                },
+                "nrql": {
+                    "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
+                    "description": "A NRQL query.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "terms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
+                    },
+                    "description": "A list of terms for this condition.\n"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "valueFunction": {
+                    "type": "string",
+                    "description": "Possible values are single_value, sum.\n"
+                },
+                "violationTimeLimitSeconds": {
+                    "type": "integer",
+                    "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.\n"
+                }
+            },
+            "requiredInputs": [
+                "nrql",
+                "policyId",
+                "terms"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NrqlAlertCondition resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether to enable the alert condition.\n"
+                    },
+                    "expectedGroups": {
+                        "type": "integer",
+                        "description": "Number of expected groups when using outlier detection.\n"
+                    },
+                    "ignoreOverlap": {
+                        "type": "boolean",
+                        "description": "Whether to look for a convergence of groups when using outlier detection.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The title of the condition.\n"
+                    },
+                    "nrql": {
+                        "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
+                        "description": "A NRQL query.\n"
+                    },
+                    "policyId": {
+                        "type": "integer",
+                        "description": "The ID of the policy where this condition should be used.\n"
+                    },
+                    "runbookUrl": {
+                        "type": "string",
+                        "description": "Runbook URL to display in notifications.\n"
+                    },
+                    "terms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
+                        },
+                        "description": "A list of terms for this condition.\n"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "valueFunction": {
+                        "type": "string",
+                        "description": "Possible values are single_value, sum.\n"
+                    },
+                    "violationTimeLimitSeconds": {
+                        "type": "integer",
+                        "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:insights/event:Event": {
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:insights/EventEvent:EventEvent"
+                    },
+                    "description": "An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.\n"
+                }
+            },
+            "required": [
+                "events"
+            ],
+            "inputProperties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:insights/EventEvent:EventEvent"
+                    },
+                    "description": "An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "events"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Event resources.\n",
+                "properties": {
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:insights/EventEvent:EventEvent"
+                        },
+                        "description": "An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:plugins/alertCondition:AlertCondition": {
+            "description": "Use this resource to create and manage plugins alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst fooPlugin = newrelic.plugins.getPlugin({\n    guid: \"com.example.my-plugin\",\n});\nconst fooPluginComponent = fooPlugin.then(fooPlugin =\u003e newrelic.plugins.getPluginComponent({\n    pluginId: fooPlugin.id,\n    name: \"MyPlugin\",\n}));\nconst fooAlertPolicy = new newrelic.AlertPolicy(\"fooAlertPolicy\", {});\nconst fooAlertCondition = new newrelic.plugins.AlertCondition(\"fooAlertCondition\", {\n    policyId: fooAlertPolicy.id,\n    entities: [fooPluginComponent.then(fooPluginComponent =\u003e fooPluginComponent.id)],\n    metric: \"Component/Summary/Consumers[consumers]\",\n    pluginId: fooPlugin.then(fooPlugin =\u003e fooPlugin.id),\n    pluginGuid: fooPlugin.then(fooPlugin =\u003e fooPlugin.guid),\n    valueFunction: \"average\",\n    metricDescription: \"Queue consumers\",\n    term: [{\n        duration: 5,\n        operator: \"below\",\n        priority: \"critical\",\n        threshold: \"0.75\",\n        timeFunction: \"all\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo_plugin = newrelic.plugins.get_plugin(guid=\"com.example.my-plugin\")\nfoo_plugin_component = newrelic.plugins.get_plugin_component(plugin_id=foo_plugin.id,\n    name=\"MyPlugin\")\nfoo_alert_policy = newrelic.AlertPolicy(\"fooAlertPolicy\")\nfoo_alert_condition = newrelic.plugins.AlertCondition(\"fooAlertCondition\",\n    policy_id=foo_alert_policy.id,\n    entities=[foo_plugin_component.id],\n    metric=\"Component/Summary/Consumers[consumers]\",\n    plugin_id=foo_plugin.id,\n    plugin_guid=foo_plugin.guid,\n    value_function=\"average\",\n    metric_description=\"Queue consumers\",\n    term=[{\n        \"duration\": 5,\n        \"operator\": \"below\",\n        \"priority\": \"critical\",\n        \"threshold\": \"0.75\",\n        \"timeFunction\": \"all\",\n    }])\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Terms\n\nThe `term` mapping supports the following arguments:\n\n  * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.\n  * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.\n  * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.\n  * `threshold` - (Required) Must be 0 or greater.\n  * `time_function` - (Required) `all` or `any`.\n",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether or not this condition is enabled.\n"
+                },
+                "entities": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "The plugin component IDs to target.\n"
+                },
+                "metric": {
+                    "type": "string",
+                    "description": "The plugin metric to evaluate.\n"
+                },
+                "metricDescription": {
+                    "type": "string",
+                    "description": "The metric description.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the condition. Must be between 1 and 64 characters, inclusive.\n"
+                },
+                "pluginGuid": {
+                    "type": "string",
+                    "description": "The GUID of the plugin which produces the metric.\n"
+                },
+                "pluginId": {
+                    "type": "string",
+                    "description": "The ID of the installed plugin instance which produces the metric.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "terms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/AlertConditionTerm:AlertConditionTerm"
+                    },
+                    "description": "A list of terms for this condition. See Terms below for details.\n"
+                },
+                "valueFunction": {
+                    "type": "string",
+                    "description": "The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.\n"
+                }
+            },
+            "required": [
+                "entities",
+                "metric",
+                "metricDescription",
+                "name",
+                "pluginGuid",
+                "pluginId",
+                "policyId",
+                "terms",
+                "valueFunction"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether or not this condition is enabled.\n"
+                },
+                "entities": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "The plugin component IDs to target.\n"
+                },
+                "metric": {
+                    "type": "string",
+                    "description": "The plugin metric to evaluate.\n"
+                },
+                "metricDescription": {
+                    "type": "string",
+                    "description": "The metric description.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the condition. Must be between 1 and 64 characters, inclusive.\n"
+                },
+                "pluginGuid": {
+                    "type": "string",
+                    "description": "The GUID of the plugin which produces the metric.\n"
+                },
+                "pluginId": {
+                    "type": "string",
+                    "description": "The ID of the installed plugin instance which produces the metric.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                },
+                "terms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/AlertConditionTerm:AlertConditionTerm"
+                    },
+                    "description": "A list of terms for this condition. See Terms below for details.\n"
+                },
+                "valueFunction": {
+                    "type": "string",
+                    "description": "The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.\n"
+                }
+            },
+            "requiredInputs": [
+                "entities",
+                "metric",
+                "metricDescription",
+                "pluginGuid",
+                "pluginId",
+                "policyId",
+                "terms",
+                "valueFunction"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertCondition resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether or not this condition is enabled.\n"
+                    },
+                    "entities": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "The plugin component IDs to target.\n"
+                    },
+                    "metric": {
+                        "type": "string",
+                        "description": "The plugin metric to evaluate.\n"
+                    },
+                    "metricDescription": {
+                        "type": "string",
+                        "description": "The metric description.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The title of the condition. Must be between 1 and 64 characters, inclusive.\n"
+                    },
+                    "pluginGuid": {
+                        "type": "string",
+                        "description": "The GUID of the plugin which produces the metric.\n"
+                    },
+                    "pluginId": {
+                        "type": "string",
+                        "description": "The ID of the installed plugin instance which produces the metric.\n"
+                    },
+                    "policyId": {
+                        "type": "integer",
+                        "description": "The ID of the policy where this condition should be used.\n"
+                    },
+                    "runbookUrl": {
+                        "type": "string",
+                        "description": "Runbook URL to display in notifications.\n"
+                    },
+                    "terms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:plugins/AlertConditionTerm:AlertConditionTerm"
+                        },
+                        "description": "A list of terms for this condition. See Terms below for details.\n"
+                    },
+                    "valueFunction": {
+                        "type": "string",
+                        "description": "The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:plugins/applicationSettings:ApplicationSettings": {
+            "description": "\u003e **NOTE:** Applications are not created by this resource, but are created by\na reporting agent.\n\nUse this resource to manage configuration for an application that already\nexists in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst app = new newrelic.plugins.ApplicationSettings(\"app\", {\n    appApdexThreshold: 0.7,\n    enableRealUserMonitoring: false,\n    endUserApdexThreshold: 0.8,\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\napp = newrelic.plugins.ApplicationSettings(\"app\",\n    app_apdex_threshold=\"0.7\",\n    enable_real_user_monitoring=False,\n    end_user_apdex_threshold=\"0.8\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Notes\n\n\u003e **NOTE:** Applications that have reported data in the last twelve hours\ncannot be deleted.\n",
+            "properties": {
+                "appApdexThreshold": {
+                    "type": "number",
+                    "description": "The appex threshold for the New Relic application.\n"
+                },
+                "enableRealUserMonitoring": {
+                    "type": "boolean",
+                    "description": "Enable or disable real user monitoring for the New Relic application.\n"
+                },
+                "endUserApdexThreshold": {
+                    "type": "number",
+                    "description": "The user's apdex threshold for the New Relic application.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the application in New Relic APM.\n"
+                }
+            },
+            "required": [
+                "appApdexThreshold",
+                "enableRealUserMonitoring",
+                "endUserApdexThreshold",
+                "name"
+            ],
+            "inputProperties": {
+                "appApdexThreshold": {
+                    "type": "number",
+                    "description": "The appex threshold for the New Relic application.\n"
+                },
+                "enableRealUserMonitoring": {
+                    "type": "boolean",
+                    "description": "Enable or disable real user monitoring for the New Relic application.\n"
+                },
+                "endUserApdexThreshold": {
+                    "type": "number",
+                    "description": "The user's apdex threshold for the New Relic application.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the application in New Relic APM.\n"
+                }
+            },
+            "requiredInputs": [
+                "appApdexThreshold",
+                "enableRealUserMonitoring",
+                "endUserApdexThreshold"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ApplicationSettings resources.\n",
+                "properties": {
+                    "appApdexThreshold": {
+                        "type": "number",
+                        "description": "The appex threshold for the New Relic application.\n"
+                    },
+                    "enableRealUserMonitoring": {
+                        "type": "boolean",
+                        "description": "Enable or disable real user monitoring for the New Relic application.\n"
+                    },
+                    "endUserApdexThreshold": {
+                        "type": "number",
+                        "description": "The user's apdex threshold for the New Relic application.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the application in New Relic APM.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:plugins/workload:Workload": {
+            "description": "Use this resource to create, update, and delete a New Relic One workload.\n\nA New Relic Personal API key is required to provision this resource.  Set the `provider_api_key`\nattribute in the `provider` block or the `NEWRELIC_PERSONAL_API_KEY` environment\nvariable with your Personal API key,\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.plugins.Workload(\"foo\", {\n    accountId: 12345678,\n    entityGuids: [\"MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1\"],\n    entitySearchQueries: [{\n        query: \"name like 'Example application'\",\n    }],\n    scopeAccountIds: [12345678],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.plugins.Workload(\"foo\",\n    account_id=12345678,\n    entity_guids=[\"MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1\"],\n    entity_search_queries=[{\n        \"query\": \"name like 'Example application'\",\n    }],\n    scope_account_ids=[12345678])\n```\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "The New Relic account ID where you want to create the workload.\n"
+                },
+                "compositeEntitySearchQuery": {
+                    "type": "string",
+                    "description": "The composite query used to compose a dynamic workload.\n"
+                },
+                "entityGuids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of entity GUIDs manually assigned to this workload.\n"
+                },
+                "entitySearchQueries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/WorkloadEntitySearchQuery:WorkloadEntitySearchQuery"
+                    },
+                    "description": "A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.\n"
+                },
+                "guid": {
+                    "type": "string",
+                    "description": "The unique entity identifier of the workload in New Relic.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The workload's name.\n"
+                },
+                "permalink": {
+                    "type": "string",
+                    "description": "The URL of the workload.\n"
+                },
+                "scopeAccountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "A list of account IDs that will be used to get entities from.\n"
+                },
+                "workloadId": {
+                    "type": "integer",
+                    "description": "The unique entity identifier of the workload.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "compositeEntitySearchQuery",
+                "entityGuids",
+                "guid",
+                "name",
+                "permalink",
+                "scopeAccountIds",
+                "workloadId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "The New Relic account ID where you want to create the workload.\n"
+                },
+                "entityGuids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of entity GUIDs manually assigned to this workload.\n"
+                },
+                "entitySearchQueries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:plugins/WorkloadEntitySearchQuery:WorkloadEntitySearchQuery"
+                    },
+                    "description": "A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The workload's name.\n"
+                },
+                "scopeAccountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "A list of account IDs that will be used to get entities from.\n"
+                }
+            },
+            "requiredInputs": [
+                "accountId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Workload resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "integer",
+                        "description": "The New Relic account ID where you want to create the workload.\n"
+                    },
+                    "compositeEntitySearchQuery": {
+                        "type": "string",
+                        "description": "The composite query used to compose a dynamic workload.\n"
+                    },
+                    "entityGuids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of entity GUIDs manually assigned to this workload.\n"
+                    },
+                    "entitySearchQueries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:plugins/WorkloadEntitySearchQuery:WorkloadEntitySearchQuery"
+                        },
+                        "description": "A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.\n"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "The unique entity identifier of the workload in New Relic.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The workload's name.\n"
+                    },
+                    "permalink": {
+                        "type": "string",
+                        "description": "The URL of the workload.\n"
+                    },
+                    "scopeAccountIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "A list of account IDs that will be used to get entities from.\n"
+                    },
+                    "workloadId": {
+                        "type": "integer",
+                        "description": "The unique entity identifier of the workload.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:synthetics/alertCondition:AlertCondition": {
+            "description": "Use this resource to create and manage synthetics alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst fooMonitor = newrelic.synthetics.getMonitor({\n    name: \"foo\",\n});\nconst fooAlertCondition = new newrelic.synthetics.AlertCondition(\"fooAlertCondition\", {\n    policyId: newrelic_alert_policy.foo.id,\n    monitorId: fooMonitor.then(fooMonitor =\u003e fooMonitor.id),\n    runbookUrl: \"https://www.example.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo_monitor = newrelic.synthetics.get_monitor(name=\"foo\")\nfoo_alert_condition = newrelic.synthetics.AlertCondition(\"fooAlertCondition\",\n    policy_id=newrelic_alert_policy[\"foo\"][\"id\"],\n    monitor_id=foo_monitor.id,\n    runbook_url=\"https://www.example.com\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Set whether to enable the alert condition. Defaults to `true`.\n"
+                },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The ID of the Synthetics monitor to be referenced in the alert condition. \n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of this condition.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                }
+            },
+            "required": [
+                "monitorId",
+                "name",
+                "policyId"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Set whether to enable the alert condition. Defaults to `true`.\n"
+                },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The ID of the Synthetics monitor to be referenced in the alert condition. \n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of this condition.\n"
+                },
+                "policyId": {
+                    "type": "integer",
+                    "description": "The ID of the policy where this condition should be used.\n"
+                },
+                "runbookUrl": {
+                    "type": "string",
+                    "description": "Runbook URL to display in notifications.\n"
+                }
+            },
+            "requiredInputs": [
+                "monitorId",
+                "policyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertCondition resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Set whether to enable the alert condition. Defaults to `true`.\n"
+                    },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The ID of the Synthetics monitor to be referenced in the alert condition. \n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The title of this condition.\n"
+                    },
+                    "policyId": {
+                        "type": "integer",
+                        "description": "The ID of the policy where this condition should be used.\n"
+                    },
+                    "runbookUrl": {
+                        "type": "string",
+                        "description": "Runbook URL to display in notifications.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:synthetics/label:Label": {
+            "description": "Use this resource to create, update, and delete a Synthetics label in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Label(\"foo\", {\n    monitorId: newrelic_synthetics_monitor.foo.id,\n    type: \"MyCategory\",\n    value: \"MyValue\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Label(\"foo\",\n    monitor_id=newrelic_synthetics_monitor[\"foo\"][\"id\"],\n    type=\"MyCategory\",\n    value=\"MyValue\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "href": {
+                    "type": "string",
+                    "description": "The URL of the Synthetics label.\n"
+                },
+                "monitorId": {
+                    "type": "string",
+                    "description": "The ID of the monitor that will be assigned the label.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "A string representing the label key/category.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string representing the label value.\n"
+                }
+            },
+            "required": [
+                "href",
+                "monitorId",
+                "type",
+                "value"
+            ],
+            "inputProperties": {
+                "monitorId": {
+                    "type": "string",
+                    "description": "The ID of the monitor that will be assigned the label.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "A string representing the label key/category.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string representing the label value.\n"
+                }
+            },
+            "requiredInputs": [
+                "monitorId",
+                "type",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Label resources.\n",
+                "properties": {
+                    "href": {
+                        "type": "string",
+                        "description": "The URL of the Synthetics label.\n"
+                    },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The ID of the monitor that will be assigned the label.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "A string representing the label key/category.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "A string representing the label value.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:synthetics/monitor:Monitor": {
+            "description": "Use this resource to create, update, and delete a synthetics monitor in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Type: `SIMPLE`\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\n        \"AWS_US_EAST_1\",\n        \"AWS_US_EAST_2\",\n    ],\n    status: \"ENABLED\",\n    type: \"SIMPLE\",\n    uri: \"https://example.com\", // Required for type \"SIMPLE\" and \"BROWSER\"\n    validationString: \"add example validation check here\", // Optional for type \"SIMPLE\" and \"BROWSER\"\n    verifySsl: true, // Optional for type \"SIMPLE\" and \"BROWSER\"\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\n        \"AWS_US_EAST_1\",\n        \"AWS_US_EAST_2\",\n    ],\n    status=\"ENABLED\",\n    type=\"SIMPLE\",\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# Optional for type \"SIMPLE\" and \"BROWSER\"\n```\nSee additional examples.\n\n{{% /example %}}\n{{% /examples %}}\n## Additional Examples\n\nType: `BROWSER`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    bypassHeadRequest: true, // Note: optional for type \"BROWSER\" only\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    treatRedirectAsFailure: true, // Note: optional for type \"BROWSER\" only\n    type: \"BROWSER\",\n    uri: \"https://example.com\", // required for type \"SIMPLE\" and \"BROWSER\"\n    validationString: \"add example validation check here\", // optional for type \"SIMPLE\" and \"BROWSER\"\n    verifySsl: true, // optional for type \"SIMPLE\" and \"BROWSER\"\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    bypass_head_request=True,\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    treat_redirect_as_failure=True,\n    type=\"BROWSER\",\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# optional for type \"SIMPLE\" and \"BROWSER\"\n```\n\nType: `SCRIPT_BROWSER`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    type: \"SCRIPT_BROWSER\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    type=\"SCRIPT_BROWSER\")\n```\n\nType: `SCRIPT_API`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    type: \"SCRIPT_API\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    type=\"SCRIPT_API\")\n```\n",
+            "properties": {
+                "bypassHeadRequest": {
+                    "type": "boolean",
+                    "description": "Bypass HEAD request.\n"
+                },
+                "frequency": {
+                    "type": "integer",
+                    "description": "The interval (in minutes) at which this monitor should run.\n"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The locations in which this monitor should be run.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of this monitor.\n"
+                },
+                "slaThreshold": {
+                    "type": "number",
+                    "description": "The base threshold for the SLA report.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).\n"
+                },
+                "treatRedirectAsFailure": {
+                    "type": "boolean",
+                    "description": "Fail the monitor check if redirected.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.\n"
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "The URI for the monitor to hit.\n"
+                },
+                "validationString": {
+                    "type": "string",
+                    "description": "The string to validate against in the response.\n"
+                },
+                "verifySsl": {
+                    "type": "boolean",
+                    "description": "Verify SSL.\n"
+                }
+            },
+            "required": [
+                "frequency",
+                "locations",
+                "name",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "bypassHeadRequest": {
+                    "type": "boolean",
+                    "description": "Bypass HEAD request.\n"
+                },
+                "frequency": {
+                    "type": "integer",
+                    "description": "The interval (in minutes) at which this monitor should run.\n"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The locations in which this monitor should be run.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of this monitor.\n"
+                },
+                "slaThreshold": {
+                    "type": "number",
+                    "description": "The base threshold for the SLA report.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).\n"
+                },
+                "treatRedirectAsFailure": {
+                    "type": "boolean",
+                    "description": "Fail the monitor check if redirected.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.\n"
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "The URI for the monitor to hit.\n"
+                },
+                "validationString": {
+                    "type": "string",
+                    "description": "The string to validate against in the response.\n"
+                },
+                "verifySsl": {
+                    "type": "boolean",
+                    "description": "Verify SSL.\n"
+                }
+            },
+            "requiredInputs": [
+                "frequency",
+                "locations",
+                "status",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Monitor resources.\n",
+                "properties": {
+                    "bypassHeadRequest": {
+                        "type": "boolean",
+                        "description": "Bypass HEAD request.\n"
+                    },
+                    "frequency": {
+                        "type": "integer",
+                        "description": "The interval (in minutes) at which this monitor should run.\n"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The locations in which this monitor should be run.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The title of this monitor.\n"
+                    },
+                    "slaThreshold": {
+                        "type": "number",
+                        "description": "The base threshold for the SLA report.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).\n"
+                    },
+                    "treatRedirectAsFailure": {
+                        "type": "boolean",
+                        "description": "Fail the monitor check if redirected.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.\n"
+                    },
+                    "uri": {
+                        "type": "string",
+                        "description": "The URI for the monitor to hit.\n"
+                    },
+                    "validationString": {
+                        "type": "string",
+                        "description": "The string to validate against in the response.\n"
+                    },
+                    "verifySsl": {
+                        "type": "boolean",
+                        "description": "Verify SSL.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:synthetics/monitorScript:MonitorScript": {
+            "description": "Use this resource to update a synthetics monitor script in New Relic.\n\n{{% examples %}}\n{{% /examples %}}\n",
+            "properties": {
+                "monitorId": {
+                    "type": "string",
+                    "description": "The ID of the monitor to attach the script to.\n"
+                },
+                "text": {
+                    "type": "string",
+                    "description": "The plaintext representing the monitor script.\n"
+                }
+            },
+            "required": [
+                "monitorId",
+                "text"
+            ],
+            "inputProperties": {
+                "monitorId": {
+                    "type": "string",
+                    "description": "The ID of the monitor to attach the script to.\n"
+                },
+                "text": {
+                    "type": "string",
+                    "description": "The plaintext representing the monitor script.\n"
+                }
+            },
+            "requiredInputs": [
+                "monitorId",
+                "text"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering MonitorScript resources.\n",
+                "properties": {
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The ID of the monitor to attach the script to.\n"
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "The plaintext representing the monitor script.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:synthetics/secureCredential:SecureCredential": {
+            "description": "Use this resource to create and manage New Relic Synthetic secure credentials.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.SecureCredential(\"foo\", {\n    description: \"My description\",\n    key: \"MY_KEY\",\n    value: \"My value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.SecureCredential(\"foo\",\n    description=\"My description\",\n    key=\"MY_KEY\",\n    value=\"My value\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The time the secure credential was created.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The secure credential's description.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.\n"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "The time the secure credential was last updated.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The secure credential's value. \n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "key",
+                "lastUpdated",
+                "value"
+            ],
+            "inputProperties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The time the secure credential was created.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The secure credential's description.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.\n"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "The time the secure credential was last updated.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The secure credential's value. \n"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecureCredential resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The time the secure credential was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The secure credential's description.\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.\n"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "The time the secure credential was last updated.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The secure credential's value. \n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "newrelic:index/getAlertChannel:getAlertChannel": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getAlertChannel.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the alert channel in New Relic.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAlertChannel.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/newrelic:/getAlertChannelConfig:getAlertChannelConfig",
+                        "description": "Alert channel configuration.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "policyIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "A list of policy IDs associated with the alert channel.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "config",
+                    "name",
+                    "policyIds",
+                    "type",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:index/getAlertPolicy:getAlertPolicy": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getAlertPolicy.\n",
+                "properties": {
+                    "incidentPreference": {
+                        "type": "string",
+                        "description": "The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the alert policy in New Relic.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAlertPolicy.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The time the policy was created.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "incidentPreference": {
+                        "type": "string",
+                        "description": "The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "The time the policy was last updated.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "createdAt",
+                    "name",
+                    "updatedAt",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:index/getApplication:getApplication": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getApplication.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the application in New Relic.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getApplication.\n",
+                "properties": {
+                    "hostIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "A list of host IDs associated with the application.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "instanceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "A list of instance IDs associated with the application.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "hostIds",
+                    "instanceIds",
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:index/getKeyTransaction:getKeyTransaction": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getKeyTransaction.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the key transaction in New Relic.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getKeyTransaction.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:plugins/getPlugin:getPlugin": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getPlugin.\n",
+                "properties": {
+                    "guid": {
+                        "type": "string",
+                        "description": "The GUID of the plugin in New Relic.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guid"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPlugin.\n",
+                "properties": {
+                    "guid": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the installed plugin instance.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "guid",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:plugins/getPluginComponent:getPluginComponent": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getPluginComponent.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the plugin component.\n"
+                    },
+                    "pluginId": {
+                        "type": "integer",
+                        "description": "The ID of the plugin instance this component belongs to.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "pluginId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPluginComponent.\n",
+                "properties": {
+                    "healthStatus": {
+                        "type": "string",
+                        "description": "The health status of the plugin component.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the plugin component.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "pluginId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "healthStatus",
+                    "id",
+                    "name",
+                    "pluginId"
+                ]
+            }
+        },
+        "newrelic:synthetics/getMonitor:getMonitor": {
+            "description": "Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst bar = newrelic.synthetics.getMonitor({\n    name: \"bar\",\n});\nconst baz = new newrelic.synthetics.AlertCondition(\"baz\", {\n    policyId: newrelic_alert_policy.foo.id,\n    monitorId: bar.then(bar =\u003e bar.id),\n    runbookUrl: \"https://www.example.com\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nbar = newrelic.synthetics.get_monitor(name=\"bar\")\nbaz = newrelic.synthetics.AlertCondition(\"baz\",\n    policy_id=newrelic_alert_policy[\"foo\"][\"id\"],\n    monitor_id=bar.id,\n    runbook_url=\"https://www.example.com\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMonitor.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the synthetics monitor in New Relic.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMonitor.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "monitorId": {
+                        "type": "string",
+                        "description": "The ID of the synthetics monitor.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "monitorId",
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:synthetics/getSecureCredential:getSecureCredential": {
+            "description": "Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.\n\nNote that the secure credential's value is not returned as an attribute for security reasons.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = pulumi.output(newrelic.synthetics.getSecureCredential({\n    key: \"MY_KEY\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.get_secure_credential(key=\"MY_KEY\")\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecureCredential.\n",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSecureCredential.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The time the secure credential was created.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The secure credential's description.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "The time the secure credential was last updated.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "createdAt",
+                    "description",
+                    "key",
+                    "lastUpdated",
+                    "id"
+                ]
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "namespaces": {
+                "index": "index",
+                "insights": "Insights",
+                "newrelic": "NewRelic",
+                "plugins": "Plugins",
+                "synthetics": "Synthetics"
+            },
+            "packageReferences": {
+                "Pulumi": "2.*",
+                "System.Collections.Immutable": "1.6.0"
+            }
+        },
+        "nodejs": {
+            "dependencies": {
+                "@pulumi/pulumi": "^2.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^8.0.25"
+            },
+            "packageDescription": "A Pulumi package for creating and managing New Relic resources.",
+            "packageName": "",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "requires": {
+                "pulumi": "\u003e=2.0.0,\u003c3.0.0"
+            }
+        }
+    }
+}

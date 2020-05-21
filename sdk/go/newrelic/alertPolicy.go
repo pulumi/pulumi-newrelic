@@ -18,12 +18,16 @@ type AlertPolicy struct {
 	// imported via terraform import.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// **DEPRECATED:** The time the policy was created.
+	//
+	// Deprecated: Unavailable attribute in NerdGraph.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrOutput `pulumi:"incidentPreference"`
 	// The name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// **DEPRECATED:** The time the policy was last updated.
+	//
+	// Deprecated: Unavailable attribute in NerdGraph.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -60,12 +64,16 @@ type alertPolicyState struct {
 	// imported via terraform import.
 	ChannelIds []int `pulumi:"channelIds"`
 	// **DEPRECATED:** The time the policy was created.
+	//
+	// Deprecated: Unavailable attribute in NerdGraph.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the policy.
 	Name *string `pulumi:"name"`
 	// **DEPRECATED:** The time the policy was last updated.
+	//
+	// Deprecated: Unavailable attribute in NerdGraph.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -75,12 +83,16 @@ type AlertPolicyState struct {
 	// imported via terraform import.
 	ChannelIds pulumi.IntArrayInput
 	// **DEPRECATED:** The time the policy was created.
+	//
+	// Deprecated: Unavailable attribute in NerdGraph.
 	CreatedAt pulumi.StringPtrInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
 	// The name of the policy.
 	Name pulumi.StringPtrInput
 	// **DEPRECATED:** The time the policy was last updated.
+	//
+	// Deprecated: Unavailable attribute in NerdGraph.
 	UpdatedAt pulumi.StringPtrInput
 }
 

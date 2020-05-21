@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this resource to create and manage NRQL alert conditions in New Relic.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Type: `static` (default)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
  *     policyId: fooAlertPolicy.id,
@@ -37,31 +37,31 @@ import * as utilities from "./utilities";
  *     valueFunction: "singleValue",
  * });
  * ```
- * 
+ *
  * ## Terms
- * 
+ *
  * The `term` mapping supports the following arguments:
- * 
+ *
  * - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
  * - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
  * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
  * - `threshold` - (Required) Must be 0 or greater.
  * - `timeFunction` - (Required) `all` or `any`.
- * 
+ *
  * ## NRQL
- * 
+ *
  * The `nrql` attribute supports the following arguments:
- * 
+ *
  * - `query` - (Required) The NRQL query to execute for the condition.
  * - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
- * 
+ *
  * ## Additional Examples
- * 
+ *
  * ##### Type: `outlier`
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
  *     policyId: fooAlertPolicy.id,
@@ -83,8 +83,6 @@ import * as utilities from "./utilities";
  *     ignoreOverlap: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/nrql_alert_condition.html.markdown.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**

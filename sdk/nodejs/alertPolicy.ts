@@ -8,27 +8,27 @@ import * as utilities from "./utilities";
 
 /**
  * Use this resource to create and manage New Relic alert policies.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.AlertPolicy("foo", {
  *     incidentPreference: "PER_POLICY", // PER_POLICY is default
  * });
  * ```
- * 
+ *
  * ## Additional Examples
- * 
+ *
  * ##### Provision multiple notification channels and add those channels to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * // Provision a Slack notification channel.
  * const slackChannel = new newrelic.AlertChannel("slackChannel", {
  *     type: "slack",
@@ -55,12 +55,12 @@ import * as utilities from "./utilities";
  * });
  * ```
  * <br>
- * 
+ *
  * ##### Reference existing notification channels and add those channel to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const slackChannel = newrelic.getAlertChannel({
  *     name: "slack-channel-notification",
  * });
@@ -76,8 +76,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_policy.html.markdown.
  */
 export class AlertPolicy extends pulumi.CustomResource {
     /**
@@ -177,7 +175,6 @@ export interface AlertPolicyState {
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * **DEPRECATED:** The time the policy was created.
-     * 
      * @deprecated Unavailable attribute in NerdGraph.
      */
     readonly createdAt?: pulumi.Input<string>;
@@ -191,7 +188,6 @@ export interface AlertPolicyState {
     readonly name?: pulumi.Input<string>;
     /**
      * **DEPRECATED:** The time the policy was last updated.
-     * 
      * @deprecated Unavailable attribute in NerdGraph.
      */
     readonly updatedAt?: pulumi.Input<string>;

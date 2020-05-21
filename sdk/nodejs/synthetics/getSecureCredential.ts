@@ -6,23 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
- * 
+ *
  * Note that the secure credential's value is not returned as an attribute for security reasons.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = pulumi.output(newrelic.synthetics.getSecureCredential({
  *     key: "MY_KEY",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/d/synthetics_secure_credential.html.markdown.
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
     if (!opts) {

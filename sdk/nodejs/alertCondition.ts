@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const app = newrelic.getApplication({
  *     name: "my-app",
  * });
@@ -37,18 +37,16 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Terms
- * 
+ *
  * The `term` mapping supports the following arguments:
- * 
+ *
  *   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
  *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
  *   * `threshold` - (Required) Must be 0 or greater.
  *   * `timeFunction` - (Required) `all` or `any`.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/alert_condition.html.markdown.
  */
 export class AlertCondition extends pulumi.CustomResource {
     /**

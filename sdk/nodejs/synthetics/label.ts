@@ -6,23 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this resource to create, update, and delete a Synthetics label in New Relic.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
- * 
+ *
  * const foo = new newrelic.synthetics.Label("foo", {
  *     monitorId: newrelic_synthetics_monitor.foo.id,
  *     type: "MyCategory",
  *     value: "MyValue",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-newrelic/blob/master/website/docs/r/synthetics_label.html.markdown.
  */
 export class Label extends pulumi.CustomResource {
     /**
