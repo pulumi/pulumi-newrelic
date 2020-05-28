@@ -15,6 +15,42 @@ namespace Pulumi.NewRelic.Plugins
     /// A New Relic Personal API key is required to provision this resource.  Set the `provider_api_key`
     /// attribute in the `provider` block or the `NEWRELIC_PERSONAL_API_KEY` environment
     /// variable with your Personal API key,
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Plugins.Workload("foo", new NewRelic.Plugins.WorkloadArgs
+    ///         {
+    ///             AccountId = 12345678,
+    ///             EntityGuids = 
+    ///             {
+    ///                 "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///             },
+    ///             EntitySearchQueries = 
+    ///             {
+    ///                 new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///                 {
+    ///                     Query = "name like 'Example application'",
+    ///                 },
+    ///             },
+    ///             ScopeAccountIds = 
+    ///             {
+    ///                 12345678,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Workload : Pulumi.CustomResource
     {

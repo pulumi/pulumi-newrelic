@@ -16,6 +16,28 @@ namespace Pulumi.NewRelic.Plugins
     /// Use this resource to manage configuration for an application that already
     /// exists in New Relic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new NewRelic.Plugins.ApplicationSettings("app", new NewRelic.Plugins.ApplicationSettingsArgs
+    ///         {
+    ///             AppApdexThreshold = "0.7",
+    ///             EnableRealUserMonitoring = false,
+    ///             EndUserApdexThreshold = "0.8",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Notes
     /// 

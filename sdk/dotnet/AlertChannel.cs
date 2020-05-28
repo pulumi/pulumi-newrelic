@@ -11,6 +11,191 @@ namespace Pulumi.NewRelic
 {
     /// <summary>
     /// Use this resource to create and manage New Relic alert policies.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Email
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 IncludeJsonAttachment = "1",
+    ///                 Recipients = "foo@example.com",
+    ///             },
+    ///             Type = "email",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// ##### Slack
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 Channel = "example-alerts-channel",
+    ///                 Url = "https://&lt;YourOrganization&gt;.slack.com",
+    ///             },
+    ///             Type = "slack",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ##### OpsGenie
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 ApiKey = "abc123",
+    ///                 Recipients = "user1@domain.com, user2@domain.com",
+    ///                 Tags = "tag1, tag2",
+    ///                 Teams = "team1, team2",
+    ///             },
+    ///             Type = "opsgenie",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ##### PagerDuty
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 ServiceKey = "abc123",
+    ///             },
+    ///             Type = "pagerduty",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ##### VictorOps
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 Key = "abc123",
+    ///                 RouteKey = "/example",
+    ///             },
+    ///             Type = "victorops",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ##### Webhook
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Type = "webhook",
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 BaseUrl = "http://www.test.com",
+    ///                 PayloadType = "application/json",
+    ///                 Payload = 
+    ///                 {
+    ///                     { "condition_name", "$CONDITION_NAME" },
+    ///                     { "policy_name", "$POLICY_NAME" },
+    ///                 },
+    ///                 Headers = 
+    ///                 {
+    ///                     { "header1", value1 },
+    ///                     { "header2", value2 },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ##### Webhook with complex payload
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertChannel("foo", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 BaseUrl = "http://www.test.com",
+    ///                 PayloadString = @"{
+    ///   ""my_custom_values"": {
+    ///     ""condition_name"": ""$$CONDITION_NAME"",
+    ///     ""policy_name"": ""$$POLICY_NAME""
+    ///   }
+    /// }
+    /// 
+    /// ",
+    ///                 PayloadType = "application/json",
+    ///             },
+    ///             Type = "webhook",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AlertChannel : Pulumi.CustomResource
     {

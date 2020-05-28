@@ -17,6 +17,27 @@ namespace Pulumi.NewRelic.Synthetics
         /// Note that the secure credential's value is not returned as an attribute for security reasons.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(NewRelic.Synthetics.GetSecureCredential.InvokeAsync(new NewRelic.Synthetics.GetSecureCredentialArgs
+        ///         {
+        ///             Key = "MY_KEY",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecureCredentialResult> InvokeAsync(GetSecureCredentialArgs args, InvokeOptions? options = null)

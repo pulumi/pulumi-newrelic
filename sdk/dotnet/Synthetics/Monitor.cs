@@ -11,6 +11,121 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create, update, and delete a synthetics monitor in New Relic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Type: `SIMPLE`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         {
+    ///             Frequency = 5,
+    ///             Locations = 
+    ///             {
+    ///                 "AWS_US_EAST_1",
+    ///                 "AWS_US_EAST_2",
+    ///             },
+    ///             Status = "ENABLED",
+    ///             Type = "SIMPLE",
+    ///             Uri = "https://example.com",
+    ///             ValidationString = "add example validation check here",
+    ///             VerifySsl = true,
+    ///         });
+    ///         // Optional for type "SIMPLE" and "BROWSER"
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// Type: `BROWSER`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         {
+    ///             BypassHeadRequest = true,
+    ///             Frequency = 5,
+    ///             Locations = 
+    ///             {
+    ///                 "AWS_US_EAST_1",
+    ///             },
+    ///             Status = "ENABLED",
+    ///             TreatRedirectAsFailure = true,
+    ///             Type = "BROWSER",
+    ///             Uri = "https://example.com",
+    ///             ValidationString = "add example validation check here",
+    ///             VerifySsl = true,
+    ///         });
+    ///         // optional for type "SIMPLE" and "BROWSER"
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Type: `SCRIPT_BROWSER`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         {
+    ///             Frequency = 5,
+    ///             Locations = 
+    ///             {
+    ///                 "AWS_US_EAST_1",
+    ///             },
+    ///             Status = "ENABLED",
+    ///             Type = "SCRIPT_BROWSER",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Type: `SCRIPT_API`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         {
+    ///             Frequency = 5,
+    ///             Locations = 
+    ///             {
+    ///                 "AWS_US_EAST_1",
+    ///             },
+    ///             Status = "ENABLED",
+    ///             Type = "SCRIPT_API",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {

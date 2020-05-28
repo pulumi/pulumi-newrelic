@@ -15,6 +15,33 @@ namespace Pulumi.NewRelic.Synthetics
         /// Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitor.InvokeAsync(new NewRelic.Synthetics.GetMonitorArgs
+        ///         {
+        ///             Name = "bar",
+        ///         }));
+        ///         var baz = new NewRelic.Synthetics.AlertCondition("baz", new NewRelic.Synthetics.AlertConditionArgs
+        ///         {
+        ///             PolicyId = newrelic_alert_policy.Foo.Id,
+        ///             MonitorId = bar.Apply(bar =&gt; bar.Id),
+        ///             RunbookUrl = "https://www.example.com",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)

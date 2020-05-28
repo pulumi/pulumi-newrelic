@@ -11,6 +11,29 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create, update, and delete a Synthetics label in New Relic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.Label("foo", new NewRelic.Synthetics.LabelArgs
+    ///         {
+    ///             MonitorId = newrelic_synthetics_monitor.Foo.Id,
+    ///             Type = "MyCategory",
+    ///             Value = "MyValue",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Label : Pulumi.CustomResource
     {
