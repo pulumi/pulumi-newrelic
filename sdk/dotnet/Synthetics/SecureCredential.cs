@@ -11,6 +11,29 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create and manage New Relic Synthetic secure credentials.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.SecureCredential("foo", new NewRelic.Synthetics.SecureCredentialArgs
+    ///         {
+    ///             Description = "My description",
+    ///             Key = "MY_KEY",
+    ///             Value = "My value",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecureCredential : Pulumi.CustomResource
     {

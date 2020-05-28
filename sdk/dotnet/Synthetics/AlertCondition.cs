@@ -11,6 +11,33 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to create and manage synthetics alert conditions in New Relic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooMonitor = Output.Create(NewRelic.Synthetics.GetMonitor.InvokeAsync(new NewRelic.Synthetics.GetMonitorArgs
+    ///         {
+    ///             Name = "foo",
+    ///         }));
+    ///         var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new NewRelic.Synthetics.AlertConditionArgs
+    ///         {
+    ///             PolicyId = newrelic_alert_policy.Foo.Id,
+    ///             MonitorId = fooMonitor.Apply(fooMonitor =&gt; fooMonitor.Id),
+    ///             RunbookUrl = "https://www.example.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AlertCondition : Pulumi.CustomResource
     {

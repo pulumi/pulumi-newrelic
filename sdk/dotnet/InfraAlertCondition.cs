@@ -12,6 +12,86 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage Infrastructure alert conditions in New Relic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertPolicy("foo", new NewRelic.AlertPolicyArgs
+    ///         {
+    ///         });
+    ///         var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new NewRelic.InfraAlertConditionArgs
+    ///         {
+    ///             PolicyId = foo.Id,
+    ///             Type = "infra_metric",
+    ///             Event = "StorageSample",
+    ///             Select = "diskUsedPercent",
+    ///             Comparison = "above",
+    ///             Where = "(`hostname` LIKE '%frontend%')",
+    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///             {
+    ///                 Duration = 25,
+    ///                 Value = 90,
+    ///                 TimeFunction = "all",
+    ///             },
+    ///             Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
+    ///             {
+    ///                 Duration = 10,
+    ///                 Value = 90,
+    ///                 TimeFunction = "all",
+    ///             },
+    ///         });
+    ///         var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new NewRelic.InfraAlertConditionArgs
+    ///         {
+    ///             PolicyId = foo.Id,
+    ///             Type = "infra_metric",
+    ///             Event = "DatastoreSample",
+    ///             Select = "provider.databaseConnections.Average",
+    ///             Comparison = "above",
+    ///             Where = "(`hostname` LIKE '%db%')",
+    ///             IntegrationProvider = "RdsDbInstance",
+    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///             {
+    ///                 Duration = 25,
+    ///                 Value = 90,
+    ///                 TimeFunction = "all",
+    ///             },
+    ///         });
+    ///         var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new NewRelic.InfraAlertConditionArgs
+    ///         {
+    ///             PolicyId = foo.Id,
+    ///             Type = "infra_process_running",
+    ///             Comparison = "equal",
+    ///             ProcessWhere = "`commandName` = '/usr/bin/ruby'",
+    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///             {
+    ///                 Duration = 5,
+    ///                 Value = 0,
+    ///             },
+    ///         });
+    ///         var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new NewRelic.InfraAlertConditionArgs
+    ///         {
+    ///             PolicyId = foo.Id,
+    ///             Type = "infra_host_not_reporting",
+    ///             Event = "StorageSample",
+    ///             Select = "diskUsedPercent",
+    ///             Where = "(`hostname` LIKE '%frontend%')",
+    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///             {
+    ///                 Duration = 5,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Thresholds
     /// 

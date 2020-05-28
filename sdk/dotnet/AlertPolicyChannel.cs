@@ -11,6 +11,58 @@ namespace Pulumi.NewRelic
 {
     /// <summary>
     /// Use this resource to map alert policies to alert channels in New Relic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplePolicy = Output.Create(NewRelic.GetAlertPolicy.InvokeAsync(new NewRelic.GetAlertPolicyArgs
+    ///         {
+    ///             Name = "my-alert-policy",
+    ///         }));
+    ///         // Creates an email alert channel.
+    ///         var emailChannel = new NewRelic.AlertChannel("emailChannel", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Type = "email",
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 Recipients = "foo@example.com",
+    ///                 IncludeJsonAttachment = "1",
+    ///             },
+    ///         });
+    ///         // Creates a Slack alert channel.
+    ///         var slackChannel = new NewRelic.AlertChannel("slackChannel", new NewRelic.AlertChannelArgs
+    ///         {
+    ///             Type = "slack",
+    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///             {
+    ///                 Channel = "#example-channel",
+    ///                 Url = "http://example-org.slack.com",
+    ///             },
+    ///         });
+    ///         // Applies the created channels above to the alert policy
+    ///         // referenced at the top of the config.
+    ///         var foo = new NewRelic.AlertPolicyChannel("foo", new NewRelic.AlertPolicyChannelArgs
+    ///         {
+    ///             PolicyId = newrelic_alert_policy.Example_policy.Id,
+    ///             ChannelIds = 
+    ///             {
+    ///                 emailChannel.Id,
+    ///                 slackChannel.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
