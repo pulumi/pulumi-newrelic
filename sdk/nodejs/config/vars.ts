@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("newrelic");
@@ -11,7 +13,7 @@ export let apiUrl: string | undefined = __config.get("apiUrl") || (utilities.get
 export let cacertFile: string | undefined = __config.get("cacertFile") || utilities.getEnv("NEWRELIC_API_CACERT");
 export let infraApiUrl: string | undefined = __config.get("infraApiUrl") || (utilities.getEnv("NEWRELIC_INFRA_API_URL") || "https://infra-api.newrelic.com/v2");
 export let infrastructureApiUrl: string | undefined = __config.get("infrastructureApiUrl") || utilities.getEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
-export let insecureSkipVerify: boolean | undefined = __config.getObject<boolean>("insecureSkipVerify") || utilities.getEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
+export let insecureSkipVerify: boolean | undefined = __config.getObject<boolean>("insecureSkipVerify") || <any>utilities.getEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
 export let insightsAccountId: string | undefined = __config.get("insightsAccountId") || utilities.getEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
 export let insightsInsertKey: string | undefined = __config.get("insightsInsertKey") || utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
 export let insightsInsertUrl: string | undefined = __config.get("insightsInsertUrl") || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");

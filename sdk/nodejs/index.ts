@@ -16,9 +16,9 @@ export * from "./nrqlAlertCondition";
 export * from "./provider";
 
 // Export sub-modules:
-import * as config from "./config/index";
-import * as insights from "./insights/index";
-import * as plugins from "./plugins/index";
-import * as synthetics from "./synthetics/index";
-import * as types from "./types/index";
+import * as config from "./config";
+import * as insights from "./insights";
+import * as plugins from "./plugins";
+import * as synthetics from "./synthetics";
+import * as types from "./types";
 export {config, insights, plugins, synthetics, types};
