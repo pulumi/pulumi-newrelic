@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -85,6 +83,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AlertPolicyState, opts?: pulumi.CustomResourceOptions): AlertPolicy {
         return new AlertPolicy(name, <any>state, { ...opts, id: id });
@@ -105,13 +104,15 @@ export class AlertPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will
-     * result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs
-     * cannot be imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
      * **DEPRECATED:** The time the policy was created.
+     *
+     * @deprecated Unavailable attribute in NerdGraph.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -124,6 +125,8 @@ export class AlertPolicy extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * **DEPRECATED:** The time the policy was last updated.
+     *
+     * @deprecated Unavailable attribute in NerdGraph.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
@@ -168,13 +171,14 @@ export class AlertPolicy extends pulumi.CustomResource {
  */
 export interface AlertPolicyState {
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will
-     * result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs
-     * cannot be imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * **DEPRECATED:** The time the policy was created.
+     *
      * @deprecated Unavailable attribute in NerdGraph.
      */
     readonly createdAt?: pulumi.Input<string>;
@@ -188,6 +192,7 @@ export interface AlertPolicyState {
     readonly name?: pulumi.Input<string>;
     /**
      * **DEPRECATED:** The time the policy was last updated.
+     *
      * @deprecated Unavailable attribute in NerdGraph.
      */
     readonly updatedAt?: pulumi.Input<string>;
@@ -198,9 +203,9 @@ export interface AlertPolicyState {
  */
 export interface AlertPolicyArgs {
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will
-     * result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs
-     * cannot be imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

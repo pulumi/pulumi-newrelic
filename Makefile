@@ -62,7 +62,7 @@ lint::
 
 install_plugins::
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource $(PACK) 2.3.1
+	pulumi plugin install resource $(PACK) $(PROVIDER_VERSION)
 	pulumi plugin install resource terraform-template 0.15.0
 
 install:: provider

@@ -85,6 +85,9 @@ class AlertPolicyChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if channel_id is not None:
+                warnings.warn("use `channel_ids` argument instead", DeprecationWarning)
+                pulumi.log.warn("channel_id is deprecated: use `channel_ids` argument instead")
             __props__['channel_id'] = channel_id
             __props__['channel_ids'] = channel_ids
             if policy_id is None:

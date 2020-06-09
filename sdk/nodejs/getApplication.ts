@@ -38,12 +38,12 @@ export interface GetApplicationResult {
      */
     readonly hostIds: number[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of instance IDs associated with the application.
      */
     readonly instanceIds: number[];
     readonly name: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

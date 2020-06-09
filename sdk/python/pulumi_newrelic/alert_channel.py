@@ -224,6 +224,9 @@ class AlertChannel(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['config'] = config
+            if configuration is not None:
+                warnings.warn("use `config` block instead", DeprecationWarning)
+                pulumi.log.warn("configuration is deprecated: use `config` block instead")
             __props__['configuration'] = configuration
             __props__['name'] = name
             if type is None:

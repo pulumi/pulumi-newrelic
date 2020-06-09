@@ -43,6 +43,10 @@ export interface GetAlertPolicyResult {
      */
     readonly createdAt: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
      */
     readonly incidentPreference?: string;
@@ -51,8 +55,4 @@ export interface GetAlertPolicyResult {
      * The time the policy was last updated.
      */
     readonly updatedAt: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

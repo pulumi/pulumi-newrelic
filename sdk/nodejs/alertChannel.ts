@@ -136,6 +136,7 @@ export class AlertChannel extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AlertChannelState, opts?: pulumi.CustomResourceOptions): AlertChannel {
         return new AlertChannel(name, <any>state, { ...opts, id: id });
@@ -161,6 +162,8 @@ export class AlertChannel extends pulumi.CustomResource {
     public readonly config!: pulumi.Output<outputs.AlertChannelConfig | undefined>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     *
+     * @deprecated use `config` block instead
      */
     public readonly configuration!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -219,6 +222,7 @@ export interface AlertChannelState {
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     *
      * @deprecated use `config` block instead
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;
@@ -242,6 +246,7 @@ export interface AlertChannelArgs {
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
+     *
      * @deprecated use `config` block instead
      */
     readonly configuration?: pulumi.Input<{[key: string]: any}>;

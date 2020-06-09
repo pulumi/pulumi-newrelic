@@ -608,7 +608,19 @@
                 "row",
                 "title",
                 "visualization"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "rawMetricName",
+                        "row",
+                        "title",
+                        "visualization",
+                        "widgetId"
+                    ]
+                }
+            }
         },
         "newrelic:/DashboardWidgetCompareWith:DashboardWidgetCompareWith": {
             "properties": {
@@ -2413,7 +2425,7 @@
             }
         },
         "newrelic:plugins/applicationSettings:ApplicationSettings": {
-            "description": "\u003e **NOTE:** Applications are not created by this resource, but are created by\na reporting agent.\n\nUse this resource to manage configuration for an application that already\nexists in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst app = new newrelic.plugins.ApplicationSettings(\"app\", {\n    appApdexThreshold: 0.7,\n    enableRealUserMonitoring: false,\n    endUserApdexThreshold: 0.8,\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\napp = newrelic.plugins.ApplicationSettings(\"app\",\n    app_apdex_threshold=\"0.7\",\n    enable_real_user_monitoring=False,\n    end_user_apdex_threshold=\"0.8\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var app = new NewRelic.Plugins.ApplicationSettings(\"app\", new NewRelic.Plugins.ApplicationSettingsArgs\n        {\n            AppApdexThreshold = \"0.7\",\n            EnableRealUserMonitoring = false,\n            EndUserApdexThreshold = \"0.8\",\n        });\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Notes\n\n\u003e **NOTE:** Applications that have reported data in the last twelve hours\ncannot be deleted.\n",
+            "description": "\u003e **NOTE:** Applications are not created by this resource, but are created by\na reporting agent.\n\nUse this resource to manage configuration for an application that already\nexists in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst app = new newrelic.plugins.ApplicationSettings(\"app\", {\n    appApdexThreshold: 0.7,\n    enableRealUserMonitoring: false,\n    endUserApdexThreshold: 0.8,\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\napp = newrelic.plugins.ApplicationSettings(\"app\",\n    app_apdex_threshold=\"0.7\",\n    enable_real_user_monitoring=False,\n    end_user_apdex_threshold=\"0.8\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var app = new NewRelic.Plugins.ApplicationSettings(\"app\", new NewRelic.Plugins.ApplicationSettingsArgs\n        {\n            AppApdexThreshold = 0.7,\n            EnableRealUserMonitoring = false,\n            EndUserApdexThreshold = 0.8,\n        });\n    }\n\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Notes\n\n\u003e **NOTE:** Applications that have reported data in the last twelve hours\ncannot be deleted.\n",
             "properties": {
                 "appApdexThreshold": {
                     "type": "number",
@@ -3443,8 +3455,10 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^8.0.25"
             },
+            "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing New Relic resources.",
             "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-newrelic)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-newrelic` repo](https://github.com/pulumi/pulumi-newrelic/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-newrelic` repo](https://github.com/terraform-providers/terraform-provider-newrelic/issues).",
             "typescriptVersion": ""
         },
         "python": {

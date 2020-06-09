@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface AlertChannelConfig {
@@ -197,7 +198,6 @@ export interface NrqlAlertConditionTerm {
     threshold: number;
     timeFunction: string;
 }
-
 export namespace insights {
     export interface EventEvent {
         attributes: outputs.insights.EventEventAttribute[];
@@ -228,3 +228,4 @@ export namespace plugins {
         query: string;
     }
 }
+

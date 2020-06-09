@@ -37,6 +37,10 @@ export interface GetAlertChannelResult {
      * Alert channel configuration.
      */
     readonly config: outputs.GetAlertChannelConfig;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * A list of policy IDs associated with the alert channel.
@@ -46,8 +50,4 @@ export interface GetAlertChannelResult {
      * Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
