@@ -15,23 +15,28 @@
 package examples
 
 import (
-	"os"
+	"path"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
-func getCwd(t *testing.T) string {
-	cwd, err := os.Getwd()
-	if err != nil {
-		t.FailNow()
-	}
+func TestAccAlertPolicy(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: path.Join(getCwd(t), "alertpolicy"),
+		})
 
-	return cwd
+	integration.ProgramTest(t, &test)
 }
 
-func getBaseOptions() integration.ProgramTestOptions {
-	return integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
-	}
+func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	base := getBaseOptions()
+	baseJS := base.With(integration.ProgramTestOptions{
+		Dependencies: []string{
+			"@pulumi/newrelic",
+		},
+	})
+
+	return baseJS
 }
