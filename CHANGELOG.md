@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 2.4.1 (2020-06-12)
+* Switch to GitHub actions for build
+
 ## 2.4.0 (2020-06-06)
 * Upgrade to v1.19.0 of the NewRelic Terraform Provider
 
