@@ -33,28 +33,22 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-            if (!args || args.accountId === undefined) {
-                throw new Error("Missing required property 'accountId'");
-            }
-            if (!args || args.region === undefined) {
-                throw new Error("Missing required property 'region'");
-            }
-        inputs["accountId"] = pulumi.output(args ? args.accountId : undefined).apply(JSON.stringify);
-        inputs["adminApiKey"] = args ? args.adminApiKey : undefined;
+        inputs["accountId"] = pulumi.output((args ? args.accountId : undefined) || <any>utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
+        inputs["adminApiKey"] = (args ? args.adminApiKey : undefined) || utilities.getEnv("NEW_RELIC_ADMIN_API_KEY");
         inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("NEWRELIC_API_KEY");
-        inputs["apiUrl"] = (args ? args.apiUrl : undefined) || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
+        inputs["apiUrl"] = args ? args.apiUrl : undefined;
         inputs["cacertFile"] = (args ? args.cacertFile : undefined) || utilities.getEnv("NEWRELIC_API_CACERT");
-        inputs["infrastructureApiUrl"] = (args ? args.infrastructureApiUrl : undefined) || utilities.getEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
+        inputs["infrastructureApiUrl"] = args ? args.infrastructureApiUrl : undefined;
         inputs["insecureSkipVerify"] = pulumi.output((args ? args.insecureSkipVerify : undefined) || <any>utilities.getEnvBoolean("NEWRELIC_API_SKIP_VERIFY")).apply(JSON.stringify);
         inputs["insightsInsertKey"] = (args ? args.insightsInsertKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
         inputs["insightsInsertUrl"] = (args ? args.insightsInsertUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
         inputs["insightsQueryKey"] = (args ? args.insightsQueryKey : undefined) || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
         inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
-        inputs["nerdgraphApiUrl"] = (args ? args.nerdgraphApiUrl : undefined) || utilities.getEnv("NEWRELIC_NERDGRAPH_API_URL");
-        inputs["region"] = args ? args.region : undefined;
-        inputs["syntheticsApiUrl"] = (args ? args.syntheticsApiUrl : undefined) || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");
+        inputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
+        inputs["region"] = (args ? args.region : undefined) || (utilities.getEnv("NEW_RELIC_REGION") || "US");
+        inputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
         if (!opts) {
             opts = {}
         }
@@ -70,7 +64,7 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly accountId: pulumi.Input<number>;
+    readonly accountId?: pulumi.Input<number>;
     readonly adminApiKey?: pulumi.Input<string>;
     readonly apiKey?: pulumi.Input<string>;
     /**
@@ -94,7 +88,7 @@ export interface ProviderArgs {
     /**
      * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
      */
-    readonly region: pulumi.Input<string>;
+    readonly region?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */

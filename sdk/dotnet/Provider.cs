@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("newrelic", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -44,8 +44,8 @@ namespace Pulumi.NewRelic
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
-        [Input("accountId", required: true, json: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        [Input("accountId", json: true)]
+        public Input<int>? AccountId { get; set; }
 
         [Input("adminApiKey")]
         public Input<string>? AdminApiKey { get; set; }
@@ -83,25 +83,24 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
         /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("syntheticsApiUrl")]
         public Input<string>? SyntheticsApiUrl { get; set; }
 
         public ProviderArgs()
         {
+            AccountId = Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID");
+            AdminApiKey = Utilities.GetEnv("NEW_RELIC_ADMIN_API_KEY");
             ApiKey = Utilities.GetEnv("NEWRELIC_API_KEY");
-            ApiUrl = Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
             CacertFile = Utilities.GetEnv("NEWRELIC_API_CACERT");
-            InfrastructureApiUrl = Utilities.GetEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
             InsecureSkipVerify = Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
             InsightsInsertKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
             InsightsInsertUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
             InsightsQueryKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
             InsightsQueryUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
-            NerdgraphApiUrl = Utilities.GetEnv("NEWRELIC_NERDGRAPH_API_URL");
-            SyntheticsApiUrl = Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
+            Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }
     }
 }

@@ -8,20 +8,20 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("newrelic");
 
-export let accountId: number | undefined = __config.getObject<number>("accountId");
-export let adminApiKey: string | undefined = __config.get("adminApiKey");
+export let accountId: number | undefined = __config.getObject<number>("accountId") || <any>utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID");
+export let adminApiKey: string | undefined = __config.get("adminApiKey") || utilities.getEnv("NEW_RELIC_ADMIN_API_KEY");
 export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("NEWRELIC_API_KEY");
-export let apiUrl: string | undefined = __config.get("apiUrl") || (utilities.getEnv("NEWRELIC_API_URL") || "https://api.newrelic.com/v2");
+export let apiUrl: string | undefined = __config.get("apiUrl");
 export let cacertFile: string | undefined = __config.get("cacertFile") || utilities.getEnv("NEWRELIC_API_CACERT");
-export let infrastructureApiUrl: string | undefined = __config.get("infrastructureApiUrl") || utilities.getEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
+export let infrastructureApiUrl: string | undefined = __config.get("infrastructureApiUrl");
 export let insecureSkipVerify: boolean | undefined = __config.getObject<boolean>("insecureSkipVerify") || <any>utilities.getEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
 export let insightsInsertKey: string | undefined = __config.get("insightsInsertKey") || utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
 export let insightsInsertUrl: string | undefined = __config.get("insightsInsertUrl") || (utilities.getEnv("NEWRELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
 export let insightsQueryKey: string | undefined = __config.get("insightsQueryKey") || utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
 export let insightsQueryUrl: string | undefined = __config.get("insightsQueryUrl") || (utilities.getEnv("NEWRELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
-export let nerdgraphApiUrl: string | undefined = __config.get("nerdgraphApiUrl") || utilities.getEnv("NEWRELIC_NERDGRAPH_API_URL");
+export let nerdgraphApiUrl: string | undefined = __config.get("nerdgraphApiUrl");
 /**
  * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
  */
-export let region: string | undefined = __config.get("region");
-export let syntheticsApiUrl: string | undefined = __config.get("syntheticsApiUrl") || (utilities.getEnv("NEWRELIC_SYNTHETICS_API_URL") || "https://synthetics.newrelic.com/synthetics/api/v3");
+export let region: string | undefined = __config.get("region") || (utilities.getEnv("NEW_RELIC_REGION") || "US");
+export let syntheticsApiUrl: string | undefined = __config.get("syntheticsApiUrl");

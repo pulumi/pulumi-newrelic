@@ -152,6 +152,17 @@ export interface DashboardWidgetMetric {
     values?: string[];
 }
 
+export interface EntityTagsTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * The tag values.
+     */
+    values: string[];
+}
+
 export interface GetAlertChannelConfig {
     apiKey?: string;
     authPassword?: string;
@@ -172,6 +183,11 @@ export interface GetAlertChannelConfig {
     teams?: string;
     url?: string;
     userId?: string;
+}
+
+export interface GetEntityTag {
+    key: string;
+    value: string;
 }
 
 export interface InfraAlertConditionCritical {

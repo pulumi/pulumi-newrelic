@@ -15,10 +15,20 @@
     "config": {
         "variables": {
             "accountId": {
-                "type": "integer"
+                "type": "integer",
+                "defaultInfo": {
+                    "environment": [
+                        "NEW_RELIC_ACCOUNT_ID"
+                    ]
+                }
             },
             "adminApiKey": {
-                "type": "string"
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEW_RELIC_ADMIN_API_KEY"
+                    ]
+                }
             },
             "apiKey": {
                 "type": "string",
@@ -30,12 +40,6 @@
             },
             "apiUrl": {
                 "type": "string",
-                "default": "https://api.newrelic.com/v2",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "cacertFile": {
@@ -48,11 +52,6 @@
             },
             "infrastructureApiUrl": {
                 "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_INFRASTRUCTURE_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "insecureSkipVerify": {
@@ -99,25 +98,20 @@
             },
             "nerdgraphApiUrl": {
                 "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_NERDGRAPH_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "region": {
                 "type": "string",
-                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n"
+                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n",
+                "default": "US",
+                "defaultInfo": {
+                    "environment": [
+                        "NEW_RELIC_REGION"
+                    ]
+                }
             },
             "syntheticsApiUrl": {
                 "type": "string",
-                "default": "https://synthetics.newrelic.com/synthetics/api/v3",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_SYNTHETICS_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             }
         },
@@ -708,6 +702,36 @@
                 "name"
             ]
         },
+        "newrelic:/EntityTagsTag:EntityTagsTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The tag values.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "values"
+            ]
+        },
         "newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical": {
             "properties": {
                 "duration": {
@@ -1150,6 +1174,31 @@
             },
             "type": "object"
         },
+        "newrelic:/getEntityTag:getEntityTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "newrelic:insights/EventEvent:EventEvent": {
             "properties": {
                 "attributes": {
@@ -1291,10 +1340,20 @@
         "description": "The provider type for the newrelic package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "inputProperties": {
             "accountId": {
-                "type": "integer"
+                "type": "integer",
+                "defaultInfo": {
+                    "environment": [
+                        "NEW_RELIC_ACCOUNT_ID"
+                    ]
+                }
             },
             "adminApiKey": {
-                "type": "string"
+                "type": "string",
+                "defaultInfo": {
+                    "environment": [
+                        "NEW_RELIC_ADMIN_API_KEY"
+                    ]
+                }
             },
             "apiKey": {
                 "type": "string",
@@ -1306,12 +1365,6 @@
             },
             "apiUrl": {
                 "type": "string",
-                "default": "https://api.newrelic.com/v2",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "cacertFile": {
@@ -1324,11 +1377,6 @@
             },
             "infrastructureApiUrl": {
                 "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_INFRASTRUCTURE_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "insecureSkipVerify": {
@@ -1375,32 +1423,23 @@
             },
             "nerdgraphApiUrl": {
                 "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_NERDGRAPH_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "region": {
                 "type": "string",
-                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n"
+                "description": "The data center for which your New Relic account is configured. Only one region per provider block is permitted.\n",
+                "default": "US",
+                "defaultInfo": {
+                    "environment": [
+                        "NEW_RELIC_REGION"
+                    ]
+                }
             },
             "syntheticsApiUrl": {
                 "type": "string",
-                "default": "https://synthetics.newrelic.com/synthetics/api/v3",
-                "defaultInfo": {
-                    "environment": [
-                        "NEWRELIC_SYNTHETICS_API_URL"
-                    ]
-                },
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             }
-        },
-        "requiredInputs": [
-            "accountId",
-            "region"
-        ]
+        }
     },
     "resources": {
         "newrelic:index/alertChannel:AlertChannel": {
@@ -1904,6 +1943,59 @@
                             "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
                         },
                         "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/entityTags:EntityTags": {
+            "properties": {
+                "guid": {
+                    "type": "string",
+                    "description": "The guid of the entity to tag.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
+                    },
+                    "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
+                }
+            },
+            "required": [
+                "guid",
+                "tags"
+            ],
+            "inputProperties": {
+                "guid": {
+                    "type": "string",
+                    "description": "The guid of the entity to tag.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
+                    },
+                    "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
+                }
+            },
+            "requiredInputs": [
+                "guid",
+                "tags"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EntityTags resources.\n",
+                "properties": {
+                    "guid": {
+                        "type": "string",
+                        "description": "The guid of the entity to tag.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
+                        },
+                        "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
                     }
                 },
                 "type": "object"
@@ -3410,6 +3502,75 @@
                     "hostIds",
                     "instanceIds",
                     "name",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:index/getEntity:getEntity": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getEntity.\n",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "description": "The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.\n"
+                    },
+                    "tag": {
+                        "$ref": "#/types/newrelic:/getEntityTag:getEntityTag"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORRKLOAD.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEntity.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "integer",
+                        "description": "The New Relic account ID associated with this entity.\n"
+                    },
+                    "applicationId": {
+                        "type": "integer",
+                        "description": "The domain-specific application ID of the entity. Only returned for APM and Browser applications.\n"
+                    },
+                    "domain": {
+                        "type": "string"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "The unique GUID of the entity.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tag": {
+                        "$ref": "#/types/newrelic:/getEntityTag:getEntityTag"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accountId",
+                    "applicationId",
+                    "domain",
+                    "guid",
+                    "name",
+                    "type",
                     "id"
                 ]
             }

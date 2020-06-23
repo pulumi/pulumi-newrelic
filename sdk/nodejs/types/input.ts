@@ -152,6 +152,22 @@ export interface DashboardWidgetMetric {
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface EntityTagsTag {
+    /**
+     * The tag key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The tag values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetEntityTag {
+    key: string;
+    value: string;
+}
+
 export interface InfraAlertConditionCritical {
     duration: pulumi.Input<number>;
     timeFunction?: pulumi.Input<string>;

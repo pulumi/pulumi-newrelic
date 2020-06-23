@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-newrelic/provider/v2
+module github.com/pulumi/pulumi-newrelic/provider/v3
 
 go 1.14
 

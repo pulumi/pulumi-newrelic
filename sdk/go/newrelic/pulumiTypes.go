@@ -1299,6 +1299,114 @@ func (o DashboardWidgetMetricArrayOutput) Index(i pulumi.IntInput) DashboardWidg
 	}).(DashboardWidgetMetricOutput)
 }
 
+type EntityTagsTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag values.
+	Values []string `pulumi:"values"`
+}
+
+// EntityTagsTagInput is an input type that accepts EntityTagsTagArgs and EntityTagsTagOutput values.
+// You can construct a concrete instance of `EntityTagsTagInput` via:
+//
+// 		 EntityTagsTagArgs{...}
+//
+type EntityTagsTagInput interface {
+	pulumi.Input
+
+	ToEntityTagsTagOutput() EntityTagsTagOutput
+	ToEntityTagsTagOutputWithContext(context.Context) EntityTagsTagOutput
+}
+
+type EntityTagsTagArgs struct {
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EntityTagsTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTagsTag)(nil)).Elem()
+}
+
+func (i EntityTagsTagArgs) ToEntityTagsTagOutput() EntityTagsTagOutput {
+	return i.ToEntityTagsTagOutputWithContext(context.Background())
+}
+
+func (i EntityTagsTagArgs) ToEntityTagsTagOutputWithContext(ctx context.Context) EntityTagsTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsTagOutput)
+}
+
+// EntityTagsTagArrayInput is an input type that accepts EntityTagsTagArray and EntityTagsTagArrayOutput values.
+// You can construct a concrete instance of `EntityTagsTagArrayInput` via:
+//
+// 		 EntityTagsTagArray{ EntityTagsTagArgs{...} }
+//
+type EntityTagsTagArrayInput interface {
+	pulumi.Input
+
+	ToEntityTagsTagArrayOutput() EntityTagsTagArrayOutput
+	ToEntityTagsTagArrayOutputWithContext(context.Context) EntityTagsTagArrayOutput
+}
+
+type EntityTagsTagArray []EntityTagsTagInput
+
+func (EntityTagsTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityTagsTag)(nil)).Elem()
+}
+
+func (i EntityTagsTagArray) ToEntityTagsTagArrayOutput() EntityTagsTagArrayOutput {
+	return i.ToEntityTagsTagArrayOutputWithContext(context.Background())
+}
+
+func (i EntityTagsTagArray) ToEntityTagsTagArrayOutputWithContext(ctx context.Context) EntityTagsTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsTagArrayOutput)
+}
+
+type EntityTagsTagOutput struct{ *pulumi.OutputState }
+
+func (EntityTagsTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTagsTag)(nil)).Elem()
+}
+
+func (o EntityTagsTagOutput) ToEntityTagsTagOutput() EntityTagsTagOutput {
+	return o
+}
+
+func (o EntityTagsTagOutput) ToEntityTagsTagOutputWithContext(ctx context.Context) EntityTagsTagOutput {
+	return o
+}
+
+// The tag key.
+func (o EntityTagsTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityTagsTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag values.
+func (o EntityTagsTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EntityTagsTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EntityTagsTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityTagsTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityTagsTag)(nil)).Elem()
+}
+
+func (o EntityTagsTagArrayOutput) ToEntityTagsTagArrayOutput() EntityTagsTagArrayOutput {
+	return o
+}
+
+func (o EntityTagsTagArrayOutput) ToEntityTagsTagArrayOutputWithContext(ctx context.Context) EntityTagsTagArrayOutput {
+	return o
+}
+
+func (o EntityTagsTagArrayOutput) Index(i pulumi.IntInput) EntityTagsTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityTagsTag {
+		return vs[0].([]EntityTagsTag)[vs[1].(int)]
+	}).(EntityTagsTagOutput)
+}
+
 type InfraAlertConditionCritical struct {
 	Duration     int      `pulumi:"duration"`
 	TimeFunction *string  `pulumi:"timeFunction"`
@@ -2497,6 +2605,62 @@ func (o GetAlertChannelConfigOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
+type GetEntityTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetEntityTagInput is an input type that accepts GetEntityTagArgs and GetEntityTagOutput values.
+// You can construct a concrete instance of `GetEntityTagInput` via:
+//
+// 		 GetEntityTagArgs{...}
+//
+type GetEntityTagInput interface {
+	pulumi.Input
+
+	ToGetEntityTagOutput() GetEntityTagOutput
+	ToGetEntityTagOutputWithContext(context.Context) GetEntityTagOutput
+}
+
+type GetEntityTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetEntityTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntityTag)(nil)).Elem()
+}
+
+func (i GetEntityTagArgs) ToGetEntityTagOutput() GetEntityTagOutput {
+	return i.ToGetEntityTagOutputWithContext(context.Background())
+}
+
+func (i GetEntityTagArgs) ToGetEntityTagOutputWithContext(ctx context.Context) GetEntityTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagOutput)
+}
+
+type GetEntityTagOutput struct{ *pulumi.OutputState }
+
+func (GetEntityTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntityTag)(nil)).Elem()
+}
+
+func (o GetEntityTagOutput) ToGetEntityTagOutput() GetEntityTagOutput {
+	return o
+}
+
+func (o GetEntityTagOutput) ToGetEntityTagOutputWithContext(ctx context.Context) GetEntityTagOutput {
+	return o
+}
+
+func (o GetEntityTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetEntityTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntityTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(AlertChannelConfigPtrOutput{})
@@ -2511,6 +2675,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWidgetCompareWithPresentationOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetMetricOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetMetricArrayOutput{})
+	pulumi.RegisterOutputType(EntityTagsTagOutput{})
+	pulumi.RegisterOutputType(EntityTagsTagArrayOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningOutput{})
@@ -2524,4 +2690,5 @@ func init() {
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningPtrOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
+	pulumi.RegisterOutputType(GetEntityTagOutput{})
 }

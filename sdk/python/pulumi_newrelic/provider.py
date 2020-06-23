@@ -39,14 +39,14 @@ class Provider(pulumi.ProviderResource):
             __props__ = dict()
 
             if account_id is None:
-                raise TypeError("Missing required property 'account_id'")
+                account_id = utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
             __props__['account_id'] = pulumi.Output.from_input(account_id).apply(json.dumps) if account_id is not None else None
+            if admin_api_key is None:
+                admin_api_key = utilities.get_env('NEW_RELIC_ADMIN_API_KEY')
             __props__['admin_api_key'] = admin_api_key
             if api_key is None:
                 api_key = utilities.get_env('NEWRELIC_API_KEY')
             __props__['api_key'] = api_key
-            if api_url is None:
-                api_url = (utilities.get_env('NEWRELIC_API_URL') or 'https://api.newrelic.com/v2')
             if api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
@@ -54,8 +54,6 @@ class Provider(pulumi.ProviderResource):
             if cacert_file is None:
                 cacert_file = utilities.get_env('NEWRELIC_API_CACERT')
             __props__['cacert_file'] = cacert_file
-            if infrastructure_api_url is None:
-                infrastructure_api_url = utilities.get_env('NEWRELIC_INFRASTRUCTURE_API_URL')
             if infrastructure_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
@@ -75,17 +73,13 @@ class Provider(pulumi.ProviderResource):
             if insights_query_url is None:
                 insights_query_url = (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url
-            if nerdgraph_api_url is None:
-                nerdgraph_api_url = utilities.get_env('NEWRELIC_NERDGRAPH_API_URL')
             if nerdgraph_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("nerdgraph_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
             __props__['nerdgraph_api_url'] = nerdgraph_api_url
             if region is None:
-                raise TypeError("Missing required property 'region'")
+                region = (utilities.get_env('NEW_RELIC_REGION') or 'US')
             __props__['region'] = region
-            if synthetics_api_url is None:
-                synthetics_api_url = (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
             if synthetics_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("synthetics_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")

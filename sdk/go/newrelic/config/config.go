@@ -9,10 +9,18 @@ import (
 )
 
 func GetAccountId(ctx *pulumi.Context) int {
-	return config.GetInt(ctx, "newrelic:accountId")
+	v, err := config.TryInt(ctx, "newrelic:accountId")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault(0, parseEnvInt, "NEW_RELIC_ACCOUNT_ID").(int)
 }
 func GetAdminApiKey(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:adminApiKey")
+	v, err := config.Try(ctx, "newrelic:adminApiKey")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "NEW_RELIC_ADMIN_API_KEY").(string)
 }
 func GetApiKey(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:apiKey")
@@ -24,11 +32,7 @@ func GetApiKey(ctx *pulumi.Context) string {
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetApiUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:apiUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("https://api.newrelic.com/v2", nil, "NEWRELIC_API_URL").(string)
+	return config.Get(ctx, "newrelic:apiUrl")
 }
 func GetCacertFile(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:cacertFile")
@@ -40,11 +44,7 @@ func GetCacertFile(ctx *pulumi.Context) string {
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetInfrastructureApiUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:infrastructureApiUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NEWRELIC_INFRASTRUCTURE_API_URL").(string)
+	return config.Get(ctx, "newrelic:infrastructureApiUrl")
 }
 func GetInsecureSkipVerify(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "newrelic:insecureSkipVerify")
@@ -84,23 +84,19 @@ func GetInsightsQueryUrl(ctx *pulumi.Context) string {
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetNerdgraphApiUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:nerdgraphApiUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NEWRELIC_NERDGRAPH_API_URL").(string)
+	return config.Get(ctx, "newrelic:nerdgraphApiUrl")
 }
 
 // The data center for which your New Relic account is configured. Only one region per provider block is permitted.
 func GetRegion(ctx *pulumi.Context) string {
-	return config.Get(ctx, "newrelic:region")
+	v, err := config.Try(ctx, "newrelic:region")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string)
 }
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetSyntheticsApiUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:syntheticsApiUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("https://synthetics.newrelic.com/synthetics/api/v3", nil, "NEWRELIC_SYNTHETICS_API_URL").(string)
+	return config.Get(ctx, "newrelic:syntheticsApiUrl")
 }

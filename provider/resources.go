@@ -90,31 +90,25 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-newrelic",
 		Config: map[string]*tfbridge.SchemaInfo{
+			"account_id": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEW_RELIC_ACCOUNT_ID"},
+				},
+			},
 			"api_key": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"NEWRELIC_API_KEY"},
 				},
 			},
-			"api_url": {
+			"admin_api_key": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "https://api.newrelic.com/v2",
-					EnvVars: []string{"NEWRELIC_API_URL"},
+					EnvVars: []string{"NEW_RELIC_ADMIN_API_KEY"},
 				},
 			},
-			"infra_api_url": {
+			"region": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "https://infra-api.newrelic.com/v2",
-					EnvVars: []string{"NEWRELIC_INFRA_API_URL"},
-				},
-			},
-			"insecure_skip_verify": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_API_SKIP_VERIFY"},
-				},
-			},
-			"insights_account_id": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_INSIGHTS_ACCOUNT_ID"},
+					EnvVars: []string{"NEW_RELIC_REGION"},
+					Value:   "US",
 				},
 			},
 			"insights_insert_key": {
@@ -139,61 +133,52 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"NEWRELIC_INSIGHTS_QUERY_URL"},
 				},
 			},
+			"insecure_skip_verify": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"NEWRELIC_API_SKIP_VERIFY"},
+				},
+			},
 			"cacert_file": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"NEWRELIC_API_CACERT"},
 				},
 			},
-			"synthetics_api_url": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_SYNTHETICS_API_URL"},
-					Value:   "https://synthetics.newrelic.com/synthetics/api/v3",
-				},
-			},
-			"infrastructure_api_url": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_INFRASTRUCTURE_API_URL"},
-				},
-			},
-			"nerdgraph_api_url": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_NERDGRAPH_API_URL"},
-				},
-			},
-			"personal_api_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_PERSONAL_API_KEY"},
-				},
-			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"newrelic_alert_channel":                {Tok: makeResource(mainMod, "AlertChannel")},
-			"newrelic_alert_condition":              {Tok: makeResource(mainMod, "AlertCondition")},
-			"newrelic_alert_policy":                 {Tok: makeResource(mainMod, "AlertPolicy")},
-			"newrelic_alert_policy_channel":         {Tok: makeResource(mainMod, "AlertPolicyChannel")},
-			"newrelic_dashboard":                    {Tok: makeResource(mainMod, "Dashboard")},
-			"newrelic_infra_alert_condition":        {Tok: makeResource(mainMod, "InfraAlertCondition")},
-			"newrelic_nrql_alert_condition":         {Tok: makeResource(mainMod, "NrqlAlertCondition")},
+			"newrelic_alert_channel":         {Tok: makeResource(mainMod, "AlertChannel")},
+			"newrelic_alert_condition":       {Tok: makeResource(mainMod, "AlertCondition")},
+			"newrelic_alert_policy":          {Tok: makeResource(mainMod, "AlertPolicy")},
+			"newrelic_alert_policy_channel":  {Tok: makeResource(mainMod, "AlertPolicyChannel")},
+			"newrelic_dashboard":             {Tok: makeResource(mainMod, "Dashboard")},
+			"newrelic_infra_alert_condition": {Tok: makeResource(mainMod, "InfraAlertCondition")},
+			"newrelic_nrql_alert_condition":  {Tok: makeResource(mainMod, "NrqlAlertCondition")},
+			"newrelic_entity_tags":           {Tok: makeResource(mainMod, "EntityTags")},
+
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},
 			"newrelic_synthetics_monitor_script":    {Tok: makeResource(syntheticsMod, "MonitorScript")},
 			"newrelic_synthetics_label":             {Tok: makeResource(syntheticsMod, "Label")},
 			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
-			"newrelic_insights_event":               {Tok: makeResource(insightsMod, "Event")},
-			"newrelic_plugins_alert_condition":      {Tok: makeResource(pluginsMod, "AlertCondition")},
-			"newrelic_workload":                     {Tok: makeResource(pluginsMod, "Workload")},
-			"newrelic_application_settings":         {Tok: makeResource(pluginsMod, "ApplicationSettings")},
+
+			"newrelic_insights_event": {Tok: makeResource(insightsMod, "Event")},
+
+			"newrelic_plugins_alert_condition": {Tok: makeResource(pluginsMod, "AlertCondition")},
+			"newrelic_workload":                {Tok: makeResource(pluginsMod, "Workload")},
+			"newrelic_application_settings":    {Tok: makeResource(pluginsMod, "ApplicationSettings")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"newrelic_alert_channel":                {Tok: makeDataSource(mainMod, "getAlertChannel")},
-			"newrelic_alert_policy":                 {Tok: makeDataSource(mainMod, "getAlertPolicy")},
-			"newrelic_application":                  {Tok: makeDataSource(mainMod, "getApplication")},
-			"newrelic_key_transaction":              {Tok: makeDataSource(mainMod, "getKeyTransaction")},
+			"newrelic_alert_channel":   {Tok: makeDataSource(mainMod, "getAlertChannel")},
+			"newrelic_alert_policy":    {Tok: makeDataSource(mainMod, "getAlertPolicy")},
+			"newrelic_application":     {Tok: makeDataSource(mainMod, "getApplication")},
+			"newrelic_key_transaction": {Tok: makeDataSource(mainMod, "getKeyTransaction")},
+			"newrelic_entity":          {Tok: makeDataSource(mainMod, "getEntity")},
+
 			"newrelic_synthetics_monitor":           {Tok: makeDataSource(syntheticsMod, "getMonitor")},
 			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},
-			"newrelic_plugin":                       {Tok: makeDataSource(pluginsMod, "getPlugin")},
-			"newrelic_plugin_component":             {Tok: makeDataSource(pluginsMod, "getPluginComponent")},
+
+			"newrelic_plugin":           {Tok: makeDataSource(pluginsMod, "getPlugin")},
+			"newrelic_plugin_component": {Tok: makeDataSource(pluginsMod, "getPluginComponent")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
