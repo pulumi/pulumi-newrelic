@@ -8,19 +8,19 @@ namespace Pulumi.NewRelic
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("newrelic");
+        public static int? AccountId { get; set; } = __config.GetInt32("accountId");
+
+        public static string? AdminApiKey { get; set; } = __config.Get("adminApiKey");
+
         public static string? ApiKey { get; set; } = __config.Get("apiKey") ?? Utilities.GetEnv("NEWRELIC_API_KEY");
 
         public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
 
         public static string? CacertFile { get; set; } = __config.Get("cacertFile") ?? Utilities.GetEnv("NEWRELIC_API_CACERT");
 
-        public static string? InfraApiUrl { get; set; } = __config.Get("infraApiUrl") ?? Utilities.GetEnv("NEWRELIC_INFRA_API_URL") ?? "https://infra-api.newrelic.com/v2";
-
         public static string? InfrastructureApiUrl { get; set; } = __config.Get("infrastructureApiUrl") ?? Utilities.GetEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
 
         public static bool? InsecureSkipVerify { get; set; } = __config.GetBoolean("insecureSkipVerify") ?? Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
-
-        public static string? InsightsAccountId { get; set; } = __config.Get("insightsAccountId") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
 
         public static string? InsightsInsertKey { get; set; } = __config.Get("insightsInsertKey") ?? Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
 
@@ -32,7 +32,10 @@ namespace Pulumi.NewRelic
 
         public static string? NerdgraphApiUrl { get; set; } = __config.Get("nerdgraphApiUrl") ?? Utilities.GetEnv("NEWRELIC_NERDGRAPH_API_URL");
 
-        public static string? PersonalApiKey { get; set; } = __config.Get("personalApiKey") ?? Utilities.GetEnv("NEWRELIC_PERSONAL_API_KEY");
+        /// <summary>
+        /// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+        /// </summary>
+        public static string? Region { get; set; } = __config.Get("region");
 
         public static string? SyntheticsApiUrl { get; set; } = __config.Get("syntheticsApiUrl") ?? Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
 

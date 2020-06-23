@@ -9,31 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    /// <summary>
-    /// Use this resource to create and manage NRQL alert conditions in New Relic.
-    /// 
-    /// 
-    /// ## Terms
-    /// 
-    /// The `term` mapping supports the following arguments:
-    /// 
-    /// - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
-    /// - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
-    /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-    /// - `threshold` - (Required) Must be 0 or greater.
-    /// - `time_function` - (Required) `all` or `any`.
-    /// 
-    /// ## NRQL
-    /// 
-    /// The `nrql` attribute supports the following arguments:
-    /// 
-    /// - `query` - (Required) The NRQL query to execute for the condition.
-    /// - `since_value` - (Required) The value to be used in the `SINCE &lt;X&gt; MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
-    /// </summary>
     public partial class NrqlAlertCondition : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable the alert condition.
+        /// The New Relic account ID for managing your NRQL alert conditions.
+        /// </summary>
+        [Output("accountId")]
+        public Output<int?> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+        /// 'UPPER_ONLY' (case insensitive).
+        /// </summary>
+        [Output("baselineDirection")]
+        public Output<string?> BaselineDirection { get; private set; } = null!;
+
+        /// <summary>
+        /// A condition term with priority set to critical.
+        /// </summary>
+        [Output("critical")]
+        public Output<Outputs.NrqlAlertConditionCritical?> Critical { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the NRQL alert condition.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not to enable the alert condition.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -63,6 +67,12 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NrqlAlertConditionNrql> Nrql { get; private set; } = null!;
 
         /// <summary>
+        /// Whether overlapping groups should produce a violation.
+        /// </summary>
+        [Output("openViolationOnGroupOverlap")]
+        public Output<bool?> OpenViolationOnGroupOverlap { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Output("policyId")]
@@ -75,19 +85,30 @@ namespace Pulumi.NewRelic
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A list of terms for this condition.
+        /// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
         /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerm>> Terms { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Possible values are single_value, sum.
+        /// Valid values are: 'single_value' or 'sum'
         /// </summary>
         [Output("valueFunction")]
         public Output<string?> ValueFunction { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+        /// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+        /// (case insensitive).
+        /// </summary>
+        [Output("violationTimeLimit")]
+        public Output<string?> ViolationTimeLimit { get; private set; } = null!;
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -95,6 +116,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("violationTimeLimitSeconds")]
         public Output<int?> ViolationTimeLimitSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// A condition term with priority set to warning.
+        /// </summary>
+        [Output("warning")]
+        public Output<Outputs.NrqlAlertConditionWarning?> Warning { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,7 +170,32 @@ namespace Pulumi.NewRelic
     public sealed class NrqlAlertConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the alert condition.
+        /// The New Relic account ID for managing your NRQL alert conditions.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+        /// 'UPPER_ONLY' (case insensitive).
+        /// </summary>
+        [Input("baselineDirection")]
+        public Input<string>? BaselineDirection { get; set; }
+
+        /// <summary>
+        /// A condition term with priority set to critical.
+        /// </summary>
+        [Input("critical")]
+        public Input<Inputs.NrqlAlertConditionCriticalArgs>? Critical { get; set; }
+
+        /// <summary>
+        /// The description of the NRQL alert condition.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Whether or not to enable the alert condition.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -173,6 +225,12 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NrqlAlertConditionNrqlArgs> Nrql { get; set; } = null!;
 
         /// <summary>
+        /// Whether overlapping groups should produce a violation.
+        /// </summary>
+        [Input("openViolationOnGroupOverlap")]
+        public Input<bool>? OpenViolationOnGroupOverlap { get; set; }
+
+        /// <summary>
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId", required: true)]
@@ -184,26 +242,38 @@ namespace Pulumi.NewRelic
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
 
-        [Input("terms", required: true)]
+        [Input("terms")]
         private InputList<Inputs.NrqlAlertConditionTermArgs>? _terms;
 
         /// <summary>
-        /// A list of terms for this condition.
+        /// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
         /// </summary>
+        [Obsolete(@"use `critical` and `warning` attributes instead")]
         public InputList<Inputs.NrqlAlertConditionTermArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermArgs>());
             set => _terms = value;
         }
 
+        /// <summary>
+        /// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Possible values are single_value, sum.
+        /// Valid values are: 'single_value' or 'sum'
         /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
+
+        /// <summary>
+        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+        /// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+        /// (case insensitive).
+        /// </summary>
+        [Input("violationTimeLimit")]
+        public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -211,6 +281,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
+
+        /// <summary>
+        /// A condition term with priority set to warning.
+        /// </summary>
+        [Input("warning")]
+        public Input<Inputs.NrqlAlertConditionWarningArgs>? Warning { get; set; }
 
         public NrqlAlertConditionArgs()
         {
@@ -220,7 +296,32 @@ namespace Pulumi.NewRelic
     public sealed class NrqlAlertConditionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the alert condition.
+        /// The New Relic account ID for managing your NRQL alert conditions.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+        /// 'UPPER_ONLY' (case insensitive).
+        /// </summary>
+        [Input("baselineDirection")]
+        public Input<string>? BaselineDirection { get; set; }
+
+        /// <summary>
+        /// A condition term with priority set to critical.
+        /// </summary>
+        [Input("critical")]
+        public Input<Inputs.NrqlAlertConditionCriticalGetArgs>? Critical { get; set; }
+
+        /// <summary>
+        /// The description of the NRQL alert condition.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Whether or not to enable the alert condition.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -250,6 +351,12 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NrqlAlertConditionNrqlGetArgs>? Nrql { get; set; }
 
         /// <summary>
+        /// Whether overlapping groups should produce a violation.
+        /// </summary>
+        [Input("openViolationOnGroupOverlap")]
+        public Input<bool>? OpenViolationOnGroupOverlap { get; set; }
+
+        /// <summary>
         /// The ID of the policy where this condition should be used.
         /// </summary>
         [Input("policyId")]
@@ -265,22 +372,34 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NrqlAlertConditionTermGetArgs>? _terms;
 
         /// <summary>
-        /// A list of terms for this condition.
+        /// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
         /// </summary>
+        [Obsolete(@"use `critical` and `warning` attributes instead")]
         public InputList<Inputs.NrqlAlertConditionTermGetArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.NrqlAlertConditionTermGetArgs>());
             set => _terms = value;
         }
 
+        /// <summary>
+        /// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Possible values are single_value, sum.
+        /// Valid values are: 'single_value' or 'sum'
         /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
+
+        /// <summary>
+        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+        /// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+        /// (case insensitive).
+        /// </summary>
+        [Input("violationTimeLimit")]
+        public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
         /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
@@ -288,6 +407,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }
+
+        /// <summary>
+        /// A condition term with priority set to warning.
+        /// </summary>
+        [Input("warning")]
+        public Input<Inputs.NrqlAlertConditionWarningGetArgs>? Warning { get; set; }
 
         public NrqlAlertConditionState()
         {

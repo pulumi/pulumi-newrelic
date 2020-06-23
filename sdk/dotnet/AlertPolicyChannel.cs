@@ -67,12 +67,6 @@ namespace Pulumi.NewRelic
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
         /// <summary>
-        /// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-        /// </summary>
-        [Output("channelId")]
-        public Output<int?> ChannelId { get; private set; } = null!;
-
-        /// <summary>
         /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
         /// drift your Terraform state.
         /// </summary>
@@ -131,13 +125,7 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-        /// </summary>
-        [Input("channelId")]
-        public Input<int>? ChannelId { get; set; }
-
-        [Input("channelIds")]
+        [Input("channelIds", required: true)]
         private InputList<int>? _channelIds;
 
         /// <summary>
@@ -163,12 +151,6 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-        /// </summary>
-        [Input("channelId")]
-        public Input<int>? ChannelId { get; set; }
-
         [Input("channelIds")]
         private InputList<int>? _channelIds;
 

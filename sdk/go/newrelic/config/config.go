@@ -8,6 +8,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 )
 
+func GetAccountId(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "newrelic:accountId")
+}
+func GetAdminApiKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:adminApiKey")
+}
 func GetApiKey(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:apiKey")
 	if err == nil {
@@ -15,6 +21,8 @@ func GetApiKey(ctx *pulumi.Context) string {
 	}
 	return getEnvOrDefault("", nil, "NEWRELIC_API_KEY").(string)
 }
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:apiUrl")
 	if err == nil {
@@ -29,13 +37,8 @@ func GetCacertFile(ctx *pulumi.Context) string {
 	}
 	return getEnvOrDefault("", nil, "NEWRELIC_API_CACERT").(string)
 }
-func GetInfraApiUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:infraApiUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("https://infra-api.newrelic.com/v2", nil, "NEWRELIC_INFRA_API_URL").(string)
-}
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetInfrastructureApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:infrastructureApiUrl")
 	if err == nil {
@@ -49,13 +52,6 @@ func GetInsecureSkipVerify(ctx *pulumi.Context) bool {
 		return v
 	}
 	return getEnvOrDefault(false, parseEnvBool, "NEWRELIC_API_SKIP_VERIFY").(bool)
-}
-func GetInsightsAccountId(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:insightsAccountId")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_ACCOUNT_ID").(string)
 }
 func GetInsightsInsertKey(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:insightsInsertKey")
@@ -85,6 +81,8 @@ func GetInsightsQueryUrl(ctx *pulumi.Context) string {
 	}
 	return getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEWRELIC_INSIGHTS_QUERY_URL").(string)
 }
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetNerdgraphApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:nerdgraphApiUrl")
 	if err == nil {
@@ -92,13 +90,13 @@ func GetNerdgraphApiUrl(ctx *pulumi.Context) string {
 	}
 	return getEnvOrDefault("", nil, "NEWRELIC_NERDGRAPH_API_URL").(string)
 }
-func GetPersonalApiKey(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:personalApiKey")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NEWRELIC_PERSONAL_API_KEY").(string)
+
+// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+func GetRegion(ctx *pulumi.Context) string {
+	return config.Get(ctx, "newrelic:region")
 }
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 func GetSyntheticsApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:syntheticsApiUrl")
 	if err == nil {

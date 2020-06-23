@@ -11,23 +11,20 @@ namespace Pulumi.NewRelic.Outputs
 {
 
     [OutputType]
-    public sealed class NrqlAlertConditionTerm
+    public sealed class NrqlAlertConditionCritical
     {
         public readonly int? Duration;
         public readonly string? Operator;
-        public readonly string? Priority;
         public readonly double Threshold;
         public readonly int? ThresholdDuration;
         public readonly string? ThresholdOccurrences;
         public readonly string? TimeFunction;
 
         [OutputConstructor]
-        private NrqlAlertConditionTerm(
+        private NrqlAlertConditionCritical(
             int? duration,
 
             string? @operator,
-
-            string? priority,
 
             double threshold,
 
@@ -39,7 +36,6 @@ namespace Pulumi.NewRelic.Outputs
         {
             Duration = duration;
             Operator = @operator;
-            Priority = priority;
             Threshold = threshold;
             ThresholdDuration = thresholdDuration;
             ThresholdOccurrences = thresholdOccurrences;

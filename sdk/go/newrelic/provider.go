@@ -6,6 +6,7 @@ package newrelic
 import (
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -20,6 +21,12 @@ type Provider struct {
 // NewProvider registers a new resource with the given unique name, arguments, and options.
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
+	if args == nil || args.AccountId == nil {
+		return nil, errors.New("missing required argument 'AccountId'")
+	}
+	if args == nil || args.Region == nil {
+		return nil, errors.New("missing required argument 'Region'")
+	}
 	if args == nil {
 		args = &ProviderArgs{}
 	}
@@ -32,17 +39,11 @@ func NewProvider(ctx *pulumi.Context,
 	if args.CacertFile == nil {
 		args.CacertFile = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_API_CACERT").(string))
 	}
-	if args.InfraApiUrl == nil {
-		args.InfraApiUrl = pulumi.StringPtr(getEnvOrDefault("https://infra-api.newrelic.com/v2", nil, "NEWRELIC_INFRA_API_URL").(string))
-	}
 	if args.InfrastructureApiUrl == nil {
 		args.InfrastructureApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_INFRASTRUCTURE_API_URL").(string))
 	}
 	if args.InsecureSkipVerify == nil {
 		args.InsecureSkipVerify = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "NEWRELIC_API_SKIP_VERIFY").(bool))
-	}
-	if args.InsightsAccountId == nil {
-		args.InsightsAccountId = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_ACCOUNT_ID").(string))
 	}
 	if args.InsightsInsertKey == nil {
 		args.InsightsInsertKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_INSERT_KEY").(string))
@@ -59,9 +60,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.NerdgraphApiUrl == nil {
 		args.NerdgraphApiUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_NERDGRAPH_API_URL").(string))
 	}
-	if args.PersonalApiKey == nil {
-		args.PersonalApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_PERSONAL_API_KEY").(string))
-	}
 	if args.SyntheticsApiUrl == nil {
 		args.SyntheticsApiUrl = pulumi.StringPtr(getEnvOrDefault("https://synthetics.newrelic.com/synthetics/api/v3", nil, "NEWRELIC_SYNTHETICS_API_URL").(string))
 	}
@@ -74,38 +72,48 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey               *string `pulumi:"apiKey"`
-	ApiUrl               *string `pulumi:"apiUrl"`
-	CacertFile           *string `pulumi:"cacertFile"`
-	InfraApiUrl          *string `pulumi:"infraApiUrl"`
+	AccountId   int     `pulumi:"accountId"`
+	AdminApiKey *string `pulumi:"adminApiKey"`
+	ApiKey      *string `pulumi:"apiKey"`
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+	ApiUrl     *string `pulumi:"apiUrl"`
+	CacertFile *string `pulumi:"cacertFile"`
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	InfrastructureApiUrl *string `pulumi:"infrastructureApiUrl"`
 	InsecureSkipVerify   *bool   `pulumi:"insecureSkipVerify"`
-	InsightsAccountId    *string `pulumi:"insightsAccountId"`
 	InsightsInsertKey    *string `pulumi:"insightsInsertKey"`
 	InsightsInsertUrl    *string `pulumi:"insightsInsertUrl"`
 	InsightsQueryKey     *string `pulumi:"insightsQueryKey"`
 	InsightsQueryUrl     *string `pulumi:"insightsQueryUrl"`
-	NerdgraphApiUrl      *string `pulumi:"nerdgraphApiUrl"`
-	PersonalApiKey       *string `pulumi:"personalApiKey"`
-	SyntheticsApiUrl     *string `pulumi:"syntheticsApiUrl"`
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+	NerdgraphApiUrl *string `pulumi:"nerdgraphApiUrl"`
+	// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+	Region string `pulumi:"region"`
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+	SyntheticsApiUrl *string `pulumi:"syntheticsApiUrl"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey               pulumi.StringPtrInput
-	ApiUrl               pulumi.StringPtrInput
-	CacertFile           pulumi.StringPtrInput
-	InfraApiUrl          pulumi.StringPtrInput
+	AccountId   pulumi.IntInput
+	AdminApiKey pulumi.StringPtrInput
+	ApiKey      pulumi.StringPtrInput
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+	ApiUrl     pulumi.StringPtrInput
+	CacertFile pulumi.StringPtrInput
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	InfrastructureApiUrl pulumi.StringPtrInput
 	InsecureSkipVerify   pulumi.BoolPtrInput
-	InsightsAccountId    pulumi.StringPtrInput
 	InsightsInsertKey    pulumi.StringPtrInput
 	InsightsInsertUrl    pulumi.StringPtrInput
 	InsightsQueryKey     pulumi.StringPtrInput
 	InsightsQueryUrl     pulumi.StringPtrInput
-	NerdgraphApiUrl      pulumi.StringPtrInput
-	PersonalApiKey       pulumi.StringPtrInput
-	SyntheticsApiUrl     pulumi.StringPtrInput
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+	NerdgraphApiUrl pulumi.StringPtrInput
+	// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+	Region pulumi.StringInput
+	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+	SyntheticsApiUrl pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

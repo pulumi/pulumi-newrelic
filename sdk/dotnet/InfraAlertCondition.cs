@@ -44,7 +44,7 @@ namespace Pulumi.NewRelic
     ///             Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
     ///             {
     ///                 Duration = 10,
-    ///                 Value = 90,
+    ///                 Value = 80,
     ///                 TimeFunction = "all",
     ///             },
     ///         });
@@ -80,8 +80,6 @@ namespace Pulumi.NewRelic
     ///         {
     ///             PolicyId = foo.Id,
     ///             Type = "infra_host_not_reporting",
-    ///             Event = "StorageSample",
-    ///             Select = "diskUsedPercent",
     ///             Where = "(`hostname` LIKE '%frontend%')",
     ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///             {

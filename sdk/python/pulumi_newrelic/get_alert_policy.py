@@ -13,7 +13,10 @@ class GetAlertPolicyResult:
     """
     A collection of values returned by getAlertPolicy.
     """
-    def __init__(__self__, created_at=None, id=None, incident_preference=None, name=None, updated_at=None):
+    def __init__(__self__, account_id=None, created_at=None, id=None, incident_preference=None, name=None, updated_at=None):
+        if account_id and not isinstance(account_id, float):
+            raise TypeError("Expected argument 'account_id' to be a float")
+        __self__.account_id = account_id
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         __self__.created_at = created_at
@@ -47,13 +50,14 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
         if False:
             yield self
         return GetAlertPolicyResult(
+            account_id=self.account_id,
             created_at=self.created_at,
             id=self.id,
             incident_preference=self.incident_preference,
             name=self.name,
             updated_at=self.updated_at)
 
-def get_alert_policy(incident_preference=None,name=None,opts=None):
+def get_alert_policy(account_id=None,incident_preference=None,name=None,opts=None):
     """
     Use this data source to access information about an existing resource.
 
@@ -63,6 +67,7 @@ def get_alert_policy(incident_preference=None,name=None,opts=None):
     __args__ = dict()
 
 
+    __args__['accountId'] = account_id
     __args__['incidentPreference'] = incident_preference
     __args__['name'] = name
     if opts is None:
@@ -72,6 +77,7 @@ def get_alert_policy(incident_preference=None,name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts).value
 
     return AwaitableGetAlertPolicyResult(
+        account_id=__ret__.get('accountId'),
         created_at=__ret__.get('createdAt'),
         id=__ret__.get('id'),
         incident_preference=__ret__.get('incidentPreference'),

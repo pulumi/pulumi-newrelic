@@ -15,6 +15,7 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {
+        "accountId": args.accountId,
         "incidentPreference": args.incidentPreference,
         "name": args.name,
     }, opts);
@@ -24,6 +25,7 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAlertPolicy.
  */
 export interface GetAlertPolicyArgs {
+    readonly accountId?: number;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
      */
@@ -38,6 +40,7 @@ export interface GetAlertPolicyArgs {
  * A collection of values returned by getAlertPolicy.
  */
 export interface GetAlertPolicyResult {
+    readonly accountId?: number;
     /**
      * The time the policy was created.
      */

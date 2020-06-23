@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class NrqlAlertConditionTermArgs : Pulumi.ResourceArgs
+    public sealed class NrqlAlertConditionWarningArgs : Pulumi.ResourceArgs
     {
         [Input("duration")]
         public Input<int>? Duration { get; set; }
 
         [Input("operator")]
         public Input<string>? Operator { get; set; }
-
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
 
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
@@ -33,7 +30,7 @@ namespace Pulumi.NewRelic.Inputs
         [Input("timeFunction")]
         public Input<string>? TimeFunction { get; set; }
 
-        public NrqlAlertConditionTermArgs()
+        public NrqlAlertConditionWarningArgs()
         {
         }
     }

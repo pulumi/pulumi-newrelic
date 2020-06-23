@@ -109,7 +109,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             },
             warning={
                 "duration": 10,
-                "value": 90,
+                "value": 80,
                 "timeFunction": "all",
             })
         high_db_conn_count = newrelic.InfraAlertCondition("highDbConnCount",
@@ -137,8 +137,6 @@ class InfraAlertCondition(pulumi.CustomResource):
         host_not_reporting = newrelic.InfraAlertCondition("hostNotReporting",
             policy_id=foo.id,
             type="infra_host_not_reporting",
-            event="StorageSample",
-            select="diskUsedPercent",
             where="(`hostname` LIKE '%frontend%')",
             critical={
                 "duration": 5,

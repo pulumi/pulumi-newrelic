@@ -13,15 +13,19 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NrqlAlertConditionNrql
     {
+        public readonly int? EvaluationOffset;
         public readonly string Query;
-        public readonly string SinceValue;
+        public readonly string? SinceValue;
 
         [OutputConstructor]
         private NrqlAlertConditionNrql(
+            int? evaluationOffset,
+
             string query,
 
-            string sinceValue)
+            string? sinceValue)
         {
+            EvaluationOffset = evaluationOffset;
             Query = query;
             SinceValue = sinceValue;
         }

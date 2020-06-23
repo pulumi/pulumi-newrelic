@@ -10,10 +10,6 @@ from typing import Union
 from . import utilities, tables
 
 class AlertPolicyChannel(pulumi.CustomResource):
-    channel_id: pulumi.Output[float]
-    """
-    Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-    """
     channel_ids: pulumi.Output[list]
     """
     Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
@@ -23,7 +19,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
     """
     The ID of the policy.
     """
-    def __init__(__self__, resource_name, opts=None, channel_id=None, channel_ids=None, policy_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, channel_ids=None, policy_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to map alert policies to alert channels in New Relic.
 
@@ -63,7 +59,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] channel_id: Deprecated. The ID of the channel. Please use the channel_ids argument instead.
         :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
                drift your Terraform state.
         :param pulumi.Input[float] policy_id: The ID of the policy.
@@ -85,10 +80,8 @@ class AlertPolicyChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if channel_id is not None:
-                warnings.warn("use `channel_ids` argument instead", DeprecationWarning)
-                pulumi.log.warn("channel_id is deprecated: use `channel_ids` argument instead")
-            __props__['channel_id'] = channel_id
+            if channel_ids is None:
+                raise TypeError("Missing required property 'channel_ids'")
             __props__['channel_ids'] = channel_ids
             if policy_id is None:
                 raise TypeError("Missing required property 'policy_id'")
@@ -100,7 +93,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, channel_id=None, channel_ids=None, policy_id=None):
+    def get(resource_name, id, opts=None, channel_ids=None, policy_id=None):
         """
         Get an existing AlertPolicyChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,7 +101,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] channel_id: Deprecated. The ID of the channel. Please use the channel_ids argument instead.
         :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
                drift your Terraform state.
         :param pulumi.Input[float] policy_id: The ID of the policy.
@@ -117,7 +109,6 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["channel_id"] = channel_id
         __props__["channel_ids"] = channel_ids
         __props__["policy_id"] = policy_id
         return AlertPolicyChannel(resource_name, opts=opts, __props__=__props__)

@@ -95,18 +95,18 @@ namespace Pulumi.NewRelic
     public partial class AlertPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// The New Relic account ID to operate on.
+        /// </summary>
+        [Output("accountId")]
+        public Output<int?> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
         /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
         /// imported via terraform import.
         /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED:** The time the policy was created.
-        /// </summary>
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
         /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
@@ -119,12 +119,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED:** The time the policy was last updated.
-        /// </summary>
-        [Output("updatedAt")]
-        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>
@@ -172,6 +166,12 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The New Relic account ID to operate on.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         [Input("channelIds")]
         private InputList<int>? _channelIds;
 
@@ -205,6 +205,12 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The New Relic account ID to operate on.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         [Input("channelIds")]
         private InputList<int>? _channelIds;
 
@@ -220,12 +226,6 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// **DEPRECATED:** The time the policy was created.
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
         /// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         /// </summary>
         [Input("incidentPreference")]
@@ -236,12 +236,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED:** The time the policy was last updated.
-        /// </summary>
-        [Input("updatedAt")]
-        public Input<string>? UpdatedAt { get; set; }
 
         public AlertPolicyState()
         {

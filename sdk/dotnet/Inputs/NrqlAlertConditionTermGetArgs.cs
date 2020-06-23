@@ -12,8 +12,8 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class NrqlAlertConditionTermGetArgs : Pulumi.ResourceArgs
     {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
+        [Input("duration")]
+        public Input<int>? Duration { get; set; }
 
         [Input("operator")]
         public Input<string>? Operator { get; set; }
@@ -24,8 +24,14 @@ namespace Pulumi.NewRelic.Inputs
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
-        [Input("timeFunction", required: true)]
-        public Input<string> TimeFunction { get; set; } = null!;
+        [Input("thresholdDuration")]
+        public Input<int>? ThresholdDuration { get; set; }
+
+        [Input("thresholdOccurrences")]
+        public Input<string>? ThresholdOccurrences { get; set; }
+
+        [Input("timeFunction")]
+        public Input<string>? TimeFunction { get; set; }
 
         public NrqlAlertConditionTermGetArgs()
         {

@@ -11,19 +11,19 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('newrelic')
 
+account_id = __config__.get('accountId')
+
+admin_api_key = __config__.get('adminApiKey')
+
 api_key = __config__.get('apiKey') or utilities.get_env('NEWRELIC_API_KEY')
 
 api_url = __config__.get('apiUrl') or (utilities.get_env('NEWRELIC_API_URL') or 'https://api.newrelic.com/v2')
 
 cacert_file = __config__.get('cacertFile') or utilities.get_env('NEWRELIC_API_CACERT')
 
-infra_api_url = __config__.get('infraApiUrl') or (utilities.get_env('NEWRELIC_INFRA_API_URL') or 'https://infra-api.newrelic.com/v2')
-
 infrastructure_api_url = __config__.get('infrastructureApiUrl') or utilities.get_env('NEWRELIC_INFRASTRUCTURE_API_URL')
 
 insecure_skip_verify = __config__.get('insecureSkipVerify') or utilities.get_env_bool('NEWRELIC_API_SKIP_VERIFY')
-
-insights_account_id = __config__.get('insightsAccountId') or utilities.get_env('NEWRELIC_INSIGHTS_ACCOUNT_ID')
 
 insights_insert_key = __config__.get('insightsInsertKey') or utilities.get_env('NEWRELIC_INSIGHTS_INSERT_KEY')
 
@@ -35,7 +35,10 @@ insights_query_url = __config__.get('insightsQueryUrl') or (utilities.get_env('N
 
 nerdgraph_api_url = __config__.get('nerdgraphApiUrl') or utilities.get_env('NEWRELIC_NERDGRAPH_API_URL')
 
-personal_api_key = __config__.get('personalApiKey') or utilities.get_env('NEWRELIC_PERSONAL_API_KEY')
+region = __config__.get('region')
+"""
+The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+"""
 
 synthetics_api_url = __config__.get('syntheticsApiUrl') or (utilities.get_env('NEWRELIC_SYNTHETICS_API_URL') or 'https://synthetics.newrelic.com/synthetics/api/v3')
 

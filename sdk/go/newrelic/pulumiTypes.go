@@ -1615,9 +1615,223 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type NrqlAlertConditionCritical struct {
+	// Deprecated: use `threshold_duration` attribute instead
+	Duration             *int    `pulumi:"duration"`
+	Operator             *string `pulumi:"operator"`
+	Threshold            float64 `pulumi:"threshold"`
+	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// Deprecated: use `threshold_occurrences` attribute instead
+	TimeFunction *string `pulumi:"timeFunction"`
+}
+
+// NrqlAlertConditionCriticalInput is an input type that accepts NrqlAlertConditionCriticalArgs and NrqlAlertConditionCriticalOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionCriticalInput` via:
+//
+// 		 NrqlAlertConditionCriticalArgs{...}
+//
+type NrqlAlertConditionCriticalInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionCriticalOutput() NrqlAlertConditionCriticalOutput
+	ToNrqlAlertConditionCriticalOutputWithContext(context.Context) NrqlAlertConditionCriticalOutput
+}
+
+type NrqlAlertConditionCriticalArgs struct {
+	// Deprecated: use `threshold_duration` attribute instead
+	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
+	Operator             pulumi.StringPtrInput `pulumi:"operator"`
+	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
+	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// Deprecated: use `threshold_occurrences` attribute instead
+	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
+}
+
+func (NrqlAlertConditionCriticalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionCritical)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalOutput() NrqlAlertConditionCriticalOutput {
+	return i.ToNrqlAlertConditionCriticalOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalOutput)
+}
+
+func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalPtrOutput() NrqlAlertConditionCriticalPtrOutput {
+	return i.ToNrqlAlertConditionCriticalPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalOutput).ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionCriticalPtrInput is an input type that accepts NrqlAlertConditionCriticalArgs, NrqlAlertConditionCriticalPtr and NrqlAlertConditionCriticalPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionCriticalPtrInput` via:
+//
+// 		 NrqlAlertConditionCriticalArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type NrqlAlertConditionCriticalPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionCriticalPtrOutput() NrqlAlertConditionCriticalPtrOutput
+	ToNrqlAlertConditionCriticalPtrOutputWithContext(context.Context) NrqlAlertConditionCriticalPtrOutput
+}
+
+type nrqlAlertConditionCriticalPtrType NrqlAlertConditionCriticalArgs
+
+func NrqlAlertConditionCriticalPtr(v *NrqlAlertConditionCriticalArgs) NrqlAlertConditionCriticalPtrInput {
+	return (*nrqlAlertConditionCriticalPtrType)(v)
+}
+
+func (*nrqlAlertConditionCriticalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionCritical)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionCriticalPtrType) ToNrqlAlertConditionCriticalPtrOutput() NrqlAlertConditionCriticalPtrOutput {
+	return i.ToNrqlAlertConditionCriticalPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionCriticalPtrType) ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionCriticalPtrOutput)
+}
+
+type NrqlAlertConditionCriticalOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionCriticalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionCritical)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalOutput() NrqlAlertConditionCriticalOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutput() NrqlAlertConditionCriticalPtrOutput {
+	return o.ToNrqlAlertConditionCriticalPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *NrqlAlertConditionCritical {
+		return &v
+	}).(NrqlAlertConditionCriticalPtrOutput)
+}
+
+// Deprecated: use `threshold_duration` attribute instead
+func (o NrqlAlertConditionCriticalOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.Duration }).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+func (o NrqlAlertConditionCriticalOutput) ThresholdDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: use `threshold_occurrences` attribute instead
+func (o NrqlAlertConditionCriticalOutput) TimeFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+}
+
+type NrqlAlertConditionCriticalPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionCriticalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionCritical)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) ToNrqlAlertConditionCriticalPtrOutput() NrqlAlertConditionCriticalPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) NrqlAlertConditionCritical { return *v }).(NrqlAlertConditionCriticalOutput)
+}
+
+// Deprecated: use `threshold_duration` attribute instead
+func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdOccurrences
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: use `threshold_occurrences` attribute instead
+func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFunction
+	}).(pulumi.StringPtrOutput)
+}
+
 type NrqlAlertConditionNrql struct {
-	Query      string `pulumi:"query"`
-	SinceValue string `pulumi:"sinceValue"`
+	EvaluationOffset *int   `pulumi:"evaluationOffset"`
+	Query            string `pulumi:"query"`
+	// Deprecated: use `evaluation_offset` attribute instead
+	SinceValue *string `pulumi:"sinceValue"`
 }
 
 // NrqlAlertConditionNrqlInput is an input type that accepts NrqlAlertConditionNrqlArgs and NrqlAlertConditionNrqlOutput values.
@@ -1633,8 +1847,10 @@ type NrqlAlertConditionNrqlInput interface {
 }
 
 type NrqlAlertConditionNrqlArgs struct {
-	Query      pulumi.StringInput `pulumi:"query"`
-	SinceValue pulumi.StringInput `pulumi:"sinceValue"`
+	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
+	Query            pulumi.StringInput `pulumi:"query"`
+	// Deprecated: use `evaluation_offset` attribute instead
+	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
 
 func (NrqlAlertConditionNrqlArgs) ElementType() reflect.Type {
@@ -1714,12 +1930,17 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 		return &v
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
+func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
+}
+
 func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
 }
 
-func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringOutput {
-	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.SinceValue }).(pulumi.StringOutput)
+// Deprecated: use `evaluation_offset` attribute instead
+func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
 }
 
 type NrqlAlertConditionNrqlPtrOutput struct{ *pulumi.OutputState }
@@ -1740,6 +1961,15 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) NrqlAlertConditionNrql { return *v }).(NrqlAlertConditionNrqlOutput)
 }
 
+func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationOffset
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
@@ -1749,21 +1979,26 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: use `evaluation_offset` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.SinceValue
+		return v.SinceValue
 	}).(pulumi.StringPtrOutput)
 }
 
 type NrqlAlertConditionTerm struct {
-	Duration     int     `pulumi:"duration"`
-	Operator     *string `pulumi:"operator"`
-	Priority     *string `pulumi:"priority"`
-	Threshold    float64 `pulumi:"threshold"`
-	TimeFunction string  `pulumi:"timeFunction"`
+	// Deprecated: use `threshold_duration` attribute instead
+	Duration             *int    `pulumi:"duration"`
+	Operator             *string `pulumi:"operator"`
+	Priority             *string `pulumi:"priority"`
+	Threshold            float64 `pulumi:"threshold"`
+	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// Deprecated: use `threshold_occurrences` attribute instead
+	TimeFunction *string `pulumi:"timeFunction"`
 }
 
 // NrqlAlertConditionTermInput is an input type that accepts NrqlAlertConditionTermArgs and NrqlAlertConditionTermOutput values.
@@ -1779,11 +2014,15 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
-	Duration     pulumi.IntInput       `pulumi:"duration"`
-	Operator     pulumi.StringPtrInput `pulumi:"operator"`
-	Priority     pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold    pulumi.Float64Input   `pulumi:"threshold"`
-	TimeFunction pulumi.StringInput    `pulumi:"timeFunction"`
+	// Deprecated: use `threshold_duration` attribute instead
+	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
+	Operator             pulumi.StringPtrInput `pulumi:"operator"`
+	Priority             pulumi.StringPtrInput `pulumi:"priority"`
+	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
+	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// Deprecated: use `threshold_occurrences` attribute instead
+	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
 
 func (NrqlAlertConditionTermArgs) ElementType() reflect.Type {
@@ -1838,8 +2077,9 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(
 	return o
 }
 
-func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v NrqlAlertConditionTerm) int { return v.Duration }).(pulumi.IntOutput)
+// Deprecated: use `threshold_duration` attribute instead
+func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
 func (o NrqlAlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
@@ -1854,8 +2094,17 @@ func (o NrqlAlertConditionTermOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringOutput {
-	return o.ApplyT(func(v NrqlAlertConditionTerm) string { return v.TimeFunction }).(pulumi.StringOutput)
+func (o NrqlAlertConditionTermOutput) ThresholdDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionTermOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: use `threshold_occurrences` attribute instead
+func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
 }
 
 type NrqlAlertConditionTermArrayOutput struct{ *pulumi.OutputState }
@@ -1876,6 +2125,218 @@ func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertCon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NrqlAlertConditionTerm {
 		return vs[0].([]NrqlAlertConditionTerm)[vs[1].(int)]
 	}).(NrqlAlertConditionTermOutput)
+}
+
+type NrqlAlertConditionWarning struct {
+	// Deprecated: use `threshold_duration` attribute instead
+	Duration             *int    `pulumi:"duration"`
+	Operator             *string `pulumi:"operator"`
+	Threshold            float64 `pulumi:"threshold"`
+	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// Deprecated: use `threshold_occurrences` attribute instead
+	TimeFunction *string `pulumi:"timeFunction"`
+}
+
+// NrqlAlertConditionWarningInput is an input type that accepts NrqlAlertConditionWarningArgs and NrqlAlertConditionWarningOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionWarningInput` via:
+//
+// 		 NrqlAlertConditionWarningArgs{...}
+//
+type NrqlAlertConditionWarningInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionWarningOutput() NrqlAlertConditionWarningOutput
+	ToNrqlAlertConditionWarningOutputWithContext(context.Context) NrqlAlertConditionWarningOutput
+}
+
+type NrqlAlertConditionWarningArgs struct {
+	// Deprecated: use `threshold_duration` attribute instead
+	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
+	Operator             pulumi.StringPtrInput `pulumi:"operator"`
+	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
+	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// Deprecated: use `threshold_occurrences` attribute instead
+	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
+}
+
+func (NrqlAlertConditionWarningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionWarning)(nil)).Elem()
+}
+
+func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningOutput() NrqlAlertConditionWarningOutput {
+	return i.ToNrqlAlertConditionWarningOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningOutputWithContext(ctx context.Context) NrqlAlertConditionWarningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningOutput)
+}
+
+func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningPtrOutput() NrqlAlertConditionWarningPtrOutput {
+	return i.ToNrqlAlertConditionWarningPtrOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningOutput).ToNrqlAlertConditionWarningPtrOutputWithContext(ctx)
+}
+
+// NrqlAlertConditionWarningPtrInput is an input type that accepts NrqlAlertConditionWarningArgs, NrqlAlertConditionWarningPtr and NrqlAlertConditionWarningPtrOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionWarningPtrInput` via:
+//
+// 		 NrqlAlertConditionWarningArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type NrqlAlertConditionWarningPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionWarningPtrOutput() NrqlAlertConditionWarningPtrOutput
+	ToNrqlAlertConditionWarningPtrOutputWithContext(context.Context) NrqlAlertConditionWarningPtrOutput
+}
+
+type nrqlAlertConditionWarningPtrType NrqlAlertConditionWarningArgs
+
+func NrqlAlertConditionWarningPtr(v *NrqlAlertConditionWarningArgs) NrqlAlertConditionWarningPtrInput {
+	return (*nrqlAlertConditionWarningPtrType)(v)
+}
+
+func (*nrqlAlertConditionWarningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionWarning)(nil)).Elem()
+}
+
+func (i *nrqlAlertConditionWarningPtrType) ToNrqlAlertConditionWarningPtrOutput() NrqlAlertConditionWarningPtrOutput {
+	return i.ToNrqlAlertConditionWarningPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionWarningPtrType) ToNrqlAlertConditionWarningPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionWarningPtrOutput)
+}
+
+type NrqlAlertConditionWarningOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionWarningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionWarning)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningOutput() NrqlAlertConditionWarningOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningOutputWithContext(ctx context.Context) NrqlAlertConditionWarningOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutput() NrqlAlertConditionWarningPtrOutput {
+	return o.ToNrqlAlertConditionWarningPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *NrqlAlertConditionWarning {
+		return &v
+	}).(NrqlAlertConditionWarningPtrOutput)
+}
+
+// Deprecated: use `threshold_duration` attribute instead
+func (o NrqlAlertConditionWarningOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.Duration }).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+func (o NrqlAlertConditionWarningOutput) ThresholdDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: use `threshold_occurrences` attribute instead
+func (o NrqlAlertConditionWarningOutput) TimeFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
+}
+
+type NrqlAlertConditionWarningPtrOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionWarningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertConditionWarning)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) ToNrqlAlertConditionWarningPtrOutput() NrqlAlertConditionWarningPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) ToNrqlAlertConditionWarningPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) NrqlAlertConditionWarning { return *v }).(NrqlAlertConditionWarningOutput)
+}
+
+// Deprecated: use `threshold_duration` attribute instead
+func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdOccurrences
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: use `threshold_occurrences` attribute instead
+func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFunction
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetAlertChannelConfig struct {
@@ -2054,9 +2515,13 @@ func init() {
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionTermArrayOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionWarningOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionWarningPtrOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 }

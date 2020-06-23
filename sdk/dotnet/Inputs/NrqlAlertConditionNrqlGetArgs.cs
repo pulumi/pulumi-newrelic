@@ -12,11 +12,14 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class NrqlAlertConditionNrqlGetArgs : Pulumi.ResourceArgs
     {
+        [Input("evaluationOffset")]
+        public Input<int>? EvaluationOffset { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
-        [Input("sinceValue", required: true)]
-        public Input<string> SinceValue { get; set; } = null!;
+        [Input("sinceValue")]
+        public Input<string>? SinceValue { get; set; }
 
         public NrqlAlertConditionNrqlGetArgs()
         {

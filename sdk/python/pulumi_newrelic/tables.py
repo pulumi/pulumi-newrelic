@@ -5,8 +5,8 @@
 _SNAKE_TO_CAMEL_CASE_TABLE = {
     "account_id": "accountId",
     "app_apdex_threshold": "appApdexThreshold",
+    "baseline_direction": "baselineDirection",
     "bypass_head_request": "bypassHeadRequest",
-    "channel_id": "channelId",
     "channel_ids": "channelIds",
     "composite_entity_search_query": "compositeEntitySearchQuery",
     "condition_scope": "conditionScope",
@@ -25,6 +25,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "last_updated": "lastUpdated",
     "metric_description": "metricDescription",
     "monitor_id": "monitorId",
+    "open_violation_on_group_overlap": "openViolationOnGroupOverlap",
     "plugin_guid": "pluginGuid",
     "plugin_id": "pluginId",
     "policy_id": "policyId",
@@ -40,6 +41,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "value_function": "valueFunction",
     "verify_ssl": "verifySsl",
     "violation_close_timer": "violationCloseTimer",
+    "violation_time_limit": "violationTimeLimit",
     "violation_time_limit_seconds": "violationTimeLimitSeconds",
     "workload_id": "workloadId",
 }
@@ -47,8 +49,8 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
 _CAMEL_TO_SNAKE_CASE_TABLE = {
     "accountId": "account_id",
     "appApdexThreshold": "app_apdex_threshold",
+    "baselineDirection": "baseline_direction",
     "bypassHeadRequest": "bypass_head_request",
-    "channelId": "channel_id",
     "channelIds": "channel_ids",
     "compositeEntitySearchQuery": "composite_entity_search_query",
     "conditionScope": "condition_scope",
@@ -67,6 +69,7 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "lastUpdated": "last_updated",
     "metricDescription": "metric_description",
     "monitorId": "monitor_id",
+    "openViolationOnGroupOverlap": "open_violation_on_group_overlap",
     "pluginGuid": "plugin_guid",
     "pluginId": "plugin_id",
     "policyId": "policy_id",
@@ -82,6 +85,7 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "valueFunction": "value_function",
     "verifySsl": "verify_ssl",
     "violationCloseTimer": "violation_close_timer",
+    "violationTimeLimit": "violation_time_limit",
     "violationTimeLimitSeconds": "violation_time_limit_seconds",
     "workloadId": "workload_id",
 }

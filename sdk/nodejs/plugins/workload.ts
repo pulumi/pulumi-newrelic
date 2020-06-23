@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Use this resource to create, update, and delete a New Relic One workload.
  *
- * A New Relic Personal API key is required to provision this resource.  Set the `providerApiKey`
- * attribute in the `provider` block or the `NEWRELIC_PERSONAL_API_KEY` environment
- * variable with your Personal API key,
+ * A New Relic Personal API key is required to provision this resource.  Set the `apiKey`
+ * attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
+ * variable with your Personal API key.
  *
  * ## Example Usage
  *

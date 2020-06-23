@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic
 
     public sealed class GetAlertPolicyArgs : Pulumi.InvokeArgs
     {
+        [Input("accountId")]
+        public int? AccountId { get; set; }
+
         /// <summary>
         /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
         /// </summary>
@@ -39,6 +42,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAlertPolicyResult
     {
+        public readonly int? AccountId;
         /// <summary>
         /// The time the policy was created.
         /// </summary>
@@ -59,6 +63,8 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAlertPolicyResult(
+            int? accountId,
+
             string createdAt,
 
             string id,
@@ -69,6 +75,7 @@ namespace Pulumi.NewRelic
 
             string updatedAt)
         {
+            AccountId = accountId;
             CreatedAt = createdAt;
             Id = id;
             IncidentPreference = incidentPreference;
