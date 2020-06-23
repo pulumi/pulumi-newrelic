@@ -93,13 +93,13 @@ namespace Pulumi.NewRelic
         {
             AccountId = Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID");
             AdminApiKey = Utilities.GetEnv("NEW_RELIC_ADMIN_API_KEY");
-            ApiKey = Utilities.GetEnv("NEWRELIC_API_KEY");
-            CacertFile = Utilities.GetEnv("NEWRELIC_API_CACERT");
-            InsecureSkipVerify = Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
-            InsightsInsertKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
-            InsightsInsertUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
-            InsightsQueryKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
-            InsightsQueryUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
+            ApiKey = Utilities.GetEnv("NEW_RELIC_API_KEY");
+            CacertFile = Utilities.GetEnv("NEW_RELIC_API_CACERT");
+            InsecureSkipVerify = Utilities.GetEnvBoolean("NEW_RELIC_API_SKIP_VERIFY");
+            InsightsInsertKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
+            InsightsInsertUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
+            InsightsQueryKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_KEY");
+            InsightsQueryUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
             Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }
     }

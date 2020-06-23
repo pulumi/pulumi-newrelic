@@ -30,25 +30,25 @@ func NewProvider(ctx *pulumi.Context,
 		args.AdminApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_ADMIN_API_KEY").(string))
 	}
 	if args.ApiKey == nil {
-		args.ApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_API_KEY").(string))
+		args.ApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_API_KEY").(string))
 	}
 	if args.CacertFile == nil {
-		args.CacertFile = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_API_CACERT").(string))
+		args.CacertFile = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_API_CACERT").(string))
 	}
 	if args.InsecureSkipVerify == nil {
-		args.InsecureSkipVerify = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "NEWRELIC_API_SKIP_VERIFY").(bool))
+		args.InsecureSkipVerify = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "NEW_RELIC_API_SKIP_VERIFY").(bool))
 	}
 	if args.InsightsInsertKey == nil {
-		args.InsightsInsertKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_INSERT_KEY").(string))
+		args.InsightsInsertKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_INSIGHTS_INSERT_KEY").(string))
 	}
 	if args.InsightsInsertUrl == nil {
-		args.InsightsInsertUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-collector.newrelic.com/v1/accounts", nil, "NEWRELIC_INSIGHTS_INSERT_URL").(string))
+		args.InsightsInsertUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-collector.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_INSERT_URL").(string))
 	}
 	if args.InsightsQueryKey == nil {
-		args.InsightsQueryKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEWRELIC_INSIGHTS_QUERY_KEY").(string))
+		args.InsightsQueryKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_INSIGHTS_QUERY_KEY").(string))
 	}
 	if args.InsightsQueryUrl == nil {
-		args.InsightsQueryUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEWRELIC_INSIGHTS_QUERY_URL").(string))
+		args.InsightsQueryUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_QUERY_URL").(string))
 	}
 	if args.Region == nil {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string))

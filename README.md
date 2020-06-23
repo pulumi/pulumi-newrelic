@@ -40,20 +40,20 @@ To use from .NET, install using `dotnet add package`:
 
 The following configuration points are available:
 
-- `newrelic:apiKey` - Your New Relic API key. The `NEWRELIC_API_KEY` environment variable can also be used.
+- `newrelic:apiKey` - Your New Relic API key. The `NEW_RELIC__API_KEY` environment variable can also be used.
 - `newrelic:adminApiKey` - Your New Relic Admin API key. The `NEW_RELIC_ADMIN_API_KEY` environment variable can also be used.
 - `newrelic:region` - The region for the data center for which your New Relic account is configured. The New Relic region
   can also be set via the environment variable `NEW_RELIC_REGION`. Valid values are `US` or `EU`. Only one region per 
   provider block can be configured. If you have accounts in both regions, you must instantiate two providers - 
   one for US and one for EU
-- `newrelic:insecureSkipVerify` - Trust self-signed SSL certificates. If omitted, the `NEWRELIC_API_SKIP_VERIFY` environment
+- `newrelic:insecureSkipVerify` - Trust self-signed SSL certificates. If omitted, the `NEW_RELIC__API_SKIP_VERIFY` environment
   variable is used.
 - `newrelic:insightsInsertKey` - Your Insights insert key used when inserting Insights events via the `insights.Event` resource.
-  Can also use `NEWRELIC_INSIGHTS_INSERT_KEY` environment variable.
+  Can also use `NEW_RELIC__INSIGHTS_INSERT_KEY` environment variable.
 - `newrelic:insightsInsertUrl` - This argument changes the Insights insert URL (default is `https://insights-collector.newrelic.com/v1/accounts`).
   If the New Relic account is in the EU, the Insights API URL must be set to `https://insights-collector.eu.newrelic.com/v1`. 
 - `newrelic:caCerts` - A path to a PEM-encoded certificate authority used to verify the remote agent's certificate. The
-  `NEWRELIC_API_CACERT` environment variable can also be used.
+  `NEW_RELIC__API_CACERT` environment variable can also be used.
 
 ## Reference
 

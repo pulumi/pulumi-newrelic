@@ -34,7 +34,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_API_KEY"
+                        "NEW_RELIC_API_KEY"
                     ]
                 }
             },
@@ -46,7 +46,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_API_CACERT"
+                        "NEW_RELIC_API_CACERT"
                     ]
                 }
             },
@@ -58,7 +58,7 @@
                 "type": "boolean",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_API_SKIP_VERIFY"
+                        "NEW_RELIC_API_SKIP_VERIFY"
                     ]
                 }
             },
@@ -66,7 +66,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_INSERT_KEY"
+                        "NEW_RELIC_INSIGHTS_INSERT_KEY"
                     ]
                 }
             },
@@ -75,7 +75,7 @@
                 "default": "https://insights-collector.newrelic.com/v1/accounts",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_INSERT_URL"
+                        "NEW_RELIC_INSIGHTS_INSERT_URL"
                     ]
                 }
             },
@@ -83,7 +83,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_QUERY_KEY"
+                        "NEW_RELIC_INSIGHTS_QUERY_KEY"
                     ]
                 }
             },
@@ -92,7 +92,7 @@
                 "default": "https://insights-api.newrelic.com/v1/accounts",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_QUERY_URL"
+                        "NEW_RELIC_INSIGHTS_QUERY_URL"
                     ]
                 }
             },
@@ -1359,7 +1359,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_API_KEY"
+                        "NEW_RELIC_API_KEY"
                     ]
                 }
             },
@@ -1371,7 +1371,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_API_CACERT"
+                        "NEW_RELIC_API_CACERT"
                     ]
                 }
             },
@@ -1383,7 +1383,7 @@
                 "type": "boolean",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_API_SKIP_VERIFY"
+                        "NEW_RELIC_API_SKIP_VERIFY"
                     ]
                 }
             },
@@ -1391,7 +1391,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_INSERT_KEY"
+                        "NEW_RELIC_INSIGHTS_INSERT_KEY"
                     ]
                 }
             },
@@ -1400,7 +1400,7 @@
                 "default": "https://insights-collector.newrelic.com/v1/accounts",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_INSERT_URL"
+                        "NEW_RELIC_INSIGHTS_INSERT_URL"
                     ]
                 }
             },
@@ -1408,7 +1408,7 @@
                 "type": "string",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_QUERY_KEY"
+                        "NEW_RELIC_INSIGHTS_QUERY_KEY"
                     ]
                 }
             },
@@ -1417,7 +1417,7 @@
                 "default": "https://insights-api.newrelic.com/v1/accounts",
                 "defaultInfo": {
                     "environment": [
-                        "NEWRELIC_INSIGHTS_QUERY_URL"
+                        "NEW_RELIC_INSIGHTS_QUERY_URL"
                     ]
                 }
             },
@@ -1996,6 +1996,96 @@
                             "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
                         },
                         "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/eventsToMetricsRule:EventsToMetricsRule": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Account with the event and where the metrics will be put.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides additional information about the rule.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "True means this rule is enabled. False means the rule is currently not creating metrics.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule. This must be unique within an account.\n"
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "Explains how to create metrics from events.\n"
+                },
+                "ruleId": {
+                    "type": "string",
+                    "description": "The id, uniquely identifying the rule.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "name",
+                "nrql",
+                "ruleId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Account with the event and where the metrics will be put.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides additional information about the rule.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "True means this rule is enabled. False means the rule is currently not creating metrics.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule. This must be unique within an account.\n"
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "Explains how to create metrics from events.\n"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "nrql"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventsToMetricsRule resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "integer",
+                        "description": "Account with the event and where the metrics will be put.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Provides additional information about the rule.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "True means this rule is enabled. False means the rule is currently not creating metrics.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule. This must be unique within an account.\n"
+                    },
+                    "nrql": {
+                        "type": "string",
+                        "description": "Explains how to create metrics from events.\n"
+                    },
+                    "ruleId": {
+                        "type": "string",
+                        "description": "The id, uniquely identifying the rule.\n"
                     }
                 },
                 "type": "object"

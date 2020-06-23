@@ -97,7 +97,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"api_key": {
 				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_API_KEY"},
+					EnvVars: []string{"NEW_RELIC_API_KEY"},
 				},
 			},
 			"admin_api_key": {
@@ -113,47 +113,48 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"insights_insert_key": {
 				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_INSIGHTS_INSERT_KEY"},
+					EnvVars: []string{"NEW_RELIC_INSIGHTS_INSERT_KEY"},
 				},
 			},
 			"insights_insert_url": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "https://insights-collector.newrelic.com/v1/accounts",
-					EnvVars: []string{"NEWRELIC_INSIGHTS_INSERT_URL"},
+					EnvVars: []string{"NEW_RELIC_INSIGHTS_INSERT_URL"},
 				},
 			},
 			"insights_query_key": {
 				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_INSIGHTS_QUERY_KEY"},
+					EnvVars: []string{"NEW_RELIC_INSIGHTS_QUERY_KEY"},
 				},
 			},
 			"insights_query_url": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "https://insights-api.newrelic.com/v1/accounts",
-					EnvVars: []string{"NEWRELIC_INSIGHTS_QUERY_URL"},
+					EnvVars: []string{"NEW_RELIC_INSIGHTS_QUERY_URL"},
 				},
 			},
 			"insecure_skip_verify": {
 				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_API_SKIP_VERIFY"},
+					EnvVars: []string{"NEW_RELIC_API_SKIP_VERIFY"},
 				},
 			},
 			"cacert_file": {
 				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEWRELIC_API_CACERT"},
+					EnvVars: []string{"NEW_RELIC_API_CACERT"},
 				},
 			},
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"newrelic_alert_channel":         {Tok: makeResource(mainMod, "AlertChannel")},
-			"newrelic_alert_condition":       {Tok: makeResource(mainMod, "AlertCondition")},
-			"newrelic_alert_policy":          {Tok: makeResource(mainMod, "AlertPolicy")},
-			"newrelic_alert_policy_channel":  {Tok: makeResource(mainMod, "AlertPolicyChannel")},
-			"newrelic_dashboard":             {Tok: makeResource(mainMod, "Dashboard")},
-			"newrelic_infra_alert_condition": {Tok: makeResource(mainMod, "InfraAlertCondition")},
-			"newrelic_nrql_alert_condition":  {Tok: makeResource(mainMod, "NrqlAlertCondition")},
-			"newrelic_entity_tags":           {Tok: makeResource(mainMod, "EntityTags")},
+			"newrelic_alert_channel":          {Tok: makeResource(mainMod, "AlertChannel")},
+			"newrelic_alert_condition":        {Tok: makeResource(mainMod, "AlertCondition")},
+			"newrelic_alert_policy":           {Tok: makeResource(mainMod, "AlertPolicy")},
+			"newrelic_alert_policy_channel":   {Tok: makeResource(mainMod, "AlertPolicyChannel")},
+			"newrelic_dashboard":              {Tok: makeResource(mainMod, "Dashboard")},
+			"newrelic_infra_alert_condition":  {Tok: makeResource(mainMod, "InfraAlertCondition")},
+			"newrelic_nrql_alert_condition":   {Tok: makeResource(mainMod, "NrqlAlertCondition")},
+			"newrelic_entity_tags":            {Tok: makeResource(mainMod, "EntityTags")},
+			"newrelic_events_to_metrics_rule": {Tok: makeResource(mainMod, "EventsToMetricsRule")},
 
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},

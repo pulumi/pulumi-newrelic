@@ -45,33 +45,33 @@ class Provider(pulumi.ProviderResource):
                 admin_api_key = utilities.get_env('NEW_RELIC_ADMIN_API_KEY')
             __props__['admin_api_key'] = admin_api_key
             if api_key is None:
-                api_key = utilities.get_env('NEWRELIC_API_KEY')
+                api_key = utilities.get_env('NEW_RELIC_API_KEY')
             __props__['api_key'] = api_key
             if api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
             __props__['api_url'] = api_url
             if cacert_file is None:
-                cacert_file = utilities.get_env('NEWRELIC_API_CACERT')
+                cacert_file = utilities.get_env('NEW_RELIC_API_CACERT')
             __props__['cacert_file'] = cacert_file
             if infrastructure_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
             __props__['infrastructure_api_url'] = infrastructure_api_url
             if insecure_skip_verify is None:
-                insecure_skip_verify = utilities.get_env_bool('NEWRELIC_API_SKIP_VERIFY')
+                insecure_skip_verify = utilities.get_env_bool('NEW_RELIC_API_SKIP_VERIFY')
             __props__['insecure_skip_verify'] = pulumi.Output.from_input(insecure_skip_verify).apply(json.dumps) if insecure_skip_verify is not None else None
             if insights_insert_key is None:
-                insights_insert_key = utilities.get_env('NEWRELIC_INSIGHTS_INSERT_KEY')
+                insights_insert_key = utilities.get_env('NEW_RELIC_INSIGHTS_INSERT_KEY')
             __props__['insights_insert_key'] = insights_insert_key
             if insights_insert_url is None:
-                insights_insert_url = (utilities.get_env('NEWRELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
+                insights_insert_url = (utilities.get_env('NEW_RELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
             __props__['insights_insert_url'] = insights_insert_url
             if insights_query_key is None:
-                insights_query_key = utilities.get_env('NEWRELIC_INSIGHTS_QUERY_KEY')
+                insights_query_key = utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_KEY')
             __props__['insights_query_key'] = insights_query_key
             if insights_query_url is None:
-                insights_query_url = (utilities.get_env('NEWRELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
+                insights_query_url = (utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url
             if nerdgraph_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)

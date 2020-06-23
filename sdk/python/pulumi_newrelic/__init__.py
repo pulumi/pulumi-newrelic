@@ -16,6 +16,7 @@ from .alert_policy import *
 from .alert_policy_channel import *
 from .dashboard import *
 from .entity_tags import *
+from .events_to_metrics_rule import *
 from .get_alert_channel import *
 from .get_alert_policy import *
 from .get_application import *

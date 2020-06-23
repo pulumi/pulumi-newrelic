@@ -21,6 +21,7 @@
         "config/vars.ts",
         "dashboard.ts",
         "entityTags.ts",
+        "eventsToMetricsRule.ts",
         "getAlertChannel.ts",
         "getAlertPolicy.ts",
         "getApplication.ts",
