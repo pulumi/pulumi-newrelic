@@ -9,80 +9,34 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  *
- * ## Example Usage
- *
- * ### Type: `static` (default)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     type: "static",
- *     runbookUrl: "https://www.example.com",
- *     enabled: true,
- *     term: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: "1",
- *         timeFunction: "all",
- *     }],
- *     nrql: {
- *         query: "SELECT count(*) FROM SyntheticCheck WHERE monitorId = '<monitorId>'",
- *         sinceValue: "3",
- *     },
- *     valueFunction: "singleValue",
- * });
- * ```
- *
- * ## Terms
- *
- * The `term` mapping supports the following arguments:
- *
- * - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
- * - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
- * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
- * - `threshold` - (Required) Must be 0 or greater.
- * - `timeFunction` - (Required) `all` or `any`.
  *
  * ## NRQL
  *
- * The `nrql` attribute supports the following arguments:
+ * The `nrql` block supports the following arguments:
  *
  * - `query` - (Required) The NRQL query to execute for the condition.
- * - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+ * - `evaluationOffset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
+ * - `sinceValue` - (Optional)  **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
  *
- * ## Additional Examples
+ * ## Terms
  *
- * ##### Type: `outlier`
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
+ * > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
  *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     runbookUrl: "https://bar.example.com",
- *     enabled: true,
- *     term: [{
- *         duration: 10,
- *         operator: "above",
- *         priority: "critical",
- *         threshold: "0.65",
- *         timeFunction: "all",
- *     }],
- *     nrql: {
- *         query: "SELECT percentile(duration, 99) FROM Transaction FACET remoteIp",
- *         sinceValue: "3",
- *     },
- *     type: "outlier",
- *     expectedGroups: 2,
- *     ignoreOverlap: true,
- * });
- * ```
+ * NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
+ *
+ * The `term` block the following arguments:
+ *
+ * - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
+ * - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+ * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+ * - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+ * - `thresholdDuration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+ * <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+ * <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+ *
+ * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+ * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+ * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
@@ -113,7 +67,24 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * Whether to enable the alert condition.
+     * The New Relic account ID for managing your NRQL alert conditions.
+     */
+    public readonly accountId!: pulumi.Output<number | undefined>;
+    /**
+     * The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+     * 'UPPER_ONLY' (case insensitive).
+     */
+    public readonly baselineDirection!: pulumi.Output<string | undefined>;
+    /**
+     * A condition term with priority set to critical.
+     */
+    public readonly critical!: pulumi.Output<outputs.NrqlAlertConditionCritical | undefined>;
+    /**
+     * The description of the NRQL alert condition.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Whether or not to enable the alert condition.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -122,6 +93,8 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     public readonly expectedGroups!: pulumi.Output<number | undefined>;
     /**
      * Whether to look for a convergence of groups when using outlier detection.
+     *
+     * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
     public readonly ignoreOverlap!: pulumi.Output<boolean | undefined>;
     /**
@@ -133,6 +106,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly nrql!: pulumi.Output<outputs.NrqlAlertConditionNrql>;
     /**
+     * Whether overlapping groups should produce a violation.
+     */
+    public readonly openViolationOnGroupOverlap!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the policy where this condition should be used.
      */
     public readonly policyId!: pulumi.Output<number>;
@@ -141,19 +118,36 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * A list of terms for this condition.
+     * A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+     *
+     * @deprecated use `critical` and `warning` attributes instead
      */
-    public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[]>;
+    public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[] | undefined>;
+    /**
+     * The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+     */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * Possible values are single_value, sum.
+     * Valid values are: 'single_value' or 'sum'
      */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
     /**
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+     * select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+     * (case insensitive).
+     */
+    public readonly violationTimeLimit!: pulumi.Output<string | undefined>;
+    /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
      * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     *
+     * @deprecated use `violation_time_limit` attribute instead
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * A condition term with priority set to warning.
+     */
+    public readonly warning!: pulumi.Output<outputs.NrqlAlertConditionWarning | undefined>;
 
     /**
      * Create a NrqlAlertCondition resource with the given unique name, arguments, and options.
@@ -167,17 +161,24 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NrqlAlertConditionState | undefined;
+            inputs["accountId"] = state ? state.accountId : undefined;
+            inputs["baselineDirection"] = state ? state.baselineDirection : undefined;
+            inputs["critical"] = state ? state.critical : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["expectedGroups"] = state ? state.expectedGroups : undefined;
             inputs["ignoreOverlap"] = state ? state.ignoreOverlap : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nrql"] = state ? state.nrql : undefined;
+            inputs["openViolationOnGroupOverlap"] = state ? state.openViolationOnGroupOverlap : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
             inputs["terms"] = state ? state.terms : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["valueFunction"] = state ? state.valueFunction : undefined;
+            inputs["violationTimeLimit"] = state ? state.violationTimeLimit : undefined;
             inputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
+            inputs["warning"] = state ? state.warning : undefined;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
             if (!args || args.nrql === undefined) {
@@ -186,20 +187,24 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             if (!args || args.policyId === undefined) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.terms === undefined) {
-                throw new Error("Missing required property 'terms'");
-            }
+            inputs["accountId"] = args ? args.accountId : undefined;
+            inputs["baselineDirection"] = args ? args.baselineDirection : undefined;
+            inputs["critical"] = args ? args.critical : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["expectedGroups"] = args ? args.expectedGroups : undefined;
             inputs["ignoreOverlap"] = args ? args.ignoreOverlap : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nrql"] = args ? args.nrql : undefined;
+            inputs["openViolationOnGroupOverlap"] = args ? args.openViolationOnGroupOverlap : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             inputs["terms"] = args ? args.terms : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["valueFunction"] = args ? args.valueFunction : undefined;
+            inputs["violationTimeLimit"] = args ? args.violationTimeLimit : undefined;
             inputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
+            inputs["warning"] = args ? args.warning : undefined;
         }
         if (!opts) {
             opts = {}
@@ -217,7 +222,24 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
  */
 export interface NrqlAlertConditionState {
     /**
-     * Whether to enable the alert condition.
+     * The New Relic account ID for managing your NRQL alert conditions.
+     */
+    readonly accountId?: pulumi.Input<number>;
+    /**
+     * The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+     * 'UPPER_ONLY' (case insensitive).
+     */
+    readonly baselineDirection?: pulumi.Input<string>;
+    /**
+     * A condition term with priority set to critical.
+     */
+    readonly critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
+    /**
+     * The description of the NRQL alert condition.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Whether or not to enable the alert condition.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -226,6 +248,8 @@ export interface NrqlAlertConditionState {
     readonly expectedGroups?: pulumi.Input<number>;
     /**
      * Whether to look for a convergence of groups when using outlier detection.
+     *
+     * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
     readonly ignoreOverlap?: pulumi.Input<boolean>;
     /**
@@ -237,6 +261,10 @@ export interface NrqlAlertConditionState {
      */
     readonly nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
+     * Whether overlapping groups should produce a violation.
+     */
+    readonly openViolationOnGroupOverlap?: pulumi.Input<boolean>;
+    /**
      * The ID of the policy where this condition should be used.
      */
     readonly policyId?: pulumi.Input<number>;
@@ -245,19 +273,36 @@ export interface NrqlAlertConditionState {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * A list of terms for this condition.
+     * A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+     *
+     * @deprecated use `critical` and `warning` attributes instead
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    /**
+     * The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+     */
     readonly type?: pulumi.Input<string>;
     /**
-     * Possible values are single_value, sum.
+     * Valid values are: 'single_value' or 'sum'
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+     * select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+     * (case insensitive).
+     */
+    readonly violationTimeLimit?: pulumi.Input<string>;
+    /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
      * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     *
+     * @deprecated use `violation_time_limit` attribute instead
      */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
+    /**
+     * A condition term with priority set to warning.
+     */
+    readonly warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }
 
 /**
@@ -265,7 +310,24 @@ export interface NrqlAlertConditionState {
  */
 export interface NrqlAlertConditionArgs {
     /**
-     * Whether to enable the alert condition.
+     * The New Relic account ID for managing your NRQL alert conditions.
+     */
+    readonly accountId?: pulumi.Input<number>;
+    /**
+     * The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+     * 'UPPER_ONLY' (case insensitive).
+     */
+    readonly baselineDirection?: pulumi.Input<string>;
+    /**
+     * A condition term with priority set to critical.
+     */
+    readonly critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
+    /**
+     * The description of the NRQL alert condition.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Whether or not to enable the alert condition.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -274,6 +336,8 @@ export interface NrqlAlertConditionArgs {
     readonly expectedGroups?: pulumi.Input<number>;
     /**
      * Whether to look for a convergence of groups when using outlier detection.
+     *
+     * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
     readonly ignoreOverlap?: pulumi.Input<boolean>;
     /**
@@ -285,6 +349,10 @@ export interface NrqlAlertConditionArgs {
      */
     readonly nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
+     * Whether overlapping groups should produce a violation.
+     */
+    readonly openViolationOnGroupOverlap?: pulumi.Input<boolean>;
+    /**
      * The ID of the policy where this condition should be used.
      */
     readonly policyId: pulumi.Input<number>;
@@ -293,17 +361,34 @@ export interface NrqlAlertConditionArgs {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * A list of terms for this condition.
+     * A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+     *
+     * @deprecated use `critical` and `warning` attributes instead
      */
-    readonly terms: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    /**
+     * The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+     */
     readonly type?: pulumi.Input<string>;
     /**
-     * Possible values are single_value, sum.
+     * Valid values are: 'single_value' or 'sum'
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+     * select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+     * (case insensitive).
+     */
+    readonly violationTimeLimit?: pulumi.Input<string>;
+    /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
      * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     *
+     * @deprecated use `violation_time_limit` attribute instead
      */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
+    /**
+     * A condition term with priority set to warning.
+     */
+    readonly warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to get information about a specific alert channel in New Relic that already exists.
 func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts ...pulumi.InvokeOption) (*LookupAlertChannelResult, error) {
 	var rv LookupAlertChannelResult
 	err := ctx.Invoke("newrelic:index/getAlertChannel:getAlertChannel", args, &rv, opts...)

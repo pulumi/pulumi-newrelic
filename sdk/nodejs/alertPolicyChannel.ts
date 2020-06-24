@@ -74,16 +74,10 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     }
 
     /**
-     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-     *
-     * @deprecated use `channel_ids` argument instead
-     */
-    public readonly channelId!: pulumi.Output<number | undefined>;
-    /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
      * drift your Terraform state.
      */
-    public readonly channelIds!: pulumi.Output<number[] | undefined>;
+    public readonly channelIds!: pulumi.Output<number[]>;
     /**
      * The ID of the policy.
      */
@@ -101,15 +95,16 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AlertPolicyChannelState | undefined;
-            inputs["channelId"] = state ? state.channelId : undefined;
             inputs["channelIds"] = state ? state.channelIds : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
         } else {
             const args = argsOrState as AlertPolicyChannelArgs | undefined;
+            if (!args || args.channelIds === undefined) {
+                throw new Error("Missing required property 'channelIds'");
+            }
             if (!args || args.policyId === undefined) {
                 throw new Error("Missing required property 'policyId'");
             }
-            inputs["channelId"] = args ? args.channelId : undefined;
             inputs["channelIds"] = args ? args.channelIds : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
         }
@@ -129,12 +124,6 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
  */
 export interface AlertPolicyChannelState {
     /**
-     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-     *
-     * @deprecated use `channel_ids` argument instead
-     */
-    readonly channelId?: pulumi.Input<number>;
-    /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
      * drift your Terraform state.
      */
@@ -150,16 +139,10 @@ export interface AlertPolicyChannelState {
  */
 export interface AlertPolicyChannelArgs {
     /**
-     * Deprecated. The ID of the channel. Please use the channel_ids argument instead.
-     *
-     * @deprecated use `channel_ids` argument instead
-     */
-    readonly channelId?: pulumi.Input<number>;
-    /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
      * drift your Terraform state.
      */
-    readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    readonly channelIds: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The ID of the policy.
      */

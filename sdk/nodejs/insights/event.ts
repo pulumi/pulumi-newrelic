@@ -6,6 +6,57 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this resource to create one or more Insights events.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.insights.Event("foo", {
+ *     events: [{
+ *         attributes: [
+ *             {
+ *                 key: "aStringAttribute",
+ *                 value: "a string",
+ *             },
+ *             {
+ *                 key: "anIntegerAttribute",
+ *                 type: "int",
+ *                 value: "42",
+ *             },
+ *             {
+ *                 key: "aFloatAttribute",
+ *                 type: "float",
+ *                 value: "101.1",
+ *             },
+ *         ],
+ *         timestamp: 1232471100,
+ *         type: "MyEvent",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Events
+ *
+ * The `event` mapping supports the following arguments:
+ *
+ *   * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+ *   * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+ *   * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+ *
+ * ### Attributes
+ *
+ * The `attribute` mapping supports the following arguments:
+ *
+ *   * `key` - (Required) The name of the attribute.
+ *   * `value` - (Required) The value of the attribute.
+ *   * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+ */
 export class Event extends pulumi.CustomResource {
     /**
      * Get an existing Event resource's state with the given name, ID, and optional extra

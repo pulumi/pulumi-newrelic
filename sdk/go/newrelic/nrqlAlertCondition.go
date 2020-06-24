@@ -13,47 +13,82 @@ import (
 // Use this resource to create and manage NRQL alert conditions in New Relic.
 //
 //
-// ## Terms
-//
-// The `term` mapping supports the following arguments:
-//
-// - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
-// - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`.
-// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-// - `threshold` - (Required) Must be 0 or greater.
-// - `timeFunction` - (Required) `all` or `any`.
-//
 // ## NRQL
 //
-// The `nrql` attribute supports the following arguments:
+// The `nrql` block supports the following arguments:
 //
 // - `query` - (Required) The NRQL query to execute for the condition.
-// - `sinceValue` - (Required) The value to be used in the `SINCE <X> MINUTES AGO` clause for the NRQL query. Must be between `1` and `20`.
+// - `evaluationOffset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
+// - `sinceValue` - (Optional)  **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
+//
+// ## Terms
+//
+// > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+//
+// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
+//
+// The `term` block the following arguments:
+//
+// - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
+// - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+// - `thresholdDuration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+//
+// - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+// - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+// - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
-	// Whether to enable the alert condition.
+	// The New Relic account ID for managing your NRQL alert conditions.
+	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
+	// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+	// 'UPPER_ONLY' (case insensitive).
+	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
+	// A condition term with priority set to critical.
+	Critical NrqlAlertConditionCriticalPtrOutput `pulumi:"critical"`
+	// The description of the NRQL alert condition.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether or not to enable the alert condition.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Number of expected groups when using outlier detection.
 	ExpectedGroups pulumi.IntPtrOutput `pulumi:"expectedGroups"`
 	// Whether to look for a convergence of groups when using outlier detection.
+	//
+	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
 	IgnoreOverlap pulumi.BoolPtrOutput `pulumi:"ignoreOverlap"`
 	// The title of the condition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A NRQL query.
 	Nrql NrqlAlertConditionNrqlOutput `pulumi:"nrql"`
+	// Whether overlapping groups should produce a violation.
+	OpenViolationOnGroupOverlap pulumi.BoolPtrOutput `pulumi:"openViolationOnGroupOverlap"`
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
-	// A list of terms for this condition.
+	// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+	//
+	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
-	Type  pulumi.StringPtrOutput            `pulumi:"type"`
-	// Possible values are single_value, sum.
+	// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Valid values are: 'single_value' or 'sum'
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+	// (case insensitive).
+	ViolationTimeLimit pulumi.StringPtrOutput `pulumi:"violationTimeLimit"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
 	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+	//
+	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds pulumi.IntPtrOutput `pulumi:"violationTimeLimitSeconds"`
+	// A condition term with priority set to warning.
+	Warning NrqlAlertConditionWarningPtrOutput `pulumi:"warning"`
 }
 
 // NewNrqlAlertCondition registers a new resource with the given unique name, arguments, and options.
@@ -64,9 +99,6 @@ func NewNrqlAlertCondition(ctx *pulumi.Context,
 	}
 	if args == nil || args.PolicyId == nil {
 		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.Terms == nil {
-		return nil, errors.New("missing required argument 'Terms'")
 	}
 	if args == nil {
 		args = &NrqlAlertConditionArgs{}
@@ -93,53 +125,101 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NrqlAlertCondition resources.
 type nrqlAlertConditionState struct {
-	// Whether to enable the alert condition.
+	// The New Relic account ID for managing your NRQL alert conditions.
+	AccountId *int `pulumi:"accountId"`
+	// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+	// 'UPPER_ONLY' (case insensitive).
+	BaselineDirection *string `pulumi:"baselineDirection"`
+	// A condition term with priority set to critical.
+	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
+	// The description of the NRQL alert condition.
+	Description *string `pulumi:"description"`
+	// Whether or not to enable the alert condition.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of expected groups when using outlier detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
 	// Whether to look for a convergence of groups when using outlier detection.
+	//
+	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
 	IgnoreOverlap *bool `pulumi:"ignoreOverlap"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
 	// A NRQL query.
 	Nrql *NrqlAlertConditionNrql `pulumi:"nrql"`
+	// Whether overlapping groups should produce a violation.
+	OpenViolationOnGroupOverlap *bool `pulumi:"openViolationOnGroupOverlap"`
 	// The ID of the policy where this condition should be used.
 	PolicyId *int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// A list of terms for this condition.
+	// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+	//
+	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
-	Type  *string                  `pulumi:"type"`
-	// Possible values are single_value, sum.
+	// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+	Type *string `pulumi:"type"`
+	// Valid values are: 'single_value' or 'sum'
 	ValueFunction *string `pulumi:"valueFunction"`
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+	// (case insensitive).
+	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
 	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+	//
+	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
+	// A condition term with priority set to warning.
+	Warning *NrqlAlertConditionWarning `pulumi:"warning"`
 }
 
 type NrqlAlertConditionState struct {
-	// Whether to enable the alert condition.
+	// The New Relic account ID for managing your NRQL alert conditions.
+	AccountId pulumi.IntPtrInput
+	// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+	// 'UPPER_ONLY' (case insensitive).
+	BaselineDirection pulumi.StringPtrInput
+	// A condition term with priority set to critical.
+	Critical NrqlAlertConditionCriticalPtrInput
+	// The description of the NRQL alert condition.
+	Description pulumi.StringPtrInput
+	// Whether or not to enable the alert condition.
 	Enabled pulumi.BoolPtrInput
 	// Number of expected groups when using outlier detection.
 	ExpectedGroups pulumi.IntPtrInput
 	// Whether to look for a convergence of groups when using outlier detection.
+	//
+	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
 	IgnoreOverlap pulumi.BoolPtrInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
 	// A NRQL query.
 	Nrql NrqlAlertConditionNrqlPtrInput
+	// Whether overlapping groups should produce a violation.
+	OpenViolationOnGroupOverlap pulumi.BoolPtrInput
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// A list of terms for this condition.
+	// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+	//
+	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
-	Type  pulumi.StringPtrInput
-	// Possible values are single_value, sum.
+	// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+	Type pulumi.StringPtrInput
+	// Valid values are: 'single_value' or 'sum'
 	ValueFunction pulumi.StringPtrInput
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+	// (case insensitive).
+	ViolationTimeLimit pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
 	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+	//
+	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
+	// A condition term with priority set to warning.
+	Warning NrqlAlertConditionWarningPtrInput
 }
 
 func (NrqlAlertConditionState) ElementType() reflect.Type {
@@ -147,54 +227,102 @@ func (NrqlAlertConditionState) ElementType() reflect.Type {
 }
 
 type nrqlAlertConditionArgs struct {
-	// Whether to enable the alert condition.
+	// The New Relic account ID for managing your NRQL alert conditions.
+	AccountId *int `pulumi:"accountId"`
+	// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+	// 'UPPER_ONLY' (case insensitive).
+	BaselineDirection *string `pulumi:"baselineDirection"`
+	// A condition term with priority set to critical.
+	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
+	// The description of the NRQL alert condition.
+	Description *string `pulumi:"description"`
+	// Whether or not to enable the alert condition.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of expected groups when using outlier detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
 	// Whether to look for a convergence of groups when using outlier detection.
+	//
+	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
 	IgnoreOverlap *bool `pulumi:"ignoreOverlap"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
 	// A NRQL query.
 	Nrql NrqlAlertConditionNrql `pulumi:"nrql"`
+	// Whether overlapping groups should produce a violation.
+	OpenViolationOnGroupOverlap *bool `pulumi:"openViolationOnGroupOverlap"`
 	// The ID of the policy where this condition should be used.
 	PolicyId int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// A list of terms for this condition.
+	// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+	//
+	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
-	Type  *string                  `pulumi:"type"`
-	// Possible values are single_value, sum.
+	// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+	Type *string `pulumi:"type"`
+	// Valid values are: 'single_value' or 'sum'
 	ValueFunction *string `pulumi:"valueFunction"`
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+	// (case insensitive).
+	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
 	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+	//
+	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
+	// A condition term with priority set to warning.
+	Warning *NrqlAlertConditionWarning `pulumi:"warning"`
 }
 
 // The set of arguments for constructing a NrqlAlertCondition resource.
 type NrqlAlertConditionArgs struct {
-	// Whether to enable the alert condition.
+	// The New Relic account ID for managing your NRQL alert conditions.
+	AccountId pulumi.IntPtrInput
+	// The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
+	// 'UPPER_ONLY' (case insensitive).
+	BaselineDirection pulumi.StringPtrInput
+	// A condition term with priority set to critical.
+	Critical NrqlAlertConditionCriticalPtrInput
+	// The description of the NRQL alert condition.
+	Description pulumi.StringPtrInput
+	// Whether or not to enable the alert condition.
 	Enabled pulumi.BoolPtrInput
 	// Number of expected groups when using outlier detection.
 	ExpectedGroups pulumi.IntPtrInput
 	// Whether to look for a convergence of groups when using outlier detection.
+	//
+	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
 	IgnoreOverlap pulumi.BoolPtrInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
 	// A NRQL query.
 	Nrql NrqlAlertConditionNrqlInput
+	// Whether overlapping groups should produce a violation.
+	OpenViolationOnGroupOverlap pulumi.BoolPtrInput
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// A list of terms for this condition.
+	// A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+	//
+	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
-	Type  pulumi.StringPtrInput
-	// Possible values are single_value, sum.
+	// The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+	Type pulumi.StringPtrInput
+	// Valid values are: 'single_value' or 'sum'
 	ValueFunction pulumi.StringPtrInput
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
+	// select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
+	// (case insensitive).
+	ViolationTimeLimit pulumi.StringPtrInput
 	// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
 	// select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+	//
+	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
+	// A condition term with priority set to warning.
+	Warning NrqlAlertConditionWarningPtrInput
 }
 
 func (NrqlAlertConditionArgs) ElementType() reflect.Type {

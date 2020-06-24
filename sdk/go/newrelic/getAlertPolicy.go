@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to get information about a specific alert policy in New Relic that already exists.
 func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAlertPolicyResult, error) {
 	var rv LookupAlertPolicyResult
 	err := ctx.Invoke("newrelic:index/getAlertPolicy:getAlertPolicy", args, &rv, opts...)
@@ -18,6 +19,7 @@ func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ..
 
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyArgs struct {
+	AccountId *int `pulumi:"accountId"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the alert policy in New Relic.
@@ -26,6 +28,7 @@ type LookupAlertPolicyArgs struct {
 
 // A collection of values returned by getAlertPolicy.
 type LookupAlertPolicyResult struct {
+	AccountId *int `pulumi:"accountId"`
 	// The time the policy was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.

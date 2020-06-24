@@ -34,7 +34,34 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
 
 def get_key_transaction(name=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific key transaction in New Relic that already exists.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    txn = newrelic.get_key_transaction(name="txn")
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        type="apm_kt_metric",
+        entities=[txn.id],
+        metric="error_percentage",
+        runbook_url="https://www.example.com",
+        term=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": "0.75",
+            "timeFunction": "all",
+        }])
+    ```
+
+
 
     :param str name: The name of the key transaction in New Relic.
     """

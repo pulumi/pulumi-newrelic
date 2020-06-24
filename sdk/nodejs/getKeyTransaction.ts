@@ -6,6 +6,37 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to get information about a specific key transaction in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const txn = newrelic.getKeyTransaction({
+ *     name: "txn",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apmKtMetric",
+ *     entities: [txn.then(txn => txn.id)],
+ *     metric: "errorPercentage",
+ *     runbookUrl: "https://www.example.com",
+ *     term: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: "0.75",
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
+ */
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
     if (!opts) {
         opts = {}

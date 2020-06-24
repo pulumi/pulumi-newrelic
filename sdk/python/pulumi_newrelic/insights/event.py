@@ -24,7 +24,54 @@ class Event(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, events=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Event resource with the given unique name, props, and options.
+        Use this resource to create one or more Insights events.
+
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.insights.Event("foo", events=[{
+            "attribute": [
+                {
+                    "key": "a_string_attribute",
+                    "value": "a string",
+                },
+                {
+                    "key": "an_integer_attribute",
+                    "type": "int",
+                    "value": 42,
+                },
+                {
+                    "key": "a_float_attribute",
+                    "type": "float",
+                    "value": 101.1,
+                },
+            ],
+            "timestamp": 1232471100,
+            "type": "MyEvent",
+        }])
+        ```
+
+        ## Events
+
+        The `event` mapping supports the following arguments:
+
+          * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+          * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+          * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+
+        ### Attributes
+
+        The `attribute` mapping supports the following arguments:
+
+          * `key` - (Required) The name of the attribute.
+          * `value` - (Required) The value of the attribute.
+          * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.

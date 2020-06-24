@@ -152,6 +152,22 @@ export interface DashboardWidgetMetric {
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface EntityTagsTag {
+    /**
+     * The tag key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The tag values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetEntityTag {
+    key: string;
+    value: string;
+}
+
 export interface InfraAlertConditionCritical {
     duration: pulumi.Input<number>;
     timeFunction?: pulumi.Input<string>;
@@ -164,17 +180,59 @@ export interface InfraAlertConditionWarning {
     value?: pulumi.Input<number>;
 }
 
+export interface NrqlAlertConditionCritical {
+    /**
+     * @deprecated use `threshold_duration` attribute instead
+     */
+    duration?: pulumi.Input<number>;
+    operator?: pulumi.Input<string>;
+    threshold: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number>;
+    thresholdOccurrences?: pulumi.Input<string>;
+    /**
+     * @deprecated use `threshold_occurrences` attribute instead
+     */
+    timeFunction?: pulumi.Input<string>;
+}
+
 export interface NrqlAlertConditionNrql {
+    evaluationOffset?: pulumi.Input<number>;
     query: pulumi.Input<string>;
-    sinceValue: pulumi.Input<string>;
+    /**
+     * @deprecated use `evaluation_offset` attribute instead
+     */
+    sinceValue?: pulumi.Input<string>;
 }
 
 export interface NrqlAlertConditionTerm {
-    duration: pulumi.Input<number>;
+    /**
+     * @deprecated use `threshold_duration` attribute instead
+     */
+    duration?: pulumi.Input<number>;
     operator?: pulumi.Input<string>;
     priority?: pulumi.Input<string>;
     threshold: pulumi.Input<number>;
-    timeFunction: pulumi.Input<string>;
+    thresholdDuration?: pulumi.Input<number>;
+    thresholdOccurrences?: pulumi.Input<string>;
+    /**
+     * @deprecated use `threshold_occurrences` attribute instead
+     */
+    timeFunction?: pulumi.Input<string>;
+}
+
+export interface NrqlAlertConditionWarning {
+    /**
+     * @deprecated use `threshold_duration` attribute instead
+     */
+    duration?: pulumi.Input<number>;
+    operator?: pulumi.Input<string>;
+    threshold: pulumi.Input<number>;
+    thresholdDuration?: pulumi.Input<number>;
+    thresholdOccurrences?: pulumi.Input<string>;
+    /**
+     * @deprecated use `threshold_occurrences` attribute instead
+     */
+    timeFunction?: pulumi.Input<string>;
 }
 export namespace insights {
     export interface EventEvent {

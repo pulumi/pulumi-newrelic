@@ -13,22 +13,14 @@ import (
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// The New Relic account ID to operate on.
+	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
-	// **DEPRECATED:** The time the policy was created.
-	//
-	// Deprecated: Unavailable attribute in NerdGraph.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrOutput `pulumi:"incidentPreference"`
 	// The name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// **DEPRECATED:** The time the policy was last updated.
-	//
-	// Deprecated: Unavailable attribute in NerdGraph.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewAlertPolicy registers a new resource with the given unique name, arguments, and options.
@@ -59,41 +51,25 @@ func GetAlertPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicy resources.
 type alertPolicyState struct {
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// The New Relic account ID to operate on.
+	AccountId *int `pulumi:"accountId"`
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds []int `pulumi:"channelIds"`
-	// **DEPRECATED:** The time the policy was created.
-	//
-	// Deprecated: Unavailable attribute in NerdGraph.
-	CreatedAt *string `pulumi:"createdAt"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
 	// The name of the policy.
 	Name *string `pulumi:"name"`
-	// **DEPRECATED:** The time the policy was last updated.
-	//
-	// Deprecated: Unavailable attribute in NerdGraph.
-	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type AlertPolicyState struct {
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// The New Relic account ID to operate on.
+	AccountId pulumi.IntPtrInput
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds pulumi.IntArrayInput
-	// **DEPRECATED:** The time the policy was created.
-	//
-	// Deprecated: Unavailable attribute in NerdGraph.
-	CreatedAt pulumi.StringPtrInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
 	// The name of the policy.
 	Name pulumi.StringPtrInput
-	// **DEPRECATED:** The time the policy was last updated.
-	//
-	// Deprecated: Unavailable attribute in NerdGraph.
-	UpdatedAt pulumi.StringPtrInput
 }
 
 func (AlertPolicyState) ElementType() reflect.Type {
@@ -101,9 +77,9 @@ func (AlertPolicyState) ElementType() reflect.Type {
 }
 
 type alertPolicyArgs struct {
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// The New Relic account ID to operate on.
+	AccountId *int `pulumi:"accountId"`
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -113,9 +89,9 @@ type alertPolicyArgs struct {
 
 // The set of arguments for constructing a AlertPolicy resource.
 type AlertPolicyArgs struct {
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// The New Relic account ID to operate on.
+	AccountId pulumi.IntPtrInput
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput

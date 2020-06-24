@@ -206,12 +206,6 @@ namespace Pulumi.NewRelic
         public Output<Outputs.AlertChannelConfig?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-        /// </summary>
-        [Output("configuration")]
-        public Output<ImmutableDictionary<string, object>?> Configuration { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the channel.
         /// </summary>
         [Output("name")]
@@ -275,19 +269,6 @@ namespace Pulumi.NewRelic
         [Input("config")]
         public Input<Inputs.AlertChannelConfigArgs>? Config { get; set; }
 
-        [Input("configuration")]
-        private InputMap<object>? _configuration;
-
-        /// <summary>
-        /// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-        /// </summary>
-        [Obsolete(@"use `config` block instead")]
-        public InputMap<object> Configuration
-        {
-            get => _configuration ?? (_configuration = new InputMap<object>());
-            set => _configuration = value;
-        }
-
         /// <summary>
         /// The name of the channel.
         /// </summary>
@@ -312,19 +293,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("config")]
         public Input<Inputs.AlertChannelConfigGetArgs>? Config { get; set; }
-
-        [Input("configuration")]
-        private InputMap<object>? _configuration;
-
-        /// <summary>
-        /// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-        /// </summary>
-        [Obsolete(@"use `config` block instead")]
-        public InputMap<object> Configuration
-        {
-            get => _configuration ?? (_configuration = new InputMap<object>());
-            set => _configuration = value;
-        }
 
         /// <summary>
         /// The name of the channel.

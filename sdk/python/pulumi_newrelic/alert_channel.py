@@ -41,10 +41,6 @@ class AlertChannel(pulumi.CustomResource):
       * `url` (`str`) - Your organization's Slack URL.
       * `userId` (`str`)
     """
-    configuration: pulumi.Output[dict]
-    """
-    **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-    """
     name: pulumi.Output[str]
     """
     The name of the channel.
@@ -53,7 +49,7 @@ class AlertChannel(pulumi.CustomResource):
     """
     The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
     """
-    def __init__(__self__, resource_name, opts=None, config=None, configuration=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, config=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
 
@@ -173,7 +169,6 @@ class AlertChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
-        :param pulumi.Input[dict] configuration: **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 
@@ -224,10 +219,6 @@ class AlertChannel(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['config'] = config
-            if configuration is not None:
-                warnings.warn("use `config` block instead", DeprecationWarning)
-                pulumi.log.warn("configuration is deprecated: use `config` block instead")
-            __props__['configuration'] = configuration
             __props__['name'] = name
             if type is None:
                 raise TypeError("Missing required property 'type'")
@@ -239,7 +230,7 @@ class AlertChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, config=None, configuration=None, name=None, type=None):
+    def get(resource_name, id, opts=None, config=None, name=None, type=None):
         """
         Get an existing AlertChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -248,7 +239,6 @@ class AlertChannel(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
-        :param pulumi.Input[dict] configuration: **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 
@@ -286,7 +276,6 @@ class AlertChannel(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["config"] = config
-        __props__["configuration"] = configuration
         __props__["name"] = name
         __props__["type"] = type
         return AlertChannel(resource_name, opts=opts, __props__=__props__)

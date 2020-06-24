@@ -10,15 +10,13 @@ from typing import Union
 from . import utilities, tables
 
 class AlertPolicy(pulumi.CustomResource):
+    account_id: pulumi.Output[float]
+    """
+    The New Relic account ID to operate on.
+    """
     channel_ids: pulumi.Output[list]
     """
-    An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-    in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-    imported via terraform import.
-    """
-    created_at: pulumi.Output[str]
-    """
-    **DEPRECATED:** The time the policy was created.
+    An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
     """
     incident_preference: pulumi.Output[str]
     """
@@ -28,18 +26,14 @@ class AlertPolicy(pulumi.CustomResource):
     """
     The name of the policy.
     """
-    updated_at: pulumi.Output[str]
-    """
-    **DEPRECATED:** The time the policy was last updated.
-    """
-    def __init__(__self__, resource_name, opts=None, channel_ids=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, channel_ids=None, incident_preference=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
 
+        ## Example Usage
 
-        ## Additional Examples
+        ### Provision multiple notification channels and add those channels to a policy
 
-        ##### Provision multiple notification channels and add those channels to a policy
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -66,9 +60,9 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
-        <br>
 
-        ##### Reference existing notification channels and add those channel to a policy
+        ### Reference existing notification channels and add those channel to a policy
+
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -84,11 +78,11 @@ class AlertPolicy(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-               in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-               imported via terraform import.
+        :param pulumi.Input[float] account_id: The New Relic account ID to operate on.
+        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
@@ -109,11 +103,10 @@ class AlertPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['account_id'] = account_id
             __props__['channel_ids'] = channel_ids
             __props__['incident_preference'] = incident_preference
             __props__['name'] = name
-            __props__['created_at'] = None
-            __props__['updated_at'] = None
         super(AlertPolicy, __self__).__init__(
             'newrelic:index/alertPolicy:AlertPolicy',
             resource_name,
@@ -121,7 +114,7 @@ class AlertPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, channel_ids=None, created_at=None, incident_preference=None, name=None, updated_at=None):
+    def get(resource_name, id, opts=None, account_id=None, channel_ids=None, incident_preference=None, name=None):
         """
         Get an existing AlertPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -129,23 +122,19 @@ class AlertPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-               in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-               imported via terraform import.
-        :param pulumi.Input[str] created_at: **DEPRECATED:** The time the policy was created.
+        :param pulumi.Input[float] account_id: The New Relic account ID to operate on.
+        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] updated_at: **DEPRECATED:** The time the policy was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["account_id"] = account_id
         __props__["channel_ids"] = channel_ids
-        __props__["created_at"] = created_at
         __props__["incident_preference"] = incident_preference
         __props__["name"] = name
-        __props__["updated_at"] = updated_at
         return AlertPolicy(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -11,6 +11,12 @@ namespace Pulumi.NewRelic
 {
     public static class GetKeyTransaction
     {
+        /// <summary>
+        /// Use this data source to get information about a specific key transaction in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionArgs(), options.WithVersion());
     }

@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// #### DEPRECATED! Use at your own risk. Use the `.getEntity` data source instead. This feature may be removed in the next major release.
+//
+// Use this data source to get information about a specific application in New Relic that already exists.
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
 	var rv GetApplicationResult
 	err := ctx.Invoke("newrelic:index/getApplication:getApplication", args, &rv, opts...)

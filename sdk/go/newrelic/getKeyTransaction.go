@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to get information about a specific key transaction in New Relic that already exists.
 func GetKeyTransaction(ctx *pulumi.Context, args *GetKeyTransactionArgs, opts ...pulumi.InvokeOption) (*GetKeyTransactionResult, error) {
 	var rv GetKeyTransactionResult
 	err := ctx.Invoke("newrelic:index/getKeyTransaction:getKeyTransaction", args, &rv, opts...)

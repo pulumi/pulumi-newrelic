@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *     },
  *     warning: {
  *         duration: 10,
- *         value: 90,
+ *         value: 80,
  *         timeFunction: "all",
  *     },
  * });
@@ -63,8 +63,6 @@ import * as utilities from "./utilities";
  * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
  *     policyId: foo.id,
  *     type: "infraHostNotReporting",
- *     event: "StorageSample",
- *     select: "diskUsedPercent",
  *     where: `(`hostname` LIKE '%frontend%')`,
  *     critical: {
  *         duration: 5,

@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.1.1 of the NewRelic Terraform Provider
+  ** Please Note: **
+  The upstream provider has changed from terraform-providers/terraform-provider-newrelic to newrelic/terraform-provider-newrelic
 
 ---
 
