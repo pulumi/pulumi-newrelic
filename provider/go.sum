@@ -474,6 +474,7 @@ github.com/hashicorp/terraform-json v0.4.0 h1:KNh29iNxozP5adfUFBJ4/fWd0Cu3taGgjH
 github.com/hashicorp/terraform-json v0.4.0/go.mod h1:eAbqb4w0pSlRmdvl8fOyHAi/+8jnkVYN28gJkSJrLhU=
 github.com/hashicorp/terraform-plugin-sdk v1.0.0/go.mod h1:NuwtLpEpPsFaKJPJNGtMcn9vlhe6Ofe+Y6NqXhJgV2M=
 github.com/hashicorp/terraform-plugin-sdk v1.7.0/go.mod h1:OjgQmey5VxnPej/buEhe+YqKm0KNvV3QqU4hkqHqPCY=
+github.com/hashicorp/terraform-plugin-sdk v1.10.0 h1:JLV3dUnsAF8TKGUdEPkvl9H0Xb2LdcHxLJyDPZ1A5/U=
 github.com/hashicorp/terraform-plugin-sdk v1.10.0/go.mod h1:HiWIPD/T9HixIhQUwaSoDQxo4BLFdmiBi/Qz5gjB8Q0=
 github.com/hashicorp/terraform-plugin-sdk v1.12.0 h1:HPp65ShSsKUMPf6jD50UQn/xAjyrGVO4FxI63bvu+pc=
 github.com/hashicorp/terraform-plugin-sdk v1.12.0/go.mod h1:HiWIPD/T9HixIhQUwaSoDQxo4BLFdmiBi/Qz5gjB8Q0=
@@ -663,6 +664,8 @@ github.com/newrelic/newrelic-client-go v0.30.2 h1:QsO0W9XH3dYjk+9EzGr5E/1g3DzQXs
 github.com/newrelic/newrelic-client-go v0.30.2/go.mod h1:NtqwF12A6xHy3QjGnDxXGyxA2cE39A692wqhNQ+nOFU=
 github.com/newrelic/newrelic-client-go v0.31.0 h1:9xomr5hsxApW9L138INxfFHkVEQws1vJxmdLZUWecCQ=
 github.com/newrelic/newrelic-client-go v0.31.0/go.mod h1:2+0/M/IvdkL56sL+hH1mfe7OVmhv61dmUuJfBtR+2nI=
+github.com/newrelic/terraform-provider-newrelic v1.16.1-0.20200623201505-e204b3c090f0 h1:h6YvwT6knKzKknO94Pg/y1qA0d7n80OMuifN5vedjpk=
+github.com/newrelic/terraform-provider-newrelic v1.16.1-0.20200623201505-e204b3c090f0/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d/go.mod h1:YUTz3bUH2ZwIWBy3CJBeOBEugqcmXREj14T+iG/4k4U=
@@ -731,6 +734,10 @@ github.com/pulumi/pulumi/sdk/v2 v2.0.0/go.mod h1:W7k1UDYerc5o97mHnlHHp5iQZKEby+o
 github.com/pulumi/pulumi/sdk/v2 v2.2.2-0.20200519081838-f66100ce28b0/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200607162109-9754465b04db h1:Q1/Azshl983zTcWXMqkbEcFt1UN88unn9tdMv5ouQ80=
 github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200607162109-9754465b04db/go.mod h1:llk6tmXss8kJrt3vEXAkwiwgZOuINEFmKIfMveVIwO8=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624062242-addbd3990f27 h1:yQoL+nYr5MV60oTIcBLE/mpqrSbf4IONp9T7SFeP+xU=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624062242-addbd3990f27/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17a3c h1:L0pqk3ltCEbmV/7CDsMplYppuRRWoSyjxHAtlprVmhc=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17a3c/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d h1:1JtzB9Gx0YX2UgKKkqJwTgBXxfg2cbLUEqTJKwKBK7s=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d/go.mod h1:yv9XozKsue9ZELHQbrBGgIaFtE3OX3Q4m7koTzTqgpE=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200528170746-c1234defe2b5 h1:h+pUwgEser1Ole6TMCc66njRPcw7SEVXpeoClG+ihEM=

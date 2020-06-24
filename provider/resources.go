@@ -20,10 +20,10 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/newrelic/terraform-provider-newrelic/newrelic"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-newrelic/newrelic"
 )
 
 // all of the token components used below.
@@ -87,6 +87,7 @@ func Provider() tfbridge.ProviderInfo {
 		Description: "A Pulumi package for creating and managing New Relic resources.",
 		Keywords:    []string{"pulumi", "new relic"},
 		License:     "Apache-2.0",
+		GitHubOrg:   "newrelic",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-newrelic",
 		Config: map[string]*tfbridge.SchemaInfo{

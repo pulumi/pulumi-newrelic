@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this resource to create, update, and delete New Relic Events to Metrics rules.
 type EventsToMetricsRule struct {
 	pulumi.CustomResourceState
 

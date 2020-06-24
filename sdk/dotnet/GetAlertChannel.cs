@@ -11,6 +11,43 @@ namespace Pulumi.NewRelic
 {
     public static class GetAlertChannel
     {
+        /// <summary>
+        /// Use this data source to get information about a specific alert channel in New Relic that already exists. 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var fooAlertChannel = Output.Create(NewRelic.GetAlertChannel.InvokeAsync(new NewRelic.GetAlertChannelArgs
+        ///         {
+        ///             Name = "foo@example.com",
+        ///         }));
+        ///         // Resource
+        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+        ///         {
+        ///         });
+        ///         // Using the data source and resource together
+        ///         var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("fooAlertPolicyChannel", new NewRelic.AlertPolicyChannelArgs
+        ///         {
+        ///             PolicyId = fooAlertPolicy.Id,
+        ///             ChannelId = fooAlertChannel.Apply(fooAlertChannel =&gt; fooAlertChannel.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithVersion());
     }

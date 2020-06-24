@@ -59,7 +59,24 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
 
 def get_alert_policy(account_id=None,incident_preference=None,name=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific alert policy in New Relic that already exists.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo_alert_channel = newrelic.get_alert_channel(name="foo@example.com")
+    foo_alert_policy = newrelic.get_alert_policy(name="foo policy")
+    foo_alert_policy_channel = newrelic.AlertPolicyChannel("fooAlertPolicyChannel",
+        policy_id=foo_alert_policy.id,
+        channel_id=foo_alert_channel.id)
+    ```
+
+
 
     :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
     :param str name: The name of the alert policy in New Relic.

@@ -15,9 +15,7 @@ type AlertPolicy struct {
 
 	// The New Relic account ID to operate on.
 	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrOutput `pulumi:"incidentPreference"`
@@ -55,9 +53,7 @@ func GetAlertPolicy(ctx *pulumi.Context,
 type alertPolicyState struct {
 	// The New Relic account ID to operate on.
 	AccountId *int `pulumi:"accountId"`
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -68,9 +64,7 @@ type alertPolicyState struct {
 type AlertPolicyState struct {
 	// The New Relic account ID to operate on.
 	AccountId pulumi.IntPtrInput
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput
@@ -85,9 +79,7 @@ func (AlertPolicyState) ElementType() reflect.Type {
 type alertPolicyArgs struct {
 	// The New Relic account ID to operate on.
 	AccountId *int `pulumi:"accountId"`
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -99,9 +91,7 @@ type alertPolicyArgs struct {
 type AlertPolicyArgs struct {
 	// The New Relic account ID to operate on.
 	AccountId pulumi.IntPtrInput
-	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-	// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-	// imported via terraform import.
+	// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
 	ChannelIds pulumi.IntArrayInput
 	// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
 	IncidentPreference pulumi.StringPtrInput

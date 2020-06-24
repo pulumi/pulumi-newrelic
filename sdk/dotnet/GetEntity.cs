@@ -11,6 +11,12 @@ namespace Pulumi.NewRelic
 {
     public static class GetEntity
     {
+        /// <summary>
+        /// Use this data source to get information about a specific entity in New Relic One that already exists. 
+        /// 
+        /// {{% examples %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
     }

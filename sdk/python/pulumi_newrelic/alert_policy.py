@@ -16,9 +16,7 @@ class AlertPolicy(pulumi.CustomResource):
     """
     channel_ids: pulumi.Output[list]
     """
-    An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-    in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-    imported via terraform import.
+    An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
     """
     incident_preference: pulumi.Output[str]
     """
@@ -32,10 +30,10 @@ class AlertPolicy(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic alert policies.
 
+        ## Example Usage
 
-        ## Additional Examples
+        ### Provision multiple notification channels and add those channels to a policy
 
-        ##### Provision multiple notification channels and add those channels to a policy
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -62,9 +60,9 @@ class AlertPolicy(pulumi.CustomResource):
                 email_channel.id,
             ])
         ```
-        <br>
 
-        ##### Reference existing notification channels and add those channel to a policy
+        ### Reference existing notification channels and add those channel to a policy
+
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -80,12 +78,11 @@ class AlertPolicy(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] account_id: The New Relic account ID to operate on.
-        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-               in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-               imported via terraform import.
+        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
@@ -126,9 +123,7 @@ class AlertPolicy(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] account_id: The New Relic account ID to operate on.
-        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-               in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-               imported via terraform import.
+        :param pulumi.Input[list] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """

@@ -55,7 +55,26 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
 
 def get_alert_channel(name=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific alert channel in New Relic that already exists. 
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo_alert_channel = newrelic.get_alert_channel(name="foo@example.com")
+    # Resource
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    # Using the data source and resource together
+    foo_alert_policy_channel = newrelic.AlertPolicyChannel("fooAlertPolicyChannel",
+        policy_id=foo_alert_policy.id,
+        channel_id=foo_alert_channel.id)
+    ```
+
+
 
     :param str name: The name of the alert channel in New Relic.
     """

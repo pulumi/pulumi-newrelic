@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this resource to create, update, and delete tags for a New Relic One entity.
+ */
 export class EntityTags extends pulumi.CustomResource {
     /**
      * Get an existing EntityTags resource's state with the given name, ID, and optional extra

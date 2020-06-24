@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this resource to create, update, and delete tags for a New Relic One entity.
 type EntityTags struct {
 	pulumi.CustomResourceState
 

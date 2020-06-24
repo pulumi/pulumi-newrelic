@@ -48,7 +48,36 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 
 def get_application(name=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    #### DEPRECATED! Use at your own risk. Use the `.getEntity` data source instead. This feature may be removed in the next major release.
+
+    Use this data source to get information about a specific application in New Relic that already exists. 
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_application(name="my-app")
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        type="apm_app_metric",
+        entities=[app.id],
+        metric="apdex",
+        runbook_url="https://www.example.com",
+        term=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": "0.75",
+            "timeFunction": "all",
+        }])
+    ```
+
+
 
     :param str name: The name of the application in New Relic.
     """

@@ -6,6 +6,40 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about a specific installed plugin in New Relic.
+ *
+ * Each plugin published to New Relic's Plugin Central is assigned a [GUID](https://docs.newrelic.com/docs/plugins/plugin-developer-resources/planning-your-plugin/parts-plugin#guid). Once you have installed a plugin into your account it is assigned an ID. This account-specific ID is required when creating Plugins alert conditions.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooPlugin = newrelic.plugins.getPlugin({
+ *     guid: "com.example.my-plugin",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.plugins.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     metric: "Component/Summary/Consumers[consumers]",
+ *     pluginId: fooPlugin.then(fooPlugin => fooPlugin.id),
+ *     pluginGuid: fooPlugin.then(fooPlugin => fooPlugin.guid),
+ *     valueFunction: "average",
+ *     metricDescription: "Queue consumers",
+ *     term: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: "0.75",
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
+ */
 export function getPlugin(args: GetPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginResult> {
     if (!opts) {
         opts = {}

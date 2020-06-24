@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,9 +20,8 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ## Additional Examples
+ * ### Provision multiple notification channels and add those channels to a policy
  *
- * ##### Provision multiple notification channels and add those channels to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -52,9 +51,9 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <br>
  *
- * ##### Reference existing notification channels and add those channel to a policy
+ * ### Reference existing notification channels and add those channel to a policy
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -108,9 +107,7 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number | undefined>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
@@ -165,9 +162,7 @@ export interface AlertPolicyState {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -189,9 +184,7 @@ export interface AlertPolicyArgs {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

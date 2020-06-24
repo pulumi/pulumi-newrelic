@@ -67,7 +67,10 @@ class AwaitableGetEntityResult(GetEntityResult):
 
 def get_entity(domain=None,name=None,tag=None,type=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific entity in New Relic One that already exists. 
+
+
+
 
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.

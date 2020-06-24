@@ -6,6 +6,45 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about a single plugin component in New Relic that already exists.
+ *
+ * Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooPlugin = newrelic.plugins.getPlugin({
+ *     guid: "com.example.my-plugin",
+ * });
+ * const fooPluginComponent = fooPlugin.then(fooPlugin => newrelic.plugins.getPluginComponent({
+ *     pluginId: fooPlugin.id,
+ *     name: "My Plugin Component",
+ * }));
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.plugins.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     metric: "Component/Summary/Consumers[consumers]",
+ *     pluginId: fooPlugin.then(fooPlugin => fooPlugin.id),
+ *     pluginGuid: fooPlugin.then(fooPlugin => fooPlugin.guid),
+ *     entities: [fooPluginComponent.then(fooPluginComponent => fooPluginComponent.id)],
+ *     valueFunction: "average",
+ *     metricDescription: "Queue consumers",
+ *     term: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: "0.75",
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
+ */
 export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> {
     if (!opts) {
         opts = {}
