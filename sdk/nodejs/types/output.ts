@@ -152,6 +152,17 @@ export interface DashboardWidgetMetric {
     values?: string[];
 }
 
+export interface EntityTagsTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * The tag values.
+     */
+    values: string[];
+}
+
 export interface GetAlertChannelConfig {
     apiKey?: string;
     authPassword?: string;
@@ -174,6 +185,11 @@ export interface GetAlertChannelConfig {
     userId?: string;
 }
 
+export interface GetEntityTag {
+    key: string;
+    value: string;
+}
+
 export interface InfraAlertConditionCritical {
     duration: number;
     timeFunction?: string;
@@ -186,17 +202,59 @@ export interface InfraAlertConditionWarning {
     value?: number;
 }
 
+export interface NrqlAlertConditionCritical {
+    /**
+     * @deprecated use `threshold_duration` attribute instead
+     */
+    duration?: number;
+    operator?: string;
+    threshold: number;
+    thresholdDuration?: number;
+    thresholdOccurrences?: string;
+    /**
+     * @deprecated use `threshold_occurrences` attribute instead
+     */
+    timeFunction?: string;
+}
+
 export interface NrqlAlertConditionNrql {
+    evaluationOffset?: number;
     query: string;
-    sinceValue: string;
+    /**
+     * @deprecated use `evaluation_offset` attribute instead
+     */
+    sinceValue?: string;
 }
 
 export interface NrqlAlertConditionTerm {
-    duration: number;
+    /**
+     * @deprecated use `threshold_duration` attribute instead
+     */
+    duration?: number;
     operator?: string;
     priority?: string;
     threshold: number;
-    timeFunction: string;
+    thresholdDuration?: number;
+    thresholdOccurrences?: string;
+    /**
+     * @deprecated use `threshold_occurrences` attribute instead
+     */
+    timeFunction?: string;
+}
+
+export interface NrqlAlertConditionWarning {
+    /**
+     * @deprecated use `threshold_duration` attribute instead
+     */
+    duration?: number;
+    operator?: string;
+    threshold: number;
+    thresholdDuration?: number;
+    thresholdOccurrences?: string;
+    /**
+     * @deprecated use `threshold_occurrences` attribute instead
+     */
+    timeFunction?: string;
 }
 export namespace insights {
     export interface EventEvent {

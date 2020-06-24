@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to get information about a single plugin component in New Relic that already exists.
+//
+// Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
 func GetPluginComponent(ctx *pulumi.Context, args *GetPluginComponentArgs, opts ...pulumi.InvokeOption) (*GetPluginComponentResult, error) {
 	var rv GetPluginComponentResult
 	err := ctx.Invoke("newrelic:plugins/getPluginComponent:getPluginComponent", args, &rv, opts...)

@@ -9,34 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
  *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getApplication({
- *     name: "my-app",
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     type: "apmAppMetric",
- *     entities: [app.then(app => app.id)],
- *     metric: "apdex",
- *     runbookUrl: "https://www.example.com",
- *     conditionScope: "application",
- *     term: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: "0.75",
- *         timeFunction: "all",
- *     }],
- * });
- * ```
  *
  * ## Terms
  *

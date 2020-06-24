@@ -17,8 +17,8 @@ package main
 //go:generate go run ./generate.go
 
 import (
-	newrelic "github.com/pulumi/pulumi-newrelic/provider/v2"
-	"github.com/pulumi/pulumi-newrelic/provider/v2/pkg/version"
+	newrelic "github.com/pulumi/pulumi-newrelic/provider/v3"
+	"github.com/pulumi/pulumi-newrelic/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 )
 

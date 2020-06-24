@@ -11,6 +11,14 @@ namespace Pulumi.NewRelic.Plugins
 {
     public static class GetPluginComponent
     {
+        /// <summary>
+        /// Use this data source to get information about a single plugin component in New Relic that already exists.
+        /// 
+        /// Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
+        /// 
+        /// {{% examples %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetPluginComponentResult> InvokeAsync(GetPluginComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? new GetPluginComponentArgs(), options.WithVersion());
     }

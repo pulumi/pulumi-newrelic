@@ -45,7 +45,40 @@ class AwaitableGetPluginComponentResult(GetPluginComponentResult):
 
 def get_plugin_component(name=None,plugin_id=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a single plugin component in New Relic that already exists.
+
+    Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo_plugin = newrelic.plugins.get_plugin(guid="com.example.my-plugin")
+    foo_plugin_component = newrelic.plugins.get_plugin_component(plugin_id=foo_plugin.id,
+        name="My Plugin Component")
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.plugins.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        metric="Component/Summary/Consumers[consumers]",
+        plugin_id=foo_plugin.id,
+        plugin_guid=foo_plugin.guid,
+        entities=[foo_plugin_component.id],
+        value_function="average",
+        metric_description="Queue consumers",
+        term=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": "0.75",
+            "timeFunction": "all",
+        }])
+    ```
+
+
 
     :param str name: The name of the plugin component.
     :param float plugin_id: The ID of the plugin instance this component belongs to.

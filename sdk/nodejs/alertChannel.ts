@@ -161,12 +161,6 @@ export class AlertChannel extends pulumi.CustomResource {
      */
     public readonly config!: pulumi.Output<outputs.AlertChannelConfig | undefined>;
     /**
-     * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-     *
-     * @deprecated use `config` block instead
-     */
-    public readonly configuration!: pulumi.Output<{[key: string]: any} | undefined>;
-    /**
      * The name of the channel.
      */
     public readonly name!: pulumi.Output<string>;
@@ -188,7 +182,6 @@ export class AlertChannel extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AlertChannelState | undefined;
             inputs["config"] = state ? state.config : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
@@ -197,7 +190,6 @@ export class AlertChannel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["config"] = args ? args.config : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
@@ -221,12 +213,6 @@ export interface AlertChannelState {
      */
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
-     * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-     *
-     * @deprecated use `config` block instead
-     */
-    readonly configuration?: pulumi.Input<{[key: string]: any}>;
-    /**
      * The name of the channel.
      */
     readonly name?: pulumi.Input<string>;
@@ -244,12 +230,6 @@ export interface AlertChannelArgs {
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
     readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
-    /**
-     * **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-     *
-     * @deprecated use `config` block instead
-     */
-    readonly configuration?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the channel.
      */

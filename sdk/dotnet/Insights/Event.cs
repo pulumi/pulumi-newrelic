@@ -9,6 +9,73 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic.Insights
 {
+    /// <summary>
+    /// Use this resource to create one or more Insights events.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Insights.Event("foo", new NewRelic.Insights.EventArgs
+    ///         {
+    ///             Events = 
+    ///             {
+    ///                 new NewRelic.Insights.Inputs.EventEventArgs
+    ///                 {
+    ///                     Attribute = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "key", "a_string_attribute" },
+    ///                             { "value", "a string" },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "key", "an_integer_attribute" },
+    ///                             { "type", "int" },
+    ///                             { "value", 42 },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "key", "a_float_attribute" },
+    ///                             { "type", "float" },
+    ///                             { "value", 101.1 },
+    ///                         },
+    ///                     },
+    ///                     Timestamp = 1232471100,
+    ///                     Type = "MyEvent",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Events
+    /// 
+    /// The `event` mapping supports the following arguments:
+    /// 
+    ///   * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+    ///   * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+    ///   * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+    /// 
+    /// ### Attributes
+    /// 
+    /// The `attribute` mapping supports the following arguments:
+    /// 
+    ///   * `key` - (Required) The name of the attribute.
+    ///   * `value` - (Required) The value of the attribute.
+    ///   * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+    /// </summary>
     public partial class Event : Pulumi.CustomResource
     {
         /// <summary>

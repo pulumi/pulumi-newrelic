@@ -6,6 +6,11 @@ _(none)_
 
 ---
 
+## 3.0.0 (2020-06-24)
+* Upgrade to v2.1.1 of the NewRelic Terraform Provider
+  ** Please Note: **
+  The upstream provider has changed from terraform-providers/terraform-provider-newrelic to newrelic/terraform-provider-newrelic
+
 ## 2.4.1 (2020-06-12)
 * Switch to GitHub actions for build
 

@@ -13,15 +13,17 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NrqlAlertConditionTerm
     {
-        public readonly int Duration;
+        public readonly int? Duration;
         public readonly string? Operator;
         public readonly string? Priority;
         public readonly double Threshold;
-        public readonly string TimeFunction;
+        public readonly int? ThresholdDuration;
+        public readonly string? ThresholdOccurrences;
+        public readonly string? TimeFunction;
 
         [OutputConstructor]
         private NrqlAlertConditionTerm(
-            int duration,
+            int? duration,
 
             string? @operator,
 
@@ -29,12 +31,18 @@ namespace Pulumi.NewRelic.Outputs
 
             double threshold,
 
-            string timeFunction)
+            int? thresholdDuration,
+
+            string? thresholdOccurrences,
+
+            string? timeFunction)
         {
             Duration = duration;
             Operator = @operator;
             Priority = priority;
             Threshold = threshold;
+            ThresholdDuration = thresholdDuration;
+            ThresholdOccurrences = thresholdOccurrences;
             TimeFunction = timeFunction;
         }
     }

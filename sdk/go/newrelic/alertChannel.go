@@ -16,10 +16,6 @@ type AlertChannel struct {
 
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
-	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-	//
-	// Deprecated: use `config` block instead
-	Configuration pulumi.MapOutput `pulumi:"configuration"`
 	// The name of the channel.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
@@ -59,10 +55,6 @@ func GetAlertChannel(ctx *pulumi.Context,
 type alertChannelState struct {
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
-	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-	//
-	// Deprecated: use `config` block instead
-	Configuration map[string]interface{} `pulumi:"configuration"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
 	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
@@ -72,10 +64,6 @@ type alertChannelState struct {
 type AlertChannelState struct {
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
-	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-	//
-	// Deprecated: use `config` block instead
-	Configuration pulumi.MapInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
 	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
@@ -89,10 +77,6 @@ func (AlertChannelState) ElementType() reflect.Type {
 type alertChannelArgs struct {
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config *AlertChannelConfig `pulumi:"config"`
-	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-	//
-	// Deprecated: use `config` block instead
-	Configuration map[string]interface{} `pulumi:"configuration"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
 	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
@@ -103,10 +87,6 @@ type alertChannelArgs struct {
 type AlertChannelArgs struct {
 	// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
 	Config AlertChannelConfigPtrInput
-	// **Deprecated** (Optional) A map of key/value pairs with channel type specific values. This argument is deprecated.  Use the `config` argument instead.
-	//
-	// Deprecated: use `config` block instead
-	Configuration pulumi.MapInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
 	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.

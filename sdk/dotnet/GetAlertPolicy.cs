@@ -11,6 +11,42 @@ namespace Pulumi.NewRelic
 {
     public static class GetAlertPolicy
     {
+        /// <summary>
+        /// Use this data source to get information about a specific alert policy in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var fooAlertChannel = Output.Create(NewRelic.GetAlertChannel.InvokeAsync(new NewRelic.GetAlertChannelArgs
+        ///         {
+        ///             Name = "foo@example.com",
+        ///         }));
+        ///         var fooAlertPolicy = Output.Create(NewRelic.GetAlertPolicy.InvokeAsync(new NewRelic.GetAlertPolicyArgs
+        ///         {
+        ///             Name = "foo policy",
+        ///         }));
+        ///         var fooAlertPolicyChannel = new NewRelic.AlertPolicyChannel("fooAlertPolicyChannel", new NewRelic.AlertPolicyChannelArgs
+        ///         {
+        ///             PolicyId = fooAlertPolicy.Apply(fooAlertPolicy =&gt; fooAlertPolicy.Id),
+        ///             ChannelId = fooAlertChannel.Apply(fooAlertChannel =&gt; fooAlertChannel.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetAlertPolicyResult> InvokeAsync(GetAlertPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyArgs(), options.WithVersion());
     }
@@ -18,6 +54,9 @@ namespace Pulumi.NewRelic
 
     public sealed class GetAlertPolicyArgs : Pulumi.InvokeArgs
     {
+        [Input("accountId")]
+        public int? AccountId { get; set; }
+
         /// <summary>
         /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
         /// </summary>
@@ -39,6 +78,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAlertPolicyResult
     {
+        public readonly int? AccountId;
         /// <summary>
         /// The time the policy was created.
         /// </summary>
@@ -59,6 +99,8 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAlertPolicyResult(
+            int? accountId,
+
             string createdAt,
 
             string id,
@@ -69,6 +111,7 @@ namespace Pulumi.NewRelic
 
             string updatedAt)
         {
+            AccountId = accountId;
             CreatedAt = createdAt;
             Id = id;
             IncidentPreference = incidentPreference;

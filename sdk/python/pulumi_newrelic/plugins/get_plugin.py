@@ -34,7 +34,37 @@ class AwaitableGetPluginResult(GetPluginResult):
 
 def get_plugin(guid=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about a specific installed plugin in New Relic.
+
+    Each plugin published to New Relic's Plugin Central is assigned a [GUID](https://docs.newrelic.com/docs/plugins/plugin-developer-resources/planning-your-plugin/parts-plugin#guid). Once you have installed a plugin into your account it is assigned an ID. This account-specific ID is required when creating Plugins alert conditions.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo_plugin = newrelic.plugins.get_plugin(guid="com.example.my-plugin")
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.plugins.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        metric="Component/Summary/Consumers[consumers]",
+        plugin_id=foo_plugin.id,
+        plugin_guid=foo_plugin.guid,
+        value_function="average",
+        metric_description="Queue consumers",
+        term=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": "0.75",
+            "timeFunction": "all",
+        }])
+    ```
+
+
 
     :param str guid: The GUID of the plugin in New Relic.
     """

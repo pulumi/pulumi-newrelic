@@ -6,6 +6,29 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to get information about a specific alert policy in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooAlertChannel = newrelic.getAlertChannel({
+ *     name: "foo@example.com",
+ * });
+ * const fooAlertPolicy = newrelic.getAlertPolicy({
+ *     name: "foo policy",
+ * });
+ * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("fooAlertPolicyChannel", {
+ *     policyId: fooAlertPolicy.then(fooAlertPolicy => fooAlertPolicy.id),
+ *     channelId: fooAlertChannel.then(fooAlertChannel => fooAlertChannel.id),
+ * });
+ * ```
+ */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
     if (!opts) {
         opts = {}
@@ -15,6 +38,7 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {
+        "accountId": args.accountId,
         "incidentPreference": args.incidentPreference,
         "name": args.name,
     }, opts);
@@ -24,6 +48,7 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAlertPolicy.
  */
 export interface GetAlertPolicyArgs {
+    readonly accountId?: number;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
      */
@@ -38,6 +63,7 @@ export interface GetAlertPolicyArgs {
  * A collection of values returned by getAlertPolicy.
  */
 export interface GetAlertPolicyResult {
+    readonly accountId?: number;
     /**
      * The time the policy was created.
      */

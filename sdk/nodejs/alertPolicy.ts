@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,9 +20,8 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ## Additional Examples
+ * ### Provision multiple notification channels and add those channels to a policy
  *
- * ##### Provision multiple notification channels and add those channels to a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -52,9 +51,9 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <br>
  *
- * ##### Reference existing notification channels and add those channel to a policy
+ * ### Reference existing notification channels and add those channel to a policy
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -104,17 +103,13 @@ export class AlertPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * The New Relic account ID to operate on.
+     */
+    public readonly accountId!: pulumi.Output<number | undefined>;
+    /**
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
-    /**
-     * **DEPRECATED:** The time the policy was created.
-     *
-     * @deprecated Unavailable attribute in NerdGraph.
-     */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
@@ -123,12 +118,6 @@ export class AlertPolicy extends pulumi.CustomResource {
      * The name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * **DEPRECATED:** The time the policy was last updated.
-     *
-     * @deprecated Unavailable attribute in NerdGraph.
-     */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a AlertPolicy resource with the given unique name, arguments, and options.
@@ -142,18 +131,16 @@ export class AlertPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
+            inputs["accountId"] = state ? state.accountId : undefined;
             inputs["channelIds"] = state ? state.channelIds : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["incidentPreference"] = state ? state.incidentPreference : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
+            inputs["accountId"] = args ? args.accountId : undefined;
             inputs["channelIds"] = args ? args.channelIds : undefined;
             inputs["incidentPreference"] = args ? args.incidentPreference : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -171,17 +158,13 @@ export class AlertPolicy extends pulumi.CustomResource {
  */
 export interface AlertPolicyState {
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * The New Relic account ID to operate on.
+     */
+    readonly accountId?: pulumi.Input<number>;
+    /**
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * **DEPRECATED:** The time the policy was created.
-     *
-     * @deprecated Unavailable attribute in NerdGraph.
-     */
-    readonly createdAt?: pulumi.Input<string>;
     /**
      * The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
      */
@@ -190,12 +173,6 @@ export interface AlertPolicyState {
      * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * **DEPRECATED:** The time the policy was last updated.
-     *
-     * @deprecated Unavailable attribute in NerdGraph.
-     */
-    readonly updatedAt?: pulumi.Input<string>;
 }
 
 /**
@@ -203,9 +180,11 @@ export interface AlertPolicyState {
  */
 export interface AlertPolicyArgs {
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * The New Relic account ID to operate on.
+     */
+    readonly accountId?: pulumi.Input<number>;
+    /**
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

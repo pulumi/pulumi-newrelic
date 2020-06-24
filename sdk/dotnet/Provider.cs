@@ -44,6 +44,12 @@ namespace Pulumi.NewRelic
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
+        [Input("accountId", json: true)]
+        public Input<int>? AccountId { get; set; }
+
+        [Input("adminApiKey")]
+        public Input<string>? AdminApiKey { get; set; }
+
         [Input("apiKey")]
         public Input<string>? ApiKey { get; set; }
 
@@ -53,17 +59,11 @@ namespace Pulumi.NewRelic
         [Input("cacertFile")]
         public Input<string>? CacertFile { get; set; }
 
-        [Input("infraApiUrl")]
-        public Input<string>? InfraApiUrl { get; set; }
-
         [Input("infrastructureApiUrl")]
         public Input<string>? InfrastructureApiUrl { get; set; }
 
         [Input("insecureSkipVerify", json: true)]
         public Input<bool>? InsecureSkipVerify { get; set; }
-
-        [Input("insightsAccountId")]
-        public Input<string>? InsightsAccountId { get; set; }
 
         [Input("insightsInsertKey")]
         public Input<string>? InsightsInsertKey { get; set; }
@@ -80,28 +80,27 @@ namespace Pulumi.NewRelic
         [Input("nerdgraphApiUrl")]
         public Input<string>? NerdgraphApiUrl { get; set; }
 
-        [Input("personalApiKey")]
-        public Input<string>? PersonalApiKey { get; set; }
+        /// <summary>
+        /// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("syntheticsApiUrl")]
         public Input<string>? SyntheticsApiUrl { get; set; }
 
         public ProviderArgs()
         {
-            ApiKey = Utilities.GetEnv("NEWRELIC_API_KEY");
-            ApiUrl = Utilities.GetEnv("NEWRELIC_API_URL") ?? "https://api.newrelic.com/v2";
-            CacertFile = Utilities.GetEnv("NEWRELIC_API_CACERT");
-            InfraApiUrl = Utilities.GetEnv("NEWRELIC_INFRA_API_URL") ?? "https://infra-api.newrelic.com/v2";
-            InfrastructureApiUrl = Utilities.GetEnv("NEWRELIC_INFRASTRUCTURE_API_URL");
-            InsecureSkipVerify = Utilities.GetEnvBoolean("NEWRELIC_API_SKIP_VERIFY");
-            InsightsAccountId = Utilities.GetEnv("NEWRELIC_INSIGHTS_ACCOUNT_ID");
-            InsightsInsertKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_KEY");
-            InsightsInsertUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
-            InsightsQueryKey = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_KEY");
-            InsightsQueryUrl = Utilities.GetEnv("NEWRELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
-            NerdgraphApiUrl = Utilities.GetEnv("NEWRELIC_NERDGRAPH_API_URL");
-            PersonalApiKey = Utilities.GetEnv("NEWRELIC_PERSONAL_API_KEY");
-            SyntheticsApiUrl = Utilities.GetEnv("NEWRELIC_SYNTHETICS_API_URL") ?? "https://synthetics.newrelic.com/synthetics/api/v3";
+            AccountId = Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID");
+            AdminApiKey = Utilities.GetEnv("NEW_RELIC_ADMIN_API_KEY");
+            ApiKey = Utilities.GetEnv("NEW_RELIC_API_KEY");
+            CacertFile = Utilities.GetEnv("NEW_RELIC_API_CACERT");
+            InsecureSkipVerify = Utilities.GetEnvBoolean("NEW_RELIC_API_SKIP_VERIFY");
+            InsightsInsertKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
+            InsightsInsertUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
+            InsightsQueryKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_KEY");
+            InsightsQueryUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
+            Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }
     }
 }
