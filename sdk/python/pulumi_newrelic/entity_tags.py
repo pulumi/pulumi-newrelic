@@ -25,6 +25,33 @@ class EntityTags(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete tags for a New Relic One entity.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_entity = newrelic.get_entity(name="Example application",
+            type="APPLICATION",
+            domain="APM")
+        foo_entity_tags = newrelic.EntityTags("fooEntityTags",
+            guid=foo_entity.guid,
+            tag=[
+                {
+                    "key": "my-key",
+                    "values": [
+                        "my-value",
+                        "my-other-value",
+                    ],
+                },
+                {
+                    "key": "my-key-2",
+                    "values": ["my-value-2"],
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

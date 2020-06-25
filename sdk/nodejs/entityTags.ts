@@ -8,6 +8,37 @@ import * as utilities from "./utilities";
 
 /**
  * Use this resource to create, update, and delete tags for a New Relic One entity.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const fooEntity = newrelic.getEntity({
+ *     name: "Example application",
+ *     type: "APPLICATION",
+ *     domain: "APM",
+ * });
+ * const fooEntityTags = new newrelic.EntityTags("fooEntityTags", {
+ *     guid: fooEntity.then(fooEntity => fooEntity.guid),
+ *     tag: [
+ *         {
+ *             key: "my-key",
+ *             values: [
+ *                 "my-value",
+ *                 "my-other-value",
+ *             ],
+ *         },
+ *         {
+ *             key: "my-key-2",
+ *             values: ["my-value-2"],
+ *         },
+ *     ],
+ * });
+ * ```
  */
 export class EntityTags extends pulumi.CustomResource {
     /**

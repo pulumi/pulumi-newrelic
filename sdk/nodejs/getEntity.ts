@@ -8,6 +8,40 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific entity in New Relic One that already exists. 
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     name: "my-app",
+ *     domain: "APM",
+ *     type: "APPLICATION",
+ *     tag: {
+ *         key: "my-tag",
+ *         value: "my-tag-value",
+ *     },
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apmAppMetric",
+ *     entities: [data.newrelic_application.app.application_id],
+ *     metric: "apdex",
+ *     runbookUrl: "https://www.example.com",
+ *     term: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: "0.75",
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     if (!opts) {

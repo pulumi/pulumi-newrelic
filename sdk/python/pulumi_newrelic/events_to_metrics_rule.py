@@ -38,6 +38,19 @@ class EventsToMetricsRule(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete New Relic Events to Metrics rules.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.EventsToMetricsRule("foo",
+            account_id=12345,
+            description="Example description",
+            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
+        ```
 
 
         :param str resource_name: The name of the resource.

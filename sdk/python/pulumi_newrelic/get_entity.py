@@ -69,6 +69,36 @@ def get_entity(domain=None,name=None,tag=None,type=None,opts=None):
     """
     Use this data source to get information about a specific entity in New Relic One that already exists. 
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(name="my-app",
+        domain="APM",
+        type="APPLICATION",
+        tag={
+            "key": "my-tag",
+            "value": "my-tag-value",
+        })
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        type="apm_app_metric",
+        entities=[data[".getApplication"]["app"]["application_id"]],
+        metric="apdex",
+        runbook_url="https://www.example.com",
+        term=[{
+            "duration": 5,
+            "operator": "below",
+            "priority": "critical",
+            "threshold": "0.75",
+            "timeFunction": "all",
+        }])
+    ```
 
 
 

@@ -11,6 +11,29 @@ namespace Pulumi.NewRelic
 {
     /// <summary>
     /// Use this resource to create, update, and delete New Relic Events to Metrics rules.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.EventsToMetricsRule("foo", new NewRelic.EventsToMetricsRuleArgs
+    ///         {
+    ///             AccountId = 12345,
+    ///             Description = "Example description",
+    ///             Nrql = "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventsToMetricsRule : Pulumi.CustomResource
     {

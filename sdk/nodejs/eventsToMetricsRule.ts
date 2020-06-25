@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.EventsToMetricsRule("foo", {
  *     accountId: 12345,
  *     description: "Example description",
- *     name: "Example events to metrics rule",
  *     nrql: "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
  * });
  * ```
