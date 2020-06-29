@@ -17,7 +17,6 @@ export let infrastructureApiUrl: string | undefined = __config.get("infrastructu
 export let insecureSkipVerify: boolean | undefined = __config.getObject<boolean>("insecureSkipVerify") || <any>utilities.getEnvBoolean("NEW_RELIC_API_SKIP_VERIFY");
 export let insightsInsertKey: string | undefined = __config.get("insightsInsertKey") || utilities.getEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
 export let insightsInsertUrl: string | undefined = __config.get("insightsInsertUrl") || (utilities.getEnv("NEW_RELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
-export let insightsQueryKey: string | undefined = __config.get("insightsQueryKey") || utilities.getEnv("NEW_RELIC_INSIGHTS_QUERY_KEY");
 export let insightsQueryUrl: string | undefined = __config.get("insightsQueryUrl") || (utilities.getEnv("NEW_RELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
 export let nerdgraphApiUrl: string | undefined = __config.get("nerdgraphApiUrl");
 /**

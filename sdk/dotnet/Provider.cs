@@ -71,9 +71,6 @@ namespace Pulumi.NewRelic
         [Input("insightsInsertUrl")]
         public Input<string>? InsightsInsertUrl { get; set; }
 
-        [Input("insightsQueryKey")]
-        public Input<string>? InsightsQueryKey { get; set; }
-
         [Input("insightsQueryUrl")]
         public Input<string>? InsightsQueryUrl { get; set; }
 
@@ -98,7 +95,6 @@ namespace Pulumi.NewRelic
             InsecureSkipVerify = Utilities.GetEnvBoolean("NEW_RELIC_API_SKIP_VERIFY");
             InsightsInsertKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
             InsightsInsertUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
-            InsightsQueryKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_KEY");
             InsightsQueryUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
             Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }

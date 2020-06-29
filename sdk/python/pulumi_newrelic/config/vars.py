@@ -29,8 +29,6 @@ insights_insert_key = __config__.get('insightsInsertKey') or utilities.get_env('
 
 insights_insert_url = __config__.get('insightsInsertUrl') or (utilities.get_env('NEW_RELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
 
-insights_query_key = __config__.get('insightsQueryKey') or utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_KEY')
-
 insights_query_url = __config__.get('insightsQueryUrl') or (utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
 
 nerdgraph_api_url = __config__.get('nerdgraphApiUrl')

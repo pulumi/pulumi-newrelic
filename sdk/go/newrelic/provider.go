@@ -44,9 +44,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.InsightsInsertUrl == nil {
 		args.InsightsInsertUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-collector.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_INSERT_URL").(string))
 	}
-	if args.InsightsQueryKey == nil {
-		args.InsightsQueryKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_INSIGHTS_QUERY_KEY").(string))
-	}
 	if args.InsightsQueryUrl == nil {
 		args.InsightsQueryUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_QUERY_URL").(string))
 	}
@@ -73,7 +70,6 @@ type providerArgs struct {
 	InsecureSkipVerify   *bool   `pulumi:"insecureSkipVerify"`
 	InsightsInsertKey    *string `pulumi:"insightsInsertKey"`
 	InsightsInsertUrl    *string `pulumi:"insightsInsertUrl"`
-	InsightsQueryKey     *string `pulumi:"insightsQueryKey"`
 	InsightsQueryUrl     *string `pulumi:"insightsQueryUrl"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	NerdgraphApiUrl *string `pulumi:"nerdgraphApiUrl"`
@@ -96,7 +92,6 @@ type ProviderArgs struct {
 	InsecureSkipVerify   pulumi.BoolPtrInput
 	InsightsInsertKey    pulumi.StringPtrInput
 	InsightsInsertUrl    pulumi.StringPtrInput
-	InsightsQueryKey     pulumi.StringPtrInput
 	InsightsQueryUrl     pulumi.StringPtrInput
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	NerdgraphApiUrl pulumi.StringPtrInput

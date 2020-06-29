@@ -67,13 +67,6 @@ func GetInsightsInsertUrl(ctx *pulumi.Context) string {
 	}
 	return getEnvOrDefault("https://insights-collector.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_INSERT_URL").(string)
 }
-func GetInsightsQueryKey(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "newrelic:insightsQueryKey")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "NEW_RELIC_INSIGHTS_QUERY_KEY").(string)
-}
 func GetInsightsQueryUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "newrelic:insightsQueryUrl")
 	if err == nil {

@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, account_id=None, admin_api_key=None, api_key=None, api_url=None, cacert_file=None, infrastructure_api_url=None, insecure_skip_verify=None, insights_insert_key=None, insights_insert_url=None, insights_query_key=None, insights_query_url=None, nerdgraph_api_url=None, region=None, synthetics_api_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, admin_api_key=None, api_key=None, api_url=None, cacert_file=None, infrastructure_api_url=None, insecure_skip_verify=None, insights_insert_key=None, insights_insert_url=None, insights_query_url=None, nerdgraph_api_url=None, region=None, synthetics_api_url=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the newrelic package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -67,9 +67,6 @@ class Provider(pulumi.ProviderResource):
             if insights_insert_url is None:
                 insights_insert_url = (utilities.get_env('NEW_RELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
             __props__['insights_insert_url'] = insights_insert_url
-            if insights_query_key is None:
-                insights_query_key = utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_KEY')
-            __props__['insights_query_key'] = insights_query_key
             if insights_query_url is None:
                 insights_query_url = (utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url

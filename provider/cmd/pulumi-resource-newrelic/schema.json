@@ -79,14 +79,6 @@
                     ]
                 }
             },
-            "insightsQueryKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_QUERY_KEY"
-                    ]
-                }
-            },
             "insightsQueryUrl": {
                 "type": "string",
                 "default": "https://insights-api.newrelic.com/v1/accounts",
@@ -1401,14 +1393,6 @@
                 "defaultInfo": {
                     "environment": [
                         "NEW_RELIC_INSIGHTS_INSERT_URL"
-                    ]
-                }
-            },
-            "insightsQueryKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_QUERY_KEY"
                     ]
                 }
             },

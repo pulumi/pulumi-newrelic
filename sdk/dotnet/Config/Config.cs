@@ -26,8 +26,6 @@ namespace Pulumi.NewRelic
 
         public static string? InsightsInsertUrl { get; set; } = __config.Get("insightsInsertUrl") ?? Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
 
-        public static string? InsightsQueryKey { get; set; } = __config.Get("insightsQueryKey") ?? Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_KEY");
-
         public static string? InsightsQueryUrl { get; set; } = __config.Get("insightsQueryUrl") ?? Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
 
         public static string? NerdgraphApiUrl { get; set; } = __config.Get("nerdgraphApiUrl");
