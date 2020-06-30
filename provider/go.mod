@@ -14,5 +14,5 @@ require (
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 	golang.org/x/sys => golang.org/x/sys v0.0.0-20200124204421-9fbb57f87de9
-	github.com/newrelic/terraform-provider-newrelic => github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17a3c
+	github.com/newrelic/terraform-provider-newrelic => github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200629093858-0ec8cd391aaf
 )

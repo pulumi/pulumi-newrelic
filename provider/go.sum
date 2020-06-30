@@ -738,6 +738,8 @@ github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624062242-addbd3990
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624062242-addbd3990f27/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17a3c h1:L0pqk3ltCEbmV/7CDsMplYppuRRWoSyjxHAtlprVmhc=
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17a3c/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200629093858-0ec8cd391aaf h1:Sh47mVT0Vt5k+PxKTwrQsSuvtYNKvMZbTGJVAZn6sf0=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200629093858-0ec8cd391aaf/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d h1:1JtzB9Gx0YX2UgKKkqJwTgBXxfg2cbLUEqTJKwKBK7s=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d/go.mod h1:yv9XozKsue9ZELHQbrBGgIaFtE3OX3Q4m7koTzTqgpE=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200528170746-c1234defe2b5 h1:h+pUwgEser1Ole6TMCc66njRPcw7SEVXpeoClG+ihEM=

@@ -44,7 +44,6 @@ export class Provider extends pulumi.ProviderResource {
         inputs["insecureSkipVerify"] = pulumi.output((args ? args.insecureSkipVerify : undefined) || <any>utilities.getEnvBoolean("NEW_RELIC_API_SKIP_VERIFY")).apply(JSON.stringify);
         inputs["insightsInsertKey"] = (args ? args.insightsInsertKey : undefined) || utilities.getEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
         inputs["insightsInsertUrl"] = (args ? args.insightsInsertUrl : undefined) || (utilities.getEnv("NEW_RELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
-        inputs["insightsQueryKey"] = (args ? args.insightsQueryKey : undefined) || utilities.getEnv("NEW_RELIC_INSIGHTS_QUERY_KEY");
         inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEW_RELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
         inputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
         inputs["region"] = (args ? args.region : undefined) || (utilities.getEnv("NEW_RELIC_REGION") || "US");
@@ -79,7 +78,6 @@ export interface ProviderArgs {
     readonly insecureSkipVerify?: pulumi.Input<boolean>;
     readonly insightsInsertKey?: pulumi.Input<string>;
     readonly insightsInsertUrl?: pulumi.Input<string>;
-    readonly insightsQueryKey?: pulumi.Input<string>;
     readonly insightsQueryUrl?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
