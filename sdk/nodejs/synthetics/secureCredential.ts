@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -67,7 +65,7 @@ export class SecureCredential extends pulumi.CustomResource {
      */
     public readonly lastUpdated!: pulumi.Output<string>;
     /**
-     * The secure credential's value. 
+     * The secure credential's value.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -134,7 +132,7 @@ export interface SecureCredentialState {
      */
     readonly lastUpdated?: pulumi.Input<string>;
     /**
-     * The secure credential's value. 
+     * The secure credential's value.
      */
     readonly value?: pulumi.Input<string>;
 }
@@ -160,7 +158,7 @@ export interface SecureCredentialArgs {
      */
     readonly lastUpdated?: pulumi.Input<string>;
     /**
-     * The secure credential's value. 
+     * The secure credential's value.
      */
     readonly value: pulumi.Input<string>;
 }

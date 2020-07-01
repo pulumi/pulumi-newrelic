@@ -15,6 +15,51 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific key transaction in New Relic that already exists.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var txn = Output.Create(NewRelic.GetKeyTransaction.InvokeAsync(new NewRelic.GetKeyTransactionArgs
+        ///         {
+        ///             Name = "txn",
+        ///         }));
+        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+        ///         {
+        ///         });
+        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
+        ///         {
+        ///             PolicyId = fooAlertPolicy.Id,
+        ///             Type = "apm_kt_metric",
+        ///             Entities = 
+        ///             {
+        ///                 txn.Apply(txn =&gt; txn.Id),
+        ///             },
+        ///             Metric = "error_percentage",
+        ///             RunbookUrl = "https://www.example.com",
+        ///             Terms = 
+        ///             {
+        ///                 new NewRelic.Inputs.AlertConditionTermArgs
+        ///                 {
+        ///                     Duration = 5,
+        ///                     Operator = "below",
+        ///                     Priority = "critical",
+        ///                     Threshold = 0.75,
+        ///                     TimeFunction = "all",
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)

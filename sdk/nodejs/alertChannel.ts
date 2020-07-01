@@ -11,8 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Email
- *
+ * ##### Email
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -25,7 +24,7 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
- *
+ * See additional examples.
  * ## Additional Examples
  *
  * ##### Slack
@@ -116,9 +115,9 @@ import * as utilities from "./utilities";
  *     config: {
  *         baseUrl: "http://www.test.com",
  *         payloadString: `{
- *   "myCustomValues": {
- *     "conditionName": "$CONDITION_NAME",
- *     "policyName": "$POLICY_NAME"
+ *   "my_custom_values": {
+ *     "condition_name": "$CONDITION_NAME",
+ *     "policy_name": "$POLICY_NAME"
  *   }
  * }
  * `,

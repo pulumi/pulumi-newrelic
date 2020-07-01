@@ -15,6 +15,58 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific entity in New Relic One that already exists. 
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var app = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+        ///         {
+        ///             Name = "my-app",
+        ///             Domain = "APM",
+        ///             Type = "APPLICATION",
+        ///             Tag = new NewRelic.Inputs.GetEntityTagArgs
+        ///             {
+        ///                 Key = "my-tag",
+        ///                 Value = "my-tag-value",
+        ///             },
+        ///         }));
+        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+        ///         {
+        ///         });
+        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
+        ///         {
+        ///             PolicyId = fooAlertPolicy.Id,
+        ///             Type = "apm_app_metric",
+        ///             Entities = 
+        ///             {
+        ///                 data.Newrelic_application.App.Application_id,
+        ///             },
+        ///             Metric = "apdex",
+        ///             RunbookUrl = "https://www.example.com",
+        ///             Terms = 
+        ///             {
+        ///                 new NewRelic.Inputs.AlertConditionTermArgs
+        ///                 {
+        ///                     Duration = 5,
+        ///                     Operator = "below",
+        ///                     Priority = "critical",
+        ///                     Threshold = 0.75,
+        ///                     TimeFunction = "all",
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)

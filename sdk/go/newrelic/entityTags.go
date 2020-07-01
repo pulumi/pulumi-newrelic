@@ -11,6 +11,54 @@ import (
 )
 
 // Use this resource to create, update, and delete tags for a New Relic One entity.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "APPLICATION"
+// 		opt1 := "APM"
+// 		fooEntity, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 			Name:   "Example application",
+// 			Type:   &opt0,
+// 			Domain: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewEntityTags(ctx, "fooEntityTags", &newrelic.EntityTagsArgs{
+// 			Guid: pulumi.String(fooEntity.Guid),
+// 			Tags: newrelic.EntityTagsTagArray{
+// 				&newrelic.EntityTagsTagArgs{
+// 					Key: pulumi.String("my-key"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("my-value"),
+// 						pulumi.String("my-other-value"),
+// 					},
+// 				},
+// 				&newrelic.EntityTagsTagArgs{
+// 					Key: pulumi.String("my-key-2"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("my-value-2"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EntityTags struct {
 	pulumi.CustomResourceState
 

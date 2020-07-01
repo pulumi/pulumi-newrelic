@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Use this resource to create and manage New Relic alert policies.
  *
  * ## Example Usage
- *
  * ### Basic Usage
  *
  * ```typescript
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     incidentPreference: "PER_POLICY", // PER_POLICY is default
  * });
  * ```
- *
  * ### Provision multiple notification channels and add those channels to a policy
  *
  * ```typescript
@@ -51,9 +49,7 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- *
  * ### Reference existing notification channels and add those channel to a policy
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";

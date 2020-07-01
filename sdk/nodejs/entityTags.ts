@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -24,7 +22,7 @@ import * as utilities from "./utilities";
  * });
  * const fooEntityTags = new newrelic.EntityTags("fooEntityTags", {
  *     guid: fooEntity.then(fooEntity => fooEntity.guid),
- *     tag: [
+ *     tags: [
  *         {
  *             key: "my-key",
  *             values: [

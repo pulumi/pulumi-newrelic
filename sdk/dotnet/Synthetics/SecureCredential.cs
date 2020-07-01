@@ -14,8 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -62,7 +60,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> LastUpdated { get; private set; } = null!;
 
         /// <summary>
-        /// The secure credential's value. 
+        /// The secure credential's value.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -138,7 +136,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? LastUpdated { get; set; }
 
         /// <summary>
-        /// The secure credential's value. 
+        /// The secure credential's value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -175,7 +173,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? LastUpdated { get; set; }
 
         /// <summary>
-        /// The secure credential's value. 
+        /// The secure credential's value.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -62,8 +62,7 @@ type AlertChannelConfig struct {
 // AlertChannelConfigInput is an input type that accepts AlertChannelConfigArgs and AlertChannelConfigOutput values.
 // You can construct a concrete instance of `AlertChannelConfigInput` via:
 //
-// 		 AlertChannelConfigArgs{...}
-//
+//          AlertChannelConfigArgs{...}
 type AlertChannelConfigInput interface {
 	pulumi.Input
 
@@ -143,12 +142,11 @@ func (i AlertChannelConfigArgs) ToAlertChannelConfigPtrOutputWithContext(ctx con
 // AlertChannelConfigPtrInput is an input type that accepts AlertChannelConfigArgs, AlertChannelConfigPtr and AlertChannelConfigPtrOutput values.
 // You can construct a concrete instance of `AlertChannelConfigPtrInput` via:
 //
-// 		 AlertChannelConfigArgs{...}
+//          AlertChannelConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AlertChannelConfigPtrInput interface {
 	pulumi.Input
 
@@ -550,8 +548,7 @@ type AlertConditionTerm struct {
 // AlertConditionTermInput is an input type that accepts AlertConditionTermArgs and AlertConditionTermOutput values.
 // You can construct a concrete instance of `AlertConditionTermInput` via:
 //
-// 		 AlertConditionTermArgs{...}
-//
+//          AlertConditionTermArgs{...}
 type AlertConditionTermInput interface {
 	pulumi.Input
 
@@ -582,8 +579,7 @@ func (i AlertConditionTermArgs) ToAlertConditionTermOutputWithContext(ctx contex
 // AlertConditionTermArrayInput is an input type that accepts AlertConditionTermArray and AlertConditionTermArrayOutput values.
 // You can construct a concrete instance of `AlertConditionTermArrayInput` via:
 //
-// 		 AlertConditionTermArray{ AlertConditionTermArgs{...} }
-//
+//          AlertConditionTermArray{ AlertConditionTermArgs{...} }
 type AlertConditionTermArrayInput interface {
 	pulumi.Input
 
@@ -667,8 +663,7 @@ type DashboardFilter struct {
 // DashboardFilterInput is an input type that accepts DashboardFilterArgs and DashboardFilterOutput values.
 // You can construct a concrete instance of `DashboardFilterInput` via:
 //
-// 		 DashboardFilterArgs{...}
-//
+//          DashboardFilterArgs{...}
 type DashboardFilterInput interface {
 	pulumi.Input
 
@@ -704,12 +699,11 @@ func (i DashboardFilterArgs) ToDashboardFilterPtrOutputWithContext(ctx context.C
 // DashboardFilterPtrInput is an input type that accepts DashboardFilterArgs, DashboardFilterPtr and DashboardFilterPtrOutput values.
 // You can construct a concrete instance of `DashboardFilterPtrInput` via:
 //
-// 		 DashboardFilterArgs{...}
+//          DashboardFilterArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DashboardFilterPtrInput interface {
 	pulumi.Input
 
@@ -831,8 +825,7 @@ type DashboardWidget struct {
 // DashboardWidgetInput is an input type that accepts DashboardWidgetArgs and DashboardWidgetOutput values.
 // You can construct a concrete instance of `DashboardWidgetInput` via:
 //
-// 		 DashboardWidgetArgs{...}
-//
+//          DashboardWidgetArgs{...}
 type DashboardWidgetInput interface {
 	pulumi.Input
 
@@ -881,8 +874,7 @@ func (i DashboardWidgetArgs) ToDashboardWidgetOutputWithContext(ctx context.Cont
 // DashboardWidgetArrayInput is an input type that accepts DashboardWidgetArray and DashboardWidgetArrayOutput values.
 // You can construct a concrete instance of `DashboardWidgetArrayInput` via:
 //
-// 		 DashboardWidgetArray{ DashboardWidgetArgs{...} }
-//
+//          DashboardWidgetArray{ DashboardWidgetArgs{...} }
 type DashboardWidgetArrayInput interface {
 	pulumi.Input
 
@@ -1035,8 +1027,7 @@ type DashboardWidgetCompareWith struct {
 // DashboardWidgetCompareWithInput is an input type that accepts DashboardWidgetCompareWithArgs and DashboardWidgetCompareWithOutput values.
 // You can construct a concrete instance of `DashboardWidgetCompareWithInput` via:
 //
-// 		 DashboardWidgetCompareWithArgs{...}
-//
+//          DashboardWidgetCompareWithArgs{...}
 type DashboardWidgetCompareWithInput interface {
 	pulumi.Input
 
@@ -1064,8 +1055,7 @@ func (i DashboardWidgetCompareWithArgs) ToDashboardWidgetCompareWithOutputWithCo
 // DashboardWidgetCompareWithArrayInput is an input type that accepts DashboardWidgetCompareWithArray and DashboardWidgetCompareWithArrayOutput values.
 // You can construct a concrete instance of `DashboardWidgetCompareWithArrayInput` via:
 //
-// 		 DashboardWidgetCompareWithArray{ DashboardWidgetCompareWithArgs{...} }
-//
+//          DashboardWidgetCompareWithArray{ DashboardWidgetCompareWithArgs{...} }
 type DashboardWidgetCompareWithArrayInput interface {
 	pulumi.Input
 
@@ -1137,8 +1127,7 @@ type DashboardWidgetCompareWithPresentation struct {
 // DashboardWidgetCompareWithPresentationInput is an input type that accepts DashboardWidgetCompareWithPresentationArgs and DashboardWidgetCompareWithPresentationOutput values.
 // You can construct a concrete instance of `DashboardWidgetCompareWithPresentationInput` via:
 //
-// 		 DashboardWidgetCompareWithPresentationArgs{...}
-//
+//          DashboardWidgetCompareWithPresentationArgs{...}
 type DashboardWidgetCompareWithPresentationInput interface {
 	pulumi.Input
 
@@ -1195,8 +1184,7 @@ type DashboardWidgetMetric struct {
 // DashboardWidgetMetricInput is an input type that accepts DashboardWidgetMetricArgs and DashboardWidgetMetricOutput values.
 // You can construct a concrete instance of `DashboardWidgetMetricInput` via:
 //
-// 		 DashboardWidgetMetricArgs{...}
-//
+//          DashboardWidgetMetricArgs{...}
 type DashboardWidgetMetricInput interface {
 	pulumi.Input
 
@@ -1226,8 +1214,7 @@ func (i DashboardWidgetMetricArgs) ToDashboardWidgetMetricOutputWithContext(ctx 
 // DashboardWidgetMetricArrayInput is an input type that accepts DashboardWidgetMetricArray and DashboardWidgetMetricArrayOutput values.
 // You can construct a concrete instance of `DashboardWidgetMetricArrayInput` via:
 //
-// 		 DashboardWidgetMetricArray{ DashboardWidgetMetricArgs{...} }
-//
+//          DashboardWidgetMetricArray{ DashboardWidgetMetricArgs{...} }
 type DashboardWidgetMetricArrayInput interface {
 	pulumi.Input
 
@@ -1309,8 +1296,7 @@ type EntityTagsTag struct {
 // EntityTagsTagInput is an input type that accepts EntityTagsTagArgs and EntityTagsTagOutput values.
 // You can construct a concrete instance of `EntityTagsTagInput` via:
 //
-// 		 EntityTagsTagArgs{...}
-//
+//          EntityTagsTagArgs{...}
 type EntityTagsTagInput interface {
 	pulumi.Input
 
@@ -1340,8 +1326,7 @@ func (i EntityTagsTagArgs) ToEntityTagsTagOutputWithContext(ctx context.Context)
 // EntityTagsTagArrayInput is an input type that accepts EntityTagsTagArray and EntityTagsTagArrayOutput values.
 // You can construct a concrete instance of `EntityTagsTagArrayInput` via:
 //
-// 		 EntityTagsTagArray{ EntityTagsTagArgs{...} }
-//
+//          EntityTagsTagArray{ EntityTagsTagArgs{...} }
 type EntityTagsTagArrayInput interface {
 	pulumi.Input
 
@@ -1416,8 +1401,7 @@ type InfraAlertConditionCritical struct {
 // InfraAlertConditionCriticalInput is an input type that accepts InfraAlertConditionCriticalArgs and InfraAlertConditionCriticalOutput values.
 // You can construct a concrete instance of `InfraAlertConditionCriticalInput` via:
 //
-// 		 InfraAlertConditionCriticalArgs{...}
-//
+//          InfraAlertConditionCriticalArgs{...}
 type InfraAlertConditionCriticalInput interface {
 	pulumi.Input
 
@@ -1454,12 +1438,11 @@ func (i InfraAlertConditionCriticalArgs) ToInfraAlertConditionCriticalPtrOutputW
 // InfraAlertConditionCriticalPtrInput is an input type that accepts InfraAlertConditionCriticalArgs, InfraAlertConditionCriticalPtr and InfraAlertConditionCriticalPtrOutput values.
 // You can construct a concrete instance of `InfraAlertConditionCriticalPtrInput` via:
 //
-// 		 InfraAlertConditionCriticalArgs{...}
+//          InfraAlertConditionCriticalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type InfraAlertConditionCriticalPtrInput interface {
 	pulumi.Input
 
@@ -1574,8 +1557,7 @@ type InfraAlertConditionWarning struct {
 // InfraAlertConditionWarningInput is an input type that accepts InfraAlertConditionWarningArgs and InfraAlertConditionWarningOutput values.
 // You can construct a concrete instance of `InfraAlertConditionWarningInput` via:
 //
-// 		 InfraAlertConditionWarningArgs{...}
-//
+//          InfraAlertConditionWarningArgs{...}
 type InfraAlertConditionWarningInput interface {
 	pulumi.Input
 
@@ -1612,12 +1594,11 @@ func (i InfraAlertConditionWarningArgs) ToInfraAlertConditionWarningPtrOutputWit
 // InfraAlertConditionWarningPtrInput is an input type that accepts InfraAlertConditionWarningArgs, InfraAlertConditionWarningPtr and InfraAlertConditionWarningPtrOutput values.
 // You can construct a concrete instance of `InfraAlertConditionWarningPtrInput` via:
 //
-// 		 InfraAlertConditionWarningArgs{...}
+//          InfraAlertConditionWarningArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type InfraAlertConditionWarningPtrInput interface {
 	pulumi.Input
 
@@ -1737,8 +1718,7 @@ type NrqlAlertConditionCritical struct {
 // NrqlAlertConditionCriticalInput is an input type that accepts NrqlAlertConditionCriticalArgs and NrqlAlertConditionCriticalOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionCriticalInput` via:
 //
-// 		 NrqlAlertConditionCriticalArgs{...}
-//
+//          NrqlAlertConditionCriticalArgs{...}
 type NrqlAlertConditionCriticalInput interface {
 	pulumi.Input
 
@@ -1780,12 +1760,11 @@ func (i NrqlAlertConditionCriticalArgs) ToNrqlAlertConditionCriticalPtrOutputWit
 // NrqlAlertConditionCriticalPtrInput is an input type that accepts NrqlAlertConditionCriticalArgs, NrqlAlertConditionCriticalPtr and NrqlAlertConditionCriticalPtrOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionCriticalPtrInput` via:
 //
-// 		 NrqlAlertConditionCriticalArgs{...}
+//          NrqlAlertConditionCriticalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NrqlAlertConditionCriticalPtrInput interface {
 	pulumi.Input
 
@@ -1945,8 +1924,7 @@ type NrqlAlertConditionNrql struct {
 // NrqlAlertConditionNrqlInput is an input type that accepts NrqlAlertConditionNrqlArgs and NrqlAlertConditionNrqlOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionNrqlInput` via:
 //
-// 		 NrqlAlertConditionNrqlArgs{...}
-//
+//          NrqlAlertConditionNrqlArgs{...}
 type NrqlAlertConditionNrqlInput interface {
 	pulumi.Input
 
@@ -1984,12 +1962,11 @@ func (i NrqlAlertConditionNrqlArgs) ToNrqlAlertConditionNrqlPtrOutputWithContext
 // NrqlAlertConditionNrqlPtrInput is an input type that accepts NrqlAlertConditionNrqlArgs, NrqlAlertConditionNrqlPtr and NrqlAlertConditionNrqlPtrOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionNrqlPtrInput` via:
 //
-// 		 NrqlAlertConditionNrqlArgs{...}
+//          NrqlAlertConditionNrqlArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NrqlAlertConditionNrqlPtrInput interface {
 	pulumi.Input
 
@@ -2112,8 +2089,7 @@ type NrqlAlertConditionTerm struct {
 // NrqlAlertConditionTermInput is an input type that accepts NrqlAlertConditionTermArgs and NrqlAlertConditionTermOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionTermInput` via:
 //
-// 		 NrqlAlertConditionTermArgs{...}
-//
+//          NrqlAlertConditionTermArgs{...}
 type NrqlAlertConditionTermInput interface {
 	pulumi.Input
 
@@ -2148,8 +2124,7 @@ func (i NrqlAlertConditionTermArgs) ToNrqlAlertConditionTermOutputWithContext(ct
 // NrqlAlertConditionTermArrayInput is an input type that accepts NrqlAlertConditionTermArray and NrqlAlertConditionTermArrayOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionTermArrayInput` via:
 //
-// 		 NrqlAlertConditionTermArray{ NrqlAlertConditionTermArgs{...} }
-//
+//          NrqlAlertConditionTermArray{ NrqlAlertConditionTermArgs{...} }
 type NrqlAlertConditionTermArrayInput interface {
 	pulumi.Input
 
@@ -2249,8 +2224,7 @@ type NrqlAlertConditionWarning struct {
 // NrqlAlertConditionWarningInput is an input type that accepts NrqlAlertConditionWarningArgs and NrqlAlertConditionWarningOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionWarningInput` via:
 //
-// 		 NrqlAlertConditionWarningArgs{...}
-//
+//          NrqlAlertConditionWarningArgs{...}
 type NrqlAlertConditionWarningInput interface {
 	pulumi.Input
 
@@ -2292,12 +2266,11 @@ func (i NrqlAlertConditionWarningArgs) ToNrqlAlertConditionWarningPtrOutputWithC
 // NrqlAlertConditionWarningPtrInput is an input type that accepts NrqlAlertConditionWarningArgs, NrqlAlertConditionWarningPtr and NrqlAlertConditionWarningPtrOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionWarningPtrInput` via:
 //
-// 		 NrqlAlertConditionWarningArgs{...}
+//          NrqlAlertConditionWarningArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NrqlAlertConditionWarningPtrInput interface {
 	pulumi.Input
 
@@ -2472,8 +2445,7 @@ type GetAlertChannelConfig struct {
 // GetAlertChannelConfigInput is an input type that accepts GetAlertChannelConfigArgs and GetAlertChannelConfigOutput values.
 // You can construct a concrete instance of `GetAlertChannelConfigInput` via:
 //
-// 		 GetAlertChannelConfigArgs{...}
-//
+//          GetAlertChannelConfigArgs{...}
 type GetAlertChannelConfigInput interface {
 	pulumi.Input
 
@@ -2613,8 +2585,7 @@ type GetEntityTag struct {
 // GetEntityTagInput is an input type that accepts GetEntityTagArgs and GetEntityTagOutput values.
 // You can construct a concrete instance of `GetEntityTagInput` via:
 //
-// 		 GetEntityTagArgs{...}
-//
+//          GetEntityTagArgs{...}
 type GetEntityTagInput interface {
 	pulumi.Input
 

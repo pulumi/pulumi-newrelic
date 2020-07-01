@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -33,7 +31,7 @@ import * as utilities from "../utilities";
  *     pluginGuid: fooPlugin.then(fooPlugin => fooPlugin.guid),
  *     valueFunction: "average",
  *     metricDescription: "Queue consumers",
- *     term: [{
+ *     terms: [{
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",
@@ -42,7 +40,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
  * ## Terms
  *
  * The `term` mapping supports the following arguments:

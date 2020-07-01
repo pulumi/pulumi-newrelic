@@ -14,8 +14,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// ### Email
-    /// 
+    /// ##### Email
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -37,7 +36,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
+    /// See additional examples.
     /// ## Additional Examples
     /// 
     /// ##### Slack
@@ -182,8 +181,8 @@ namespace Pulumi.NewRelic
     ///                 BaseUrl = "http://www.test.com",
     ///                 PayloadString = @"{
     ///   ""my_custom_values"": {
-    ///     ""condition_name"": ""$$CONDITION_NAME"",
-    ///     ""policy_name"": ""$$POLICY_NAME""
+    ///     ""condition_name"": ""$CONDITION_NAME"",
+    ///     ""policy_name"": ""$POLICY_NAME""
     ///   }
     /// }
     /// 

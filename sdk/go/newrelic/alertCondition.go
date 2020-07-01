@@ -12,7 +12,58 @@ import (
 
 // Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "APPLICATION"
+// 		opt1 := "APM"
+// 		_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 			Name:   "my-app",
+// 			Type:   &opt0,
+// 			Domain: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+// 			PolicyId: fooAlertPolicy.ID(),
+// 			Type:     pulumi.String("apm_app_metric"),
+// 			Entities: pulumi.IntArray{
+// 				pulumi.String(data.Newrelic_application.App.Application_id),
+// 			},
+// 			Metric:         pulumi.String("apdex"),
+// 			RunbookUrl:     pulumi.String("https://www.example.com"),
+// 			ConditionScope: pulumi.String("application"),
+// 			Terms: newrelic.AlertConditionTermArray{
+// 				&newrelic.AlertConditionTermArgs{
+// 					Duration:     pulumi.Int(5),
+// 					Operator:     pulumi.String("below"),
+// 					Priority:     pulumi.String("critical"),
+// 					Threshold:    pulumi.Float64(0.75),
+// 					TimeFunction: pulumi.String("all"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Terms
 //
 // The `term` mapping supports the following arguments:

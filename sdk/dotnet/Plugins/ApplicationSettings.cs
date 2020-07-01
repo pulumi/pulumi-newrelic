@@ -18,8 +18,6 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -38,7 +36,6 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// }
     /// ```
-    /// 
     /// ## Notes
     /// 
     /// &gt; **NOTE:** Applications that have reported data in the last twelve hours

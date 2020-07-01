@@ -14,8 +14,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// ### Type: `SIMPLE`
-    /// 
+    /// ##### Type: `SIMPLE`
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -43,7 +42,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// }
     /// ```
-    /// 
+    /// See additional examples.
     /// ## Additional Examples
     /// 
     /// Type: `BROWSER`

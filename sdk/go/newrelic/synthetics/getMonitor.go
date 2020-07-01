@@ -8,6 +8,37 @@ import (
 )
 
 // Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		bar, err := synthetics.LookupMonitor(ctx, &synthetics.LookupMonitorArgs{
+// 			Name: "bar",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = synthetics.NewAlertCondition(ctx, "baz", &synthetics.AlertConditionArgs{
+// 			PolicyId:   pulumi.String(newrelic_alert_policy.Foo.Id),
+// 			MonitorId:  pulumi.String(bar.Id),
+// 			RunbookUrl: pulumi.String("https://www.example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
 	err := ctx.Invoke("newrelic:synthetics/getMonitor:getMonitor", args, &rv, opts...)

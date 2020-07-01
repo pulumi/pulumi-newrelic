@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -25,7 +23,6 @@ import * as utilities from "../utilities";
  *     endUserApdexThreshold: 0.8,
  * });
  * ```
- *
  * ## Notes
  *
  * > **NOTE:** Applications that have reported data in the last twelve hours

@@ -36,7 +36,6 @@ namespace Pulumi.NewRelic.Synthetics
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

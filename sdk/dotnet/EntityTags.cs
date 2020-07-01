@@ -11,6 +11,51 @@ namespace Pulumi.NewRelic
 {
     /// <summary>
     /// Use this resource to create, update, and delete tags for a New Relic One entity.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooEntity = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+    ///         {
+    ///             Name = "Example application",
+    ///             Type = "APPLICATION",
+    ///             Domain = "APM",
+    ///         }));
+    ///         var fooEntityTags = new NewRelic.EntityTags("fooEntityTags", new NewRelic.EntityTagsArgs
+    ///         {
+    ///             Guid = fooEntity.Apply(fooEntity =&gt; fooEntity.Guid),
+    ///             Tags = 
+    ///             {
+    ///                 new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 {
+    ///                     Key = "my-key",
+    ///                     Values = 
+    ///                     {
+    ///                         "my-value",
+    ///                         "my-other-value",
+    ///                     },
+    ///                 },
+    ///                 new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 {
+    ///                     Key = "my-key-2",
+    ///                     Values = 
+    ///                     {
+    ///                         "my-value-2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EntityTags : Pulumi.CustomResource
     {

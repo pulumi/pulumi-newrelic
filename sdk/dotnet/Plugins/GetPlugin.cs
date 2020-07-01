@@ -17,6 +17,49 @@ namespace Pulumi.NewRelic.Plugins
         /// Each plugin published to New Relic's Plugin Central is assigned a [GUID](https://docs.newrelic.com/docs/plugins/plugin-developer-resources/planning-your-plugin/parts-plugin#guid). Once you have installed a plugin into your account it is assigned an ID. This account-specific ID is required when creating Plugins alert conditions.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var fooPlugin = Output.Create(NewRelic.Plugins.GetPlugin.InvokeAsync(new NewRelic.Plugins.GetPluginArgs
+        ///         {
+        ///             Guid = "com.example.my-plugin",
+        ///         }));
+        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+        ///         {
+        ///         });
+        ///         var fooAlertCondition = new NewRelic.Plugins.AlertCondition("fooAlertCondition", new NewRelic.Plugins.AlertConditionArgs
+        ///         {
+        ///             PolicyId = fooAlertPolicy.Id,
+        ///             Metric = "Component/Summary/Consumers[consumers]",
+        ///             PluginId = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Id),
+        ///             PluginGuid = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Guid),
+        ///             ValueFunction = "average",
+        ///             MetricDescription = "Queue consumers",
+        ///             Terms = 
+        ///             {
+        ///                 new NewRelic.Plugins.Inputs.AlertConditionTermArgs
+        ///                 {
+        ///                     Duration = 5,
+        ///                     Operator = "below",
+        ///                     Priority = "critical",
+        ///                     Threshold = 0.75,
+        ///                     TimeFunction = "all",
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPluginResult> InvokeAsync(GetPluginArgs args, InvokeOptions? options = null)

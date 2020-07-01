@@ -7,11 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific entity in New Relic One that already exists. 
+ * Use this data source to get information about a specific entity in New Relic One that already exists.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,11 +27,11 @@ import * as utilities from "./utilities";
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
  *     policyId: fooAlertPolicy.id,
- *     type: "apmAppMetric",
+ *     type: "apm_app_metric",
  *     entities: [data.newrelic_application.app.application_id],
  *     metric: "apdex",
  *     runbookUrl: "https://www.example.com",
- *     term: [{
+ *     terms: [{
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",

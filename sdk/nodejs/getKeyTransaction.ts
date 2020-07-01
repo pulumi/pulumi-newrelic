@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -23,11 +21,11 @@ import * as utilities from "./utilities";
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
  *     policyId: fooAlertPolicy.id,
- *     type: "apmKtMetric",
+ *     type: "apm_kt_metric",
  *     entities: [txn.then(txn => txn.id)],
- *     metric: "errorPercentage",
+ *     metric: "error_percentage",
  *     runbookUrl: "https://www.example.com",
- *     term: [{
+ *     terms: [{
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",

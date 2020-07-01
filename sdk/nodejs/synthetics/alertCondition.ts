@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -58,7 +56,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition. 
+     * The ID of the Synthetics monitor to be referenced in the alert condition.
      */
     public readonly monitorId!: pulumi.Output<string>;
     /**
@@ -125,7 +123,7 @@ export interface AlertConditionState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition. 
+     * The ID of the Synthetics monitor to be referenced in the alert condition.
      */
     readonly monitorId?: pulumi.Input<string>;
     /**
@@ -151,7 +149,7 @@ export interface AlertConditionArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition. 
+     * The ID of the Synthetics monitor to be referenced in the alert condition.
      */
     readonly monitorId: pulumi.Input<string>;
     /**

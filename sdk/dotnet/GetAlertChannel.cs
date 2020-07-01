@@ -13,9 +13,6 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// Use this data source to get information about a specific alert channel in New Relic that already exists. 
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithVersion());

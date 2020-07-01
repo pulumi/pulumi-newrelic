@@ -18,8 +18,6 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;

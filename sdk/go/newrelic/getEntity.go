@@ -8,6 +8,62 @@ import (
 )
 
 // Use this data source to get information about a specific entity in New Relic One that already exists.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "APM"
+// 		opt1 := "APPLICATION"
+// 		_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 			Name:   "my-app",
+// 			Domain: &opt0,
+// 			Type:   &opt1,
+// 			Tag: newrelic.GetEntityTag{
+// 				Key:   "my-tag",
+// 				Value: "my-tag-value",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+// 			PolicyId: fooAlertPolicy.ID(),
+// 			Type:     pulumi.String("apm_app_metric"),
+// 			Entities: pulumi.IntArray{
+// 				pulumi.String(data.Newrelic_application.App.Application_id),
+// 			},
+// 			Metric:     pulumi.String("apdex"),
+// 			RunbookUrl: pulumi.String("https://www.example.com"),
+// 			Terms: newrelic.AlertConditionTermArray{
+// 				&newrelic.AlertConditionTermArgs{
+// 					Duration:     pulumi.Int(5),
+// 					Operator:     pulumi.String("below"),
+// 					Priority:     pulumi.String("critical"),
+// 					Threshold:    pulumi.Float64(0.75),
+// 					TimeFunction: pulumi.String("all"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
 	err := ctx.Invoke("newrelic:index/getEntity:getEntity", args, &rv, opts...)
