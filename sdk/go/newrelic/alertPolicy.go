@@ -10,6 +10,8 @@ import (
 )
 
 // Use this resource to create and manage New Relic alert policies.
+//
+// ## Example Usage
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 

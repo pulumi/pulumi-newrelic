@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Type: `SIMPLE`
- *
+ * ##### Type: `SIMPLE`
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -28,7 +27,7 @@ import * as utilities from "../utilities";
  *     verifySsl: true, // Optional for type "SIMPLE" and "BROWSER"
  * });
  * ```
- *
+ * See additional examples.
  * ## Additional Examples
  *
  * Type: `BROWSER`

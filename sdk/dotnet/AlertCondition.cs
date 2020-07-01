@@ -12,7 +12,52 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+    ///         {
+    ///             Name = "my-app",
+    ///             Type = "APPLICATION",
+    ///             Domain = "APM",
+    ///         }));
+    ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+    ///         {
+    ///         });
+    ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
+    ///         {
+    ///             PolicyId = fooAlertPolicy.Id,
+    ///             Type = "apm_app_metric",
+    ///             Entities = 
+    ///             {
+    ///                 data.Newrelic_application.App.Application_id,
+    ///             },
+    ///             Metric = "apdex",
+    ///             RunbookUrl = "https://www.example.com",
+    ///             ConditionScope = "application",
+    ///             Terms = 
+    ///             {
+    ///                 new NewRelic.Inputs.AlertConditionTermArgs
+    ///                 {
+    ///                     Duration = 5,
+    ///                     Operator = "below",
+    ///                     Priority = "critical",
+    ///                     Threshold = 0.75,
+    ///                     TimeFunction = "all",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:

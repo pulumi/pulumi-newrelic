@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// The example below will apply multiple alert channels to an existing New Relic alert policy.
     /// 
     /// ```csharp
     /// using Pulumi;

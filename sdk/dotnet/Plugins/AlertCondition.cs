@@ -12,7 +12,56 @@ namespace Pulumi.NewRelic.Plugins
     /// <summary>
     /// Use this resource to create and manage plugins alert conditions in New Relic.
     /// 
+    /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooPlugin = Output.Create(NewRelic.Plugins.GetPlugin.InvokeAsync(new NewRelic.Plugins.GetPluginArgs
+    ///         {
+    ///             Guid = "com.example.my-plugin",
+    ///         }));
+    ///         var fooPluginComponent = fooPlugin.Apply(fooPlugin =&gt; Output.Create(NewRelic.Plugins.GetPluginComponent.InvokeAsync(new NewRelic.Plugins.GetPluginComponentArgs
+    ///         {
+    ///             PluginId = fooPlugin.Id,
+    ///             Name = "MyPlugin",
+    ///         })));
+    ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+    ///         {
+    ///         });
+    ///         var fooAlertCondition = new NewRelic.Plugins.AlertCondition("fooAlertCondition", new NewRelic.Plugins.AlertConditionArgs
+    ///         {
+    ///             PolicyId = fooAlertPolicy.Id,
+    ///             Entities = 
+    ///             {
+    ///                 fooPluginComponent.Apply(fooPluginComponent =&gt; fooPluginComponent.Id),
+    ///             },
+    ///             Metric = "Component/Summary/Consumers[consumers]",
+    ///             PluginId = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Id),
+    ///             PluginGuid = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Guid),
+    ///             ValueFunction = "average",
+    ///             MetricDescription = "Queue consumers",
+    ///             Terms = 
+    ///             {
+    ///                 new NewRelic.Plugins.Inputs.AlertConditionTermArgs
+    ///                 {
+    ///                     Duration = 5,
+    ///                     Operator = "below",
+    ///                     Priority = "critical",
+    ///                     Threshold = 0.75,
+    ///                     TimeFunction = "all",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Terms
     /// 
     /// The `term` mapping supports the following arguments:

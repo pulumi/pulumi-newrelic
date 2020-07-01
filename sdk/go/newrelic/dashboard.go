@@ -12,6 +12,7 @@ import (
 
 // Use this resource to create and manage New Relic dashboards.
 //
+// ## Example Usage
 // ## Attribute Refence
 //
 // In addition to all arguments above, the following attributes are exported:
@@ -58,7 +59,6 @@ import (
 //     * `limit` - (Optional) The limit of distinct data series to display.
 //   * `applicationBreakdown`:
 //     * `entityIds` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-//
 //
 // ### Nested `filter` block
 //

@@ -12,6 +12,115 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic dashboards.
     /// 
+    /// ## Example Usage
+    /// ### Create A New Relic Dashboard
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myApplication = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+    ///         {
+    ///             Name = "My Application",
+    ///             Type = "APPLICATION",
+    ///             Domain = "APM",
+    ///         }));
+    ///         var exampledash = new NewRelic.Dashboard("exampledash", new NewRelic.DashboardArgs
+    ///         {
+    ///             Title = "New Relic Terraform Example",
+    ///             Filter = new NewRelic.Inputs.DashboardFilterArgs
+    ///             {
+    ///                 EventTypes = 
+    ///                 {
+    ///                     "Transaction",
+    ///                 },
+    ///                 Attributes = 
+    ///                 {
+    ///                     "appName",
+    ///                     "name",
+    ///                 },
+    ///             },
+    ///             Widgets = 
+    ///             {
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Requests per minute",
+    ///                     Visualization = "billboard",
+    ///                     Nrql = "SELECT rate(count(*), 1 minute) FROM Transaction",
+    ///                     Row = 1,
+    ///                     Column = 1,
+    ///                 },
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Error rate",
+    ///                     Visualization = "gauge",
+    ///                     Nrql = "SELECT percentage(count(*), WHERE error IS True) FROM Transaction",
+    ///                     ThresholdRed = 2.5,
+    ///                     Row = 1,
+    ///                     Column = 2,
+    ///                 },
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Average transaction duration, by application",
+    ///                     Visualization = "facet_bar_chart",
+    ///                     Nrql = "SELECT average(duration) FROM Transaction FACET appName",
+    ///                     Row = 1,
+    ///                     Column = 3,
+    ///                 },
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Apdex, top 5 by host",
+    ///                     Duration = 1800000,
+    ///                     Visualization = "metric_line_chart",
+    ///                     EntityIds = 
+    ///                     {
+    ///                         data.Newrelic_application.My_application.Application_id,
+    ///                     },
+    ///                     Metrics = 
+    ///                     {
+    ///                         new NewRelic.Inputs.DashboardWidgetMetricArgs
+    ///                         {
+    ///                             Name = "Apdex",
+    ///                             Values = 
+    ///                             {
+    ///                                 "score",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Facet = "host",
+    ///                     Limit = 5,
+    ///                     Row = 2,
+    ///                     Column = 1,
+    ///                 },
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Requests per minute, by transaction",
+    ///                     Visualization = "facet_table",
+    ///                     Nrql = "SELECT rate(count(*), 1 minute) FROM Transaction FACET name",
+    ///                     Row = 2,
+    ///                     Column = 2,
+    ///                 },
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Dashboard Note",
+    ///                     Visualization = "markdown",
+    ///                     Source = @"### Helpful Links
+    /// 
+    /// * [New Relic One](https://one.newrelic.com)
+    /// * [Developer Portal](https://developer.newrelic.com)",
+    ///                     Row = 2,
+    ///                     Column = 3,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Attribute Refence
     /// 
     /// In addition to all arguments above, the following attributes are exported:
@@ -58,7 +167,6 @@ namespace Pulumi.NewRelic
     ///     * `limit` - (Optional) The limit of distinct data series to display.
     ///   * `application_breakdown`:
     ///     * `entity_ids` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-    /// 
     /// 
     /// ### Nested `filter` block
     /// 

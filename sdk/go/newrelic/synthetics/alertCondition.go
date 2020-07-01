@@ -11,6 +11,37 @@ import (
 )
 
 // Use this resource to create and manage synthetics alert conditions in New Relic.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooMonitor, err := synthetics.LookupMonitor(ctx, &synthetics.LookupMonitorArgs{
+// 			Name: "foo",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
+// 			PolicyId:   pulumi.String(newrelic_alert_policy.Foo.Id),
+// 			MonitorId:  pulumi.String(fooMonitor.Id),
+// 			RunbookUrl: pulumi.String("https://www.example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AlertCondition struct {
 	pulumi.CustomResourceState
 

@@ -14,8 +14,6 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -90,7 +88,6 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
     /// ## Thresholds
     /// 
     /// The `critical` and `warning` threshold mapping supports the following arguments:

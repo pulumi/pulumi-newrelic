@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * The example below will apply multiple alert channels to an existing New Relic alert policy.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -11,6 +11,35 @@ import (
 )
 
 // Use this resource to create and manage New Relic alert policies.
+//
+// ## Example Usage
+//
+// ##### Email
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				IncludeJsonAttachment: pulumi.String("1"),
+// 				Recipients:            pulumi.String("foo@example.com"),
+// 			},
+// 			Type: pulumi.String("email"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// See additional examples.
 type AlertChannel struct {
 	pulumi.CustomResourceState
 

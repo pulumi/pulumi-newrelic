@@ -7,13 +7,11 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * #### DEPRECATED! Use at your own risk. Use the `newrelic..getEntity` data source instead. This feature may be removed in the next major release.
+ * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release.
  *
- * Use this data source to get information about a specific application in New Relic that already exists. 
+ * Use this data source to get information about a specific application in New Relic that already exists.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -25,11 +23,11 @@ import * as utilities from "./utilities";
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
  *     policyId: fooAlertPolicy.id,
- *     type: "apmAppMetric",
+ *     type: "apm_app_metric",
  *     entities: [app.then(app => app.id)],
  *     metric: "apdex",
  *     runbookUrl: "https://www.example.com",
- *     term: [{
+ *     terms: [{
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",

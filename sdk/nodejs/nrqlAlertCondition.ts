@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  *
- *
  * ## NRQL
  *
  * The `nrql` block supports the following arguments:

@@ -11,6 +11,31 @@ import (
 )
 
 // Use this resource to create, update, and delete a Synthetics label in New Relic.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := synthetics.NewLabel(ctx, "foo", &synthetics.LabelArgs{
+// 			MonitorId: pulumi.String(newrelic_synthetics_monitor.Foo.Id),
+// 			Type:      pulumi.String("MyCategory"),
+// 			Value:     pulumi.String("MyValue"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Label struct {
 	pulumi.CustomResourceState
 

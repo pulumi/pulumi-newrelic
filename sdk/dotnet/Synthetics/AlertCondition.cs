@@ -14,8 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -48,7 +46,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synthetics monitor to be referenced in the alert condition. 
+        /// The ID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Output("monitorId")]
         public Output<string> MonitorId { get; private set; } = null!;
@@ -124,7 +122,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ID of the Synthetics monitor to be referenced in the alert condition. 
+        /// The ID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Input("monitorId", required: true)]
         public Input<string> MonitorId { get; set; } = null!;
@@ -161,7 +159,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ID of the Synthetics monitor to be referenced in the alert condition. 
+        /// The ID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Input("monitorId")]
         public Input<string>? MonitorId { get; set; }

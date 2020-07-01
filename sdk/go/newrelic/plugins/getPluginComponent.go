@@ -10,6 +10,64 @@ import (
 // Use this data source to get information about a single plugin component in New Relic that already exists.
 //
 // Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/plugins"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooPlugin, err := plugins.GetPlugin(ctx, &plugins.GetPluginArgs{
+// 			Guid: "com.example.my-plugin",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooPluginComponent, err := plugins.GetPluginComponent(ctx, &plugins.GetPluginComponentArgs{
+// 			PluginId: fooPlugin.Id,
+// 			Name:     "My Plugin Component",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = plugins.NewAlertCondition(ctx, "fooAlertCondition", &plugins.AlertConditionArgs{
+// 			PolicyId:   fooAlertPolicy.ID(),
+// 			Metric:     pulumi.String("Component/Summary/Consumers[consumers]"),
+// 			PluginId:   pulumi.String(fooPlugin.Id),
+// 			PluginGuid: pulumi.String(fooPlugin.Guid),
+// 			Entities: pulumi.IntArray{
+// 				pulumi.String(fooPluginComponent.Id),
+// 			},
+// 			ValueFunction:     pulumi.String("average"),
+// 			MetricDescription: pulumi.String("Queue consumers"),
+// 			Terms: plugins.AlertConditionTermArray{
+// 				&plugins.AlertConditionTermArgs{
+// 					Duration:     pulumi.Int(5),
+// 					Operator:     pulumi.String("below"),
+// 					Priority:     pulumi.String("critical"),
+// 					Threshold:    pulumi.Float64(0.75),
+// 					TimeFunction: pulumi.String("all"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetPluginComponent(ctx *pulumi.Context, args *GetPluginComponentArgs, opts ...pulumi.InvokeOption) (*GetPluginComponentResult, error) {
 	var rv GetPluginComponentResult
 	err := ctx.Invoke("newrelic:plugins/getPluginComponent:getPluginComponent", args, &rv, opts...)

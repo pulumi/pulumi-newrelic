@@ -14,8 +14,6 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -30,24 +28,24 @@ namespace Pulumi.NewRelic.Insights
     ///             {
     ///                 new NewRelic.Insights.Inputs.EventEventArgs
     ///                 {
-    ///                     Attribute = 
+    ///                     Attributes = 
     ///                     {
-    ///                         
+    ///                         new NewRelic.Insights.Inputs.EventEventAttributeArgs
     ///                         {
-    ///                             { "key", "a_string_attribute" },
-    ///                             { "value", "a string" },
+    ///                             Key = "a_string_attribute",
+    ///                             Value = "a string",
     ///                         },
-    ///                         
+    ///                         new NewRelic.Insights.Inputs.EventEventAttributeArgs
     ///                         {
-    ///                             { "key", "an_integer_attribute" },
-    ///                             { "type", "int" },
-    ///                             { "value", 42 },
+    ///                             Key = "an_integer_attribute",
+    ///                             Type = "int",
+    ///                             Value = "42",
     ///                         },
-    ///                         
+    ///                         new NewRelic.Insights.Inputs.EventEventAttributeArgs
     ///                         {
-    ///                             { "key", "a_float_attribute" },
-    ///                             { "type", "float" },
-    ///                             { "value", 101.1 },
+    ///                             Key = "a_float_attribute",
+    ///                             Type = "float",
+    ///                             Value = "101.1",
     ///                         },
     ///                     },
     ///                     Timestamp = 1232471100,
@@ -59,7 +57,6 @@ namespace Pulumi.NewRelic.Insights
     /// 
     /// }
     /// ```
-    /// 
     /// ## Events
     /// 
     /// The `event` mapping supports the following arguments:

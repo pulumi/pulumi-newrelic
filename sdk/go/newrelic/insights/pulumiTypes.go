@@ -19,8 +19,7 @@ type EventEvent struct {
 // EventEventInput is an input type that accepts EventEventArgs and EventEventOutput values.
 // You can construct a concrete instance of `EventEventInput` via:
 //
-// 		 EventEventArgs{...}
-//
+//          EventEventArgs{...}
 type EventEventInput interface {
 	pulumi.Input
 
@@ -49,8 +48,7 @@ func (i EventEventArgs) ToEventEventOutputWithContext(ctx context.Context) Event
 // EventEventArrayInput is an input type that accepts EventEventArray and EventEventArrayOutput values.
 // You can construct a concrete instance of `EventEventArrayInput` via:
 //
-// 		 EventEventArray{ EventEventArgs{...} }
-//
+//          EventEventArray{ EventEventArgs{...} }
 type EventEventArrayInput interface {
 	pulumi.Input
 
@@ -127,8 +125,7 @@ type EventEventAttribute struct {
 // EventEventAttributeInput is an input type that accepts EventEventAttributeArgs and EventEventAttributeOutput values.
 // You can construct a concrete instance of `EventEventAttributeInput` via:
 //
-// 		 EventEventAttributeArgs{...}
-//
+//          EventEventAttributeArgs{...}
 type EventEventAttributeInput interface {
 	pulumi.Input
 
@@ -157,8 +154,7 @@ func (i EventEventAttributeArgs) ToEventEventAttributeOutputWithContext(ctx cont
 // EventEventAttributeArrayInput is an input type that accepts EventEventAttributeArray and EventEventAttributeArrayOutput values.
 // You can construct a concrete instance of `EventEventAttributeArrayInput` via:
 //
-// 		 EventEventAttributeArray{ EventEventAttributeArgs{...} }
-//
+//          EventEventAttributeArray{ EventEventAttributeArgs{...} }
 type EventEventAttributeArrayInput interface {
 	pulumi.Input
 

@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -21,16 +19,16 @@ import * as utilities from "../utilities";
  *     events: [{
  *         attributes: [
  *             {
- *                 key: "aStringAttribute",
+ *                 key: "a_string_attribute",
  *                 value: "a string",
  *             },
  *             {
- *                 key: "anIntegerAttribute",
+ *                 key: "an_integer_attribute",
  *                 type: "int",
  *                 value: "42",
  *             },
  *             {
- *                 key: "aFloatAttribute",
+ *                 key: "a_float_attribute",
  *                 type: "float",
  *                 value: "101.1",
  *             },
@@ -40,7 +38,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
  * ## Events
  *
  * The `event` mapping supports the following arguments:

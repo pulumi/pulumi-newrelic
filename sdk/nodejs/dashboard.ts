@@ -6,6 +6,140 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Use this resource to create and manage New Relic dashboards.
+ *
+ * ## Example Usage
+ * ### Create A New Relic Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const myApplication = newrelic.getEntity({
+ *     name: "My Application",
+ *     type: "APPLICATION",
+ *     domain: "APM",
+ * });
+ * const exampledash = new newrelic.Dashboard("exampledash", {
+ *     title: "New Relic Terraform Example",
+ *     filter: {
+ *         eventTypes: ["Transaction"],
+ *         attributes: [
+ *             "appName",
+ *             "name",
+ *         ],
+ *     },
+ *     widgets: [
+ *         {
+ *             title: "Requests per minute",
+ *             visualization: "billboard",
+ *             nrql: "SELECT rate(count(*), 1 minute) FROM Transaction",
+ *             row: 1,
+ *             column: 1,
+ *         },
+ *         {
+ *             title: "Error rate",
+ *             visualization: "gauge",
+ *             nrql: "SELECT percentage(count(*), WHERE error IS True) FROM Transaction",
+ *             thresholdRed: 2.5,
+ *             row: 1,
+ *             column: 2,
+ *         },
+ *         {
+ *             title: "Average transaction duration, by application",
+ *             visualization: "facet_bar_chart",
+ *             nrql: "SELECT average(duration) FROM Transaction FACET appName",
+ *             row: 1,
+ *             column: 3,
+ *         },
+ *         {
+ *             title: "Apdex, top 5 by host",
+ *             duration: 1800000,
+ *             visualization: "metric_line_chart",
+ *             entityIds: [data.newrelic_application.my_application.application_id],
+ *             metrics: [{
+ *                 name: "Apdex",
+ *                 values: ["score"],
+ *             }],
+ *             facet: "host",
+ *             limit: 5,
+ *             row: 2,
+ *             column: 1,
+ *         },
+ *         {
+ *             title: "Requests per minute, by transaction",
+ *             visualization: "facet_table",
+ *             nrql: "SELECT rate(count(*), 1 minute) FROM Transaction FACET name",
+ *             row: 2,
+ *             column: 2,
+ *         },
+ *         {
+ *             title: "Dashboard Note",
+ *             visualization: "markdown",
+ *             source: `### Helpful Links
+ *
+ * * [New Relic One](https://one.newrelic.com)
+ * * [Developer Portal](https://developer.newrelic.com)`,
+ *             row: 2,
+ *             column: 3,
+ *         },
+ *     ],
+ * });
+ * ```
+ * ## Attribute Refence
+ *
+ * In addition to all arguments above, the following attributes are exported:
+ *
+ *   * `dashboardUrl` - The URL for viewing the dashboard.
+ *
+ * ### Nested `widget` blocks
+ *
+ * All nested `widget` blocks support the following common arguments:
+ *
+ *   * `title` - (Required) A title for the widget.
+ *   * `visualization` - (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
+ *   * `row` - (Required) Row position of widget from top left, starting at `1`.
+ *   * `column` - (Required) Column position of widget from top left, starting at `1`.
+ *   * `width` - (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+ *   * `height` - (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+ *   * `notes` - (Optional) Description of the widget.
+ *
+ * Each `visualization` type supports an additional set of arguments:
+ *
+ *   * `billboard`, `billboardComparison`:
+ *     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+ *     * `thresholdRed` - (Optional) Threshold above which the displayed value will be styled with a red color.
+ *     * `thresholdYellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
+ *   * `gauge`:
+ *     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+ *     * `thresholdRed` - (Required) Threshold above which the displayed value will be styled with a red color.
+ *     * `thresholdYellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
+ *   * `facetBarChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `facetedLineChart`, or `heatmap`:
+ *     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+ *     * `drilldownDashboardId` - (Optional) The ID of a dashboard to link to from the widget's facets.
+ *   * `attributeSheet`, `comparisonLineChart`, `eventFeed`, `eventTable`, `funnel`, `histogram`, `lineChart`, `rawJson`, `singleEvent`, or `uniquesList`:
+ *     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+ *   * `markdown`:
+ *     * `source` - (Required) The markdown source to be rendered in the widget.
+ *   * `metricLineChart`:
+ *     * `entityIds` - (Required) A collection of entity ids to display data for.  These are typically application IDs.
+ *     * `metric` - (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+ *       * `name` - (Required) The metric name to display.
+ *       * `values` - (Required) The metric values to display.
+ *     * `duration` - (Required) The duration, in ms, of the time window represented in the chart.
+ *     * `endTime` - (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+ *     * `facet` - (Optional) Can be set to "host" to facet the metric data by host.
+ *     * `limit` - (Optional) The limit of distinct data series to display.
+ *   * `applicationBreakdown`:
+ *     * `entityIds` - (Required) A collection of entity IDs to display data. These are typically application IDs.
+ *
+ * ### Nested `filter` block
+ *
+ * The optional filter block supports the following arguments:
+ *   * `eventTypes` - (Optional) A list of event types to enable filtering for.
+ *   * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+ */
 export class Dashboard extends pulumi.CustomResource {
     /**
      * Get an existing Dashboard resource's state with the given name, ID, and optional extra

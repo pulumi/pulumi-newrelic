@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -20,7 +18,7 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.AlertPolicy("foo", {});
  * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
  *     policyId: foo.id,
- *     type: "infraMetric",
+ *     type: "infra_metric",
  *     event: "StorageSample",
  *     select: "diskUsedPercent",
  *     comparison: "above",
@@ -38,7 +36,7 @@ import * as utilities from "./utilities";
  * });
  * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
  *     policyId: foo.id,
- *     type: "infraMetric",
+ *     type: "infra_metric",
  *     event: "DatastoreSample",
  *     select: "provider.databaseConnections.Average",
  *     comparison: "above",
@@ -52,7 +50,7 @@ import * as utilities from "./utilities";
  * });
  * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
  *     policyId: foo.id,
- *     type: "infraProcessRunning",
+ *     type: "infra_process_running",
  *     comparison: "equal",
  *     processWhere: "`commandName` = '/usr/bin/ruby'",
  *     critical: {
@@ -62,14 +60,13 @@ import * as utilities from "./utilities";
  * });
  * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
  *     policyId: foo.id,
- *     type: "infraHostNotReporting",
+ *     type: "infra_host_not_reporting",
  *     where: `(`hostname` LIKE '%frontend%')`,
  *     critical: {
  *         duration: 5,
  *     },
  * });
  * ```
- *
  * ## Thresholds
  *
  * The `critical` and `warning` threshold mapping supports the following arguments:

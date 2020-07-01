@@ -7,11 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific alert channel in New Relic that already exists. 
+ * Use this data source to get information about a specific alert channel in New Relic that already exists.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

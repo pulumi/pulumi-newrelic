@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -25,12 +23,12 @@ import * as utilities from "./utilities";
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
  * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
  *     policyId: fooAlertPolicy.id,
- *     type: "apmAppMetric",
+ *     type: "apm_app_metric",
  *     entities: [data.newrelic_application.app.application_id],
  *     metric: "apdex",
  *     runbookUrl: "https://www.example.com",
  *     conditionScope: "application",
- *     term: [{
+ *     terms: [{
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",
@@ -39,7 +37,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- *
  * ## Terms
  *
  * The `term` mapping supports the following arguments:

@@ -21,8 +21,7 @@ type AlertConditionTerm struct {
 // AlertConditionTermInput is an input type that accepts AlertConditionTermArgs and AlertConditionTermOutput values.
 // You can construct a concrete instance of `AlertConditionTermInput` via:
 //
-// 		 AlertConditionTermArgs{...}
-//
+//          AlertConditionTermArgs{...}
 type AlertConditionTermInput interface {
 	pulumi.Input
 
@@ -53,8 +52,7 @@ func (i AlertConditionTermArgs) ToAlertConditionTermOutputWithContext(ctx contex
 // AlertConditionTermArrayInput is an input type that accepts AlertConditionTermArray and AlertConditionTermArrayOutput values.
 // You can construct a concrete instance of `AlertConditionTermArrayInput` via:
 //
-// 		 AlertConditionTermArray{ AlertConditionTermArgs{...} }
-//
+//          AlertConditionTermArray{ AlertConditionTermArgs{...} }
 type AlertConditionTermArrayInput interface {
 	pulumi.Input
 
@@ -138,8 +136,7 @@ type WorkloadEntitySearchQuery struct {
 // WorkloadEntitySearchQueryInput is an input type that accepts WorkloadEntitySearchQueryArgs and WorkloadEntitySearchQueryOutput values.
 // You can construct a concrete instance of `WorkloadEntitySearchQueryInput` via:
 //
-// 		 WorkloadEntitySearchQueryArgs{...}
-//
+//          WorkloadEntitySearchQueryArgs{...}
 type WorkloadEntitySearchQueryInput interface {
 	pulumi.Input
 
@@ -167,8 +164,7 @@ func (i WorkloadEntitySearchQueryArgs) ToWorkloadEntitySearchQueryOutputWithCont
 // WorkloadEntitySearchQueryArrayInput is an input type that accepts WorkloadEntitySearchQueryArray and WorkloadEntitySearchQueryArrayOutput values.
 // You can construct a concrete instance of `WorkloadEntitySearchQueryArrayInput` via:
 //
-// 		 WorkloadEntitySearchQueryArray{ WorkloadEntitySearchQueryArgs{...} }
-//
+//          WorkloadEntitySearchQueryArray{ WorkloadEntitySearchQueryArgs{...} }
 type WorkloadEntitySearchQueryArrayInput interface {
 	pulumi.Input
 

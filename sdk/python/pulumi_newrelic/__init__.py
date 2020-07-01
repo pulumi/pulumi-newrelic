@@ -3,12 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import importlib
-# Make subpackages available:
-__all__ = ['config', 'insights', 'plugins', 'synthetics']
-for pkg in __all__:
-    if pkg != 'config':
-        importlib.import_module(f'{__name__}.{pkg}')
-
 # Export this package's modules as members:
 from .alert_channel import *
 from .alert_condition import *
@@ -25,3 +19,14 @@ from .get_key_transaction import *
 from .infra_alert_condition import *
 from .nrql_alert_condition import *
 from .provider import *
+
+# Make subpackages available:
+_submodules = [
+    'config',
+    'insights',
+    'plugins',
+    'synthetics',
+]
+for pkg in _submodules:
+    if pkg != 'config':
+        importlib.import_module(f'{__name__}.{pkg}')

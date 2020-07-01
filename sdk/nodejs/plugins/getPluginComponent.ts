@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -35,7 +33,7 @@ import * as utilities from "../utilities";
  *     entities: [fooPluginComponent.then(fooPluginComponent => fooPluginComponent.id)],
  *     valueFunction: "average",
  *     metricDescription: "Queue consumers",
- *     term: [{
+ *     terms: [{
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",
