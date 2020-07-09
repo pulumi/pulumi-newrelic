@@ -265,3 +265,13 @@ export namespace plugins {
     }
 }
 
+export namespace synthetics {
+    export interface MultiLocationAlertConditionCritical {
+        threshold: pulumi.Input<number>;
+    }
+
+    export interface MultiLocationAlertConditionWarning {
+        threshold: pulumi.Input<number>;
+    }
+}
+

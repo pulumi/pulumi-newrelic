@@ -664,6 +664,8 @@ github.com/newrelic/newrelic-client-go v0.30.2 h1:QsO0W9XH3dYjk+9EzGr5E/1g3DzQXs
 github.com/newrelic/newrelic-client-go v0.30.2/go.mod h1:NtqwF12A6xHy3QjGnDxXGyxA2cE39A692wqhNQ+nOFU=
 github.com/newrelic/newrelic-client-go v0.31.0 h1:9xomr5hsxApW9L138INxfFHkVEQws1vJxmdLZUWecCQ=
 github.com/newrelic/newrelic-client-go v0.31.0/go.mod h1:2+0/M/IvdkL56sL+hH1mfe7OVmhv61dmUuJfBtR+2nI=
+github.com/newrelic/newrelic-client-go v0.31.2 h1:2oQXutNYERj82xBUh2lYZZlOWtY6UprKRrilMmbXARc=
+github.com/newrelic/newrelic-client-go v0.31.2/go.mod h1:2+0/M/IvdkL56sL+hH1mfe7OVmhv61dmUuJfBtR+2nI=
 github.com/newrelic/terraform-provider-newrelic v1.16.1-0.20200623201505-e204b3c090f0 h1:h6YvwT6knKzKknO94Pg/y1qA0d7n80OMuifN5vedjpk=
 github.com/newrelic/terraform-provider-newrelic v1.16.1-0.20200623201505-e204b3c090f0/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
@@ -751,6 +753,8 @@ github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200624063439-b9ef32a17a3c/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200629093858-0ec8cd391aaf h1:Sh47mVT0Vt5k+PxKTwrQsSuvtYNKvMZbTGJVAZn6sf0=
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200629093858-0ec8cd391aaf/go.mod h1:G5rX4kMRLDLKuNJY9D/s6YIxymj8wX8odK2iIzCNTPQ=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200709130657-73b822cfe9af h1:Hg1TDdSXHqvSKHlW1D7HROElRcUSzsjcMUQ7TAQlP1w=
+github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200709130657-73b822cfe9af/go.mod h1:925wixiWPrzhCLvJhJhHZbKMXV0u7/0IYUWZuRBSVMI=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d h1:1JtzB9Gx0YX2UgKKkqJwTgBXxfg2cbLUEqTJKwKBK7s=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d/go.mod h1:yv9XozKsue9ZELHQbrBGgIaFtE3OX3Q4m7koTzTqgpE=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200528170746-c1234defe2b5 h1:h+pUwgEser1Ole6TMCc66njRPcw7SEVXpeoClG+ihEM=

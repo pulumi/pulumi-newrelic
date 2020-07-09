@@ -99,11 +99,13 @@ export class AlertPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID to operate on.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider.
      */
     public readonly accountId!: pulumi.Output<number | undefined>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
@@ -154,11 +156,13 @@ export class AlertPolicy extends pulumi.CustomResource {
  */
 export interface AlertPolicyState {
     /**
-     * The New Relic account ID to operate on.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider.
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -176,11 +180,13 @@ export interface AlertPolicyState {
  */
 export interface AlertPolicyArgs {
     /**
-     * The New Relic account ID to operate on.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider.
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+     * imported via terraform import.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

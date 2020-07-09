@@ -46,6 +46,7 @@
         "synthetics/label.ts",
         "synthetics/monitor.ts",
         "synthetics/monitorScript.ts",
+        "synthetics/multiLocationAlertCondition.ts",
         "synthetics/secureCredential.ts",
         "types/index.ts",
         "types/input.ts",

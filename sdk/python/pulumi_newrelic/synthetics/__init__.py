@@ -9,4 +9,5 @@ from .get_secure_credential import *
 from .label import *
 from .monitor import *
 from .monitor_script import *
+from .multi_location_alert_condition import *
 from .secure_credential import *
