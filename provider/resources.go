@@ -123,11 +123,6 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"NEW_RELIC_INSIGHTS_INSERT_URL"},
 				},
 			},
-			"insights_query_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEW_RELIC_INSIGHTS_QUERY_KEY"},
-				},
-			},
 			"insights_query_url": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "https://insights-api.newrelic.com/v1/accounts",
@@ -162,6 +157,9 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_synthetics_monitor_script":    {Tok: makeResource(syntheticsMod, "MonitorScript")},
 			"newrelic_synthetics_label":             {Tok: makeResource(syntheticsMod, "Label")},
 			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
+			"newrelic_synthetics_multilocation_alert_condition": {
+				Tok: makeResource(syntheticsMod, "MultiLocationAlertCondition"),
+			},
 
 			"newrelic_insights_event": {Tok: makeResource(insightsMod, "Event")},
 

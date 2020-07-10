@@ -8,4 +8,5 @@ export * from "./getSecureCredential";
 export * from "./label";
 export * from "./monitor";
 export * from "./monitorScript";
+export * from "./multiLocationAlertCondition";
 export * from "./secureCredential";

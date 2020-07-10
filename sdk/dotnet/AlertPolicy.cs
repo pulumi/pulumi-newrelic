@@ -92,13 +92,15 @@ namespace Pulumi.NewRelic
     public partial class AlertPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID to operate on.
+        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider.
         /// </summary>
         [Output("accountId")]
         public Output<int?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         [Output("channelIds")]
         public Output<ImmutableArray<int>> ChannelIds { get; private set; } = null!;
@@ -162,7 +164,7 @@ namespace Pulumi.NewRelic
     public sealed class AlertPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.
+        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -171,7 +173,9 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         public InputList<int> ChannelIds
         {
@@ -199,7 +203,7 @@ namespace Pulumi.NewRelic
     public sealed class AlertPolicyState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID to operate on.
+        /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -208,7 +212,9 @@ namespace Pulumi.NewRelic
         private InputList<int>? _channelIds;
 
         /// <summary>
-        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed.
+        /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
+        /// in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
+        /// imported via terraform import.
         /// </summary>
         public InputList<int> ChannelIds
         {

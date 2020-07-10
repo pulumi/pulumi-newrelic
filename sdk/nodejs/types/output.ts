@@ -287,3 +287,13 @@ export namespace plugins {
     }
 }
 
+export namespace synthetics {
+    export interface MultiLocationAlertConditionCritical {
+        threshold: number;
+    }
+
+    export interface MultiLocationAlertConditionWarning {
+        threshold: number;
+    }
+}
+
