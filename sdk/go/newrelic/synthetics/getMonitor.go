@@ -28,7 +28,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = synthetics.NewAlertCondition(ctx, "baz", &synthetics.AlertConditionArgs{
-// 			PolicyId:   pulumi.String(newrelic_alert_policy.Foo.Id),
+// 			PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
 // 			MonitorId:  pulumi.String(bar.Id),
 // 			RunbookUrl: pulumi.String("https://www.example.com"),
 // 		})

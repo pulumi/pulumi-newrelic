@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := synthetics.NewLabel(ctx, "foo", &synthetics.LabelArgs{
-// 			MonitorId: pulumi.String(newrelic_synthetics_monitor.Foo.Id),
+// 			MonitorId: pulumi.Any(newrelic_synthetics_monitor.Foo.Id),
 // 			Type:      pulumi.String("MyCategory"),
 // 			Value:     pulumi.String("MyValue"),
 // 		})

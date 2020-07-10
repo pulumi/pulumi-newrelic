@@ -53,7 +53,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
-// 			PolicyId: pulumi.String(newrelic_alert_policy.Example_policy.Id),
+// 			PolicyId: pulumi.Any(newrelic_alert_policy.Example_policy.Id),
 // 			ChannelIds: pulumi.IntArray{
 // 				emailChannel.ID(),
 // 				slackChannel.ID(),

@@ -43,7 +43,7 @@ import (
 // 			PolicyId: fooAlertPolicy.ID(),
 // 			Type:     pulumi.String("apm_app_metric"),
 // 			Entities: pulumi.IntArray{
-// 				pulumi.String(data.Newrelic_application.App.Application_id),
+// 				pulumi.Any(data.Newrelic_application.App.Application_id),
 // 			},
 // 			Metric:     pulumi.String("apdex"),
 // 			RunbookUrl: pulumi.String("https://www.example.com"),
