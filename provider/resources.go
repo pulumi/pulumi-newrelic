@@ -137,6 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_application":     {Tok: makeDataSource(mainMod, "getApplication")},
 			"newrelic_key_transaction": {Tok: makeDataSource(mainMod, "getKeyTransaction")},
 			"newrelic_entity":          {Tok: makeDataSource(mainMod, "getEntity")},
+			"newrelic_account":         {Tok: makeDataSource(mainMod, "getAccount")},
 
 			"newrelic_synthetics_monitor":           {Tok: makeDataSource(syntheticsMod, "getMonitor")},
 			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},

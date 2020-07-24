@@ -28,6 +28,8 @@ class Label(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, monitor_id=None, type=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
+        > **DEPRECATED** Use at your own risk. Use the [`EntityTags`](https://www.terraform.io/docs/providers/newrelic/r/entity_tags.html) resource instead. This feature may already no longer be functional for some accounts and will be removed in the next major release.  See [this link](https://www.google.com/search?q=synthetics+labels+deprecation&oq=synthetics+labels+deprecation&aqs=chrome..69i57.4062j1j4&sourceid=chrome&ie=UTF-8) for more details.
+
         Use this resource to create, update, and delete a Synthetics label in New Relic.
 
         ## Example Usage

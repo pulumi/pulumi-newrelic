@@ -22,6 +22,7 @@
         "dashboard.ts",
         "entityTags.ts",
         "eventsToMetricsRule.ts",
+        "getAccount.ts",
         "getAlertChannel.ts",
         "getAlertPolicy.ts",
         "getApplication.ts",

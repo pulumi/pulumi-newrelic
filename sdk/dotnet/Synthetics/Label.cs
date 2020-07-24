@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
+    /// &gt; **DEPRECATED** Use at your own risk. Use the [`newrelic.EntityTags`](https://www.terraform.io/docs/providers/newrelic/r/entity_tags.html) resource instead. This feature may already no longer be functional for some accounts and will be removed in the next major release.  See [this link](https://www.google.com/search?q=synthetics+labels+deprecation&amp;oq=synthetics+labels+deprecation&amp;aqs=chrome..69i57.4062j1j4&amp;sourceid=chrome&amp;ie=UTF-8) for more details.
+    /// 
     /// Use this resource to create, update, and delete a Synthetics label in New Relic.
     /// 
     /// ## Example Usage
