@@ -652,6 +652,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.7.1 h1:nv/bgZ4Q55Pvv2OVqAJ8wSKL4Fo8/oqK4WrKjZ
 github.com/pulumi/pulumi/sdk/v2 v2.7.1/go.mod h1:uZynzlmQbvvoNLuB7H7RQV9l4+eEpKI+J1UI1qqeuUM=
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200709130657-73b822cfe9af h1:Hg1TDdSXHqvSKHlW1D7HROElRcUSzsjcMUQ7TAQlP1w=
 github.com/pulumi/terraform-provider-newrelic v1.16.1-0.20200709130657-73b822cfe9af/go.mod h1:925wixiWPrzhCLvJhJhHZbKMXV0u7/0IYUWZuRBSVMI=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200713181848-caf7fad28bd3 h1:r5N8RGKTR33lQCesjBhXXJpZtpUjS2lOgoC9CCwu4sY=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200713181848-caf7fad28bd3/go.mod h1:2Ij3UJxZKusoDmevzvA+g+82MOYx4xtfpnniIob3m/Q=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34 h1:u1NyO0NXvl+b6kXq2iuQgU95U3O1muXMZLEglS/k+zM=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
