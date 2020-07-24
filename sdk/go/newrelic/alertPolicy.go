@@ -12,6 +12,28 @@ import (
 // Use this resource to create and manage New Relic alert policies.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+// 			IncidentPreference: pulumi.String("PER_POLICY"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 

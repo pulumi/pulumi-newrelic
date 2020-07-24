@@ -6,22 +6,21 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class NrqlAlertCondition(pulumi.CustomResource):
     account_id: pulumi.Output[float]
     """
-    The New Relic account ID for managing your NRQL alert conditions.
+    The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
     """
     baseline_direction: pulumi.Output[str]
     """
-    The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
-    'UPPER_ONLY' (case insensitive).
+    The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
     """
     critical: pulumi.Output[dict]
     """
-    A condition term with priority set to critical.
+    A list containing the `critical` threshold values. See Terms below for details.
 
       * `duration` (`float`)
       * `operator` (`str`)
@@ -36,15 +35,15 @@ class NrqlAlertCondition(pulumi.CustomResource):
     """
     enabled: pulumi.Output[bool]
     """
-    Whether or not to enable the alert condition.
+    Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
     """
     expected_groups: pulumi.Output[float]
     """
-    Number of expected groups when using outlier detection.
+    Number of expected groups when using `outlier` detection.
     """
     ignore_overlap: pulumi.Output[bool]
     """
-    Whether to look for a convergence of groups when using outlier detection.
+    **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
     """
     name: pulumi.Output[str]
     """
@@ -52,7 +51,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     """
     nrql: pulumi.Output[dict]
     """
-    A NRQL query.
+    A NRQL query. See NRQL below for details.
 
       * `evaluationOffset` (`float`)
       * `query` (`str`)
@@ -60,7 +59,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     """
     open_violation_on_group_overlap: pulumi.Output[bool]
     """
-    Whether overlapping groups should produce a violation.
+    Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
     """
     policy_id: pulumi.Output[float]
     """
@@ -72,7 +71,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     """
     terms: pulumi.Output[list]
     """
-    A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+    **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 
       * `duration` (`float`)
       * `operator` (`str`)
@@ -84,26 +83,23 @@ class NrqlAlertCondition(pulumi.CustomResource):
     """
     type: pulumi.Output[str]
     """
-    The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+    The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
     """
     value_function: pulumi.Output[str]
     """
-    Valid values are: 'single_value' or 'sum'
+    Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.
     """
     violation_time_limit: pulumi.Output[str]
     """
-    Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
-    select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
-    (case insensitive).
+    Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
     """
     violation_time_limit_seconds: pulumi.Output[float]
     """
-    Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
-    select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+    **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
     """
     warning: pulumi.Output[dict]
     """
-    A condition term with priority set to warning.
+    A list containing the `warning` threshold values. See Terms below for details.
 
       * `duration` (`float`)
       * `operator` (`str`)
@@ -146,28 +142,24 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] account_id: The New Relic account ID for managing your NRQL alert conditions.
-        :param pulumi.Input[str] baseline_direction: The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
-               'UPPER_ONLY' (case insensitive).
-        :param pulumi.Input[dict] critical: A condition term with priority set to critical.
+        :param pulumi.Input[float] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[dict] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
-        :param pulumi.Input[bool] enabled: Whether or not to enable the alert condition.
-        :param pulumi.Input[float] expected_groups: Number of expected groups when using outlier detection.
-        :param pulumi.Input[bool] ignore_overlap: Whether to look for a convergence of groups when using outlier detection.
+        :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[float] expected_groups: Number of expected groups when using `outlier` detection.
+        :param pulumi.Input[bool] ignore_overlap: **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
         :param pulumi.Input[str] name: The title of the condition.
-        :param pulumi.Input[dict] nrql: A NRQL query.
-        :param pulumi.Input[bool] open_violation_on_group_overlap: Whether overlapping groups should produce a violation.
+        :param pulumi.Input[dict] nrql: A NRQL query. See NRQL below for details.
+        :param pulumi.Input[bool] open_violation_on_group_overlap: Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[list] terms: A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
-        :param pulumi.Input[str] type: The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
-        :param pulumi.Input[str] value_function: Valid values are: 'single_value' or 'sum'
-        :param pulumi.Input[str] violation_time_limit: Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
-               select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
-               (case insensitive).
-        :param pulumi.Input[float] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
-               select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
-        :param pulumi.Input[dict] warning: A condition term with priority set to warning.
+        :param pulumi.Input[list] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.
+        :param pulumi.Input[str] violation_time_limit: Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+        :param pulumi.Input[float] violation_time_limit_seconds: **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+        :param pulumi.Input[dict] warning: A list containing the `warning` threshold values. See Terms below for details.
 
         The **critical** object supports the following:
 
@@ -214,7 +206,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -266,28 +258,24 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] account_id: The New Relic account ID for managing your NRQL alert conditions.
-        :param pulumi.Input[str] baseline_direction: The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
-               'UPPER_ONLY' (case insensitive).
-        :param pulumi.Input[dict] critical: A condition term with priority set to critical.
+        :param pulumi.Input[float] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[dict] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
-        :param pulumi.Input[bool] enabled: Whether or not to enable the alert condition.
-        :param pulumi.Input[float] expected_groups: Number of expected groups when using outlier detection.
-        :param pulumi.Input[bool] ignore_overlap: Whether to look for a convergence of groups when using outlier detection.
+        :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[float] expected_groups: Number of expected groups when using `outlier` detection.
+        :param pulumi.Input[bool] ignore_overlap: **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
         :param pulumi.Input[str] name: The title of the condition.
-        :param pulumi.Input[dict] nrql: A NRQL query.
-        :param pulumi.Input[bool] open_violation_on_group_overlap: Whether overlapping groups should produce a violation.
+        :param pulumi.Input[dict] nrql: A NRQL query. See NRQL below for details.
+        :param pulumi.Input[bool] open_violation_on_group_overlap: Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[list] terms: A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
-        :param pulumi.Input[str] type: The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
-        :param pulumi.Input[str] value_function: Valid values are: 'single_value' or 'sum'
-        :param pulumi.Input[str] violation_time_limit: Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
-               select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
-               (case insensitive).
-        :param pulumi.Input[float] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
-               select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
-        :param pulumi.Input[dict] warning: A condition term with priority set to warning.
+        :param pulumi.Input[list] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.
+        :param pulumi.Input[str] violation_time_limit: Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+        :param pulumi.Input[float] violation_time_limit_seconds: **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+        :param pulumi.Input[dict] warning: A list containing the `warning` threshold values. See Terms below for details.
 
         The **critical** object supports the following:
 
@@ -348,7 +336,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         return NrqlAlertCondition(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

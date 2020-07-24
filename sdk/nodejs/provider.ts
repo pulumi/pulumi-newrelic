@@ -35,19 +35,21 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        inputs["accountId"] = pulumi.output((args ? args.accountId : undefined) || <any>utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
-        inputs["adminApiKey"] = (args ? args.adminApiKey : undefined) || utilities.getEnv("NEW_RELIC_ADMIN_API_KEY");
-        inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("NEW_RELIC_API_KEY");
-        inputs["apiUrl"] = args ? args.apiUrl : undefined;
-        inputs["cacertFile"] = (args ? args.cacertFile : undefined) || utilities.getEnv("NEW_RELIC_API_CACERT");
-        inputs["infrastructureApiUrl"] = args ? args.infrastructureApiUrl : undefined;
-        inputs["insecureSkipVerify"] = pulumi.output((args ? args.insecureSkipVerify : undefined) || <any>utilities.getEnvBoolean("NEW_RELIC_API_SKIP_VERIFY")).apply(JSON.stringify);
-        inputs["insightsInsertKey"] = (args ? args.insightsInsertKey : undefined) || utilities.getEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
-        inputs["insightsInsertUrl"] = (args ? args.insightsInsertUrl : undefined) || (utilities.getEnv("NEW_RELIC_INSIGHTS_INSERT_URL") || "https://insights-collector.newrelic.com/v1/accounts");
-        inputs["insightsQueryUrl"] = (args ? args.insightsQueryUrl : undefined) || (utilities.getEnv("NEW_RELIC_INSIGHTS_QUERY_URL") || "https://insights-api.newrelic.com/v1/accounts");
-        inputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
-        inputs["region"] = (args ? args.region : undefined) || (utilities.getEnv("NEW_RELIC_REGION") || "US");
-        inputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
+        {
+            inputs["accountId"] = pulumi.output((args ? args.accountId : undefined) || <any>utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
+            inputs["adminApiKey"] = args ? args.adminApiKey : undefined;
+            inputs["apiKey"] = args ? args.apiKey : undefined;
+            inputs["apiUrl"] = args ? args.apiUrl : undefined;
+            inputs["cacertFile"] = args ? args.cacertFile : undefined;
+            inputs["infrastructureApiUrl"] = args ? args.infrastructureApiUrl : undefined;
+            inputs["insecureSkipVerify"] = pulumi.output(args ? args.insecureSkipVerify : undefined).apply(JSON.stringify);
+            inputs["insightsInsertKey"] = args ? args.insightsInsertKey : undefined;
+            inputs["insightsInsertUrl"] = args ? args.insightsInsertUrl : undefined;
+            inputs["insightsQueryUrl"] = args ? args.insightsQueryUrl : undefined;
+            inputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
+            inputs["region"] = (args ? args.region : undefined) || (utilities.getEnv("NEW_RELIC_REGION") || "US");
+            inputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
+        }
         if (!opts) {
             opts = {}
         }

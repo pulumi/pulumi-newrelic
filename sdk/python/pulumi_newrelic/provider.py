@@ -7,7 +7,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class Provider(pulumi.ProviderResource):
@@ -33,50 +33,36 @@ class Provider(pulumi.ProviderResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
             if account_id is None:
-                account_id = utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
+                account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
             __props__['account_id'] = pulumi.Output.from_input(account_id).apply(json.dumps) if account_id is not None else None
-            if admin_api_key is None:
-                admin_api_key = utilities.get_env('NEW_RELIC_ADMIN_API_KEY')
             __props__['admin_api_key'] = admin_api_key
-            if api_key is None:
-                api_key = utilities.get_env('NEW_RELIC_API_KEY')
             __props__['api_key'] = api_key
             if api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
             __props__['api_url'] = api_url
-            if cacert_file is None:
-                cacert_file = utilities.get_env('NEW_RELIC_API_CACERT')
             __props__['cacert_file'] = cacert_file
             if infrastructure_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
             __props__['infrastructure_api_url'] = infrastructure_api_url
-            if insecure_skip_verify is None:
-                insecure_skip_verify = utilities.get_env_bool('NEW_RELIC_API_SKIP_VERIFY')
             __props__['insecure_skip_verify'] = pulumi.Output.from_input(insecure_skip_verify).apply(json.dumps) if insecure_skip_verify is not None else None
-            if insights_insert_key is None:
-                insights_insert_key = utilities.get_env('NEW_RELIC_INSIGHTS_INSERT_KEY')
             __props__['insights_insert_key'] = insights_insert_key
-            if insights_insert_url is None:
-                insights_insert_url = (utilities.get_env('NEW_RELIC_INSIGHTS_INSERT_URL') or 'https://insights-collector.newrelic.com/v1/accounts')
             __props__['insights_insert_url'] = insights_insert_url
-            if insights_query_url is None:
-                insights_query_url = (utilities.get_env('NEW_RELIC_INSIGHTS_QUERY_URL') or 'https://insights-api.newrelic.com/v1/accounts')
             __props__['insights_query_url'] = insights_query_url
             if nerdgraph_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
                 pulumi.log.warn("nerdgraph_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.")
             __props__['nerdgraph_api_url'] = nerdgraph_api_url
             if region is None:
-                region = (utilities.get_env('NEW_RELIC_REGION') or 'US')
+                region = (_utilities.get_env('NEW_RELIC_REGION') or 'US')
             __props__['region'] = region
             if synthetics_api_url is not None:
                 warnings.warn("New Relic internal use only. API URLs are now configured based on the configured region.", DeprecationWarning)
@@ -89,7 +75,7 @@ class Provider(pulumi.ProviderResource):
             opts)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

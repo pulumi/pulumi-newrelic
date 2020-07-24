@@ -89,13 +89,6 @@ namespace Pulumi.NewRelic
         public ProviderArgs()
         {
             AccountId = Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID");
-            AdminApiKey = Utilities.GetEnv("NEW_RELIC_ADMIN_API_KEY");
-            ApiKey = Utilities.GetEnv("NEW_RELIC_API_KEY");
-            CacertFile = Utilities.GetEnv("NEW_RELIC_API_CACERT");
-            InsecureSkipVerify = Utilities.GetEnvBoolean("NEW_RELIC_API_SKIP_VERIFY");
-            InsightsInsertKey = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_KEY");
-            InsightsInsertUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_INSERT_URL") ?? "https://insights-collector.newrelic.com/v1/accounts";
-            InsightsQueryUrl = Utilities.GetEnv("NEW_RELIC_INSIGHTS_QUERY_URL") ?? "https://insights-api.newrelic.com/v1/accounts";
             Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }
     }

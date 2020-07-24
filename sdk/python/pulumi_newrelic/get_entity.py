@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetEntityResult:
     """
@@ -49,6 +50,8 @@ class GetEntityResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
+
+
 class AwaitableGetEntityResult(GetEntityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -64,7 +67,8 @@ class AwaitableGetEntityResult(GetEntityResult):
             tag=self.tag,
             type=self.type)
 
-def get_entity(domain=None,name=None,tag=None,type=None,opts=None):
+
+def get_entity(domain=None, name=None, tag=None, type=None, opts=None):
     """
     Use this data source to get information about a specific entity in New Relic One that already exists.
 
@@ -108,8 +112,6 @@ def get_entity(domain=None,name=None,tag=None,type=None,opts=None):
       * `value` (`str`)
     """
     __args__ = dict()
-
-
     __args__['domain'] = domain
     __args__['name'] = name
     __args__['tag'] = tag
@@ -117,7 +119,7 @@ def get_entity(domain=None,name=None,tag=None,type=None,opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:index/getEntity:getEntity', __args__, opts=opts).value
 
     return AwaitableGetEntityResult(

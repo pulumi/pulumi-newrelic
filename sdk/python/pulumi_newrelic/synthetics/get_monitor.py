@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetMonitorResult:
     """
@@ -28,6 +29,8 @@ class GetMonitorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+
+
 class AwaitableGetMonitorResult(GetMonitorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -38,7 +41,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             monitor_id=self.monitor_id,
             name=self.name)
 
-def get_monitor(name=None,opts=None):
+
+def get_monitor(name=None, opts=None):
     """
     Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
 
@@ -59,13 +63,11 @@ def get_monitor(name=None,opts=None):
     :param str name: The name of the synthetics monitor in New Relic.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitor:getMonitor', __args__, opts=opts).value
 
     return AwaitableGetMonitorResult(

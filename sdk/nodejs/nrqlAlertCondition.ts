@@ -66,16 +66,15 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID for managing your NRQL alert conditions.
+     * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     public readonly accountId!: pulumi.Output<number | undefined>;
     /**
-     * The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
-     * 'UPPER_ONLY' (case insensitive).
+     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     public readonly baselineDirection!: pulumi.Output<string | undefined>;
     /**
-     * A condition term with priority set to critical.
+     * A list containing the `critical` threshold values. See Terms below for details.
      */
     public readonly critical!: pulumi.Output<outputs.NrqlAlertConditionCritical | undefined>;
     /**
@@ -83,15 +82,15 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether or not to enable the alert condition.
+     * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Number of expected groups when using outlier detection.
+     * Number of expected groups when using `outlier` detection.
      */
     public readonly expectedGroups!: pulumi.Output<number | undefined>;
     /**
-     * Whether to look for a convergence of groups when using outlier detection.
+     * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
      *
      * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
@@ -101,11 +100,11 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A NRQL query.
+     * A NRQL query. See NRQL below for details.
      */
     public readonly nrql!: pulumi.Output<outputs.NrqlAlertConditionNrql>;
     /**
-     * Whether overlapping groups should produce a violation.
+     * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
      */
     public readonly openViolationOnGroupOverlap!: pulumi.Output<boolean | undefined>;
     /**
@@ -117,34 +116,31 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
     public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[] | undefined>;
     /**
-     * The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * Valid values are: 'single_value' or 'sum'
+     * Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
      */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
     /**
-     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
-     * select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
-     * (case insensitive).
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
      */
     public readonly violationTimeLimit!: pulumi.Output<string | undefined>;
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
-     * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     * **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
      *
      * @deprecated use `violation_time_limit` attribute instead
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
-     * A condition term with priority set to warning.
+     * A list containing the `warning` threshold values. See Terms below for details.
      */
     public readonly warning!: pulumi.Output<outputs.NrqlAlertConditionWarning | undefined>;
 
@@ -221,16 +217,15 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
  */
 export interface NrqlAlertConditionState {
     /**
-     * The New Relic account ID for managing your NRQL alert conditions.
+     * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
-     * 'UPPER_ONLY' (case insensitive).
+     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     readonly baselineDirection?: pulumi.Input<string>;
     /**
-     * A condition term with priority set to critical.
+     * A list containing the `critical` threshold values. See Terms below for details.
      */
     readonly critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
     /**
@@ -238,15 +233,15 @@ export interface NrqlAlertConditionState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Whether or not to enable the alert condition.
+     * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Number of expected groups when using outlier detection.
+     * Number of expected groups when using `outlier` detection.
      */
     readonly expectedGroups?: pulumi.Input<number>;
     /**
-     * Whether to look for a convergence of groups when using outlier detection.
+     * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
      *
      * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
@@ -256,11 +251,11 @@ export interface NrqlAlertConditionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A NRQL query.
+     * A NRQL query. See NRQL below for details.
      */
     readonly nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
-     * Whether overlapping groups should produce a violation.
+     * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
      */
     readonly openViolationOnGroupOverlap?: pulumi.Input<boolean>;
     /**
@@ -272,34 +267,31 @@ export interface NrqlAlertConditionState {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
-     * The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Valid values are: 'single_value' or 'sum'
+     * Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
-     * select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
-     * (case insensitive).
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
      */
     readonly violationTimeLimit?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
-     * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     * **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
      *
      * @deprecated use `violation_time_limit` attribute instead
      */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
-     * A condition term with priority set to warning.
+     * A list containing the `warning` threshold values. See Terms below for details.
      */
     readonly warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }
@@ -309,16 +301,15 @@ export interface NrqlAlertConditionState {
  */
 export interface NrqlAlertConditionArgs {
     /**
-     * The New Relic account ID for managing your NRQL alert conditions.
+     * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',
-     * 'UPPER_ONLY' (case insensitive).
+     * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     readonly baselineDirection?: pulumi.Input<string>;
     /**
-     * A condition term with priority set to critical.
+     * A list containing the `critical` threshold values. See Terms below for details.
      */
     readonly critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
     /**
@@ -326,15 +317,15 @@ export interface NrqlAlertConditionArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Whether or not to enable the alert condition.
+     * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Number of expected groups when using outlier detection.
+     * Number of expected groups when using `outlier` detection.
      */
     readonly expectedGroups?: pulumi.Input<number>;
     /**
-     * Whether to look for a convergence of groups when using outlier detection.
+     * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
      *
      * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
@@ -344,11 +335,11 @@ export interface NrqlAlertConditionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A NRQL query.
+     * A NRQL query. See NRQL below for details.
      */
     readonly nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
-     * Whether overlapping groups should produce a violation.
+     * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
      */
     readonly openViolationOnGroupOverlap?: pulumi.Input<boolean>;
     /**
@@ -360,34 +351,31 @@ export interface NrqlAlertConditionArgs {
      */
     readonly runbookUrl?: pulumi.Input<string>;
     /**
-     * A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.
+     * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
-     * The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.
+     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Valid values are: 'single_value' or 'sum'
+     * Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you
-     * select. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'
-     * (case insensitive).
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
      */
     readonly violationTimeLimit?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you
-     * select. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.
+     * **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
      *
      * @deprecated use `violation_time_limit` attribute instead
      */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
-     * A condition term with priority set to warning.
+     * A list containing the `warning` threshold values. See Terms below for details.
      */
     readonly warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }

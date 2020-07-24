@@ -23,70 +23,33 @@
                 }
             },
             "adminApiKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_ADMIN_API_KEY"
-                    ]
-                }
+                "type": "string"
             },
             "apiKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_API_KEY"
-                    ]
-                }
+                "type": "string"
             },
             "apiUrl": {
                 "type": "string",
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "cacertFile": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_API_CACERT"
-                    ]
-                }
+                "type": "string"
             },
             "infrastructureApiUrl": {
                 "type": "string",
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "insecureSkipVerify": {
-                "type": "boolean",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_API_SKIP_VERIFY"
-                    ]
-                }
+                "type": "boolean"
             },
             "insightsInsertKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_INSERT_KEY"
-                    ]
-                }
+                "type": "string"
             },
             "insightsInsertUrl": {
-                "type": "string",
-                "default": "https://insights-collector.newrelic.com/v1/accounts",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_INSERT_URL"
-                    ]
-                }
+                "type": "string"
             },
             "insightsQueryUrl": {
-                "type": "string",
-                "default": "https://insights-api.newrelic.com/v1/accounts",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_QUERY_URL"
-                    ]
-                }
+                "type": "string"
             },
             "nerdgraphApiUrl": {
                 "type": "string",
@@ -1372,70 +1335,33 @@
                 }
             },
             "adminApiKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_ADMIN_API_KEY"
-                    ]
-                }
+                "type": "string"
             },
             "apiKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_API_KEY"
-                    ]
-                }
+                "type": "string"
             },
             "apiUrl": {
                 "type": "string",
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "cacertFile": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_API_CACERT"
-                    ]
-                }
+                "type": "string"
             },
             "infrastructureApiUrl": {
                 "type": "string",
                 "deprecationMessage": "New Relic internal use only. API URLs are now configured based on the configured region."
             },
             "insecureSkipVerify": {
-                "type": "boolean",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_API_SKIP_VERIFY"
-                    ]
-                }
+                "type": "boolean"
             },
             "insightsInsertKey": {
-                "type": "string",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_INSERT_KEY"
-                    ]
-                }
+                "type": "string"
             },
             "insightsInsertUrl": {
-                "type": "string",
-                "default": "https://insights-collector.newrelic.com/v1/accounts",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_INSERT_URL"
-                    ]
-                }
+                "type": "string"
             },
             "insightsQueryUrl": {
-                "type": "string",
-                "default": "https://insights-api.newrelic.com/v1/accounts",
-                "defaultInfo": {
-                    "environment": [
-                        "NEW_RELIC_INSIGHTS_QUERY_URL"
-                    ]
-                }
+                "type": "string"
             },
             "nerdgraphApiUrl": {
                 "type": "string",
@@ -1717,7 +1643,7 @@
             }
         },
         "newrelic:index/alertPolicy:AlertPolicy": {
-            "description": "Use this resource to create and manage New Relic alert policies.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}",
+            "description": "Use this resource to create and manage New Relic alert policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Basic Usage\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertPolicy(\"foo\", {\n    incidentPreference: \"PER_POLICY\", // PER_POLICY is default\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertPolicy(\"foo\", incident_preference=\"PER_POLICY\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertPolicy(\"foo\", new NewRelic.AlertPolicyArgs\n        {\n            IncidentPreference = \"PER_POLICY\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertPolicy(ctx, \"foo\", \u0026newrelic.AlertPolicyArgs{\n\t\t\tIncidentPreference: pulumi.String(\"PER_POLICY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -2323,15 +2249,15 @@
             "properties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID for managing your NRQL alert conditions.\n"
+                    "description": "The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                 },
                 "baselineDirection": {
                     "type": "string",
-                    "description": "The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',\n'UPPER_ONLY' (case insensitive).\n"
+                    "description": "The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).\n"
                 },
                 "critical": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
-                    "description": "A condition term with priority set to critical.\n"
+                    "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
                 },
                 "description": {
                     "type": "string",
@@ -2339,15 +2265,15 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether or not to enable the alert condition.\n"
+                    "description": "Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.\n"
                 },
                 "expectedGroups": {
                     "type": "integer",
-                    "description": "Number of expected groups when using outlier detection.\n"
+                    "description": "Number of expected groups when using `outlier` detection.\n"
                 },
                 "ignoreOverlap": {
                     "type": "boolean",
-                    "description": "Whether to look for a convergence of groups when using outlier detection.\n",
+                    "description": "**DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.\n",
                     "deprecationMessage": "use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true"
                 },
                 "name": {
@@ -2356,11 +2282,11 @@
                 },
                 "nrql": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
-                    "description": "A NRQL query.\n"
+                    "description": "A NRQL query. See NRQL below for details.\n"
                 },
                 "openViolationOnGroupOverlap": {
                     "type": "boolean",
-                    "description": "Whether overlapping groups should produce a violation.\n"
+                    "description": "Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.\n"
                 },
                 "policyId": {
                     "type": "integer",
@@ -2375,29 +2301,29 @@
                     "items": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
                     },
-                    "description": "A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.\n",
+                    "description": "**DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.\n",
                     "deprecationMessage": "use `critical` and `warning` attributes instead"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.\n"
+                    "description": "The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.\n"
                 },
                 "valueFunction": {
                     "type": "string",
-                    "description": "Valid values are: 'single_value' or 'sum'\n"
+                    "description": "Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.\n"
                 },
                 "violationTimeLimit": {
                     "type": "string",
-                    "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'\n(case insensitive).\n"
+                    "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).\n"
                 },
                 "violationTimeLimitSeconds": {
                     "type": "integer",
-                    "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.\n",
+                    "description": "**DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.\n",
                     "deprecationMessage": "use `violation_time_limit` attribute instead"
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
-                    "description": "A condition term with priority set to warning.\n"
+                    "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
                 }
             },
             "required": [
@@ -2408,15 +2334,15 @@
             "inputProperties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID for managing your NRQL alert conditions.\n"
+                    "description": "The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                 },
                 "baselineDirection": {
                     "type": "string",
-                    "description": "The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',\n'UPPER_ONLY' (case insensitive).\n"
+                    "description": "The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).\n"
                 },
                 "critical": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
-                    "description": "A condition term with priority set to critical.\n"
+                    "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
                 },
                 "description": {
                     "type": "string",
@@ -2424,15 +2350,15 @@
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Whether or not to enable the alert condition.\n"
+                    "description": "Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.\n"
                 },
                 "expectedGroups": {
                     "type": "integer",
-                    "description": "Number of expected groups when using outlier detection.\n"
+                    "description": "Number of expected groups when using `outlier` detection.\n"
                 },
                 "ignoreOverlap": {
                     "type": "boolean",
-                    "description": "Whether to look for a convergence of groups when using outlier detection.\n",
+                    "description": "**DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.\n",
                     "deprecationMessage": "use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true"
                 },
                 "name": {
@@ -2441,11 +2367,11 @@
                 },
                 "nrql": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
-                    "description": "A NRQL query.\n"
+                    "description": "A NRQL query. See NRQL below for details.\n"
                 },
                 "openViolationOnGroupOverlap": {
                     "type": "boolean",
-                    "description": "Whether overlapping groups should produce a violation.\n"
+                    "description": "Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.\n"
                 },
                 "policyId": {
                     "type": "integer",
@@ -2460,29 +2386,29 @@
                     "items": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
                     },
-                    "description": "A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.\n",
+                    "description": "**DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.\n",
                     "deprecationMessage": "use `critical` and `warning` attributes instead"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.\n"
+                    "description": "The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.\n"
                 },
                 "valueFunction": {
                     "type": "string",
-                    "description": "Valid values are: 'single_value' or 'sum'\n"
+                    "description": "Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.\n"
                 },
                 "violationTimeLimit": {
                     "type": "string",
-                    "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'\n(case insensitive).\n"
+                    "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).\n"
                 },
                 "violationTimeLimitSeconds": {
                     "type": "integer",
-                    "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.\n",
+                    "description": "**DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.\n",
                     "deprecationMessage": "use `violation_time_limit` attribute instead"
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
-                    "description": "A condition term with priority set to warning.\n"
+                    "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
                 }
             },
             "requiredInputs": [
@@ -2494,15 +2420,15 @@
                 "properties": {
                     "accountId": {
                         "type": "integer",
-                        "description": "The New Relic account ID for managing your NRQL alert conditions.\n"
+                        "description": "The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                     },
                     "baselineDirection": {
                         "type": "string",
-                        "description": "The baseline direction of a baseline NRQL alert condition. Valid values are: 'LOWER_ONLY', 'UPPER_AND_LOWER',\n'UPPER_ONLY' (case insensitive).\n"
+                        "description": "The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).\n"
                     },
                     "critical": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
-                        "description": "A condition term with priority set to critical.\n"
+                        "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
                     },
                     "description": {
                         "type": "string",
@@ -2510,15 +2436,15 @@
                     },
                     "enabled": {
                         "type": "boolean",
-                        "description": "Whether or not to enable the alert condition.\n"
+                        "description": "Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.\n"
                     },
                     "expectedGroups": {
                         "type": "integer",
-                        "description": "Number of expected groups when using outlier detection.\n"
+                        "description": "Number of expected groups when using `outlier` detection.\n"
                     },
                     "ignoreOverlap": {
                         "type": "boolean",
-                        "description": "Whether to look for a convergence of groups when using outlier detection.\n",
+                        "description": "**DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.\n",
                         "deprecationMessage": "use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true"
                     },
                     "name": {
@@ -2527,11 +2453,11 @@
                     },
                     "nrql": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
-                        "description": "A NRQL query.\n"
+                        "description": "A NRQL query. See NRQL below for details.\n"
                     },
                     "openViolationOnGroupOverlap": {
                         "type": "boolean",
-                        "description": "Whether overlapping groups should produce a violation.\n"
+                        "description": "Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.\n"
                     },
                     "policyId": {
                         "type": "integer",
@@ -2546,29 +2472,29 @@
                         "items": {
                             "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
                         },
-                        "description": "A set of terms for this condition. Max 2 terms allowed - at least one 1 critical term and 1 optional warning term.\n",
+                        "description": "**DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.\n",
                         "deprecationMessage": "use `critical` and `warning` attributes instead"
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of NRQL alert condition to create. Valid values are: 'static', 'outlier', 'baseline'.\n"
+                        "description": "The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.\n"
                     },
                     "valueFunction": {
                         "type": "string",
-                        "description": "Valid values are: 'single_value' or 'sum'\n"
+                        "description": "Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.\n"
                     },
                     "violationTimeLimit": {
                         "type": "string",
-                        "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 'ONE_HOUR', 'TWO_HOURS', 'FOUR_HOURS', 'EIGHT_HOURS', 'TWELVE_HOURS', 'TWENTY_FOUR_HOURS'\n(case insensitive).\n"
+                        "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).\n"
                     },
                     "violationTimeLimitSeconds": {
                         "type": "integer",
-                        "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you\nselect. Possible values are 3600, 7200, 14400, 28800, 43200, and 86400.\n",
+                        "description": "**DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.\n",
                         "deprecationMessage": "use `violation_time_limit` attribute instead"
                     },
                     "warning": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
-                        "description": "A condition term with priority set to warning.\n"
+                        "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
                     }
                 },
                 "type": "object"

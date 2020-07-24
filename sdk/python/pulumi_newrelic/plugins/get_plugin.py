@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPluginResult:
     """
@@ -22,6 +23,8 @@ class GetPluginResult:
         """
         The ID of the installed plugin instance.
         """
+
+
 class AwaitableGetPluginResult(GetPluginResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -31,7 +34,8 @@ class AwaitableGetPluginResult(GetPluginResult):
             guid=self.guid,
             id=self.id)
 
-def get_plugin(guid=None,opts=None):
+
+def get_plugin(guid=None, opts=None):
     """
     Use this data source to get information about a specific installed plugin in New Relic.
 
@@ -65,13 +69,11 @@ def get_plugin(guid=None,opts=None):
     :param str guid: The GUID of the plugin in New Relic.
     """
     __args__ = dict()
-
-
     __args__['guid'] = guid
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:plugins/getPlugin:getPlugin', __args__, opts=opts).value
 
     return AwaitableGetPluginResult(
