@@ -96,47 +96,10 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"NEW_RELIC_ACCOUNT_ID"},
 				},
 			},
-			"api_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEW_RELIC_API_KEY"},
-				},
-			},
-			"admin_api_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEW_RELIC_ADMIN_API_KEY"},
-				},
-			},
 			"region": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"NEW_RELIC_REGION"},
 					Value:   "US",
-				},
-			},
-			"insights_insert_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEW_RELIC_INSIGHTS_INSERT_KEY"},
-				},
-			},
-			"insights_insert_url": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "https://insights-collector.newrelic.com/v1/accounts",
-					EnvVars: []string{"NEW_RELIC_INSIGHTS_INSERT_URL"},
-				},
-			},
-			"insights_query_url": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "https://insights-api.newrelic.com/v1/accounts",
-					EnvVars: []string{"NEW_RELIC_INSIGHTS_QUERY_URL"},
-				},
-			},
-			"insecure_skip_verify": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEW_RELIC_API_SKIP_VERIFY"},
-				},
-			},
-			"cacert_file": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"NEW_RELIC_API_CACERT"},
 				},
 			},
 		},

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSecureCredentialResult:
     """
@@ -40,6 +41,8 @@ class GetSecureCredentialResult:
         """
         The time the secure credential was last updated.
         """
+
+
 class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,7 +55,8 @@ class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
             key=self.key,
             last_updated=self.last_updated)
 
-def get_secure_credential(key=None,opts=None):
+
+def get_secure_credential(key=None, opts=None):
     """
     Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
 
@@ -71,13 +75,11 @@ def get_secure_credential(key=None,opts=None):
     :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """
     __args__ = dict()
-
-
     __args__['key'] = key
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getSecureCredential:getSecureCredential', __args__, opts=opts).value
 
     return AwaitableGetSecureCredentialResult(

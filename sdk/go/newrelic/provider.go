@@ -26,27 +26,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.AccountId == nil {
 		args.AccountId = pulumi.IntPtr(getEnvOrDefault(0, parseEnvInt, "NEW_RELIC_ACCOUNT_ID").(int))
 	}
-	if args.AdminApiKey == nil {
-		args.AdminApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_ADMIN_API_KEY").(string))
-	}
-	if args.ApiKey == nil {
-		args.ApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_API_KEY").(string))
-	}
-	if args.CacertFile == nil {
-		args.CacertFile = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_API_CACERT").(string))
-	}
-	if args.InsecureSkipVerify == nil {
-		args.InsecureSkipVerify = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "NEW_RELIC_API_SKIP_VERIFY").(bool))
-	}
-	if args.InsightsInsertKey == nil {
-		args.InsightsInsertKey = pulumi.StringPtr(getEnvOrDefault("", nil, "NEW_RELIC_INSIGHTS_INSERT_KEY").(string))
-	}
-	if args.InsightsInsertUrl == nil {
-		args.InsightsInsertUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-collector.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_INSERT_URL").(string))
-	}
-	if args.InsightsQueryUrl == nil {
-		args.InsightsQueryUrl = pulumi.StringPtr(getEnvOrDefault("https://insights-api.newrelic.com/v1/accounts", nil, "NEW_RELIC_INSIGHTS_QUERY_URL").(string))
-	}
 	if args.Region == nil {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string))
 	}

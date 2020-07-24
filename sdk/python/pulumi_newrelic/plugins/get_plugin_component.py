@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPluginComponentResult:
     """
@@ -31,6 +32,8 @@ class GetPluginComponentResult:
         if plugin_id and not isinstance(plugin_id, float):
             raise TypeError("Expected argument 'plugin_id' to be a float")
         __self__.plugin_id = plugin_id
+
+
 class AwaitableGetPluginComponentResult(GetPluginComponentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetPluginComponentResult(GetPluginComponentResult):
             name=self.name,
             plugin_id=self.plugin_id)
 
-def get_plugin_component(name=None,plugin_id=None,opts=None):
+
+def get_plugin_component(name=None, plugin_id=None, opts=None):
     """
     Use this data source to get information about a single plugin component in New Relic that already exists.
 
@@ -80,14 +84,12 @@ def get_plugin_component(name=None,plugin_id=None,opts=None):
     :param float plugin_id: The ID of the plugin instance this component belongs to.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['pluginId'] = plugin_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('newrelic:plugins/getPluginComponent:getPluginComponent', __args__, opts=opts).value
 
     return AwaitableGetPluginComponentResult(
