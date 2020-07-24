@@ -20,7 +20,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
-	"github.com/newrelic/terraform-provider-newrelic/newrelic"
+	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
@@ -82,14 +82,15 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "newrelic",
-		Description: "A Pulumi package for creating and managing New Relic resources.",
-		Keywords:    []string{"pulumi", "new relic"},
-		License:     "Apache-2.0",
-		GitHubOrg:   "newrelic",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-newrelic",
+		P:                       p,
+		Name:                    "newrelic",
+		Description:             "A Pulumi package for creating and managing New Relic resources.",
+		Keywords:                []string{"pulumi", "new relic"},
+		License:                 "Apache-2.0",
+		GitHubOrg:               "newrelic",
+		TFProviderModuleVersion: "v2",
+		Homepage:                "https://pulumi.io",
+		Repository:              "https://github.com/pulumi/pulumi-newrelic",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -136,6 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_application":     {Tok: makeDataSource(mainMod, "getApplication")},
 			"newrelic_key_transaction": {Tok: makeDataSource(mainMod, "getKeyTransaction")},
 			"newrelic_entity":          {Tok: makeDataSource(mainMod, "getEntity")},
+			"newrelic_account":         {Tok: makeDataSource(mainMod, "getAccount")},
 
 			"newrelic_synthetics_monitor":           {Tok: makeDataSource(syntheticsMod, "getMonitor")},
 			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},

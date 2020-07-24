@@ -9,6 +9,7 @@ export * from "./alertPolicyChannel";
 export * from "./dashboard";
 export * from "./entityTags";
 export * from "./eventsToMetricsRule";
+export * from "./getAccount";
 export * from "./getAlertChannel";
 export * from "./getAlertPolicy";
 export * from "./getApplication";
