@@ -1,7 +1,7 @@
 # New Relic Provider
 
 The New Relic resource provider for Pulumi lets you use New Relic resources in your cloud programs.
-To use this package, please [install the Pulumi CLI first][1]. 
+To use this package, please [install the Pulumi CLI first][1].
 
 ## Installing
 
