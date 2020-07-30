@@ -1647,7 +1647,7 @@
             "properties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider.\n"
+                    "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                 },
                 "channelIds": {
                     "type": "array",
@@ -1671,7 +1671,7 @@
             "inputProperties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider.\n"
+                    "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                 },
                 "channelIds": {
                     "type": "array",
@@ -1694,7 +1694,7 @@
                 "properties": {
                     "accountId": {
                         "type": "integer",
-                        "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider.\n"
+                        "description": "The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                     },
                     "channelIds": {
                         "type": "array",
@@ -2050,6 +2050,10 @@
                     "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
                     "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
                 },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Infrastructure alert condition.\n"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.\n"
@@ -2120,6 +2124,10 @@
                     "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
                     "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
                 },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Infrastructure alert condition.\n"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.\n"
@@ -2187,6 +2195,10 @@
                     "critical": {
                         "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
                         "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Infrastructure alert condition.\n"
                     },
                     "enabled": {
                         "type": "boolean",

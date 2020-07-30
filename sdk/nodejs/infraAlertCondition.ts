@@ -116,6 +116,10 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly critical!: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
     /**
+     * The description of the Infrastructure alert condition.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -183,6 +187,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["comparison"] = state ? state.comparison : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["critical"] = state ? state.critical : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["event"] = state ? state.event : undefined;
             inputs["integrationProvider"] = state ? state.integrationProvider : undefined;
@@ -206,6 +211,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             }
             inputs["comparison"] = args ? args.comparison : undefined;
             inputs["critical"] = args ? args.critical : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["event"] = args ? args.event : undefined;
             inputs["integrationProvider"] = args ? args.integrationProvider : undefined;
@@ -248,6 +254,10 @@ export interface InfraAlertConditionState {
      * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
     readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
+    /**
+     * The description of the Infrastructure alert condition.
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
@@ -314,6 +324,10 @@ export interface InfraAlertConditionArgs {
      * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
     readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
+    /**
+     * The description of the Infrastructure alert condition.
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
