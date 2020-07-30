@@ -112,6 +112,8 @@ type InfraAlertCondition struct {
 	CreatedAt pulumi.IntOutput `pulumi:"createdAt"`
 	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
 	Critical InfraAlertConditionCriticalPtrOutput `pulumi:"critical"`
+	// The description of the Infrastructure alert condition.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
@@ -180,6 +182,8 @@ type infraAlertConditionState struct {
 	CreatedAt *int `pulumi:"createdAt"`
 	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
 	Critical *InfraAlertConditionCritical `pulumi:"critical"`
+	// The description of the Infrastructure alert condition.
+	Description *string `pulumi:"description"`
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
@@ -215,6 +219,8 @@ type InfraAlertConditionState struct {
 	CreatedAt pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
 	Critical InfraAlertConditionCriticalPtrInput
+	// The description of the Infrastructure alert condition.
+	Description pulumi.StringPtrInput
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
@@ -252,6 +258,8 @@ type infraAlertConditionArgs struct {
 	Comparison *string `pulumi:"comparison"`
 	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
 	Critical *InfraAlertConditionCritical `pulumi:"critical"`
+	// The description of the Infrastructure alert condition.
+	Description *string `pulumi:"description"`
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
@@ -284,6 +292,8 @@ type InfraAlertConditionArgs struct {
 	Comparison pulumi.StringPtrInput
 	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
 	Critical InfraAlertConditionCriticalPtrInput
+	// The description of the Infrastructure alert condition.
+	Description pulumi.StringPtrInput
 	// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.

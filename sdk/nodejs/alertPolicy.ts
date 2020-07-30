@@ -99,7 +99,7 @@ export class AlertPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     public readonly accountId!: pulumi.Output<number | undefined>;
     /**
@@ -156,7 +156,7 @@ export class AlertPolicy extends pulumi.CustomResource {
  */
 export interface AlertPolicyState {
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     readonly accountId?: pulumi.Input<number>;
     /**
@@ -180,7 +180,7 @@ export interface AlertPolicyState {
  */
 export interface AlertPolicyArgs {
     /**
-     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider.
+     * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     readonly accountId?: pulumi.Input<number>;
     /**

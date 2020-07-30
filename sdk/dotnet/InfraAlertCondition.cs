@@ -117,6 +117,12 @@ namespace Pulumi.NewRelic
         public Output<Outputs.InfraAlertConditionCritical?> Critical { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the Infrastructure alert condition.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         /// </summary>
         [Output("enabled")]
@@ -253,6 +259,12 @@ namespace Pulumi.NewRelic
         public Input<Inputs.InfraAlertConditionCriticalArgs>? Critical { get; set; }
 
         /// <summary>
+        /// The description of the Infrastructure alert condition.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         /// </summary>
         [Input("enabled")]
@@ -348,6 +360,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("critical")]
         public Input<Inputs.InfraAlertConditionCriticalGetArgs>? Critical { get; set; }
+
+        /// <summary>
+        /// The description of the Infrastructure alert condition.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.

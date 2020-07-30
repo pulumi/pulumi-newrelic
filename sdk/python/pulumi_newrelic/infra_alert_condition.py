@@ -26,6 +26,10 @@ class InfraAlertCondition(pulumi.CustomResource):
       * `timeFunction` (`str`)
       * `value` (`float`)
     """
+    description: pulumi.Output[str]
+    """
+    The description of the Infrastructure alert condition.
+    """
     enabled: pulumi.Output[bool]
     """
     Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
@@ -82,7 +86,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     """
     If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
     """
-    def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, violation_close_timer=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, comparison=None, critical=None, description=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, violation_close_timer=None, warning=None, where=None, __props__=None, __name__=None, __opts__=None):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
@@ -152,6 +156,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
         :param pulumi.Input[dict] critical: Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+        :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
@@ -196,6 +201,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
             __props__['comparison'] = comparison
             __props__['critical'] = critical
+            __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['event'] = event
             __props__['integration_provider'] = integration_provider
@@ -221,7 +227,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, comparison=None, created_at=None, critical=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, updated_at=None, violation_close_timer=None, warning=None, where=None):
+    def get(resource_name, id, opts=None, comparison=None, created_at=None, critical=None, description=None, enabled=None, event=None, integration_provider=None, name=None, policy_id=None, process_where=None, runbook_url=None, select=None, type=None, updated_at=None, violation_close_timer=None, warning=None, where=None):
         """
         Get an existing InfraAlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -232,6 +238,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
         :param pulumi.Input[float] created_at: The timestamp the alert condition was created.
         :param pulumi.Input[dict] critical: Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+        :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
@@ -265,6 +272,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         __props__["comparison"] = comparison
         __props__["created_at"] = created_at
         __props__["critical"] = critical
+        __props__["description"] = description
         __props__["enabled"] = enabled
         __props__["event"] = event
         __props__["integration_provider"] = integration_provider
