@@ -64,6 +64,7 @@ import * as utilities from "./utilities";
  *             }],
  *             facet: "host",
  *             limit: 5,
+ *             orderBy: "score",
  *             row: 2,
  *             column: 1,
  *         },
@@ -130,7 +131,8 @@ import * as utilities from "./utilities";
  *     * `duration` - (Required) The duration, in ms, of the time window represented in the chart.
  *     * `endTime` - (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
  *     * `facet` - (Optional) Can be set to "host" to facet the metric data by host.
- *     * `limit` - (Optional) The limit of distinct data series to display.
+ *     * `limit` - (Optional) The limit of distinct data series to display.  Requires `orderBy` to be set.
+ *     * `orderBy` - (Optional) Set the order of the results.  Required when using `limit`.
  *   * `applicationBreakdown`:
  *     * `entityIds` - (Required) A collection of entity IDs to display data. These are typically application IDs.
  *
