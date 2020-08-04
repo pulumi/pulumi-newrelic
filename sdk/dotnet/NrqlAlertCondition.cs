@@ -45,7 +45,7 @@ namespace Pulumi.NewRelic
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int?> AccountId { get; private set; } = null!;
+        public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).

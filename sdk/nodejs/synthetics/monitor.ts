@@ -27,10 +27,8 @@ import * as utilities from "../utilities";
  *     verifySsl: true, // Optional for type "SIMPLE" and "BROWSER"
  * });
  * ```
- * See additional examples.
- * ## Additional Examples
  *
- * Type: `BROWSER`
+ * ##### Type: `BROWSER`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -49,7 +47,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Type: `SCRIPT_BROWSER`
+ * ##### Type: `SCRIPT_BROWSER`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -63,7 +61,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Type: `SCRIPT_API`
+ * ##### Type: `SCRIPT_API`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

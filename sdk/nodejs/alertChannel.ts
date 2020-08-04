@@ -24,8 +24,6 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
- * See additional examples.
- * ## Additional Examples
  *
  * ##### Slack
  * ```typescript

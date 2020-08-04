@@ -45,7 +45,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAlertPolicyResult
     {
-        public readonly int? AccountId;
+        public readonly int AccountId;
         /// <summary>
         /// The time the policy was created.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAlertPolicyResult(
-            int? accountId,
+            int accountId,
 
             string createdAt,
 

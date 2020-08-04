@@ -42,10 +42,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// }
     /// ```
-    /// See additional examples.
-    /// ## Additional Examples
     /// 
-    /// Type: `BROWSER`
+    /// ##### Type: `BROWSER`
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -76,7 +74,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// }
     /// ```
     /// 
-    /// Type: `SCRIPT_BROWSER`
+    /// ##### Type: `SCRIPT_BROWSER`
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -101,7 +99,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// }
     /// ```
     /// 
-    /// Type: `SCRIPT_API`
+    /// ##### Type: `SCRIPT_API`
     /// 
     /// ```csharp
     /// using Pulumi;

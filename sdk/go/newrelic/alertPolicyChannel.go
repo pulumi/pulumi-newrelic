@@ -69,8 +69,7 @@ import (
 type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-	// drift your Terraform state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The ID of the policy.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
@@ -110,16 +109,14 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicyChannel resources.
 type alertPolicyChannelState struct {
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-	// drift your Terraform state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The ID of the policy.
 	PolicyId *int `pulumi:"policyId"`
 }
 
 type AlertPolicyChannelState struct {
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-	// drift your Terraform state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayInput
 	// The ID of the policy.
 	PolicyId pulumi.IntPtrInput
@@ -130,8 +127,7 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 }
 
 type alertPolicyChannelArgs struct {
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-	// drift your Terraform state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The ID of the policy.
 	PolicyId int `pulumi:"policyId"`
@@ -139,8 +135,7 @@ type alertPolicyChannelArgs struct {
 
 // The set of arguments for constructing a AlertPolicyChannel resource.
 type AlertPolicyChannelArgs struct {
-	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-	// drift your Terraform state.
+	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayInput
 	// The ID of the policy.
 	PolicyId pulumi.IntInput

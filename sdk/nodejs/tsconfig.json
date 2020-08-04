@@ -42,6 +42,7 @@
         "provider.ts",
         "synthetics/alertCondition.ts",
         "synthetics/getMonitor.ts",
+        "synthetics/getMonitorLocation.ts",
         "synthetics/getSecureCredential.ts",
         "synthetics/index.ts",
         "synthetics/label.ts",

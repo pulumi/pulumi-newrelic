@@ -761,6 +761,12 @@ github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200730162204-fbe4a1e
 github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200730162204-fbe4a1eff530/go.mod h1:JADGGLWizExrDlYgWpdJQ5ygAmo3pushr+gIpDeKsms=
 github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200731162921-0d8c94940b6c h1:PTAonyVDYCEHp8rT+dQiWN8CspEu3TdK9OvYPojxqPE=
 github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200731162921-0d8c94940b6c/go.mod h1:Dnyo4gJy0U7IeHCWgtwbdvV+WVrscbmPpIPPJi/bHMU=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200803234241-5eece39bf605 h1:fAxyGdoCdNFyG7j1FatDbnaB2z0MsAgL1BxZoOGsfyU=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200803234241-5eece39bf605/go.mod h1:Dnyo4gJy0U7IeHCWgtwbdvV+WVrscbmPpIPPJi/bHMU=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200804090804-27de4abaa553 h1:+b1xPXeQe3orWK6Sr4rpFVsDhcF70M94OIirHEv67k4=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200804090804-27de4abaa553/go.mod h1:Dnyo4gJy0U7IeHCWgtwbdvV+WVrscbmPpIPPJi/bHMU=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200804091240-cbf4bab1796d h1:2bicvzb4R5apcB/5a3y/3AC5Pm05jr0EAAwAqydoR6w=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200804091240-cbf4bab1796d/go.mod h1:Dnyo4gJy0U7IeHCWgtwbdvV+WVrscbmPpIPPJi/bHMU=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34 h1:u1NyO0NXvl+b6kXq2iuQgU95U3O1muXMZLEglS/k+zM=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=

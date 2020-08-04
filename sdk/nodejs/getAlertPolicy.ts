@@ -61,7 +61,7 @@ export interface GetAlertPolicyArgs {
  * A collection of values returned by getAlertPolicy.
  */
 export interface GetAlertPolicyResult {
-    readonly accountId?: number;
+    readonly accountId: number;
     /**
      * The time the policy was created.
      */

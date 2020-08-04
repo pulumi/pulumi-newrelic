@@ -12,8 +12,7 @@ from . import _utilities, _tables
 class AlertPolicyChannel(pulumi.CustomResource):
     channel_ids: pulumi.Output[list]
     """
-    Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-    drift your Terraform state.
+    Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
     """
     policy_id: pulumi.Output[float]
     """
@@ -58,8 +57,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-               drift your Terraform state.
+        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[float] policy_id: The ID of the policy.
         """
         if __name__ is not None:
@@ -100,8 +98,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid
-               drift your Terraform state.
+        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[float] policy_id: The ID of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
