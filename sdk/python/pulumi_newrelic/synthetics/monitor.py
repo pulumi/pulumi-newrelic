@@ -78,10 +78,8 @@ class Monitor(pulumi.CustomResource):
             verify_ssl=True)
         # Optional for type "SIMPLE" and "BROWSER"
         ```
-        See additional examples.
-        ## Additional Examples
 
-        Type: `BROWSER`
+        ##### Type: `BROWSER`
 
         ```python
         import pulumi
@@ -100,7 +98,7 @@ class Monitor(pulumi.CustomResource):
         # optional for type "SIMPLE" and "BROWSER"
         ```
 
-        Type: `SCRIPT_BROWSER`
+        ##### Type: `SCRIPT_BROWSER`
 
         ```python
         import pulumi
@@ -113,7 +111,7 @@ class Monitor(pulumi.CustomResource):
             type="SCRIPT_BROWSER")
         ```
 
-        Type: `SCRIPT_API`
+        ##### Type: `SCRIPT_API`
 
         ```python
         import pulumi

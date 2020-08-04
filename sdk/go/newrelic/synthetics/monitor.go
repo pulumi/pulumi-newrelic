@@ -44,10 +44,8 @@ import (
 // 	})
 // }
 // ```
-// See additional examples.
-// ## Additional Examples
 //
-// Type: `BROWSER`
+// ##### Type: `BROWSER`
 //
 // ```go
 // package main
@@ -80,7 +78,7 @@ import (
 // }
 // ```
 //
-// Type: `SCRIPT_BROWSER`
+// ##### Type: `SCRIPT_BROWSER`
 //
 // ```go
 // package main
@@ -108,7 +106,7 @@ import (
 // }
 // ```
 //
-// Type: `SCRIPT_API`
+// ##### Type: `SCRIPT_API`
 //
 // ```go
 // package main

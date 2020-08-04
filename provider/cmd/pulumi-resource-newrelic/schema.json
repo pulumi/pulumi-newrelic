@@ -1385,7 +1385,7 @@
     },
     "resources": {
         "newrelic:index/alertChannel:AlertChannel": {
-            "description": "Use this resource to create and manage New Relic alert policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Email\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        includeJsonAttachment: \"1\",\n        recipients: \"foo@example.com\",\n    },\n    type: \"email\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config={\n        \"includeJsonAttachment\": \"1\",\n        \"recipients\": \"foo@example.com\",\n    },\n    type=\"email\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                IncludeJsonAttachment = \"1\",\n                Recipients = \"foo@example.com\",\n            },\n            Type = \"email\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tIncludeJsonAttachment: pulumi.String(\"1\"),\n\t\t\t\tRecipients:            pulumi.String(\"foo@example.com\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"email\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\nSee additional examples.\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this resource to create and manage New Relic alert policies.\n",
             "properties": {
                 "config": {
                     "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
@@ -1654,7 +1654,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n"
+                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.\n"
                 },
                 "incidentPreference": {
                     "type": "string",
@@ -1666,6 +1666,7 @@
                 }
             },
             "required": [
+                "accountId",
                 "name"
             ],
             "inputProperties": {
@@ -1678,7 +1679,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n"
+                    "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.\n"
                 },
                 "incidentPreference": {
                     "type": "string",
@@ -1701,7 +1702,7 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result\nin a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be\nimported via terraform import.\n"
+                        "description": "An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.\n"
                     },
                     "incidentPreference": {
                         "type": "string",
@@ -1723,7 +1724,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid\ndrift your Terraform state.\n"
+                    "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.\n"
                 },
                 "policyId": {
                     "type": "integer",
@@ -1740,7 +1741,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid\ndrift your Terraform state.\n"
+                    "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.\n"
                 },
                 "policyId": {
                     "type": "integer",
@@ -1759,7 +1760,7 @@
                         "items": {
                             "type": "integer"
                         },
-                        "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid\ndrift your Terraform state.\n"
+                        "description": "Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.\n"
                     },
                     "policyId": {
                         "type": "integer",
@@ -2339,6 +2340,7 @@
                 }
             },
             "required": [
+                "accountId",
                 "name",
                 "nrql",
                 "policyId"
@@ -3104,7 +3106,7 @@
             }
         },
         "newrelic:synthetics/monitor:Monitor": {
-            "description": "Use this resource to create, update, and delete a synthetics monitor in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Type: `SIMPLE`\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\n        \"AWS_US_EAST_1\",\n        \"AWS_US_EAST_2\",\n    ],\n    status: \"ENABLED\",\n    type: \"SIMPLE\",\n    uri: \"https://example.com\", // Required for type \"SIMPLE\" and \"BROWSER\"\n    validationString: \"add example validation check here\", // Optional for type \"SIMPLE\" and \"BROWSER\"\n    verifySsl: true, // Optional for type \"SIMPLE\" and \"BROWSER\"\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\n        \"AWS_US_EAST_1\",\n        \"AWS_US_EAST_2\",\n    ],\n    status=\"ENABLED\",\n    type=\"SIMPLE\",\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# Optional for type \"SIMPLE\" and \"BROWSER\"\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n                \"AWS_US_EAST_2\",\n            },\n            Status = \"ENABLED\",\n            Type = \"SIMPLE\",\n            Uri = \"https://example.com\",\n            ValidationString = \"add example validation check here\",\n            VerifySsl = true,\n        });\n        // Optional for type \"SIMPLE\" and \"BROWSER\"\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t\tpulumi.String(\"AWS_US_EAST_2\"),\n\t\t\t},\n\t\t\tStatus:           pulumi.String(\"ENABLED\"),\n\t\t\tType:             pulumi.String(\"SIMPLE\"),\n\t\t\tUri:              pulumi.String(\"https://example.com\"),\n\t\t\tValidationString: pulumi.String(\"add example validation check here\"),\n\t\t\tVerifySsl:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\nSee additional examples.\n{{% /example %}}\n{{% /examples %}}\n## Additional Examples\n\nType: `BROWSER`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    bypassHeadRequest: true, // Note: optional for type \"BROWSER\" only\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    treatRedirectAsFailure: true, // Note: optional for type \"BROWSER\" only\n    type: \"BROWSER\",\n    uri: \"https://example.com\", // required for type \"SIMPLE\" and \"BROWSER\"\n    validationString: \"add example validation check here\", // optional for type \"SIMPLE\" and \"BROWSER\"\n    verifySsl: true, // optional for type \"SIMPLE\" and \"BROWSER\"\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    bypass_head_request=True,\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    treat_redirect_as_failure=True,\n    type=\"BROWSER\",\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# optional for type \"SIMPLE\" and \"BROWSER\"\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            BypassHeadRequest = true,\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n            Status = \"ENABLED\",\n            TreatRedirectAsFailure = true,\n            Type = \"BROWSER\",\n            Uri = \"https://example.com\",\n            ValidationString = \"add example validation check here\",\n            VerifySsl = true,\n        });\n        // optional for type \"SIMPLE\" and \"BROWSER\"\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tBypassHeadRequest: pulumi.Bool(true),\n\t\t\tFrequency:         pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t},\n\t\t\tStatus:                 pulumi.String(\"ENABLED\"),\n\t\t\tTreatRedirectAsFailure: pulumi.Bool(true),\n\t\t\tType:                   pulumi.String(\"BROWSER\"),\n\t\t\tUri:                    pulumi.String(\"https://example.com\"),\n\t\t\tValidationString:       pulumi.String(\"add example validation check here\"),\n\t\t\tVerifySsl:              pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nType: `SCRIPT_BROWSER`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    type: \"SCRIPT_BROWSER\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    type=\"SCRIPT_BROWSER\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n            Status = \"ENABLED\",\n            Type = \"SCRIPT_BROWSER\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ENABLED\"),\n\t\t\tType:   pulumi.String(\"SCRIPT_BROWSER\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nType: `SCRIPT_API`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    type: \"SCRIPT_API\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    type=\"SCRIPT_API\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n            Status = \"ENABLED\",\n            Type = \"SCRIPT_API\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ENABLED\"),\n\t\t\tType:   pulumi.String(\"SCRIPT_API\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n",
+            "description": "Use this resource to create, update, and delete a synthetics monitor in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Type: `SIMPLE`\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\n        \"AWS_US_EAST_1\",\n        \"AWS_US_EAST_2\",\n    ],\n    status: \"ENABLED\",\n    type: \"SIMPLE\",\n    uri: \"https://example.com\", // Required for type \"SIMPLE\" and \"BROWSER\"\n    validationString: \"add example validation check here\", // Optional for type \"SIMPLE\" and \"BROWSER\"\n    verifySsl: true, // Optional for type \"SIMPLE\" and \"BROWSER\"\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\n        \"AWS_US_EAST_1\",\n        \"AWS_US_EAST_2\",\n    ],\n    status=\"ENABLED\",\n    type=\"SIMPLE\",\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# Optional for type \"SIMPLE\" and \"BROWSER\"\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n                \"AWS_US_EAST_2\",\n            },\n            Status = \"ENABLED\",\n            Type = \"SIMPLE\",\n            Uri = \"https://example.com\",\n            ValidationString = \"add example validation check here\",\n            VerifySsl = true,\n        });\n        // Optional for type \"SIMPLE\" and \"BROWSER\"\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t\tpulumi.String(\"AWS_US_EAST_2\"),\n\t\t\t},\n\t\t\tStatus:           pulumi.String(\"ENABLED\"),\n\t\t\tType:             pulumi.String(\"SIMPLE\"),\n\t\t\tUri:              pulumi.String(\"https://example.com\"),\n\t\t\tValidationString: pulumi.String(\"add example validation check here\"),\n\t\t\tVerifySsl:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### Type: `BROWSER`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    bypassHeadRequest: true, // Note: optional for type \"BROWSER\" only\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    treatRedirectAsFailure: true, // Note: optional for type \"BROWSER\" only\n    type: \"BROWSER\",\n    uri: \"https://example.com\", // required for type \"SIMPLE\" and \"BROWSER\"\n    validationString: \"add example validation check here\", // optional for type \"SIMPLE\" and \"BROWSER\"\n    verifySsl: true, // optional for type \"SIMPLE\" and \"BROWSER\"\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    bypass_head_request=True,\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    treat_redirect_as_failure=True,\n    type=\"BROWSER\",\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# optional for type \"SIMPLE\" and \"BROWSER\"\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            BypassHeadRequest = true,\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n            Status = \"ENABLED\",\n            TreatRedirectAsFailure = true,\n            Type = \"BROWSER\",\n            Uri = \"https://example.com\",\n            ValidationString = \"add example validation check here\",\n            VerifySsl = true,\n        });\n        // optional for type \"SIMPLE\" and \"BROWSER\"\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tBypassHeadRequest: pulumi.Bool(true),\n\t\t\tFrequency:         pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t},\n\t\t\tStatus:                 pulumi.String(\"ENABLED\"),\n\t\t\tTreatRedirectAsFailure: pulumi.Bool(true),\n\t\t\tType:                   pulumi.String(\"BROWSER\"),\n\t\t\tUri:                    pulumi.String(\"https://example.com\"),\n\t\t\tValidationString:       pulumi.String(\"add example validation check here\"),\n\t\t\tVerifySsl:              pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### Type: `SCRIPT_BROWSER`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    type: \"SCRIPT_BROWSER\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    type=\"SCRIPT_BROWSER\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n            Status = \"ENABLED\",\n            Type = \"SCRIPT_BROWSER\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ENABLED\"),\n\t\t\tType:   pulumi.String(\"SCRIPT_BROWSER\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### Type: `SCRIPT_API`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    frequency: 5,\n    locations: [\"AWS_US_EAST_1\"],\n    status: \"ENABLED\",\n    type: \"SCRIPT_API\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    frequency=5,\n    locations=[\"AWS_US_EAST_1\"],\n    status=\"ENABLED\",\n    type=\"SCRIPT_API\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Frequency = 5,\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n            Status = \"ENABLED\",\n            Type = \"SCRIPT_API\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"AWS_US_EAST_1\"),\n\t\t\t},\n\t\t\tStatus: pulumi.String(\"ENABLED\"),\n\t\t\tType:   pulumi.String(\"SCRIPT_API\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "bypassHeadRequest": {
                     "type": "boolean",
@@ -3675,6 +3677,7 @@
                 },
                 "type": "object",
                 "required": [
+                    "accountId",
                     "createdAt",
                     "name",
                     "updatedAt",
@@ -3948,6 +3951,59 @@
                 "required": [
                     "monitorId",
                     "name",
+                    "id"
+                ]
+            }
+        },
+        "newrelic:synthetics/getMonitorLocation:getMonitorLocation": {
+            "description": "Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst bar = newrelic.synthetics.getMonitorLocation({\n    label: \"My private location\",\n});\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    type: \"SIMPLE\",\n    frequency: 5,\n    status: \"ENABLED\",\n    locations: [bar.then(bar =\u003e bar.name)],\n    uri: \"https://example.com\",\n    validationString: \"add example validation check here\",\n    verifySsl: true,\n});\n// Optional for type \"SIMPLE\" and \"BROWSER\"\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nbar = newrelic.synthetics.get_monitor_location(label=\"My private location\")\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    type=\"SIMPLE\",\n    frequency=5,\n    status=\"ENABLED\",\n    locations=[bar.name],\n    uri=\"https://example.com\",\n    validation_string=\"add example validation check here\",\n    verify_ssl=True)\n# Optional for type \"SIMPLE\" and \"BROWSER\"\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var bar = Output.Create(NewRelic.Synthetics.GetMonitorLocation.InvokeAsync(new NewRelic.Synthetics.GetMonitorLocationArgs\n        {\n            Label = \"My private location\",\n        }));\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Type = \"SIMPLE\",\n            Frequency = 5,\n            Status = \"ENABLED\",\n            Locations = \n            {\n                bar.Apply(bar =\u003e bar.Name),\n            },\n            Uri = \"https://example.com\",\n            ValidationString = \"add example validation check here\",\n            VerifySsl = true,\n        });\n        // Optional for type \"SIMPLE\" and \"BROWSER\"\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/synthetics\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbar, err := synthetics.GetMonitorLocation(ctx, \u0026synthetics.GetMonitorLocationArgs{\n\t\t\tLabel: \"My private location\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = synthetics.NewMonitor(ctx, \"foo\", \u0026synthetics.MonitorArgs{\n\t\t\tType:      pulumi.String(\"SIMPLE\"),\n\t\t\tFrequency: pulumi.Int(5),\n\t\t\tStatus:    pulumi.String(\"ENABLED\"),\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(bar.Name),\n\t\t\t},\n\t\t\tUri:              pulumi.String(\"https://example.com\"),\n\t\t\tValidationString: pulumi.String(\"add example validation check here\"),\n\t\t\tVerifySsl:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMonitorLocation.\n",
+                "properties": {
+                    "label": {
+                        "type": "string",
+                        "description": "The label of the Synthetics monitor location.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "label"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMonitorLocation.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the Synthetics monitor location.\n"
+                    },
+                    "highSecurityMode": {
+                        "type": "boolean",
+                        "description": "Represents if high security mode is enabled for the location. A value of true means that high security mode is enabled, and a value of false means it is disabled.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Synthetics monitor location.\n"
+                    },
+                    "private": {
+                        "type": "boolean",
+                        "description": "Represents if this location is a private location. A value of true means that the location is private, and a value of false means it is public.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "highSecurityMode",
+                    "label",
+                    "name",
+                    "private",
                     "id"
                 ]
             }

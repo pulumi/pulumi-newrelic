@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * const slackChannel = new newrelic.AlertChannel("slackChannel", {
  *     type: "slack",
  *     config: {
- *         url: "https://hooks.slack.com/services/<*****>/<*****>",
+ *         url: "https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
  *         channel: "example-alerts-channel",
  *     },
  * });
@@ -101,11 +101,9 @@ export class AlertPolicy extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number | undefined>;
+    public readonly accountId!: pulumi.Output<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
@@ -160,9 +158,7 @@ export interface AlertPolicyState {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -184,9 +180,7 @@ export interface AlertPolicyArgs {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result
-     * in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs cannot be
-     * imported via terraform import.
+     * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      */
     readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

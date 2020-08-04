@@ -42,7 +42,7 @@ type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
 	// A list containing the `critical` threshold values. See Terms below for details.

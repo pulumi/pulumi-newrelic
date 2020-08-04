@@ -67,8 +67,6 @@ class AlertChannel(pulumi.CustomResource):
             },
             type="email")
         ```
-        See additional examples.
-        ## Additional Examples
 
         ##### Slack
         ```python

@@ -28,7 +28,7 @@ type LookupAlertPolicyArgs struct {
 
 // A collection of values returned by getAlertPolicy.
 type LookupAlertPolicyResult struct {
-	AccountId *int `pulumi:"accountId"`
+	AccountId int `pulumi:"accountId"`
 	// The time the policy was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.

@@ -67,7 +67,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number | undefined>;
+    public readonly accountId!: pulumi.Output<number>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */

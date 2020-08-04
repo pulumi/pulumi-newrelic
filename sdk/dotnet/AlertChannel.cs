@@ -36,8 +36,6 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// See additional examples.
-    /// ## Additional Examples
     /// 
     /// ##### Slack
     /// ```csharp
