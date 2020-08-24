@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetMonitorResult',
+    'AwaitableGetMonitorResult',
+    'get_monitor',
+]
 
+@pulumi.output_type
 class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
@@ -16,19 +22,34 @@ class GetMonitorResult:
     def __init__(__self__, id=None, monitor_id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if monitor_id and not isinstance(monitor_id, str):
+            raise TypeError("Expected argument 'monitor_id' to be a str")
+        pulumi.set(__self__, "monitor_id", monitor_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if monitor_id and not isinstance(monitor_id, str):
-            raise TypeError("Expected argument 'monitor_id' to be a str")
-        __self__.monitor_id = monitor_id
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> str:
         """
         The ID of the synthetics monitor.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "monitor_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetMonitorResult(GetMonitorResult):
@@ -42,7 +63,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             name=self.name)
 
 
-def get_monitor(name=None, opts=None):
+def get_monitor(name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
 
@@ -68,9 +90,9 @@ def get_monitor(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitor:getMonitor', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult).value
 
     return AwaitableGetMonitorResult(
-        id=__ret__.get('id'),
-        monitor_id=__ret__.get('monitorId'),
-        name=__ret__.get('name'))
+        id=__ret__.id,
+        monitor_id=__ret__.monitor_id,
+        name=__ret__.name)

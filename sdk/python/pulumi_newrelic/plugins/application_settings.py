@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ApplicationSettings']
 
 
 class ApplicationSettings(pulumi.CustomResource):
-    app_apdex_threshold: pulumi.Output[float]
-    """
-    The appex threshold for the New Relic application.
-    """
-    enable_real_user_monitoring: pulumi.Output[bool]
-    """
-    Enable or disable real user monitoring for the New Relic application.
-    """
-    end_user_apdex_threshold: pulumi.Output[float]
-    """
-    The user's apdex threshold for the New Relic application.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the application in New Relic APM.
-    """
-    def __init__(__self__, resource_name, opts=None, app_apdex_threshold=None, enable_real_user_monitoring=None, end_user_apdex_threshold=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+                 end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         > **NOTE:** Applications are not created by this resource, but are created by
         a reporting agent.
@@ -41,9 +36,9 @@ class ApplicationSettings(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         app = newrelic.plugins.ApplicationSettings("app",
-            app_apdex_threshold="0.7",
+            app_apdex_threshold=0.7,
             enable_real_user_monitoring=False,
-            end_user_apdex_threshold="0.8")
+            end_user_apdex_threshold=0.8)
         ```
         ## Notes
 
@@ -91,13 +86,19 @@ class ApplicationSettings(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_apdex_threshold=None, enable_real_user_monitoring=None, end_user_apdex_threshold=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_apdex_threshold: Optional[pulumi.Input[float]] = None,
+            enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+            end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'ApplicationSettings':
         """
         Get an existing ApplicationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] app_apdex_threshold: The appex threshold for the New Relic application.
         :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
@@ -114,8 +115,41 @@ class ApplicationSettings(pulumi.CustomResource):
         __props__["name"] = name
         return ApplicationSettings(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appApdexThreshold")
+    def app_apdex_threshold(self) -> float:
+        """
+        The appex threshold for the New Relic application.
+        """
+        return pulumi.get(self, "app_apdex_threshold")
+
+    @property
+    @pulumi.getter(name="enableRealUserMonitoring")
+    def enable_real_user_monitoring(self) -> bool:
+        """
+        Enable or disable real user monitoring for the New Relic application.
+        """
+        return pulumi.get(self, "enable_real_user_monitoring")
+
+    @property
+    @pulumi.getter(name="endUserApdexThreshold")
+    def end_user_apdex_threshold(self) -> float:
+        """
+        The user's apdex threshold for the New Relic application.
+        """
+        return pulumi.get(self, "end_user_apdex_threshold")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the application in New Relic APM.
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

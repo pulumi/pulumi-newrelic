@@ -6,12 +6,32 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+
+__all__ = ['Provider']
 
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, account_id=None, admin_api_key=None, api_key=None, api_url=None, cacert_file=None, infrastructure_api_url=None, insecure_skip_verify=None, insights_insert_key=None, insights_insert_url=None, insights_query_url=None, nerdgraph_api_url=None, region=None, synthetics_api_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[float]] = None,
+                 admin_api_key: Optional[pulumi.Input[str]] = None,
+                 api_key: Optional[pulumi.Input[str]] = None,
+                 api_url: Optional[pulumi.Input[str]] = None,
+                 cacert_file: Optional[pulumi.Input[str]] = None,
+                 infrastructure_api_url: Optional[pulumi.Input[str]] = None,
+                 insecure_skip_verify: Optional[pulumi.Input[bool]] = None,
+                 insights_insert_key: Optional[pulumi.Input[str]] = None,
+                 insights_insert_url: Optional[pulumi.Input[str]] = None,
+                 insights_query_url: Optional[pulumi.Input[str]] = None,
+                 nerdgraph_api_url: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 synthetics_api_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The provider type for the newrelic package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -79,3 +99,4 @@ class Provider(pulumi.ProviderResource):
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

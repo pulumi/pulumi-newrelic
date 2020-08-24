@@ -5,80 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Dashboard']
 
 
 class Dashboard(pulumi.CustomResource):
-    dashboard_url: pulumi.Output[str]
-    """
-    The URL for viewing the dashboard.
-    """
-    editable: pulumi.Output[str]
-    """
-    Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-    """
-    filter: pulumi.Output[dict]
-    """
-    A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-
-      * `attributes` (`list`)
-      * `eventTypes` (`list`)
-    """
-    grid_column_count: pulumi.Output[float]
-    """
-    The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
-    """
-    icon: pulumi.Output[str]
-    """
-    The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
-    """
-    title: pulumi.Output[str]
-    """
-    The title of the dashboard.
-    """
-    visibility: pulumi.Output[str]
-    """
-    Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-    """
-    widgets: pulumi.Output[list]
-    """
-    A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-
-      * `column` (`float`)
-      * `compareWiths` (`list`)
-        * `offsetDuration` (`str`)
-        * `presentation` (`dict`)
-          * `color` (`str`)
-          * `name` (`str`)
-
-      * `drilldownDashboardId` (`float`)
-      * `duration` (`float`)
-      * `endTime` (`float`)
-      * `entityIds` (`list`)
-      * `facet` (`str`)
-      * `height` (`float`)
-      * `limit` (`float`)
-      * `metrics` (`list`)
-        * `name` (`str`)
-        * `scope` (`str`)
-        * `units` (`str`)
-        * `values` (`list`)
-
-      * `notes` (`str`)
-      * `nrql` (`str`)
-      * `orderBy` (`str`)
-      * `rawMetricName` (`str`)
-      * `row` (`float`)
-      * `source` (`str`)
-      * `thresholdRed` (`float`)
-      * `thresholdYellow` (`float`)
-      * `title` (`str`) - The title of the dashboard.
-      * `visualization` (`str`)
-      * `widgetId` (`float`)
-      * `width` (`float`)
-    """
-    def __init__(__self__, resource_name, opts=None, editable=None, filter=None, grid_column_count=None, icon=None, title=None, visibility=None, widgets=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 editable: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['DashboardFilterArgs']]] = None,
+                 grid_column_count: Optional[pulumi.Input[float]] = None,
+                 icon: Optional[pulumi.Input[str]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create and manage New Relic dashboards.
 
@@ -94,68 +42,68 @@ class Dashboard(pulumi.CustomResource):
             domain="APM")
         exampledash = newrelic.Dashboard("exampledash",
             title="New Relic Terraform Example",
-            filter={
-                "eventTypes": ["Transaction"],
-                "attributes": [
+            filter=newrelic.DashboardFilterArgs(
+                event_types=["Transaction"],
+                attributes=[
                     "appName",
                     "name",
                 ],
-            },
+            ),
             widgets=[
-                {
-                    "title": "Requests per minute",
-                    "visualization": "billboard",
-                    "nrql": "SELECT rate(count(*), 1 minute) FROM Transaction",
-                    "row": 1,
-                    "column": 1,
-                },
-                {
-                    "title": "Error rate",
-                    "visualization": "gauge",
-                    "nrql": "SELECT percentage(count(*), WHERE error IS True) FROM Transaction",
-                    "thresholdRed": 2.5,
-                    "row": 1,
-                    "column": 2,
-                },
-                {
-                    "title": "Average transaction duration, by application",
-                    "visualization": "facet_bar_chart",
-                    "nrql": "SELECT average(duration) FROM Transaction FACET appName",
-                    "row": 1,
-                    "column": 3,
-                },
-                {
-                    "title": "Apdex, top 5 by host",
-                    "duration": 1800000,
-                    "visualization": "metric_line_chart",
-                    "entityIds": [data["newrelic_application"]["my_application"]["application_id"]],
-                    "metrics": [{
-                        "name": "Apdex",
-                        "values": ["score"],
-                    }],
-                    "facet": "host",
-                    "limit": 5,
-                    "orderBy": "score",
-                    "row": 2,
-                    "column": 1,
-                },
-                {
-                    "title": "Requests per minute, by transaction",
-                    "visualization": "facet_table",
-                    "nrql": "SELECT rate(count(*), 1 minute) FROM Transaction FACET name",
-                    "row": 2,
-                    "column": 2,
-                },
-                {
-                    "title": "Dashboard Note",
-                    "visualization": "markdown",
-                    "source": \"\"\"### Helpful Links
+                newrelic.DashboardWidgetArgs(
+                    title="Requests per minute",
+                    visualization="billboard",
+                    nrql="SELECT rate(count(*), 1 minute) FROM Transaction",
+                    row=1,
+                    column=1,
+                ),
+                newrelic.DashboardWidgetArgs(
+                    title="Error rate",
+                    visualization="gauge",
+                    nrql="SELECT percentage(count(*), WHERE error IS True) FROM Transaction",
+                    threshold_red=2.5,
+                    row=1,
+                    column=2,
+                ),
+                newrelic.DashboardWidgetArgs(
+                    title="Average transaction duration, by application",
+                    visualization="facet_bar_chart",
+                    nrql="SELECT average(duration) FROM Transaction FACET appName",
+                    row=1,
+                    column=3,
+                ),
+                newrelic.DashboardWidgetArgs(
+                    title="Apdex, top 5 by host",
+                    duration=1800000,
+                    visualization="metric_line_chart",
+                    entity_ids=[data["newrelic_application"]["my_application"]["application_id"]],
+                    metrics=[newrelic.DashboardWidgetMetricArgs(
+                        name="Apdex",
+                        values=["score"],
+                    )],
+                    facet="host",
+                    limit=5,
+                    order_by="score",
+                    row=2,
+                    column=1,
+                ),
+                newrelic.DashboardWidgetArgs(
+                    title="Requests per minute, by transaction",
+                    visualization="facet_table",
+                    nrql="SELECT rate(count(*), 1 minute) FROM Transaction FACET name",
+                    row=2,
+                    column=2,
+                ),
+                newrelic.DashboardWidgetArgs(
+                    title="Dashboard Note",
+                    visualization="markdown",
+                    source=\"\"\"### Helpful Links
 
         * [New Relic One](https://one.newrelic.com)
         * [Developer Portal](https://developer.newrelic.com)\"\"\",
-                    "row": 2,
-                    "column": 3,
-                },
+                    row=2,
+                    column=3,
+                ),
             ])
         ```
         ## Attribute Refence
@@ -215,52 +163,12 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-        :param pulumi.Input[dict] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        :param pulumi.Input[pulumi.InputType['DashboardFilterArgs']] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
         :param pulumi.Input[float] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[list] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-
-        The **filter** object supports the following:
-
-          * `attributes` (`pulumi.Input[list]`)
-          * `eventTypes` (`pulumi.Input[list]`)
-
-        The **widgets** object supports the following:
-
-          * `column` (`pulumi.Input[float]`)
-          * `compareWiths` (`pulumi.Input[list]`)
-            * `offsetDuration` (`pulumi.Input[str]`)
-            * `presentation` (`pulumi.Input[dict]`)
-              * `color` (`pulumi.Input[str]`)
-              * `name` (`pulumi.Input[str]`)
-
-          * `drilldownDashboardId` (`pulumi.Input[float]`)
-          * `duration` (`pulumi.Input[float]`)
-          * `endTime` (`pulumi.Input[float]`)
-          * `entityIds` (`pulumi.Input[list]`)
-          * `facet` (`pulumi.Input[str]`)
-          * `height` (`pulumi.Input[float]`)
-          * `limit` (`pulumi.Input[float]`)
-          * `metrics` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`)
-            * `scope` (`pulumi.Input[str]`)
-            * `units` (`pulumi.Input[str]`)
-            * `values` (`pulumi.Input[list]`)
-
-          * `notes` (`pulumi.Input[str]`)
-          * `nrql` (`pulumi.Input[str]`)
-          * `orderBy` (`pulumi.Input[str]`)
-          * `rawMetricName` (`pulumi.Input[str]`)
-          * `row` (`pulumi.Input[float]`)
-          * `source` (`pulumi.Input[str]`)
-          * `thresholdRed` (`pulumi.Input[float]`)
-          * `thresholdYellow` (`pulumi.Input[float]`)
-          * `title` (`pulumi.Input[str]`) - The title of the dashboard.
-          * `visualization` (`pulumi.Input[str]`)
-          * `widgetId` (`pulumi.Input[float]`)
-          * `width` (`pulumi.Input[float]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -296,62 +204,32 @@ class Dashboard(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dashboard_url=None, editable=None, filter=None, grid_column_count=None, icon=None, title=None, visibility=None, widgets=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard_url: Optional[pulumi.Input[str]] = None,
+            editable: Optional[pulumi.Input[str]] = None,
+            filter: Optional[pulumi.Input[pulumi.InputType['DashboardFilterArgs']]] = None,
+            grid_column_count: Optional[pulumi.Input[float]] = None,
+            icon: Optional[pulumi.Input[str]] = None,
+            title: Optional[pulumi.Input[str]] = None,
+            visibility: Optional[pulumi.Input[str]] = None,
+            widgets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None) -> 'Dashboard':
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_url: The URL for viewing the dashboard.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-        :param pulumi.Input[dict] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        :param pulumi.Input[pulumi.InputType['DashboardFilterArgs']] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
         :param pulumi.Input[float] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[list] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
-
-        The **filter** object supports the following:
-
-          * `attributes` (`pulumi.Input[list]`)
-          * `eventTypes` (`pulumi.Input[list]`)
-
-        The **widgets** object supports the following:
-
-          * `column` (`pulumi.Input[float]`)
-          * `compareWiths` (`pulumi.Input[list]`)
-            * `offsetDuration` (`pulumi.Input[str]`)
-            * `presentation` (`pulumi.Input[dict]`)
-              * `color` (`pulumi.Input[str]`)
-              * `name` (`pulumi.Input[str]`)
-
-          * `drilldownDashboardId` (`pulumi.Input[float]`)
-          * `duration` (`pulumi.Input[float]`)
-          * `endTime` (`pulumi.Input[float]`)
-          * `entityIds` (`pulumi.Input[list]`)
-          * `facet` (`pulumi.Input[str]`)
-          * `height` (`pulumi.Input[float]`)
-          * `limit` (`pulumi.Input[float]`)
-          * `metrics` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`)
-            * `scope` (`pulumi.Input[str]`)
-            * `units` (`pulumi.Input[str]`)
-            * `values` (`pulumi.Input[list]`)
-
-          * `notes` (`pulumi.Input[str]`)
-          * `nrql` (`pulumi.Input[str]`)
-          * `orderBy` (`pulumi.Input[str]`)
-          * `rawMetricName` (`pulumi.Input[str]`)
-          * `row` (`pulumi.Input[float]`)
-          * `source` (`pulumi.Input[str]`)
-          * `thresholdRed` (`pulumi.Input[float]`)
-          * `thresholdYellow` (`pulumi.Input[float]`)
-          * `title` (`pulumi.Input[str]`) - The title of the dashboard.
-          * `visualization` (`pulumi.Input[str]`)
-          * `widgetId` (`pulumi.Input[float]`)
-          * `width` (`pulumi.Input[float]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -367,8 +245,73 @@ class Dashboard(pulumi.CustomResource):
         __props__["widgets"] = widgets
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dashboardUrl")
+    def dashboard_url(self) -> str:
+        """
+        The URL for viewing the dashboard.
+        """
+        return pulumi.get(self, "dashboard_url")
+
+    @property
+    @pulumi.getter
+    def editable(self) -> Optional[str]:
+        """
+        Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
+        """
+        return pulumi.get(self, "editable")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.DashboardFilter']:
+        """
+        A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="gridColumnCount")
+    def grid_column_count(self) -> Optional[float]:
+        """
+        The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        """
+        return pulumi.get(self, "grid_column_count")
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional[str]:
+        """
+        The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        """
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[str]:
+        """
+        Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[List['outputs.DashboardWidget']]:
+        """
+        A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widgets")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

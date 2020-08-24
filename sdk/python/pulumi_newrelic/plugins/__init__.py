@@ -8,3 +8,5 @@ from .application_settings import *
 from .get_plugin import *
 from .get_plugin_component import *
 from .workload import *
+from ._inputs import *
+from . import outputs

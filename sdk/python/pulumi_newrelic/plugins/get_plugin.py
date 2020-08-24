@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetPluginResult',
+    'AwaitableGetPluginResult',
+    'get_plugin',
+]
 
+@pulumi.output_type
 class GetPluginResult:
     """
     A collection of values returned by getPlugin.
@@ -16,13 +22,23 @@ class GetPluginResult:
     def __init__(__self__, guid=None, id=None):
         if guid and not isinstance(guid, str):
             raise TypeError("Expected argument 'guid' to be a str")
-        __self__.guid = guid
+        pulumi.set(__self__, "guid", guid)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The ID of the installed plugin instance.
         """
+        return pulumi.get(self, "id")
 
 
 class AwaitableGetPluginResult(GetPluginResult):
@@ -35,7 +51,8 @@ class AwaitableGetPluginResult(GetPluginResult):
             id=self.id)
 
 
-def get_plugin(guid=None, opts=None):
+def get_plugin(guid: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPluginResult:
     """
     Use this data source to get information about a specific installed plugin in New Relic.
 
@@ -56,13 +73,13 @@ def get_plugin(guid=None, opts=None):
         plugin_guid=foo_plugin.guid,
         value_function="average",
         metric_description="Queue consumers",
-        terms=[{
-            "duration": 5,
-            "operator": "below",
-            "priority": "critical",
-            "threshold": "0.75",
-            "timeFunction": "all",
-        }])
+        terms=[newrelic.plugins.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
     ```
 
 
@@ -74,8 +91,8 @@ def get_plugin(guid=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:plugins/getPlugin:getPlugin', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:plugins/getPlugin:getPlugin', __args__, opts=opts, typ=GetPluginResult).value
 
     return AwaitableGetPluginResult(
-        guid=__ret__.get('guid'),
-        id=__ret__.get('id'))
+        guid=__ret__.guid,
+        id=__ret__.id)

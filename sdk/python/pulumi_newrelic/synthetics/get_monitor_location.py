@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetMonitorLocationResult',
+    'AwaitableGetMonitorLocationResult',
+    'get_monitor_location',
+]
 
+@pulumi.output_type
 class GetMonitorLocationResult:
     """
     A collection of values returned by getMonitorLocation.
@@ -16,37 +22,67 @@ class GetMonitorLocationResult:
     def __init__(__self__, description=None, high_security_mode=None, id=None, label=None, name=None, private=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if high_security_mode and not isinstance(high_security_mode, bool):
+            raise TypeError("Expected argument 'high_security_mode' to be a bool")
+        pulumi.set(__self__, "high_security_mode", high_security_mode)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if label and not isinstance(label, str):
+            raise TypeError("Expected argument 'label' to be a str")
+        pulumi.set(__self__, "label", label)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if private and not isinstance(private, bool):
+            raise TypeError("Expected argument 'private' to be a bool")
+        pulumi.set(__self__, "private", private)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         A description of the Synthetics monitor location.
         """
-        if high_security_mode and not isinstance(high_security_mode, bool):
-            raise TypeError("Expected argument 'high_security_mode' to be a bool")
-        __self__.high_security_mode = high_security_mode
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="highSecurityMode")
+    def high_security_mode(self) -> bool:
         """
         Represents if high security mode is enabled for the location. A value of true means that high security mode is enabled, and a value of false means it is disabled.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "high_security_mode")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if label and not isinstance(label, str):
-            raise TypeError("Expected argument 'label' to be a str")
-        __self__.label = label
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the Synthetics monitor location.
         """
-        if private and not isinstance(private, bool):
-            raise TypeError("Expected argument 'private' to be a bool")
-        __self__.private = private
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def private(self) -> bool:
         """
         Represents if this location is a private location. A value of true means that the location is private, and a value of false means it is public.
         """
+        return pulumi.get(self, "private")
 
 
 class AwaitableGetMonitorLocationResult(GetMonitorLocationResult):
@@ -63,7 +99,8 @@ class AwaitableGetMonitorLocationResult(GetMonitorLocationResult):
             private=self.private)
 
 
-def get_monitor_location(label=None, opts=None):
+def get_monitor_location(label: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorLocationResult:
     """
     Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
 
@@ -94,12 +131,12 @@ def get_monitor_location(label=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitorLocation:getMonitorLocation', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getMonitorLocation:getMonitorLocation', __args__, opts=opts, typ=GetMonitorLocationResult).value
 
     return AwaitableGetMonitorLocationResult(
-        description=__ret__.get('description'),
-        high_security_mode=__ret__.get('highSecurityMode'),
-        id=__ret__.get('id'),
-        label=__ret__.get('label'),
-        name=__ret__.get('name'),
-        private=__ret__.get('private'))
+        description=__ret__.description,
+        high_security_mode=__ret__.high_security_mode,
+        id=__ret__.id,
+        label=__ret__.label,
+        name=__ret__.name,
+        private=__ret__.private)

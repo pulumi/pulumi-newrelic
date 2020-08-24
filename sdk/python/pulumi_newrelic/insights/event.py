@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Event']
 
 
 class Event(pulumi.CustomResource):
-    events: pulumi.Output[list]
-    """
-    An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-
-      * `attributes` (`list`)
-        * `key` (`str`)
-        * `type` (`str`)
-        * `value` (`str`)
-
-      * `timestamp` (`float`)
-      * `type` (`str`)
-    """
-    def __init__(__self__, resource_name, opts=None, events=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create one or more Insights events.
 
@@ -32,26 +30,26 @@ class Event(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.insights.Event("foo", events=[{
-            "attributes": [
-                {
-                    "key": "a_string_attribute",
-                    "value": "a string",
-                },
-                {
-                    "key": "an_integer_attribute",
-                    "type": "int",
-                    "value": 42,
-                },
-                {
-                    "key": "a_float_attribute",
-                    "type": "float",
-                    "value": 101.1,
-                },
+        foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
+            attributes=[
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_string_attribute",
+                    value="a string",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="an_integer_attribute",
+                    type="int",
+                    value="42",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_float_attribute",
+                    type="float",
+                    value="101.1",
+                ),
             ],
-            "timestamp": 1232471100,
-            "type": "MyEvent",
-        }])
+            timestamp=1232471100,
+            type="MyEvent",
+        )])
         ```
         ## Events
 
@@ -71,17 +69,7 @@ class Event(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-
-        The **events** object supports the following:
-
-          * `attributes` (`pulumi.Input[list]`)
-            * `key` (`pulumi.Input[str]`)
-            * `type` (`pulumi.Input[str]`)
-            * `value` (`pulumi.Input[str]`)
-
-          * `timestamp` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,25 +98,18 @@ class Event(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, events=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None) -> 'Event':
         """
         Get an existing Event resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
-
-        The **events** object supports the following:
-
-          * `attributes` (`pulumi.Input[list]`)
-            * `key` (`pulumi.Input[str]`)
-            * `type` (`pulumi.Input[str]`)
-            * `value` (`pulumi.Input[str]`)
-
-          * `timestamp` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -137,8 +118,17 @@ class Event(pulumi.CustomResource):
         __props__["events"] = events
         return Event(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def events(self) -> List['outputs.EventEvent']:
+        """
+        An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        """
+        return pulumi.get(self, "events")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

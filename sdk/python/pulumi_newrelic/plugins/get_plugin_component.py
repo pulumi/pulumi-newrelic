@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetPluginComponentResult',
+    'AwaitableGetPluginComponentResult',
+    'get_plugin_component',
+]
 
+@pulumi.output_type
 class GetPluginComponentResult:
     """
     A collection of values returned by getPluginComponent.
@@ -16,22 +22,42 @@ class GetPluginComponentResult:
     def __init__(__self__, health_status=None, id=None, name=None, plugin_id=None):
         if health_status and not isinstance(health_status, str):
             raise TypeError("Expected argument 'health_status' to be a str")
-        __self__.health_status = health_status
+        pulumi.set(__self__, "health_status", health_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if plugin_id and not isinstance(plugin_id, float):
+            raise TypeError("Expected argument 'plugin_id' to be a float")
+        pulumi.set(__self__, "plugin_id", plugin_id)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> str:
         """
         The health status of the plugin component.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The ID of the plugin component.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if plugin_id and not isinstance(plugin_id, float):
-            raise TypeError("Expected argument 'plugin_id' to be a float")
-        __self__.plugin_id = plugin_id
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pluginId")
+    def plugin_id(self) -> float:
+        return pulumi.get(self, "plugin_id")
 
 
 class AwaitableGetPluginComponentResult(GetPluginComponentResult):
@@ -46,7 +72,9 @@ class AwaitableGetPluginComponentResult(GetPluginComponentResult):
             plugin_id=self.plugin_id)
 
 
-def get_plugin_component(name=None, plugin_id=None, opts=None):
+def get_plugin_component(name: Optional[str] = None,
+                         plugin_id: Optional[float] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPluginComponentResult:
     """
     Use this data source to get information about a single plugin component in New Relic that already exists.
 
@@ -70,13 +98,13 @@ def get_plugin_component(name=None, plugin_id=None, opts=None):
         entities=[foo_plugin_component.id],
         value_function="average",
         metric_description="Queue consumers",
-        terms=[{
-            "duration": 5,
-            "operator": "below",
-            "priority": "critical",
-            "threshold": "0.75",
-            "timeFunction": "all",
-        }])
+        terms=[newrelic.plugins.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
     ```
 
 
@@ -90,10 +118,10 @@ def get_plugin_component(name=None, plugin_id=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:plugins/getPluginComponent:getPluginComponent', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:plugins/getPluginComponent:getPluginComponent', __args__, opts=opts, typ=GetPluginComponentResult).value
 
     return AwaitableGetPluginComponentResult(
-        health_status=__ret__.get('healthStatus'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        plugin_id=__ret__.get('pluginId'))
+        health_status=__ret__.health_status,
+        id=__ret__.id,
+        name=__ret__.name,
+        plugin_id=__ret__.plugin_id)

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
+__all__ = [
+    'GetApplicationResult',
+    'AwaitableGetApplicationResult',
+    'get_application',
+]
 
+@pulumi.output_type
 class GetApplicationResult:
     """
     A collection of values returned by getApplication.
@@ -16,25 +22,45 @@ class GetApplicationResult:
     def __init__(__self__, host_ids=None, id=None, instance_ids=None, name=None):
         if host_ids and not isinstance(host_ids, list):
             raise TypeError("Expected argument 'host_ids' to be a list")
-        __self__.host_ids = host_ids
+        pulumi.set(__self__, "host_ids", host_ids)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if instance_ids and not isinstance(instance_ids, list):
+            raise TypeError("Expected argument 'instance_ids' to be a list")
+        pulumi.set(__self__, "instance_ids", instance_ids)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="hostIds")
+    def host_ids(self) -> List[float]:
         """
         A list of host IDs associated with the application.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "host_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if instance_ids and not isinstance(instance_ids, list):
-            raise TypeError("Expected argument 'instance_ids' to be a list")
-        __self__.instance_ids = instance_ids
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceIds")
+    def instance_ids(self) -> List[float]:
         """
         A list of instance IDs associated with the application.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "instance_ids")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetApplicationResult(GetApplicationResult):
@@ -49,7 +75,8 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             name=self.name)
 
 
-def get_application(name=None, opts=None):
+def get_application(name: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     #### DEPRECATED! Use at your own risk. Use the `getEntity` data source instead. This feature may be removed in the next major release.
 
@@ -69,13 +96,13 @@ def get_application(name=None, opts=None):
         entities=[app.id],
         metric="apdex",
         runbook_url="https://www.example.com",
-        terms=[{
-            "duration": 5,
-            "operator": "below",
-            "priority": "critical",
-            "threshold": "0.75",
-            "timeFunction": "all",
-        }])
+        terms=[newrelic.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
     ```
 
 
@@ -87,10 +114,10 @@ def get_application(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:index/getApplication:getApplication', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:index/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        host_ids=__ret__.get('hostIds'),
-        id=__ret__.get('id'),
-        instance_ids=__ret__.get('instanceIds'),
-        name=__ret__.get('name'))
+        host_ids=__ret__.host_ids,
+        id=__ret__.id,
+        instance_ids=__ret__.instance_ids,
+        name=__ret__.name)

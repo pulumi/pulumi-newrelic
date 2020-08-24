@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
+__all__ = [
+    'GetKeyTransactionResult',
+    'AwaitableGetKeyTransactionResult',
+    'get_key_transaction',
+]
 
+@pulumi.output_type
 class GetKeyTransactionResult:
     """
     A collection of values returned by getKeyTransaction.
@@ -16,13 +22,23 @@ class GetKeyTransactionResult:
     def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
@@ -35,7 +51,8 @@ class AwaitableGetKeyTransactionResult(GetKeyTransactionResult):
             name=self.name)
 
 
-def get_key_transaction(name=None, opts=None):
+def get_key_transaction(name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyTransactionResult:
     """
     Use this data source to get information about a specific key transaction in New Relic that already exists.
 
@@ -53,13 +70,13 @@ def get_key_transaction(name=None, opts=None):
         entities=[txn.id],
         metric="error_percentage",
         runbook_url="https://www.example.com",
-        terms=[{
-            "duration": 5,
-            "operator": "below",
-            "priority": "critical",
-            "threshold": "0.75",
-            "timeFunction": "all",
-        }])
+        terms=[newrelic.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
     ```
 
 
@@ -71,8 +88,8 @@ def get_key_transaction(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:index/getKeyTransaction:getKeyTransaction', __args__, opts=opts, typ=GetKeyTransactionResult).value
 
     return AwaitableGetKeyTransactionResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        id=__ret__.id,
+        name=__ret__.name)

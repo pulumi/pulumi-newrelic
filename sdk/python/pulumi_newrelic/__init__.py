@@ -19,6 +19,8 @@ from .get_key_transaction import *
 from .infra_alert_condition import *
 from .nrql_alert_condition import *
 from .provider import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 from . import (

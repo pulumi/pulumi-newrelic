@@ -12,3 +12,5 @@ from .monitor import *
 from .monitor_script import *
 from .multi_location_alert_condition import *
 from .secure_credential import *
+from ._inputs import *
+from . import outputs

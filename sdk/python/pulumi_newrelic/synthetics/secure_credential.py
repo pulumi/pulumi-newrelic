@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['SecureCredential']
 
 
 class SecureCredential(pulumi.CustomResource):
-    created_at: pulumi.Output[str]
-    """
-    The time the secure credential was created.
-    """
-    description: pulumi.Output[str]
-    """
-    The secure credential's description.
-    """
-    key: pulumi.Output[str]
-    """
-    The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
-    """
-    last_updated: pulumi.Output[str]
-    """
-    The time the secure credential was last updated.
-    """
-    value: pulumi.Output[str]
-    """
-    The secure credential's value.
-    """
-    def __init__(__self__, resource_name, opts=None, created_at=None, description=None, key=None, last_updated=None, value=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 last_updated: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create and manage New Relic Synthetic secure credentials.
 
@@ -87,13 +79,20 @@ class SecureCredential(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, created_at=None, description=None, key=None, last_updated=None, value=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            key: Optional[pulumi.Input[str]] = None,
+            last_updated: Optional[pulumi.Input[str]] = None,
+            value: Optional[pulumi.Input[str]] = None) -> 'SecureCredential':
         """
         Get an existing SecureCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the secure credential was created.
         :param pulumi.Input[str] description: The secure credential's description.
@@ -112,8 +111,49 @@ class SecureCredential(pulumi.CustomResource):
         __props__["value"] = value
         return SecureCredential(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The time the secure credential was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The secure credential's description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> str:
+        """
+        The time the secure credential was last updated.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The secure credential's value.
+        """
+        return pulumi.get(self, "value")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
