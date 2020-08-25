@@ -120,8 +120,8 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// Account with the event and where the metrics will be put.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
 
         /// <summary>
         /// Provides additional information about the rule.

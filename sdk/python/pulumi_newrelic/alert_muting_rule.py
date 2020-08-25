@@ -7,44 +7,33 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
-__all__ = ['EventsToMetricsRule']
+__all__ = ['AlertMutingRule']
 
 
-class EventsToMetricsRule(pulumi.CustomResource):
+class AlertMutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nrql: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Use this resource to create, update, and delete New Relic Events to Metrics rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.EventsToMetricsRule("foo",
-            account_id=12345,
-            description="Example description",
-            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
-        ```
-
+        Create a AlertMutingRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] account_id: Account with the event and where the metrics will be put.
-        :param pulumi.Input[str] description: Provides additional information about the rule.
-        :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
-        :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
-        :param pulumi.Input[str] nrql: Explains how to create metrics from events.
+        :param pulumi.Input[float] account_id: The account id of the MutingRule.
+        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input[str] description: The description of the MutingRule.
+        :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
+        :param pulumi.Input[str] name: The name of the MutingRule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,15 +53,16 @@ class EventsToMetricsRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['account_id'] = account_id
+            if condition is None:
+                raise TypeError("Missing required property 'condition'")
+            __props__['condition'] = condition
             __props__['description'] = description
+            if enabled is None:
+                raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             __props__['name'] = name
-            if nrql is None:
-                raise TypeError("Missing required property 'nrql'")
-            __props__['nrql'] = nrql
-            __props__['rule_id'] = None
-        super(EventsToMetricsRule, __self__).__init__(
-            'newrelic:index/eventsToMetricsRule:EventsToMetricsRule',
+        super(AlertMutingRule, __self__).__init__(
+            'newrelic:index/alertMutingRule:AlertMutingRule',
             resource_name,
             __props__,
             opts)
@@ -82,58 +72,63 @@ class EventsToMetricsRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[float]] = None,
+            condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            name: Optional[pulumi.Input[str]] = None,
-            nrql: Optional[pulumi.Input[str]] = None,
-            rule_id: Optional[pulumi.Input[str]] = None) -> 'EventsToMetricsRule':
+            name: Optional[pulumi.Input[str]] = None) -> 'AlertMutingRule':
         """
-        Get an existing EventsToMetricsRule resource's state with the given name, id, and optional extra
+        Get an existing AlertMutingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] account_id: Account with the event and where the metrics will be put.
-        :param pulumi.Input[str] description: Provides additional information about the rule.
-        :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
-        :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
-        :param pulumi.Input[str] nrql: Explains how to create metrics from events.
-        :param pulumi.Input[str] rule_id: The id, uniquely identifying the rule.
+        :param pulumi.Input[float] account_id: The account id of the MutingRule.
+        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input[str] description: The description of the MutingRule.
+        :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
+        :param pulumi.Input[str] name: The name of the MutingRule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["account_id"] = account_id
+        __props__["condition"] = condition
         __props__["description"] = description
         __props__["enabled"] = enabled
         __props__["name"] = name
-        __props__["nrql"] = nrql
-        __props__["rule_id"] = rule_id
-        return EventsToMetricsRule(resource_name, opts=opts, __props__=__props__)
+        return AlertMutingRule(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> float:
         """
-        Account with the event and where the metrics will be put.
+        The account id of the MutingRule.
         """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
+    def condition(self) -> 'outputs.AlertMutingRuleCondition':
+        """
+        The condition that defines which violations to target. See Nested condition blocks below for details.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Provides additional information about the rule.
+        The description of the MutingRule.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> bool:
         """
-        True means this rule is enabled. False means the rule is currently not creating metrics.
+        Whether the MutingRule is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -141,25 +136,9 @@ class EventsToMetricsRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the rule. This must be unique within an account.
+        The name of the MutingRule.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def nrql(self) -> str:
-        """
-        Explains how to create metrics from events.
-        """
-        return pulumi.get(self, "nrql")
-
-    @property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> str:
-        """
-        The id, uniquely identifying the rule.
-        """
-        return pulumi.get(self, "rule_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

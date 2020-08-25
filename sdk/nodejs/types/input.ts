@@ -102,6 +102,32 @@ export interface AlertConditionTerm {
     timeFunction: pulumi.Input<string>;
 }
 
+export interface AlertMutingRuleCondition {
+    /**
+     * The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertMutingRuleConditionCondition>[]>;
+    /**
+     * The operator used to combine all the MutingRuleConditions within the group.
+     */
+    operator: pulumi.Input<string>;
+}
+
+export interface AlertMutingRuleConditionCondition {
+    /**
+     * The attribute on a violation.
+     */
+    attribute: pulumi.Input<string>;
+    /**
+     * The operator used to compare the attribute's value with the supplied value(s)
+     */
+    operator: pulumi.Input<string>;
+    /**
+     * The value(s) to compare against the attribute's value.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface DashboardFilter {
     attributes?: pulumi.Input<pulumi.Input<string>[]>;
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;

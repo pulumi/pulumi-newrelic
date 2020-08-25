@@ -6,7 +6,6 @@ package plugins
 import (
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -41,9 +40,6 @@ type Workload struct {
 // NewWorkload registers a new resource with the given unique name, arguments, and options.
 func NewWorkload(ctx *pulumi.Context,
 	name string, args *WorkloadArgs, opts ...pulumi.ResourceOption) (*Workload, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
 	if args == nil {
 		args = &WorkloadArgs{}
 	}
@@ -116,7 +112,7 @@ func (WorkloadState) ElementType() reflect.Type {
 
 type workloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
-	AccountId int `pulumi:"accountId"`
+	AccountId *int `pulumi:"accountId"`
 	// A list of entity GUIDs manually assigned to this workload.
 	EntityGuids []string `pulumi:"entityGuids"`
 	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
@@ -130,7 +126,7 @@ type workloadArgs struct {
 // The set of arguments for constructing a Workload resource.
 type WorkloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
-	AccountId pulumi.IntInput
+	AccountId pulumi.IntPtrInput
 	// A list of entity GUIDs manually assigned to this workload.
 	EntityGuids pulumi.StringArrayInput
 	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.

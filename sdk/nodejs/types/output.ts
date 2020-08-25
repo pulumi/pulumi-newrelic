@@ -102,6 +102,32 @@ export interface AlertConditionTerm {
     timeFunction: string;
 }
 
+export interface AlertMutingRuleCondition {
+    /**
+     * The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+     */
+    conditions: outputs.AlertMutingRuleConditionCondition[];
+    /**
+     * The operator used to combine all the MutingRuleConditions within the group.
+     */
+    operator: string;
+}
+
+export interface AlertMutingRuleConditionCondition {
+    /**
+     * The attribute on a violation.
+     */
+    attribute: string;
+    /**
+     * The operator used to compare the attribute's value with the supplied value(s)
+     */
+    operator: string;
+    /**
+     * The value(s) to compare against the attribute's value.
+     */
+    values: string[];
+}
+
 export interface DashboardFilter {
     attributes?: string[];
     eventTypes: string[];

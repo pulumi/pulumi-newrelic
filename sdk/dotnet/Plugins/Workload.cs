@@ -114,7 +114,7 @@ namespace Pulumi.NewRelic.Plugins
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Workload(string name, WorkloadArgs args, CustomResourceOptions? options = null)
+        public Workload(string name, WorkloadArgs? args = null, CustomResourceOptions? options = null)
             : base("newrelic:plugins/workload:Workload", name, args ?? new WorkloadArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -155,8 +155,8 @@ namespace Pulumi.NewRelic.Plugins
         /// <summary>
         /// The New Relic account ID where you want to create the workload.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
 
         [Input("entityGuids")]
         private InputList<string>? _entityGuids;

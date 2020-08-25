@@ -5,8 +5,10 @@
 # Export this package's modules as members:
 from .alert_channel import *
 from .alert_condition import *
+from .alert_muting_rule import *
 from .alert_policy import *
 from .alert_policy_channel import *
+from .api_access_key import *
 from .dashboard import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
