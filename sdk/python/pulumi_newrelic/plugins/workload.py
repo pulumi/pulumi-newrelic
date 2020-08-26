@@ -72,8 +72,6 @@ class Workload(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_id is None:
-                raise TypeError("Missing required property 'account_id'")
             __props__['account_id'] = account_id
             __props__['entity_guids'] = entity_guids
             __props__['entity_search_queries'] = entity_search_queries

@@ -56,9 +56,6 @@ type EventsToMetricsRule struct {
 // NewEventsToMetricsRule registers a new resource with the given unique name, arguments, and options.
 func NewEventsToMetricsRule(ctx *pulumi.Context,
 	name string, args *EventsToMetricsRuleArgs, opts ...pulumi.ResourceOption) (*EventsToMetricsRule, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
 	if args == nil || args.Nrql == nil {
 		return nil, errors.New("missing required argument 'Nrql'")
 	}
@@ -122,7 +119,7 @@ func (EventsToMetricsRuleState) ElementType() reflect.Type {
 
 type eventsToMetricsRuleArgs struct {
 	// Account with the event and where the metrics will be put.
-	AccountId int `pulumi:"accountId"`
+	AccountId *int `pulumi:"accountId"`
 	// Provides additional information about the rule.
 	Description *string `pulumi:"description"`
 	// True means this rule is enabled. False means the rule is currently not creating metrics.
@@ -136,7 +133,7 @@ type eventsToMetricsRuleArgs struct {
 // The set of arguments for constructing a EventsToMetricsRule resource.
 type EventsToMetricsRuleArgs struct {
 	// Account with the event and where the metrics will be put.
-	AccountId pulumi.IntInput
+	AccountId pulumi.IntPtrInput
 	// Provides additional information about the rule.
 	Description pulumi.StringPtrInput
 	// True means this rule is enabled. False means the rule is currently not creating metrics.

@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'AlertChannelConfig',
     'AlertConditionTerm',
+    'AlertMutingRuleCondition',
+    'AlertMutingRuleConditionCondition',
     'DashboardFilter',
     'DashboardWidget',
     'DashboardWidgetCompareWith',
@@ -336,6 +338,81 @@ class AlertConditionTerm(dict):
     @pulumi.getter
     def priority(self) -> Optional[str]:
         return pulumi.get(self, "priority")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AlertMutingRuleCondition(dict):
+    def __init__(__self__, *,
+                 conditions: List['outputs.AlertMutingRuleConditionCondition'],
+                 operator: str):
+        """
+        :param List['AlertMutingRuleConditionConditionArgs'] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        :param str operator: The operator used to combine all the MutingRuleConditions within the group.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> List['outputs.AlertMutingRuleConditionCondition']:
+        """
+        The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used to combine all the MutingRuleConditions within the group.
+        """
+        return pulumi.get(self, "operator")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AlertMutingRuleConditionCondition(dict):
+    def __init__(__self__, *,
+                 attribute: str,
+                 operator: str,
+                 values: List[str]):
+        """
+        :param str attribute: The attribute on a violation.
+        :param str operator: The operator used to compare the attribute's value with the supplied value(s)
+        :param List[str] values: The value(s) to compare against the attribute's value.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> str:
+        """
+        The attribute on a violation.
+        """
+        return pulumi.get(self, "attribute")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used to compare the attribute's value with the supplied value(s)
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> List[str]:
+        """
+        The value(s) to compare against the attribute's value.
+        """
+        return pulumi.get(self, "values")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

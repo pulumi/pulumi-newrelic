@@ -655,6 +655,271 @@ func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTe
 	}).(AlertConditionTermOutput)
 }
 
+type AlertMutingRuleCondition struct {
+	// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+	Conditions []AlertMutingRuleConditionCondition `pulumi:"conditions"`
+	// The operator used to combine all the MutingRuleConditions within the group.
+	Operator string `pulumi:"operator"`
+}
+
+// AlertMutingRuleConditionInput is an input type that accepts AlertMutingRuleConditionArgs and AlertMutingRuleConditionOutput values.
+// You can construct a concrete instance of `AlertMutingRuleConditionInput` via:
+//
+//          AlertMutingRuleConditionArgs{...}
+type AlertMutingRuleConditionInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleConditionOutput() AlertMutingRuleConditionOutput
+	ToAlertMutingRuleConditionOutputWithContext(context.Context) AlertMutingRuleConditionOutput
+}
+
+type AlertMutingRuleConditionArgs struct {
+	// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+	Conditions AlertMutingRuleConditionConditionArrayInput `pulumi:"conditions"`
+	// The operator used to combine all the MutingRuleConditions within the group.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (AlertMutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleCondition)(nil)).Elem()
+}
+
+func (i AlertMutingRuleConditionArgs) ToAlertMutingRuleConditionOutput() AlertMutingRuleConditionOutput {
+	return i.ToAlertMutingRuleConditionOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRuleConditionArgs) ToAlertMutingRuleConditionOutputWithContext(ctx context.Context) AlertMutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionOutput)
+}
+
+func (i AlertMutingRuleConditionArgs) ToAlertMutingRuleConditionPtrOutput() AlertMutingRuleConditionPtrOutput {
+	return i.ToAlertMutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRuleConditionArgs) ToAlertMutingRuleConditionPtrOutputWithContext(ctx context.Context) AlertMutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionOutput).ToAlertMutingRuleConditionPtrOutputWithContext(ctx)
+}
+
+// AlertMutingRuleConditionPtrInput is an input type that accepts AlertMutingRuleConditionArgs, AlertMutingRuleConditionPtr and AlertMutingRuleConditionPtrOutput values.
+// You can construct a concrete instance of `AlertMutingRuleConditionPtrInput` via:
+//
+//          AlertMutingRuleConditionArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertMutingRuleConditionPtrInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleConditionPtrOutput() AlertMutingRuleConditionPtrOutput
+	ToAlertMutingRuleConditionPtrOutputWithContext(context.Context) AlertMutingRuleConditionPtrOutput
+}
+
+type alertMutingRuleConditionPtrType AlertMutingRuleConditionArgs
+
+func AlertMutingRuleConditionPtr(v *AlertMutingRuleConditionArgs) AlertMutingRuleConditionPtrInput {
+	return (*alertMutingRuleConditionPtrType)(v)
+}
+
+func (*alertMutingRuleConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMutingRuleCondition)(nil)).Elem()
+}
+
+func (i *alertMutingRuleConditionPtrType) ToAlertMutingRuleConditionPtrOutput() AlertMutingRuleConditionPtrOutput {
+	return i.ToAlertMutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertMutingRuleConditionPtrType) ToAlertMutingRuleConditionPtrOutputWithContext(ctx context.Context) AlertMutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionPtrOutput)
+}
+
+type AlertMutingRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertMutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleCondition)(nil)).Elem()
+}
+
+func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionOutput() AlertMutingRuleConditionOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionOutputWithContext(ctx context.Context) AlertMutingRuleConditionOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionPtrOutput() AlertMutingRuleConditionPtrOutput {
+	return o.ToAlertMutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionPtrOutputWithContext(ctx context.Context) AlertMutingRuleConditionPtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleCondition) *AlertMutingRuleCondition {
+		return &v
+	}).(AlertMutingRuleConditionPtrOutput)
+}
+
+// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+func (o AlertMutingRuleConditionOutput) Conditions() AlertMutingRuleConditionConditionArrayOutput {
+	return o.ApplyT(func(v AlertMutingRuleCondition) []AlertMutingRuleConditionCondition { return v.Conditions }).(AlertMutingRuleConditionConditionArrayOutput)
+}
+
+// The operator used to combine all the MutingRuleConditions within the group.
+func (o AlertMutingRuleConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertMutingRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type AlertMutingRuleConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertMutingRuleConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMutingRuleCondition)(nil)).Elem()
+}
+
+func (o AlertMutingRuleConditionPtrOutput) ToAlertMutingRuleConditionPtrOutput() AlertMutingRuleConditionPtrOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionPtrOutput) ToAlertMutingRuleConditionPtrOutputWithContext(ctx context.Context) AlertMutingRuleConditionPtrOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionPtrOutput) Elem() AlertMutingRuleConditionOutput {
+	return o.ApplyT(func(v *AlertMutingRuleCondition) AlertMutingRuleCondition { return *v }).(AlertMutingRuleConditionOutput)
+}
+
+// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+func (o AlertMutingRuleConditionPtrOutput) Conditions() AlertMutingRuleConditionConditionArrayOutput {
+	return o.ApplyT(func(v *AlertMutingRuleCondition) []AlertMutingRuleConditionCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(AlertMutingRuleConditionConditionArrayOutput)
+}
+
+// The operator used to combine all the MutingRuleConditions within the group.
+func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertMutingRuleConditionCondition struct {
+	// The attribute on a violation.
+	Attribute string `pulumi:"attribute"`
+	// The operator used to compare the attribute's value with the supplied value(s)
+	Operator string `pulumi:"operator"`
+	// The value(s) to compare against the attribute's value.
+	Values []string `pulumi:"values"`
+}
+
+// AlertMutingRuleConditionConditionInput is an input type that accepts AlertMutingRuleConditionConditionArgs and AlertMutingRuleConditionConditionOutput values.
+// You can construct a concrete instance of `AlertMutingRuleConditionConditionInput` via:
+//
+//          AlertMutingRuleConditionConditionArgs{...}
+type AlertMutingRuleConditionConditionInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleConditionConditionOutput() AlertMutingRuleConditionConditionOutput
+	ToAlertMutingRuleConditionConditionOutputWithContext(context.Context) AlertMutingRuleConditionConditionOutput
+}
+
+type AlertMutingRuleConditionConditionArgs struct {
+	// The attribute on a violation.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+	// The operator used to compare the attribute's value with the supplied value(s)
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// The value(s) to compare against the attribute's value.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertMutingRuleConditionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleConditionCondition)(nil)).Elem()
+}
+
+func (i AlertMutingRuleConditionConditionArgs) ToAlertMutingRuleConditionConditionOutput() AlertMutingRuleConditionConditionOutput {
+	return i.ToAlertMutingRuleConditionConditionOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRuleConditionConditionArgs) ToAlertMutingRuleConditionConditionOutputWithContext(ctx context.Context) AlertMutingRuleConditionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionConditionOutput)
+}
+
+// AlertMutingRuleConditionConditionArrayInput is an input type that accepts AlertMutingRuleConditionConditionArray and AlertMutingRuleConditionConditionArrayOutput values.
+// You can construct a concrete instance of `AlertMutingRuleConditionConditionArrayInput` via:
+//
+//          AlertMutingRuleConditionConditionArray{ AlertMutingRuleConditionConditionArgs{...} }
+type AlertMutingRuleConditionConditionArrayInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleConditionConditionArrayOutput() AlertMutingRuleConditionConditionArrayOutput
+	ToAlertMutingRuleConditionConditionArrayOutputWithContext(context.Context) AlertMutingRuleConditionConditionArrayOutput
+}
+
+type AlertMutingRuleConditionConditionArray []AlertMutingRuleConditionConditionInput
+
+func (AlertMutingRuleConditionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertMutingRuleConditionCondition)(nil)).Elem()
+}
+
+func (i AlertMutingRuleConditionConditionArray) ToAlertMutingRuleConditionConditionArrayOutput() AlertMutingRuleConditionConditionArrayOutput {
+	return i.ToAlertMutingRuleConditionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRuleConditionConditionArray) ToAlertMutingRuleConditionConditionArrayOutputWithContext(ctx context.Context) AlertMutingRuleConditionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleConditionConditionArrayOutput)
+}
+
+type AlertMutingRuleConditionConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertMutingRuleConditionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleConditionCondition)(nil)).Elem()
+}
+
+func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionConditionOutput() AlertMutingRuleConditionConditionOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionConditionOutputWithContext(ctx context.Context) AlertMutingRuleConditionConditionOutput {
+	return o
+}
+
+// The attribute on a violation.
+func (o AlertMutingRuleConditionConditionOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+// The operator used to compare the attribute's value with the supplied value(s)
+func (o AlertMutingRuleConditionConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// The value(s) to compare against the attribute's value.
+func (o AlertMutingRuleConditionConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertMutingRuleConditionCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertMutingRuleConditionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertMutingRuleConditionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertMutingRuleConditionCondition)(nil)).Elem()
+}
+
+func (o AlertMutingRuleConditionConditionArrayOutput) ToAlertMutingRuleConditionConditionArrayOutput() AlertMutingRuleConditionConditionArrayOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionConditionArrayOutput) ToAlertMutingRuleConditionConditionArrayOutputWithContext(ctx context.Context) AlertMutingRuleConditionConditionArrayOutput {
+	return o
+}
+
+func (o AlertMutingRuleConditionConditionArrayOutput) Index(i pulumi.IntInput) AlertMutingRuleConditionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertMutingRuleConditionCondition {
+		return vs[0].([]AlertMutingRuleConditionCondition)[vs[1].(int)]
+	}).(AlertMutingRuleConditionConditionOutput)
+}
+
 type DashboardFilter struct {
 	Attributes []string `pulumi:"attributes"`
 	EventTypes []string `pulumi:"eventTypes"`
@@ -2637,6 +2902,10 @@ func init() {
 	pulumi.RegisterOutputType(AlertChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermArrayOutput{})
+	pulumi.RegisterOutputType(AlertMutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(AlertMutingRuleConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionOutput{})
+	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionArrayOutput{})
 	pulumi.RegisterOutputType(DashboardFilterOutput{})
 	pulumi.RegisterOutputType(DashboardFilterPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetOutput{})

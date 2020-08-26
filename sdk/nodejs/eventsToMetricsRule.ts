@@ -93,9 +93,6 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
             inputs["ruleId"] = state ? state.ruleId : undefined;
         } else {
             const args = argsOrState as EventsToMetricsRuleArgs | undefined;
-            if (!args || args.accountId === undefined) {
-                throw new Error("Missing required property 'accountId'");
-            }
             if (!args || args.nrql === undefined) {
                 throw new Error("Missing required property 'nrql'");
             }
@@ -154,7 +151,7 @@ export interface EventsToMetricsRuleArgs {
     /**
      * Account with the event and where the metrics will be put.
      */
-    readonly accountId: pulumi.Input<number>;
+    readonly accountId?: pulumi.Input<number>;
     /**
      * Provides additional information about the rule.
      */

@@ -11,6 +11,8 @@ from . import _utilities, _tables
 __all__ = [
     'AlertChannelConfigArgs',
     'AlertConditionTermArgs',
+    'AlertMutingRuleConditionArgs',
+    'AlertMutingRuleConditionConditionArgs',
     'DashboardFilterArgs',
     'DashboardWidgetArgs',
     'DashboardWidgetCompareWithArgs',
@@ -435,6 +437,95 @@ class AlertConditionTermArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "priority", value)
+
+
+@pulumi.input_type
+class AlertMutingRuleConditionArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]],
+                 operator: pulumi.Input[str]):
+        """
+        :param pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]:
+        """
+        The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator used to combine all the MutingRuleConditions within the group.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class AlertMutingRuleConditionConditionArgs:
+    def __init__(__self__, *,
+                 attribute: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[List[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] attribute: The attribute on a violation.
+        :param pulumi.Input[str] operator: The operator used to compare the attribute's value with the supplied value(s)
+        :param pulumi.Input[List[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input[str]:
+        """
+        The attribute on a violation.
+        """
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator used to compare the attribute's value with the supplied value(s)
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        The value(s) to compare against the attribute's value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

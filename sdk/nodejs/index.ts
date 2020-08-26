@@ -4,8 +4,10 @@
 // Export members:
 export * from "./alertChannel";
 export * from "./alertCondition";
+export * from "./alertMutingRule";
 export * from "./alertPolicy";
 export * from "./alertPolicyChannel";
+export * from "./apiAccessKey";
 export * from "./dashboard";
 export * from "./entityTags";
 export * from "./eventsToMetricsRule";

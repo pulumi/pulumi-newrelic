@@ -101,7 +101,7 @@ export class Workload extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkloadArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: WorkloadArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkloadArgs | WorkloadState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
@@ -117,9 +117,6 @@ export class Workload extends pulumi.CustomResource {
             inputs["workloadId"] = state ? state.workloadId : undefined;
         } else {
             const args = argsOrState as WorkloadArgs | undefined;
-            if (!args || args.accountId === undefined) {
-                throw new Error("Missing required property 'accountId'");
-            }
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["entityGuids"] = args ? args.entityGuids : undefined;
             inputs["entitySearchQueries"] = args ? args.entitySearchQueries : undefined;
@@ -190,7 +187,7 @@ export interface WorkloadArgs {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    readonly accountId: pulumi.Input<number>;
+    readonly accountId?: pulumi.Input<number>;
     /**
      * A list of entity GUIDs manually assigned to this workload.
      */
