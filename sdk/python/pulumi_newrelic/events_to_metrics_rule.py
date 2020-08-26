@@ -5,36 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+
+__all__ = ['EventsToMetricsRule']
 
 
 class EventsToMetricsRule(pulumi.CustomResource):
-    account_id: pulumi.Output[float]
-    """
-    Account with the event and where the metrics will be put.
-    """
-    description: pulumi.Output[str]
-    """
-    Provides additional information about the rule.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    True means this rule is enabled. False means the rule is currently not creating metrics.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the rule. This must be unique within an account.
-    """
-    nrql: pulumi.Output[str]
-    """
-    Explains how to create metrics from events.
-    """
-    rule_id: pulumi.Output[str]
-    """
-    The id, uniquely identifying the rule.
-    """
-    def __init__(__self__, resource_name, opts=None, account_id=None, description=None, enabled=None, name=None, nrql=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[float]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nrql: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create, update, and delete New Relic Events to Metrics rules.
 
@@ -92,13 +80,21 @@ class EventsToMetricsRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_id=None, description=None, enabled=None, name=None, nrql=None, rule_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: Optional[pulumi.Input[float]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            nrql: Optional[pulumi.Input[str]] = None,
+            rule_id: Optional[pulumi.Input[str]] = None) -> 'EventsToMetricsRule':
         """
         Get an existing EventsToMetricsRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] account_id: Account with the event and where the metrics will be put.
         :param pulumi.Input[str] description: Provides additional information about the rule.
@@ -119,8 +115,57 @@ class EventsToMetricsRule(pulumi.CustomResource):
         __props__["rule_id"] = rule_id
         return EventsToMetricsRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> float:
+        """
+        Account with the event and where the metrics will be put.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Provides additional information about the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True means this rule is enabled. False means the rule is currently not creating metrics.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the rule. This must be unique within an account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def nrql(self) -> str:
+        """
+        Explains how to create metrics from events.
+        """
+        return pulumi.get(self, "nrql")
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> str:
+        """
+        The id, uniquely identifying the rule.
+        """
+        return pulumi.get(self, "rule_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

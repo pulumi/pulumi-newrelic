@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
+__all__ = [
+    'GetAccountResult',
+    'AwaitableGetAccountResult',
+    'get_account',
+]
 
+@pulumi.output_type
 class GetAccountResult:
     """
     A collection of values returned by getAccount.
@@ -16,19 +22,39 @@ class GetAccountResult:
     def __init__(__self__, account_id=None, id=None, name=None, scope=None):
         if account_id and not isinstance(account_id, float):
             raise TypeError("Expected argument 'account_id' to be a float")
-        __self__.account_id = account_id
+        pulumi.set(__self__, "account_id", account_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[float]:
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if scope and not isinstance(scope, str):
-            raise TypeError("Expected argument 'scope' to be a str")
-        __self__.scope = scope
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        return pulumi.get(self, "scope")
 
 
 class AwaitableGetAccountResult(GetAccountResult):
@@ -43,7 +69,10 @@ class AwaitableGetAccountResult(GetAccountResult):
             scope=self.scope)
 
 
-def get_account(account_id=None, name=None, scope=None, opts=None):
+def get_account(account_id: Optional[float] = None,
+                name: Optional[str] = None,
+                scope: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Use this data source to get information about a specific account in New Relic.
     Accounts can be located by ID or name.  Exactly one of the two attributes is
@@ -71,10 +100,10 @@ def get_account(account_id=None, name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:index/getAccount:getAccount', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:index/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.get('accountId'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        scope=__ret__.get('scope'))
+        account_id=__ret__.account_id,
+        id=__ret__.id,
+        name=__ret__.name,
+        scope=__ret__.scope)

@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetEntityResult',
+    'AwaitableGetEntityResult',
+    'get_entity',
+]
 
+@pulumi.output_type
 class GetEntityResult:
     """
     A collection of values returned by getEntity.
@@ -16,40 +24,80 @@ class GetEntityResult:
     def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, name=None, tag=None, type=None):
         if account_id and not isinstance(account_id, float):
             raise TypeError("Expected argument 'account_id' to be a float")
-        __self__.account_id = account_id
+        pulumi.set(__self__, "account_id", account_id)
+        if application_id and not isinstance(application_id, float):
+            raise TypeError("Expected argument 'application_id' to be a float")
+        pulumi.set(__self__, "application_id", application_id)
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
+        if guid and not isinstance(guid, str):
+            raise TypeError("Expected argument 'guid' to be a str")
+        pulumi.set(__self__, "guid", guid)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tag and not isinstance(tag, dict):
+            raise TypeError("Expected argument 'tag' to be a dict")
+        pulumi.set(__self__, "tag", tag)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> float:
         """
         The New Relic account ID associated with this entity.
         """
-        if application_id and not isinstance(application_id, float):
-            raise TypeError("Expected argument 'application_id' to be a float")
-        __self__.application_id = application_id
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> float:
         """
         The domain-specific application ID of the entity. Only returned for APM and Browser applications.
         """
-        if domain and not isinstance(domain, str):
-            raise TypeError("Expected argument 'domain' to be a str")
-        __self__.domain = domain
-        if guid and not isinstance(guid, str):
-            raise TypeError("Expected argument 'guid' to be a str")
-        __self__.guid = guid
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
         """
         The unique GUID of the entity.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if tag and not isinstance(tag, dict):
-            raise TypeError("Expected argument 'tag' to be a dict")
-        __self__.tag = tag
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional['outputs.GetEntityTagResult']:
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetEntityResult(GetEntityResult):
@@ -68,7 +116,11 @@ class AwaitableGetEntityResult(GetEntityResult):
             type=self.type)
 
 
-def get_entity(domain=None, name=None, tag=None, type=None, opts=None):
+def get_entity(domain: Optional[str] = None,
+               name: Optional[str] = None,
+               tag: Optional[pulumi.InputType['GetEntityTagArgs']] = None,
+               type: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
     Use this data source to get information about a specific entity in New Relic One that already exists.
 
@@ -81,10 +133,10 @@ def get_entity(domain=None, name=None, tag=None, type=None, opts=None):
     app = newrelic.get_entity(name="my-app",
         domain="APM",
         type="APPLICATION",
-        tag={
-            "key": "my-tag",
-            "value": "my-tag-value",
-        })
+        tag=newrelic.GetEntityTagArgs(
+            key="my-tag",
+            value="my-tag-value",
+        ))
     foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
     foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
         policy_id=foo_alert_policy.id,
@@ -92,24 +144,19 @@ def get_entity(domain=None, name=None, tag=None, type=None, opts=None):
         entities=[data["newrelic_application"]["app"]["application_id"]],
         metric="apdex",
         runbook_url="https://www.example.com",
-        terms=[{
-            "duration": 5,
-            "operator": "below",
-            "priority": "critical",
-            "threshold": "0.75",
-            "timeFunction": "all",
-        }])
+        terms=[newrelic.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
     ```
 
 
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORRKLOAD.
-
-    The **tag** object supports the following:
-
-      * `key` (`str`)
-      * `value` (`str`)
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -120,14 +167,14 @@ def get_entity(domain=None, name=None, tag=None, type=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:index/getEntity:getEntity', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:index/getEntity:getEntity', __args__, opts=opts, typ=GetEntityResult).value
 
     return AwaitableGetEntityResult(
-        account_id=__ret__.get('accountId'),
-        application_id=__ret__.get('applicationId'),
-        domain=__ret__.get('domain'),
-        guid=__ret__.get('guid'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        tag=__ret__.get('tag'),
-        type=__ret__.get('type'))
+        account_id=__ret__.account_id,
+        application_id=__ret__.application_id,
+        domain=__ret__.domain,
+        guid=__ret__.guid,
+        id=__ret__.id,
+        name=__ret__.name,
+        tag=__ret__.tag,
+        type=__ret__.type)

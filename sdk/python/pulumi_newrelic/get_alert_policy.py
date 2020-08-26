@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
+__all__ = [
+    'GetAlertPolicyResult',
+    'AwaitableGetAlertPolicyResult',
+    'get_alert_policy',
+]
 
+@pulumi.output_type
 class GetAlertPolicyResult:
     """
     A collection of values returned by getAlertPolicy.
@@ -16,34 +22,64 @@ class GetAlertPolicyResult:
     def __init__(__self__, account_id=None, created_at=None, id=None, incident_preference=None, name=None, updated_at=None):
         if account_id and not isinstance(account_id, float):
             raise TypeError("Expected argument 'account_id' to be a float")
-        __self__.account_id = account_id
+        pulumi.set(__self__, "account_id", account_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
-        __self__.created_at = created_at
+        pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if incident_preference and not isinstance(incident_preference, str):
+            raise TypeError("Expected argument 'incident_preference' to be a str")
+        pulumi.set(__self__, "incident_preference", incident_preference)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> float:
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
         """
         The time the policy was created.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if incident_preference and not isinstance(incident_preference, str):
-            raise TypeError("Expected argument 'incident_preference' to be a str")
-        __self__.incident_preference = incident_preference
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="incidentPreference")
+    def incident_preference(self) -> Optional[str]:
         """
         The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if updated_at and not isinstance(updated_at, str):
-            raise TypeError("Expected argument 'updated_at' to be a str")
-        __self__.updated_at = updated_at
+        return pulumi.get(self, "incident_preference")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
         """
         The time the policy was last updated.
         """
+        return pulumi.get(self, "updated_at")
 
 
 class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
@@ -60,22 +96,12 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
             updated_at=self.updated_at)
 
 
-def get_alert_policy(account_id=None, incident_preference=None, name=None, opts=None):
+def get_alert_policy(account_id: Optional[float] = None,
+                     incident_preference: Optional[str] = None,
+                     name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertPolicyResult:
     """
     Use this data source to get information about a specific alert policy in New Relic that already exists.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    foo_alert_channel = newrelic.get_alert_channel(name="foo@example.com")
-    foo_alert_policy = newrelic.get_alert_policy(name="foo policy")
-    foo_alert_policy_channel = newrelic.AlertPolicyChannel("fooAlertPolicyChannel",
-        policy_id=foo_alert_policy.id,
-        channel_id=foo_alert_channel.id)
-    ```
 
 
     :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
@@ -89,12 +115,12 @@ def get_alert_policy(account_id=None, incident_preference=None, name=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertPolicy:getAlertPolicy', __args__, opts=opts, typ=GetAlertPolicyResult).value
 
     return AwaitableGetAlertPolicyResult(
-        account_id=__ret__.get('accountId'),
-        created_at=__ret__.get('createdAt'),
-        id=__ret__.get('id'),
-        incident_preference=__ret__.get('incidentPreference'),
-        name=__ret__.get('name'),
-        updated_at=__ret__.get('updatedAt'))
+        account_id=__ret__.account_id,
+        created_at=__ret__.created_at,
+        id=__ret__.id,
+        incident_preference=__ret__.incident_preference,
+        name=__ret__.name,
+        updated_at=__ret__.updated_at)

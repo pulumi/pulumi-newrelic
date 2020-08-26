@@ -1,3 +1,11 @@
+[![Actions Status](https://github.com/pulumi/pulumi-newrelic/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-newrelic/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fnewrelic.svg)](https://www.npmjs.com/package/@pulumi/newrelic)
+[![Python version](https://badge.fury.io/py/pulumi-newrelic.svg)](https://pypi.org/project/pulumi-newrelic)
+[![NuGet version](https://badge.fury.io/nu/pulumi.newrelic.svg)](https://badge.fury.io/nu/pulumi.newrelic)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-newrelic/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-newrelic/sdk/v3/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-newrelic/blob/master/LICENSE)
+
 # New Relic Provider
 
 The New Relic resource provider for Pulumi lets you use New Relic resources in your cloud programs.

@@ -5,8 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = [
+    'account_id',
+    'admin_api_key',
+    'api_key',
+    'api_url',
+    'cacert_file',
+    'infrastructure_api_url',
+    'insecure_skip_verify',
+    'insights_insert_key',
+    'insights_insert_url',
+    'insights_query_url',
+    'nerdgraph_api_url',
+    'region',
+    'synthetics_api_url',
+]
 
 __config__ = pulumi.Config('newrelic')
 

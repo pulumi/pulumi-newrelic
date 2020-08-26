@@ -5,107 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AlertCondition']
 
 
 class AlertCondition(pulumi.CustomResource):
-    condition_scope: pulumi.Output[str]
-    """
-    `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Whether the condition is enabled or not. Defaults to true.
-    """
-    entities: pulumi.Output[list]
-    """
-    The instance IDs associated with this condition.
-    """
-    gc_metric: pulumi.Output[str]
-    """
-    A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
-    """
-    metric: pulumi.Output[str]
-    """
-    The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-    * `apm_app_metric`
-    * `apdex`
-    * `error_percentage`
-    * `response_time_background`
-    * `response_time_web`
-    * `throughput_background`
-    * `throughput_web`
-    * `user_defined`
-    * `apm_kt_metric`
-    * `apdex`
-    * `error_count`
-    * `error_percentage`
-    * `response_time`
-    * `throughput`
-    * `browser_metric`
-    * `ajax_response_time`
-    * `ajax_throughput`
-    * `dom_processing`
-    * `end_user_apdex`
-    * `network`
-    * `page_rendering`
-    * `page_view_throughput`
-    * `page_views_with_js_errors`
-    * `request_queuing`
-    * `total_page_load`
-    * `user_defined`
-    * `web_application`
-    * `mobile_metric`
-    * `database`
-    * `images`
-    * `json`
-    * `mobile_crash_rate`
-    * `network_error_percentage`
-    * `network`
-    * `status_error_percentage`
-    * `user_defined`
-    * `view_loading`
-    """
-    name: pulumi.Output[str]
-    """
-    The title of the condition. Must be between 1 and 64 characters, inclusive.
-    """
-    policy_id: pulumi.Output[float]
-    """
-    The ID of the policy where this condition should be used.
-    """
-    runbook_url: pulumi.Output[str]
-    """
-    Runbook URL to display in notifications.
-    """
-    terms: pulumi.Output[list]
-    """
-    A list of terms for this condition. See Terms below for details.
-
-      * `duration` (`float`)
-      * `operator` (`str`)
-      * `priority` (`str`)
-      * `threshold` (`float`)
-      * `timeFunction` (`str`)
-    """
-    type: pulumi.Output[str]
-    """
-    The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
-    """
-    user_defined_metric: pulumi.Output[str]
-    """
-    A custom metric to be evaluated.
-    """
-    user_defined_value_function: pulumi.Output[str]
-    """
-    One of: `average`, `min`, `max`, `total`, or `sample_size`.
-    """
-    violation_close_timer: pulumi.Output[float]
-    """
-    Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
-    """
-    def __init__(__self__, resource_name, opts=None, condition_scope=None, enabled=None, entities=None, gc_metric=None, metric=None, name=None, policy_id=None, runbook_url=None, terms=None, type=None, user_defined_metric=None, user_defined_value_function=None, violation_close_timer=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 condition_scope: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 gc_metric: Optional[pulumi.Input[str]] = None,
+                 metric: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[float]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 terms: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_defined_metric: Optional[pulumi.Input[str]] = None,
+                 user_defined_value_function: Optional[pulumi.Input[str]] = None,
+                 violation_close_timer: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 
@@ -126,13 +53,13 @@ class AlertCondition(pulumi.CustomResource):
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",
-            terms=[{
-                "duration": 5,
-                "operator": "below",
-                "priority": "critical",
-                "threshold": "0.75",
-                "timeFunction": "all",
-            }])
+            terms=[newrelic.AlertConditionTermArgs(
+                duration=5,
+                operator="below",
+                priority="critical",
+                threshold=0.75,
+                time_function="all",
+            )])
         ```
         ## Terms
 
@@ -148,7 +75,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[bool] enabled: Whether the condition is enabled or not. Defaults to true.
-        :param pulumi.Input[list] entities: The instance IDs associated with this condition.
+        :param pulumi.Input[List[pulumi.Input[float]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
                * `apm_app_metric`
@@ -191,19 +118,11 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
         :param pulumi.Input[float] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
-
-        The **terms** object supports the following:
-
-          * `duration` (`pulumi.Input[float]`)
-          * `operator` (`pulumi.Input[str]`)
-          * `priority` (`pulumi.Input[str]`)
-          * `threshold` (`pulumi.Input[float]`)
-          * `timeFunction` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -252,17 +171,32 @@ class AlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, condition_scope=None, enabled=None, entities=None, gc_metric=None, metric=None, name=None, policy_id=None, runbook_url=None, terms=None, type=None, user_defined_metric=None, user_defined_value_function=None, violation_close_timer=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            condition_scope: Optional[pulumi.Input[str]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            gc_metric: Optional[pulumi.Input[str]] = None,
+            metric: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            policy_id: Optional[pulumi.Input[float]] = None,
+            runbook_url: Optional[pulumi.Input[str]] = None,
+            terms: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            user_defined_metric: Optional[pulumi.Input[str]] = None,
+            user_defined_value_function: Optional[pulumi.Input[str]] = None,
+            violation_close_timer: Optional[pulumi.Input[float]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[bool] enabled: Whether the condition is enabled or not. Defaults to true.
-        :param pulumi.Input[list] entities: The instance IDs associated with this condition.
+        :param pulumi.Input[List[pulumi.Input[float]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
                * `apm_app_metric`
@@ -305,19 +239,11 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[list] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
         :param pulumi.Input[float] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
-
-        The **terms** object supports the following:
-
-          * `duration` (`pulumi.Input[float]`)
-          * `operator` (`pulumi.Input[str]`)
-          * `priority` (`pulumi.Input[str]`)
-          * `threshold` (`pulumi.Input[float]`)
-          * `timeFunction` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -338,8 +264,150 @@ class AlertCondition(pulumi.CustomResource):
         __props__["violation_close_timer"] = violation_close_timer
         return AlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="conditionScope")
+    def condition_scope(self) -> Optional[str]:
+        """
+        `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
+        """
+        return pulumi.get(self, "condition_scope")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the condition is enabled or not. Defaults to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def entities(self) -> List[float]:
+        """
+        The instance IDs associated with this condition.
+        """
+        return pulumi.get(self, "entities")
+
+    @property
+    @pulumi.getter(name="gcMetric")
+    def gc_metric(self) -> Optional[str]:
+        """
+        A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
+        """
+        return pulumi.get(self, "gc_metric")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+        * `apm_app_metric`
+        * `apdex`
+        * `error_percentage`
+        * `response_time_background`
+        * `response_time_web`
+        * `throughput_background`
+        * `throughput_web`
+        * `user_defined`
+        * `apm_kt_metric`
+        * `apdex`
+        * `error_count`
+        * `error_percentage`
+        * `response_time`
+        * `throughput`
+        * `browser_metric`
+        * `ajax_response_time`
+        * `ajax_throughput`
+        * `dom_processing`
+        * `end_user_apdex`
+        * `network`
+        * `page_rendering`
+        * `page_view_throughput`
+        * `page_views_with_js_errors`
+        * `request_queuing`
+        * `total_page_load`
+        * `user_defined`
+        * `web_application`
+        * `mobile_metric`
+        * `database`
+        * `images`
+        * `json`
+        * `mobile_crash_rate`
+        * `network_error_percentage`
+        * `network`
+        * `status_error_percentage`
+        * `user_defined`
+        * `view_loading`
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the condition. Must be between 1 and 64 characters, inclusive.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> float:
+        """
+        The ID of the policy where this condition should be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[str]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
+    @property
+    @pulumi.getter
+    def terms(self) -> List['outputs.AlertConditionTerm']:
+        """
+        A list of terms for this condition. See Terms below for details.
+        """
+        return pulumi.get(self, "terms")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userDefinedMetric")
+    def user_defined_metric(self) -> Optional[str]:
+        """
+        A custom metric to be evaluated.
+        """
+        return pulumi.get(self, "user_defined_metric")
+
+    @property
+    @pulumi.getter(name="userDefinedValueFunction")
+    def user_defined_value_function(self) -> Optional[str]:
+        """
+        One of: `average`, `min`, `max`, `total`, or `sample_size`.
+        """
+        return pulumi.get(self, "user_defined_value_function")
+
+    @property
+    @pulumi.getter(name="violationCloseTimer")
+    def violation_close_timer(self) -> Optional[float]:
+        """
+        Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        """
+        return pulumi.get(self, "violation_close_timer")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

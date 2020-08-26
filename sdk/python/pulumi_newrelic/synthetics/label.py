@@ -5,28 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Label']
 
 
 class Label(pulumi.CustomResource):
-    href: pulumi.Output[str]
-    """
-    The URL of the Synthetics label.
-    """
-    monitor_id: pulumi.Output[str]
-    """
-    The ID of the monitor that will be assigned the label.
-    """
-    type: pulumi.Output[str]
-    """
-    A string representing the label key/category.
-    """
-    value: pulumi.Output[str]
-    """
-    A string representing the label value.
-    """
-    def __init__(__self__, resource_name, opts=None, monitor_id=None, type=None, value=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 monitor_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         > **DEPRECATED** Use at your own risk. Use the [`EntityTags`](https://www.terraform.io/docs/providers/newrelic/r/entity_tags.html) resource instead. This feature may already no longer be functional for some accounts and will be removed in the next major release.  See [this link](https://www.google.com/search?q=synthetics+labels+deprecation&oq=synthetics+labels+deprecation&aqs=chrome..69i57.4062j1j4&sourceid=chrome&ie=UTF-8) for more details.
 
@@ -84,13 +78,19 @@ class Label(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, href=None, monitor_id=None, type=None, value=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            href: Optional[pulumi.Input[str]] = None,
+            monitor_id: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            value: Optional[pulumi.Input[str]] = None) -> 'Label':
         """
         Get an existing Label resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] href: The URL of the Synthetics label.
         :param pulumi.Input[str] monitor_id: The ID of the monitor that will be assigned the label.
@@ -107,8 +107,41 @@ class Label(pulumi.CustomResource):
         __props__["value"] = value
         return Label(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def href(self) -> str:
+        """
+        The URL of the Synthetics label.
+        """
+        return pulumi.get(self, "href")
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> str:
+        """
+        The ID of the monitor that will be assigned the label.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        A string representing the label key/category.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A string representing the label value.
+        """
+        return pulumi.get(self, "value")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

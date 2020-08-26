@@ -5,23 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EntityTags']
 
 
 class EntityTags(pulumi.CustomResource):
-    guid: pulumi.Output[str]
-    """
-    The guid of the entity to tag.
-    """
-    tags: pulumi.Output[list]
-    """
-    A nested block that describes an entity tag. See Nested tag blocks below for details.
-
-      * `key` (`str`) - The tag key.
-      * `values` (`list`) - The tag values.
-    """
-    def __init__(__self__, resource_name, opts=None, guid=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create, update, and delete tags for a New Relic One entity.
 
@@ -37,29 +37,24 @@ class EntityTags(pulumi.CustomResource):
         foo_entity_tags = newrelic.EntityTags("fooEntityTags",
             guid=foo_entity.guid,
             tags=[
-                {
-                    "key": "my-key",
-                    "values": [
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
                         "my-value",
                         "my-other-value",
                     ],
-                },
-                {
-                    "key": "my-key-2",
-                    "values": ["my-value-2"],
-                },
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
             ])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guid: The guid of the entity to tag.
-        :param pulumi.Input[list] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
-
-        The **tags** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - The tag key.
-          * `values` (`pulumi.Input[list]`) - The tag values.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,21 +86,20 @@ class EntityTags(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, guid=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            guid: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]]] = None) -> 'EntityTags':
         """
         Get an existing EntityTags resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guid: The guid of the entity to tag.
-        :param pulumi.Input[list] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
-
-        The **tags** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - The tag key.
-          * `values` (`pulumi.Input[list]`) - The tag values.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -115,8 +109,25 @@ class EntityTags(pulumi.CustomResource):
         __props__["tags"] = tags
         return EntityTags(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
+        """
+        The guid of the entity to tag.
+        """
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> List['outputs.EntityTagsTag']:
+        """
+        A nested block that describes an entity tag. See Nested tag blocks below for details.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

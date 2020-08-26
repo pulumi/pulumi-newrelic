@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+
+__all__ = ['AlertPolicyChannel']
 
 
 class AlertPolicyChannel(pulumi.CustomResource):
-    channel_ids: pulumi.Output[list]
-    """
-    Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
-    """
-    policy_id: pulumi.Output[float]
-    """
-    The ID of the policy.
-    """
-    def __init__(__self__, resource_name, opts=None, channel_ids=None, policy_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 channel_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 policy_id: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to map alert policies to alert channels in New Relic.
 
@@ -34,17 +35,17 @@ class AlertPolicyChannel(pulumi.CustomResource):
         # Creates an email alert channel.
         email_channel = newrelic.AlertChannel("emailChannel",
             type="email",
-            config={
-                "recipients": "foo@example.com",
-                "includeJsonAttachment": "1",
-            })
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="foo@example.com",
+                include_json_attachment="1",
+            ))
         # Creates a Slack alert channel.
         slack_channel = newrelic.AlertChannel("slackChannel",
             type="slack",
-            config={
-                "channel": "#example-channel",
-                "url": "http://example-org.slack.com",
-            })
+            config=newrelic.AlertChannelConfigArgs(
+                channel="#example-channel",
+                url="http://example-org.slack.com",
+            ))
         # Applies the created channels above to the alert policy
         # referenced at the top of the config.
         foo = newrelic.AlertPolicyChannel("foo",
@@ -57,7 +58,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[List[pulumi.Input[float]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[float] policy_id: The ID of the policy.
         """
         if __name__ is not None:
@@ -90,15 +91,19 @@ class AlertPolicyChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, channel_ids=None, policy_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            channel_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            policy_id: Optional[pulumi.Input[float]] = None) -> 'AlertPolicyChannel':
         """
         Get an existing AlertPolicyChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[List[pulumi.Input[float]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[float] policy_id: The ID of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -109,8 +114,25 @@ class AlertPolicyChannel(pulumi.CustomResource):
         __props__["policy_id"] = policy_id
         return AlertPolicyChannel(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="channelIds")
+    def channel_ids(self) -> List[float]:
+        """
+        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        """
+        return pulumi.get(self, "channel_ids")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> float:
+        """
+        The ID of the policy.
+        """
+        return pulumi.get(self, "policy_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

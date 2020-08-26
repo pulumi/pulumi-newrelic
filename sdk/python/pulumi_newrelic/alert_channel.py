@@ -5,51 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AlertChannel']
 
 
 class AlertChannel(pulumi.CustomResource):
-    config: pulumi.Output[dict]
-    """
-    A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
-
-      * `apiKey` (`str`) - The API key for integrating with OpsGenie.
-      * `authPassword` (`str`) - Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
-      * `authType` (`str`) - Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
-      * `authUsername` (`str`) - Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
-      * `baseUrl` (`str`) - The base URL of the webhook destination.
-      * `channel` (`str`) - The Slack channel to send notifications to.
-        * `opsgenie`
-      * `headers` (`dict`) - A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
-      * `headersString` (`str`) - Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
-      * `includeJsonAttachment` (`str`) - `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-        * `webhook`
-      * `key` (`str`) - The key for integrating with VictorOps.
-      * `payload` (`dict`) - A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
-      * `payloadString` (`str`) - Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
-      * `payloadType` (`str`) - Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-        * `pagerduty`
-      * `recipients` (`str`) - A set of recipients for targeting notifications.  Multiple values are comma separated.
-      * `region` (`str`) - The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
-      * `routeKey` (`str`) - The route key for integrating with VictorOps.
-        * `slack`
-      * `serviceKey` (`str`) - Specifies the service key for integrating with Pagerduty.
-        * `victorops`
-      * `tags` (`str`) - A set of tags for targeting notifications. Multiple values are comma separated.
-      * `teams` (`str`) - A set of teams for targeting notifications. Multiple values are comma separated.
-      * `url` (`str`) - Your organization's Slack URL.
-      * `userId` (`str`)
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the channel.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
-    """
-    def __init__(__self__, resource_name, opts=None, config=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create and manage New Relic alert policies.
 
@@ -61,10 +34,10 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
-            config={
-                "includeJsonAttachment": "1",
-                "recipients": "foo@example.com",
-            },
+            config=newrelic.AlertChannelConfigArgs(
+                include_json_attachment="1",
+                recipients="foo@example.com",
+            ),
             type="email")
         ```
 
@@ -74,10 +47,10 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
-            config={
-                "channel": "example-alerts-channel",
-                "url": "https://<YourOrganization>.slack.com",
-            },
+            config=newrelic.AlertChannelConfigArgs(
+                channel="example-alerts-channel",
+                url="https://<YourOrganization>.slack.com",
+            ),
             type="slack")
         ```
 
@@ -87,12 +60,12 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
-            config={
-                "apiKey": "abc123",
-                "recipients": "user1@domain.com, user2@domain.com",
-                "tags": "tag1, tag2",
-                "teams": "team1, team2",
-            },
+            config=newrelic.AlertChannelConfigArgs(
+                api_key="abc123",
+                recipients="user1@domain.com, user2@domain.com",
+                tags="tag1, tag2",
+                teams="team1, team2",
+            ),
             type="opsgenie")
         ```
 
@@ -102,9 +75,9 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
-            config={
-                "serviceKey": "abc123",
-            },
+            config=newrelic.AlertChannelConfigArgs(
+                service_key="abc123",
+            ),
             type="pagerduty")
         ```
 
@@ -114,10 +87,10 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
-            config={
-                "key": "abc123",
-                "routeKey": "/example",
-            },
+            config=newrelic.AlertChannelConfigArgs(
+                key="abc123",
+                route_key="/example",
+            ),
             type="victorops")
         ```
 
@@ -128,18 +101,18 @@ class AlertChannel(pulumi.CustomResource):
 
         foo = newrelic.AlertChannel("foo",
             type="webhook",
-            config={
-                "baseUrl": "http://www.test.com",
-                "payloadType": "application/json",
-                "payload": {
+            config=newrelic.AlertChannelConfigArgs(
+                base_url="http://www.test.com",
+                payload_type="application/json",
+                payload={
                     "condition_name": "$CONDITION_NAME",
                     "policy_name": "$POLICY_NAME",
                 },
-                "headers": {
+                headers={
                     "header1": value1,
                     "header2": value2,
                 },
-            })
+            ))
         ```
 
         ##### Webhook with complex payload
@@ -148,9 +121,9 @@ class AlertChannel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
-            config={
-                "baseUrl": "http://www.test.com",
-                "payloadString": \"\"\"{
+            config=newrelic.AlertChannelConfigArgs(
+                base_url="http://www.test.com",
+                payload_string=\"\"\"{
           "my_custom_values": {
             "condition_name": "$CONDITION_NAME",
             "policy_name": "$POLICY_NAME"
@@ -158,45 +131,16 @@ class AlertChannel(pulumi.CustomResource):
         }
 
         \"\"\",
-                "payloadType": "application/json",
-            },
+                payload_type="application/json",
+            ),
             type="webhook")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
-
-        The **config** object supports the following:
-
-          * `apiKey` (`pulumi.Input[str]`) - The API key for integrating with OpsGenie.
-          * `authPassword` (`pulumi.Input[str]`) - Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
-          * `authType` (`pulumi.Input[str]`) - Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
-          * `authUsername` (`pulumi.Input[str]`) - Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
-          * `baseUrl` (`pulumi.Input[str]`) - The base URL of the webhook destination.
-          * `channel` (`pulumi.Input[str]`) - The Slack channel to send notifications to.
-            * `opsgenie`
-          * `headers` (`pulumi.Input[dict]`) - A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
-          * `headersString` (`pulumi.Input[str]`) - Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
-          * `includeJsonAttachment` (`pulumi.Input[str]`) - `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-            * `webhook`
-          * `key` (`pulumi.Input[str]`) - The key for integrating with VictorOps.
-          * `payload` (`pulumi.Input[dict]`) - A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
-          * `payloadString` (`pulumi.Input[str]`) - Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
-          * `payloadType` (`pulumi.Input[str]`) - Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-            * `pagerduty`
-          * `recipients` (`pulumi.Input[str]`) - A set of recipients for targeting notifications.  Multiple values are comma separated.
-          * `region` (`pulumi.Input[str]`) - The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
-          * `routeKey` (`pulumi.Input[str]`) - The route key for integrating with VictorOps.
-            * `slack`
-          * `serviceKey` (`pulumi.Input[str]`) - Specifies the service key for integrating with Pagerduty.
-            * `victorops`
-          * `tags` (`pulumi.Input[str]`) - A set of tags for targeting notifications. Multiple values are comma separated.
-          * `teams` (`pulumi.Input[str]`) - A set of teams for targeting notifications. Multiple values are comma separated.
-          * `url` (`pulumi.Input[str]`) - Your organization's Slack URL.
-          * `userId` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -227,46 +171,22 @@ class AlertChannel(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, config=None, name=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config: Optional[pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'AlertChannel':
         """
         Get an existing AlertChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
-
-        The **config** object supports the following:
-
-          * `apiKey` (`pulumi.Input[str]`) - The API key for integrating with OpsGenie.
-          * `authPassword` (`pulumi.Input[str]`) - Specifies an authentication password for use with a channel.  Supported by the `webhook` channel type.
-          * `authType` (`pulumi.Input[str]`) - Specifies an authentication method for use with a channel.  Supported by the `webhook` channel type.  Only HTTP basic authentication is currently supported via the value `BASIC`.
-          * `authUsername` (`pulumi.Input[str]`) - Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
-          * `baseUrl` (`pulumi.Input[str]`) - The base URL of the webhook destination.
-          * `channel` (`pulumi.Input[str]`) - The Slack channel to send notifications to.
-            * `opsgenie`
-          * `headers` (`pulumi.Input[dict]`) - A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
-          * `headersString` (`pulumi.Input[str]`) - Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
-          * `includeJsonAttachment` (`pulumi.Input[str]`) - `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-            * `webhook`
-          * `key` (`pulumi.Input[str]`) - The key for integrating with VictorOps.
-          * `payload` (`pulumi.Input[dict]`) - A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
-          * `payloadString` (`pulumi.Input[str]`) - Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
-          * `payloadType` (`pulumi.Input[str]`) - Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-            * `pagerduty`
-          * `recipients` (`pulumi.Input[str]`) - A set of recipients for targeting notifications.  Multiple values are comma separated.
-          * `region` (`pulumi.Input[str]`) - The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
-          * `routeKey` (`pulumi.Input[str]`) - The route key for integrating with VictorOps.
-            * `slack`
-          * `serviceKey` (`pulumi.Input[str]`) - Specifies the service key for integrating with Pagerduty.
-            * `victorops`
-          * `tags` (`pulumi.Input[str]`) - A set of tags for targeting notifications. Multiple values are comma separated.
-          * `teams` (`pulumi.Input[str]`) - A set of teams for targeting notifications. Multiple values are comma separated.
-          * `url` (`pulumi.Input[str]`) - Your organization's Slack URL.
-          * `userId` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,8 +197,33 @@ class AlertChannel(pulumi.CustomResource):
         __props__["type"] = type
         return AlertChannel(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.AlertChannelConfig']:
+        """
+        A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the channel.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

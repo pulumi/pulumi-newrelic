@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['AlertCondition']
 
 
 class AlertCondition(pulumi.CustomResource):
-    enabled: pulumi.Output[bool]
-    """
-    Set whether to enable the alert condition. Defaults to `true`.
-    """
-    monitor_id: pulumi.Output[str]
-    """
-    The ID of the Synthetics monitor to be referenced in the alert condition.
-    """
-    name: pulumi.Output[str]
-    """
-    The title of this condition.
-    """
-    policy_id: pulumi.Output[float]
-    """
-    The ID of the policy where this condition should be used.
-    """
-    runbook_url: pulumi.Output[str]
-    """
-    Runbook URL to display in notifications.
-    """
-    def __init__(__self__, resource_name, opts=None, enabled=None, monitor_id=None, name=None, policy_id=None, runbook_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 monitor_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[float]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
@@ -88,13 +80,20 @@ class AlertCondition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, monitor_id=None, name=None, policy_id=None, runbook_url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            monitor_id: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            policy_id: Optional[pulumi.Input[float]] = None,
+            runbook_url: Optional[pulumi.Input[str]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
         :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
@@ -113,8 +112,49 @@ class AlertCondition(pulumi.CustomResource):
         __props__["runbook_url"] = runbook_url
         return AlertCondition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Set whether to enable the alert condition. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> str:
+        """
+        The ID of the Synthetics monitor to be referenced in the alert condition.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of this condition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> float:
+        """
+        The ID of the policy where this condition should be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[str]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
