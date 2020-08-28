@@ -15,7 +15,7 @@ __all__ = ['NrqlAlertCondition']
 
 class NrqlAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
                  baseline_direction: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> pulumi.Output[float]:
         """
         The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -225,7 +225,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baselineDirection")
-    def baseline_direction(self) -> Optional[str]:
+    def baseline_direction(self) -> pulumi.Output[Optional[str]]:
         """
         The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         """
@@ -233,7 +233,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def critical(self) -> Optional['outputs.NrqlAlertConditionCritical']:
+    def critical(self) -> pulumi.Output[Optional['outputs.NrqlAlertConditionCritical']]:
         """
         A list containing the `critical` threshold values. See Terms below for details.
         """
@@ -241,7 +241,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the NRQL alert condition.
         """
@@ -249,7 +249,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         """
@@ -257,7 +257,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expectedGroups")
-    def expected_groups(self) -> Optional[float]:
+    def expected_groups(self) -> pulumi.Output[Optional[float]]:
         """
         Number of expected groups when using `outlier` detection.
         """
@@ -265,7 +265,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ignoreOverlap")
-    def ignore_overlap(self) -> Optional[bool]:
+    def ignore_overlap(self) -> pulumi.Output[Optional[bool]]:
         """
         **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
         """
@@ -273,7 +273,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The title of the condition.
         """
@@ -281,7 +281,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nrql(self) -> 'outputs.NrqlAlertConditionNrql':
+    def nrql(self) -> pulumi.Output['outputs.NrqlAlertConditionNrql']:
         """
         A NRQL query. See NRQL below for details.
         """
@@ -289,7 +289,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openViolationOnGroupOverlap")
-    def open_violation_on_group_overlap(self) -> Optional[bool]:
+    def open_violation_on_group_overlap(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
         """
@@ -297,7 +297,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the policy where this condition should be used.
         """
@@ -305,7 +305,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[str]:
+    def runbook_url(self) -> pulumi.Output[Optional[str]]:
         """
         Runbook URL to display in notifications.
         """
@@ -313,7 +313,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> Optional[List['outputs.NrqlAlertConditionTerm']]:
+    def terms(self) -> pulumi.Output[Optional[List['outputs.NrqlAlertConditionTerm']]]:
         """
         **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         """
@@ -321,7 +321,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
         """
@@ -329,7 +329,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="valueFunction")
-    def value_function(self) -> Optional[str]:
+    def value_function(self) -> pulumi.Output[Optional[str]]:
         """
         Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.
         """
@@ -337,7 +337,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationTimeLimit")
-    def violation_time_limit(self) -> Optional[str]:
+    def violation_time_limit(self) -> pulumi.Output[Optional[str]]:
         """
         Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
         """
@@ -345,7 +345,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> Optional[float]:
+    def violation_time_limit_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
         """
@@ -353,7 +353,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def warning(self) -> Optional['outputs.NrqlAlertConditionWarning']:
+    def warning(self) -> pulumi.Output[Optional['outputs.NrqlAlertConditionWarning']]:
         """
         A list containing the `warning` threshold values. See Terms below for details.
         """

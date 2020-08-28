@@ -13,7 +13,7 @@ __all__ = ['Monitor']
 
 class Monitor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[float]] = None,
@@ -207,7 +207,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bypassHeadRequest")
-    def bypass_head_request(self) -> Optional[bool]:
+    def bypass_head_request(self) -> pulumi.Output[Optional[bool]]:
         """
         Bypass HEAD request.
         """
@@ -215,7 +215,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> float:
+    def frequency(self) -> pulumi.Output[float]:
         """
         The interval (in minutes) at which this monitor should run.
         """
@@ -223,7 +223,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> pulumi.Output[List[str]]:
         """
         The locations in which this monitor should be run.
         """
@@ -231,7 +231,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The title of this monitor.
         """
@@ -239,7 +239,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="slaThreshold")
-    def sla_threshold(self) -> Optional[float]:
+    def sla_threshold(self) -> pulumi.Output[Optional[float]]:
         """
         The base threshold for the SLA report.
         """
@@ -247,7 +247,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
         """
@@ -255,7 +255,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="treatRedirectAsFailure")
-    def treat_redirect_as_failure(self) -> Optional[bool]:
+    def treat_redirect_as_failure(self) -> pulumi.Output[Optional[bool]]:
         """
         Fail the monitor check if redirected.
         """
@@ -263,7 +263,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
         """
@@ -271,7 +271,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> Optional[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI for the monitor to hit.
         """
@@ -279,7 +279,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationString")
-    def validation_string(self) -> Optional[str]:
+    def validation_string(self) -> pulumi.Output[Optional[str]]:
         """
         The string to validate against in the response.
         """
@@ -287,7 +287,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verifySsl")
-    def verify_ssl(self) -> Optional[bool]:
+    def verify_ssl(self) -> pulumi.Output[Optional[bool]]:
         """
         Verify SSL.
         """

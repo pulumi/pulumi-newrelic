@@ -15,7 +15,7 @@ __all__ = ['AlertMutingRule']
 
 class AlertMutingRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
@@ -102,7 +102,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> pulumi.Output[float]:
         """
         The account id of the MutingRule.
         """
@@ -110,7 +110,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> 'outputs.AlertMutingRuleCondition':
+    def condition(self) -> pulumi.Output['outputs.AlertMutingRuleCondition']:
         """
         The condition that defines which violations to target. See Nested condition blocks below for details.
         """
@@ -118,7 +118,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the MutingRule.
         """
@@ -126,7 +126,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Whether the MutingRule is enabled.
         """
@@ -134,7 +134,7 @@ class AlertMutingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the MutingRule.
         """

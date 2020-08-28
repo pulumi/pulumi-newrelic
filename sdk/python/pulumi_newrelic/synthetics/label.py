@@ -13,7 +13,7 @@ __all__ = ['Label']
 
 class Label(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Label(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def href(self) -> str:
+    def href(self) -> pulumi.Output[str]:
         """
         The URL of the Synthetics label.
         """
@@ -117,7 +117,7 @@ class Label(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> str:
+    def monitor_id(self) -> pulumi.Output[str]:
         """
         The ID of the monitor that will be assigned the label.
         """
@@ -125,7 +125,7 @@ class Label(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         A string representing the label key/category.
         """
@@ -133,7 +133,7 @@ class Label(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         A string representing the label value.
         """

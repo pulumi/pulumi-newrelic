@@ -13,7 +13,7 @@ __all__ = ['AlertPolicyChannel']
 
 class AlertPolicyChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
                  policy_id: Optional[pulumi.Input[float]] = None,
@@ -116,7 +116,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> List[float]:
+    def channel_ids(self) -> pulumi.Output[List[float]]:
         """
         Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         """
@@ -124,7 +124,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the policy.
         """

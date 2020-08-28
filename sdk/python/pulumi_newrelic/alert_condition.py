@@ -15,7 +15,7 @@ __all__ = ['AlertCondition']
 
 class AlertCondition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition_scope: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -266,7 +266,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conditionScope")
-    def condition_scope(self) -> Optional[str]:
+    def condition_scope(self) -> pulumi.Output[Optional[str]]:
         """
         `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         """
@@ -274,7 +274,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the condition is enabled or not. Defaults to true.
         """
@@ -282,7 +282,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entities(self) -> List[float]:
+    def entities(self) -> pulumi.Output[List[float]]:
         """
         The instance IDs associated with this condition.
         """
@@ -290,7 +290,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gcMetric")
-    def gc_metric(self) -> Optional[str]:
+    def gc_metric(self) -> pulumi.Output[Optional[str]]:
         """
         A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         """
@@ -298,7 +298,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metric(self) -> str:
+    def metric(self) -> pulumi.Output[str]:
         """
         The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
         * `apm_app_metric`
@@ -343,7 +343,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The title of the condition. Must be between 1 and 64 characters, inclusive.
         """
@@ -351,7 +351,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the policy where this condition should be used.
         """
@@ -359,7 +359,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[str]:
+    def runbook_url(self) -> pulumi.Output[Optional[str]]:
         """
         Runbook URL to display in notifications.
         """
@@ -367,7 +367,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> List['outputs.AlertConditionTerm']:
+    def terms(self) -> pulumi.Output[List['outputs.AlertConditionTerm']]:
         """
         A list of terms for this condition. See Terms below for details.
         """
@@ -375,7 +375,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         """
@@ -383,7 +383,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDefinedMetric")
-    def user_defined_metric(self) -> Optional[str]:
+    def user_defined_metric(self) -> pulumi.Output[Optional[str]]:
         """
         A custom metric to be evaluated.
         """
@@ -391,7 +391,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDefinedValueFunction")
-    def user_defined_value_function(self) -> Optional[str]:
+    def user_defined_value_function(self) -> pulumi.Output[Optional[str]]:
         """
         One of: `average`, `min`, `max`, `total`, or `sample_size`.
         """
@@ -399,7 +399,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationCloseTimer")
-    def violation_close_timer(self) -> Optional[float]:
+    def violation_close_timer(self) -> pulumi.Output[Optional[float]]:
         """
         Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """

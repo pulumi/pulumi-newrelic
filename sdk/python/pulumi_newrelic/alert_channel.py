@@ -15,7 +15,7 @@ __all__ = ['AlertChannel']
 
 class AlertChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -199,7 +199,7 @@ class AlertChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> Optional['outputs.AlertChannelConfig']:
+    def config(self) -> pulumi.Output[Optional['outputs.AlertChannelConfig']]:
         """
         A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         """
@@ -207,7 +207,7 @@ class AlertChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the channel.
         """
@@ -215,7 +215,7 @@ class AlertChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """

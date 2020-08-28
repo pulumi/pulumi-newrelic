@@ -13,7 +13,7 @@ __all__ = ['EventsToMetricsRule']
 
 class EventsToMetricsRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> pulumi.Output[float]:
         """
         Account with the event and where the metrics will be put.
         """
@@ -123,7 +123,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Provides additional information about the rule.
         """
@@ -131,7 +131,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         True means this rule is enabled. False means the rule is currently not creating metrics.
         """
@@ -139,7 +139,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the rule. This must be unique within an account.
         """
@@ -147,7 +147,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nrql(self) -> str:
+    def nrql(self) -> pulumi.Output[str]:
         """
         Explains how to create metrics from events.
         """
@@ -155,7 +155,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> str:
+    def rule_id(self) -> pulumi.Output[str]:
         """
         The id, uniquely identifying the rule.
         """

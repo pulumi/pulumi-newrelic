@@ -13,7 +13,7 @@ __all__ = ['MonitorScript']
 
 class MonitorScript(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class MonitorScript(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> str:
+    def monitor_id(self) -> pulumi.Output[str]:
         """
         The ID of the monitor to attach the script to.
         """
@@ -91,7 +91,7 @@ class MonitorScript(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def text(self) -> str:
+    def text(self) -> pulumi.Output[str]:
         """
         The plaintext representing the monitor script.
         """

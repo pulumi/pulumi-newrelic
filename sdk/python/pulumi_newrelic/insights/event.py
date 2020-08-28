@@ -15,7 +15,7 @@ __all__ = ['Event']
 
 class Event(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None,
                  __props__=None,
@@ -120,7 +120,7 @@ class Event(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> List['outputs.EventEvent']:
+    def events(self) -> pulumi.Output[List['outputs.EventEvent']]:
         """
         An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
