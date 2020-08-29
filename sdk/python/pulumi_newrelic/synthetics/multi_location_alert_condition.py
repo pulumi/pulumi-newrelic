@@ -15,7 +15,7 @@ __all__ = ['MultiLocationAlertCondition']
 
 class MultiLocationAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  critical: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -127,7 +127,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def critical(self) -> 'outputs.MultiLocationAlertConditionCritical':
+    def critical(self) -> pulumi.Output['outputs.MultiLocationAlertConditionCritical']:
         """
         A condition term with the priority set to critical.
         """
@@ -135,7 +135,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Set whether to enable the alert condition.  Defaults to true.
         """
@@ -143,7 +143,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entities(self) -> List[str]:
+    def entities(self) -> pulumi.Output[List[str]]:
         """
         The GUIDs of the Synthetics monitors to alert on.
         """
@@ -151,7 +151,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The title of the condition.
         """
@@ -159,7 +159,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the policy where this condition will be used.
         """
@@ -167,7 +167,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[str]:
+    def runbook_url(self) -> pulumi.Output[Optional[str]]:
         """
         Runbook URL to display in notifications.
         """
@@ -175,7 +175,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationTimeLimitSeconds")
-    def violation_time_limit_seconds(self) -> float:
+    def violation_time_limit_seconds(self) -> pulumi.Output[float]:
         """
         The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
         7200, 14400, 28800, 43200, 86400
@@ -184,7 +184,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def warning(self) -> Optional['outputs.MultiLocationAlertConditionWarning']:
+    def warning(self) -> pulumi.Output[Optional['outputs.MultiLocationAlertConditionWarning']]:
         """
         A condition term with the priority set to warning.
         """

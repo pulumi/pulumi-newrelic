@@ -13,7 +13,7 @@ __all__ = ['AlertCondition']
 
 class AlertCondition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Set whether to enable the alert condition. Defaults to `true`.
         """
@@ -122,7 +122,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> str:
+    def monitor_id(self) -> pulumi.Output[str]:
         """
         The ID of the Synthetics monitor to be referenced in the alert condition.
         """
@@ -130,7 +130,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The title of this condition.
         """
@@ -138,7 +138,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the policy where this condition should be used.
         """
@@ -146,7 +146,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[str]:
+    def runbook_url(self) -> pulumi.Output[Optional[str]]:
         """
         Runbook URL to display in notifications.
         """

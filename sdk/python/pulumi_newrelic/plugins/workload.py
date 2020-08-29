@@ -15,7 +15,7 @@ __all__ = ['Workload']
 
 class Workload(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
                  entity_guids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -134,7 +134,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> pulumi.Output[float]:
         """
         The New Relic account ID where you want to create the workload.
         """
@@ -142,7 +142,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="compositeEntitySearchQuery")
-    def composite_entity_search_query(self) -> str:
+    def composite_entity_search_query(self) -> pulumi.Output[str]:
         """
         The composite query used to compose a dynamic workload.
         """
@@ -150,7 +150,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityGuids")
-    def entity_guids(self) -> List[str]:
+    def entity_guids(self) -> pulumi.Output[List[str]]:
         """
         A list of entity GUIDs manually assigned to this workload.
         """
@@ -158,7 +158,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entitySearchQueries")
-    def entity_search_queries(self) -> Optional[List['outputs.WorkloadEntitySearchQuery']]:
+    def entity_search_queries(self) -> pulumi.Output[Optional[List['outputs.WorkloadEntitySearchQuery']]]:
         """
         A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
         """
@@ -166,7 +166,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def guid(self) -> str:
+    def guid(self) -> pulumi.Output[str]:
         """
         The unique entity identifier of the workload in New Relic.
         """
@@ -174,7 +174,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The workload's name.
         """
@@ -182,7 +182,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permalink(self) -> str:
+    def permalink(self) -> pulumi.Output[str]:
         """
         The URL of the workload.
         """
@@ -190,7 +190,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeAccountIds")
-    def scope_account_ids(self) -> List[float]:
+    def scope_account_ids(self) -> pulumi.Output[List[float]]:
         """
         A list of account IDs that will be used to get entities from.
         """
@@ -198,7 +198,7 @@ class Workload(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workloadId")
-    def workload_id(self) -> float:
+    def workload_id(self) -> pulumi.Output[float]:
         """
         The unique entity identifier of the workload.
         """

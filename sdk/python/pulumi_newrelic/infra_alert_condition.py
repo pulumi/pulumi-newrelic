@@ -15,7 +15,7 @@ __all__ = ['InfraAlertCondition']
 
 class InfraAlertCondition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comparison: Optional[pulumi.Input[str]] = None,
                  critical: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']]] = None,
@@ -233,7 +233,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def comparison(self) -> Optional[str]:
+    def comparison(self) -> pulumi.Output[Optional[str]]:
         """
         The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
         """
@@ -241,7 +241,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> float:
+    def created_at(self) -> pulumi.Output[float]:
         """
         The timestamp the alert condition was created.
         """
@@ -249,7 +249,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def critical(self) -> Optional['outputs.InfraAlertConditionCritical']:
+    def critical(self) -> pulumi.Output[Optional['outputs.InfraAlertConditionCritical']]:
         """
         Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
         """
@@ -257,7 +257,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Infrastructure alert condition.
         """
@@ -265,7 +265,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         """
@@ -273,7 +273,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def event(self) -> str:
+    def event(self) -> pulumi.Output[str]:
         """
         The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         """
@@ -281,7 +281,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationProvider")
-    def integration_provider(self) -> Optional[str]:
+    def integration_provider(self) -> pulumi.Output[Optional[str]]:
         """
         For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         """
@@ -289,7 +289,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Infrastructure alert condition's name.
         """
@@ -297,7 +297,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the alert policy where this condition should be used.
         """
@@ -305,7 +305,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="processWhere")
-    def process_where(self) -> Optional[str]:
+    def process_where(self) -> pulumi.Output[Optional[str]]:
         """
         Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
         """
@@ -313,7 +313,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[str]:
+    def runbook_url(self) -> pulumi.Output[Optional[str]]:
         """
         Runbook URL to display in notifications.
         """
@@ -321,7 +321,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def select(self) -> Optional[str]:
+    def select(self) -> pulumi.Output[Optional[str]]:
         """
         The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
         """
@@ -329,7 +329,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
         """
@@ -337,7 +337,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> float:
+    def updated_at(self) -> pulumi.Output[float]:
         """
         The timestamp the alert condition was last updated.
         """
@@ -345,7 +345,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationCloseTimer")
-    def violation_close_timer(self) -> Optional[float]:
+    def violation_close_timer(self) -> pulumi.Output[Optional[float]]:
         """
         Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
         """
@@ -353,7 +353,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def warning(self) -> Optional['outputs.InfraAlertConditionWarning']:
+    def warning(self) -> pulumi.Output[Optional['outputs.InfraAlertConditionWarning']]:
         """
         Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         """
@@ -361,7 +361,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def where(self) -> Optional[str]:
+    def where(self) -> pulumi.Output[Optional[str]]:
         """
         If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """

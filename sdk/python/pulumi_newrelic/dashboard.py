@@ -15,7 +15,7 @@ __all__ = ['Dashboard']
 
 class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  editable: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['DashboardFilterArgs']]] = None,
@@ -247,7 +247,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardUrl")
-    def dashboard_url(self) -> str:
+    def dashboard_url(self) -> pulumi.Output[str]:
         """
         The URL for viewing the dashboard.
         """
@@ -255,7 +255,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def editable(self) -> Optional[str]:
+    def editable(self) -> pulumi.Output[Optional[str]]:
         """
         Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
         """
@@ -263,7 +263,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.DashboardFilter']:
+    def filter(self) -> pulumi.Output[Optional['outputs.DashboardFilter']]:
         """
         A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
         """
@@ -271,7 +271,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gridColumnCount")
-    def grid_column_count(self) -> Optional[float]:
+    def grid_column_count(self) -> pulumi.Output[Optional[float]]:
         """
         The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
         """
@@ -279,7 +279,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def icon(self) -> Optional[str]:
+    def icon(self) -> pulumi.Output[Optional[str]]:
         """
         The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         """
@@ -287,7 +287,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         The title of the dashboard.
         """
@@ -295,7 +295,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def visibility(self) -> Optional[str]:
+    def visibility(self) -> pulumi.Output[Optional[str]]:
         """
         Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
         """
@@ -303,7 +303,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def widgets(self) -> Optional[List['outputs.DashboardWidget']]:
+    def widgets(self) -> pulumi.Output[Optional[List['outputs.DashboardWidget']]]:
         """
         A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
         """

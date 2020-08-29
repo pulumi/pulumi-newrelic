@@ -13,7 +13,7 @@ __all__ = ['SecureCredential']
 
 class SecureCredential(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class SecureCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         The time the secure credential was created.
         """
@@ -121,7 +121,7 @@ class SecureCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The secure credential's description.
         """
@@ -129,7 +129,7 @@ class SecureCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> pulumi.Output[str]:
         """
         The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         """
@@ -137,7 +137,7 @@ class SecureCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> str:
+    def last_updated(self) -> pulumi.Output[str]:
         """
         The time the secure credential was last updated.
         """
@@ -145,7 +145,7 @@ class SecureCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         The secure credential's value.
         """

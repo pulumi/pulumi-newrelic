@@ -15,7 +15,7 @@ __all__ = ['AlertCondition']
 
 class AlertCondition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
@@ -187,7 +187,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not this condition is enabled.
         """
@@ -195,7 +195,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entities(self) -> List[float]:
+    def entities(self) -> pulumi.Output[List[float]]:
         """
         The plugin component IDs to target.
         """
@@ -203,7 +203,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metric(self) -> str:
+    def metric(self) -> pulumi.Output[str]:
         """
         The plugin metric to evaluate.
         """
@@ -211,7 +211,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricDescription")
-    def metric_description(self) -> str:
+    def metric_description(self) -> pulumi.Output[str]:
         """
         The metric description.
         """
@@ -219,7 +219,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The title of the condition. Must be between 1 and 64 characters, inclusive.
         """
@@ -227,7 +227,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pluginGuid")
-    def plugin_guid(self) -> str:
+    def plugin_guid(self) -> pulumi.Output[str]:
         """
         The GUID of the plugin which produces the metric.
         """
@@ -235,7 +235,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pluginId")
-    def plugin_id(self) -> str:
+    def plugin_id(self) -> pulumi.Output[str]:
         """
         The ID of the installed plugin instance which produces the metric.
         """
@@ -243,7 +243,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> float:
+    def policy_id(self) -> pulumi.Output[float]:
         """
         The ID of the policy where this condition should be used.
         """
@@ -251,7 +251,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookUrl")
-    def runbook_url(self) -> Optional[str]:
+    def runbook_url(self) -> pulumi.Output[Optional[str]]:
         """
         Runbook URL to display in notifications.
         """
@@ -259,7 +259,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> List['outputs.AlertConditionTerm']:
+    def terms(self) -> pulumi.Output[List['outputs.AlertConditionTerm']]:
         """
         A list of terms for this condition. See Terms below for details.
         """
@@ -267,7 +267,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="valueFunction")
-    def value_function(self) -> str:
+    def value_function(self) -> pulumi.Output[str]:
         """
         The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """

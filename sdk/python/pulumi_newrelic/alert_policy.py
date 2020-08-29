@@ -13,7 +13,7 @@ __all__ = ['AlertPolicy']
 
 class AlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
                  channel_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
@@ -144,7 +144,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> pulumi.Output[float]:
         """
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
@@ -152,7 +152,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelIds")
-    def channel_ids(self) -> Optional[List[float]]:
+    def channel_ids(self) -> pulumi.Output[Optional[List[float]]]:
         """
         An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         """
@@ -160,7 +160,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incidentPreference")
-    def incident_preference(self) -> Optional[str]:
+    def incident_preference(self) -> pulumi.Output[Optional[str]]:
         """
         The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         """
@@ -168,7 +168,7 @@ class AlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy.
         """

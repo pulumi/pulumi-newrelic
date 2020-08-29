@@ -15,7 +15,7 @@ __all__ = ['EntityTags']
 
 class EntityTags(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]]] = None,
@@ -111,7 +111,7 @@ class EntityTags(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def guid(self) -> str:
+    def guid(self) -> pulumi.Output[str]:
         """
         The guid of the entity to tag.
         """
@@ -119,7 +119,7 @@ class EntityTags(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> List['outputs.EntityTagsTag']:
+    def tags(self) -> pulumi.Output[List['outputs.EntityTagsTag']]:
         """
         A nested block that describes an entity tag. See Nested tag blocks below for details.
         """

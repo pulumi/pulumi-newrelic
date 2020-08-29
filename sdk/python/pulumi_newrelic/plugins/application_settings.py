@@ -13,7 +13,7 @@ __all__ = ['ApplicationSettings']
 
 class ApplicationSettings(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_apdex_threshold: Optional[pulumi.Input[float]] = None,
                  enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
@@ -117,7 +117,7 @@ class ApplicationSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appApdexThreshold")
-    def app_apdex_threshold(self) -> float:
+    def app_apdex_threshold(self) -> pulumi.Output[float]:
         """
         The appex threshold for the New Relic application.
         """
@@ -125,7 +125,7 @@ class ApplicationSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableRealUserMonitoring")
-    def enable_real_user_monitoring(self) -> bool:
+    def enable_real_user_monitoring(self) -> pulumi.Output[bool]:
         """
         Enable or disable real user monitoring for the New Relic application.
         """
@@ -133,7 +133,7 @@ class ApplicationSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endUserApdexThreshold")
-    def end_user_apdex_threshold(self) -> float:
+    def end_user_apdex_threshold(self) -> pulumi.Output[float]:
         """
         The user's apdex threshold for the New Relic application.
         """
@@ -141,7 +141,7 @@ class ApplicationSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the application in New Relic APM.
         """

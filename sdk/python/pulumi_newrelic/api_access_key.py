@@ -13,7 +13,7 @@ __all__ = ['ApiAccessKey']
 
 class ApiAccessKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[float]] = None,
                  ingest_type: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> pulumi.Output[float]:
         """
         The New Relic account ID of the account you wish to create the API access key.
         """
@@ -144,7 +144,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingestType")
-    def ingest_type(self) -> str:
+    def ingest_type(self) -> pulumi.Output[str]:
         """
         Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
         """
@@ -152,7 +152,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> pulumi.Output[str]:
         """
         The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
         """
@@ -160,7 +160,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> pulumi.Output[str]:
         """
         What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
         """
@@ -168,7 +168,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the key.
         """
@@ -176,7 +176,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> str:
+    def notes(self) -> pulumi.Output[str]:
         """
         Any notes about this ingest key.
         """
@@ -184,7 +184,7 @@ class ApiAccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> float:
+    def user_id(self) -> pulumi.Output[float]:
         """
         Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         """
