@@ -208,23 +208,49 @@ export interface InfraAlertConditionWarning {
 
 export interface NrqlAlertConditionCritical {
     /**
+     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: pulumi.Input<number>;
+    /**
+     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+     */
     operator?: pulumi.Input<string>;
+    /**
+     * The value which will trigger a violation. Must be `0` or greater.
+     */
     threshold: pulumi.Input<number>;
+    /**
+     * The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+     * <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+     * <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+     */
     thresholdDuration?: pulumi.Input<number>;
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+     */
     thresholdOccurrences?: pulumi.Input<string>;
     /**
+     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
 }
 
 export interface NrqlAlertConditionNrql {
+    /**
+     * Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
+     */
     evaluationOffset?: pulumi.Input<number>;
+    /**
+     * The NRQL query to execute for the condition.
+     */
     query: pulumi.Input<string>;
     /**
+     * **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
+     *
      * @deprecated use `evaluation_offset` attribute instead
      */
     sinceValue?: pulumi.Input<string>;
@@ -232,15 +258,36 @@ export interface NrqlAlertConditionNrql {
 
 export interface NrqlAlertConditionTerm {
     /**
+     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: pulumi.Input<number>;
+    /**
+     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+     */
     operator?: pulumi.Input<string>;
+    /**
+     * `critical` or `warning`. Defaults to `critical`.
+     */
     priority?: pulumi.Input<string>;
+    /**
+     * The value which will trigger a violation. Must be `0` or greater.
+     */
     threshold: pulumi.Input<number>;
+    /**
+     * The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+     * <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+     * <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+     */
     thresholdDuration?: pulumi.Input<number>;
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+     */
     thresholdOccurrences?: pulumi.Input<string>;
     /**
+     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
@@ -248,14 +295,32 @@ export interface NrqlAlertConditionTerm {
 
 export interface NrqlAlertConditionWarning {
     /**
+     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: pulumi.Input<number>;
+    /**
+     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+     */
     operator?: pulumi.Input<string>;
+    /**
+     * The value which will trigger a violation. Must be `0` or greater.
+     */
     threshold: pulumi.Input<number>;
+    /**
+     * The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+     * <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+     * <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+     */
     thresholdDuration?: pulumi.Input<number>;
+    /**
+     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+     */
     thresholdOccurrences?: pulumi.Input<string>;
     /**
+     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
