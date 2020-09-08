@@ -12,32 +12,7 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage NRQL alert conditions in New Relic.
     /// 
-    /// ## NRQL
-    /// 
-    /// The `nrql` block supports the following arguments:
-    /// 
-    /// - `query` - (Required) The NRQL query to execute for the condition.
-    /// - `evaluation_offset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
-    /// - `since_value` - (Optional)  **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
-    /// 
-    /// ## Terms
-    /// 
-    /// &gt; **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
-    /// 
-    /// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
-    /// 
-    /// The `term` block the following arguments:
-    /// 
-    /// - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-    /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-    /// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
-    /// - `threshold_duration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-    /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-    /// &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-    /// 
-    /// - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-    /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-    /// - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+    /// ## Example Usage
     /// </summary>
     public partial class NrqlAlertCondition : Pulumi.CustomResource
     {
@@ -52,6 +27,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("baselineDirection")]
         public Output<string?> BaselineDirection { get; private set; } = null!;
+
+        /// <summary>
+        /// - Whether to close all open violations when the signal expires.
+        /// </summary>
+        [Output("closeViolationsOnExpiration")]
+        public Output<bool?> CloseViolationsOnExpiration { get; private set; } = null!;
 
         /// <summary>
         /// A list containing the `critical` threshold values. See Terms below for details.
@@ -78,6 +59,24 @@ namespace Pulumi.NewRelic
         public Output<int?> ExpectedGroups { get; private set; } = null!;
 
         /// <summary>
+        /// - The amount of time (in seconds) to wait before considering the signal expired.
+        /// </summary>
+        [Output("expirationDuration")]
+        public Output<int?> ExpirationDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// </summary>
+        [Output("fillOption")]
+        public Output<string?> FillOption { get; private set; } = null!;
+
+        /// <summary>
+        /// This value will be used for filling gaps in the signal.
+        /// </summary>
+        [Output("fillValue")]
+        public Output<double?> FillValue { get; private set; } = null!;
+
+        /// <summary>
         /// **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
         /// </summary>
         [Output("ignoreOverlap")]
@@ -94,6 +93,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("nrql")]
         public Output<Outputs.NrqlAlertConditionNrql> Nrql { get; private set; } = null!;
+
+        /// <summary>
+        /// - Whether to create a new violation to capture that the signal expired.
+        /// </summary>
+        [Output("openViolationOnExpiration")]
+        public Output<bool?> OpenViolationOnExpiration { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
@@ -208,6 +213,12 @@ namespace Pulumi.NewRelic
         public Input<string>? BaselineDirection { get; set; }
 
         /// <summary>
+        /// - Whether to close all open violations when the signal expires.
+        /// </summary>
+        [Input("closeViolationsOnExpiration")]
+        public Input<bool>? CloseViolationsOnExpiration { get; set; }
+
+        /// <summary>
         /// A list containing the `critical` threshold values. See Terms below for details.
         /// </summary>
         [Input("critical")]
@@ -232,6 +243,24 @@ namespace Pulumi.NewRelic
         public Input<int>? ExpectedGroups { get; set; }
 
         /// <summary>
+        /// - The amount of time (in seconds) to wait before considering the signal expired.
+        /// </summary>
+        [Input("expirationDuration")]
+        public Input<int>? ExpirationDuration { get; set; }
+
+        /// <summary>
+        /// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// </summary>
+        [Input("fillOption")]
+        public Input<string>? FillOption { get; set; }
+
+        /// <summary>
+        /// This value will be used for filling gaps in the signal.
+        /// </summary>
+        [Input("fillValue")]
+        public Input<double>? FillValue { get; set; }
+
+        /// <summary>
         /// **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
         /// </summary>
         [Input("ignoreOverlap")]
@@ -248,6 +277,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("nrql", required: true)]
         public Input<Inputs.NrqlAlertConditionNrqlArgs> Nrql { get; set; } = null!;
+
+        /// <summary>
+        /// - Whether to create a new violation to capture that the signal expired.
+        /// </summary>
+        [Input("openViolationOnExpiration")]
+        public Input<bool>? OpenViolationOnExpiration { get; set; }
 
         /// <summary>
         /// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
@@ -330,6 +365,12 @@ namespace Pulumi.NewRelic
         public Input<string>? BaselineDirection { get; set; }
 
         /// <summary>
+        /// - Whether to close all open violations when the signal expires.
+        /// </summary>
+        [Input("closeViolationsOnExpiration")]
+        public Input<bool>? CloseViolationsOnExpiration { get; set; }
+
+        /// <summary>
         /// A list containing the `critical` threshold values. See Terms below for details.
         /// </summary>
         [Input("critical")]
@@ -354,6 +395,24 @@ namespace Pulumi.NewRelic
         public Input<int>? ExpectedGroups { get; set; }
 
         /// <summary>
+        /// - The amount of time (in seconds) to wait before considering the signal expired.
+        /// </summary>
+        [Input("expirationDuration")]
+        public Input<int>? ExpirationDuration { get; set; }
+
+        /// <summary>
+        /// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// </summary>
+        [Input("fillOption")]
+        public Input<string>? FillOption { get; set; }
+
+        /// <summary>
+        /// This value will be used for filling gaps in the signal.
+        /// </summary>
+        [Input("fillValue")]
+        public Input<double>? FillValue { get; set; }
+
+        /// <summary>
         /// **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
         /// </summary>
         [Input("ignoreOverlap")]
@@ -370,6 +429,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("nrql")]
         public Input<Inputs.NrqlAlertConditionNrqlGetArgs>? Nrql { get; set; }
+
+        /// <summary>
+        /// - Whether to create a new violation to capture that the signal expired.
+        /// </summary>
+        [Input("openViolationOnExpiration")]
+        public Input<bool>? OpenViolationOnExpiration { get; set; }
 
         /// <summary>
         /// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.

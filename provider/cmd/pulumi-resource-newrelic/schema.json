@@ -825,6 +825,7 @@
             "properties": {
                 "duration": {
                     "type": "integer",
+                    "description": "**DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).\n",
                     "deprecationMessage": "use `threshold_duration` attribute instead",
                     "language": {
                         "python": {
@@ -834,6 +835,7 @@
                 },
                 "operator": {
                     "type": "string",
+                    "description": "Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -842,6 +844,7 @@
                 },
                 "threshold": {
                     "type": "number",
+                    "description": "The value which will trigger a violation. Must be `0` or greater.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -850,6 +853,7 @@
                 },
                 "thresholdDuration": {
                     "type": "integer",
+                    "description": "The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -858,6 +862,7 @@
                 },
                 "thresholdOccurrences": {
                     "type": "string",
+                    "description": "The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -866,6 +871,7 @@
                 },
                 "timeFunction": {
                     "type": "string",
+                    "description": "**DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n",
                     "deprecationMessage": "use `threshold_occurrences` attribute instead",
                     "language": {
                         "python": {
@@ -883,6 +889,7 @@
             "properties": {
                 "evaluationOffset": {
                     "type": "integer",
+                    "description": "Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -891,6 +898,7 @@
                 },
                 "query": {
                     "type": "string",
+                    "description": "The NRQL query to execute for the condition.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -899,6 +907,7 @@
                 },
                 "sinceValue": {
                     "type": "string",
+                    "description": "**DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE \u003cX\u003e minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).\n",
                     "deprecationMessage": "use `evaluation_offset` attribute instead",
                     "language": {
                         "python": {
@@ -916,6 +925,7 @@
             "properties": {
                 "duration": {
                     "type": "integer",
+                    "description": "**DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).\n",
                     "deprecationMessage": "use `threshold_duration` attribute instead",
                     "language": {
                         "python": {
@@ -925,6 +935,7 @@
                 },
                 "operator": {
                     "type": "string",
+                    "description": "Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -933,6 +944,7 @@
                 },
                 "priority": {
                     "type": "string",
+                    "description": "`critical` or `warning`. Defaults to `critical`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -941,6 +953,7 @@
                 },
                 "threshold": {
                     "type": "number",
+                    "description": "The value which will trigger a violation. Must be `0` or greater.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -949,6 +962,7 @@
                 },
                 "thresholdDuration": {
                     "type": "integer",
+                    "description": "The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -957,6 +971,7 @@
                 },
                 "thresholdOccurrences": {
                     "type": "string",
+                    "description": "The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -965,6 +980,7 @@
                 },
                 "timeFunction": {
                     "type": "string",
+                    "description": "**DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n",
                     "deprecationMessage": "use `threshold_occurrences` attribute instead",
                     "language": {
                         "python": {
@@ -982,6 +998,7 @@
             "properties": {
                 "duration": {
                     "type": "integer",
+                    "description": "**DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).\n",
                     "deprecationMessage": "use `threshold_duration` attribute instead",
                     "language": {
                         "python": {
@@ -991,6 +1008,7 @@
                 },
                 "operator": {
                     "type": "string",
+                    "description": "Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -999,6 +1017,7 @@
                 },
                 "threshold": {
                     "type": "number",
+                    "description": "The value which will trigger a violation. Must be `0` or greater.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1007,6 +1026,7 @@
                 },
                 "thresholdDuration": {
                     "type": "integer",
+                    "description": "The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1015,6 +1035,7 @@
                 },
                 "thresholdOccurrences": {
                     "type": "string",
+                    "description": "The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1023,6 +1044,7 @@
                 },
                 "timeFunction": {
                     "type": "string",
+                    "description": "**DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n",
                     "deprecationMessage": "use `threshold_occurrences` attribute instead",
                     "language": {
                         "python": {
@@ -2515,7 +2537,7 @@
             }
         },
         "newrelic:index/nrqlAlertCondition:NrqlAlertCondition": {
-            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n## NRQL\n\nThe `nrql` block supports the following arguments:\n\n- `query` - (Required) The NRQL query to execute for the condition.\n- `evaluation_offset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.\n- `since_value` - (Optional)  **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE \u003cX\u003e minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).\n\n## Terms\n\n\u003e **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.\n\nNRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.\n\nThe `term` block the following arguments:\n\n- `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.\n- `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.\n- `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.\n- `threshold_duration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).\n\n- `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n- `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).\n- `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n",
+            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}",
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -2524,6 +2546,10 @@
                 "baselineDirection": {
                     "type": "string",
                     "description": "The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).\n"
+                },
+                "closeViolationsOnExpiration": {
+                    "type": "boolean",
+                    "description": "- Whether to close all open violations when the signal expires.\n"
                 },
                 "critical": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
@@ -2541,6 +2567,18 @@
                     "type": "integer",
                     "description": "Number of expected groups when using `outlier` detection.\n"
                 },
+                "expirationDuration": {
+                    "type": "integer",
+                    "description": "- The amount of time (in seconds) to wait before considering the signal expired.\n"
+                },
+                "fillOption": {
+                    "type": "string",
+                    "description": "- Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.\n"
+                },
+                "fillValue": {
+                    "type": "number",
+                    "description": "This value will be used for filling gaps in the signal.\n"
+                },
                 "ignoreOverlap": {
                     "type": "boolean",
                     "description": "**DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.\n",
@@ -2553,6 +2591,10 @@
                 "nrql": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
                     "description": "A NRQL query. See NRQL below for details.\n"
+                },
+                "openViolationOnExpiration": {
+                    "type": "boolean",
+                    "description": "- Whether to create a new violation to capture that the signal expired.\n"
                 },
                 "openViolationOnGroupOverlap": {
                     "type": "boolean",
@@ -2611,6 +2653,10 @@
                     "type": "string",
                     "description": "The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).\n"
                 },
+                "closeViolationsOnExpiration": {
+                    "type": "boolean",
+                    "description": "- Whether to close all open violations when the signal expires.\n"
+                },
                 "critical": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
                     "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
@@ -2627,6 +2673,18 @@
                     "type": "integer",
                     "description": "Number of expected groups when using `outlier` detection.\n"
                 },
+                "expirationDuration": {
+                    "type": "integer",
+                    "description": "- The amount of time (in seconds) to wait before considering the signal expired.\n"
+                },
+                "fillOption": {
+                    "type": "string",
+                    "description": "- Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.\n"
+                },
+                "fillValue": {
+                    "type": "number",
+                    "description": "This value will be used for filling gaps in the signal.\n"
+                },
                 "ignoreOverlap": {
                     "type": "boolean",
                     "description": "**DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.\n",
@@ -2639,6 +2697,10 @@
                 "nrql": {
                     "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
                     "description": "A NRQL query. See NRQL below for details.\n"
+                },
+                "openViolationOnExpiration": {
+                    "type": "boolean",
+                    "description": "- Whether to create a new violation to capture that the signal expired.\n"
                 },
                 "openViolationOnGroupOverlap": {
                     "type": "boolean",
@@ -2697,6 +2759,10 @@
                         "type": "string",
                         "description": "The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).\n"
                     },
+                    "closeViolationsOnExpiration": {
+                        "type": "boolean",
+                        "description": "- Whether to close all open violations when the signal expires.\n"
+                    },
                     "critical": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
                         "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
@@ -2713,6 +2779,18 @@
                         "type": "integer",
                         "description": "Number of expected groups when using `outlier` detection.\n"
                     },
+                    "expirationDuration": {
+                        "type": "integer",
+                        "description": "- The amount of time (in seconds) to wait before considering the signal expired.\n"
+                    },
+                    "fillOption": {
+                        "type": "string",
+                        "description": "- Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.\n"
+                    },
+                    "fillValue": {
+                        "type": "number",
+                        "description": "This value will be used for filling gaps in the signal.\n"
+                    },
                     "ignoreOverlap": {
                         "type": "boolean",
                         "description": "**DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.\n",
@@ -2725,6 +2803,10 @@
                     "nrql": {
                         "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
                         "description": "A NRQL query. See NRQL below for details.\n"
+                    },
+                    "openViolationOnExpiration": {
+                        "type": "boolean",
+                        "description": "- Whether to create a new violation to capture that the signal expired.\n"
                     },
                     "openViolationOnGroupOverlap": {
                         "type": "boolean",

@@ -12,32 +12,7 @@ import (
 
 // Use this resource to create and manage NRQL alert conditions in New Relic.
 //
-// ## NRQL
-//
-// The `nrql` block supports the following arguments:
-//
-// - `query` - (Required) The NRQL query to execute for the condition.
-// - `evaluationOffset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
-// - `sinceValue` - (Optional)  **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
-//
-// ## Terms
-//
-// > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
-//
-// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
-//
-// The `term` block the following arguments:
-//
-// - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
-// - `thresholdDuration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-//
-// - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-// - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-// - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+// ## Example Usage
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +20,8 @@ type NrqlAlertCondition struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
+	// - Whether to close all open violations when the signal expires.
+	CloseViolationsOnExpiration pulumi.BoolPtrOutput `pulumi:"closeViolationsOnExpiration"`
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrOutput `pulumi:"critical"`
 	// The description of the NRQL alert condition.
@@ -53,6 +30,12 @@ type NrqlAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrOutput `pulumi:"expectedGroups"`
+	// - The amount of time (in seconds) to wait before considering the signal expired.
+	ExpirationDuration pulumi.IntPtrOutput `pulumi:"expirationDuration"`
+	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	FillOption pulumi.StringPtrOutput `pulumi:"fillOption"`
+	// This value will be used for filling gaps in the signal.
+	FillValue pulumi.Float64PtrOutput `pulumi:"fillValue"`
 	// **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
 	//
 	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
@@ -61,6 +44,8 @@ type NrqlAlertCondition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrqlOutput `pulumi:"nrql"`
+	// - Whether to create a new violation to capture that the signal expired.
+	OpenViolationOnExpiration pulumi.BoolPtrOutput `pulumi:"openViolationOnExpiration"`
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap pulumi.BoolPtrOutput `pulumi:"openViolationOnGroupOverlap"`
 	// The ID of the policy where this condition should be used.
@@ -123,6 +108,8 @@ type nrqlAlertConditionState struct {
 	AccountId *int `pulumi:"accountId"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
+	// - Whether to close all open violations when the signal expires.
+	CloseViolationsOnExpiration *bool `pulumi:"closeViolationsOnExpiration"`
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
 	// The description of the NRQL alert condition.
@@ -131,6 +118,12 @@ type nrqlAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
+	// - The amount of time (in seconds) to wait before considering the signal expired.
+	ExpirationDuration *int `pulumi:"expirationDuration"`
+	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	FillOption *string `pulumi:"fillOption"`
+	// This value will be used for filling gaps in the signal.
+	FillValue *float64 `pulumi:"fillValue"`
 	// **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
 	//
 	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
@@ -139,6 +132,8 @@ type nrqlAlertConditionState struct {
 	Name *string `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
 	Nrql *NrqlAlertConditionNrql `pulumi:"nrql"`
+	// - Whether to create a new violation to capture that the signal expired.
+	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap *bool `pulumi:"openViolationOnGroupOverlap"`
 	// The ID of the policy where this condition should be used.
@@ -168,6 +163,8 @@ type NrqlAlertConditionState struct {
 	AccountId pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
+	// - Whether to close all open violations when the signal expires.
+	CloseViolationsOnExpiration pulumi.BoolPtrInput
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrInput
 	// The description of the NRQL alert condition.
@@ -176,6 +173,12 @@ type NrqlAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrInput
+	// - The amount of time (in seconds) to wait before considering the signal expired.
+	ExpirationDuration pulumi.IntPtrInput
+	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	FillOption pulumi.StringPtrInput
+	// This value will be used for filling gaps in the signal.
+	FillValue pulumi.Float64PtrInput
 	// **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
 	//
 	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
@@ -184,6 +187,8 @@ type NrqlAlertConditionState struct {
 	Name pulumi.StringPtrInput
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrqlPtrInput
+	// - Whether to create a new violation to capture that the signal expired.
+	OpenViolationOnExpiration pulumi.BoolPtrInput
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap pulumi.BoolPtrInput
 	// The ID of the policy where this condition should be used.
@@ -217,6 +222,8 @@ type nrqlAlertConditionArgs struct {
 	AccountId *int `pulumi:"accountId"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
+	// - Whether to close all open violations when the signal expires.
+	CloseViolationsOnExpiration *bool `pulumi:"closeViolationsOnExpiration"`
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
 	// The description of the NRQL alert condition.
@@ -225,6 +232,12 @@ type nrqlAlertConditionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
+	// - The amount of time (in seconds) to wait before considering the signal expired.
+	ExpirationDuration *int `pulumi:"expirationDuration"`
+	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	FillOption *string `pulumi:"fillOption"`
+	// This value will be used for filling gaps in the signal.
+	FillValue *float64 `pulumi:"fillValue"`
 	// **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
 	//
 	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
@@ -233,6 +246,8 @@ type nrqlAlertConditionArgs struct {
 	Name *string `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrql `pulumi:"nrql"`
+	// - Whether to create a new violation to capture that the signal expired.
+	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap *bool `pulumi:"openViolationOnGroupOverlap"`
 	// The ID of the policy where this condition should be used.
@@ -263,6 +278,8 @@ type NrqlAlertConditionArgs struct {
 	AccountId pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
+	// - Whether to close all open violations when the signal expires.
+	CloseViolationsOnExpiration pulumi.BoolPtrInput
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrInput
 	// The description of the NRQL alert condition.
@@ -271,6 +288,12 @@ type NrqlAlertConditionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrInput
+	// - The amount of time (in seconds) to wait before considering the signal expired.
+	ExpirationDuration pulumi.IntPtrInput
+	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	FillOption pulumi.StringPtrInput
+	// This value will be used for filling gaps in the signal.
+	FillValue pulumi.Float64PtrInput
 	// **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
 	//
 	// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
@@ -279,6 +302,8 @@ type NrqlAlertConditionArgs struct {
 	Name pulumi.StringPtrInput
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrqlInput
+	// - Whether to create a new violation to capture that the signal expired.
+	OpenViolationOnExpiration pulumi.BoolPtrInput
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap pulumi.BoolPtrInput
 	// The ID of the policy where this condition should be used.

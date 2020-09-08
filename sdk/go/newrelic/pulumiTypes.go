@@ -1970,12 +1970,22 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type NrqlAlertConditionCritical struct {
+	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             *int    `pulumi:"duration"`
-	Operator             *string `pulumi:"operator"`
-	Threshold            float64 `pulumi:"threshold"`
-	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	Duration *int `pulumi:"duration"`
+	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+	Operator *string `pulumi:"operator"`
+	// The value which will trigger a violation. Must be `0` or greater.
+	Threshold float64 `pulumi:"threshold"`
+	// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+	// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+	// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+	ThresholdDuration *int `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -1992,12 +2002,22 @@ type NrqlAlertConditionCriticalInput interface {
 }
 
 type NrqlAlertConditionCriticalArgs struct {
+	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
-	Operator             pulumi.StringPtrInput `pulumi:"operator"`
-	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
-	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The value which will trigger a violation. Must be `0` or greater.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+	// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+	// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -2079,27 +2099,37 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 	}).(NrqlAlertConditionCriticalPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
 func (o NrqlAlertConditionCriticalOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionCriticalOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
 func (o NrqlAlertConditionCriticalOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionCriticalOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -2123,6 +2153,8 @@ func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOu
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) NrqlAlertConditionCritical { return *v }).(NrqlAlertConditionCriticalOutput)
 }
 
+// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
@@ -2133,6 +2165,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
 func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2142,6 +2175,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *float64 {
 		if v == nil {
@@ -2151,6 +2185,9 @@ func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
 func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
 		if v == nil {
@@ -2160,6 +2197,7 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2169,6 +2207,8 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
@@ -2180,8 +2220,12 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 }
 
 type NrqlAlertConditionNrql struct {
-	EvaluationOffset *int   `pulumi:"evaluationOffset"`
-	Query            string `pulumi:"query"`
+	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
+	EvaluationOffset *int `pulumi:"evaluationOffset"`
+	// The NRQL query to execute for the condition.
+	Query string `pulumi:"query"`
+	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
+	//
 	// Deprecated: use `evaluation_offset` attribute instead
 	SinceValue *string `pulumi:"sinceValue"`
 }
@@ -2198,8 +2242,12 @@ type NrqlAlertConditionNrqlInput interface {
 }
 
 type NrqlAlertConditionNrqlArgs struct {
+	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
 	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
-	Query            pulumi.StringInput `pulumi:"query"`
+	// The NRQL query to execute for the condition.
+	Query pulumi.StringInput `pulumi:"query"`
+	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
+	//
 	// Deprecated: use `evaluation_offset` attribute instead
 	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
@@ -2280,14 +2328,19 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 		return &v
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
+
+// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
 func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
 }
 
+// The NRQL query to execute for the condition.
 func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
+//
 // Deprecated: use `evaluation_offset` attribute instead
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
@@ -2311,6 +2364,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) NrqlAlertConditionNrql { return *v }).(NrqlAlertConditionNrqlOutput)
 }
 
+// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
 func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
 		if v == nil {
@@ -2320,6 +2374,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The NRQL query to execute for the condition.
 func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
@@ -2329,6 +2384,8 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
+//
 // Deprecated: use `evaluation_offset` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
@@ -2340,13 +2397,24 @@ func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 }
 
 type NrqlAlertConditionTerm struct {
+	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             *int    `pulumi:"duration"`
-	Operator             *string `pulumi:"operator"`
-	Priority             *string `pulumi:"priority"`
-	Threshold            float64 `pulumi:"threshold"`
-	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	Duration *int `pulumi:"duration"`
+	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+	Operator *string `pulumi:"operator"`
+	// `critical` or `warning`. Defaults to `critical`.
+	Priority *string `pulumi:"priority"`
+	// The value which will trigger a violation. Must be `0` or greater.
+	Threshold float64 `pulumi:"threshold"`
+	// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+	// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+	// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+	ThresholdDuration *int `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -2363,13 +2431,24 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
+	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
-	Operator             pulumi.StringPtrInput `pulumi:"operator"`
-	Priority             pulumi.StringPtrInput `pulumi:"priority"`
-	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
-	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// `critical` or `warning`. Defaults to `critical`.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
+	// The value which will trigger a violation. Must be `0` or greater.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+	// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+	// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -2425,31 +2504,42 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(
 	return o
 }
 
+// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
 func (o NrqlAlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// `critical` or `warning`. Defaults to `critical`.
 func (o NrqlAlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
+// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionTermOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
 func (o NrqlAlertConditionTermOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionTermOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -2476,12 +2566,22 @@ func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertCon
 }
 
 type NrqlAlertConditionWarning struct {
+	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             *int    `pulumi:"duration"`
-	Operator             *string `pulumi:"operator"`
-	Threshold            float64 `pulumi:"threshold"`
-	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
+	Duration *int `pulumi:"duration"`
+	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+	Operator *string `pulumi:"operator"`
+	// The value which will trigger a violation. Must be `0` or greater.
+	Threshold float64 `pulumi:"threshold"`
+	// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+	// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+	// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+	ThresholdDuration *int `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
+	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -2498,12 +2598,22 @@ type NrqlAlertConditionWarningInput interface {
 }
 
 type NrqlAlertConditionWarningArgs struct {
+	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
-	Operator             pulumi.StringPtrInput `pulumi:"operator"`
-	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
-	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The value which will trigger a violation. Must be `0` or greater.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+	// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+	// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
+	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
+	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -2585,27 +2695,37 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 	}).(NrqlAlertConditionWarningPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
 func (o NrqlAlertConditionWarningOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
+// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionWarningOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
 func (o NrqlAlertConditionWarningOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionWarningOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -2629,6 +2749,8 @@ func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutp
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) NrqlAlertConditionWarning { return *v }).(NrqlAlertConditionWarningOutput)
 }
 
+// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
@@ -2639,6 +2761,7 @@ func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
 func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
@@ -2648,6 +2771,7 @@ func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *float64 {
 		if v == nil {
@@ -2657,6 +2781,9 @@ func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
 func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
 		if v == nil {
@@ -2666,6 +2793,7 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
@@ -2675,6 +2803,8 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
