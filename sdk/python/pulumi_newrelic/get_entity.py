@@ -138,19 +138,24 @@ def get_entity(domain: Optional[str] = None,
             value="my-tag-value",
         ))
     foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+    foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
         policy_id=foo_alert_policy.id,
-        type="apm_app_metric",
-        entities=[data["newrelic_application"]["app"]["application_id"]],
-        metric="apdex",
+        type="static",
+        description="Alert when transactions are taking too long",
         runbook_url="https://www.example.com",
-        terms=[newrelic.AlertConditionTermArgs(
-            duration=5,
-            operator="below",
-            priority="critical",
-            threshold=0.75,
-            time_function="all",
-        )])
+        enabled=True,
+        value_function="single_value",
+        violation_time_limit="one_hour",
+        nrql=newrelic.NrqlAlertConditionNrqlArgs(
+            query=f"SELECT average(duration) FROM Transaction where appName = '{app.name}'",
+            evaluation_offset=3,
+        ),
+        critical=newrelic.NrqlAlertConditionCriticalArgs(
+            operator="above",
+            threshold=5.5,
+            threshold_duration=300,
+            threshold_occurrences="ALL",
+        ))
     ```
 
 

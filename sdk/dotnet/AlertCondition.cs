@@ -37,7 +37,7 @@ namespace Pulumi.NewRelic
     ///             Type = "apm_app_metric",
     ///             Entities = 
     ///             {
-    ///                 data.Newrelic_application.App.Application_id,
+    ///                 app.Apply(app =&gt; app.ApplicationId),
     ///             },
     ///             Metric = "apdex",
     ///             RunbookUrl = "https://www.example.com",

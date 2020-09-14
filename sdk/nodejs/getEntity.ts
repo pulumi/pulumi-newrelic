@@ -25,19 +25,24 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
  *     policyId: fooAlertPolicy.id,
- *     type: "apm_app_metric",
- *     entities: [data.newrelic_application.app.application_id],
- *     metric: "apdex",
+ *     type: "static",
+ *     description: "Alert when transactions are taking too long",
  *     runbookUrl: "https://www.example.com",
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: "0.75",
- *         timeFunction: "all",
- *     }],
+ *     enabled: true,
+ *     valueFunction: "single_value",
+ *     violationTimeLimit: "one_hour",
+ *     nrql: {
+ *         query: app.then(app => `SELECT average(duration) FROM Transaction where appName = '${app.name}'`),
+ *         evaluationOffset: 3,
+ *     },
+ *     critical: {
+ *         operator: "above",
+ *         threshold: 5.5,
+ *         thresholdDuration: 300,
+ *         thresholdOccurrences: "ALL",
+ *     },
  * });
  * ```
  */

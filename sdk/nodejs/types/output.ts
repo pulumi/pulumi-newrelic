@@ -387,4 +387,3 @@ export namespace synthetics {
         threshold: number;
     }
 }
-

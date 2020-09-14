@@ -13,6 +13,106 @@ import (
 // Use this resource to create and manage New Relic dashboards.
 //
 // ## Example Usage
+// ### Create A New Relic Dashboard
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "APPLICATION"
+// 		opt1 := "APM"
+// 		myApplication, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 			Name:   "My Application",
+// 			Type:   &opt0,
+// 			Domain: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewDashboard(ctx, "exampledash", &newrelic.DashboardArgs{
+// 			Title: pulumi.String("New Relic Terraform Example"),
+// 			Filter: &newrelic.DashboardFilterArgs{
+// 				EventTypes: pulumi.StringArray{
+// 					pulumi.String("Transaction"),
+// 				},
+// 				Attributes: pulumi.StringArray{
+// 					pulumi.String("appName"),
+// 					pulumi.String("name"),
+// 				},
+// 			},
+// 			Widgets: newrelic.DashboardWidgetArray{
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Requests per minute"),
+// 					Visualization: pulumi.String("billboard"),
+// 					Nrql:          pulumi.String("SELECT rate(count(*), 1 minute) FROM Transaction"),
+// 					Row:           pulumi.Int(1),
+// 					Column:        pulumi.Int(1),
+// 				},
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Error rate"),
+// 					Visualization: pulumi.String("gauge"),
+// 					Nrql:          pulumi.String("SELECT percentage(count(*), WHERE error IS True) FROM Transaction"),
+// 					ThresholdRed:  pulumi.Float64(2.5),
+// 					Row:           pulumi.Int(1),
+// 					Column:        pulumi.Int(2),
+// 				},
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Average transaction duration, by application"),
+// 					Visualization: pulumi.String("facet_bar_chart"),
+// 					Nrql:          pulumi.String("SELECT average(duration) FROM Transaction FACET appName"),
+// 					Row:           pulumi.Int(1),
+// 					Column:        pulumi.Int(3),
+// 				},
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Apdex, top 5 by host"),
+// 					Duration:      pulumi.Int(1800000),
+// 					Visualization: pulumi.String("metric_line_chart"),
+// 					EntityIds: pulumi.IntArray{
+// 						pulumi.Int(myApplication.ApplicationId),
+// 					},
+// 					Metrics: newrelic.DashboardWidgetMetricArray{
+// 						&newrelic.DashboardWidgetMetricArgs{
+// 							Name: pulumi.String("Apdex"),
+// 							Values: pulumi.StringArray{
+// 								pulumi.String("score"),
+// 							},
+// 						},
+// 					},
+// 					Facet:   pulumi.String("host"),
+// 					Limit:   pulumi.Int(5),
+// 					OrderBy: pulumi.String("score"),
+// 					Row:     pulumi.Int(2),
+// 					Column:  pulumi.Int(1),
+// 				},
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Requests per minute, by transaction"),
+// 					Visualization: pulumi.String("facet_table"),
+// 					Nrql:          pulumi.String("SELECT rate(count(*), 1 minute) FROM Transaction FACET name"),
+// 					Row:           pulumi.Int(2),
+// 					Column:        pulumi.Int(2),
+// 				},
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Dashboard Note"),
+// 					Visualization: pulumi.String("markdown"),
+// 					Source:        pulumi.String("### Helpful Links\n\n* [New Relic One](https://one.newrelic.com)\n* [Developer Portal](https://developer.newrelic.com)"),
+// 					Row:           pulumi.Int(2),
+// 					Column:        pulumi.Int(3),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Attribute Refence
 //
 // In addition to all arguments above, the following attributes are exported:

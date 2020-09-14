@@ -15,6 +15,8 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+//
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -23,7 +25,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "APM"
 // 		opt1 := "APPLICATION"
-// 		_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 		app, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 // 			Name:   "my-app",
 // 			Domain: &opt0,
 // 			Type:   &opt1,
@@ -39,22 +41,23 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-// 			PolicyId: fooAlertPolicy.ID(),
-// 			Type:     pulumi.String("apm_app_metric"),
-// 			Entities: pulumi.IntArray{
-// 				pulumi.Any(data.Newrelic_application.App.Application_id),
+// 		_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+// 			PolicyId:           fooAlertPolicy.ID(),
+// 			Type:               pulumi.String("static"),
+// 			Description:        pulumi.String("Alert when transactions are taking too long"),
+// 			RunbookUrl:         pulumi.String("https://www.example.com"),
+// 			Enabled:            pulumi.Bool(true),
+// 			ValueFunction:      pulumi.String("single_value"),
+// 			ViolationTimeLimit: pulumi.String("one_hour"),
+// 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+// 				Query:            pulumi.String(fmt.Sprintf("%v%v%v", "SELECT average(duration) FROM Transaction where appName = '", app.Name, "'")),
+// 				EvaluationOffset: pulumi.Int(3),
 // 			},
-// 			Metric:     pulumi.String("apdex"),
-// 			RunbookUrl: pulumi.String("https://www.example.com"),
-// 			Terms: newrelic.AlertConditionTermArray{
-// 				&newrelic.AlertConditionTermArgs{
-// 					Duration:     pulumi.Int(5),
-// 					Operator:     pulumi.String("below"),
-// 					Priority:     pulumi.String("critical"),
-// 					Threshold:    pulumi.Float64(0.75),
-// 					TimeFunction: pulumi.String("all"),
-// 				},
+// 			Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+// 				Operator:             pulumi.String("above"),
+// 				Threshold:            pulumi.Float64(5.5),
+// 				ThresholdDuration:    pulumi.Int(300),
+// 				ThresholdOccurrences: pulumi.String("ALL"),
 // 			},
 // 		})
 // 		if err != nil {

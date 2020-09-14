@@ -78,7 +78,7 @@ namespace Pulumi.NewRelic
     ///                     Visualization = "metric_line_chart",
     ///                     EntityIds = 
     ///                     {
-    ///                         data.Newrelic_application.My_application.Application_id,
+    ///                         myApplication.Apply(myApplication =&gt; myApplication.ApplicationId),
     ///                     },
     ///                     Metrics = 
     ///                     {
