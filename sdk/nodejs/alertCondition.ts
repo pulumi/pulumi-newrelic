@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
  *     policyId: fooAlertPolicy.id,
  *     type: "apm_app_metric",
- *     entities: [data.newrelic_application.app.application_id],
+ *     entities: [app.then(app => app.applicationId)],
  *     metric: "apdex",
  *     runbookUrl: "https://www.example.com",
  *     conditionScope: "application",

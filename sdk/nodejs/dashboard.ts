@@ -57,7 +57,7 @@ import * as utilities from "./utilities";
  *             title: "Apdex, top 5 by host",
  *             duration: 1800000,
  *             visualization: "metric_line_chart",
- *             entityIds: [data.newrelic_application.my_application.application_id],
+ *             entityIds: [myApplication.then(myApplication => myApplication.applicationId)],
  *             metrics: [{
  *                 name: "Apdex",
  *                 values: ["score"],

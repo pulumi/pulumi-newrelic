@@ -76,7 +76,7 @@ class Dashboard(pulumi.CustomResource):
                     title="Apdex, top 5 by host",
                     duration=1800000,
                     visualization="metric_line_chart",
-                    entity_ids=[data["newrelic_application"]["my_application"]["application_id"]],
+                    entity_ids=[my_application.application_id],
                     metrics=[newrelic.DashboardWidgetMetricArgs(
                         name="Apdex",
                         values=["score"],

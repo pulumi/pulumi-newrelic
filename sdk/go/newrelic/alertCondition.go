@@ -26,7 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "APPLICATION"
 // 		opt1 := "APM"
-// 		_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 		app, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 // 			Name:   "my-app",
 // 			Type:   &opt0,
 // 			Domain: &opt1,
@@ -42,7 +42,7 @@ import (
 // 			PolicyId: fooAlertPolicy.ID(),
 // 			Type:     pulumi.String("apm_app_metric"),
 // 			Entities: pulumi.IntArray{
-// 				pulumi.Any(data.Newrelic_application.App.Application_id),
+// 				pulumi.Int(app.ApplicationId),
 // 			},
 // 			Metric:         pulumi.String("apdex"),
 // 			RunbookUrl:     pulumi.String("https://www.example.com"),

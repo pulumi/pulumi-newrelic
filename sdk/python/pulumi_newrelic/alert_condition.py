@@ -49,7 +49,7 @@ class AlertCondition(pulumi.CustomResource):
         foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
             policy_id=foo_alert_policy.id,
             type="apm_app_metric",
-            entities=[data["newrelic_application"]["app"]["application_id"]],
+            entities=[app.application_id],
             metric="apdex",
             runbook_url="https://www.example.com",
             condition_scope="application",

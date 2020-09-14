@@ -40,26 +40,26 @@ namespace Pulumi.NewRelic
         ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
         ///         {
         ///         });
-        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
+        ///         var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new NewRelic.NrqlAlertConditionArgs
         ///         {
         ///             PolicyId = fooAlertPolicy.Id,
-        ///             Type = "apm_app_metric",
-        ///             Entities = 
-        ///             {
-        ///                 data.Newrelic_application.App.Application_id,
-        ///             },
-        ///             Metric = "apdex",
+        ///             Type = "static",
+        ///             Description = "Alert when transactions are taking too long",
         ///             RunbookUrl = "https://www.example.com",
-        ///             Terms = 
+        ///             Enabled = true,
+        ///             ValueFunction = "single_value",
+        ///             ViolationTimeLimit = "one_hour",
+        ///             Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
         ///             {
-        ///                 new NewRelic.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
+        ///                 Query = app.Apply(app =&gt; $"SELECT average(duration) FROM Transaction where appName = '{app.Name}'"),
+        ///                 EvaluationOffset = 3,
+        ///             },
+        ///             Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+        ///             {
+        ///                 Operator = "above",
+        ///                 Threshold = 5.5,
+        ///                 ThresholdDuration = 300,
+        ///                 ThresholdOccurrences = "ALL",
         ///             },
         ///         });
         ///     }
