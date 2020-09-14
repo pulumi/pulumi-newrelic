@@ -365,4 +365,3 @@ export namespace synthetics {
         threshold: pulumi.Input<number>;
     }
 }
-
