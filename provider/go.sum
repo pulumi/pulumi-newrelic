@@ -718,6 +718,8 @@ github.com/newrelic/newrelic-client-go v0.40.0 h1:A8NG8P8I6vjZQuhJFGwXI8ay29DE+d
 github.com/newrelic/newrelic-client-go v0.40.0/go.mod h1:oHvM16rw1l3d2lYfnOdvr7wsZeswpxiiQU7M+BYgoYs=
 github.com/newrelic/newrelic-client-go v0.41.0 h1:WYRmU9jAc9q2NGaoyxozZaiP/+UFQbVcRhuH1+XNoZE=
 github.com/newrelic/newrelic-client-go v0.41.0/go.mod h1:Ao+Iogn+6P2i0+tjdk48XJXn4IPwougANyEnAIhJYPI=
+github.com/newrelic/newrelic-client-go v0.41.2 h1:QJVBRkSbv4hNzbFL3FAfodlC+GpF0YnHS+bWCSbE7pI=
+github.com/newrelic/newrelic-client-go v0.41.2/go.mod h1:Ao+Iogn+6P2i0+tjdk48XJXn4IPwougANyEnAIhJYPI=
 github.com/newrelic/tutone v0.1.1/go.mod h1:KPqQz2x0HZcgW9aHych9M4E4kaLOotG0gISMpTWKHFc=
 github.com/newrelic/tutone v0.2.2/go.mod h1:tfWM773ZGUHqQu70NV3DPjrFmxQ9+p8/++7UJ1J1gmE=
 github.com/newrelic/tutone v0.2.3/go.mod h1:tfWM773ZGUHqQu70NV3DPjrFmxQ9+p8/++7UJ1J1gmE=
@@ -839,6 +841,10 @@ github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200907121926-a9c31bd
 github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200907121926-a9c31bda24fd/go.mod h1:YuOifSut97wbsOkCEyOUeETeMWcKLNuJzhe8XM3dGRE=
 github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200914113949-e79d3b67ddab h1:DSSRJaSTWTSH1IMp1BQnaWpZwEUlKoEUoWZ9F/GNvXU=
 github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200914113949-e79d3b67ddab/go.mod h1:TmvNKsr86k2a3rXOYidnVV0rTHkh1KZUYPtsM7ybQrs=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200917102525-b12a9e33e6ee h1:YuIq1+OP+m4R7mUkdCqVcu2lmhErqK+cc+SAArN+o3M=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200917102525-b12a9e33e6ee/go.mod h1:AYPX6Gv2JHeGnmXGlfxy/El6WMui3TCCtX+Xod/kv9M=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200919102927-f95f9794573d h1:6Jf9iNn7CyUnAOd63nncHxc6w8kW4CS3nWieBpIoV/A=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20200919102927-f95f9794573d/go.mod h1:AYPX6Gv2JHeGnmXGlfxy/El6WMui3TCCtX+Xod/kv9M=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34 h1:u1NyO0NXvl+b6kXq2iuQgU95U3O1muXMZLEglS/k+zM=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/pulumi/tf2pulumi v0.9.0 h1:oOvFFYGQVg4fFbHhTOqGhiWyuwW4mHa4fEUcHxAmeHc=
