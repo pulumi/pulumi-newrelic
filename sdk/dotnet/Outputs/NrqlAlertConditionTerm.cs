@@ -13,35 +13,12 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NrqlAlertConditionTerm
     {
-        /// <summary>
-        /// **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        /// </summary>
         public readonly int? Duration;
-        /// <summary>
-        /// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        /// </summary>
         public readonly string? Operator;
-        /// <summary>
-        /// `critical` or `warning`. Defaults to `critical`.
-        /// </summary>
         public readonly string? Priority;
-        /// <summary>
-        /// The value which will trigger a violation. Must be `0` or greater.
-        /// </summary>
         public readonly double Threshold;
-        /// <summary>
-        /// The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-        /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        /// &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        /// </summary>
         public readonly int? ThresholdDuration;
-        /// <summary>
-        /// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        /// </summary>
         public readonly string? ThresholdOccurrences;
-        /// <summary>
-        /// **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        /// </summary>
         public readonly string? TimeFunction;
 
         [OutputConstructor]
