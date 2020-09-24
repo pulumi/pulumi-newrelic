@@ -78,12 +78,12 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getEntity.
 type GetEntityArgs struct {
-	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.
+	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
 	Domain *string `pulumi:"domain"`
 	// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
 	Name string        `pulumi:"name"`
 	Tag  *GetEntityTag `pulumi:"tag"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORRKLOAD.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
 	Type *string `pulumi:"type"`
 }
 

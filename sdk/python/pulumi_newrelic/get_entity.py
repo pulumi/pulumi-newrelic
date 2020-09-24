@@ -159,9 +159,9 @@ def get_entity(domain: Optional[str] = None,
     ```
 
 
-    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.
+    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
-    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORRKLOAD.
+    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
     """
     __args__ = dict()
     __args__['domain'] = domain

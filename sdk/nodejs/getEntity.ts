@@ -67,7 +67,7 @@ export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetEntityArgs {
     /**
-     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.
+     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
      */
     readonly domain?: string;
     /**
@@ -76,7 +76,7 @@ export interface GetEntityArgs {
     readonly name: string;
     readonly tag?: inputs.GetEntityTag;
     /**
-     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORRKLOAD.
+     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
      */
     readonly type?: string;
 }

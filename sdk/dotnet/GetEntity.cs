@@ -77,7 +77,7 @@ namespace Pulumi.NewRelic
     public sealed class GetEntityArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, and SYNTH.
+        /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
         /// </summary>
         [Input("domain")]
         public string? Domain { get; set; }
@@ -92,7 +92,7 @@ namespace Pulumi.NewRelic
         public Inputs.GetEntityTagArgs? Tag { get; set; }
 
         /// <summary>
-        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORRKLOAD.
+        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }

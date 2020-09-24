@@ -13,6 +13,35 @@ import (
 // Use this resource to create and manage NRQL alert conditions in New Relic.
 //
 // ## Example Usage
+// ## NRQL
+//
+// The `nrql` block supports the following arguments:
+//
+// - `query` - (Required) The NRQL query to execute for the condition.
+// - `evaluationOffset` - (Optional*) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
+// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+//
+// - `sinceValue` - (Optional*)  **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
+// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+//
+// ## Terms
+//
+// > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+//
+// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
+//
+// The `term` block the following arguments:
+//
+// - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+// - `thresholdDuration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
+//
+// - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+// - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+// - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -58,11 +87,13 @@ type NrqlAlertCondition struct {
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
+	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit pulumi.StringPtrOutput `pulumi:"violationTimeLimit"`
-	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
 	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds pulumi.IntPtrOutput `pulumi:"violationTimeLimitSeconds"`
@@ -146,11 +177,13 @@ type nrqlAlertConditionState struct {
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type *string `pulumi:"type"`
-	// Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
+	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction *string `pulumi:"valueFunction"`
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
-	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
 	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
@@ -201,11 +234,13 @@ type NrqlAlertConditionState struct {
 	Terms NrqlAlertConditionTermArrayInput
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type pulumi.StringPtrInput
-	// Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
+	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction pulumi.StringPtrInput
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit pulumi.StringPtrInput
-	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
 	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
@@ -260,11 +295,13 @@ type nrqlAlertConditionArgs struct {
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type *string `pulumi:"type"`
-	// Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
+	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction *string `pulumi:"valueFunction"`
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
-	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
 	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
@@ -316,11 +353,13 @@ type NrqlAlertConditionArgs struct {
 	Terms NrqlAlertConditionTermArrayInput
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type pulumi.StringPtrInput
-	// Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
+	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction pulumi.StringPtrInput
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit pulumi.StringPtrInput
-	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
+	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
 	// Deprecated: use `violation_time_limit` attribute instead
 	ViolationTimeLimitSeconds pulumi.IntPtrInput

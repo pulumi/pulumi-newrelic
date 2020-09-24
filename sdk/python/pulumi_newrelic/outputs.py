@@ -813,16 +813,6 @@ class NrqlAlertConditionCritical(dict):
                  threshold_duration: Optional[float] = None,
                  threshold_occurrences: Optional[str] = None,
                  time_function: Optional[str] = None):
-        """
-        :param float threshold: The value which will trigger a violation. Must be `0` or greater.
-        :param float duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        :param str operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        :param float threshold_duration: The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-               <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        :param str threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        :param str time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
@@ -838,51 +828,31 @@ class NrqlAlertConditionCritical(dict):
     @property
     @pulumi.getter
     def threshold(self) -> float:
-        """
-        The value which will trigger a violation. Must be `0` or greater.
-        """
         return pulumi.get(self, "threshold")
 
     @property
     @pulumi.getter
     def duration(self) -> Optional[float]:
-        """
-        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
     def operator(self) -> Optional[str]:
-        """
-        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        """
         return pulumi.get(self, "operator")
 
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[float]:
-        """
-        The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        """
         return pulumi.get(self, "threshold_duration")
 
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[str]:
-        """
-        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        """
         return pulumi.get(self, "threshold_occurrences")
 
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[str]:
-        """
-        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         return pulumi.get(self, "time_function")
 
     def _translate_property(self, prop):
@@ -895,11 +865,6 @@ class NrqlAlertConditionNrql(dict):
                  query: str,
                  evaluation_offset: Optional[float] = None,
                  since_value: Optional[str] = None):
-        """
-        :param str query: The NRQL query to execute for the condition.
-        :param float evaluation_offset: Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
-        :param str since_value: **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
-        """
         pulumi.set(__self__, "query", query)
         if evaluation_offset is not None:
             pulumi.set(__self__, "evaluation_offset", evaluation_offset)
@@ -909,25 +874,16 @@ class NrqlAlertConditionNrql(dict):
     @property
     @pulumi.getter
     def query(self) -> str:
-        """
-        The NRQL query to execute for the condition.
-        """
         return pulumi.get(self, "query")
 
     @property
     @pulumi.getter(name="evaluationOffset")
     def evaluation_offset(self) -> Optional[float]:
-        """
-        Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
-        """
         return pulumi.get(self, "evaluation_offset")
 
     @property
     @pulumi.getter(name="sinceValue")
     def since_value(self) -> Optional[str]:
-        """
-        **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
-        """
         return pulumi.get(self, "since_value")
 
     def _translate_property(self, prop):
@@ -944,17 +900,6 @@ class NrqlAlertConditionTerm(dict):
                  threshold_duration: Optional[float] = None,
                  threshold_occurrences: Optional[str] = None,
                  time_function: Optional[str] = None):
-        """
-        :param float threshold: The value which will trigger a violation. Must be `0` or greater.
-        :param float duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        :param str operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        :param str priority: `critical` or `warning`. Defaults to `critical`.
-        :param float threshold_duration: The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-               <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        :param str threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        :param str time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
@@ -972,59 +917,36 @@ class NrqlAlertConditionTerm(dict):
     @property
     @pulumi.getter
     def threshold(self) -> float:
-        """
-        The value which will trigger a violation. Must be `0` or greater.
-        """
         return pulumi.get(self, "threshold")
 
     @property
     @pulumi.getter
     def duration(self) -> Optional[float]:
-        """
-        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
     def operator(self) -> Optional[str]:
-        """
-        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        """
         return pulumi.get(self, "operator")
 
     @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
-        """
-        `critical` or `warning`. Defaults to `critical`.
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[float]:
-        """
-        The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        """
         return pulumi.get(self, "threshold_duration")
 
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[str]:
-        """
-        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        """
         return pulumi.get(self, "threshold_occurrences")
 
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[str]:
-        """
-        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         return pulumi.get(self, "time_function")
 
     def _translate_property(self, prop):
@@ -1040,16 +962,6 @@ class NrqlAlertConditionWarning(dict):
                  threshold_duration: Optional[float] = None,
                  threshold_occurrences: Optional[str] = None,
                  time_function: Optional[str] = None):
-        """
-        :param float threshold: The value which will trigger a violation. Must be `0` or greater.
-        :param float duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        :param str operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        :param float threshold_duration: The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-               <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        :param str threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        :param str time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
@@ -1065,51 +977,31 @@ class NrqlAlertConditionWarning(dict):
     @property
     @pulumi.getter
     def threshold(self) -> float:
-        """
-        The value which will trigger a violation. Must be `0` or greater.
-        """
         return pulumi.get(self, "threshold")
 
     @property
     @pulumi.getter
     def duration(self) -> Optional[float]:
-        """
-        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
     def operator(self) -> Optional[str]:
-        """
-        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
-        """
         return pulumi.get(self, "operator")
 
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[float]:
-        """
-        The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).
-        """
         return pulumi.get(self, "threshold_duration")
 
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[str]:
-        """
-        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        """
         return pulumi.get(self, "threshold_occurrences")
 
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[str]:
-        """
-        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         return pulumi.get(self, "time_function")
 
     def _translate_property(self, prop):
