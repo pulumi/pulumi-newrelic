@@ -122,59 +122,108 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// ## Attribute Refence
+    /// See additional examples.
+    /// ## Additional Examples
     /// 
-    /// In addition to all arguments above, the following attributes are exported:
+    /// ### Create cross-account widgets in your dashboard.
     /// 
-    ///   * `dashboard_url` - The URL for viewing the dashboard.
+    /// The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
     /// 
-    /// ### Nested `widget` blocks
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// All nested `widget` blocks support the following common arguments:
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primaryAccountApplication = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+    ///         {
+    ///             Name = "Main Account Application Name",
+    ///             Type = "APPLICATION",
+    ///             Domain = "APM",
+    ///         }));
+    ///         var subaccountApplication = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+    ///         {
+    ///             Name = "Subaccount Application Name",
+    ///             Type = "APPLICATION",
+    ///             Domain = "APM",
+    ///         }));
+    ///         var crossAccountWidgetExample = new NewRelic.Dashboard("crossAccountWidgetExample", new NewRelic.DashboardArgs
+    ///         {
+    ///             Title = "tf-test-cross-account-widget-dashboard",
+    ///             Filter = new NewRelic.Inputs.DashboardFilterArgs
+    ///             {
+    ///                 EventTypes = 
+    ///                 {
+    ///                     "Transaction",
+    ///                 },
+    ///                 Attributes = 
+    ///                 {
+    ///                     "appName",
+    ///                     "envName",
+    ///                 },
+    ///             },
+    ///             GridColumnCount = 12,
+    ///             Widgets = 
+    ///             {
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     Title = "Apdex (primary account)",
+    ///                     Row = 1,
+    ///                     Column = 1,
+    ///                     Width = 6,
+    ///                     Height = 3,
+    ///                     Visualization = "metric_line_chart",
+    ///                     Duration = 1800000,
+    ///                     Metrics = 
+    ///                     {
+    ///                         new NewRelic.Inputs.DashboardWidgetMetricArgs
+    ///                         {
+    ///                             Name = "Apdex",
+    ///                             Values = 
+    ///                             {
+    ///                                 "score",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     EntityIds = 
+    ///                     {
+    ///                         primaryAccountApplication.Apply(primaryAccountApplication =&gt; primaryAccountApplication.ApplicationId),
+    ///                     },
+    ///                 },
+    ///                 new NewRelic.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     AccountId = @var.Subaccount_id,
+    ///                     Title = "Apdex (subaccount)",
+    ///                     Row = 1,
+    ///                     Column = 7,
+    ///                     Width = 6,
+    ///                     Height = 3,
+    ///                     Visualization = "metric_line_chart",
+    ///                     Duration = 1800000,
+    ///                     Metrics = 
+    ///                     {
+    ///                         new NewRelic.Inputs.DashboardWidgetMetricArgs
+    ///                         {
+    ///                             Name = "Apdex",
+    ///                             Values = 
+    ///                             {
+    ///                                 "score",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     EntityIds = 
+    ///                     {
+    ///                         subaccountApplication.Apply(subaccountApplication =&gt; subaccountApplication.ApplicationId),
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
     /// 
-    ///   * `title` - (Required) A title for the widget.
-    ///   * `visualization` - (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
-    ///   * `row` - (Required) Row position of widget from top left, starting at `1`.
-    ///   * `column` - (Required) Column position of widget from top left, starting at `1`.
-    ///   * `width` - (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-    ///   * `height` - (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-    ///   * `notes` - (Optional) Description of the widget.
-    /// 
-    /// Each `visualization` type supports an additional set of arguments:
-    /// 
-    ///   * `billboard`, `billboard_comparison`:
-    ///     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-    ///     * `threshold_red` - (Optional) Threshold above which the displayed value will be styled with a red color.
-    ///     * `threshold_yellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
-    ///   * `gauge`:
-    ///     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-    ///     * `threshold_red` - (Required) Threshold above which the displayed value will be styled with a red color.
-    ///     * `threshold_yellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
-    ///   * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
-    ///     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-    ///     * `drilldown_dashboard_id` - (Optional) The ID of a dashboard to link to from the widget's facets.
-    ///   * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
-    ///     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-    ///   * `markdown`:
-    ///     * `source` - (Required) The markdown source to be rendered in the widget.
-    ///   * `metric_line_chart`:
-    ///     * `entity_ids` - (Required) A collection of entity ids to display data for.  These are typically application IDs.
-    ///     * `metric` - (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
-    ///       * `name` - (Required) The metric name to display.
-    ///       * `values` - (Required) The metric values to display.
-    ///     * `duration` - (Required) The duration, in ms, of the time window represented in the chart.
-    ///     * `end_time` - (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
-    ///     * `facet` - (Optional) Can be set to "host" to facet the metric data by host.
-    ///     * `limit` - (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
-    ///     * `order_by` - (Optional) Set the order of the results.  Required when using `limit`.
-    ///   * `application_breakdown`:
-    ///     * `entity_ids` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-    /// 
-    /// ### Nested `filter` block
-    /// 
-    /// The optional filter block supports the following arguments:
-    ///   * `event_types` - (Optional) A list of event types to enable filtering for.
-    ///   * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+    /// }
+    /// ```
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {
@@ -221,7 +270,7 @@ namespace Pulumi.NewRelic
         public Output<string?> Visibility { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
         /// </summary>
         [Output("widgets")]
         public Output<ImmutableArray<Outputs.DashboardWidget>> Widgets { get; private set; } = null!;
@@ -312,7 +361,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.DashboardWidgetArgs>? _widgets;
 
         /// <summary>
-        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
         /// </summary>
         public InputList<Inputs.DashboardWidgetArgs> Widgets
         {
@@ -373,7 +422,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.DashboardWidgetGetArgs>? _widgets;
 
         /// <summary>
-        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        /// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGetArgs> Widgets
         {

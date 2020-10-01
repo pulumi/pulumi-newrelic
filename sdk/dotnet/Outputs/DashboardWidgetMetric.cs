@@ -13,9 +13,15 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class DashboardWidgetMetric
     {
+        /// <summary>
+        /// (Required) The metric name to display.
+        /// </summary>
         public readonly string Name;
         public readonly string? Scope;
         public readonly string? Units;
+        /// <summary>
+        /// (Required) The metric values to display.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

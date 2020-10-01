@@ -921,7 +921,9 @@ func (o AlertMutingRuleConditionConditionArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type DashboardFilter struct {
+	// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
 	Attributes []string `pulumi:"attributes"`
+	// (Optional) A list of event types to enable filtering for.
 	EventTypes []string `pulumi:"eventTypes"`
 }
 
@@ -937,7 +939,9 @@ type DashboardFilterInput interface {
 }
 
 type DashboardFilterArgs struct {
+	// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
 	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
+	// (Optional) A list of event types to enable filtering for.
 	EventTypes pulumi.StringArrayInput `pulumi:"eventTypes"`
 }
 
@@ -1017,10 +1021,13 @@ func (o DashboardFilterOutput) ToDashboardFilterPtrOutputWithContext(ctx context
 		return &v
 	}).(DashboardFilterPtrOutput)
 }
+
+// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
 func (o DashboardFilterOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
+// (Optional) A list of event types to enable filtering for.
 func (o DashboardFilterOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
@@ -1043,6 +1050,7 @@ func (o DashboardFilterPtrOutput) Elem() DashboardFilterOutput {
 	return o.ApplyT(func(v *DashboardFilter) DashboardFilter { return *v }).(DashboardFilterOutput)
 }
 
+// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
 func (o DashboardFilterPtrOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardFilter) []string {
 		if v == nil {
@@ -1052,6 +1060,7 @@ func (o DashboardFilterPtrOutput) Attributes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// (Optional) A list of event types to enable filtering for.
 func (o DashboardFilterPtrOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardFilter) []string {
 		if v == nil {
@@ -1062,29 +1071,54 @@ func (o DashboardFilterPtrOutput) EventTypes() pulumi.StringArrayOutput {
 }
 
 type DashboardWidget struct {
-	Column               int                          `pulumi:"column"`
-	CompareWiths         []DashboardWidgetCompareWith `pulumi:"compareWiths"`
-	DrilldownDashboardId *int                         `pulumi:"drilldownDashboardId"`
-	Duration             *int                         `pulumi:"duration"`
-	EndTime              *int                         `pulumi:"endTime"`
-	EntityIds            []int                        `pulumi:"entityIds"`
-	Facet                *string                      `pulumi:"facet"`
-	Height               *int                         `pulumi:"height"`
-	Limit                *int                         `pulumi:"limit"`
-	Metrics              []DashboardWidgetMetric      `pulumi:"metrics"`
-	Notes                *string                      `pulumi:"notes"`
-	Nrql                 *string                      `pulumi:"nrql"`
-	OrderBy              *string                      `pulumi:"orderBy"`
-	RawMetricName        *string                      `pulumi:"rawMetricName"`
-	Row                  int                          `pulumi:"row"`
-	Source               *string                      `pulumi:"source"`
-	ThresholdRed         *float64                     `pulumi:"thresholdRed"`
-	ThresholdYellow      *float64                     `pulumi:"thresholdYellow"`
+	// (Optional) The account ID to use when querying data. If `accountId` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `accountId` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+	AccountId *int `pulumi:"accountId"`
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column       int                          `pulumi:"column"`
+	CompareWiths []DashboardWidgetCompareWith `pulumi:"compareWiths"`
+	// (Optional) The ID of a dashboard to link to from the widget's facets.
+	// * `attributeSheet`, `comparisonLineChart`, `eventFeed`, `eventTable`, `funnel`, `histogram`, `lineChart`, `rawJson`, `singleEvent`, or `uniquesList`:
+	DrilldownDashboardId *int `pulumi:"drilldownDashboardId"`
+	// (Required) The duration, in ms, of the time window represented in the chart.
+	Duration *int `pulumi:"duration"`
+	// (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+	EndTime *int `pulumi:"endTime"`
+	// (Required) A collection of entity IDs to display data. These are typically application IDs.
+	EntityIds []int `pulumi:"entityIds"`
+	// (Optional) Can be set to "host" to facet the metric data by host.
+	Facet *string `pulumi:"facet"`
+	// (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+	Height *int `pulumi:"height"`
+	// (Optional) The limit of distinct data series to display.  Requires `orderBy` to be set.
+	Limit *int `pulumi:"limit"`
+	// (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+	Metrics []DashboardWidgetMetric `pulumi:"metrics"`
+	// (Optional) Description of the widget.
+	Notes *string `pulumi:"notes"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	// * `markdown`:
+	Nrql *string `pulumi:"nrql"`
+	// (Optional) Set the order of the results.  Required when using `limit`.
+	// * `applicationBreakdown`:
+	OrderBy       *string `pulumi:"orderBy"`
+	RawMetricName *string `pulumi:"rawMetricName"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) The markdown source to be rendered in the widget.
+	// * `metricLineChart`:
+	Source *string `pulumi:"source"`
+	// (Required) Threshold above which the displayed value will be styled with a red color.
+	ThresholdRed *float64 `pulumi:"thresholdRed"`
+	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+	// * `facetBarChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `facetedLineChart`, or `heatmap`:
+	ThresholdYellow *float64 `pulumi:"thresholdYellow"`
 	// The title of the dashboard.
-	Title         string `pulumi:"title"`
+	Title string `pulumi:"title"`
+	// (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
 	Visualization string `pulumi:"visualization"`
 	WidgetId      *int   `pulumi:"widgetId"`
-	Width         *int   `pulumi:"width"`
+	// (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+	Width *int `pulumi:"width"`
 }
 
 // DashboardWidgetInput is an input type that accepts DashboardWidgetArgs and DashboardWidgetOutput values.
@@ -1099,29 +1133,54 @@ type DashboardWidgetInput interface {
 }
 
 type DashboardWidgetArgs struct {
-	Column               pulumi.IntInput                      `pulumi:"column"`
-	CompareWiths         DashboardWidgetCompareWithArrayInput `pulumi:"compareWiths"`
-	DrilldownDashboardId pulumi.IntPtrInput                   `pulumi:"drilldownDashboardId"`
-	Duration             pulumi.IntPtrInput                   `pulumi:"duration"`
-	EndTime              pulumi.IntPtrInput                   `pulumi:"endTime"`
-	EntityIds            pulumi.IntArrayInput                 `pulumi:"entityIds"`
-	Facet                pulumi.StringPtrInput                `pulumi:"facet"`
-	Height               pulumi.IntPtrInput                   `pulumi:"height"`
-	Limit                pulumi.IntPtrInput                   `pulumi:"limit"`
-	Metrics              DashboardWidgetMetricArrayInput      `pulumi:"metrics"`
-	Notes                pulumi.StringPtrInput                `pulumi:"notes"`
-	Nrql                 pulumi.StringPtrInput                `pulumi:"nrql"`
-	OrderBy              pulumi.StringPtrInput                `pulumi:"orderBy"`
-	RawMetricName        pulumi.StringPtrInput                `pulumi:"rawMetricName"`
-	Row                  pulumi.IntInput                      `pulumi:"row"`
-	Source               pulumi.StringPtrInput                `pulumi:"source"`
-	ThresholdRed         pulumi.Float64PtrInput               `pulumi:"thresholdRed"`
-	ThresholdYellow      pulumi.Float64PtrInput               `pulumi:"thresholdYellow"`
+	// (Optional) The account ID to use when querying data. If `accountId` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `accountId` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column       pulumi.IntInput                      `pulumi:"column"`
+	CompareWiths DashboardWidgetCompareWithArrayInput `pulumi:"compareWiths"`
+	// (Optional) The ID of a dashboard to link to from the widget's facets.
+	// * `attributeSheet`, `comparisonLineChart`, `eventFeed`, `eventTable`, `funnel`, `histogram`, `lineChart`, `rawJson`, `singleEvent`, or `uniquesList`:
+	DrilldownDashboardId pulumi.IntPtrInput `pulumi:"drilldownDashboardId"`
+	// (Required) The duration, in ms, of the time window represented in the chart.
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
+	// (Required) A collection of entity IDs to display data. These are typically application IDs.
+	EntityIds pulumi.IntArrayInput `pulumi:"entityIds"`
+	// (Optional) Can be set to "host" to facet the metric data by host.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// (Optional) The limit of distinct data series to display.  Requires `orderBy` to be set.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+	Metrics DashboardWidgetMetricArrayInput `pulumi:"metrics"`
+	// (Optional) Description of the widget.
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	// * `markdown`:
+	Nrql pulumi.StringPtrInput `pulumi:"nrql"`
+	// (Optional) Set the order of the results.  Required when using `limit`.
+	// * `applicationBreakdown`:
+	OrderBy       pulumi.StringPtrInput `pulumi:"orderBy"`
+	RawMetricName pulumi.StringPtrInput `pulumi:"rawMetricName"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) The markdown source to be rendered in the widget.
+	// * `metricLineChart`:
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// (Required) Threshold above which the displayed value will be styled with a red color.
+	ThresholdRed pulumi.Float64PtrInput `pulumi:"thresholdRed"`
+	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+	// * `facetBarChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `facetedLineChart`, or `heatmap`:
+	ThresholdYellow pulumi.Float64PtrInput `pulumi:"thresholdYellow"`
 	// The title of the dashboard.
-	Title         pulumi.StringInput `pulumi:"title"`
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
 	Visualization pulumi.StringInput `pulumi:"visualization"`
 	WidgetId      pulumi.IntPtrInput `pulumi:"widgetId"`
-	Width         pulumi.IntPtrInput `pulumi:"width"`
+	// (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
 }
 
 func (DashboardWidgetArgs) ElementType() reflect.Type {
@@ -1175,6 +1234,12 @@ func (o DashboardWidgetOutput) ToDashboardWidgetOutputWithContext(ctx context.Co
 	return o
 }
 
+// (Optional) The account ID to use when querying data. If `accountId` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `accountId` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+func (o DashboardWidgetOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidget) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
 func (o DashboardWidgetOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardWidget) int { return v.Column }).(pulumi.IntOutput)
 }
@@ -1183,46 +1248,60 @@ func (o DashboardWidgetOutput) CompareWiths() DashboardWidgetCompareWithArrayOut
 	return o.ApplyT(func(v DashboardWidget) []DashboardWidgetCompareWith { return v.CompareWiths }).(DashboardWidgetCompareWithArrayOutput)
 }
 
+// (Optional) The ID of a dashboard to link to from the widget's facets.
+// * `attributeSheet`, `comparisonLineChart`, `eventFeed`, `eventTable`, `funnel`, `histogram`, `lineChart`, `rawJson`, `singleEvent`, or `uniquesList`:
 func (o DashboardWidgetOutput) DrilldownDashboardId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.DrilldownDashboardId }).(pulumi.IntPtrOutput)
 }
 
+// (Required) The duration, in ms, of the time window represented in the chart.
 func (o DashboardWidgetOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
 func (o DashboardWidgetOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
+// (Required) A collection of entity IDs to display data. These are typically application IDs.
 func (o DashboardWidgetOutput) EntityIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DashboardWidget) []int { return v.EntityIds }).(pulumi.IntArrayOutput)
 }
 
+// (Optional) Can be set to "host" to facet the metric data by host.
 func (o DashboardWidgetOutput) Facet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *string { return v.Facet }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
 func (o DashboardWidgetOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
+// (Optional) The limit of distinct data series to display.  Requires `orderBy` to be set.
 func (o DashboardWidgetOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
+// (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
 func (o DashboardWidgetOutput) Metrics() DashboardWidgetMetricArrayOutput {
 	return o.ApplyT(func(v DashboardWidget) []DashboardWidgetMetric { return v.Metrics }).(DashboardWidgetMetricArrayOutput)
 }
 
+// (Optional) Description of the widget.
 func (o DashboardWidgetOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+// * `markdown`:
 func (o DashboardWidgetOutput) Nrql() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *string { return v.Nrql }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Set the order of the results.  Required when using `limit`.
+// * `applicationBreakdown`:
 func (o DashboardWidgetOutput) OrderBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
 }
@@ -1231,18 +1310,24 @@ func (o DashboardWidgetOutput) RawMetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *string { return v.RawMetricName }).(pulumi.StringPtrOutput)
 }
 
+// (Required) Row position of widget from top left, starting at `1`.
 func (o DashboardWidgetOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardWidget) int { return v.Row }).(pulumi.IntOutput)
 }
 
+// (Required) The markdown source to be rendered in the widget.
+// * `metricLineChart`:
 func (o DashboardWidgetOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
+// (Required) Threshold above which the displayed value will be styled with a red color.
 func (o DashboardWidgetOutput) ThresholdRed() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *float64 { return v.ThresholdRed }).(pulumi.Float64PtrOutput)
 }
 
+// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+// * `facetBarChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `facetedLineChart`, or `heatmap`:
 func (o DashboardWidgetOutput) ThresholdYellow() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *float64 { return v.ThresholdYellow }).(pulumi.Float64PtrOutput)
 }
@@ -1252,6 +1337,7 @@ func (o DashboardWidgetOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidget) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
 func (o DashboardWidgetOutput) Visualization() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidget) string { return v.Visualization }).(pulumi.StringOutput)
 }
@@ -1260,6 +1346,7 @@ func (o DashboardWidgetOutput) WidgetId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.WidgetId }).(pulumi.IntPtrOutput)
 }
 
+// (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
 func (o DashboardWidgetOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardWidget) *int { return v.Width }).(pulumi.IntPtrOutput)
 }
@@ -1386,7 +1473,8 @@ func (o DashboardWidgetCompareWithArrayOutput) Index(i pulumi.IntInput) Dashboar
 
 type DashboardWidgetCompareWithPresentation struct {
 	Color string `pulumi:"color"`
-	Name  string `pulumi:"name"`
+	// (Required) The metric name to display.
+	Name string `pulumi:"name"`
 }
 
 // DashboardWidgetCompareWithPresentationInput is an input type that accepts DashboardWidgetCompareWithPresentationArgs and DashboardWidgetCompareWithPresentationOutput values.
@@ -1402,7 +1490,8 @@ type DashboardWidgetCompareWithPresentationInput interface {
 
 type DashboardWidgetCompareWithPresentationArgs struct {
 	Color pulumi.StringInput `pulumi:"color"`
-	Name  pulumi.StringInput `pulumi:"name"`
+	// (Required) The metric name to display.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (DashboardWidgetCompareWithPresentationArgs) ElementType() reflect.Type {
@@ -1435,14 +1524,17 @@ func (o DashboardWidgetCompareWithPresentationOutput) Color() pulumi.StringOutpu
 	return o.ApplyT(func(v DashboardWidgetCompareWithPresentation) string { return v.Color }).(pulumi.StringOutput)
 }
 
+// (Required) The metric name to display.
 func (o DashboardWidgetCompareWithPresentationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetCompareWithPresentation) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type DashboardWidgetMetric struct {
-	Name   string   `pulumi:"name"`
-	Scope  *string  `pulumi:"scope"`
-	Units  *string  `pulumi:"units"`
+	// (Required) The metric name to display.
+	Name  string  `pulumi:"name"`
+	Scope *string `pulumi:"scope"`
+	Units *string `pulumi:"units"`
+	// (Required) The metric values to display.
 	Values []string `pulumi:"values"`
 }
 
@@ -1458,9 +1550,11 @@ type DashboardWidgetMetricInput interface {
 }
 
 type DashboardWidgetMetricArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
-	Scope  pulumi.StringPtrInput   `pulumi:"scope"`
-	Units  pulumi.StringPtrInput   `pulumi:"units"`
+	// (Required) The metric name to display.
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Units pulumi.StringPtrInput `pulumi:"units"`
+	// (Required) The metric values to display.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1515,6 +1609,7 @@ func (o DashboardWidgetMetricOutput) ToDashboardWidgetMetricOutputWithContext(ct
 	return o
 }
 
+// (Required) The metric name to display.
 func (o DashboardWidgetMetricOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardWidgetMetric) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1527,6 +1622,7 @@ func (o DashboardWidgetMetricOutput) Units() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWidgetMetric) *string { return v.Units }).(pulumi.StringPtrOutput)
 }
 
+// (Required) The metric values to display.
 func (o DashboardWidgetMetricOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardWidgetMetric) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
