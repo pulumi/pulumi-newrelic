@@ -15,6 +15,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// (Required) The metric name to display.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -113,59 +113,106 @@ import (
 // 	})
 // }
 // ```
-// ## Attribute Refence
+// See additional examples.
+// ## Additional Examples
 //
-// In addition to all arguments above, the following attributes are exported:
+// ### Create cross-account widgets in your dashboard.
 //
-//   * `dashboardUrl` - The URL for viewing the dashboard.
+// The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
 //
-// ### Nested `widget` blocks
+// ```go
+// package main
 //
-// All nested `widget` blocks support the following common arguments:
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
 //
-//   * `title` - (Required) A title for the widget.
-//   * `visualization` - (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
-//   * `row` - (Required) Row position of widget from top left, starting at `1`.
-//   * `column` - (Required) Column position of widget from top left, starting at `1`.
-//   * `width` - (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-//   * `height` - (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-//   * `notes` - (Optional) Description of the widget.
-//
-// Each `visualization` type supports an additional set of arguments:
-//
-//   * `billboard`, `billboardComparison`:
-//     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-//     * `thresholdRed` - (Optional) Threshold above which the displayed value will be styled with a red color.
-//     * `thresholdYellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
-//   * `gauge`:
-//     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-//     * `thresholdRed` - (Required) Threshold above which the displayed value will be styled with a red color.
-//     * `thresholdYellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
-//   * `facetBarChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `facetedLineChart`, or `heatmap`:
-//     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-//     * `drilldownDashboardId` - (Optional) The ID of a dashboard to link to from the widget's facets.
-//   * `attributeSheet`, `comparisonLineChart`, `eventFeed`, `eventTable`, `funnel`, `histogram`, `lineChart`, `rawJson`, `singleEvent`, or `uniquesList`:
-//     * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-//   * `markdown`:
-//     * `source` - (Required) The markdown source to be rendered in the widget.
-//   * `metricLineChart`:
-//     * `entityIds` - (Required) A collection of entity ids to display data for.  These are typically application IDs.
-//     * `metric` - (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
-//       * `name` - (Required) The metric name to display.
-//       * `values` - (Required) The metric values to display.
-//     * `duration` - (Required) The duration, in ms, of the time window represented in the chart.
-//     * `endTime` - (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
-//     * `facet` - (Optional) Can be set to "host" to facet the metric data by host.
-//     * `limit` - (Optional) The limit of distinct data series to display.  Requires `orderBy` to be set.
-//     * `orderBy` - (Optional) Set the order of the results.  Required when using `limit`.
-//   * `applicationBreakdown`:
-//     * `entityIds` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-//
-// ### Nested `filter` block
-//
-// The optional filter block supports the following arguments:
-//   * `eventTypes` - (Optional) A list of event types to enable filtering for.
-//   * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "APPLICATION"
+// 		opt1 := "APM"
+// 		primaryAccountApplication, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 			Name:   "Main Account Application Name",
+// 			Type:   &opt0,
+// 			Domain: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt2 := "APPLICATION"
+// 		opt3 := "APM"
+// 		subaccountApplication, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 			Name:   "Subaccount Application Name",
+// 			Type:   &opt2,
+// 			Domain: &opt3,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewDashboard(ctx, "crossAccountWidgetExample", &newrelic.DashboardArgs{
+// 			Title: pulumi.String("tf-test-cross-account-widget-dashboard"),
+// 			Filter: &newrelic.DashboardFilterArgs{
+// 				EventTypes: pulumi.StringArray{
+// 					pulumi.String("Transaction"),
+// 				},
+// 				Attributes: pulumi.StringArray{
+// 					pulumi.String("appName"),
+// 					pulumi.String("envName"),
+// 				},
+// 			},
+// 			GridColumnCount: pulumi.Int(12),
+// 			Widgets: newrelic.DashboardWidgetArray{
+// 				&newrelic.DashboardWidgetArgs{
+// 					Title:         pulumi.String("Apdex (primary account)"),
+// 					Row:           pulumi.Int(1),
+// 					Column:        pulumi.Int(1),
+// 					Width:         pulumi.Int(6),
+// 					Height:        pulumi.Int(3),
+// 					Visualization: pulumi.String("metric_line_chart"),
+// 					Duration:      pulumi.Int(1800000),
+// 					Metrics: newrelic.DashboardWidgetMetricArray{
+// 						&newrelic.DashboardWidgetMetricArgs{
+// 							Name: pulumi.String("Apdex"),
+// 							Values: pulumi.StringArray{
+// 								pulumi.String("score"),
+// 							},
+// 						},
+// 					},
+// 					EntityIds: pulumi.IntArray{
+// 						pulumi.Int(primaryAccountApplication.ApplicationId),
+// 					},
+// 				},
+// 				&newrelic.DashboardWidgetArgs{
+// 					AccountId:     pulumi.Any(_var.Subaccount_id),
+// 					Title:         pulumi.String("Apdex (subaccount)"),
+// 					Row:           pulumi.Int(1),
+// 					Column:        pulumi.Int(7),
+// 					Width:         pulumi.Int(6),
+// 					Height:        pulumi.Int(3),
+// 					Visualization: pulumi.String("metric_line_chart"),
+// 					Duration:      pulumi.Int(1800000),
+// 					Metrics: newrelic.DashboardWidgetMetricArray{
+// 						&newrelic.DashboardWidgetMetricArgs{
+// 							Name: pulumi.String("Apdex"),
+// 							Values: pulumi.StringArray{
+// 								pulumi.String("score"),
+// 							},
+// 						},
+// 					},
+// 					EntityIds: pulumi.IntArray{
+// 						pulumi.Int(subaccountApplication.ApplicationId),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -183,7 +230,7 @@ type Dashboard struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
 	Widgets DashboardWidgetArrayOutput `pulumi:"widgets"`
 }
 
@@ -232,7 +279,7 @@ type dashboardState struct {
 	Title *string `pulumi:"title"`
 	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility *string `pulumi:"visibility"`
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
@@ -251,7 +298,7 @@ type DashboardState struct {
 	Title pulumi.StringPtrInput
 	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility pulumi.StringPtrInput
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
 	Widgets DashboardWidgetArrayInput
 }
 
@@ -272,7 +319,7 @@ type dashboardArgs struct {
 	Title string `pulumi:"title"`
 	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility *string `pulumi:"visibility"`
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
@@ -290,7 +337,7 @@ type DashboardArgs struct {
 	Title pulumi.StringInput
 	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
 	Visibility pulumi.StringPtrInput
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
 	Widgets DashboardWidgetArrayInput
 }
 

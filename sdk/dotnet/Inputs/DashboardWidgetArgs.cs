@@ -12,6 +12,15 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class DashboardWidgetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// (Required) Column position of widget from top left, starting at `1`.
+        /// </summary>
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
@@ -23,61 +32,113 @@ namespace Pulumi.NewRelic.Inputs
             set => _compareWiths = value;
         }
 
+        /// <summary>
+        /// (Optional) The ID of a dashboard to link to from the widget's facets.
+        /// * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
+        /// </summary>
         [Input("drilldownDashboardId")]
         public Input<int>? DrilldownDashboardId { get; set; }
 
+        /// <summary>
+        /// (Required) The duration, in ms, of the time window represented in the chart.
+        /// </summary>
         [Input("duration")]
         public Input<int>? Duration { get; set; }
 
+        /// <summary>
+        /// (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+        /// </summary>
         [Input("endTime")]
         public Input<int>? EndTime { get; set; }
 
         [Input("entityIds")]
         private InputList<int>? _entityIds;
+
+        /// <summary>
+        /// (Required) A collection of entity IDs to display data. These are typically application IDs.
+        /// </summary>
         public InputList<int> EntityIds
         {
             get => _entityIds ?? (_entityIds = new InputList<int>());
             set => _entityIds = value;
         }
 
+        /// <summary>
+        /// (Optional) Can be set to "host" to facet the metric data by host.
+        /// </summary>
         [Input("facet")]
         public Input<string>? Facet { get; set; }
 
+        /// <summary>
+        /// (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        /// </summary>
         [Input("height")]
         public Input<int>? Height { get; set; }
 
+        /// <summary>
+        /// (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
         [Input("metrics")]
         private InputList<Inputs.DashboardWidgetMetricArgs>? _metrics;
+
+        /// <summary>
+        /// (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+        /// </summary>
         public InputList<Inputs.DashboardWidgetMetricArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DashboardWidgetMetricArgs>());
             set => _metrics = value;
         }
 
+        /// <summary>
+        /// (Optional) Description of the widget.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        /// * `markdown`:
+        /// </summary>
         [Input("nrql")]
         public Input<string>? Nrql { get; set; }
 
+        /// <summary>
+        /// (Optional) Set the order of the results.  Required when using `limit`.
+        /// * `application_breakdown`:
+        /// </summary>
         [Input("orderBy")]
         public Input<string>? OrderBy { get; set; }
 
         [Input("rawMetricName")]
         public Input<string>? RawMetricName { get; set; }
 
+        /// <summary>
+        /// (Required) Row position of widget from top left, starting at `1`.
+        /// </summary>
         [Input("row", required: true)]
         public Input<int> Row { get; set; } = null!;
 
+        /// <summary>
+        /// (Required) The markdown source to be rendered in the widget.
+        /// * `metric_line_chart`:
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
+        /// <summary>
+        /// (Required) Threshold above which the displayed value will be styled with a red color.
+        /// </summary>
         [Input("thresholdRed")]
         public Input<double>? ThresholdRed { get; set; }
 
+        /// <summary>
+        /// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+        /// * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
+        /// </summary>
         [Input("thresholdYellow")]
         public Input<double>? ThresholdYellow { get; set; }
 
@@ -87,12 +148,18 @@ namespace Pulumi.NewRelic.Inputs
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
+        /// <summary>
+        /// (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
+        /// </summary>
         [Input("visualization", required: true)]
         public Input<string> Visualization { get; set; } = null!;
 
         [Input("widgetId")]
         public Input<int>? WidgetId { get; set; }
 
+        /// <summary>
+        /// (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        /// </summary>
         [Input("width")]
         public Input<int>? Width { get; set; }
 

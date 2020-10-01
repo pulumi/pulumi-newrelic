@@ -106,59 +106,65 @@ class Dashboard(pulumi.CustomResource):
                 ),
             ])
         ```
-        ## Attribute Refence
+        See additional examples.
+        ## Additional Examples
 
-        In addition to all arguments above, the following attributes are exported:
+        ### Create cross-account widgets in your dashboard.
 
-          * `dashboard_url` - The URL for viewing the dashboard.
+        The example below shows how you can display data for an application from a primary account and an application from a subaccount. In order to create cross-account widgets, you must use an API key from a user with admin permissions in the primary account. Please see the `widget` attribute documentation for more details.
 
-        ### Nested `widget` blocks
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
 
-        All nested `widget` blocks support the following common arguments:
-
-          * `title` - (Required) A title for the widget.
-          * `visualization` - (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
-          * `row` - (Required) Row position of widget from top left, starting at `1`.
-          * `column` - (Required) Column position of widget from top left, starting at `1`.
-          * `width` - (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-          * `height` - (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-          * `notes` - (Optional) Description of the widget.
-
-        Each `visualization` type supports an additional set of arguments:
-
-          * `billboard`, `billboard_comparison`:
-            * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-            * `threshold_red` - (Optional) Threshold above which the displayed value will be styled with a red color.
-            * `threshold_yellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
-          * `gauge`:
-            * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-            * `threshold_red` - (Required) Threshold above which the displayed value will be styled with a red color.
-            * `threshold_yellow` - (Optional) Threshold above which the displayed value will be styled with a yellow color.
-          * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
-            * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-            * `drilldown_dashboard_id` - (Optional) The ID of a dashboard to link to from the widget's facets.
-          * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
-            * `nrql` - (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-          * `markdown`:
-            * `source` - (Required) The markdown source to be rendered in the widget.
-          * `metric_line_chart`:
-            * `entity_ids` - (Required) A collection of entity ids to display data for.  These are typically application IDs.
-            * `metric` - (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
-              * `name` - (Required) The metric name to display.
-              * `values` - (Required) The metric values to display.
-            * `duration` - (Required) The duration, in ms, of the time window represented in the chart.
-            * `end_time` - (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
-            * `facet` - (Optional) Can be set to "host" to facet the metric data by host.
-            * `limit` - (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
-            * `order_by` - (Optional) Set the order of the results.  Required when using `limit`.
-          * `application_breakdown`:
-            * `entity_ids` - (Required) A collection of entity IDs to display data. These are typically application IDs.
-
-        ### Nested `filter` block
-
-        The optional filter block supports the following arguments:
-          * `event_types` - (Optional) A list of event types to enable filtering for.
-          * `attributes` - (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+        primary_account_application = newrelic.get_entity(name="Main Account Application Name",
+            type="APPLICATION",
+            domain="APM")
+        subaccount_application = newrelic.get_entity(name="Subaccount Application Name",
+            type="APPLICATION",
+            domain="APM")
+        cross_account_widget_example = newrelic.Dashboard("crossAccountWidgetExample",
+            title="tf-test-cross-account-widget-dashboard",
+            filter=newrelic.DashboardFilterArgs(
+                event_types=["Transaction"],
+                attributes=[
+                    "appName",
+                    "envName",
+                ],
+            ),
+            grid_column_count=12,
+            widgets=[
+                newrelic.DashboardWidgetArgs(
+                    title="Apdex (primary account)",
+                    row=1,
+                    column=1,
+                    width=6,
+                    height=3,
+                    visualization="metric_line_chart",
+                    duration=1800000,
+                    metrics=[newrelic.DashboardWidgetMetricArgs(
+                        name="Apdex",
+                        values=["score"],
+                    )],
+                    entity_ids=[primary_account_application.application_id],
+                ),
+                newrelic.DashboardWidgetArgs(
+                    account_id=var["subaccount_id"],
+                    title="Apdex (subaccount)",
+                    row=1,
+                    column=7,
+                    width=6,
+                    height=3,
+                    visualization="metric_line_chart",
+                    duration=1800000,
+                    metrics=[newrelic.DashboardWidgetMetricArgs(
+                        name="Apdex",
+                        values=["score"],
+                    )],
+                    entity_ids=[subaccount_application.application_id],
+                ),
+            ])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +174,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -229,7 +235,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -305,7 +311,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def widgets(self) -> pulumi.Output[Optional[List['outputs.DashboardWidget']]]:
         """
-        A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition.  See Nested widget blocks below for details.
+        A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
         """
         return pulumi.get(self, "widgets")
 

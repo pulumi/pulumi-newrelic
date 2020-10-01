@@ -13,7 +13,13 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class DashboardFilter
     {
+        /// <summary>
+        /// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+        /// </summary>
         public readonly ImmutableArray<string> Attributes;
+        /// <summary>
+        /// (Optional) A list of event types to enable filtering for.
+        /// </summary>
         public readonly ImmutableArray<string> EventTypes;
 
         [OutputConstructor]

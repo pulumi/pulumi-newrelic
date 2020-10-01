@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Inputs
     {
         [Input("attributes")]
         private InputList<string>? _attributes;
+
+        /// <summary>
+        /// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+        /// </summary>
         public InputList<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("eventTypes", required: true)]
         private InputList<string>? _eventTypes;
+
+        /// <summary>
+        /// (Optional) A list of event types to enable filtering for.
+        /// </summary>
         public InputList<string> EventTypes
         {
             get => _eventTypes ?? (_eventTypes = new InputList<string>());

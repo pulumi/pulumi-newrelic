@@ -533,6 +533,10 @@ class DashboardFilterArgs:
     def __init__(__self__, *,
                  event_types: pulumi.Input[List[pulumi.Input[str]]],
                  attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[List[pulumi.Input[str]]] event_types: (Optional) A list of event types to enable filtering for.
+        :param pulumi.Input[List[pulumi.Input[str]]] attributes: (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+        """
         pulumi.set(__self__, "event_types", event_types)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -540,6 +544,9 @@ class DashboardFilterArgs:
     @property
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        (Optional) A list of event types to enable filtering for.
+        """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
@@ -549,6 +556,9 @@ class DashboardFilterArgs:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -563,6 +573,7 @@ class DashboardWidgetArgs:
                  row: pulumi.Input[float],
                  title: pulumi.Input[str],
                  visualization: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[float]] = None,
                  compare_withs: Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetCompareWithArgs']]]] = None,
                  drilldown_dashboard_id: Optional[pulumi.Input[float]] = None,
                  duration: Optional[pulumi.Input[float]] = None,
@@ -582,12 +593,38 @@ class DashboardWidgetArgs:
                  widget_id: Optional[pulumi.Input[float]] = None,
                  width: Optional[pulumi.Input[float]] = None):
         """
+        :param pulumi.Input[float] column: (Required) Column position of widget from top left, starting at `1`.
+        :param pulumi.Input[float] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] visualization: (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
+        :param pulumi.Input[float] account_id: (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+        :param pulumi.Input[float] drilldown_dashboard_id: (Optional) The ID of a dashboard to link to from the widget's facets.
+               * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
+        :param pulumi.Input[float] duration: (Required) The duration, in ms, of the time window represented in the chart.
+        :param pulumi.Input[float] end_time: (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+        :param pulumi.Input[List[pulumi.Input[float]]] entity_ids: (Required) A collection of entity IDs to display data. These are typically application IDs.
+        :param pulumi.Input[str] facet: (Optional) Can be set to "host" to facet the metric data by host.
+        :param pulumi.Input[float] height: (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        :param pulumi.Input[float] limit: (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
+        :param pulumi.Input[List[pulumi.Input['DashboardWidgetMetricArgs']]] metrics: (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+        :param pulumi.Input[str] notes: (Optional) Description of the widget.
+        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+               * `markdown`:
+        :param pulumi.Input[str] order_by: (Optional) Set the order of the results.  Required when using `limit`.
+               * `application_breakdown`:
+        :param pulumi.Input[str] source: (Required) The markdown source to be rendered in the widget.
+               * `metric_line_chart`:
+        :param pulumi.Input[float] threshold_red: (Required) Threshold above which the displayed value will be styled with a red color.
+        :param pulumi.Input[float] threshold_yellow: (Optional) Threshold above which the displayed value will be styled with a yellow color.
+               * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
+        :param pulumi.Input[float] width: (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "visualization", visualization)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if compare_withs is not None:
             pulumi.set(__self__, "compare_withs", compare_withs)
         if drilldown_dashboard_id is not None:
@@ -628,6 +665,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def column(self) -> pulumi.Input[float]:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
         return pulumi.get(self, "column")
 
     @column.setter
@@ -637,6 +677,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def row(self) -> pulumi.Input[float]:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
         return pulumi.get(self, "row")
 
     @row.setter
@@ -658,11 +701,26 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def visualization(self) -> pulumi.Input[str]:
+        """
+        (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
+        """
         return pulumi.get(self, "visualization")
 
     @visualization.setter
     def visualization(self, value: pulumi.Input[str]):
         pulumi.set(self, "visualization", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="compareWiths")
@@ -676,6 +734,10 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="drilldownDashboardId")
     def drilldown_dashboard_id(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) The ID of a dashboard to link to from the widget's facets.
+        * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
+        """
         return pulumi.get(self, "drilldown_dashboard_id")
 
     @drilldown_dashboard_id.setter
@@ -685,6 +747,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Required) The duration, in ms, of the time window represented in the chart.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -694,6 +759,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -703,6 +771,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="entityIds")
     def entity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+        """
+        (Required) A collection of entity IDs to display data. These are typically application IDs.
+        """
         return pulumi.get(self, "entity_ids")
 
     @entity_ids.setter
@@ -712,6 +783,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def facet(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) Can be set to "host" to facet the metric data by host.
+        """
         return pulumi.get(self, "facet")
 
     @facet.setter
@@ -721,6 +795,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        """
         return pulumi.get(self, "height")
 
     @height.setter
@@ -730,6 +807,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
+        """
         return pulumi.get(self, "limit")
 
     @limit.setter
@@ -739,6 +819,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def metrics(self) -> Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetMetricArgs']]]]:
+        """
+        (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -748,6 +831,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) Description of the widget.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -757,6 +843,10 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def nrql(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        * `markdown`:
+        """
         return pulumi.get(self, "nrql")
 
     @nrql.setter
@@ -766,6 +856,10 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="orderBy")
     def order_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) Set the order of the results.  Required when using `limit`.
+        * `application_breakdown`:
+        """
         return pulumi.get(self, "order_by")
 
     @order_by.setter
@@ -784,6 +878,10 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required) The markdown source to be rendered in the widget.
+        * `metric_line_chart`:
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -793,6 +891,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="thresholdRed")
     def threshold_red(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Required) Threshold above which the displayed value will be styled with a red color.
+        """
         return pulumi.get(self, "threshold_red")
 
     @threshold_red.setter
@@ -802,6 +903,10 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter(name="thresholdYellow")
     def threshold_yellow(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) Threshold above which the displayed value will be styled with a yellow color.
+        * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
+        """
         return pulumi.get(self, "threshold_yellow")
 
     @threshold_yellow.setter
@@ -820,6 +925,9 @@ class DashboardWidgetArgs:
     @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[float]]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        """
         return pulumi.get(self, "width")
 
     @width.setter
@@ -859,6 +967,9 @@ class DashboardWidgetCompareWithPresentationArgs:
     def __init__(__self__, *,
                  color: pulumi.Input[str],
                  name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: (Required) The metric name to display.
+        """
         pulumi.set(__self__, "color", color)
         pulumi.set(__self__, "name", name)
 
@@ -874,6 +985,9 @@ class DashboardWidgetCompareWithPresentationArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        (Required) The metric name to display.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -888,6 +1002,10 @@ class DashboardWidgetMetricArgs:
                  scope: Optional[pulumi.Input[str]] = None,
                  units: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: (Required) The metric name to display.
+        :param pulumi.Input[List[pulumi.Input[str]]] values: (Required) The metric values to display.
+        """
         pulumi.set(__self__, "name", name)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
@@ -899,6 +1017,9 @@ class DashboardWidgetMetricArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        (Required) The metric name to display.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -926,6 +1047,9 @@ class DashboardWidgetMetricArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        (Required) The metric values to display.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

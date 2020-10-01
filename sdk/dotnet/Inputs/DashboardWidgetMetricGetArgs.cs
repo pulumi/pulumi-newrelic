@@ -12,6 +12,9 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class DashboardWidgetMetricGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Required) The metric name to display.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -23,6 +26,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// (Required) The metric values to display.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
