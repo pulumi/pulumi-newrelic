@@ -49,7 +49,7 @@ class AlertChannel(pulumi.CustomResource):
         foo = newrelic.AlertChannel("foo",
             config=newrelic.AlertChannelConfigArgs(
                 channel="example-alerts-channel",
-                url="https://<YourOrganization>.slack.com",
+                url="https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
             ),
             type="slack")
         ```
@@ -140,7 +140,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        :param pulumi.Input[str] type: The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -186,7 +186,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        :param pulumi.Input[str] type: The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -217,7 +217,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
         """
         return pulumi.get(self, "type")
 

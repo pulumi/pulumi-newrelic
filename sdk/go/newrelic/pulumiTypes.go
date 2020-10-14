@@ -54,7 +54,7 @@ type AlertChannelConfig struct {
 	Tags *string `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams *string `pulumi:"teams"`
-	// Your organization's Slack URL.
+	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 	Url    *string `pulumi:"url"`
 	UserId *string `pulumi:"userId"`
 }
@@ -114,7 +114,7 @@ type AlertChannelConfigArgs struct {
 	Tags pulumi.StringPtrInput `pulumi:"tags"`
 	// A set of teams for targeting notifications. Multiple values are comma separated.
 	Teams pulumi.StringPtrInput `pulumi:"teams"`
-	// Your organization's Slack URL.
+	// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 	Url    pulumi.StringPtrInput `pulumi:"url"`
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
@@ -296,7 +296,7 @@ func (o AlertChannelConfigOutput) Teams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
-// Your organization's Slack URL.
+// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 func (o AlertChannelConfigOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -518,7 +518,7 @@ func (o AlertChannelConfigPtrOutput) Teams() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Your organization's Slack URL.
+// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
 func (o AlertChannelConfigPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {
 		if v == nil {

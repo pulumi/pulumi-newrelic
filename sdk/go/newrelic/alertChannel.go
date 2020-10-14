@@ -18,7 +18,7 @@ type AlertChannel struct {
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
 	// The name of the channel.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -57,7 +57,7 @@ type alertChannelState struct {
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
 	Type *string `pulumi:"type"`
 }
 
@@ -66,7 +66,7 @@ type AlertChannelState struct {
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
 	Type pulumi.StringPtrInput
 }
 
@@ -79,7 +79,7 @@ type alertChannelArgs struct {
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
 	Type string `pulumi:"type"`
 }
 
@@ -89,7 +89,7 @@ type AlertChannelArgs struct {
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
 	Type pulumi.StringInput
 }
 

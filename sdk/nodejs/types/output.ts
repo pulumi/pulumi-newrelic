@@ -88,7 +88,7 @@ export interface AlertChannelConfig {
      */
     teams?: string;
     /**
-     * Your organization's Slack URL.
+     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      */
     url?: string;
     userId?: string;

@@ -95,7 +95,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Teams;
         /// <summary>
-        /// Your organization's Slack URL.
+        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         /// </summary>
         public readonly string? Url;
         public readonly string? UserId;

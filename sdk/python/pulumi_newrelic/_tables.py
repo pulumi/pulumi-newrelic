@@ -5,6 +5,7 @@
 SNAKE_TO_CAMEL_CASE_TABLE = {
     "account_id": "accountId",
     "admin_api_key": "adminApiKey",
+    "aggregation_window": "aggregationWindow",
     "api_key": "apiKey",
     "api_url": "apiUrl",
     "app_apdex_threshold": "appApdexThreshold",
@@ -69,6 +70,7 @@ SNAKE_TO_CAMEL_CASE_TABLE = {
 CAMEL_TO_SNAKE_CASE_TABLE = {
     "accountId": "account_id",
     "adminApiKey": "admin_api_key",
+    "aggregationWindow": "aggregation_window",
     "apiKey": "api_key",
     "apiUrl": "api_url",
     "appApdexThreshold": "app_apdex_threshold",

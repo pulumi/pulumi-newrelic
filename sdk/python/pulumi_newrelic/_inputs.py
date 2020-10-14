@@ -77,7 +77,7 @@ class AlertChannelConfigArgs:
                * `victorops`
         :param pulumi.Input[str] tags: A set of tags for targeting notifications. Multiple values are comma separated.
         :param pulumi.Input[str] teams: A set of teams for targeting notifications. Multiple values are comma separated.
-        :param pulumi.Input[str] url: Your organization's Slack URL.
+        :param pulumi.Input[str] url: [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -359,7 +359,7 @@ class AlertChannelConfigArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        Your organization's Slack URL.
+        [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         """
         return pulumi.get(self, "url")
 

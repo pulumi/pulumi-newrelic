@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Plugins
 {
     /// <summary>
+    /// &gt; **DEPRECATED** Use at your own risk. Use the `newrelic.NrqlAlertCondition` resource instead. This feature may be removed in the next major release.
+    /// 
     /// Use this resource to create and manage plugins alert conditions in New Relic.
     /// 
     /// ## Example Usage

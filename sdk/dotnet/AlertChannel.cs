@@ -51,7 +51,7 @@ namespace Pulumi.NewRelic
     ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///             {
     ///                 Channel = "example-alerts-channel",
-    ///                 Url = "https://&lt;YourOrganization&gt;.slack.com",
+    ///                 Url = "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
     ///             },
     ///             Type = "slack",
     ///         });
@@ -209,7 +209,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+        /// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -47,9 +47,11 @@ type NrqlAlertCondition struct {
 
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	AggregationWindow pulumi.IntPtrOutput `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
-	// - Whether to close all open violations when the signal expires.
+	// Whether to close all open violations when the signal expires.
 	CloseViolationsOnExpiration pulumi.BoolPtrOutput `pulumi:"closeViolationsOnExpiration"`
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrOutput `pulumi:"critical"`
@@ -59,9 +61,9 @@ type NrqlAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrOutput `pulumi:"expectedGroups"`
-	// - The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired.
 	ExpirationDuration pulumi.IntPtrOutput `pulumi:"expirationDuration"`
-	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption pulumi.StringPtrOutput `pulumi:"fillOption"`
 	// This value will be used for filling gaps in the signal.
 	FillValue pulumi.Float64PtrOutput `pulumi:"fillValue"`
@@ -73,7 +75,7 @@ type NrqlAlertCondition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrqlOutput `pulumi:"nrql"`
-	// - Whether to create a new violation to capture that the signal expired.
+	// Whether to create a new violation to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrOutput `pulumi:"openViolationOnExpiration"`
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap pulumi.BoolPtrOutput `pulumi:"openViolationOnGroupOverlap"`
@@ -89,7 +91,7 @@ type NrqlAlertCondition struct {
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit pulumi.StringPtrOutput `pulumi:"violationTimeLimit"`
 	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
@@ -137,9 +139,11 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 type nrqlAlertConditionState struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
-	// - Whether to close all open violations when the signal expires.
+	// Whether to close all open violations when the signal expires.
 	CloseViolationsOnExpiration *bool `pulumi:"closeViolationsOnExpiration"`
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
@@ -149,9 +153,9 @@ type nrqlAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
-	// - The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired.
 	ExpirationDuration *int `pulumi:"expirationDuration"`
-	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption *string `pulumi:"fillOption"`
 	// This value will be used for filling gaps in the signal.
 	FillValue *float64 `pulumi:"fillValue"`
@@ -163,7 +167,7 @@ type nrqlAlertConditionState struct {
 	Name *string `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
 	Nrql *NrqlAlertConditionNrql `pulumi:"nrql"`
-	// - Whether to create a new violation to capture that the signal expired.
+	// Whether to create a new violation to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap *bool `pulumi:"openViolationOnGroupOverlap"`
@@ -179,7 +183,7 @@ type nrqlAlertConditionState struct {
 	Type *string `pulumi:"type"`
 	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction *string `pulumi:"valueFunction"`
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
 	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
@@ -194,9 +198,11 @@ type nrqlAlertConditionState struct {
 type NrqlAlertConditionState struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
-	// - Whether to close all open violations when the signal expires.
+	// Whether to close all open violations when the signal expires.
 	CloseViolationsOnExpiration pulumi.BoolPtrInput
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrInput
@@ -206,9 +212,9 @@ type NrqlAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrInput
-	// - The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired.
 	ExpirationDuration pulumi.IntPtrInput
-	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption pulumi.StringPtrInput
 	// This value will be used for filling gaps in the signal.
 	FillValue pulumi.Float64PtrInput
@@ -220,7 +226,7 @@ type NrqlAlertConditionState struct {
 	Name pulumi.StringPtrInput
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrqlPtrInput
-	// - Whether to create a new violation to capture that the signal expired.
+	// Whether to create a new violation to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap pulumi.BoolPtrInput
@@ -236,7 +242,7 @@ type NrqlAlertConditionState struct {
 	Type pulumi.StringPtrInput
 	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction pulumi.StringPtrInput
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
@@ -255,9 +261,11 @@ func (NrqlAlertConditionState) ElementType() reflect.Type {
 type nrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
-	// - Whether to close all open violations when the signal expires.
+	// Whether to close all open violations when the signal expires.
 	CloseViolationsOnExpiration *bool `pulumi:"closeViolationsOnExpiration"`
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical *NrqlAlertConditionCritical `pulumi:"critical"`
@@ -267,9 +275,9 @@ type nrqlAlertConditionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
-	// - The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired.
 	ExpirationDuration *int `pulumi:"expirationDuration"`
-	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption *string `pulumi:"fillOption"`
 	// This value will be used for filling gaps in the signal.
 	FillValue *float64 `pulumi:"fillValue"`
@@ -281,7 +289,7 @@ type nrqlAlertConditionArgs struct {
 	Name *string `pulumi:"name"`
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrql `pulumi:"nrql"`
-	// - Whether to create a new violation to capture that the signal expired.
+	// Whether to create a new violation to capture that the signal expired.
 	OpenViolationOnExpiration *bool `pulumi:"openViolationOnExpiration"`
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap *bool `pulumi:"openViolationOnGroupOverlap"`
@@ -297,7 +305,7 @@ type nrqlAlertConditionArgs struct {
 	Type *string `pulumi:"type"`
 	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction *string `pulumi:"valueFunction"`
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit *string `pulumi:"violationTimeLimit"`
 	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
@@ -313,9 +321,11 @@ type nrqlAlertConditionArgs struct {
 type NrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
-	// - Whether to close all open violations when the signal expires.
+	// Whether to close all open violations when the signal expires.
 	CloseViolationsOnExpiration pulumi.BoolPtrInput
 	// A list containing the `critical` threshold values. See Terms below for details.
 	Critical NrqlAlertConditionCriticalPtrInput
@@ -325,9 +335,9 @@ type NrqlAlertConditionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrInput
-	// - The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired.
 	ExpirationDuration pulumi.IntPtrInput
-	// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption pulumi.StringPtrInput
 	// This value will be used for filling gaps in the signal.
 	FillValue pulumi.Float64PtrInput
@@ -339,7 +349,7 @@ type NrqlAlertConditionArgs struct {
 	Name pulumi.StringPtrInput
 	// A NRQL query. See NRQL below for details.
 	Nrql NrqlAlertConditionNrqlInput
-	// - Whether to create a new violation to capture that the signal expired.
+	// Whether to create a new violation to capture that the signal expired.
 	OpenViolationOnExpiration pulumi.BoolPtrInput
 	// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
 	OpenViolationOnGroupOverlap pulumi.BoolPtrInput
@@ -355,7 +365,7 @@ type NrqlAlertConditionArgs struct {
 	Type pulumi.StringPtrInput
 	// Possible values are `singleValue`, `sum` (case insensitive).
 	ValueFunction pulumi.StringPtrInput
-	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+	// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	ViolationTimeLimit pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
