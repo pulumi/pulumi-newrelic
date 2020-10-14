@@ -12,6 +12,8 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage Infrastructure alert conditions in New Relic.
     /// 
+    /// &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -32,7 +34,7 @@ namespace Pulumi.NewRelic
     ///             Event = "StorageSample",
     ///             Select = "diskUsedPercent",
     ///             Comparison = "above",
-    ///             Where = "(`hostname` LIKE '%frontend%')",
+    ///             Where = "(hostname LIKE '%frontend%')",
     ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///             {
     ///                 Duration = 25,
@@ -53,7 +55,7 @@ namespace Pulumi.NewRelic
     ///             Event = "DatastoreSample",
     ///             Select = "provider.databaseConnections.Average",
     ///             Comparison = "above",
-    ///             Where = "(`hostname` LIKE '%db%')",
+    ///             Where = "(hostname LIKE '%db%')",
     ///             IntegrationProvider = "RdsDbInstance",
     ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///             {
@@ -67,7 +69,8 @@ namespace Pulumi.NewRelic
     ///             PolicyId = foo.Id,
     ///             Type = "infra_process_running",
     ///             Comparison = "equal",
-    ///             ProcessWhere = "`commandName` = '/usr/bin/ruby'",
+    ///             Where = "hostname = 'web01'",
+    ///             ProcessWhere = "commandName = '/usr/bin/ruby'",
     ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///             {
     ///                 Duration = 5,
@@ -78,7 +81,7 @@ namespace Pulumi.NewRelic
     ///         {
     ///             PolicyId = foo.Id,
     ///             Type = "infra_host_not_reporting",
-    ///             Where = "(`hostname` LIKE '%frontend%')",
+    ///             Where = "(hostname LIKE '%frontend%')",
     ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
     ///             {
     ///                 Duration = 5,
@@ -153,7 +156,7 @@ namespace Pulumi.NewRelic
         public Output<int> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
         /// </summary>
         [Output("processWhere")]
         public Output<string?> ProcessWhere { get; private set; } = null!;
@@ -295,7 +298,7 @@ namespace Pulumi.NewRelic
         public Input<int> PolicyId { get; set; } = null!;
 
         /// <summary>
-        /// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }
@@ -398,7 +401,7 @@ namespace Pulumi.NewRelic
         public Input<int>? PolicyId { get; set; }
 
         /// <summary>
-        /// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
+        /// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
         /// </summary>
         [Input("processWhere")]
         public Input<string>? ProcessWhere { get; set; }

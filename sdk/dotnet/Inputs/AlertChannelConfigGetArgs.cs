@@ -144,7 +144,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Teams { get; set; }
 
         /// <summary>
-        /// Your organization's Slack URL.
+        /// [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

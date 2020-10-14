@@ -88,7 +88,7 @@ export interface AlertChannelConfig {
      */
     teams?: pulumi.Input<string>;
     /**
-     * Your organization's Slack URL.
+     * [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
      */
     url?: pulumi.Input<string>;
     userId?: pulumi.Input<string>;

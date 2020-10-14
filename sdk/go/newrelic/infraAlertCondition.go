@@ -12,6 +12,8 @@ import (
 
 // Use this resource to create and manage Infrastructure alert conditions in New Relic.
 //
+// > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+//
 // ## Example Usage
 //
 // ```go
@@ -36,7 +38,7 @@ import (
 // 			Event:      pulumi.String("StorageSample"),
 // 			Select:     pulumi.String("diskUsedPercent"),
 // 			Comparison: pulumi.String("above"),
-// 			Where:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(`hostname` LIKE '", "%", "frontend", "%", "')")),
+// 			Where:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
 // 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
 // 				Value:        pulumi.Float64(90),
@@ -57,7 +59,7 @@ import (
 // 			Event:               pulumi.String("DatastoreSample"),
 // 			Select:              pulumi.String("provider.databaseConnections.Average"),
 // 			Comparison:          pulumi.String("above"),
-// 			Where:               pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(`hostname` LIKE '", "%", "db", "%", "')")),
+// 			Where:               pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "db", "%", "')")),
 // 			IntegrationProvider: pulumi.String("RdsDbInstance"),
 // 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
@@ -72,7 +74,8 @@ import (
 // 			PolicyId:     foo.ID(),
 // 			Type:         pulumi.String("infra_process_running"),
 // 			Comparison:   pulumi.String("equal"),
-// 			ProcessWhere: pulumi.String("`commandName` = '/usr/bin/ruby'"),
+// 			Where:        pulumi.String("hostname = 'web01'"),
+// 			ProcessWhere: pulumi.String("commandName = '/usr/bin/ruby'"),
 // 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
 // 				Duration: pulumi.Int(5),
 // 				Value:    pulumi.Float64(0),
@@ -84,7 +87,7 @@ import (
 // 		_, err = newrelic.NewInfraAlertCondition(ctx, "hostNotReporting", &newrelic.InfraAlertConditionArgs{
 // 			PolicyId: foo.ID(),
 // 			Type:     pulumi.String("infra_host_not_reporting"),
-// 			Where:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(`hostname` LIKE '", "%", "frontend", "%", "')")),
+// 			Where:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
 // 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
 // 				Duration: pulumi.Int(5),
 // 			},
@@ -124,7 +127,7 @@ type InfraAlertCondition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
-	// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrOutput `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
@@ -194,7 +197,7 @@ type infraAlertConditionState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
 	PolicyId *int `pulumi:"policyId"`
-	// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
@@ -231,7 +234,7 @@ type InfraAlertConditionState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
 	PolicyId pulumi.IntPtrInput
-	// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
@@ -270,7 +273,7 @@ type infraAlertConditionArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the alert policy where this condition should be used.
 	PolicyId int `pulumi:"policyId"`
-	// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere *string `pulumi:"processWhere"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
@@ -304,7 +307,7 @@ type InfraAlertConditionArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the alert policy where this condition should be used.
 	PolicyId pulumi.IntInput
-	// Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+	// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
 	ProcessWhere pulumi.StringPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput

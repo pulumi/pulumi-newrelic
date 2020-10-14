@@ -31,6 +31,8 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
 
+        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']] critical: A condition term with the priority set to critical.

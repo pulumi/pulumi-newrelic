@@ -47,7 +47,6 @@
         "synthetics/getMonitorLocation.ts",
         "synthetics/getSecureCredential.ts",
         "synthetics/index.ts",
-        "synthetics/label.ts",
         "synthetics/monitor.ts",
         "synthetics/monitorScript.ts",
         "synthetics/multiLocationAlertCondition.ts",

@@ -73,11 +73,15 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     */
+    public readonly aggregationWindow!: pulumi.Output<number | undefined>;
+    /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     public readonly baselineDirection!: pulumi.Output<string | undefined>;
     /**
-     * - Whether to close all open violations when the signal expires.
+     * Whether to close all open violations when the signal expires.
      */
     public readonly closeViolationsOnExpiration!: pulumi.Output<boolean | undefined>;
     /**
@@ -97,11 +101,11 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly expectedGroups!: pulumi.Output<number | undefined>;
     /**
-     * - The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired.
      */
     public readonly expirationDuration!: pulumi.Output<number | undefined>;
     /**
-     * - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
     public readonly fillOption!: pulumi.Output<string | undefined>;
     /**
@@ -123,7 +127,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly nrql!: pulumi.Output<outputs.NrqlAlertConditionNrql>;
     /**
-     * - Whether to create a new violation to capture that the signal expired.
+     * Whether to create a new violation to capture that the signal expired.
      */
     public readonly openViolationOnExpiration!: pulumi.Output<boolean | undefined>;
     /**
@@ -153,7 +157,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
     /**
-     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
     public readonly violationTimeLimit!: pulumi.Output<string | undefined>;
@@ -182,6 +186,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as NrqlAlertConditionState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
+            inputs["aggregationWindow"] = state ? state.aggregationWindow : undefined;
             inputs["baselineDirection"] = state ? state.baselineDirection : undefined;
             inputs["closeViolationsOnExpiration"] = state ? state.closeViolationsOnExpiration : undefined;
             inputs["critical"] = state ? state.critical : undefined;
@@ -213,6 +218,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
+            inputs["aggregationWindow"] = args ? args.aggregationWindow : undefined;
             inputs["baselineDirection"] = args ? args.baselineDirection : undefined;
             inputs["closeViolationsOnExpiration"] = args ? args.closeViolationsOnExpiration : undefined;
             inputs["critical"] = args ? args.critical : undefined;
@@ -256,11 +262,15 @@ export interface NrqlAlertConditionState {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     */
+    readonly aggregationWindow?: pulumi.Input<number>;
+    /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     readonly baselineDirection?: pulumi.Input<string>;
     /**
-     * - Whether to close all open violations when the signal expires.
+     * Whether to close all open violations when the signal expires.
      */
     readonly closeViolationsOnExpiration?: pulumi.Input<boolean>;
     /**
@@ -280,11 +290,11 @@ export interface NrqlAlertConditionState {
      */
     readonly expectedGroups?: pulumi.Input<number>;
     /**
-     * - The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired.
      */
     readonly expirationDuration?: pulumi.Input<number>;
     /**
-     * - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
     readonly fillOption?: pulumi.Input<string>;
     /**
@@ -306,7 +316,7 @@ export interface NrqlAlertConditionState {
      */
     readonly nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
-     * - Whether to create a new violation to capture that the signal expired.
+     * Whether to create a new violation to capture that the signal expired.
      */
     readonly openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
@@ -336,7 +346,7 @@ export interface NrqlAlertConditionState {
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
     readonly violationTimeLimit?: pulumi.Input<string>;
@@ -362,11 +372,15 @@ export interface NrqlAlertConditionArgs {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     */
+    readonly aggregationWindow?: pulumi.Input<number>;
+    /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
     readonly baselineDirection?: pulumi.Input<string>;
     /**
-     * - Whether to close all open violations when the signal expires.
+     * Whether to close all open violations when the signal expires.
      */
     readonly closeViolationsOnExpiration?: pulumi.Input<boolean>;
     /**
@@ -386,11 +400,11 @@ export interface NrqlAlertConditionArgs {
      */
     readonly expectedGroups?: pulumi.Input<number>;
     /**
-     * - The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired.
      */
     readonly expirationDuration?: pulumi.Input<number>;
     /**
-     * - Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
     readonly fillOption?: pulumi.Input<string>;
     /**
@@ -412,7 +426,7 @@ export interface NrqlAlertConditionArgs {
      */
     readonly nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
-     * - Whether to create a new violation to capture that the signal expired.
+     * Whether to create a new violation to capture that the signal expired.
      */
     readonly openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
@@ -442,7 +456,7 @@ export interface NrqlAlertConditionArgs {
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).<br>
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
     readonly violationTimeLimit?: pulumi.Input<string>;

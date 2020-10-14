@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
  *         channel: "example-alerts-channel",
- *         url: "https://<YourOrganization>.slack.com",
+ *         url: "https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX",
  *     },
  *     type: "slack",
  * });
@@ -162,7 +162,7 @@ export class AlertChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -214,7 +214,7 @@ export interface AlertChannelState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -232,7 +232,7 @@ export interface AlertChannelArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+     * The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
      */
     readonly type: pulumi.Input<string>;
 }

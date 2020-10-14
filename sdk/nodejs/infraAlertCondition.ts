@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage Infrastructure alert conditions in New Relic.
  *
+ * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -22,7 +24,7 @@ import * as utilities from "./utilities";
  *     event: "StorageSample",
  *     select: "diskUsedPercent",
  *     comparison: "above",
- *     where: `(`hostname` LIKE '%frontend%')`,
+ *     where: `(hostname LIKE '%frontend%')`,
  *     critical: {
  *         duration: 25,
  *         value: 90,
@@ -40,7 +42,7 @@ import * as utilities from "./utilities";
  *     event: "DatastoreSample",
  *     select: "provider.databaseConnections.Average",
  *     comparison: "above",
- *     where: `(`hostname` LIKE '%db%')`,
+ *     where: `(hostname LIKE '%db%')`,
  *     integrationProvider: "RdsDbInstance",
  *     critical: {
  *         duration: 25,
@@ -52,7 +54,8 @@ import * as utilities from "./utilities";
  *     policyId: foo.id,
  *     type: "infra_process_running",
  *     comparison: "equal",
- *     processWhere: "`commandName` = '/usr/bin/ruby'",
+ *     where: "hostname = 'web01'",
+ *     processWhere: "commandName = '/usr/bin/ruby'",
  *     critical: {
  *         duration: 5,
  *         value: 0,
@@ -61,7 +64,7 @@ import * as utilities from "./utilities";
  * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
  *     policyId: foo.id,
  *     type: "infra_host_not_reporting",
- *     where: `(`hostname` LIKE '%frontend%')`,
+ *     where: `(hostname LIKE '%frontend%')`,
  *     critical: {
  *         duration: 5,
  *     },
@@ -140,7 +143,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<number>;
     /**
-     * Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+     * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
     public readonly processWhere!: pulumi.Output<string | undefined>;
     /**
@@ -279,7 +282,7 @@ export interface InfraAlertConditionState {
      */
     readonly policyId?: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+     * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
     readonly processWhere?: pulumi.Input<string>;
     /**
@@ -349,7 +352,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly policyId: pulumi.Input<number>;
     /**
-     * Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infraProcessRunning` condition type.
+     * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
     readonly processWhere?: pulumi.Input<string>;
     /**

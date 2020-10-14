@@ -38,6 +38,8 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage Infrastructure alert conditions in New Relic.
 
+        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+
         ## Example Usage
 
         ```python
@@ -51,7 +53,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             event="StorageSample",
             select="diskUsedPercent",
             comparison="above",
-            where="(`hostname` LIKE '%frontend%')",
+            where="(hostname LIKE '%frontend%')",
             critical=newrelic.InfraAlertConditionCriticalArgs(
                 duration=25,
                 value=90,
@@ -68,7 +70,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             event="DatastoreSample",
             select="provider.databaseConnections.Average",
             comparison="above",
-            where="(`hostname` LIKE '%db%')",
+            where="(hostname LIKE '%db%')",
             integration_provider="RdsDbInstance",
             critical=newrelic.InfraAlertConditionCriticalArgs(
                 duration=25,
@@ -79,7 +81,8 @@ class InfraAlertCondition(pulumi.CustomResource):
             policy_id=foo.id,
             type="infra_process_running",
             comparison="equal",
-            process_where="`commandName` = '/usr/bin/ruby'",
+            where="hostname = 'web01'",
+            process_where="commandName = '/usr/bin/ruby'",
             critical=newrelic.InfraAlertConditionCriticalArgs(
                 duration=5,
                 value=0,
@@ -87,7 +90,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         host_not_reporting = newrelic.InfraAlertCondition("hostNotReporting",
             policy_id=foo.id,
             type="infra_host_not_reporting",
-            where="(`hostname` LIKE '%frontend%')",
+            where="(hostname LIKE '%frontend%')",
             critical=newrelic.InfraAlertConditionCriticalArgs(
                 duration=5,
             ))
@@ -110,7 +113,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
         :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
-        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
+        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
@@ -199,7 +202,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
         :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
-        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
+        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
@@ -307,7 +310,7 @@ class InfraAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="processWhere")
     def process_where(self) -> pulumi.Output[Optional[str]]:
         """
-        Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
+        Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
         """
         return pulumi.get(self, "process_where")
 

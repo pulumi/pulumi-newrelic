@@ -122,7 +122,6 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},
 			"newrelic_synthetics_monitor_script":    {Tok: makeResource(syntheticsMod, "MonitorScript")},
-			"newrelic_synthetics_label":             {Tok: makeResource(syntheticsMod, "Label")},
 			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
 			"newrelic_synthetics_multilocation_alert_condition": {
 				Tok: makeResource(syntheticsMod, "MultiLocationAlertCondition"),

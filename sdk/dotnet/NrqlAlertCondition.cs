@@ -52,13 +52,19 @@ namespace Pulumi.NewRelic
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        /// </summary>
+        [Output("aggregationWindow")]
+        public Output<int?> AggregationWindow { get; private set; } = null!;
+
+        /// <summary>
         /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         /// </summary>
         [Output("baselineDirection")]
         public Output<string?> BaselineDirection { get; private set; } = null!;
 
         /// <summary>
-        /// - Whether to close all open violations when the signal expires.
+        /// Whether to close all open violations when the signal expires.
         /// </summary>
         [Output("closeViolationsOnExpiration")]
         public Output<bool?> CloseViolationsOnExpiration { get; private set; } = null!;
@@ -88,13 +94,13 @@ namespace Pulumi.NewRelic
         public Output<int?> ExpectedGroups { get; private set; } = null!;
 
         /// <summary>
-        /// - The amount of time (in seconds) to wait before considering the signal expired.
+        /// The amount of time (in seconds) to wait before considering the signal expired.
         /// </summary>
         [Output("expirationDuration")]
         public Output<int?> ExpirationDuration { get; private set; } = null!;
 
         /// <summary>
-        /// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         /// </summary>
         [Output("fillOption")]
         public Output<string?> FillOption { get; private set; } = null!;
@@ -124,7 +130,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NrqlAlertConditionNrql> Nrql { get; private set; } = null!;
 
         /// <summary>
-        /// - Whether to create a new violation to capture that the signal expired.
+        /// Whether to create a new violation to capture that the signal expired.
         /// </summary>
         [Output("openViolationOnExpiration")]
         public Output<bool?> OpenViolationOnExpiration { get; private set; } = null!;
@@ -166,7 +172,7 @@ namespace Pulumi.NewRelic
         public Output<string?> ValueFunction { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).&lt;br&gt;
+        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimit")]
@@ -238,13 +244,19 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        /// </summary>
+        [Input("aggregationWindow")]
+        public Input<int>? AggregationWindow { get; set; }
+
+        /// <summary>
         /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         /// </summary>
         [Input("baselineDirection")]
         public Input<string>? BaselineDirection { get; set; }
 
         /// <summary>
-        /// - Whether to close all open violations when the signal expires.
+        /// Whether to close all open violations when the signal expires.
         /// </summary>
         [Input("closeViolationsOnExpiration")]
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
@@ -274,13 +286,13 @@ namespace Pulumi.NewRelic
         public Input<int>? ExpectedGroups { get; set; }
 
         /// <summary>
-        /// - The amount of time (in seconds) to wait before considering the signal expired.
+        /// The amount of time (in seconds) to wait before considering the signal expired.
         /// </summary>
         [Input("expirationDuration")]
         public Input<int>? ExpirationDuration { get; set; }
 
         /// <summary>
-        /// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         /// </summary>
         [Input("fillOption")]
         public Input<string>? FillOption { get; set; }
@@ -310,7 +322,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NrqlAlertConditionNrqlArgs> Nrql { get; set; } = null!;
 
         /// <summary>
-        /// - Whether to create a new violation to capture that the signal expired.
+        /// Whether to create a new violation to capture that the signal expired.
         /// </summary>
         [Input("openViolationOnExpiration")]
         public Input<bool>? OpenViolationOnExpiration { get; set; }
@@ -359,7 +371,7 @@ namespace Pulumi.NewRelic
         public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).&lt;br&gt;
+        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
@@ -392,13 +404,19 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        /// </summary>
+        [Input("aggregationWindow")]
+        public Input<int>? AggregationWindow { get; set; }
+
+        /// <summary>
         /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         /// </summary>
         [Input("baselineDirection")]
         public Input<string>? BaselineDirection { get; set; }
 
         /// <summary>
-        /// - Whether to close all open violations when the signal expires.
+        /// Whether to close all open violations when the signal expires.
         /// </summary>
         [Input("closeViolationsOnExpiration")]
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
@@ -428,13 +446,13 @@ namespace Pulumi.NewRelic
         public Input<int>? ExpectedGroups { get; set; }
 
         /// <summary>
-        /// - The amount of time (in seconds) to wait before considering the signal expired.
+        /// The amount of time (in seconds) to wait before considering the signal expired.
         /// </summary>
         [Input("expirationDuration")]
         public Input<int>? ExpirationDuration { get; set; }
 
         /// <summary>
-        /// - Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        /// Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         /// </summary>
         [Input("fillOption")]
         public Input<string>? FillOption { get; set; }
@@ -464,7 +482,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NrqlAlertConditionNrqlGetArgs>? Nrql { get; set; }
 
         /// <summary>
-        /// - Whether to create a new violation to capture that the signal expired.
+        /// Whether to create a new violation to capture that the signal expired.
         /// </summary>
         [Input("openViolationOnExpiration")]
         public Input<bool>? OpenViolationOnExpiration { get; set; }
@@ -513,7 +531,7 @@ namespace Pulumi.NewRelic
         public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).&lt;br&gt;
+        /// Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
