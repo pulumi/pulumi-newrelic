@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetAccountResult:
     A collection of values returned by getAccount.
     """
     def __init__(__self__, account_id=None, id=None, name=None, scope=None):
-        if account_id and not isinstance(account_id, float):
-            raise TypeError("Expected argument 'account_id' to be a float")
+        if account_id and not isinstance(account_id, int):
+            raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -35,7 +35,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[float]:
+    def account_id(self) -> Optional[int]:
         return pulumi.get(self, "account_id")
 
     @property
@@ -69,7 +69,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             scope=self.scope)
 
 
-def get_account(account_id: Optional[float] = None,
+def get_account(account_id: Optional[int] = None,
                 name: Optional[str] = None,
                 scope: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
@@ -88,7 +88,7 @@ def get_account(account_id: Optional[float] = None,
     ```
 
 
-    :param float account_id: The account ID in New Relic.
+    :param int account_id: The account ID in New Relic.
     :param str name: The account name in New Relic.
     :param str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
     """

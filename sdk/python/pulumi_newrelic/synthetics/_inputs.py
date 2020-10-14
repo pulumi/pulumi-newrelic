@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,32 +16,32 @@ __all__ = [
 @pulumi.input_type
 class MultiLocationAlertConditionCriticalArgs:
     def __init__(__self__, *,
-                 threshold: pulumi.Input[float]):
+                 threshold: pulumi.Input[int]):
         pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
-    def threshold(self) -> pulumi.Input[float]:
+    def threshold(self) -> pulumi.Input[int]:
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: pulumi.Input[float]):
+    def threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "threshold", value)
 
 
 @pulumi.input_type
 class MultiLocationAlertConditionWarningArgs:
     def __init__(__self__, *,
-                 threshold: pulumi.Input[float]):
+                 threshold: pulumi.Input[int]):
         pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
-    def threshold(self) -> pulumi.Input[float]:
+    def threshold(self) -> pulumi.Input[int]:
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: pulumi.Input[float]):
+    def threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "threshold", value)
 
 

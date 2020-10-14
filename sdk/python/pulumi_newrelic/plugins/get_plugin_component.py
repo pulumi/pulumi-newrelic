@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetPluginComponentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if plugin_id and not isinstance(plugin_id, float):
-            raise TypeError("Expected argument 'plugin_id' to be a float")
+        if plugin_id and not isinstance(plugin_id, int):
+            raise TypeError("Expected argument 'plugin_id' to be a int")
         pulumi.set(__self__, "plugin_id", plugin_id)
 
     @property
@@ -56,7 +56,7 @@ class GetPluginComponentResult:
 
     @property
     @pulumi.getter(name="pluginId")
-    def plugin_id(self) -> float:
+    def plugin_id(self) -> int:
         return pulumi.get(self, "plugin_id")
 
 
@@ -73,7 +73,7 @@ class AwaitableGetPluginComponentResult(GetPluginComponentResult):
 
 
 def get_plugin_component(name: Optional[str] = None,
-                         plugin_id: Optional[float] = None,
+                         plugin_id: Optional[int] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPluginComponentResult:
     """
     Use this data source to get information about a single plugin component in New Relic that already exists.
@@ -109,7 +109,7 @@ def get_plugin_component(name: Optional[str] = None,
 
 
     :param str name: The name of the plugin component.
-    :param float plugin_id: The ID of the plugin instance this component belongs to.
+    :param int plugin_id: The ID of the plugin instance this component belongs to.
     """
     __args__ = dict()
     __args__['name'] = name

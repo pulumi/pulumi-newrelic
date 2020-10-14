@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Monitor']
@@ -16,8 +16,8 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bypass_head_request: Optional[pulumi.Input[bool]] = None,
-                 frequency: Optional[pulumi.Input[float]] = None,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 frequency: Optional[pulumi.Input[int]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sla_threshold: Optional[pulumi.Input[float]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -101,8 +101,8 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bypass_head_request: Bypass HEAD request.
-        :param pulumi.Input[float] frequency: The interval (in minutes) at which this monitor should run.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: The locations in which this monitor should be run.
+        :param pulumi.Input[int] frequency: The interval (in minutes) at which this monitor should run.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The locations in which this monitor should be run.
         :param pulumi.Input[str] name: The title of this monitor.
         :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
         :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
@@ -159,8 +159,8 @@ class Monitor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bypass_head_request: Optional[pulumi.Input[bool]] = None,
-            frequency: Optional[pulumi.Input[float]] = None,
-            locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            frequency: Optional[pulumi.Input[int]] = None,
+            locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sla_threshold: Optional[pulumi.Input[float]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -177,8 +177,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bypass_head_request: Bypass HEAD request.
-        :param pulumi.Input[float] frequency: The interval (in minutes) at which this monitor should run.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: The locations in which this monitor should be run.
+        :param pulumi.Input[int] frequency: The interval (in minutes) at which this monitor should run.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The locations in which this monitor should be run.
         :param pulumi.Input[str] name: The title of this monitor.
         :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
         :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
@@ -215,7 +215,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Output[float]:
+    def frequency(self) -> pulumi.Output[int]:
         """
         The interval (in minutes) at which this monitor should run.
         """
@@ -223,7 +223,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[List[str]]:
+    def locations(self) -> pulumi.Output[Sequence[str]]:
         """
         The locations in which this monitor should be run.
         """

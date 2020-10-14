@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,15 +18,15 @@ class AlertCondition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
                  metric_description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  plugin_guid: Optional[pulumi.Input[str]] = None,
                  plugin_id: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[float]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
-                 terms: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
                  value_function: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -73,15 +73,15 @@ class AlertCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not this condition is enabled.
-        :param pulumi.Input[List[pulumi.Input[float]]] entities: The plugin component IDs to target.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The plugin component IDs to target.
         :param pulumi.Input[str] metric: The plugin metric to evaluate.
         :param pulumi.Input[str] metric_description: The metric description.
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[str] plugin_guid: The GUID of the plugin which produces the metric.
         :param pulumi.Input[str] plugin_id: The ID of the installed plugin instance which produces the metric.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         if __name__ is not None:
@@ -139,15 +139,15 @@ class AlertCondition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             metric: Optional[pulumi.Input[str]] = None,
             metric_description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             plugin_guid: Optional[pulumi.Input[str]] = None,
             plugin_id: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[float]] = None,
+            policy_id: Optional[pulumi.Input[int]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
-            terms: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+            terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
             value_function: Optional[pulumi.Input[str]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
@@ -157,15 +157,15 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not this condition is enabled.
-        :param pulumi.Input[List[pulumi.Input[float]]] entities: The plugin component IDs to target.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The plugin component IDs to target.
         :param pulumi.Input[str] metric: The plugin metric to evaluate.
         :param pulumi.Input[str] metric_description: The metric description.
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[str] plugin_guid: The GUID of the plugin which produces the metric.
         :param pulumi.Input[str] plugin_id: The ID of the installed plugin instance which produces the metric.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -195,7 +195,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entities(self) -> pulumi.Output[List[float]]:
+    def entities(self) -> pulumi.Output[Sequence[int]]:
         """
         The plugin component IDs to target.
         """
@@ -243,7 +243,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[float]:
+    def policy_id(self) -> pulumi.Output[int]:
         """
         The ID of the policy where this condition should be used.
         """
@@ -259,7 +259,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> pulumi.Output[List['outputs.AlertConditionTerm']]:
+    def terms(self) -> pulumi.Output[Sequence['outputs.AlertConditionTerm']]:
         """
         A list of terms for this condition. See Terms below for details.
         """

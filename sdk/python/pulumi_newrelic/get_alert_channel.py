@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -60,7 +60,7 @@ class GetAlertChannelResult:
 
     @property
     @pulumi.getter(name="policyIds")
-    def policy_ids(self) -> List[float]:
+    def policy_ids(self) -> Sequence[int]:
         """
         A list of policy IDs associated with the alert channel.
         """

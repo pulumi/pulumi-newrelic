@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Event(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -69,7 +69,7 @@ class Event(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,7 +101,7 @@ class Event(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None) -> 'Event':
+            events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None) -> 'Event':
         """
         Get an existing Event resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -109,7 +109,7 @@ class Event(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -120,7 +120,7 @@ class Event(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Output[List['outputs.EventEvent']]:
+    def events(self) -> pulumi.Output[Sequence['outputs.EventEvent']]:
         """
         An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """

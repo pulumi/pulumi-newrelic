@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,12 +24,12 @@ class InfraAlertCondition(pulumi.CustomResource):
                  event: Optional[pulumi.Input[str]] = None,
                  integration_provider: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[float]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
                  process_where: Optional[pulumi.Input[str]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  select: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 violation_close_timer: Optional[pulumi.Input[float]] = None,
+                 violation_close_timer: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']]] = None,
                  where: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -109,12 +109,12 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
-        :param pulumi.Input[float] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
-        :param pulumi.Input[float] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        :param pulumi.Input[int] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
         :param pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
@@ -167,20 +167,20 @@ class InfraAlertCondition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comparison: Optional[pulumi.Input[str]] = None,
-            created_at: Optional[pulumi.Input[float]] = None,
+            created_at: Optional[pulumi.Input[int]] = None,
             critical: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event: Optional[pulumi.Input[str]] = None,
             integration_provider: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[float]] = None,
+            policy_id: Optional[pulumi.Input[int]] = None,
             process_where: Optional[pulumi.Input[str]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
             select: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            updated_at: Optional[pulumi.Input[float]] = None,
-            violation_close_timer: Optional[pulumi.Input[float]] = None,
+            updated_at: Optional[pulumi.Input[int]] = None,
+            violation_close_timer: Optional[pulumi.Input[int]] = None,
             warning: Optional[pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']]] = None,
             where: Optional[pulumi.Input[str]] = None) -> 'InfraAlertCondition':
         """
@@ -191,20 +191,20 @@ class InfraAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
-        :param pulumi.Input[float] created_at: The timestamp the alert condition was created.
+        :param pulumi.Input[int] created_at: The timestamp the alert condition was created.
         :param pulumi.Input[pulumi.InputType['InfraAlertConditionCriticalArgs']] critical: Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
         :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
         :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
         :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] name: The Infrastructure alert condition's name.
-        :param pulumi.Input[float] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
         :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Supported by the `infra_process_running` condition type.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
         :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
-        :param pulumi.Input[float] updated_at: The timestamp the alert condition was last updated.
-        :param pulumi.Input[float] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        :param pulumi.Input[int] updated_at: The timestamp the alert condition was last updated.
+        :param pulumi.Input[int] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
         :param pulumi.Input[pulumi.InputType['InfraAlertConditionWarningArgs']] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
         :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
@@ -241,7 +241,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[float]:
+    def created_at(self) -> pulumi.Output[int]:
         """
         The timestamp the alert condition was created.
         """
@@ -297,7 +297,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[float]:
+    def policy_id(self) -> pulumi.Output[int]:
         """
         The ID of the alert policy where this condition should be used.
         """
@@ -337,7 +337,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[float]:
+    def updated_at(self) -> pulumi.Output[int]:
         """
         The timestamp the alert condition was last updated.
         """
@@ -345,7 +345,7 @@ class InfraAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationCloseTimer")
-    def violation_close_timer(self) -> pulumi.Output[Optional[float]]:
+    def violation_close_timer(self) -> pulumi.Output[Optional[int]]:
         """
         Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
         """

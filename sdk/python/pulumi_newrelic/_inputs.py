@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -380,7 +380,7 @@ class AlertChannelConfigArgs:
 @pulumi.input_type
 class AlertConditionTermArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[float],
+                 duration: pulumi.Input[int],
                  threshold: pulumi.Input[float],
                  time_function: pulumi.Input[str],
                  operator: Optional[pulumi.Input[str]] = None,
@@ -395,11 +395,11 @@ class AlertConditionTermArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[float]:
+    def duration(self) -> pulumi.Input[int]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[float]):
+    def duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -442,10 +442,10 @@ class AlertConditionTermArgs:
 @pulumi.input_type
 class AlertMutingRuleConditionArgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]],
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]],
                  operator: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
         :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -453,14 +453,14 @@ class AlertMutingRuleConditionArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]:
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]:
         """
         The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[List[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]):
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -481,11 +481,11 @@ class AlertMutingRuleConditionConditionArgs:
     def __init__(__self__, *,
                  attribute: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] attribute: The attribute on a violation.
         :param pulumi.Input[str] operator: The operator used to compare the attribute's value with the supplied value(s)
-        :param pulumi.Input[List[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
         """
         pulumi.set(__self__, "attribute", attribute)
         pulumi.set(__self__, "operator", operator)
@@ -517,25 +517,25 @@ class AlertMutingRuleConditionConditionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The value(s) to compare against the attribute's value.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class DashboardFilterArgs:
     def __init__(__self__, *,
-                 event_types: pulumi.Input[List[pulumi.Input[str]]],
-                 attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] event_types: (Optional) A list of event types to enable filtering for.
-        :param pulumi.Input[List[pulumi.Input[str]]] attributes: (Optional) A list of attributes belonging to the specified event types to enable filtering for.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: (Optional) A list of event types to enable filtering for.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes: (Optional) A list of attributes belonging to the specified event types to enable filtering for.
         """
         pulumi.set(__self__, "event_types", event_types)
         if attributes is not None:
@@ -543,46 +543,46 @@ class DashboardFilterArgs:
 
     @property
     @pulumi.getter(name="eventTypes")
-    def event_types(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         (Optional) A list of event types to enable filtering for.
         """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
-    def event_types(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def event_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "event_types", value)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Optional) A list of attributes belonging to the specified event types to enable filtering for.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
 
 @pulumi.input_type
 class DashboardWidgetArgs:
     def __init__(__self__, *,
-                 column: pulumi.Input[float],
-                 row: pulumi.Input[float],
+                 column: pulumi.Input[int],
+                 row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  visualization: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[float]] = None,
-                 compare_withs: Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetCompareWithArgs']]]] = None,
-                 drilldown_dashboard_id: Optional[pulumi.Input[float]] = None,
-                 duration: Optional[pulumi.Input[float]] = None,
-                 end_time: Optional[pulumi.Input[float]] = None,
-                 entity_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 compare_withs: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetCompareWithArgs']]]] = None,
+                 drilldown_dashboard_id: Optional[pulumi.Input[int]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 end_time: Optional[pulumi.Input[int]] = None,
+                 entity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  facet: Optional[pulumi.Input[str]] = None,
-                 height: Optional[pulumi.Input[float]] = None,
-                 limit: Optional[pulumi.Input[float]] = None,
-                 metrics: Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetMetricArgs']]]] = None,
+                 height: Optional[pulumi.Input[int]] = None,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  nrql: Optional[pulumi.Input[str]] = None,
                  order_by: Optional[pulumi.Input[str]] = None,
@@ -590,23 +590,23 @@ class DashboardWidgetArgs:
                  source: Optional[pulumi.Input[str]] = None,
                  threshold_red: Optional[pulumi.Input[float]] = None,
                  threshold_yellow: Optional[pulumi.Input[float]] = None,
-                 widget_id: Optional[pulumi.Input[float]] = None,
-                 width: Optional[pulumi.Input[float]] = None):
+                 widget_id: Optional[pulumi.Input[int]] = None,
+                 width: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[float] row: (Required) Row position of widget from top left, starting at `1`.
+        :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
+        :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] visualization: (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
-        :param pulumi.Input[float] account_id: (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
-        :param pulumi.Input[float] drilldown_dashboard_id: (Optional) The ID of a dashboard to link to from the widget's facets.
+        :param pulumi.Input[int] account_id: (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
+        :param pulumi.Input[int] drilldown_dashboard_id: (Optional) The ID of a dashboard to link to from the widget's facets.
                * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
-        :param pulumi.Input[float] duration: (Required) The duration, in ms, of the time window represented in the chart.
-        :param pulumi.Input[float] end_time: (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
-        :param pulumi.Input[List[pulumi.Input[float]]] entity_ids: (Required) A collection of entity IDs to display data. These are typically application IDs.
+        :param pulumi.Input[int] duration: (Required) The duration, in ms, of the time window represented in the chart.
+        :param pulumi.Input[int] end_time: (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] entity_ids: (Required) A collection of entity IDs to display data. These are typically application IDs.
         :param pulumi.Input[str] facet: (Optional) Can be set to "host" to facet the metric data by host.
-        :param pulumi.Input[float] height: (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-        :param pulumi.Input[float] limit: (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
-        :param pulumi.Input[List[pulumi.Input['DashboardWidgetMetricArgs']]] metrics: (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
+        :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        :param pulumi.Input[int] limit: (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]] metrics: (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
         :param pulumi.Input[str] notes: (Optional) Description of the widget.
         :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
                * `markdown`:
@@ -617,7 +617,7 @@ class DashboardWidgetArgs:
         :param pulumi.Input[float] threshold_red: (Required) Threshold above which the displayed value will be styled with a red color.
         :param pulumi.Input[float] threshold_yellow: (Optional) Threshold above which the displayed value will be styled with a yellow color.
                * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
-        :param pulumi.Input[float] width: (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
+        :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "row", row)
@@ -664,26 +664,26 @@ class DashboardWidgetArgs:
 
     @property
     @pulumi.getter
-    def column(self) -> pulumi.Input[float]:
+    def column(self) -> pulumi.Input[int]:
         """
         (Required) Column position of widget from top left, starting at `1`.
         """
         return pulumi.get(self, "column")
 
     @column.setter
-    def column(self, value: pulumi.Input[float]):
+    def column(self, value: pulumi.Input[int]):
         pulumi.set(self, "column", value)
 
     @property
     @pulumi.getter
-    def row(self) -> pulumi.Input[float]:
+    def row(self) -> pulumi.Input[int]:
         """
         (Required) Row position of widget from top left, starting at `1`.
         """
         return pulumi.get(self, "row")
 
     @row.setter
-    def row(self, value: pulumi.Input[float]):
+    def row(self, value: pulumi.Input[int]):
         pulumi.set(self, "row", value)
 
     @property
@@ -712,28 +712,28 @@ class DashboardWidgetArgs:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[float]]:
+    def account_id(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[float]]):
+    def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="compareWiths")
-    def compare_withs(self) -> Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetCompareWithArgs']]]]:
+    def compare_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetCompareWithArgs']]]]:
         return pulumi.get(self, "compare_withs")
 
     @compare_withs.setter
-    def compare_withs(self, value: Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetCompareWithArgs']]]]):
+    def compare_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetCompareWithArgs']]]]):
         pulumi.set(self, "compare_withs", value)
 
     @property
     @pulumi.getter(name="drilldownDashboardId")
-    def drilldown_dashboard_id(self) -> Optional[pulumi.Input[float]]:
+    def drilldown_dashboard_id(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) The ID of a dashboard to link to from the widget's facets.
         * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
@@ -741,43 +741,43 @@ class DashboardWidgetArgs:
         return pulumi.get(self, "drilldown_dashboard_id")
 
     @drilldown_dashboard_id.setter
-    def drilldown_dashboard_id(self, value: Optional[pulumi.Input[float]]):
+    def drilldown_dashboard_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "drilldown_dashboard_id", value)
 
     @property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[float]]:
+    def duration(self) -> Optional[pulumi.Input[int]]:
         """
         (Required) The duration, in ms, of the time window represented in the chart.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[float]]):
+    def duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration", value)
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[float]]:
+    def end_time(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[float]]):
+    def end_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end_time", value)
 
     @property
     @pulumi.getter(name="entityIds")
-    def entity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def entity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         (Required) A collection of entity IDs to display data. These are typically application IDs.
         """
         return pulumi.get(self, "entity_ids")
 
     @entity_ids.setter
-    def entity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def entity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "entity_ids", value)
 
     @property
@@ -794,38 +794,38 @@ class DashboardWidgetArgs:
 
     @property
     @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[float]]:
+    def height(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
         """
         return pulumi.get(self, "height")
 
     @height.setter
-    def height(self, value: Optional[pulumi.Input[float]]):
+    def height(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "height", value)
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[float]]:
+    def limit(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
         """
         return pulumi.get(self, "limit")
 
     @limit.setter
-    def limit(self, value: Optional[pulumi.Input[float]]):
+    def limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "limit", value)
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetMetricArgs']]]]:
+    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]]]:
         """
         (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[List[pulumi.Input['DashboardWidgetMetricArgs']]]]):
+    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]]]):
         pulumi.set(self, "metrics", value)
 
     @property
@@ -915,23 +915,23 @@ class DashboardWidgetArgs:
 
     @property
     @pulumi.getter(name="widgetId")
-    def widget_id(self) -> Optional[pulumi.Input[float]]:
+    def widget_id(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "widget_id")
 
     @widget_id.setter
-    def widget_id(self, value: Optional[pulumi.Input[float]]):
+    def widget_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "widget_id", value)
 
     @property
     @pulumi.getter
-    def width(self) -> Optional[pulumi.Input[float]]:
+    def width(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
         """
         return pulumi.get(self, "width")
 
     @width.setter
-    def width(self, value: Optional[pulumi.Input[float]]):
+    def width(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "width", value)
 
 
@@ -1001,10 +1001,10 @@ class DashboardWidgetMetricArgs:
                  name: pulumi.Input[str],
                  scope: Optional[pulumi.Input[str]] = None,
                  units: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: (Required) The metric name to display.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: (Required) The metric values to display.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: (Required) The metric values to display.
         """
         pulumi.set(__self__, "name", name)
         if scope is not None:
@@ -1046,14 +1046,14 @@ class DashboardWidgetMetricArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Required) The metric values to display.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1061,10 +1061,10 @@ class DashboardWidgetMetricArgs:
 class EntityTagsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] key: The tag key.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: The tag values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The tag values.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1083,21 +1083,21 @@ class EntityTagsTagArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The tag values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class InfraAlertConditionCriticalArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[float],
+                 duration: pulumi.Input[int],
                  time_function: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[float]] = None):
         pulumi.set(__self__, "duration", duration)
@@ -1108,11 +1108,11 @@ class InfraAlertConditionCriticalArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[float]:
+    def duration(self) -> pulumi.Input[int]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[float]):
+    def duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -1137,7 +1137,7 @@ class InfraAlertConditionCriticalArgs:
 @pulumi.input_type
 class InfraAlertConditionWarningArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[float],
+                 duration: pulumi.Input[int],
                  time_function: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[float]] = None):
         pulumi.set(__self__, "duration", duration)
@@ -1148,11 +1148,11 @@ class InfraAlertConditionWarningArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[float]:
+    def duration(self) -> pulumi.Input[int]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[float]):
+    def duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -1178,9 +1178,9 @@ class InfraAlertConditionWarningArgs:
 class NrqlAlertConditionCriticalArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[float],
-                 duration: Optional[pulumi.Input[float]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  operator: Optional[pulumi.Input[str]] = None,
-                 threshold_duration: Optional[pulumi.Input[float]] = None,
+                 threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "threshold", threshold)
@@ -1212,11 +1212,11 @@ class NrqlAlertConditionCriticalArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[float]]:
+    def duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[float]]):
+    def duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -1230,11 +1230,11 @@ class NrqlAlertConditionCriticalArgs:
 
     @property
     @pulumi.getter(name="thresholdDuration")
-    def threshold_duration(self) -> Optional[pulumi.Input[float]]:
+    def threshold_duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
-    def threshold_duration(self, value: Optional[pulumi.Input[float]]):
+    def threshold_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threshold_duration", value)
 
     @property
@@ -1260,7 +1260,7 @@ class NrqlAlertConditionCriticalArgs:
 class NrqlAlertConditionNrqlArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str],
-                 evaluation_offset: Optional[pulumi.Input[float]] = None,
+                 evaluation_offset: Optional[pulumi.Input[int]] = None,
                  since_value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "query", query)
         if evaluation_offset is not None:
@@ -1282,11 +1282,11 @@ class NrqlAlertConditionNrqlArgs:
 
     @property
     @pulumi.getter(name="evaluationOffset")
-    def evaluation_offset(self) -> Optional[pulumi.Input[float]]:
+    def evaluation_offset(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "evaluation_offset")
 
     @evaluation_offset.setter
-    def evaluation_offset(self, value: Optional[pulumi.Input[float]]):
+    def evaluation_offset(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "evaluation_offset", value)
 
     @property
@@ -1303,10 +1303,10 @@ class NrqlAlertConditionNrqlArgs:
 class NrqlAlertConditionTermArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[float],
-                 duration: Optional[pulumi.Input[float]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  operator: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 threshold_duration: Optional[pulumi.Input[float]] = None,
+                 threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "threshold", threshold)
@@ -1340,11 +1340,11 @@ class NrqlAlertConditionTermArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[float]]:
+    def duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[float]]):
+    def duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -1367,11 +1367,11 @@ class NrqlAlertConditionTermArgs:
 
     @property
     @pulumi.getter(name="thresholdDuration")
-    def threshold_duration(self) -> Optional[pulumi.Input[float]]:
+    def threshold_duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
-    def threshold_duration(self, value: Optional[pulumi.Input[float]]):
+    def threshold_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threshold_duration", value)
 
     @property
@@ -1397,9 +1397,9 @@ class NrqlAlertConditionTermArgs:
 class NrqlAlertConditionWarningArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[float],
-                 duration: Optional[pulumi.Input[float]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  operator: Optional[pulumi.Input[str]] = None,
-                 threshold_duration: Optional[pulumi.Input[float]] = None,
+                 threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "threshold", threshold)
@@ -1431,11 +1431,11 @@ class NrqlAlertConditionWarningArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[float]]:
+    def duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[float]]):
+    def duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -1449,11 +1449,11 @@ class NrqlAlertConditionWarningArgs:
 
     @property
     @pulumi.getter(name="thresholdDuration")
-    def threshold_duration(self) -> Optional[pulumi.Input[float]]:
+    def threshold_duration(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
-    def threshold_duration(self, value: Optional[pulumi.Input[float]]):
+    def threshold_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threshold_duration", value)
 
     @property

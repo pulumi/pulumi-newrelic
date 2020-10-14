@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -17,9 +17,9 @@ __all__ = [
 @pulumi.output_type
 class EventEvent(dict):
     def __init__(__self__, *,
-                 attributes: List['outputs.EventEventAttribute'],
+                 attributes: Sequence['outputs.EventEventAttribute'],
                  type: str,
-                 timestamp: Optional[float] = None):
+                 timestamp: Optional[int] = None):
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "type", type)
         if timestamp is not None:
@@ -27,7 +27,7 @@ class EventEvent(dict):
 
     @property
     @pulumi.getter
-    def attributes(self) -> List['outputs.EventEventAttribute']:
+    def attributes(self) -> Sequence['outputs.EventEventAttribute']:
         return pulumi.get(self, "attributes")
 
     @property
@@ -37,7 +37,7 @@ class EventEvent(dict):
 
     @property
     @pulumi.getter
-    def timestamp(self) -> Optional[float]:
+    def timestamp(self) -> Optional[int]:
         return pulumi.get(self, "timestamp")
 
     def _translate_property(self, prop):

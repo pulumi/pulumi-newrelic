@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetAlertPolicyResult:
     A collection of values returned by getAlertPolicy.
     """
     def __init__(__self__, account_id=None, created_at=None, id=None, incident_preference=None, name=None, updated_at=None):
-        if account_id and not isinstance(account_id, float):
-            raise TypeError("Expected argument 'account_id' to be a float")
+        if account_id and not isinstance(account_id, int):
+            raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
@@ -41,7 +41,7 @@ class GetAlertPolicyResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> int:
         return pulumi.get(self, "account_id")
 
     @property
@@ -96,7 +96,7 @@ class AwaitableGetAlertPolicyResult(GetAlertPolicyResult):
             updated_at=self.updated_at)
 
 
-def get_alert_policy(account_id: Optional[float] = None,
+def get_alert_policy(account_id: Optional[int] = None,
                      incident_preference: Optional[str] = None,
                      name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertPolicyResult:
