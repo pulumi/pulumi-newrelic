@@ -4,10 +4,9 @@ go 1.14
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.16.0
-	github.com/hashicorp/terraform-plugin-test v1.4.3 // indirect
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
-	github.com/pulumi/pulumi-terraform-bridge/v2 v2.8.0
-	github.com/pulumi/pulumi/sdk/v2 v2.10.0
+	github.com/pulumi/pulumi-terraform-bridge/v2 v2.11.0
+	github.com/pulumi/pulumi/sdk/v2 v2.11.3-0.20201009201355-249140242ebb
 	github.com/vmihailenco/msgpack v4.0.2+incompatible // indirect
 )
 

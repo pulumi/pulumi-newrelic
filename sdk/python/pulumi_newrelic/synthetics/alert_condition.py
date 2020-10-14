@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AlertCondition']
@@ -18,7 +18,7 @@ class AlertCondition(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[float]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,7 +44,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
         :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
         if __name__ is not None:
@@ -86,7 +86,7 @@ class AlertCondition(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             monitor_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[float]] = None,
+            policy_id: Optional[pulumi.Input[int]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
@@ -98,7 +98,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
         :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -138,7 +138,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[float]:
+    def policy_id(self) -> pulumi.Output[int]:
         """
         The ID of the policy where this condition should be used.
         """

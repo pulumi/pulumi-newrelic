@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,17 +19,17 @@ class AlertCondition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition_scope: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  gc_metric: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_id: Optional[pulumi.Input[float]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
                  runbook_url: Optional[pulumi.Input[str]] = None,
-                 terms: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_defined_metric: Optional[pulumi.Input[str]] = None,
                  user_defined_value_function: Optional[pulumi.Input[str]] = None,
-                 violation_close_timer: Optional[pulumi.Input[float]] = None,
+                 violation_close_timer: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -75,7 +75,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[bool] enabled: Whether the condition is enabled or not. Defaults to true.
-        :param pulumi.Input[List[pulumi.Input[float]]] entities: The instance IDs associated with this condition.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
                * `apm_app_metric`
@@ -116,13 +116,13 @@ class AlertCondition(pulumi.CustomResource):
                * `user_defined`
                * `view_loading`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
-        :param pulumi.Input[float] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,17 +176,17 @@ class AlertCondition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             condition_scope: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            entities: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            entities: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             gc_metric: Optional[pulumi.Input[str]] = None,
             metric: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_id: Optional[pulumi.Input[float]] = None,
+            policy_id: Optional[pulumi.Input[int]] = None,
             runbook_url: Optional[pulumi.Input[str]] = None,
-            terms: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
+            terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
             user_defined_metric: Optional[pulumi.Input[str]] = None,
             user_defined_value_function: Optional[pulumi.Input[str]] = None,
-            violation_close_timer: Optional[pulumi.Input[float]] = None) -> 'AlertCondition':
+            violation_close_timer: Optional[pulumi.Input[int]] = None) -> 'AlertCondition':
         """
         Get an existing AlertCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -196,7 +196,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
         :param pulumi.Input[bool] enabled: Whether the condition is enabled or not. Defaults to true.
-        :param pulumi.Input[List[pulumi.Input[float]]] entities: The instance IDs associated with this condition.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
                * `apm_app_metric`
@@ -237,13 +237,13 @@ class AlertCondition(pulumi.CustomResource):
                * `user_defined`
                * `view_loading`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
-        :param pulumi.Input[float] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
-        :param pulumi.Input[float] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        :param pulumi.Input[int] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -282,7 +282,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entities(self) -> pulumi.Output[List[float]]:
+    def entities(self) -> pulumi.Output[Sequence[int]]:
         """
         The instance IDs associated with this condition.
         """
@@ -351,7 +351,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> pulumi.Output[float]:
+    def policy_id(self) -> pulumi.Output[int]:
         """
         The ID of the policy where this condition should be used.
         """
@@ -367,7 +367,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> pulumi.Output[List['outputs.AlertConditionTerm']]:
+    def terms(self) -> pulumi.Output[Sequence['outputs.AlertConditionTerm']]:
         """
         A list of terms for this condition. See Terms below for details.
         """
@@ -399,7 +399,7 @@ class AlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationCloseTimer")
-    def violation_close_timer(self) -> pulumi.Output[Optional[float]]:
+    def violation_close_timer(self) -> pulumi.Output[Optional[int]]:
         """
         Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         """

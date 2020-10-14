@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,9 +16,9 @@ __all__ = [
 @pulumi.input_type
 class EventEventArgs:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[List[pulumi.Input['EventEventAttributeArgs']]],
+                 attributes: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]],
                  type: pulumi.Input[str],
-                 timestamp: Optional[pulumi.Input[float]] = None):
+                 timestamp: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "type", type)
         if timestamp is not None:
@@ -26,11 +26,11 @@ class EventEventArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[List[pulumi.Input['EventEventAttributeArgs']]]:
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[List[pulumi.Input['EventEventAttributeArgs']]]):
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['EventEventAttributeArgs']]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -44,11 +44,11 @@ class EventEventArgs:
 
     @property
     @pulumi.getter
-    def timestamp(self) -> Optional[pulumi.Input[float]]:
+    def timestamp(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
-    def timestamp(self, value: Optional[pulumi.Input[float]]):
+    def timestamp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timestamp", value)
 
 

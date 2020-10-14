@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,11 +22,11 @@ class GetEntityResult:
     A collection of values returned by getEntity.
     """
     def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, name=None, tag=None, type=None):
-        if account_id and not isinstance(account_id, float):
-            raise TypeError("Expected argument 'account_id' to be a float")
+        if account_id and not isinstance(account_id, int):
+            raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
-        if application_id and not isinstance(application_id, float):
-            raise TypeError("Expected argument 'application_id' to be a float")
+        if application_id and not isinstance(application_id, int):
+            raise TypeError("Expected argument 'application_id' to be a int")
         pulumi.set(__self__, "application_id", application_id)
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
@@ -49,7 +49,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> float:
+    def account_id(self) -> int:
         """
         The New Relic account ID associated with this entity.
         """
@@ -57,7 +57,7 @@ class GetEntityResult:
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> float:
+    def application_id(self) -> int:
         """
         The domain-specific application ID of the entity. Only returned for APM and Browser applications.
         """

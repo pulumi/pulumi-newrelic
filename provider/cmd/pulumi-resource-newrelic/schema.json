@@ -76,7 +76,7 @@
         ]
     },
     "types": {
-        "newrelic:/AlertChannelConfig:AlertChannelConfig": {
+        "newrelic:index/AlertChannelConfig:AlertChannelConfig": {
             "properties": {
                 "apiKey": {
                     "type": "string",
@@ -275,7 +275,7 @@
             },
             "type": "object"
         },
-        "newrelic:/AlertConditionTerm:AlertConditionTerm": {
+        "newrelic:index/AlertConditionTerm:AlertConditionTerm": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -325,12 +325,12 @@
                 "timeFunction"
             ]
         },
-        "newrelic:/AlertMutingRuleCondition:AlertMutingRuleCondition": {
+        "newrelic:index/AlertMutingRuleCondition:AlertMutingRuleCondition": {
             "properties": {
                 "conditions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/AlertMutingRuleConditionCondition:AlertMutingRuleConditionCondition"
+                        "$ref": "#/types/newrelic:index/AlertMutingRuleConditionCondition:AlertMutingRuleConditionCondition"
                     },
                     "description": "The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.\n",
                     "language": {
@@ -355,7 +355,7 @@
                 "operator"
             ]
         },
-        "newrelic:/AlertMutingRuleConditionCondition:AlertMutingRuleConditionCondition": {
+        "newrelic:index/AlertMutingRuleConditionCondition:AlertMutingRuleConditionCondition": {
             "properties": {
                 "attribute": {
                     "type": "string",
@@ -395,7 +395,7 @@
                 "values"
             ]
         },
-        "newrelic:/DashboardFilter:DashboardFilter": {
+        "newrelic:index/DashboardFilter:DashboardFilter": {
             "properties": {
                 "attributes": {
                     "type": "array",
@@ -427,7 +427,7 @@
                 "eventTypes"
             ]
         },
-        "newrelic:/DashboardWidget:DashboardWidget": {
+        "newrelic:index/DashboardWidget:DashboardWidget": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -450,7 +450,7 @@
                 "compareWiths": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/DashboardWidgetCompareWith:DashboardWidgetCompareWith"
+                        "$ref": "#/types/newrelic:index/DashboardWidgetCompareWith:DashboardWidgetCompareWith"
                     },
                     "language": {
                         "python": {
@@ -527,7 +527,7 @@
                 "metrics": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/DashboardWidgetMetric:DashboardWidgetMetric"
+                        "$ref": "#/types/newrelic:index/DashboardWidgetMetric:DashboardWidgetMetric"
                     },
                     "description": "(Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:\n",
                     "language": {
@@ -663,7 +663,7 @@
                 }
             }
         },
-        "newrelic:/DashboardWidgetCompareWith:DashboardWidgetCompareWith": {
+        "newrelic:index/DashboardWidgetCompareWith:DashboardWidgetCompareWith": {
             "properties": {
                 "offsetDuration": {
                     "type": "string",
@@ -674,7 +674,7 @@
                     }
                 },
                 "presentation": {
-                    "$ref": "#/types/newrelic:/DashboardWidgetCompareWithPresentation:DashboardWidgetCompareWithPresentation",
+                    "$ref": "#/types/newrelic:index/DashboardWidgetCompareWithPresentation:DashboardWidgetCompareWithPresentation",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -688,7 +688,7 @@
                 "presentation"
             ]
         },
-        "newrelic:/DashboardWidgetCompareWithPresentation:DashboardWidgetCompareWithPresentation": {
+        "newrelic:index/DashboardWidgetCompareWithPresentation:DashboardWidgetCompareWithPresentation": {
             "properties": {
                 "color": {
                     "type": "string",
@@ -714,7 +714,7 @@
                 "name"
             ]
         },
-        "newrelic:/DashboardWidgetMetric:DashboardWidgetMetric": {
+        "newrelic:index/DashboardWidgetMetric:DashboardWidgetMetric": {
             "properties": {
                 "name": {
                     "type": "string",
@@ -759,7 +759,7 @@
                 "name"
             ]
         },
-        "newrelic:/EntityTagsTag:EntityTagsTag": {
+        "newrelic:index/EntityTagsTag:EntityTagsTag": {
             "properties": {
                 "key": {
                     "type": "string",
@@ -789,7 +789,7 @@
                 "values"
             ]
         },
-        "newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical": {
+        "newrelic:index/InfraAlertConditionCritical:InfraAlertConditionCritical": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -821,7 +821,7 @@
                 "duration"
             ]
         },
-        "newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning": {
+        "newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -853,7 +853,7 @@
                 "duration"
             ]
         },
-        "newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical": {
+        "newrelic:index/NrqlAlertConditionCritical:NrqlAlertConditionCritical": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -911,7 +911,7 @@
                 "threshold"
             ]
         },
-        "newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql": {
+        "newrelic:index/NrqlAlertConditionNrql:NrqlAlertConditionNrql": {
             "properties": {
                 "evaluationOffset": {
                     "type": "integer",
@@ -944,7 +944,7 @@
                 "query"
             ]
         },
-        "newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm": {
+        "newrelic:index/NrqlAlertConditionTerm:NrqlAlertConditionTerm": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -1010,7 +1010,7 @@
                 "threshold"
             ]
         },
-        "newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning": {
+        "newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -1068,7 +1068,7 @@
                 "threshold"
             ]
         },
-        "newrelic:/getAlertChannelConfig:getAlertChannelConfig": {
+        "newrelic:index/getAlertChannelConfig:getAlertChannelConfig": {
             "properties": {
                 "apiKey": {
                     "type": "string",
@@ -1231,7 +1231,7 @@
             },
             "type": "object"
         },
-        "newrelic:/getEntityTag:getEntityTag": {
+        "newrelic:index/getEntityTag:getEntityTag": {
             "properties": {
                 "key": {
                     "type": "string",
@@ -1490,7 +1490,7 @@
             "description": "Use this resource to create and manage New Relic alert policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n##### Email\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        includeJsonAttachment: \"1\",\n        recipients: \"foo@example.com\",\n    },\n    type: \"email\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config=newrelic.AlertChannelConfigArgs(\n        include_json_attachment=\"1\",\n        recipients=\"foo@example.com\",\n    ),\n    type=\"email\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                IncludeJsonAttachment = \"1\",\n                Recipients = \"foo@example.com\",\n            },\n            Type = \"email\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tIncludeJsonAttachment: pulumi.String(\"1\"),\n\t\t\t\tRecipients:            pulumi.String(\"foo@example.com\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"email\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### Slack\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        channel: \"example-alerts-channel\",\n        url: \"https://\u003cYourOrganization\u003e.slack.com\",\n    },\n    type: \"slack\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config=newrelic.AlertChannelConfigArgs(\n        channel=\"example-alerts-channel\",\n        url=\"https://\u003cYourOrganization\u003e.slack.com\",\n    ),\n    type=\"slack\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                Channel = \"example-alerts-channel\",\n                Url = \"https://\u003cYourOrganization\u003e.slack.com\",\n            },\n            Type = \"slack\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tChannel: pulumi.String(\"example-alerts-channel\"),\n\t\t\t\tUrl:     pulumi.String(\"https://\u003cYourOrganization\u003e.slack.com\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"slack\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### OpsGenie\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        apiKey: \"abc123\",\n        recipients: \"user1@domain.com, user2@domain.com\",\n        tags: \"tag1, tag2\",\n        teams: \"team1, team2\",\n    },\n    type: \"opsgenie\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config=newrelic.AlertChannelConfigArgs(\n        api_key=\"abc123\",\n        recipients=\"user1@domain.com, user2@domain.com\",\n        tags=\"tag1, tag2\",\n        teams=\"team1, team2\",\n    ),\n    type=\"opsgenie\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                ApiKey = \"abc123\",\n                Recipients = \"user1@domain.com, user2@domain.com\",\n                Tags = \"tag1, tag2\",\n                Teams = \"team1, team2\",\n            },\n            Type = \"opsgenie\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tApiKey:     pulumi.String(\"abc123\"),\n\t\t\t\tRecipients: pulumi.String(\"user1@domain.com, user2@domain.com\"),\n\t\t\t\tTags:       pulumi.String(\"tag1, tag2\"),\n\t\t\t\tTeams:      pulumi.String(\"team1, team2\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"opsgenie\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### PagerDuty\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        serviceKey: \"abc123\",\n    },\n    type: \"pagerduty\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config=newrelic.AlertChannelConfigArgs(\n        service_key=\"abc123\",\n    ),\n    type=\"pagerduty\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                ServiceKey = \"abc123\",\n            },\n            Type = \"pagerduty\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tServiceKey: pulumi.String(\"abc123\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"pagerduty\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### VictorOps\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        key: \"abc123\",\n        routeKey: \"/example\",\n    },\n    type: \"victorops\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config=newrelic.AlertChannelConfigArgs(\n        key=\"abc123\",\n        route_key=\"/example\",\n    ),\n    type=\"victorops\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                Key = \"abc123\",\n                RouteKey = \"/example\",\n            },\n            Type = \"victorops\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tKey:      pulumi.String(\"abc123\"),\n\t\t\t\tRouteKey: pulumi.String(\"/example\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"victorops\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n##### Webhook\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    type: \"webhook\",\n    config: {\n        baseUrl: \"http://www.test.com\",\n        payloadType: \"application/json\",\n        payload: {\n            condition_name: `$CONDITION_NAME`,\n            policy_name: `$POLICY_NAME`,\n        },\n        headers: {\n            header1: value1,\n            header2: value2,\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    type=\"webhook\",\n    config=newrelic.AlertChannelConfigArgs(\n        base_url=\"http://www.test.com\",\n        payload_type=\"application/json\",\n        payload={\n            \"condition_name\": \"$CONDITION_NAME\",\n            \"policy_name\": \"$POLICY_NAME\",\n        },\n        headers={\n            \"header1\": value1,\n            \"header2\": value2,\n        },\n    ))\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Type = \"webhook\",\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                BaseUrl = \"http://www.test.com\",\n                PayloadType = \"application/json\",\n                Payload = \n                {\n                    { \"condition_name\", \"$CONDITION_NAME\" },\n                    { \"policy_name\", \"$POLICY_NAME\" },\n                },\n                Headers = \n                {\n                    { \"header1\", value1 },\n                    { \"header2\", value2 },\n                },\n            },\n        });\n    }\n\n}\n```\n\n##### Webhook with complex payload\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = new newrelic.AlertChannel(\"foo\", {\n    config: {\n        baseUrl: \"http://www.test.com\",\n        payloadString: `{\n  \"my_custom_values\": {\n    \"condition_name\": \"$CONDITION_NAME\",\n    \"policy_name\": \"$POLICY_NAME\"\n  }\n}\n`,\n        payloadType: \"application/json\",\n    },\n    type: \"webhook\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.AlertChannel(\"foo\",\n    config=newrelic.AlertChannelConfigArgs(\n        base_url=\"http://www.test.com\",\n        payload_string=\"\"\"{\n  \"my_custom_values\": {\n    \"condition_name\": \"$CONDITION_NAME\",\n    \"policy_name\": \"$POLICY_NAME\"\n  }\n}\n\n\"\"\",\n        payload_type=\"application/json\",\n    ),\n    type=\"webhook\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.AlertChannel(\"foo\", new NewRelic.AlertChannelArgs\n        {\n            Config = new NewRelic.Inputs.AlertChannelConfigArgs\n            {\n                BaseUrl = \"http://www.test.com\",\n                PayloadString = @\"{\n  \"\"my_custom_values\"\": {\n    \"\"condition_name\"\": \"\"$CONDITION_NAME\"\",\n    \"\"policy_name\"\": \"\"$POLICY_NAME\"\"\n  }\n}\n\n\",\n                PayloadType = \"application/json\",\n            },\n            Type = \"webhook\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewAlertChannel(ctx, \"foo\", \u0026newrelic.AlertChannelArgs{\n\t\t\tConfig: \u0026newrelic.AlertChannelConfigArgs{\n\t\t\t\tBaseUrl:       pulumi.String(\"http://www.test.com\"),\n\t\t\t\tPayloadString: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v%v%v%v%v%v%v\", \"{\\n\", \"  \\\"my_custom_values\\\": {\\n\", \"    \\\"condition_name\\\": \\\"\", \"$\", \"CONDITION_NAME\\\",\\n\", \"    \\\"policy_name\\\": \\\"\", \"$\", \"POLICY_NAME\\\"\\n\", \"  }\\n\", \"}\\n\", \"\\n\")),\n\t\t\t\tPayloadType:   pulumi.String(\"application/json\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"webhook\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "config": {
-                    "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
+                    "$ref": "#/types/newrelic:index/AlertChannelConfig:AlertChannelConfig",
                     "description": "A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.\n"
                 },
                 "name": {
@@ -1508,7 +1508,7 @@
             ],
             "inputProperties": {
                 "config": {
-                    "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
+                    "$ref": "#/types/newrelic:index/AlertChannelConfig:AlertChannelConfig",
                     "description": "A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.\n"
                 },
                 "name": {
@@ -1527,7 +1527,7 @@
                 "description": "Input properties used for looking up and filtering AlertChannel resources.\n",
                 "properties": {
                     "config": {
-                        "$ref": "#/types/newrelic:/AlertChannelConfig:AlertChannelConfig",
+                        "$ref": "#/types/newrelic:index/AlertChannelConfig:AlertChannelConfig",
                         "description": "A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.\n"
                     },
                     "name": {
@@ -1583,7 +1583,7 @@
                 "terms": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/AlertConditionTerm:AlertConditionTerm"
+                        "$ref": "#/types/newrelic:index/AlertConditionTerm:AlertConditionTerm"
                     },
                     "description": "A list of terms for this condition. See Terms below for details.\n"
                 },
@@ -1651,7 +1651,7 @@
                 "terms": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/AlertConditionTerm:AlertConditionTerm"
+                        "$ref": "#/types/newrelic:index/AlertConditionTerm:AlertConditionTerm"
                     },
                     "description": "A list of terms for this condition. See Terms below for details.\n"
                 },
@@ -1720,7 +1720,7 @@
                     "terms": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/newrelic:/AlertConditionTerm:AlertConditionTerm"
+                            "$ref": "#/types/newrelic:index/AlertConditionTerm:AlertConditionTerm"
                         },
                         "description": "A list of terms for this condition. See Terms below for details.\n"
                     },
@@ -1751,7 +1751,7 @@
                     "description": "The account id of the MutingRule.\n"
                 },
                 "condition": {
-                    "$ref": "#/types/newrelic:/AlertMutingRuleCondition:AlertMutingRuleCondition",
+                    "$ref": "#/types/newrelic:index/AlertMutingRuleCondition:AlertMutingRuleCondition",
                     "description": "The condition that defines which violations to target. See Nested condition blocks below for details.\n"
                 },
                 "description": {
@@ -1779,7 +1779,7 @@
                     "description": "The account id of the MutingRule.\n"
                 },
                 "condition": {
-                    "$ref": "#/types/newrelic:/AlertMutingRuleCondition:AlertMutingRuleCondition",
+                    "$ref": "#/types/newrelic:index/AlertMutingRuleCondition:AlertMutingRuleCondition",
                     "description": "The condition that defines which violations to target. See Nested condition blocks below for details.\n"
                 },
                 "description": {
@@ -1807,7 +1807,7 @@
                         "description": "The account id of the MutingRule.\n"
                     },
                     "condition": {
-                        "$ref": "#/types/newrelic:/AlertMutingRuleCondition:AlertMutingRuleCondition",
+                        "$ref": "#/types/newrelic:index/AlertMutingRuleCondition:AlertMutingRuleCondition",
                         "description": "The condition that defines which violations to target. See Nested condition blocks below for details.\n"
                     },
                     "description": {
@@ -2072,7 +2072,7 @@
                     "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
                 },
                 "filter": {
-                    "$ref": "#/types/newrelic:/DashboardFilter:DashboardFilter",
+                    "$ref": "#/types/newrelic:index/DashboardFilter:DashboardFilter",
                     "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
                 },
                 "gridColumnCount": {
@@ -2094,7 +2094,7 @@
                 "widgets": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
+                        "$ref": "#/types/newrelic:index/DashboardWidget:DashboardWidget"
                     },
                     "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.\n"
                 }
@@ -2109,7 +2109,7 @@
                     "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
                 },
                 "filter": {
-                    "$ref": "#/types/newrelic:/DashboardFilter:DashboardFilter",
+                    "$ref": "#/types/newrelic:index/DashboardFilter:DashboardFilter",
                     "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
                 },
                 "gridColumnCount": {
@@ -2131,7 +2131,7 @@
                 "widgets": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
+                        "$ref": "#/types/newrelic:index/DashboardWidget:DashboardWidget"
                     },
                     "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.\n"
                 }
@@ -2151,7 +2151,7 @@
                         "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
                     },
                     "filter": {
-                        "$ref": "#/types/newrelic:/DashboardFilter:DashboardFilter",
+                        "$ref": "#/types/newrelic:index/DashboardFilter:DashboardFilter",
                         "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
                     },
                     "gridColumnCount": {
@@ -2173,7 +2173,7 @@
                     "widgets": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/newrelic:/DashboardWidget:DashboardWidget"
+                            "$ref": "#/types/newrelic:index/DashboardWidget:DashboardWidget"
                         },
                         "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.\n"
                     }
@@ -2191,7 +2191,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
+                        "$ref": "#/types/newrelic:index/EntityTagsTag:EntityTagsTag"
                     },
                     "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
                 }
@@ -2208,7 +2208,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
+                        "$ref": "#/types/newrelic:index/EntityTagsTag:EntityTagsTag"
                     },
                     "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
                 }
@@ -2227,7 +2227,7 @@
                     "tags": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/newrelic:/EntityTagsTag:EntityTagsTag"
+                            "$ref": "#/types/newrelic:index/EntityTagsTag:EntityTagsTag"
                         },
                         "description": "A nested block that describes an entity tag. See Nested tag blocks below for details.\n"
                     }
@@ -2337,7 +2337,7 @@
                     "description": "The timestamp the alert condition was created.\n"
                 },
                 "critical": {
-                    "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
+                    "$ref": "#/types/newrelic:index/InfraAlertConditionCritical:InfraAlertConditionCritical",
                     "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
                 },
                 "description": {
@@ -2389,7 +2389,7 @@
                     "description": "Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.\n"
                 },
                 "warning": {
-                    "$ref": "#/types/newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning",
+                    "$ref": "#/types/newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning",
                     "description": "Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.\n"
                 },
                 "where": {
@@ -2411,7 +2411,7 @@
                     "description": "The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.\n"
                 },
                 "critical": {
-                    "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
+                    "$ref": "#/types/newrelic:index/InfraAlertConditionCritical:InfraAlertConditionCritical",
                     "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
                 },
                 "description": {
@@ -2459,7 +2459,7 @@
                     "description": "Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.\n"
                 },
                 "warning": {
-                    "$ref": "#/types/newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning",
+                    "$ref": "#/types/newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning",
                     "description": "Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.\n"
                 },
                 "where": {
@@ -2483,7 +2483,7 @@
                         "description": "The timestamp the alert condition was created.\n"
                     },
                     "critical": {
-                        "$ref": "#/types/newrelic:/InfraAlertConditionCritical:InfraAlertConditionCritical",
+                        "$ref": "#/types/newrelic:index/InfraAlertConditionCritical:InfraAlertConditionCritical",
                         "description": "Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.\n"
                     },
                     "description": {
@@ -2535,7 +2535,7 @@
                         "description": "Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.\n"
                     },
                     "warning": {
-                        "$ref": "#/types/newrelic:/InfraAlertConditionWarning:InfraAlertConditionWarning",
+                        "$ref": "#/types/newrelic:index/InfraAlertConditionWarning:InfraAlertConditionWarning",
                         "description": "Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.\n"
                     },
                     "where": {
@@ -2562,7 +2562,7 @@
                     "description": "- Whether to close all open violations when the signal expires.\n"
                 },
                 "critical": {
-                    "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
                     "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
                 },
                 "description": {
@@ -2599,7 +2599,7 @@
                     "description": "The title of the condition.\n"
                 },
                 "nrql": {
-                    "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
                     "description": "A NRQL query. See NRQL below for details.\n"
                 },
                 "openViolationOnExpiration": {
@@ -2621,7 +2621,7 @@
                 "terms": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
+                        "$ref": "#/types/newrelic:index/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
                     },
                     "description": "**DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.\n",
                     "deprecationMessage": "use `critical` and `warning` attributes instead"
@@ -2644,7 +2644,7 @@
                     "deprecationMessage": "use `violation_time_limit` attribute instead"
                 },
                 "warning": {
-                    "$ref": "#/types/newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
                     "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
                 }
             },
@@ -2668,7 +2668,7 @@
                     "description": "- Whether to close all open violations when the signal expires.\n"
                 },
                 "critical": {
-                    "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
                     "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
                 },
                 "description": {
@@ -2705,7 +2705,7 @@
                     "description": "The title of the condition.\n"
                 },
                 "nrql": {
-                    "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
                     "description": "A NRQL query. See NRQL below for details.\n"
                 },
                 "openViolationOnExpiration": {
@@ -2727,7 +2727,7 @@
                 "terms": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
+                        "$ref": "#/types/newrelic:index/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
                     },
                     "description": "**DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.\n",
                     "deprecationMessage": "use `critical` and `warning` attributes instead"
@@ -2750,7 +2750,7 @@
                     "deprecationMessage": "use `violation_time_limit` attribute instead"
                 },
                 "warning": {
-                    "$ref": "#/types/newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
+                    "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
                     "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
                 }
             },
@@ -2774,7 +2774,7 @@
                         "description": "- Whether to close all open violations when the signal expires.\n"
                     },
                     "critical": {
-                        "$ref": "#/types/newrelic:/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
+                        "$ref": "#/types/newrelic:index/NrqlAlertConditionCritical:NrqlAlertConditionCritical",
                         "description": "A list containing the `critical` threshold values. See Terms below for details.\n"
                     },
                     "description": {
@@ -2811,7 +2811,7 @@
                         "description": "The title of the condition.\n"
                     },
                     "nrql": {
-                        "$ref": "#/types/newrelic:/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
+                        "$ref": "#/types/newrelic:index/NrqlAlertConditionNrql:NrqlAlertConditionNrql",
                         "description": "A NRQL query. See NRQL below for details.\n"
                     },
                     "openViolationOnExpiration": {
@@ -2833,7 +2833,7 @@
                     "terms": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/newrelic:/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
+                            "$ref": "#/types/newrelic:index/NrqlAlertConditionTerm:NrqlAlertConditionTerm"
                         },
                         "description": "**DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.\n",
                         "deprecationMessage": "use `critical` and `warning` attributes instead"
@@ -2856,7 +2856,7 @@
                         "deprecationMessage": "use `violation_time_limit` attribute instead"
                     },
                     "warning": {
-                        "$ref": "#/types/newrelic:/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
+                        "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
                         "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
                     }
                 },
@@ -3941,7 +3941,7 @@
                 "description": "A collection of values returned by getAlertChannel.\n",
                 "properties": {
                     "config": {
-                        "$ref": "#/types/newrelic:/getAlertChannelConfig:getAlertChannelConfig",
+                        "$ref": "#/types/newrelic:index/getAlertChannelConfig:getAlertChannelConfig",
                         "description": "Alert channel configuration.\n"
                     },
                     "id": {
@@ -4094,7 +4094,7 @@
                         "description": "The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.\n"
                     },
                     "tag": {
-                        "$ref": "#/types/newrelic:/getEntityTag:getEntityTag"
+                        "$ref": "#/types/newrelic:index/getEntityTag:getEntityTag"
                     },
                     "type": {
                         "type": "string",
@@ -4132,7 +4132,7 @@
                         "type": "string"
                     },
                     "tag": {
-                        "$ref": "#/types/newrelic:/getEntityTag:getEntityTag"
+                        "$ref": "#/types/newrelic:index/getEntityTag:getEntityTag"
                     },
                     "type": {
                         "type": "string"

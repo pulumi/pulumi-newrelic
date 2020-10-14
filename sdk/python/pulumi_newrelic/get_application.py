@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -35,7 +35,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="hostIds")
-    def host_ids(self) -> List[float]:
+    def host_ids(self) -> Sequence[int]:
         """
         A list of host IDs associated with the application.
         """
@@ -51,7 +51,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="instanceIds")
-    def instance_ids(self) -> List[float]:
+    def instance_ids(self) -> Sequence[int]:
         """
         A list of instance IDs associated with the application.
         """

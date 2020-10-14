@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,7 +16,7 @@ __all__ = [
 @pulumi.input_type
 class AlertConditionTermArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[float],
+                 duration: pulumi.Input[int],
                  threshold: pulumi.Input[float],
                  time_function: pulumi.Input[str],
                  operator: Optional[pulumi.Input[str]] = None,
@@ -31,11 +31,11 @@ class AlertConditionTermArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[float]:
+    def duration(self) -> pulumi.Input[int]:
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[float]):
+    def duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration", value)
 
     @property
