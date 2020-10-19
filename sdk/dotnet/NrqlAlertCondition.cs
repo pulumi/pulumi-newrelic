@@ -55,7 +55,7 @@ namespace Pulumi.NewRelic
         /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
         /// </summary>
         [Output("aggregationWindow")]
-        public Output<int?> AggregationWindow { get; private set; } = null!;
+        public Output<int> AggregationWindow { get; private set; } = null!;
 
         /// <summary>
         /// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).

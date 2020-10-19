@@ -23,6 +23,22 @@ class MonitorScript(pulumi.CustomResource):
         """
         Use this resource to update a synthetics monitor script in New Relic.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            type="SCRIPT_BROWSER",
+            frequency=5,
+            status="ENABLED",
+            locations=["AWS_US_EAST_1"])
+        foo_script = newrelic.synthetics.MonitorScript("fooScript",
+            monitor_id=foo.id,
+            text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.

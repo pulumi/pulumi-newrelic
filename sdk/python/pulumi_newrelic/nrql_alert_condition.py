@@ -269,7 +269,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aggregationWindow")
-    def aggregation_window(self) -> pulumi.Output[Optional[int]]:
+    def aggregation_window(self) -> pulumi.Output[int]:
         """
         The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
         """
