@@ -6,6 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Use this resource to update a synthetics monitor script in New Relic.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ * import * from "fs";
+ *
+ * const foo = new newrelic.synthetics.Monitor("foo", {
+ *     type: "SCRIPT_BROWSER",
+ *     frequency: 5,
+ *     status: "ENABLED",
+ *     locations: ["AWS_US_EAST_1"],
+ * });
+ * const fooScript = new newrelic.synthetics.MonitorScript("fooScript", {
+ *     monitorId: foo.id,
+ *     text: fs.readFileSync(`${path.module}/foo_script.js`),
+ * });
+ * ```
  */
 export class MonitorScript extends pulumi.CustomResource {
     /**

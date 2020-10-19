@@ -75,7 +75,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
      */
-    public readonly aggregationWindow!: pulumi.Output<number | undefined>;
+    public readonly aggregationWindow!: pulumi.Output<number>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */

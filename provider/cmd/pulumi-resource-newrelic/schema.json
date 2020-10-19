@@ -2654,6 +2654,7 @@
             },
             "required": [
                 "accountId",
+                "aggregationWindow",
                 "name",
                 "nrql",
                 "policyId"
@@ -3563,7 +3564,7 @@
             }
         },
         "newrelic:synthetics/monitorScript:MonitorScript": {
-            "description": "Use this resource to update a synthetics monitor script in New Relic.\n",
+            "description": "Use this resource to update a synthetics monitor script in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\nimport * from \"fs\";\n\nconst foo = new newrelic.synthetics.Monitor(\"foo\", {\n    type: \"SCRIPT_BROWSER\",\n    frequency: 5,\n    status: \"ENABLED\",\n    locations: [\"AWS_US_EAST_1\"],\n});\nconst fooScript = new newrelic.synthetics.MonitorScript(\"fooScript\", {\n    monitorId: foo.id,\n    text: fs.readFileSync(`${path.module}/foo_script.js`),\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.synthetics.Monitor(\"foo\",\n    type=\"SCRIPT_BROWSER\",\n    frequency=5,\n    status=\"ENABLED\",\n    locations=[\"AWS_US_EAST_1\"])\nfoo_script = newrelic.synthetics.MonitorScript(\"fooScript\",\n    monitor_id=foo.id,\n    text=(lambda path: open(path).read())(f\"{path['module']}/foo_script.js\"))\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new NewRelic.Synthetics.Monitor(\"foo\", new NewRelic.Synthetics.MonitorArgs\n        {\n            Type = \"SCRIPT_BROWSER\",\n            Frequency = 5,\n            Status = \"ENABLED\",\n            Locations = \n            {\n                \"AWS_US_EAST_1\",\n            },\n        });\n        var fooScript = new NewRelic.Synthetics.MonitorScript(\"fooScript\", new NewRelic.Synthetics.MonitorScriptArgs\n        {\n            MonitorId = foo.Id,\n            Text = File.ReadAllText($\"{path.Module}/foo_script.js\"),\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "monitorId": {
                     "type": "string",

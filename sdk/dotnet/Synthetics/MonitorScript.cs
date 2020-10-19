@@ -11,6 +11,37 @@ namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
     /// Use this resource to update a synthetics monitor script in New Relic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         {
+    ///             Type = "SCRIPT_BROWSER",
+    ///             Frequency = 5,
+    ///             Status = "ENABLED",
+    ///             Locations = 
+    ///             {
+    ///                 "AWS_US_EAST_1",
+    ///             },
+    ///         });
+    ///         var fooScript = new NewRelic.Synthetics.MonitorScript("fooScript", new NewRelic.Synthetics.MonitorScriptArgs
+    ///         {
+    ///             MonitorId = foo.Id,
+    ///             Text = File.ReadAllText($"{path.Module}/foo_script.js"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MonitorScript : Pulumi.CustomResource
     {
