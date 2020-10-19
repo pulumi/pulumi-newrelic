@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
-* Upgrade to v2.13.0 of the NewRelic Terraform Provider
+_(none)_
 
 ---
+
+## 3.7.0 (2020-10-19)
+* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
+* Upgrade to v2.13.0 of the NewRelic Terraform Provider
 
 ## 3.6.0 (2020-10-14)
 * Upgrade to v2.12.0 of the NewRelic Terraform Provider
