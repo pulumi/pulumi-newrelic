@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v2.13.1 of the NewRelic Terraform Provider
 * Improving the accuracy of previews leading to a more accurate understanding of what will actually change rather than assuming all output properties will change
 
 ---
