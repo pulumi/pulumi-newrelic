@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.13.3 of the NewRelic Terraform Provider
+_(none)_
 
 ---
+
+## 3.8.1 (2020-10-28)
+* Upgrade to v2.13.3 of the NewRelic Terraform Provider
 
 ## 3.8.0 (2020-10-26)
 * Upgrade to v2.13.1 of the NewRelic Terraform Provider
