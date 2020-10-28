@@ -88,6 +88,11 @@ class AlertCondition(pulumi.CustomResource):
                * `throughput_background`
                * `throughput_web`
                * `user_defined`
+               * `apm_jvm_metric`
+               * `cpu_utilization_time`
+               * `deadlocked_threads`
+               * `gc_cpu_time`
+               * `heap_memory_usage`
                * `apm_kt_metric`
                * `apdex`
                * `error_count`
@@ -121,7 +126,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
@@ -209,6 +214,11 @@ class AlertCondition(pulumi.CustomResource):
                * `throughput_background`
                * `throughput_web`
                * `user_defined`
+               * `apm_jvm_metric`
+               * `cpu_utilization_time`
+               * `deadlocked_threads`
+               * `gc_cpu_time`
+               * `heap_memory_usage`
                * `apm_kt_metric`
                * `apdex`
                * `error_count`
@@ -242,7 +252,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         :param pulumi.Input[str] user_defined_metric: A custom metric to be evaluated.
         :param pulumi.Input[str] user_defined_value_function: One of: `average`, `min`, `max`, `total`, or `sample_size`.
         :param pulumi.Input[int] violation_close_timer: Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
@@ -311,6 +321,11 @@ class AlertCondition(pulumi.CustomResource):
         * `throughput_background`
         * `throughput_web`
         * `user_defined`
+        * `apm_jvm_metric`
+        * `cpu_utilization_time`
+        * `deadlocked_threads`
+        * `gc_cpu_time`
+        * `heap_memory_usage`
         * `apm_kt_metric`
         * `apdex`
         * `error_count`
@@ -379,7 +394,7 @@ class AlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         """
         return pulumi.get(self, "type")
 

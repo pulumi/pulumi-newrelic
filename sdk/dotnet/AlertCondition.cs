@@ -106,6 +106,11 @@ namespace Pulumi.NewRelic
         /// * `throughput_background`
         /// * `throughput_web`
         /// * `user_defined`
+        /// * `apm_jvm_metric`
+        /// * `cpu_utilization_time`
+        /// * `deadlocked_threads`
+        /// * `gc_cpu_time`
+        /// * `heap_memory_usage`
         /// * `apm_kt_metric`
         /// * `apdex`
         /// * `error_count`
@@ -164,7 +169,7 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<Outputs.AlertConditionTerm>> Terms { get; private set; } = null!;
 
         /// <summary>
-        /// The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -273,6 +278,11 @@ namespace Pulumi.NewRelic
         /// * `throughput_background`
         /// * `throughput_web`
         /// * `user_defined`
+        /// * `apm_jvm_metric`
+        /// * `cpu_utilization_time`
+        /// * `deadlocked_threads`
+        /// * `gc_cpu_time`
+        /// * `heap_memory_usage`
         /// * `apm_kt_metric`
         /// * `apdex`
         /// * `error_count`
@@ -337,7 +347,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -407,6 +417,11 @@ namespace Pulumi.NewRelic
         /// * `throughput_background`
         /// * `throughput_web`
         /// * `user_defined`
+        /// * `apm_jvm_metric`
+        /// * `cpu_utilization_time`
+        /// * `deadlocked_threads`
+        /// * `gc_cpu_time`
+        /// * `heap_memory_usage`
         /// * `apm_kt_metric`
         /// * `apdex`
         /// * `error_count`
@@ -471,7 +486,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of condition. One of: `apm_app_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
+        /// The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
