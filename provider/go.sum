@@ -687,8 +687,8 @@ github.com/newrelic/go-agent/v3 v3.9.0 h1:5bcTbdk/Up5cIYIkQjCG92Y+uNoett9wmhuz4k
 github.com/newrelic/go-agent/v3 v3.9.0/go.mod h1:1A1dssWBwzB7UemzRU6ZVaGDsI+cEn5/bNxI0wiYlIc=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.47.1 h1:XiXC7tTRVMN03n1xyx2MrD0AUYpQ65bRGaw+ciUiRVc=
-github.com/newrelic/newrelic-client-go v0.47.1/go.mod h1:SRy/dX0pmFKfhuW+Ee5HN9PjF/u2jPXXoSWgyFIhkNY=
+github.com/newrelic/newrelic-client-go v0.47.2 h1:95xfkWSN7+p6Mz6gzf11PD80EJ7VAMgkkcBmW/om2yk=
+github.com/newrelic/newrelic-client-go v0.47.2/go.mod h1:wVYbNLgb7r4grxHUCkwqdjc5JVwqFAK2aGSSuB18ycY=
 github.com/newrelic/tutone v0.2.5/go.mod h1:Jv8miaLyP2pjx4wqvAdx1nLXMx/Cl7kmsNiKZlCeIds=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
@@ -758,8 +758,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.11.3-0.20201009201355-249140242ebb h1:weg50ws
 github.com/pulumi/pulumi/sdk/v2 v2.11.3-0.20201009201355-249140242ebb/go.mod h1:WQ4WaHMA7mduVHAJi87iIqbWvqsuBUYccBiKK+FrayI=
 github.com/pulumi/pulumi/sdk/v2 v2.12.0 h1:d2BQnOvRWCbxDG5DO0bz5FkhFbymABmOxlsx0h2Yhm8=
 github.com/pulumi/pulumi/sdk/v2 v2.12.0/go.mod h1:WQ4WaHMA7mduVHAJi87iIqbWvqsuBUYccBiKK+FrayI=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201027153705-7189ce5257cd h1:OQ+4Rc4aI/rjYfsMx6LCsPylT/qV3RElR99AN0/Dn08=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201027153705-7189ce5257cd/go.mod h1:2uS8xnatlHK2yx5pvcaMNk0IqmXEYjUGVhsgl6bjRO8=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201028131337-0a7569dcb469 h1:an7VvlgptO7/LtFP6rhlqi2zoAo4Qmm9SdnMBT4FNsg=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201028131337-0a7569dcb469/go.mod h1:djRie/3MBHBIJ8fsy8TxRPCcvYCjcmOaqn6J1kKG37k=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/quasilyte/go-ruleguard v0.1.2-0.20200318202121-b00d7a75d3d8/go.mod h1:CGFX09Ci3pq9QZdj86B+VGIdNj4VyCo2iPOGS9esB/k=
 github.com/quasilyte/go-ruleguard v0.2.0/go.mod h1:2RT/tf0Ce0UDj5y243iWKosQogJd8+1G3Rs2fxmlYnw=
@@ -1333,8 +1333,8 @@ gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c h1:dUUwHk2QECo/6vqA44rthZ8ie
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.0-20200605160147-a5ece683394c h1:grhR+C34yXImVGp7EzNk+DTIk+323eIUWOmEevy6bDo=
 gopkg.in/yaml.v3 v3.0.0-20200605160147-a5ece683394c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
-gotest.tools/gotestsum v0.5.4/go.mod h1:hC9TQserDVTWcJuARh76Ydp3ZwuE+pIIWpt2BzDLD6M=
-gotest.tools/v3 v3.0.2/go.mod h1:3SzNCllyD9/Y+b5r9JIKQ474KzkZyqLqEfYqMsX94Bk=
+gotest.tools/gotestsum v0.6.0/go.mod h1:LEX+ioCVdeWhZc8GYfiBRag360eBhwixWJ62R9eDQtI=
+gotest.tools/v3 v3.0.3/go.mod h1:Z7Lb0S5l+klDB31fvDQX8ss/FlKDxtlFlw3Oa8Ymbl8=
 honnef.co/go/tools v0.0.0-20190102054323-c2f93a96b099/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=
 honnef.co/go/tools v0.0.0-20190106161140-3f1c8253044a/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=
 honnef.co/go/tools v0.0.0-20190418001031-e561f6794a2a/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=

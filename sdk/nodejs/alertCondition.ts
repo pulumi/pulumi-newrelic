@@ -103,6 +103,11 @@ export class AlertCondition extends pulumi.CustomResource {
      * * `throughputBackground`
      * * `throughputWeb`
      * * `userDefined`
+     * * `apmJvmMetric`
+     * * `cpuUtilizationTime`
+     * * `deadlockedThreads`
+     * * `gcCpuTime`
+     * * `heapMemoryUsage`
      * * `apmKtMetric`
      * * `apdex`
      * * `errorCount`
@@ -151,7 +156,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -264,6 +269,11 @@ export interface AlertConditionState {
      * * `throughputBackground`
      * * `throughputWeb`
      * * `userDefined`
+     * * `apmJvmMetric`
+     * * `cpuUtilizationTime`
+     * * `deadlockedThreads`
+     * * `gcCpuTime`
+     * * `heapMemoryUsage`
      * * `apmKtMetric`
      * * `apdex`
      * * `errorCount`
@@ -312,7 +322,7 @@ export interface AlertConditionState {
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -359,6 +369,11 @@ export interface AlertConditionArgs {
      * * `throughputBackground`
      * * `throughputWeb`
      * * `userDefined`
+     * * `apmJvmMetric`
+     * * `cpuUtilizationTime`
+     * * `deadlockedThreads`
+     * * `gcCpuTime`
+     * * `heapMemoryUsage`
      * * `apmKtMetric`
      * * `apdex`
      * * `errorCount`
@@ -407,7 +422,7 @@ export interface AlertConditionArgs {
      */
     readonly terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
     readonly type: pulumi.Input<string>;
     /**
