@@ -24,7 +24,7 @@ class AlertChannel(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Use this resource to create and manage New Relic alert policies.
+        Use this resource to create and manage New Relic alert channels.
 
         ## Example Usage
 

@@ -124,6 +124,7 @@ namespace Pulumi.NewRelic
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly int ServingApmApplicationId;
         public readonly Outputs.GetEntityTagResult? Tag;
         public readonly string Type;
 
@@ -141,6 +142,8 @@ namespace Pulumi.NewRelic
 
             string name,
 
+            int servingApmApplicationId,
+
             Outputs.GetEntityTagResult? tag,
 
             string type)
@@ -151,6 +154,7 @@ namespace Pulumi.NewRelic
             Guid = guid;
             Id = id;
             Name = name;
+            ServingApmApplicationId = servingApmApplicationId;
             Tag = tag;
             Type = type;
         }

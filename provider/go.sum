@@ -149,7 +149,7 @@ github.com/aybabtme/rgbterm v0.0.0-20170906152045-cc83f3b3ce59/go.mod h1:q/89r3U
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
 github.com/bflad/gopaniccheck v0.1.0/go.mod h1:ZCj2vSr7EqVeDaqVsWN4n2MwdROx1YL+LFo47TSWtsA=
-github.com/bflad/tfproviderlint v0.19.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
+github.com/bflad/tfproviderlint v0.20.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d h1:xDfNPAt8lFiC1UJrqV3uuy861HCTo708pDMbjHHdCas=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d/go.mod h1:6QX/PXZ00z/TKoufEY6K/a0k6AhaJrQKdFe6OfVXsa4=
 github.com/bgentry/speakeasy v0.1.0 h1:ByYyxL9InA1OWqxJqqp2A5pYHUrCiAL6K3J+LKSsQkY=
@@ -214,6 +214,8 @@ github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0 h1:8xPHl4/q1VyqGIPif1F+1V3Y3lSmrq01EabUW3CoW5s=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
+github.com/fatih/color v1.10.0 h1:s36xzo75JdqLaaWoiEHk767eHiwo0598uUxyfiPkDsg=
+github.com/fatih/color v1.10.0/go.mod h1:ELkj/draVOlAH/xkhN6mQ50Qd0MPOk5AAr3maGEBuJM=
 github.com/fatih/structs v1.1.0/go.mod h1:9NiDSp5zOcgEDl+j00MP/WkGVPOlPRLejGD8Ga6PJ7M=
 github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568 h1:BHsljHzVlRcyQhjrss6TZTdY2VfCqZPbv5k3iBFa2ZQ=
 github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568/go.mod h1:xEzjJPgXI435gkrCt3MPfRiAkVrwSbHsst4LCFVfpJc=
@@ -324,7 +326,7 @@ github.com/golangci/gofmt v0.0.0-20190930125516-244bba706f1a/go.mod h1:9qCChq59u
 github.com/golangci/golangci-lint v1.22.2/go.mod h1:2Bj42k6hPQFTRxkDb7S3TQ+EsnumZXOmIYNqlQrp0FI=
 github.com/golangci/golangci-lint v1.30.0/go.mod h1:5t0i3wHlqQc9deBBvZsP+a/4xz7cfjV+zhp5U0Mzp14=
 github.com/golangci/golangci-lint v1.31.0/go.mod h1:aMQuNCA+NDU5+4jLL5pEuFHoue0IznKE2+/GsFvvs8A=
-github.com/golangci/golangci-lint v1.32.0/go.mod h1:aEG8mkR2s0W900N8YVtSAhhemMGLRWZzASgaHc7eLt4=
+github.com/golangci/golangci-lint v1.32.2/go.mod h1:ydr+IqtIVyAh72L16aK0bNdNg/YGa+AEgdbKj9MluzI=
 github.com/golangci/ineffassign v0.0.0-20190609212857-42439a7714cc/go.mod h1:e5tpTHCfVze+7EpLEozzMB3eafxo2KT5veNg1k6byQU=
 github.com/golangci/lint-1 v0.0.0-20191013205115-297bf364a8e0/go.mod h1:66R6K6P6VWk9I95jvqGxkqJxVWGFy9XlDwLwVz1RCFg=
 github.com/golangci/maligned v0.0.0-20180506175553-b1d89398deca/go.mod h1:tvlJhZqDe4LMs4ZHD0oMUlt9G2LWuDGoisJTBzLMV9o=
@@ -381,11 +383,12 @@ github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+
 github.com/googleapis/gax-go/v2 v2.0.5 h1:sjZBwGj9Jlw33ImPtvFviGYvseOtDM7hkSKB7+Tv3SM=
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/gookit/color v1.2.5/go.mod h1:AhIE+pS6D4Ql0SQWbBeXPHw7gY0/sjHoA4s/n1KB7xg=
+github.com/gookit/color v1.3.1/go.mod h1:R3ogXq2B9rTbXoSHJ1HyUVAZ3poOJHpd9nQmyGZsfvQ=
 github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1/go.mod h1:wJfORRmW1u3UXTncJ5qlYoELFm8eSnnEO6hX4iZ3EWY=
 github.com/gordonklaus/ineffassign v0.0.0-20190601041439-ed7b1b5ee0f8/go.mod h1:cuNKsD1zp2v6XfE/orVX2QE1LC+i254ceGcVeDT3pTU=
 github.com/goreleaser/chglog v0.1.1/go.mod h1:xSDa/73C0TxBcLvoT2JHh47QyXpCx5rrNVzJKyeFGPw=
 github.com/goreleaser/goreleaser v0.143.0/go.mod h1:/zq84GQ8WZFnspGTONdZO0Kgf5BzOD3CzufXyw+ut4A=
-github.com/goreleaser/goreleaser v0.145.0/go.mod h1:32a2GK3/pyd2AB0OXdga3ntCq4QcwXOiaughHMdh2QM=
+github.com/goreleaser/goreleaser v0.146.0/go.mod h1:C+pS/pScRDsZyiS1IKz8nlHKpG2rwierZcveQ2kV808=
 github.com/goreleaser/nfpm v1.7.0/go.mod h1:V6xp021JRvYdBYpGFoP6m6YsuedzgB6IO2ub2NNBohs=
 github.com/goreleaser/nfpm v1.8.0/go.mod h1:dRO71ehHR5XFrUimGhgw+xsar6gYTgKUL7wHixW1NiQ=
 github.com/gorilla/mux v1.7.4/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
@@ -627,7 +630,7 @@ github.com/mattn/go-sqlite3 v1.9.0/go.mod h1:FPy6KqzDD04eiIsT53CuJW3U88zkxoIYsOq
 github.com/mattn/go-zglob v0.0.3/go.mod h1:9fxibJccNxU2cnpIKLRRFA7zX7qhkJIQWBb449FYHOo=
 github.com/mattn/goveralls v0.0.2/go.mod h1:8d1ZMHsd7fW6IRPKQh46F2WRpyib5/X4FOpevwGNQEw=
 github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5Ld7szi9bcBfOoFv/3dc6xSMkL2PC0=
-github.com/mbilski/exhaustivestruct v1.0.1/go.mod h1:OeTBVxQWoEmB2J2JCHmXWPJ0aksxSUOUy+nvtVEfzXc=
+github.com/mbilski/exhaustivestruct v1.1.0/go.mod h1:OeTBVxQWoEmB2J2JCHmXWPJ0aksxSUOUy+nvtVEfzXc=
 github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b/go.mod h1:01TrycV0kFyexm33Z7vhZRXopbI8J3TDReVlkTgMUxE=
 github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d/go.mod h1:01TrycV0kFyexm33Z7vhZRXopbI8J3TDReVlkTgMUxE=
 github.com/miekg/dns v1.0.14/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
@@ -687,8 +690,8 @@ github.com/newrelic/go-agent/v3 v3.9.0 h1:5bcTbdk/Up5cIYIkQjCG92Y+uNoett9wmhuz4k
 github.com/newrelic/go-agent/v3 v3.9.0/go.mod h1:1A1dssWBwzB7UemzRU6ZVaGDsI+cEn5/bNxI0wiYlIc=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.47.2 h1:95xfkWSN7+p6Mz6gzf11PD80EJ7VAMgkkcBmW/om2yk=
-github.com/newrelic/newrelic-client-go v0.47.2/go.mod h1:wVYbNLgb7r4grxHUCkwqdjc5JVwqFAK2aGSSuB18ycY=
+github.com/newrelic/newrelic-client-go v0.48.1 h1:TA5MeN+I4J0gJPsMQIONiQHUX6ZOqL/AcEwHa+DQRo4=
+github.com/newrelic/newrelic-client-go v0.48.1/go.mod h1:lFrW7Y4saBrgm3UFZaOtRt8tmUP9KA0qAt/PheT5KNs=
 github.com/newrelic/tutone v0.2.5/go.mod h1:Jv8miaLyP2pjx4wqvAdx1nLXMx/Cl7kmsNiKZlCeIds=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
@@ -706,12 +709,14 @@ github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+
 github.com/onsi/ginkgo v1.11.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.12.1/go.mod h1:zj2OWP4+oCPe1qIXoGWkgMRwljMUYCdkwsT2108oapk=
 github.com/onsi/ginkgo v1.13.0/go.mod h1:+REjRxOmWfHCjfv9TTWB1jD1Frx4XydAD3zm1lskyM0=
+github.com/onsi/ginkgo v1.14.1/go.mod h1:iSB4RoI2tjJc9BBv4NKIKWKya62Rps+oPG/Lv9klQyY=
 github.com/onsi/gomega v1.4.3/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
 github.com/onsi/gomega v1.5.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
 github.com/onsi/gomega v1.7.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
 github.com/onsi/gomega v1.7.1/go.mod h1:XdKZgCCFLUoM/7CFJVPcG8C1xQ1AJ0vpAezJrB7JYyY=
 github.com/onsi/gomega v1.8.1/go.mod h1:Ho0h+IUsWyvy1OpqCwxlQ/21gkhVunqlU8fDGcoTdcA=
 github.com/onsi/gomega v1.10.1/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1ybHNo=
+github.com/onsi/gomega v1.10.2/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1ybHNo=
 github.com/op/go-logging v0.0.0-20160315200505-970db520ece7/go.mod h1:HzydrMdWErDVzsI23lYNej1Htcns9BCg93Dk0bBINWk=
 github.com/opentracing/basictracer-go v1.0.0 h1:YyUAhaEfjoWXclZVJ9sGoNct7j4TVk7lZWlQw5UXuoo=
 github.com/opentracing/basictracer-go v1.0.0/go.mod h1:QfBfYuafItcjQuMwinw9GhYKwFXS9KnPs5lxoYwgW74=
@@ -758,8 +763,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.11.3-0.20201009201355-249140242ebb h1:weg50ws
 github.com/pulumi/pulumi/sdk/v2 v2.11.3-0.20201009201355-249140242ebb/go.mod h1:WQ4WaHMA7mduVHAJi87iIqbWvqsuBUYccBiKK+FrayI=
 github.com/pulumi/pulumi/sdk/v2 v2.12.0 h1:d2BQnOvRWCbxDG5DO0bz5FkhFbymABmOxlsx0h2Yhm8=
 github.com/pulumi/pulumi/sdk/v2 v2.12.0/go.mod h1:WQ4WaHMA7mduVHAJi87iIqbWvqsuBUYccBiKK+FrayI=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201028131337-0a7569dcb469 h1:an7VvlgptO7/LtFP6rhlqi2zoAo4Qmm9SdnMBT4FNsg=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201028131337-0a7569dcb469/go.mod h1:djRie/3MBHBIJ8fsy8TxRPCcvYCjcmOaqn6J1kKG37k=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201112002314-7f61bde63449 h1:PCUFd5hEM2gPf3Od4wgcG8lB8pQ2DlV+NaDhLNZhIgo=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20201112002314-7f61bde63449/go.mod h1:808LqT7OhLQ6Or3R7U5Fup9yjrGMH5QszbiOl2VBIFI=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/quasilyte/go-ruleguard v0.1.2-0.20200318202121-b00d7a75d3d8/go.mod h1:CGFX09Ci3pq9QZdj86B+VGIdNj4VyCo2iPOGS9esB/k=
 github.com/quasilyte/go-ruleguard v0.2.0/go.mod h1:2RT/tf0Ce0UDj5y243iWKosQogJd8+1G3Rs2fxmlYnw=
@@ -788,6 +793,7 @@ github.com/sclevine/agouti v3.0.0+incompatible/go.mod h1:b4WX9W9L1sfQKXeJf1mUTLZ
 github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529/go.mod h1:DxrIzT+xaE7yg65j358z/aeFdxmN0P9QXhEzd20vsDc=
 github.com/securego/gosec v0.0.0-20191002120514-e680875ea14d/go.mod h1:w5+eXa0mYznDkHaMCXA4XYffjlH+cy1oyKbfzJXa2Do=
 github.com/securego/gosec/v2 v2.4.0/go.mod h1:0/Q4cjmlFDfDUj1+Fib61sc+U5IQb2w+Iv9/C3wPVko=
+github.com/securego/gosec/v2 v2.5.0/go.mod h1:L/CDXVntIff5ypVHIkqPXbtRpJiNCh6c6Amn68jXDjo=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
@@ -1178,6 +1184,7 @@ golang.org/x/tools v0.0.0-20200812195022-5ae4c3c160a0/go.mod h1:njjCfa9FT2d7l9Bc
 golang.org/x/tools v0.0.0-20200831203904-5a2aa26beb65/go.mod h1:Cj7w3i3Rnn0Xh82ur9kSqwfTHTeVxaDqrfMjpcNT6bE=
 golang.org/x/tools v0.0.0-20201001104356-43ebab892c4c/go.mod h1:z6u4i615ZeAfBE4XtMziQW1fSVJXACjjbWkB/mvPzlU=
 golang.org/x/tools v0.0.0-20201002184944-ecd9fd270d5d/go.mod h1:z6u4i615ZeAfBE4XtMziQW1fSVJXACjjbWkB/mvPzlU=
+golang.org/x/tools v0.0.0-20201007032633-0806396f153e/go.mod h1:z6u4i615ZeAfBE4XtMziQW1fSVJXACjjbWkB/mvPzlU=
 golang.org/x/tools v0.0.0-20201011145850-ed2f50202694/go.mod h1:z6u4i615ZeAfBE4XtMziQW1fSVJXACjjbWkB/mvPzlU=
 golang.org/x/tools v0.0.0-20201013201025-64a9e34f3752 h1:2ntEwh02rqo2jSsrYmp4yKHHjh0CbXP3ZtSUetSB+q8=
 golang.org/x/tools v0.0.0-20201013201025-64a9e34f3752/go.mod h1:z6u4i615ZeAfBE4XtMziQW1fSVJXACjjbWkB/mvPzlU=

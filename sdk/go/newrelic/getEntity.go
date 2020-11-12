@@ -97,8 +97,9 @@ type GetEntityResult struct {
 	// The unique GUID of the entity.
 	Guid string `pulumi:"guid"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string        `pulumi:"id"`
-	Name string        `pulumi:"name"`
-	Tag  *GetEntityTag `pulumi:"tag"`
-	Type string        `pulumi:"type"`
+	Id                      string        `pulumi:"id"`
+	Name                    string        `pulumi:"name"`
+	ServingApmApplicationId int           `pulumi:"servingApmApplicationId"`
+	Tag                     *GetEntityTag `pulumi:"tag"`
+	Type                    string        `pulumi:"type"`
 }

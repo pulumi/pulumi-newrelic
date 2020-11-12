@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create and manage New Relic alert policies.
+ * Use this resource to create and manage New Relic alert channels.
  *
  * ## Example Usage
  *
