@@ -103,6 +103,7 @@ export interface GetEntityResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly servingApmApplicationId: number;
     readonly tag?: outputs.GetEntityTag;
     readonly type: string;
 }

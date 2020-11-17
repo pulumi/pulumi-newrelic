@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this resource to create and manage New Relic alert policies.
+// Use this resource to create and manage New Relic alert channels.
 type AlertChannel struct {
 	pulumi.CustomResourceState
 

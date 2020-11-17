@@ -21,7 +21,7 @@ class GetEntityResult:
     """
     A collection of values returned by getEntity.
     """
-    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, name=None, tag=None, type=None):
+    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, name=None, serving_apm_application_id=None, tag=None, type=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
@@ -40,6 +40,9 @@ class GetEntityResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if serving_apm_application_id and not isinstance(serving_apm_application_id, int):
+            raise TypeError("Expected argument 'serving_apm_application_id' to be a int")
+        pulumi.set(__self__, "serving_apm_application_id", serving_apm_application_id)
         if tag and not isinstance(tag, dict):
             raise TypeError("Expected argument 'tag' to be a dict")
         pulumi.set(__self__, "tag", tag)
@@ -90,6 +93,11 @@ class GetEntityResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="servingApmApplicationId")
+    def serving_apm_application_id(self) -> int:
+        return pulumi.get(self, "serving_apm_application_id")
+
+    @property
     @pulumi.getter
     def tag(self) -> Optional['outputs.GetEntityTagResult']:
         return pulumi.get(self, "tag")
@@ -112,6 +120,7 @@ class AwaitableGetEntityResult(GetEntityResult):
             guid=self.guid,
             id=self.id,
             name=self.name,
+            serving_apm_application_id=self.serving_apm_application_id,
             tag=self.tag,
             type=self.type)
 
@@ -181,5 +190,6 @@ def get_entity(domain: Optional[str] = None,
         guid=__ret__.guid,
         id=__ret__.id,
         name=__ret__.name,
+        serving_apm_application_id=__ret__.serving_apm_application_id,
         tag=__ret__.tag,
         type=__ret__.type)
