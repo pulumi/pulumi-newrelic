@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.13.2  
-  * This adds support for import specific examples in documentation
+_(none)_
 
 ---
+
+## 3.8.4 (2020-11-23)
+* Upgrade to pulumi-terraform-bridge v2.13.2  
+  * This adds support for import specific examples in documentation
 
 ## 3.8.3 (2020-11-17)
 * Upgrade to v2.13.5 of the NewRelic Terraform Provider
