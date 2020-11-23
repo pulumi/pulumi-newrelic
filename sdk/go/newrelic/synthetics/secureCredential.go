@@ -4,6 +4,7 @@
 package synthetics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// A Synthetics secure credential can be imported using its `key`
+//
+// ```sh
+//  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
 // ```
 type SecureCredential struct {
 	pulumi.CustomResourceState
@@ -143,4 +152,43 @@ type SecureCredentialArgs struct {
 
 func (SecureCredentialArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*secureCredentialArgs)(nil)).Elem()
+}
+
+type SecureCredentialInput interface {
+	pulumi.Input
+
+	ToSecureCredentialOutput() SecureCredentialOutput
+	ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput
+}
+
+func (SecureCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecureCredential)(nil)).Elem()
+}
+
+func (i SecureCredential) ToSecureCredentialOutput() SecureCredentialOutput {
+	return i.ToSecureCredentialOutputWithContext(context.Background())
+}
+
+func (i SecureCredential) ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialOutput)
+}
+
+type SecureCredentialOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecureCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecureCredentialOutput)(nil)).Elem()
+}
+
+func (o SecureCredentialOutput) ToSecureCredentialOutput() SecureCredentialOutput {
+	return o
+}
+
+func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SecureCredentialOutput{})
 }

@@ -41,6 +41,14 @@ class AlertCondition(pulumi.CustomResource):
             runbook_url="https://www.example.com")
         ```
 
+        ## Import
+
+        Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.

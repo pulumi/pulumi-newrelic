@@ -69,6 +69,14 @@ namespace Pulumi.NewRelic
     ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
     ///   * `threshold` - (Required) Must be 0 or greater.
     ///   * `time_function` - (Required) `all` or `any`.
+    /// 
+    /// ## Import
+    /// 
+    /// Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+    /// ```
     /// </summary>
     public partial class AlertCondition : Pulumi.CustomResource
     {

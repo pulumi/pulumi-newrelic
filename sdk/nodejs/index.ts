@@ -27,4 +27,11 @@ import * as insights from "./insights";
 import * as plugins from "./plugins";
 import * as synthetics from "./synthetics";
 import * as types from "./types";
-export {config, insights, plugins, synthetics, types};
+
+export {
+    config,
+    insights,
+    plugins,
+    synthetics,
+    types,
+};

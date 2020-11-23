@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -48,6 +49,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>` will be either `INGEST` or `USER`. For example
+//
+// ```sh
+//  $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
 // ```
 type ApiAccessKey struct {
 	pulumi.CustomResourceState
@@ -172,4 +181,43 @@ type ApiAccessKeyArgs struct {
 
 func (ApiAccessKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiAccessKeyArgs)(nil)).Elem()
+}
+
+type ApiAccessKeyInput interface {
+	pulumi.Input
+
+	ToApiAccessKeyOutput() ApiAccessKeyOutput
+	ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput
+}
+
+func (ApiAccessKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAccessKey)(nil)).Elem()
+}
+
+func (i ApiAccessKey) ToApiAccessKeyOutput() ApiAccessKeyOutput {
+	return i.ToApiAccessKeyOutputWithContext(context.Background())
+}
+
+func (i ApiAccessKey) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyOutput)
+}
+
+type ApiAccessKeyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApiAccessKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAccessKeyOutput)(nil)).Elem()
+}
+
+func (o ApiAccessKeyOutput) ToApiAccessKeyOutput() ApiAccessKeyOutput {
+	return o
+}
+
+func (o ApiAccessKeyOutput) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiAccessKeyOutput{})
 }

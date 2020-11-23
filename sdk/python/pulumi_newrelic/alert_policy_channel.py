@@ -56,6 +56,16 @@ class AlertPolicyChannel(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
+        ```
+
+         When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.

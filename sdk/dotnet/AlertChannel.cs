@@ -193,6 +193,14 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Alert channels can be imported using the `id`, e.g. bash
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:index/alertChannel:AlertChannel main &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class AlertChannel : Pulumi.CustomResource
     {

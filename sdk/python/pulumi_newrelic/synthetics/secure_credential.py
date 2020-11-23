@@ -38,6 +38,14 @@ class SecureCredential(pulumi.CustomResource):
             value="My value")
         ```
 
+        ## Import
+
+        A Synthetics secure credential can be imported using its `key`
+
+        ```sh
+         $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the secure credential was created.

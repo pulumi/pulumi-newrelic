@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -36,6 +35,16 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * New Relic One entity tags can be imported using a concatenated string of the format
+ *
+ * `<guid>`, e.g. bash
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
  * ```
  */
 export class EntityTags extends pulumi.CustomResource {

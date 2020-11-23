@@ -38,6 +38,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Synthetics alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+    /// ```
     /// </summary>
     public partial class AlertCondition : Pulumi.CustomResource
     {

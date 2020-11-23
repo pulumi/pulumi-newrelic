@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -106,6 +107,14 @@ import (
 //   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
 //   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
 //   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
+//
+// ## Import
+//
+// Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+// ```
 type InfraAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -325,4 +334,43 @@ type InfraAlertConditionArgs struct {
 
 func (InfraAlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*infraAlertConditionArgs)(nil)).Elem()
+}
+
+type InfraAlertConditionInput interface {
+	pulumi.Input
+
+	ToInfraAlertConditionOutput() InfraAlertConditionOutput
+	ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput
+}
+
+func (InfraAlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfraAlertCondition)(nil)).Elem()
+}
+
+func (i InfraAlertCondition) ToInfraAlertConditionOutput() InfraAlertConditionOutput {
+	return i.ToInfraAlertConditionOutputWithContext(context.Background())
+}
+
+func (i InfraAlertCondition) ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionOutput)
+}
+
+type InfraAlertConditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (InfraAlertConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfraAlertConditionOutput)(nil)).Elem()
+}
+
+func (o InfraAlertConditionOutput) ToInfraAlertConditionOutput() InfraAlertConditionOutput {
+	return o
+}
+
+func (o InfraAlertConditionOutput) ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InfraAlertConditionOutput{})
 }

@@ -39,6 +39,14 @@ class MonitorScript(pulumi.CustomResource):
             text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"))
         ```
 
+        ## Import
+
+        Synthetics monitor scripts can be imported using the `id`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.

@@ -19,6 +19,14 @@ import * as utilities from "../utilities";
  *     value: "My value",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * A Synthetics secure credential can be imported using its `key`
+ *
+ * ```sh
+ *  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+ * ```
  */
 export class SecureCredential extends pulumi.CustomResource {
     /**

@@ -98,6 +98,14 @@ class Monitor(pulumi.CustomResource):
             type="SCRIPT_API")
         ```
 
+        ## Import
+
+        Synthetics monitors can be imported using the `id`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bypass_head_request: Bypass HEAD request.

@@ -52,6 +52,14 @@ class ApiAccessKey(pulumi.CustomResource):
             notes="To be used with service X")
         ```
 
+        ## Import
+
+        Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>` will be either `INGEST` or `USER`. For example
+
+        ```sh
+         $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the API access key.

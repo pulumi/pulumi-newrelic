@@ -13,6 +13,16 @@ namespace Pulumi.NewRelic.Synthetics
     /// Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
     /// 
     /// &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+    /// 
+    /// ## Import
+    /// 
+    /// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+    /// 
+    /// `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g. bash
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+    /// ```
     /// </summary>
     public partial class MultiLocationAlertCondition : Pulumi.CustomResource
     {

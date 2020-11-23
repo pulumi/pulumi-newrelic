@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -51,6 +50,14 @@ import * as utilities from "../utilities";
  *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
  *   * `threshold` - (Required) Must be 0 or greater.
  *   * `timeFunction` - (Required) `all` or `any`.
+ *
+ * ## Import
+ *
+ * Alert conditions can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
+ * ```
  */
 export class AlertCondition extends pulumi.CustomResource {
     /**

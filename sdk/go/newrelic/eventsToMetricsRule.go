@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -35,6 +36,16 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// New Relic Events to Metrics rules can be imported using a concatenated string of the format
+//
+// `<account_id>:<rule_id>`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
 // ```
 type EventsToMetricsRule struct {
 	pulumi.CustomResourceState
@@ -146,4 +157,43 @@ type EventsToMetricsRuleArgs struct {
 
 func (EventsToMetricsRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventsToMetricsRuleArgs)(nil)).Elem()
+}
+
+type EventsToMetricsRuleInput interface {
+	pulumi.Input
+
+	ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput
+	ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput
+}
+
+func (EventsToMetricsRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventsToMetricsRule)(nil)).Elem()
+}
+
+func (i EventsToMetricsRule) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {
+	return i.ToEventsToMetricsRuleOutputWithContext(context.Background())
+}
+
+func (i EventsToMetricsRule) ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRuleOutput)
+}
+
+type EventsToMetricsRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventsToMetricsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventsToMetricsRuleOutput)(nil)).Elem()
+}
+
+func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {
+	return o
+}
+
+func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EventsToMetricsRuleOutput{})
 }

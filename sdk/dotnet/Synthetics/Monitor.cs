@@ -123,6 +123,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Synthetics monitors can be imported using the `id`, e.g. bash
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:synthetics/monitor:Monitor main &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {

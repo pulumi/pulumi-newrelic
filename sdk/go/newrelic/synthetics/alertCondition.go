@@ -4,6 +4,7 @@
 package synthetics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
 // ```
 type AlertCondition struct {
 	pulumi.CustomResourceState
@@ -151,4 +160,43 @@ type AlertConditionArgs struct {
 
 func (AlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertConditionArgs)(nil)).Elem()
+}
+
+type AlertConditionInput interface {
+	pulumi.Input
+
+	ToAlertConditionOutput() AlertConditionOutput
+	ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput
+}
+
+func (AlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCondition)(nil)).Elem()
+}
+
+func (i AlertCondition) ToAlertConditionOutput() AlertConditionOutput {
+	return i.ToAlertConditionOutputWithContext(context.Background())
+}
+
+func (i AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionOutput)
+}
+
+type AlertConditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertConditionOutput)(nil)).Elem()
+}
+
+func (o AlertConditionOutput) ToAlertConditionOutput() AlertConditionOutput {
+	return o
+}
+
+func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertConditionOutput{})
 }

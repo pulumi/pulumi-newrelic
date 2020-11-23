@@ -4,6 +4,7 @@
 package plugins
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -80,6 +81,14 @@ import (
 //   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
 //   * `threshold` - (Required) Must be 0 or greater.
 //   * `timeFunction` - (Required) `all` or `any`.
+//
+// ## Import
+//
+// Alert conditions can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
+// ```
 type AlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -265,4 +274,43 @@ type AlertConditionArgs struct {
 
 func (AlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertConditionArgs)(nil)).Elem()
+}
+
+type AlertConditionInput interface {
+	pulumi.Input
+
+	ToAlertConditionOutput() AlertConditionOutput
+	ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput
+}
+
+func (AlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCondition)(nil)).Elem()
+}
+
+func (i AlertCondition) ToAlertConditionOutput() AlertConditionOutput {
+	return i.ToAlertConditionOutputWithContext(context.Background())
+}
+
+func (i AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionOutput)
+}
+
+type AlertConditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertConditionOutput)(nil)).Elem()
+}
+
+func (o AlertConditionOutput) ToAlertConditionOutput() AlertConditionOutput {
+	return o
+}
+
+func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertConditionOutput{})
 }

@@ -69,6 +69,16 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Alert policies can be imported using a composite ID of `<id>:<account_id>`, where `account_id` is the account number scoped to the alert policy resource. Example import
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
+ * ```
+ *
+ *  Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `terraform apply`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
  */
 export class AlertPolicy extends pulumi.CustomResource {
     /**

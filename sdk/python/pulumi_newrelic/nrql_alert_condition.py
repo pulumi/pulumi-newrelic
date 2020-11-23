@@ -78,6 +78,28 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
         - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
 
+        ## Import
+
+        Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+
+        ```sh
+         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+        ```
+
+         // For `static` conditions
+
+        ```sh
+         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+        ```
+
+         // For `outlier` conditions
+
+        ```sh
+         $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
+        ```
+
+         The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import<small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -136,7 +158,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['fill_option'] = fill_option
             __props__['fill_value'] = fill_value
             if ignore_overlap is not None:
-                warnings.warn("use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true", DeprecationWarning)
+                warnings.warn("""use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""", DeprecationWarning)
                 pulumi.log.warn("ignore_overlap is deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true")
             __props__['ignore_overlap'] = ignore_overlap
             __props__['name'] = name
@@ -150,14 +172,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['policy_id'] = policy_id
             __props__['runbook_url'] = runbook_url
             if terms is not None:
-                warnings.warn("use `critical` and `warning` attributes instead", DeprecationWarning)
+                warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
                 pulumi.log.warn("terms is deprecated: use `critical` and `warning` attributes instead")
             __props__['terms'] = terms
             __props__['type'] = type
             __props__['value_function'] = value_function
             __props__['violation_time_limit'] = violation_time_limit
             if violation_time_limit_seconds is not None:
-                warnings.warn("use `violation_time_limit` attribute instead", DeprecationWarning)
+                warnings.warn("""use `violation_time_limit` attribute instead""", DeprecationWarning)
                 pulumi.log.warn("violation_time_limit_seconds is deprecated: use `violation_time_limit` attribute instead")
             __props__['violation_time_limit_seconds'] = violation_time_limit_seconds
             __props__['warning'] = warning

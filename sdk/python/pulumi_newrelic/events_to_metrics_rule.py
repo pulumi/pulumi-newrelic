@@ -38,6 +38,16 @@ class EventsToMetricsRule(pulumi.CustomResource):
             nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
         ```
 
+        ## Import
+
+        New Relic Events to Metrics rules can be imported using a concatenated string of the format
+
+        `<account_id>:<rule_id>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Account with the event and where the metrics will be put.

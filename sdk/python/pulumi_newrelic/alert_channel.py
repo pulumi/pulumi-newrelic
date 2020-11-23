@@ -136,6 +136,14 @@ class AlertChannel(pulumi.CustomResource):
             type="webhook")
         ```
 
+        ## Import
+
+        Alert channels can be imported using the `id`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
