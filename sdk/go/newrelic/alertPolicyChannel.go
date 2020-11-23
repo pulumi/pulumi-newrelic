@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
+// ```
+//
+//  When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
 type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
@@ -143,4 +154,43 @@ type AlertPolicyChannelArgs struct {
 
 func (AlertPolicyChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyChannelArgs)(nil)).Elem()
+}
+
+type AlertPolicyChannelInput interface {
+	pulumi.Input
+
+	ToAlertPolicyChannelOutput() AlertPolicyChannelOutput
+	ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput
+}
+
+func (AlertPolicyChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicyChannel)(nil)).Elem()
+}
+
+func (i AlertPolicyChannel) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {
+	return i.ToAlertPolicyChannelOutputWithContext(context.Background())
+}
+
+func (i AlertPolicyChannel) ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelOutput)
+}
+
+type AlertPolicyChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertPolicyChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicyChannelOutput)(nil)).Elem()
+}
+
+func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {
+	return o
+}
+
+func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertPolicyChannelOutput{})
 }

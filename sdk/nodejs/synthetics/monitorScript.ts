@@ -25,6 +25,14 @@ import * as utilities from "../utilities";
  *     text: fs.readFileSync(`${path.module}/foo_script.js`),
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Synthetics monitor scripts can be imported using the `id`, e.g. bash
+ *
+ * ```sh
+ *  $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main <id>
+ * ```
  */
 export class MonitorScript extends pulumi.CustomResource {
     /**

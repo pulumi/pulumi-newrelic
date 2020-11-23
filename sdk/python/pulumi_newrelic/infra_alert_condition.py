@@ -103,6 +103,14 @@ class InfraAlertCondition(pulumi.CustomResource):
           * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infra_metric` and `infra_process_running` alert condition types.
           * `time_function` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infra_metric` alert condition type.
 
+        ## Import
+
+        Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.

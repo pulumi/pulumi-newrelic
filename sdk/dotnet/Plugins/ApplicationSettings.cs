@@ -40,6 +40,14 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// &gt; **NOTE:** Applications that have reported data in the last twelve hours
     /// cannot be deleted.
+    /// 
+    /// ## Import
+    /// 
+    /// Applications can be imported using notation `application_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+    /// ```
     /// </summary>
     public partial class ApplicationSettings : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -213,6 +214,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// New Relic dashboards can be imported using their ID, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:index/dashboard:Dashboard my_dashboard 8675309
+// ```
+//
+//  ~> **NOTE** Due to API restrictions, importing a dashboard resource will set the `grid_column_count` attribute to `3`. If your dashboard is a New Relic One dashboard _and_ uses a 12 column grid, you will need to make sure `grid_column_count` is set to `12` in your configuration, then run `terraform apply` after importing to sync remote state with Terraform state. Also note, cross-account widgets cannot be imported due to API restrictions.
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -343,4 +354,43 @@ type DashboardArgs struct {
 
 func (DashboardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardArgs)(nil)).Elem()
+}
+
+type DashboardInput interface {
+	pulumi.Input
+
+	ToDashboardOutput() DashboardOutput
+	ToDashboardOutputWithContext(ctx context.Context) DashboardOutput
+}
+
+func (Dashboard) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dashboard)(nil)).Elem()
+}
+
+func (i Dashboard) ToDashboardOutput() DashboardOutput {
+	return i.ToDashboardOutputWithContext(context.Background())
+}
+
+func (i Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
+}
+
+type DashboardOutput struct {
+	*pulumi.OutputState
+}
+
+func (DashboardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardOutput)(nil)).Elem()
+}
+
+func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
+	return o
+}
+
+func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DashboardOutput{})
 }

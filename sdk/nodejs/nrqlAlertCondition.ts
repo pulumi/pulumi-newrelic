@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -39,6 +38,28 @@ import * as utilities from "./utilities";
  * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
  * - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+ *
+ * ## Import
+ *
+ * Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+ * ```
+ *
+ *  // For `static` conditions
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+ * ```
+ *
+ *  // For `outlier` conditions
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
+ * ```
+ *
+ *  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import<small>alerts.newrelic.com/accounts/**\<account_id\>**&#47;policies/**\<policy_id\>**&#47;conditions/**\<condition_id\>**&#47;edit</small>
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**

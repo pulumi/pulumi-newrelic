@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -34,6 +35,16 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Alert policies can be imported using a composite ID of `<id>:<account_id>`, where `account_id` is the account number scoped to the alert policy resource. Example import
+//
+// ```sh
+//  $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
+// ```
+//
+//  Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `terraform apply`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
@@ -125,4 +136,43 @@ type AlertPolicyArgs struct {
 
 func (AlertPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertPolicyArgs)(nil)).Elem()
+}
+
+type AlertPolicyInput interface {
+	pulumi.Input
+
+	ToAlertPolicyOutput() AlertPolicyOutput
+	ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput
+}
+
+func (AlertPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicy)(nil)).Elem()
+}
+
+func (i AlertPolicy) ToAlertPolicyOutput() AlertPolicyOutput {
+	return i.ToAlertPolicyOutputWithContext(context.Background())
+}
+
+func (i AlertPolicy) ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyOutput)
+}
+
+type AlertPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicyOutput)(nil)).Elem()
+}
+
+func (o AlertPolicyOutput) ToAlertPolicyOutput() AlertPolicyOutput {
+	return o
+}
+
+func (o AlertPolicyOutput) ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertPolicyOutput{})
 }

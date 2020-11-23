@@ -72,6 +72,14 @@ class AlertCondition(pulumi.CustomResource):
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
 
+        ## Import
+
+        Alert conditions can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not this condition is enabled.

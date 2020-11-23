@@ -73,6 +73,14 @@ class AlertCondition(pulumi.CustomResource):
           * `threshold` - (Required) Must be 0 or greater.
           * `time_function` - (Required) `all` or `any`.
 
+        ## Import
+
+        Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition_scope: `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).

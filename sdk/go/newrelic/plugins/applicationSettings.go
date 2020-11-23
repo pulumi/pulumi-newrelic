@@ -4,6 +4,7 @@
 package plugins
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 //
 // > **NOTE:** Applications that have reported data in the last twelve hours
 // cannot be deleted.
+//
+// ## Import
+//
+// Applications can be imported using notation `application_id`, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+// ```
 type ApplicationSettings struct {
 	pulumi.CustomResourceState
 
@@ -144,4 +153,43 @@ type ApplicationSettingsArgs struct {
 
 func (ApplicationSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationSettingsArgs)(nil)).Elem()
+}
+
+type ApplicationSettingsInput interface {
+	pulumi.Input
+
+	ToApplicationSettingsOutput() ApplicationSettingsOutput
+	ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput
+}
+
+func (ApplicationSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettings)(nil)).Elem()
+}
+
+func (i ApplicationSettings) ToApplicationSettingsOutput() ApplicationSettingsOutput {
+	return i.ToApplicationSettingsOutputWithContext(context.Background())
+}
+
+func (i ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsOutput)
+}
+
+type ApplicationSettingsOutput struct {
+	*pulumi.OutputState
+}
+
+func (ApplicationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettingsOutput)(nil)).Elem()
+}
+
+func (o ApplicationSettingsOutput) ToApplicationSettingsOutput() ApplicationSettingsOutput {
+	return o
+}
+
+func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationSettingsOutput{})
 }

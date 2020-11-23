@@ -74,6 +74,14 @@ import * as utilities from "../utilities";
  *     type: "SCRIPT_API",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Synthetics monitors can be imported using the `id`, e.g. bash
+ *
+ * ```sh
+ *  $ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+ * ```
  */
 export class Monitor extends pulumi.CustomResource {
     /**

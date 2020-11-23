@@ -4,6 +4,7 @@
 package synthetics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -132,6 +133,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Synthetics monitors can be imported using the `id`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:synthetics/monitor:Monitor main <id>
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState
@@ -306,4 +315,43 @@ type MonitorArgs struct {
 
 func (MonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorArgs)(nil)).Elem()
+}
+
+type MonitorInput interface {
+	pulumi.Input
+
+	ToMonitorOutput() MonitorOutput
+	ToMonitorOutputWithContext(ctx context.Context) MonitorOutput
+}
+
+func (Monitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Monitor)(nil)).Elem()
+}
+
+func (i Monitor) ToMonitorOutput() MonitorOutput {
+	return i.ToMonitorOutputWithContext(context.Background())
+}
+
+func (i Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
+}
+
+type MonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (MonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorOutput)(nil)).Elem()
+}
+
+func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
+	return o
+}
+
+func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MonitorOutput{})
 }

@@ -166,6 +166,16 @@ class Dashboard(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        New Relic dashboards can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/dashboard:Dashboard my_dashboard 8675309
+        ```
+
+         ~> **NOTE** Due to API restrictions, importing a dashboard resource will set the `grid_column_count` attribute to `3`. If your dashboard is a New Relic One dashboard _and_ uses a 12 column grid, you will need to make sure `grid_column_count` is set to `12` in your configuration, then run `terraform apply` after importing to sync remote state with Terraform state. Also note, cross-account widgets cannot be imported due to API restrictions.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.

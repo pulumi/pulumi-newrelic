@@ -4,6 +4,7 @@
 package synthetics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,16 @@ import (
 // Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
 //
 // > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+//
+// ## Import
+//
+// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+//
+// `<policy_id>:<condition_id>`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+// ```
 type MultiLocationAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -161,4 +172,43 @@ type MultiLocationAlertConditionArgs struct {
 
 func (MultiLocationAlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*multiLocationAlertConditionArgs)(nil)).Elem()
+}
+
+type MultiLocationAlertConditionInput interface {
+	pulumi.Input
+
+	ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput
+	ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput
+}
+
+func (MultiLocationAlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiLocationAlertCondition)(nil)).Elem()
+}
+
+func (i MultiLocationAlertCondition) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {
+	return i.ToMultiLocationAlertConditionOutputWithContext(context.Background())
+}
+
+func (i MultiLocationAlertCondition) ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionOutput)
+}
+
+type MultiLocationAlertConditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (MultiLocationAlertConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiLocationAlertConditionOutput)(nil)).Elem()
+}
+
+func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {
+	return o
+}
+
+func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MultiLocationAlertConditionOutput{})
 }

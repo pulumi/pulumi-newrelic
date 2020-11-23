@@ -47,6 +47,16 @@ class Workload(pulumi.CustomResource):
             scope_account_ids=[12345678])
         ```
 
+        ## Import
+
+        New Relic One workloads can be imported using a concatenated string of the format
+
+        `<account_id>:<workload_id>:<guid>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the workload.

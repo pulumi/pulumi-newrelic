@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -58,6 +59,16 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// New Relic One entity tags can be imported using a concatenated string of the format
+//
+// `<guid>`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
 // ```
 type EntityTags struct {
 	pulumi.CustomResourceState
@@ -136,4 +147,43 @@ type EntityTagsArgs struct {
 
 func (EntityTagsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityTagsArgs)(nil)).Elem()
+}
+
+type EntityTagsInput interface {
+	pulumi.Input
+
+	ToEntityTagsOutput() EntityTagsOutput
+	ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput
+}
+
+func (EntityTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTags)(nil)).Elem()
+}
+
+func (i EntityTags) ToEntityTagsOutput() EntityTagsOutput {
+	return i.ToEntityTagsOutputWithContext(context.Background())
+}
+
+func (i EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsOutput)
+}
+
+type EntityTagsOutput struct {
+	*pulumi.OutputState
+}
+
+func (EntityTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTagsOutput)(nil)).Elem()
+}
+
+func (o EntityTagsOutput) ToEntityTagsOutput() EntityTagsOutput {
+	return o
+}
+
+func (o EntityTagsOutput) ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EntityTagsOutput{})
 }

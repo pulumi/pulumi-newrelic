@@ -51,6 +51,16 @@ class EntityTags(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        New Relic One entity tags can be imported using a concatenated string of the format
+
+        `<guid>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guid: The guid of the entity to tag.

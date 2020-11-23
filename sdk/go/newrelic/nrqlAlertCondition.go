@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,28 @@ import (
 // - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 // - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
 // - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
+// ## Import
+//
+// Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+//
+// ```sh
+//  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+// ```
+//
+//  // For `static` conditions
+//
+// ```sh
+//  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+// ```
+//
+//  // For `outlier` conditions
+//
+// ```sh
+//  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
+// ```
+//
+//  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import<small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -379,4 +402,43 @@ type NrqlAlertConditionArgs struct {
 
 func (NrqlAlertConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nrqlAlertConditionArgs)(nil)).Elem()
+}
+
+type NrqlAlertConditionInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionOutput() NrqlAlertConditionOutput
+	ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput
+}
+
+func (NrqlAlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertCondition)(nil)).Elem()
+}
+
+func (i NrqlAlertCondition) ToNrqlAlertConditionOutput() NrqlAlertConditionOutput {
+	return i.ToNrqlAlertConditionOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertCondition) ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutput)
+}
+
+type NrqlAlertConditionOutput struct {
+	*pulumi.OutputState
+}
+
+func (NrqlAlertConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertConditionOutput)(nil)).Elem()
+}
+
+func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutput() NrqlAlertConditionOutput {
+	return o
+}
+
+func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NrqlAlertConditionOutput{})
 }

@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  *     runbookUrl: "https://www.example.com",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+ * ```
  */
 export class AlertCondition extends pulumi.CustomResource {
     /**

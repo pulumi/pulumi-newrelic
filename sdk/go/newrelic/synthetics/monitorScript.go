@@ -4,6 +4,7 @@
 package synthetics
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Use this resource to update a synthetics monitor script in New Relic.
+//
+// ## Import
+//
+// Synthetics monitor scripts can be imported using the `id`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main <id>
+// ```
 type MonitorScript struct {
 	pulumi.CustomResourceState
 
@@ -88,4 +97,43 @@ type MonitorScriptArgs struct {
 
 func (MonitorScriptArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorScriptArgs)(nil)).Elem()
+}
+
+type MonitorScriptInput interface {
+	pulumi.Input
+
+	ToMonitorScriptOutput() MonitorScriptOutput
+	ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput
+}
+
+func (MonitorScript) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorScript)(nil)).Elem()
+}
+
+func (i MonitorScript) ToMonitorScriptOutput() MonitorScriptOutput {
+	return i.ToMonitorScriptOutputWithContext(context.Background())
+}
+
+func (i MonitorScript) ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptOutput)
+}
+
+type MonitorScriptOutput struct {
+	*pulumi.OutputState
+}
+
+func (MonitorScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorScriptOutput)(nil)).Elem()
+}
+
+func (o MonitorScriptOutput) ToMonitorScriptOutput() MonitorScriptOutput {
+	return o
+}
+
+func (o MonitorScriptOutput) ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MonitorScriptOutput{})
 }

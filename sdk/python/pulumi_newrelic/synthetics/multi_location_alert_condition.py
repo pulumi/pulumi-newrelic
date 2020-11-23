@@ -33,6 +33,16 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 
+        ## Import
+
+        New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+
+        `<policy_id>:<condition_id>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']] critical: A condition term with the priority set to critical.

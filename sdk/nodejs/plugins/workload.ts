@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -27,6 +26,16 @@ import * as utilities from "../utilities";
  *     }],
  *     scopeAccountIds: [12345678],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * New Relic One workloads can be imported using a concatenated string of the format
+ *
+ * `<account_id>:<workload_id>:<guid>`, e.g. bash
+ *
+ * ```sh
+ *  $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
  * ```
  */
 export class Workload extends pulumi.CustomResource {

@@ -26,7 +26,14 @@ class AlertMutingRule(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a AlertMutingRule resource with the given unique name, props, and options.
+        ## Import
+
+        Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account id of the MutingRule.

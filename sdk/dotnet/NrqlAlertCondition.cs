@@ -42,6 +42,28 @@ namespace Pulumi.NewRelic
     /// - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
     /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
     /// - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+    /// 
+    /// ## Import
+    /// 
+    /// Alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;:&lt;conditionType&gt;`, e.g. // For `baseline` conditions
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+    /// ```
+    /// 
+    ///  // For `static` conditions
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+    /// ```
+    /// 
+    ///  // For `outlier` conditions
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
+    /// ```
+    /// 
+    ///  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import&lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
     /// </summary>
     public partial class NrqlAlertCondition : Pulumi.CustomResource
     {

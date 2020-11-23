@@ -4,6 +4,7 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // Use this resource to create and manage New Relic alert channels.
+//
+// ## Import
+//
+// Alert channels can be imported using the `id`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
+// ```
 type AlertChannel struct {
 	pulumi.CustomResourceState
 
@@ -95,4 +104,43 @@ type AlertChannelArgs struct {
 
 func (AlertChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertChannelArgs)(nil)).Elem()
+}
+
+type AlertChannelInput interface {
+	pulumi.Input
+
+	ToAlertChannelOutput() AlertChannelOutput
+	ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput
+}
+
+func (AlertChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertChannel)(nil)).Elem()
+}
+
+func (i AlertChannel) ToAlertChannelOutput() AlertChannelOutput {
+	return i.ToAlertChannelOutputWithContext(context.Background())
+}
+
+func (i AlertChannel) ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelOutput)
+}
+
+type AlertChannelOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertChannelOutput)(nil)).Elem()
+}
+
+func (o AlertChannelOutput) ToAlertChannelOutput() AlertChannelOutput {
+	return o
+}
+
+func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertChannelOutput{})
 }

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -77,6 +76,14 @@ import * as utilities from "./utilities";
  *   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
  *   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
  *   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
+ *
+ * ## Import
+ *
+ * Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+ * ```
  */
 export class InfraAlertCondition extends pulumi.CustomResource {
     /**

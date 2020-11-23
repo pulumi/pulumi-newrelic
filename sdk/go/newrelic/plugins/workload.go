@@ -4,6 +4,7 @@
 package plugins
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -14,6 +15,16 @@ import (
 // A New Relic Personal API key is required to provision this resource.  Set the `apiKey`
 // attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
 // variable with your Personal API key.
+//
+// ## Import
+//
+// New Relic One workloads can be imported using a concatenated string of the format
+//
+// `<account_id>:<workload_id>:<guid>`, e.g. bash
+//
+// ```sh
+//  $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+// ```
 type Workload struct {
 	pulumi.CustomResourceState
 
@@ -139,4 +150,43 @@ type WorkloadArgs struct {
 
 func (WorkloadArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workloadArgs)(nil)).Elem()
+}
+
+type WorkloadInput interface {
+	pulumi.Input
+
+	ToWorkloadOutput() WorkloadOutput
+	ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput
+}
+
+func (Workload) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workload)(nil)).Elem()
+}
+
+func (i Workload) ToWorkloadOutput() WorkloadOutput {
+	return i.ToWorkloadOutputWithContext(context.Background())
+}
+
+func (i Workload) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadOutput)
+}
+
+type WorkloadOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadOutput)(nil)).Elem()
+}
+
+func (o WorkloadOutput) ToWorkloadOutput() WorkloadOutput {
+	return o
+}
+
+func (o WorkloadOutput) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkloadOutput{})
 }

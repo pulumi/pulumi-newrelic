@@ -2,10 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+ * ```
+ */
 export class AlertMutingRule extends pulumi.CustomResource {
     /**
      * Get an existing AlertMutingRule resource's state with the given name, ID, and optional extra

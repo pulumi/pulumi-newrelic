@@ -42,6 +42,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Synthetics monitor scripts can be imported using the `id`, e.g. bash
+    /// 
+    /// ```sh
+    ///  $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main &lt;id&gt;
+    /// ```
     /// </summary>
     public partial class MonitorScript : Pulumi.CustomResource
     {

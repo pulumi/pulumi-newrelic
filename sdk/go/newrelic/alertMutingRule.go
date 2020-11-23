@@ -4,12 +4,20 @@
 package newrelic
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
+//
+// ```sh
+//  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+// ```
 type AlertMutingRule struct {
 	pulumi.CustomResourceState
 
@@ -117,4 +125,43 @@ type AlertMutingRuleArgs struct {
 
 func (AlertMutingRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertMutingRuleArgs)(nil)).Elem()
+}
+
+type AlertMutingRuleInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleOutput() AlertMutingRuleOutput
+	ToAlertMutingRuleOutputWithContext(ctx context.Context) AlertMutingRuleOutput
+}
+
+func (AlertMutingRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRule)(nil)).Elem()
+}
+
+func (i AlertMutingRule) ToAlertMutingRuleOutput() AlertMutingRuleOutput {
+	return i.ToAlertMutingRuleOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRule) ToAlertMutingRuleOutputWithContext(ctx context.Context) AlertMutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleOutput)
+}
+
+type AlertMutingRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertMutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleOutput)(nil)).Elem()
+}
+
+func (o AlertMutingRuleOutput) ToAlertMutingRuleOutput() AlertMutingRuleOutput {
+	return o
+}
+
+func (o AlertMutingRuleOutput) ToAlertMutingRuleOutputWithContext(ctx context.Context) AlertMutingRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AlertMutingRuleOutput{})
 }
