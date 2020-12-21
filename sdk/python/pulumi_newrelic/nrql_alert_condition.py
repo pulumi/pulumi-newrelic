@@ -123,9 +123,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
         :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
-        :param pulumi.Input[str] violation_time_limit: Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
+        :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input[int] violation_time_limit_seconds: **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+        :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. See Terms below for details.
         """
@@ -177,10 +177,10 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['terms'] = terms
             __props__['type'] = type
             __props__['value_function'] = value_function
+            if violation_time_limit is not None:
+                warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
+                pulumi.log.warn("violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead")
             __props__['violation_time_limit'] = violation_time_limit
-            if violation_time_limit_seconds is not None:
-                warnings.warn("""use `violation_time_limit` attribute instead""", DeprecationWarning)
-                pulumi.log.warn("violation_time_limit_seconds is deprecated: use `violation_time_limit` attribute instead")
             __props__['violation_time_limit_seconds'] = violation_time_limit_seconds
             __props__['warning'] = warning
         super(NrqlAlertCondition, __self__).__init__(
@@ -245,9 +245,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
         :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
-        :param pulumi.Input[str] violation_time_limit: Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
+        :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
-        :param pulumi.Input[int] violation_time_limit_seconds: **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+        :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
                <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']] warning: A list containing the `warning` threshold values. See Terms below for details.
         """
@@ -451,9 +451,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="violationTimeLimit")
-    def violation_time_limit(self) -> pulumi.Output[Optional[str]]:
+    def violation_time_limit(self) -> pulumi.Output[str]:
         """
-        Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
+        **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
         <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit")
@@ -462,7 +462,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="violationTimeLimitSeconds")
     def violation_time_limit_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        **DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.<br>
+        Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
         <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         """
         return pulumi.get(self, "violation_time_limit_seconds")

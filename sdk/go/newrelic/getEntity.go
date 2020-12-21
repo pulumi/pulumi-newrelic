@@ -42,13 +42,13 @@ import (
 // 			return err
 // 		}
 // 		_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-// 			PolicyId:           fooAlertPolicy.ID(),
-// 			Type:               pulumi.String("static"),
-// 			Description:        pulumi.String("Alert when transactions are taking too long"),
-// 			RunbookUrl:         pulumi.String("https://www.example.com"),
-// 			Enabled:            pulumi.Bool(true),
-// 			ValueFunction:      pulumi.String("single_value"),
-// 			ViolationTimeLimit: pulumi.String("one_hour"),
+// 			PolicyId:                  fooAlertPolicy.ID(),
+// 			Type:                      pulumi.String("static"),
+// 			Description:               pulumi.String("Alert when transactions are taking too long"),
+// 			RunbookUrl:                pulumi.String("https://www.example.com"),
+// 			Enabled:                   pulumi.Bool(true),
+// 			ValueFunction:             pulumi.String("single_value"),
+// 			ViolationTimeLimitSeconds: pulumi.Int(3600),
 // 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
 // 				Query:            pulumi.String(fmt.Sprintf("%v%v%v", "SELECT average(duration) FROM Transaction where appName = '", app.Name, "'")),
 // 				EvaluationOffset: pulumi.Int(3),

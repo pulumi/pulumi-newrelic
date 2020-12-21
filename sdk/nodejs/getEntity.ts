@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     runbookUrl: "https://www.example.com",
  *     enabled: true,
  *     valueFunction: "single_value",
- *     violationTimeLimit: "one_hour",
+ *     violationTimeLimitSeconds: 3600,
  *     nrql: {
  *         query: app.then(app => `SELECT average(duration) FROM Transaction where appName = '${app.name}'`),
  *         evaluationOffset: 3,
