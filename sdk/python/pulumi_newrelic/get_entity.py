@@ -154,7 +154,7 @@ def get_entity(domain: Optional[str] = None,
         runbook_url="https://www.example.com",
         enabled=True,
         value_function="single_value",
-        violation_time_limit="one_hour",
+        violation_time_limit_seconds=3600,
         nrql=newrelic.NrqlAlertConditionNrqlArgs(
             query=f"SELECT average(duration) FROM Transaction where appName = '{app.name}'",
             evaluation_offset=3,

@@ -48,7 +48,7 @@ namespace Pulumi.NewRelic
         ///             RunbookUrl = "https://www.example.com",
         ///             Enabled = true,
         ///             ValueFunction = "single_value",
-        ///             ViolationTimeLimit = "one_hour",
+        ///             ViolationTimeLimitSeconds = 3600,
         ///             Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
         ///             {
         ///                 Query = app.Apply(app =&gt; $"SELECT average(duration) FROM Transaction where appName = '{app.Name}'"),
