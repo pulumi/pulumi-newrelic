@@ -81,11 +81,12 @@ type Event struct {
 // NewEvent registers a new resource with the given unique name, arguments, and options.
 func NewEvent(ctx *pulumi.Context,
 	name string, args *EventArgs, opts ...pulumi.ResourceOption) (*Event, error) {
-	if args == nil || args.Events == nil {
-		return nil, errors.New("missing required argument 'Events'")
-	}
 	if args == nil {
-		args = &EventArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Events == nil {
+		return nil, errors.New("invalid value for required argument 'Events'")
 	}
 	var resource Event
 	err := ctx.RegisterResource("newrelic:insights/event:Event", name, args, &resource, opts...)

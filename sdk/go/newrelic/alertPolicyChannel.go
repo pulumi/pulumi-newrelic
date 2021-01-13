@@ -89,14 +89,15 @@ type AlertPolicyChannel struct {
 // NewAlertPolicyChannel registers a new resource with the given unique name, arguments, and options.
 func NewAlertPolicyChannel(ctx *pulumi.Context,
 	name string, args *AlertPolicyChannelArgs, opts ...pulumi.ResourceOption) (*AlertPolicyChannel, error) {
-	if args == nil || args.ChannelIds == nil {
-		return nil, errors.New("missing required argument 'ChannelIds'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
 	if args == nil {
-		args = &AlertPolicyChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ChannelIds == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelIds'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
 	}
 	var resource AlertPolicyChannel
 	err := ctx.RegisterResource("newrelic:index/alertPolicyChannel:AlertPolicyChannel", name, args, &resource, opts...)

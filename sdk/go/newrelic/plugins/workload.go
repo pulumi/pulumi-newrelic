@@ -54,6 +54,7 @@ func NewWorkload(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkloadArgs{}
 	}
+
 	var resource Workload
 	err := ctx.RegisterResource("newrelic:plugins/workload:Workload", name, args, &resource, opts...)
 	if err != nil {

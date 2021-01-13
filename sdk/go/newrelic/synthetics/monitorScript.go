@@ -32,14 +32,15 @@ type MonitorScript struct {
 // NewMonitorScript registers a new resource with the given unique name, arguments, and options.
 func NewMonitorScript(ctx *pulumi.Context,
 	name string, args *MonitorScriptArgs, opts ...pulumi.ResourceOption) (*MonitorScript, error) {
-	if args == nil || args.MonitorId == nil {
-		return nil, errors.New("missing required argument 'MonitorId'")
-	}
-	if args == nil || args.Text == nil {
-		return nil, errors.New("missing required argument 'Text'")
-	}
 	if args == nil {
-		args = &MonitorScriptArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MonitorId == nil {
+		return nil, errors.New("invalid value for required argument 'MonitorId'")
+	}
+	if args.Text == nil {
+		return nil, errors.New("invalid value for required argument 'Text'")
 	}
 	var resource MonitorScript
 	err := ctx.RegisterResource("newrelic:synthetics/monitorScript:MonitorScript", name, args, &resource, opts...)

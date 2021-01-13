@@ -245,7 +245,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["widgets"] = state ? state.widgets : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["editable"] = args ? args.editable : undefined;

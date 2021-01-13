@@ -49,20 +49,21 @@ type MultiLocationAlertCondition struct {
 // NewMultiLocationAlertCondition registers a new resource with the given unique name, arguments, and options.
 func NewMultiLocationAlertCondition(ctx *pulumi.Context,
 	name string, args *MultiLocationAlertConditionArgs, opts ...pulumi.ResourceOption) (*MultiLocationAlertCondition, error) {
-	if args == nil || args.Critical == nil {
-		return nil, errors.New("missing required argument 'Critical'")
-	}
-	if args == nil || args.Entities == nil {
-		return nil, errors.New("missing required argument 'Entities'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.ViolationTimeLimitSeconds == nil {
-		return nil, errors.New("missing required argument 'ViolationTimeLimitSeconds'")
-	}
 	if args == nil {
-		args = &MultiLocationAlertConditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Critical == nil {
+		return nil, errors.New("invalid value for required argument 'Critical'")
+	}
+	if args.Entities == nil {
+		return nil, errors.New("invalid value for required argument 'Entities'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
+	}
+	if args.ViolationTimeLimitSeconds == nil {
+		return nil, errors.New("invalid value for required argument 'ViolationTimeLimitSeconds'")
 	}
 	var resource MultiLocationAlertCondition
 	err := ctx.RegisterResource("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition", name, args, &resource, opts...)

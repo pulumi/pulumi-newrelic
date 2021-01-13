@@ -172,20 +172,21 @@ type Monitor struct {
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
 func NewMonitor(ctx *pulumi.Context,
 	name string, args *MonitorArgs, opts ...pulumi.ResourceOption) (*Monitor, error) {
-	if args == nil || args.Frequency == nil {
-		return nil, errors.New("missing required argument 'Frequency'")
-	}
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.Status == nil {
-		return nil, errors.New("missing required argument 'Status'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &MonitorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Frequency == nil {
+		return nil, errors.New("invalid value for required argument 'Frequency'")
+	}
+	if args.Locations == nil {
+		return nil, errors.New("invalid value for required argument 'Locations'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Monitor
 	err := ctx.RegisterResource("newrelic:synthetics/monitor:Monitor", name, args, &resource, opts...)

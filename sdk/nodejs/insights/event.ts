@@ -101,7 +101,7 @@ export class Event extends pulumi.CustomResource {
             inputs["events"] = state ? state.events : undefined;
         } else {
             const args = argsOrState as EventArgs | undefined;
-            if (!args || args.events === undefined) {
+            if ((!args || args.events === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'events'");
             }
             inputs["events"] = args ? args.events : undefined;

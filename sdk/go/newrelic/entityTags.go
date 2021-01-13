@@ -82,14 +82,15 @@ type EntityTags struct {
 // NewEntityTags registers a new resource with the given unique name, arguments, and options.
 func NewEntityTags(ctx *pulumi.Context,
 	name string, args *EntityTagsArgs, opts ...pulumi.ResourceOption) (*EntityTags, error) {
-	if args == nil || args.Guid == nil {
-		return nil, errors.New("missing required argument 'Guid'")
-	}
-	if args == nil || args.Tags == nil {
-		return nil, errors.New("missing required argument 'Tags'")
-	}
 	if args == nil {
-		args = &EntityTagsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Guid == nil {
+		return nil, errors.New("invalid value for required argument 'Guid'")
+	}
+	if args.Tags == nil {
+		return nil, errors.New("invalid value for required argument 'Tags'")
 	}
 	var resource EntityTags
 	err := ctx.RegisterResource("newrelic:index/entityTags:EntityTags", name, args, &resource, opts...)

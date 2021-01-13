@@ -87,10 +87,10 @@ export class MonitorScript extends pulumi.CustomResource {
             inputs["text"] = state ? state.text : undefined;
         } else {
             const args = argsOrState as MonitorScriptArgs | undefined;
-            if (!args || args.monitorId === undefined) {
+            if ((!args || args.monitorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            if (!args || args.text === undefined) {
+            if ((!args || args.text === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'text'");
             }
             inputs["monitorId"] = args ? args.monitorId : undefined;

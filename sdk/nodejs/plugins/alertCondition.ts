@@ -157,28 +157,28 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["valueFunction"] = state ? state.valueFunction : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if (!args || args.entities === undefined) {
+            if ((!args || args.entities === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entities'");
             }
-            if (!args || args.metric === undefined) {
+            if ((!args || args.metric === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metric'");
             }
-            if (!args || args.metricDescription === undefined) {
+            if ((!args || args.metricDescription === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metricDescription'");
             }
-            if (!args || args.pluginGuid === undefined) {
+            if ((!args || args.pluginGuid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pluginGuid'");
             }
-            if (!args || args.pluginId === undefined) {
+            if ((!args || args.pluginId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pluginId'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.terms === undefined) {
+            if ((!args || args.terms === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'terms'");
             }
-            if (!args || args.valueFunction === undefined) {
+            if ((!args || args.valueFunction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'valueFunction'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;

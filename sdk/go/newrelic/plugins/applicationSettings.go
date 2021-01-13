@@ -69,17 +69,18 @@ type ApplicationSettings struct {
 // NewApplicationSettings registers a new resource with the given unique name, arguments, and options.
 func NewApplicationSettings(ctx *pulumi.Context,
 	name string, args *ApplicationSettingsArgs, opts ...pulumi.ResourceOption) (*ApplicationSettings, error) {
-	if args == nil || args.AppApdexThreshold == nil {
-		return nil, errors.New("missing required argument 'AppApdexThreshold'")
-	}
-	if args == nil || args.EnableRealUserMonitoring == nil {
-		return nil, errors.New("missing required argument 'EnableRealUserMonitoring'")
-	}
-	if args == nil || args.EndUserApdexThreshold == nil {
-		return nil, errors.New("missing required argument 'EndUserApdexThreshold'")
-	}
 	if args == nil {
-		args = &ApplicationSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppApdexThreshold == nil {
+		return nil, errors.New("invalid value for required argument 'AppApdexThreshold'")
+	}
+	if args.EnableRealUserMonitoring == nil {
+		return nil, errors.New("invalid value for required argument 'EnableRealUserMonitoring'")
+	}
+	if args.EndUserApdexThreshold == nil {
+		return nil, errors.New("invalid value for required argument 'EndUserApdexThreshold'")
 	}
 	var resource ApplicationSettings
 	err := ctx.RegisterResource("newrelic:plugins/applicationSettings:ApplicationSettings", name, args, &resource, opts...)

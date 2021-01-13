@@ -207,7 +207,7 @@ class Dashboard(pulumi.CustomResource):
             __props__['filter'] = filter
             __props__['grid_column_count'] = grid_column_count
             __props__['icon'] = icon
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
             __props__['visibility'] = visibility

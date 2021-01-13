@@ -138,19 +138,19 @@ class Monitor(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['bypass_head_request'] = bypass_head_request
-            if frequency is None:
+            if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
-            if locations is None:
+            if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
             __props__['name'] = name
             __props__['sla_threshold'] = sla_threshold
-            if status is None:
+            if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
             __props__['treat_redirect_as_failure'] = treat_redirect_as_failure
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['uri'] = uri

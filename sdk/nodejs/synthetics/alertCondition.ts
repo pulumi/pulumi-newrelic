@@ -101,10 +101,10 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if (!args || args.monitorId === undefined) {
+            if ((!args || args.monitorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;

@@ -129,14 +129,15 @@ type NrqlAlertCondition struct {
 // NewNrqlAlertCondition registers a new resource with the given unique name, arguments, and options.
 func NewNrqlAlertCondition(ctx *pulumi.Context,
 	name string, args *NrqlAlertConditionArgs, opts ...pulumi.ResourceOption) (*NrqlAlertCondition, error) {
-	if args == nil || args.Nrql == nil {
-		return nil, errors.New("missing required argument 'Nrql'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
 	if args == nil {
-		args = &NrqlAlertConditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Nrql == nil {
+		return nil, errors.New("invalid value for required argument 'Nrql'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
 	}
 	var resource NrqlAlertCondition
 	err := ctx.RegisterResource("newrelic:index/nrqlAlertCondition:NrqlAlertCondition", name, args, &resource, opts...)

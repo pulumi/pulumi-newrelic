@@ -104,16 +104,16 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
             inputs["warning"] = state ? state.warning : undefined;
         } else {
             const args = argsOrState as MultiLocationAlertConditionArgs | undefined;
-            if (!args || args.critical === undefined) {
+            if ((!args || args.critical === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'critical'");
             }
-            if (!args || args.entities === undefined) {
+            if ((!args || args.entities === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entities'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.violationTimeLimitSeconds === undefined) {
+            if ((!args || args.violationTimeLimitSeconds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'violationTimeLimitSeconds'");
             }
             inputs["critical"] = args ? args.critical : undefined;

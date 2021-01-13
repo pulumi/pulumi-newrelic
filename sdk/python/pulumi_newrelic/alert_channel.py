@@ -169,7 +169,7 @@ class AlertChannel(pulumi.CustomResource):
 
             __props__['config'] = config
             __props__['name'] = name
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
         super(AlertChannel, __self__).__init__(

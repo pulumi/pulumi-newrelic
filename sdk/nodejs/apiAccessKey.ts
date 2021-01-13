@@ -119,10 +119,10 @@ export class ApiAccessKey extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as ApiAccessKeyArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.keyType === undefined) {
+            if ((!args || args.keyType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyType'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

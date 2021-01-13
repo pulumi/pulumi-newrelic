@@ -99,13 +99,13 @@ export class ApplicationSettings extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApplicationSettingsArgs | undefined;
-            if (!args || args.appApdexThreshold === undefined) {
+            if ((!args || args.appApdexThreshold === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appApdexThreshold'");
             }
-            if (!args || args.enableRealUserMonitoring === undefined) {
+            if ((!args || args.enableRealUserMonitoring === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enableRealUserMonitoring'");
             }
-            if (!args || args.endUserApdexThreshold === undefined) {
+            if ((!args || args.endUserApdexThreshold === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endUserApdexThreshold'");
             }
             inputs["appApdexThreshold"] = args ? args.appApdexThreshold : undefined;

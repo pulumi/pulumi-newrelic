@@ -153,13 +153,13 @@ class InfraAlertCondition(pulumi.CustomResource):
             __props__['event'] = event
             __props__['integration_provider'] = integration_provider
             __props__['name'] = name
-            if policy_id is None:
+            if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             __props__['process_where'] = process_where
             __props__['runbook_url'] = runbook_url
             __props__['select'] = select
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['violation_close_timer'] = violation_close_timer

@@ -71,14 +71,15 @@ type AlertCondition struct {
 // NewAlertCondition registers a new resource with the given unique name, arguments, and options.
 func NewAlertCondition(ctx *pulumi.Context,
 	name string, args *AlertConditionArgs, opts ...pulumi.ResourceOption) (*AlertCondition, error) {
-	if args == nil || args.MonitorId == nil {
-		return nil, errors.New("missing required argument 'MonitorId'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
 	if args == nil {
-		args = &AlertConditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MonitorId == nil {
+		return nil, errors.New("invalid value for required argument 'MonitorId'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
 	}
 	var resource AlertCondition
 	err := ctx.RegisterResource("newrelic:synthetics/alertCondition:AlertCondition", name, args, &resource, opts...)

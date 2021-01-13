@@ -77,7 +77,7 @@ class EventsToMetricsRule(pulumi.CustomResource):
             __props__['description'] = description
             __props__['enabled'] = enabled
             __props__['name'] = name
-            if nrql is None:
+            if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
             __props__['nrql'] = nrql
             __props__['rule_id'] = None

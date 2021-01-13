@@ -100,10 +100,10 @@ export class EntityTags extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EntityTagsArgs | undefined;
-            if (!args || args.guid === undefined) {
+            if ((!args || args.guid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guid'");
             }
-            if (!args || args.tags === undefined) {
+            if ((!args || args.tags === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tags'");
             }
             inputs["guid"] = args ? args.guid : undefined;

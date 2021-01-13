@@ -64,6 +64,7 @@ func NewAlertPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &AlertPolicyArgs{}
 	}
+
 	var resource AlertPolicy
 	err := ctx.RegisterResource("newrelic:index/alertPolicy:AlertPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -213,10 +213,10 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["where"] = state ? state.where : undefined;
         } else {
             const args = argsOrState as InfraAlertConditionArgs | undefined;
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["comparison"] = args ? args.comparison : undefined;
