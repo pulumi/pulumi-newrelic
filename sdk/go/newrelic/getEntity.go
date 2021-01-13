@@ -8,65 +8,6 @@ import (
 )
 
 // Use this data source to get information about a specific entity in New Relic One that already exists.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "APM"
-// 		opt1 := "APPLICATION"
-// 		app, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-// 			Name:   "my-app",
-// 			Domain: &opt0,
-// 			Type:   &opt1,
-// 			Tag: newrelic.GetEntityTag{
-// 				Key:   "my-tag",
-// 				Value: "my-tag-value",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-// 			PolicyId:                  fooAlertPolicy.ID(),
-// 			Type:                      pulumi.String("static"),
-// 			Description:               pulumi.String("Alert when transactions are taking too long"),
-// 			RunbookUrl:                pulumi.String("https://www.example.com"),
-// 			Enabled:                   pulumi.Bool(true),
-// 			ValueFunction:             pulumi.String("single_value"),
-// 			ViolationTimeLimitSeconds: pulumi.Int(3600),
-// 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
-// 				Query:            pulumi.String(fmt.Sprintf("%v%v%v", "SELECT average(duration) FROM Transaction where appName = '", app.Name, "'")),
-// 				EvaluationOffset: pulumi.Int(3),
-// 			},
-// 			Critical: &newrelic.NrqlAlertConditionCriticalArgs{
-// 				Operator:             pulumi.String("above"),
-// 				Threshold:            pulumi.Float64(5.5),
-// 				ThresholdDuration:    pulumi.Int(300),
-// 				ThresholdOccurrences: pulumi.String("ALL"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
 	err := ctx.Invoke("newrelic:index/getEntity:getEntity", args, &rv, opts...)

@@ -13,61 +13,6 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// Use this data source to get information about a specific entity in New Relic One that already exists. 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var app = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
-        ///         {
-        ///             Name = "my-app",
-        ///             Domain = "APM",
-        ///             Type = "APPLICATION",
-        ///             Tag = new NewRelic.Inputs.GetEntityTagArgs
-        ///             {
-        ///                 Key = "my-tag",
-        ///                 Value = "my-tag-value",
-        ///             },
-        ///         }));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new NewRelic.NrqlAlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Type = "static",
-        ///             Description = "Alert when transactions are taking too long",
-        ///             RunbookUrl = "https://www.example.com",
-        ///             Enabled = true,
-        ///             ValueFunction = "single_value",
-        ///             ViolationTimeLimitSeconds = 3600,
-        ///             Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-        ///             {
-        ///                 Query = app.Apply(app =&gt; $"SELECT average(duration) FROM Transaction where appName = '{app.Name}'"),
-        ///                 EvaluationOffset = 3,
-        ///             },
-        ///             Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
-        ///             {
-        ///                 Operator = "above",
-        ///                 Threshold = 5.5,
-        ///                 ThresholdDuration = 300,
-        ///                 ThresholdOccurrences = "ALL",
-        ///             },
-        ///         });
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithVersion());

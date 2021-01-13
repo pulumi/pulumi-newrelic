@@ -133,40 +133,6 @@ def get_entity(domain: Optional[str] = None,
     """
     Use this data source to get information about a specific entity in New Relic One that already exists.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    app = newrelic.get_entity(name="my-app",
-        domain="APM",
-        type="APPLICATION",
-        tag=newrelic.GetEntityTagArgs(
-            key="my-tag",
-            value="my-tag-value",
-        ))
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_nrql_alert_condition = newrelic.NrqlAlertCondition("fooNrqlAlertCondition",
-        policy_id=foo_alert_policy.id,
-        type="static",
-        description="Alert when transactions are taking too long",
-        runbook_url="https://www.example.com",
-        enabled=True,
-        value_function="single_value",
-        violation_time_limit_seconds=3600,
-        nrql=newrelic.NrqlAlertConditionNrqlArgs(
-            query=f"SELECT average(duration) FROM Transaction where appName = '{app.name}'",
-            evaluation_offset=3,
-        ),
-        critical=newrelic.NrqlAlertConditionCriticalArgs(
-            operator="above",
-            threshold=5.5,
-            threshold_duration=300,
-            threshold_occurrences="ALL",
-        ))
-    ```
-
 
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
