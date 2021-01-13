@@ -73,11 +73,11 @@ class SecureCredential(pulumi.CustomResource):
 
             __props__['created_at'] = created_at
             __props__['description'] = description
-            if key is None:
+            if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__['key'] = key
             __props__['last_updated'] = last_updated
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
         super(SecureCredential, __self__).__init__(

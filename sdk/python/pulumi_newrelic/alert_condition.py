@@ -158,22 +158,22 @@ class AlertCondition(pulumi.CustomResource):
 
             __props__['condition_scope'] = condition_scope
             __props__['enabled'] = enabled
-            if entities is None:
+            if entities is None and not opts.urn:
                 raise TypeError("Missing required property 'entities'")
             __props__['entities'] = entities
             __props__['gc_metric'] = gc_metric
-            if metric is None:
+            if metric is None and not opts.urn:
                 raise TypeError("Missing required property 'metric'")
             __props__['metric'] = metric
             __props__['name'] = name
-            if policy_id is None:
+            if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             __props__['runbook_url'] = runbook_url
-            if terms is None:
+            if terms is None and not opts.urn:
                 raise TypeError("Missing required property 'terms'")
             __props__['terms'] = terms
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['user_defined_metric'] = user_defined_metric

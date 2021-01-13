@@ -80,14 +80,15 @@ type ApiAccessKey struct {
 // NewApiAccessKey registers a new resource with the given unique name, arguments, and options.
 func NewApiAccessKey(ctx *pulumi.Context,
 	name string, args *ApiAccessKeyArgs, opts ...pulumi.ResourceOption) (*ApiAccessKey, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
-	if args == nil || args.KeyType == nil {
-		return nil, errors.New("missing required argument 'KeyType'")
-	}
 	if args == nil {
-		args = &ApiAccessKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountId == nil {
+		return nil, errors.New("invalid value for required argument 'AccountId'")
+	}
+	if args.KeyType == nil {
+		return nil, errors.New("invalid value for required argument 'KeyType'")
 	}
 	var resource ApiAccessKey
 	err := ctx.RegisterResource("newrelic:index/apiAccessKey:ApiAccessKey", name, args, &resource, opts...)

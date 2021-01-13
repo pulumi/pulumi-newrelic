@@ -67,11 +67,12 @@ type EventsToMetricsRule struct {
 // NewEventsToMetricsRule registers a new resource with the given unique name, arguments, and options.
 func NewEventsToMetricsRule(ctx *pulumi.Context,
 	name string, args *EventsToMetricsRuleArgs, opts ...pulumi.ResourceOption) (*EventsToMetricsRule, error) {
-	if args == nil || args.Nrql == nil {
-		return nil, errors.New("missing required argument 'Nrql'")
-	}
 	if args == nil {
-		args = &EventsToMetricsRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Nrql == nil {
+		return nil, errors.New("invalid value for required argument 'Nrql'")
 	}
 	var resource EventsToMetricsRule
 	err := ctx.RegisterResource("newrelic:index/eventsToMetricsRule:EventsToMetricsRule", name, args, &resource, opts...)

@@ -112,30 +112,30 @@ class AlertCondition(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled'] = enabled
-            if entities is None:
+            if entities is None and not opts.urn:
                 raise TypeError("Missing required property 'entities'")
             __props__['entities'] = entities
-            if metric is None:
+            if metric is None and not opts.urn:
                 raise TypeError("Missing required property 'metric'")
             __props__['metric'] = metric
-            if metric_description is None:
+            if metric_description is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_description'")
             __props__['metric_description'] = metric_description
             __props__['name'] = name
-            if plugin_guid is None:
+            if plugin_guid is None and not opts.urn:
                 raise TypeError("Missing required property 'plugin_guid'")
             __props__['plugin_guid'] = plugin_guid
-            if plugin_id is None:
+            if plugin_id is None and not opts.urn:
                 raise TypeError("Missing required property 'plugin_id'")
             __props__['plugin_id'] = plugin_id
-            if policy_id is None:
+            if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             __props__['runbook_url'] = runbook_url
-            if terms is None:
+            if terms is None and not opts.urn:
                 raise TypeError("Missing required property 'terms'")
             __props__['terms'] = terms
-            if value_function is None:
+            if value_function is None and not opts.urn:
                 raise TypeError("Missing required property 'value_function'")
             __props__['value_function'] = value_function
         super(AlertCondition, __self__).__init__(

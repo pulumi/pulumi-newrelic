@@ -157,14 +157,15 @@ type InfraAlertCondition struct {
 // NewInfraAlertCondition registers a new resource with the given unique name, arguments, and options.
 func NewInfraAlertCondition(ctx *pulumi.Context,
 	name string, args *InfraAlertConditionArgs, opts ...pulumi.ResourceOption) (*InfraAlertCondition, error) {
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &InfraAlertConditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource InfraAlertCondition
 	err := ctx.RegisterResource("newrelic:index/infraAlertCondition:InfraAlertCondition", name, args, &resource, opts...)

@@ -60,11 +60,11 @@ class AlertMutingRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['account_id'] = account_id
-            if condition is None:
+            if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")
             __props__['condition'] = condition
             __props__['description'] = description
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             __props__['name'] = name

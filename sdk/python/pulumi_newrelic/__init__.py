@@ -31,3 +31,71 @@ from . import (
     plugins,
     synthetics,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "newrelic:index/alertChannel:AlertChannel":
+                return AlertChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/alertCondition:AlertCondition":
+                return AlertCondition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/alertMutingRule:AlertMutingRule":
+                return AlertMutingRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/alertPolicy:AlertPolicy":
+                return AlertPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/alertPolicyChannel:AlertPolicyChannel":
+                return AlertPolicyChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/apiAccessKey:ApiAccessKey":
+                return ApiAccessKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/dashboard:Dashboard":
+                return Dashboard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/entityTags:EntityTags":
+                return EntityTags(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
+                return EventsToMetricsRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/infraAlertCondition:InfraAlertCondition":
+                return InfraAlertCondition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/nrqlAlertCondition:NrqlAlertCondition":
+                return NrqlAlertCondition(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("newrelic", "index/alertChannel", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/alertCondition", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/alertMutingRule", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/alertPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/alertPolicyChannel", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/apiAccessKey", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/dashboard", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/entityTags", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/eventsToMetricsRule", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/infraAlertCondition", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/nrqlAlertCondition", _module_instance)
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:newrelic":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("newrelic", Package())
+
+_register_module()

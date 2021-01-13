@@ -82,10 +82,10 @@ export class AlertMutingRule extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AlertMutingRuleArgs | undefined;
-            if (!args || args.condition === undefined) {
+            if ((!args || args.condition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'condition'");
             }
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

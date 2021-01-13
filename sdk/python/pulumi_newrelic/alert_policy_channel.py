@@ -88,10 +88,10 @@ class AlertPolicyChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if channel_ids is None:
+            if channel_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_ids'")
             __props__['channel_ids'] = channel_ids
-            if policy_id is None:
+            if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
         super(AlertPolicyChannel, __self__).__init__(

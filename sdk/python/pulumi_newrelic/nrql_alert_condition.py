@@ -157,27 +157,27 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['expiration_duration'] = expiration_duration
             __props__['fill_option'] = fill_option
             __props__['fill_value'] = fill_value
-            if ignore_overlap is not None:
+            if ignore_overlap is not None and not opts.urn:
                 warnings.warn("""use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""", DeprecationWarning)
                 pulumi.log.warn("ignore_overlap is deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true")
             __props__['ignore_overlap'] = ignore_overlap
             __props__['name'] = name
-            if nrql is None:
+            if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
             __props__['nrql'] = nrql
             __props__['open_violation_on_expiration'] = open_violation_on_expiration
             __props__['open_violation_on_group_overlap'] = open_violation_on_group_overlap
-            if policy_id is None:
+            if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__['policy_id'] = policy_id
             __props__['runbook_url'] = runbook_url
-            if terms is not None:
+            if terms is not None and not opts.urn:
                 warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
                 pulumi.log.warn("terms is deprecated: use `critical` and `warning` attributes instead")
             __props__['terms'] = terms
             __props__['type'] = type
             __props__['value_function'] = value_function
-            if violation_time_limit is not None:
+            if violation_time_limit is not None and not opts.urn:
                 warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
                 pulumi.log.warn("violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead")
             __props__['violation_time_limit'] = violation_time_limit

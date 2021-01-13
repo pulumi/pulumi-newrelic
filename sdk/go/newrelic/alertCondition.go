@@ -160,23 +160,24 @@ type AlertCondition struct {
 // NewAlertCondition registers a new resource with the given unique name, arguments, and options.
 func NewAlertCondition(ctx *pulumi.Context,
 	name string, args *AlertConditionArgs, opts ...pulumi.ResourceOption) (*AlertCondition, error) {
-	if args == nil || args.Entities == nil {
-		return nil, errors.New("missing required argument 'Entities'")
-	}
-	if args == nil || args.Metric == nil {
-		return nil, errors.New("missing required argument 'Metric'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.Terms == nil {
-		return nil, errors.New("missing required argument 'Terms'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &AlertConditionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Entities == nil {
+		return nil, errors.New("invalid value for required argument 'Entities'")
+	}
+	if args.Metric == nil {
+		return nil, errors.New("invalid value for required argument 'Metric'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
+	}
+	if args.Terms == nil {
+		return nil, errors.New("invalid value for required argument 'Terms'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource AlertCondition
 	err := ctx.RegisterResource("newrelic:index/alertCondition:AlertCondition", name, args, &resource, opts...)

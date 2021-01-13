@@ -77,13 +77,13 @@ class ApplicationSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_apdex_threshold is None:
+            if app_apdex_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'app_apdex_threshold'")
             __props__['app_apdex_threshold'] = app_apdex_threshold
-            if enable_real_user_monitoring is None:
+            if enable_real_user_monitoring is None and not opts.urn:
                 raise TypeError("Missing required property 'enable_real_user_monitoring'")
             __props__['enable_real_user_monitoring'] = enable_real_user_monitoring
-            if end_user_apdex_threshold is None:
+            if end_user_apdex_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'end_user_apdex_threshold'")
             __props__['end_user_apdex_threshold'] = end_user_apdex_threshold
             __props__['name'] = name

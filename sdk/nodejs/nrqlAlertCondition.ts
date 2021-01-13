@@ -232,10 +232,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["warning"] = state ? state.warning : undefined;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
-            if (!args || args.nrql === undefined) {
+            if ((!args || args.nrql === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nrql'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

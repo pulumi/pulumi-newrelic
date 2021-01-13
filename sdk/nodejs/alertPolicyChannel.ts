@@ -108,10 +108,10 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
             inputs["policyId"] = state ? state.policyId : undefined;
         } else {
             const args = argsOrState as AlertPolicyChannelArgs | undefined;
-            if (!args || args.channelIds === undefined) {
+            if ((!args || args.channelIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'channelIds'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["channelIds"] = args ? args.channelIds : undefined;

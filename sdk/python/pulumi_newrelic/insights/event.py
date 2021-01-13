@@ -88,7 +88,7 @@ class Event(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if events is None:
+            if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
             __props__['events'] = events
         super(Event, __self__).__init__(

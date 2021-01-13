@@ -69,10 +69,10 @@ class MonitorScript(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if monitor_id is None:
+            if monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_id'")
             __props__['monitor_id'] = monitor_id
-            if text is None:
+            if text is None and not opts.urn:
                 raise TypeError("Missing required property 'text'")
             __props__['text'] = text
         super(MonitorScript, __self__).__init__(

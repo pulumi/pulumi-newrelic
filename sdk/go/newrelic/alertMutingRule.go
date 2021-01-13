@@ -36,14 +36,15 @@ type AlertMutingRule struct {
 // NewAlertMutingRule registers a new resource with the given unique name, arguments, and options.
 func NewAlertMutingRule(ctx *pulumi.Context,
 	name string, args *AlertMutingRuleArgs, opts ...pulumi.ResourceOption) (*AlertMutingRule, error) {
-	if args == nil || args.Condition == nil {
-		return nil, errors.New("missing required argument 'Condition'")
-	}
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
 	if args == nil {
-		args = &AlertMutingRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Condition == nil {
+		return nil, errors.New("invalid value for required argument 'Condition'")
+	}
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
 	var resource AlertMutingRule
 	err := ctx.RegisterResource("newrelic:index/alertMutingRule:AlertMutingRule", name, args, &resource, opts...)
