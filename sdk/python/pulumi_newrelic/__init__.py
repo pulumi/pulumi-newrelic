@@ -20,6 +20,7 @@ from .get_entity import *
 from .get_key_transaction import *
 from .infra_alert_condition import *
 from .nrql_alert_condition import *
+from .one_dashboard import *
 from .provider import *
 from ._inputs import *
 from . import outputs
@@ -66,6 +67,8 @@ def _register_module():
                 return InfraAlertCondition(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "newrelic:index/nrqlAlertCondition:NrqlAlertCondition":
                 return NrqlAlertCondition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/oneDashboard:OneDashboard":
+                return OneDashboard(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -82,6 +85,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("newrelic", "index/eventsToMetricsRule", _module_instance)
     pulumi.runtime.register_resource_module("newrelic", "index/infraAlertCondition", _module_instance)
     pulumi.runtime.register_resource_module("newrelic", "index/nrqlAlertCondition", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/oneDashboard", _module_instance)
 
 
     class Package(pulumi.runtime.ResourcePackage):
