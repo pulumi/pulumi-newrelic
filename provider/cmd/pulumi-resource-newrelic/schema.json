@@ -1068,6 +1068,917 @@
                 "threshold"
             ]
         },
+        "newrelic:index/OneDashboardPage:OneDashboardPage": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Brief text describing the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "guid": {
+                    "type": "string",
+                    "description": "The unique entity identifier of the dashboard page in New Relic.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetAreas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetArea:OneDashboardPageWidgetArea"
+                    },
+                    "description": "(Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetBars": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBar:OneDashboardPageWidgetBar"
+                    },
+                    "description": "(Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetBillboards": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboard:OneDashboardPageWidgetBillboard"
+                    },
+                    "description": "(Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetLines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLine:OneDashboardPageWidgetLine"
+                    },
+                    "description": "(Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetMarkdowns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetMarkdown:OneDashboardPageWidgetMarkdown"
+                    },
+                    "description": "(Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetPies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPy:OneDashboardPageWidgetPy"
+                    },
+                    "description": "(Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "widgetTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTable:OneDashboardPageWidgetTable"
+                    },
+                    "description": "(Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "guid",
+                        "name"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetArea:OneDashboardPageWidgetArea": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaQuery:OneDashboardPageWidgetAreaQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "queries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "queries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetAreaQuery:OneDashboardPageWidgetAreaQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "nrql"
+            ]
+        },
+        "newrelic:index/OneDashboardPageWidgetBar:OneDashboardPageWidgetBar": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarQuery:OneDashboardPageWidgetBarQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "queries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "queries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetBarQuery:OneDashboardPageWidgetBarQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "nrql"
+            ]
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboard:OneDashboardPageWidgetBillboard": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "critical": {
+                    "type": "number",
+                    "description": "(Optional) Threshold above which the displayed value will be styled with a red color.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardQuery:OneDashboardPageWidgetBillboardQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "warning": {
+                    "type": "number",
+                    "description": "(Optional) Threshold above which the displayed value will be styled with a yellow color.\n* `widget_markdown`:\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "queries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "queries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetBillboardQuery:OneDashboardPageWidgetBillboardQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "nrql"
+            ]
+        },
+        "newrelic:index/OneDashboardPageWidgetLine:OneDashboardPageWidgetLine": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineQuery:OneDashboardPageWidgetLineQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "queries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "queries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetLineQuery:OneDashboardPageWidgetLineQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "nrql"
+            ]
+        },
+        "newrelic:index/OneDashboardPageWidgetMarkdown:OneDashboardPageWidgetMarkdown": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "text": {
+                    "type": "string",
+                    "description": "(Required) The markdown source to be rendered in the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetPy:OneDashboardPageWidgetPy": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyQuery:OneDashboardPageWidgetPyQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "queries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "queries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetPyQuery:OneDashboardPageWidgetPyQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "nrql"
+            ]
+        },
+        "newrelic:index/OneDashboardPageWidgetTable:OneDashboardPageWidgetTable": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableQuery:OneDashboardPageWidgetTableQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "queries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "queries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetTableQuery:OneDashboardPageWidgetTableQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrql": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "nrql"
+            ]
+        },
         "newrelic:index/getAlertChannelConfig:getAlertChannelConfig": {
             "properties": {
                 "apiKey": {
@@ -2873,6 +3784,114 @@
                     "warning": {
                         "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
                         "description": "A list containing the `warning` threshold values. See Terms below for details.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "newrelic:index/oneDashboard:OneDashboard": {
+            "description": "**NOTE:** This feature is currently in **CLOSED BETA**, and will **NOT WORK** for most New Relic customers and is subject to **BREAKING CHANGES**.\n\nUse this resource to create and manage New Relic One dashboards.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}\n## Additional Examples\n\n\n## Import\n\nNew Relic dashboards can be imported using their GUID, e.g.\n\n```sh\n $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard \u003cDashboard GUID\u003e\n```\n\n ",
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Brief text describing the dashboard.\n"
+                },
+                "guid": {
+                    "type": "string",
+                    "description": "The unique entity identifier of the dashboard page in New Relic.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "pages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPage:OneDashboardPage"
+                    },
+                    "description": "A nested block that describes a page. See Nested page blocks below for details.\n"
+                },
+                "permalink": {
+                    "type": "string",
+                    "description": "The URL for viewing the dashboard.\n"
+                },
+                "permissions": {
+                    "type": "string",
+                    "description": "Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "guid",
+                "name",
+                "pages",
+                "permalink"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Brief text describing the dashboard.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the dashboard.\n"
+                },
+                "pages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPage:OneDashboardPage"
+                    },
+                    "description": "A nested block that describes a page. See Nested page blocks below for details.\n"
+                },
+                "permissions": {
+                    "type": "string",
+                    "description": "Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.\n"
+                }
+            },
+            "requiredInputs": [
+                "pages"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OneDashboard resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "integer",
+                        "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Brief text describing the dashboard.\n"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "The unique entity identifier of the dashboard page in New Relic.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The title of the dashboard.\n"
+                    },
+                    "pages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/newrelic:index/OneDashboardPage:OneDashboardPage"
+                        },
+                        "description": "A nested block that describes a page. See Nested page blocks below for details.\n"
+                    },
+                    "permalink": {
+                        "type": "string",
+                        "description": "The URL for viewing the dashboard.\n"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "description": "Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.\n"
                     }
                 },
                 "type": "object"

@@ -22,6 +22,7 @@ export * from "./getEntity";
 export * from "./getKeyTransaction";
 export * from "./infraAlertCondition";
 export * from "./nrqlAlertCondition";
+export * from "./oneDashboard";
 export * from "./provider";
 
 // Export sub-modules:
@@ -51,6 +52,7 @@ import { EntityTags } from "./entityTags";
 import { EventsToMetricsRule } from "./eventsToMetricsRule";
 import { InfraAlertCondition } from "./infraAlertCondition";
 import { NrqlAlertCondition } from "./nrqlAlertCondition";
+import { OneDashboard } from "./oneDashboard";
 
 const _module = {
     version: utilities.getVersion(),
@@ -78,6 +80,8 @@ const _module = {
                 return new InfraAlertCondition(name, <any>undefined, { urn })
             case "newrelic:index/nrqlAlertCondition:NrqlAlertCondition":
                 return new NrqlAlertCondition(name, <any>undefined, { urn })
+            case "newrelic:index/oneDashboard:OneDashboard":
+                return new OneDashboard(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -94,6 +98,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 
 import { Provider } from "./provider";
 

@@ -2781,6 +2781,1877 @@ func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type OneDashboardPage struct {
+	// Brief text describing the dashboard.
+	Description *string `pulumi:"description"`
+	// The unique entity identifier of the dashboard page in New Relic.
+	Guid *string `pulumi:"guid"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
+	WidgetAreas []OneDashboardPageWidgetArea `pulumi:"widgetAreas"`
+	// (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
+	WidgetBars []OneDashboardPageWidgetBar `pulumi:"widgetBars"`
+	// (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
+	WidgetBillboards []OneDashboardPageWidgetBillboard `pulumi:"widgetBillboards"`
+	// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
+	WidgetLines []OneDashboardPageWidgetLine `pulumi:"widgetLines"`
+	// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
+	WidgetMarkdowns []OneDashboardPageWidgetMarkdown `pulumi:"widgetMarkdowns"`
+	// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
+	WidgetPies []OneDashboardPageWidgetPy `pulumi:"widgetPies"`
+	// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
+	WidgetTables []OneDashboardPageWidgetTable `pulumi:"widgetTables"`
+}
+
+// OneDashboardPageInput is an input type that accepts OneDashboardPageArgs and OneDashboardPageOutput values.
+// You can construct a concrete instance of `OneDashboardPageInput` via:
+//
+//          OneDashboardPageArgs{...}
+type OneDashboardPageInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageOutput() OneDashboardPageOutput
+	ToOneDashboardPageOutputWithContext(context.Context) OneDashboardPageOutput
+}
+
+type OneDashboardPageArgs struct {
+	// Brief text describing the dashboard.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The unique entity identifier of the dashboard page in New Relic.
+	Guid pulumi.StringPtrInput `pulumi:"guid"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
+	WidgetAreas OneDashboardPageWidgetAreaArrayInput `pulumi:"widgetAreas"`
+	// (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
+	WidgetBars OneDashboardPageWidgetBarArrayInput `pulumi:"widgetBars"`
+	// (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
+	WidgetBillboards OneDashboardPageWidgetBillboardArrayInput `pulumi:"widgetBillboards"`
+	// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
+	WidgetLines OneDashboardPageWidgetLineArrayInput `pulumi:"widgetLines"`
+	// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
+	WidgetMarkdowns OneDashboardPageWidgetMarkdownArrayInput `pulumi:"widgetMarkdowns"`
+	// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
+	WidgetPies OneDashboardPageWidgetPyArrayInput `pulumi:"widgetPies"`
+	// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
+	WidgetTables OneDashboardPageWidgetTableArrayInput `pulumi:"widgetTables"`
+}
+
+func (OneDashboardPageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPage)(nil)).Elem()
+}
+
+func (i OneDashboardPageArgs) ToOneDashboardPageOutput() OneDashboardPageOutput {
+	return i.ToOneDashboardPageOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageArgs) ToOneDashboardPageOutputWithContext(ctx context.Context) OneDashboardPageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageOutput)
+}
+
+// OneDashboardPageArrayInput is an input type that accepts OneDashboardPageArray and OneDashboardPageArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageArrayInput` via:
+//
+//          OneDashboardPageArray{ OneDashboardPageArgs{...} }
+type OneDashboardPageArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageArrayOutput() OneDashboardPageArrayOutput
+	ToOneDashboardPageArrayOutputWithContext(context.Context) OneDashboardPageArrayOutput
+}
+
+type OneDashboardPageArray []OneDashboardPageInput
+
+func (OneDashboardPageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPage)(nil)).Elem()
+}
+
+func (i OneDashboardPageArray) ToOneDashboardPageArrayOutput() OneDashboardPageArrayOutput {
+	return i.ToOneDashboardPageArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageArray) ToOneDashboardPageArrayOutputWithContext(ctx context.Context) OneDashboardPageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageArrayOutput)
+}
+
+type OneDashboardPageOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPage)(nil)).Elem()
+}
+
+func (o OneDashboardPageOutput) ToOneDashboardPageOutput() OneDashboardPageOutput {
+	return o
+}
+
+func (o OneDashboardPageOutput) ToOneDashboardPageOutputWithContext(ctx context.Context) OneDashboardPageOutput {
+	return o
+}
+
+// Brief text describing the dashboard.
+func (o OneDashboardPageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPage) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The unique entity identifier of the dashboard page in New Relic.
+func (o OneDashboardPageOutput) Guid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPage) *string { return v.Guid }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardPageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetAreas() OneDashboardPageWidgetAreaArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetArea { return v.WidgetAreas }).(OneDashboardPageWidgetAreaArrayOutput)
+}
+
+// (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetBars() OneDashboardPageWidgetBarArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBar { return v.WidgetBars }).(OneDashboardPageWidgetBarArrayOutput)
+}
+
+// (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetBillboards() OneDashboardPageWidgetBillboardArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetBillboard { return v.WidgetBillboards }).(OneDashboardPageWidgetBillboardArrayOutput)
+}
+
+// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetLines() OneDashboardPageWidgetLineArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetLine { return v.WidgetLines }).(OneDashboardPageWidgetLineArrayOutput)
+}
+
+// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetMarkdowns() OneDashboardPageWidgetMarkdownArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetMarkdown { return v.WidgetMarkdowns }).(OneDashboardPageWidgetMarkdownArrayOutput)
+}
+
+// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetPies() OneDashboardPageWidgetPyArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetPy { return v.WidgetPies }).(OneDashboardPageWidgetPyArrayOutput)
+}
+
+// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetTables() OneDashboardPageWidgetTableArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetTable { return v.WidgetTables }).(OneDashboardPageWidgetTableArrayOutput)
+}
+
+type OneDashboardPageArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPage)(nil)).Elem()
+}
+
+func (o OneDashboardPageArrayOutput) ToOneDashboardPageArrayOutput() OneDashboardPageArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageArrayOutput) ToOneDashboardPageArrayOutputWithContext(ctx context.Context) OneDashboardPageArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageArrayOutput) Index(i pulumi.IntInput) OneDashboardPageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPage {
+		return vs[0].([]OneDashboardPage)[vs[1].(int)]
+	}).(OneDashboardPageOutput)
+}
+
+type OneDashboardPageWidgetArea struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries []OneDashboardPageWidgetAreaQuery `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetAreaInput is an input type that accepts OneDashboardPageWidgetAreaArgs and OneDashboardPageWidgetAreaOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaInput` via:
+//
+//          OneDashboardPageWidgetAreaArgs{...}
+type OneDashboardPageWidgetAreaInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaOutput() OneDashboardPageWidgetAreaOutput
+	ToOneDashboardPageWidgetAreaOutputWithContext(context.Context) OneDashboardPageWidgetAreaOutput
+}
+
+type OneDashboardPageWidgetAreaArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries OneDashboardPageWidgetAreaQueryArrayInput `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetAreaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetArea)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaArgs) ToOneDashboardPageWidgetAreaOutput() OneDashboardPageWidgetAreaOutput {
+	return i.ToOneDashboardPageWidgetAreaOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaArgs) ToOneDashboardPageWidgetAreaOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaOutput)
+}
+
+// OneDashboardPageWidgetAreaArrayInput is an input type that accepts OneDashboardPageWidgetAreaArray and OneDashboardPageWidgetAreaArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaArrayInput` via:
+//
+//          OneDashboardPageWidgetAreaArray{ OneDashboardPageWidgetAreaArgs{...} }
+type OneDashboardPageWidgetAreaArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaArrayOutput() OneDashboardPageWidgetAreaArrayOutput
+	ToOneDashboardPageWidgetAreaArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaArrayOutput
+}
+
+type OneDashboardPageWidgetAreaArray []OneDashboardPageWidgetAreaInput
+
+func (OneDashboardPageWidgetAreaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetArea)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaArray) ToOneDashboardPageWidgetAreaArrayOutput() OneDashboardPageWidgetAreaArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaArray) ToOneDashboardPageWidgetAreaArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetArea)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutput() OneDashboardPageWidgetAreaOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetAreaOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetAreaOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetAreaOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) Queries() OneDashboardPageWidgetAreaQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaQuery { return v.Queries }).(OneDashboardPageWidgetAreaQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetAreaOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetAreaOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetAreaOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetArea)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaArrayOutput) ToOneDashboardPageWidgetAreaArrayOutput() OneDashboardPageWidgetAreaArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaArrayOutput) ToOneDashboardPageWidgetAreaArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetArea {
+		return vs[0].([]OneDashboardPageWidgetArea)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaOutput)
+}
+
+type OneDashboardPageWidgetAreaQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql string `pulumi:"nrql"`
+}
+
+// OneDashboardPageWidgetAreaQueryInput is an input type that accepts OneDashboardPageWidgetAreaQueryArgs and OneDashboardPageWidgetAreaQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaQueryInput` via:
+//
+//          OneDashboardPageWidgetAreaQueryArgs{...}
+type OneDashboardPageWidgetAreaQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaQueryOutput() OneDashboardPageWidgetAreaQueryOutput
+	ToOneDashboardPageWidgetAreaQueryOutputWithContext(context.Context) OneDashboardPageWidgetAreaQueryOutput
+}
+
+type OneDashboardPageWidgetAreaQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql pulumi.StringInput `pulumi:"nrql"`
+}
+
+func (OneDashboardPageWidgetAreaQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaQueryArgs) ToOneDashboardPageWidgetAreaQueryOutput() OneDashboardPageWidgetAreaQueryOutput {
+	return i.ToOneDashboardPageWidgetAreaQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaQueryArgs) ToOneDashboardPageWidgetAreaQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaQueryOutput)
+}
+
+// OneDashboardPageWidgetAreaQueryArrayInput is an input type that accepts OneDashboardPageWidgetAreaQueryArray and OneDashboardPageWidgetAreaQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetAreaQueryArray{ OneDashboardPageWidgetAreaQueryArgs{...} }
+type OneDashboardPageWidgetAreaQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaQueryArrayOutput() OneDashboardPageWidgetAreaQueryArrayOutput
+	ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaQueryArrayOutput
+}
+
+type OneDashboardPageWidgetAreaQueryArray []OneDashboardPageWidgetAreaQueryInput
+
+func (OneDashboardPageWidgetAreaQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaQueryArray) ToOneDashboardPageWidgetAreaQueryArrayOutput() OneDashboardPageWidgetAreaQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaQueryArray) ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaQueryOutput) ToOneDashboardPageWidgetAreaQueryOutput() OneDashboardPageWidgetAreaQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaQueryOutput) ToOneDashboardPageWidgetAreaQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetAreaQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaQuery) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetAreaQueryOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaQuery) string { return v.Nrql }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetAreaQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaQueryArrayOutput) ToOneDashboardPageWidgetAreaQueryArrayOutput() OneDashboardPageWidgetAreaQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaQueryArrayOutput) ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaQuery {
+		return vs[0].([]OneDashboardPageWidgetAreaQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaQueryOutput)
+}
+
+type OneDashboardPageWidgetBar struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries []OneDashboardPageWidgetBarQuery `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetBarInput is an input type that accepts OneDashboardPageWidgetBarArgs and OneDashboardPageWidgetBarOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarInput` via:
+//
+//          OneDashboardPageWidgetBarArgs{...}
+type OneDashboardPageWidgetBarInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarOutput() OneDashboardPageWidgetBarOutput
+	ToOneDashboardPageWidgetBarOutputWithContext(context.Context) OneDashboardPageWidgetBarOutput
+}
+
+type OneDashboardPageWidgetBarArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries OneDashboardPageWidgetBarQueryArrayInput `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetBarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBar)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarArgs) ToOneDashboardPageWidgetBarOutput() OneDashboardPageWidgetBarOutput {
+	return i.ToOneDashboardPageWidgetBarOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarArgs) ToOneDashboardPageWidgetBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarOutput)
+}
+
+// OneDashboardPageWidgetBarArrayInput is an input type that accepts OneDashboardPageWidgetBarArray and OneDashboardPageWidgetBarArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarArrayInput` via:
+//
+//          OneDashboardPageWidgetBarArray{ OneDashboardPageWidgetBarArgs{...} }
+type OneDashboardPageWidgetBarArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarArrayOutput() OneDashboardPageWidgetBarArrayOutput
+	ToOneDashboardPageWidgetBarArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarArrayOutput
+}
+
+type OneDashboardPageWidgetBarArray []OneDashboardPageWidgetBarInput
+
+func (OneDashboardPageWidgetBarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBar)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarArray) ToOneDashboardPageWidgetBarArrayOutput() OneDashboardPageWidgetBarArrayOutput {
+	return i.ToOneDashboardPageWidgetBarArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarArray) ToOneDashboardPageWidgetBarArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarArrayOutput)
+}
+
+type OneDashboardPageWidgetBarOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBar)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutput() OneDashboardPageWidgetBarOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetBarOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetBarOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBarOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) Queries() OneDashboardPageWidgetBarQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarQuery { return v.Queries }).(OneDashboardPageWidgetBarQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetBarOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetBarOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetBarOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetBarArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBar)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarArrayOutput) ToOneDashboardPageWidgetBarArrayOutput() OneDashboardPageWidgetBarArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarArrayOutput) ToOneDashboardPageWidgetBarArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBar {
+		return vs[0].([]OneDashboardPageWidgetBar)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarOutput)
+}
+
+type OneDashboardPageWidgetBarQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql string `pulumi:"nrql"`
+}
+
+// OneDashboardPageWidgetBarQueryInput is an input type that accepts OneDashboardPageWidgetBarQueryArgs and OneDashboardPageWidgetBarQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarQueryInput` via:
+//
+//          OneDashboardPageWidgetBarQueryArgs{...}
+type OneDashboardPageWidgetBarQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarQueryOutput() OneDashboardPageWidgetBarQueryOutput
+	ToOneDashboardPageWidgetBarQueryOutputWithContext(context.Context) OneDashboardPageWidgetBarQueryOutput
+}
+
+type OneDashboardPageWidgetBarQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql pulumi.StringInput `pulumi:"nrql"`
+}
+
+func (OneDashboardPageWidgetBarQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarQueryArgs) ToOneDashboardPageWidgetBarQueryOutput() OneDashboardPageWidgetBarQueryOutput {
+	return i.ToOneDashboardPageWidgetBarQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarQueryArgs) ToOneDashboardPageWidgetBarQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarQueryOutput)
+}
+
+// OneDashboardPageWidgetBarQueryArrayInput is an input type that accepts OneDashboardPageWidgetBarQueryArray and OneDashboardPageWidgetBarQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetBarQueryArray{ OneDashboardPageWidgetBarQueryArgs{...} }
+type OneDashboardPageWidgetBarQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarQueryArrayOutput() OneDashboardPageWidgetBarQueryArrayOutput
+	ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarQueryArrayOutput
+}
+
+type OneDashboardPageWidgetBarQueryArray []OneDashboardPageWidgetBarQueryInput
+
+func (OneDashboardPageWidgetBarQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarQueryArray) ToOneDashboardPageWidgetBarQueryArrayOutput() OneDashboardPageWidgetBarQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarQueryArray) ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetBarQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarQueryOutput) ToOneDashboardPageWidgetBarQueryOutput() OneDashboardPageWidgetBarQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarQueryOutput) ToOneDashboardPageWidgetBarQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetBarQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarQuery) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetBarQueryOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarQuery) string { return v.Nrql }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBarQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarQueryArrayOutput) ToOneDashboardPageWidgetBarQueryArrayOutput() OneDashboardPageWidgetBarQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarQueryArrayOutput) ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarQuery {
+		return vs[0].([]OneDashboardPageWidgetBarQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarQueryOutput)
+}
+
+type OneDashboardPageWidgetBillboard struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Threshold above which the displayed value will be styled with a red color.
+	Critical *float64 `pulumi:"critical"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries []OneDashboardPageWidgetBillboardQuery `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+	// * `widgetMarkdown`:
+	Warning *float64 `pulumi:"warning"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetBillboardInput is an input type that accepts OneDashboardPageWidgetBillboardArgs and OneDashboardPageWidgetBillboardOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardInput` via:
+//
+//          OneDashboardPageWidgetBillboardArgs{...}
+type OneDashboardPageWidgetBillboardInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardOutput() OneDashboardPageWidgetBillboardOutput
+	ToOneDashboardPageWidgetBillboardOutputWithContext(context.Context) OneDashboardPageWidgetBillboardOutput
+}
+
+type OneDashboardPageWidgetBillboardArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Threshold above which the displayed value will be styled with a red color.
+	Critical pulumi.Float64PtrInput `pulumi:"critical"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries OneDashboardPageWidgetBillboardQueryArrayInput `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+	// * `widgetMarkdown`:
+	Warning pulumi.Float64PtrInput `pulumi:"warning"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetBillboardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboard)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardArgs) ToOneDashboardPageWidgetBillboardOutput() OneDashboardPageWidgetBillboardOutput {
+	return i.ToOneDashboardPageWidgetBillboardOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardArgs) ToOneDashboardPageWidgetBillboardOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardOutput)
+}
+
+// OneDashboardPageWidgetBillboardArrayInput is an input type that accepts OneDashboardPageWidgetBillboardArray and OneDashboardPageWidgetBillboardArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardArrayInput` via:
+//
+//          OneDashboardPageWidgetBillboardArray{ OneDashboardPageWidgetBillboardArgs{...} }
+type OneDashboardPageWidgetBillboardArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardArrayOutput() OneDashboardPageWidgetBillboardArrayOutput
+	ToOneDashboardPageWidgetBillboardArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardArray []OneDashboardPageWidgetBillboardInput
+
+func (OneDashboardPageWidgetBillboardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboard)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardArray) ToOneDashboardPageWidgetBillboardArrayOutput() OneDashboardPageWidgetBillboardArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardArray) ToOneDashboardPageWidgetBillboardArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboard)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboardOutput() OneDashboardPageWidgetBillboardOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboardOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetBillboardOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Threshold above which the displayed value will be styled with a red color.
+func (o OneDashboardPageWidgetBillboardOutput) Critical() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *float64 { return v.Critical }).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetBillboardOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBillboardOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) Queries() OneDashboardPageWidgetBillboardQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardQuery { return v.Queries }).(OneDashboardPageWidgetBillboardQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetBillboardOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetBillboardOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Threshold above which the displayed value will be styled with a yellow color.
+// * `widgetMarkdown`:
+func (o OneDashboardPageWidgetBillboardOutput) Warning() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *float64 { return v.Warning }).(pulumi.Float64PtrOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetBillboardOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboard)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardArrayOutput) ToOneDashboardPageWidgetBillboardArrayOutput() OneDashboardPageWidgetBillboardArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardArrayOutput) ToOneDashboardPageWidgetBillboardArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboard {
+		return vs[0].([]OneDashboardPageWidgetBillboard)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardOutput)
+}
+
+type OneDashboardPageWidgetBillboardQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql string `pulumi:"nrql"`
+}
+
+// OneDashboardPageWidgetBillboardQueryInput is an input type that accepts OneDashboardPageWidgetBillboardQueryArgs and OneDashboardPageWidgetBillboardQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardQueryInput` via:
+//
+//          OneDashboardPageWidgetBillboardQueryArgs{...}
+type OneDashboardPageWidgetBillboardQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardQueryOutput() OneDashboardPageWidgetBillboardQueryOutput
+	ToOneDashboardPageWidgetBillboardQueryOutputWithContext(context.Context) OneDashboardPageWidgetBillboardQueryOutput
+}
+
+type OneDashboardPageWidgetBillboardQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql pulumi.StringInput `pulumi:"nrql"`
+}
+
+func (OneDashboardPageWidgetBillboardQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardQueryArgs) ToOneDashboardPageWidgetBillboardQueryOutput() OneDashboardPageWidgetBillboardQueryOutput {
+	return i.ToOneDashboardPageWidgetBillboardQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardQueryArgs) ToOneDashboardPageWidgetBillboardQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardQueryOutput)
+}
+
+// OneDashboardPageWidgetBillboardQueryArrayInput is an input type that accepts OneDashboardPageWidgetBillboardQueryArray and OneDashboardPageWidgetBillboardQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetBillboardQueryArray{ OneDashboardPageWidgetBillboardQueryArgs{...} }
+type OneDashboardPageWidgetBillboardQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardQueryArrayOutput() OneDashboardPageWidgetBillboardQueryArrayOutput
+	ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardQueryArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardQueryArray []OneDashboardPageWidgetBillboardQueryInput
+
+func (OneDashboardPageWidgetBillboardQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardQueryArray) ToOneDashboardPageWidgetBillboardQueryArrayOutput() OneDashboardPageWidgetBillboardQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardQueryArray) ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardQueryOutput) ToOneDashboardPageWidgetBillboardQueryOutput() OneDashboardPageWidgetBillboardQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardQueryOutput) ToOneDashboardPageWidgetBillboardQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetBillboardQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardQuery) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetBillboardQueryOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardQuery) string { return v.Nrql }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetBillboardQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardQueryArrayOutput) ToOneDashboardPageWidgetBillboardQueryArrayOutput() OneDashboardPageWidgetBillboardQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardQueryArrayOutput) ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardQuery {
+		return vs[0].([]OneDashboardPageWidgetBillboardQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardQueryOutput)
+}
+
+type OneDashboardPageWidgetLine struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries []OneDashboardPageWidgetLineQuery `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetLineInput is an input type that accepts OneDashboardPageWidgetLineArgs and OneDashboardPageWidgetLineOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineInput` via:
+//
+//          OneDashboardPageWidgetLineArgs{...}
+type OneDashboardPageWidgetLineInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineOutput() OneDashboardPageWidgetLineOutput
+	ToOneDashboardPageWidgetLineOutputWithContext(context.Context) OneDashboardPageWidgetLineOutput
+}
+
+type OneDashboardPageWidgetLineArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries OneDashboardPageWidgetLineQueryArrayInput `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetLineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLine)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineArgs) ToOneDashboardPageWidgetLineOutput() OneDashboardPageWidgetLineOutput {
+	return i.ToOneDashboardPageWidgetLineOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineArgs) ToOneDashboardPageWidgetLineOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineOutput)
+}
+
+// OneDashboardPageWidgetLineArrayInput is an input type that accepts OneDashboardPageWidgetLineArray and OneDashboardPageWidgetLineArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineArrayInput` via:
+//
+//          OneDashboardPageWidgetLineArray{ OneDashboardPageWidgetLineArgs{...} }
+type OneDashboardPageWidgetLineArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineArrayOutput() OneDashboardPageWidgetLineArrayOutput
+	ToOneDashboardPageWidgetLineArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineArrayOutput
+}
+
+type OneDashboardPageWidgetLineArray []OneDashboardPageWidgetLineInput
+
+func (OneDashboardPageWidgetLineArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLine)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineArray) ToOneDashboardPageWidgetLineArrayOutput() OneDashboardPageWidgetLineArrayOutput {
+	return i.ToOneDashboardPageWidgetLineArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineArray) ToOneDashboardPageWidgetLineArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineArrayOutput)
+}
+
+type OneDashboardPageWidgetLineOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLine)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutput() OneDashboardPageWidgetLineOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetLineOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetLineOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) Queries() OneDashboardPageWidgetLineQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineQuery { return v.Queries }).(OneDashboardPageWidgetLineQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetLineOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetLineOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetLineOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetLineArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLine)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineArrayOutput) ToOneDashboardPageWidgetLineArrayOutput() OneDashboardPageWidgetLineArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineArrayOutput) ToOneDashboardPageWidgetLineArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLine {
+		return vs[0].([]OneDashboardPageWidgetLine)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineOutput)
+}
+
+type OneDashboardPageWidgetLineQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql string `pulumi:"nrql"`
+}
+
+// OneDashboardPageWidgetLineQueryInput is an input type that accepts OneDashboardPageWidgetLineQueryArgs and OneDashboardPageWidgetLineQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineQueryInput` via:
+//
+//          OneDashboardPageWidgetLineQueryArgs{...}
+type OneDashboardPageWidgetLineQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineQueryOutput() OneDashboardPageWidgetLineQueryOutput
+	ToOneDashboardPageWidgetLineQueryOutputWithContext(context.Context) OneDashboardPageWidgetLineQueryOutput
+}
+
+type OneDashboardPageWidgetLineQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql pulumi.StringInput `pulumi:"nrql"`
+}
+
+func (OneDashboardPageWidgetLineQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineQueryArgs) ToOneDashboardPageWidgetLineQueryOutput() OneDashboardPageWidgetLineQueryOutput {
+	return i.ToOneDashboardPageWidgetLineQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineQueryArgs) ToOneDashboardPageWidgetLineQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineQueryOutput)
+}
+
+// OneDashboardPageWidgetLineQueryArrayInput is an input type that accepts OneDashboardPageWidgetLineQueryArray and OneDashboardPageWidgetLineQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetLineQueryArray{ OneDashboardPageWidgetLineQueryArgs{...} }
+type OneDashboardPageWidgetLineQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineQueryArrayOutput() OneDashboardPageWidgetLineQueryArrayOutput
+	ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineQueryArrayOutput
+}
+
+type OneDashboardPageWidgetLineQueryArray []OneDashboardPageWidgetLineQueryInput
+
+func (OneDashboardPageWidgetLineQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineQueryArray) ToOneDashboardPageWidgetLineQueryArrayOutput() OneDashboardPageWidgetLineQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineQueryArray) ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetLineQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineQueryOutput) ToOneDashboardPageWidgetLineQueryOutput() OneDashboardPageWidgetLineQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineQueryOutput) ToOneDashboardPageWidgetLineQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetLineQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineQuery) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetLineQueryOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineQuery) string { return v.Nrql }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLineQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineQueryArrayOutput) ToOneDashboardPageWidgetLineQueryArrayOutput() OneDashboardPageWidgetLineQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineQueryArrayOutput) ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineQuery {
+		return vs[0].([]OneDashboardPageWidgetLineQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineQueryOutput)
+}
+
+type OneDashboardPageWidgetMarkdown struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) The markdown source to be rendered in the widget.
+	Text *string `pulumi:"text"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetMarkdownInput is an input type that accepts OneDashboardPageWidgetMarkdownArgs and OneDashboardPageWidgetMarkdownOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownInput` via:
+//
+//          OneDashboardPageWidgetMarkdownArgs{...}
+type OneDashboardPageWidgetMarkdownInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownOutput() OneDashboardPageWidgetMarkdownOutput
+	ToOneDashboardPageWidgetMarkdownOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownOutput
+}
+
+type OneDashboardPageWidgetMarkdownArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) The markdown source to be rendered in the widget.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetMarkdownArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdown)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownArgs) ToOneDashboardPageWidgetMarkdownOutput() OneDashboardPageWidgetMarkdownOutput {
+	return i.ToOneDashboardPageWidgetMarkdownOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownArgs) ToOneDashboardPageWidgetMarkdownOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownOutput)
+}
+
+// OneDashboardPageWidgetMarkdownArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownArray and OneDashboardPageWidgetMarkdownArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownArrayInput` via:
+//
+//          OneDashboardPageWidgetMarkdownArray{ OneDashboardPageWidgetMarkdownArgs{...} }
+type OneDashboardPageWidgetMarkdownArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownArrayOutput() OneDashboardPageWidgetMarkdownArrayOutput
+	ToOneDashboardPageWidgetMarkdownArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownArray []OneDashboardPageWidgetMarkdownInput
+
+func (OneDashboardPageWidgetMarkdownArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdown)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownArray) ToOneDashboardPageWidgetMarkdownArrayOutput() OneDashboardPageWidgetMarkdownArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownArray) ToOneDashboardPageWidgetMarkdownArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdown)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOutput() OneDashboardPageWidgetMarkdownOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetMarkdownOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetMarkdownOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetMarkdownOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetMarkdownOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) The markdown source to be rendered in the widget.
+func (o OneDashboardPageWidgetMarkdownOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetMarkdownOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetMarkdownOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdown)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownArrayOutput) ToOneDashboardPageWidgetMarkdownArrayOutput() OneDashboardPageWidgetMarkdownArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownArrayOutput) ToOneDashboardPageWidgetMarkdownArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdown {
+		return vs[0].([]OneDashboardPageWidgetMarkdown)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownOutput)
+}
+
+type OneDashboardPageWidgetPy struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries []OneDashboardPageWidgetPyQuery `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetPyInput is an input type that accepts OneDashboardPageWidgetPyArgs and OneDashboardPageWidgetPyOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyInput` via:
+//
+//          OneDashboardPageWidgetPyArgs{...}
+type OneDashboardPageWidgetPyInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyOutput() OneDashboardPageWidgetPyOutput
+	ToOneDashboardPageWidgetPyOutputWithContext(context.Context) OneDashboardPageWidgetPyOutput
+}
+
+type OneDashboardPageWidgetPyArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries OneDashboardPageWidgetPyQueryArrayInput `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetPyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPy)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyArgs) ToOneDashboardPageWidgetPyOutput() OneDashboardPageWidgetPyOutput {
+	return i.ToOneDashboardPageWidgetPyOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyArgs) ToOneDashboardPageWidgetPyOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyOutput)
+}
+
+// OneDashboardPageWidgetPyArrayInput is an input type that accepts OneDashboardPageWidgetPyArray and OneDashboardPageWidgetPyArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyArrayInput` via:
+//
+//          OneDashboardPageWidgetPyArray{ OneDashboardPageWidgetPyArgs{...} }
+type OneDashboardPageWidgetPyArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyArrayOutput() OneDashboardPageWidgetPyArrayOutput
+	ToOneDashboardPageWidgetPyArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyArrayOutput
+}
+
+type OneDashboardPageWidgetPyArray []OneDashboardPageWidgetPyInput
+
+func (OneDashboardPageWidgetPyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPy)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyArray) ToOneDashboardPageWidgetPyArrayOutput() OneDashboardPageWidgetPyArrayOutput {
+	return i.ToOneDashboardPageWidgetPyArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyArray) ToOneDashboardPageWidgetPyArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyArrayOutput)
+}
+
+type OneDashboardPageWidgetPyOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPy)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutput() OneDashboardPageWidgetPyOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetPyOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetPyOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetPyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) Queries() OneDashboardPageWidgetPyQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyQuery { return v.Queries }).(OneDashboardPageWidgetPyQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetPyOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetPyOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetPyOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetPyArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPy)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyArrayOutput) ToOneDashboardPageWidgetPyArrayOutput() OneDashboardPageWidgetPyArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyArrayOutput) ToOneDashboardPageWidgetPyArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPy {
+		return vs[0].([]OneDashboardPageWidgetPy)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyOutput)
+}
+
+type OneDashboardPageWidgetPyQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql string `pulumi:"nrql"`
+}
+
+// OneDashboardPageWidgetPyQueryInput is an input type that accepts OneDashboardPageWidgetPyQueryArgs and OneDashboardPageWidgetPyQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyQueryInput` via:
+//
+//          OneDashboardPageWidgetPyQueryArgs{...}
+type OneDashboardPageWidgetPyQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyQueryOutput() OneDashboardPageWidgetPyQueryOutput
+	ToOneDashboardPageWidgetPyQueryOutputWithContext(context.Context) OneDashboardPageWidgetPyQueryOutput
+}
+
+type OneDashboardPageWidgetPyQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql pulumi.StringInput `pulumi:"nrql"`
+}
+
+func (OneDashboardPageWidgetPyQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyQueryArgs) ToOneDashboardPageWidgetPyQueryOutput() OneDashboardPageWidgetPyQueryOutput {
+	return i.ToOneDashboardPageWidgetPyQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyQueryArgs) ToOneDashboardPageWidgetPyQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyQueryOutput)
+}
+
+// OneDashboardPageWidgetPyQueryArrayInput is an input type that accepts OneDashboardPageWidgetPyQueryArray and OneDashboardPageWidgetPyQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetPyQueryArray{ OneDashboardPageWidgetPyQueryArgs{...} }
+type OneDashboardPageWidgetPyQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyQueryArrayOutput() OneDashboardPageWidgetPyQueryArrayOutput
+	ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyQueryArrayOutput
+}
+
+type OneDashboardPageWidgetPyQueryArray []OneDashboardPageWidgetPyQueryInput
+
+func (OneDashboardPageWidgetPyQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyQueryArray) ToOneDashboardPageWidgetPyQueryArrayOutput() OneDashboardPageWidgetPyQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyQueryArray) ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetPyQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyQueryOutput) ToOneDashboardPageWidgetPyQueryOutput() OneDashboardPageWidgetPyQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyQueryOutput) ToOneDashboardPageWidgetPyQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetPyQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyQuery) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetPyQueryOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyQuery) string { return v.Nrql }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetPyQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyQueryArrayOutput) ToOneDashboardPageWidgetPyQueryArrayOutput() OneDashboardPageWidgetPyQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyQueryArrayOutput) ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyQuery {
+		return vs[0].([]OneDashboardPageWidgetPyQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyQueryOutput)
+}
+
+type OneDashboardPageWidgetTable struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries []OneDashboardPageWidgetTableQuery `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetTableInput is an input type that accepts OneDashboardPageWidgetTableArgs and OneDashboardPageWidgetTableOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableInput` via:
+//
+//          OneDashboardPageWidgetTableArgs{...}
+type OneDashboardPageWidgetTableInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableOutput() OneDashboardPageWidgetTableOutput
+	ToOneDashboardPageWidgetTableOutputWithContext(context.Context) OneDashboardPageWidgetTableOutput
+}
+
+type OneDashboardPageWidgetTableArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+	Queries OneDashboardPageWidgetTableQueryArrayInput `pulumi:"queries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTable)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableArgs) ToOneDashboardPageWidgetTableOutput() OneDashboardPageWidgetTableOutput {
+	return i.ToOneDashboardPageWidgetTableOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableArgs) ToOneDashboardPageWidgetTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableOutput)
+}
+
+// OneDashboardPageWidgetTableArrayInput is an input type that accepts OneDashboardPageWidgetTableArray and OneDashboardPageWidgetTableArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableArrayInput` via:
+//
+//          OneDashboardPageWidgetTableArray{ OneDashboardPageWidgetTableArgs{...} }
+type OneDashboardPageWidgetTableArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableArrayOutput() OneDashboardPageWidgetTableArrayOutput
+	ToOneDashboardPageWidgetTableArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableArrayOutput
+}
+
+type OneDashboardPageWidgetTableArray []OneDashboardPageWidgetTableInput
+
+func (OneDashboardPageWidgetTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTable)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableArray) ToOneDashboardPageWidgetTableArrayOutput() OneDashboardPageWidgetTableArrayOutput {
+	return i.ToOneDashboardPageWidgetTableArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableArray) ToOneDashboardPageWidgetTableArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableArrayOutput)
+}
+
+type OneDashboardPageWidgetTableOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTable)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutput() OneDashboardPageWidgetTableOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetTableOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetTableOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetTableOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) Queries() OneDashboardPageWidgetTableQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableQuery { return v.Queries }).(OneDashboardPageWidgetTableQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetTableOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetTableOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetTableOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetTableArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTable)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableArrayOutput) ToOneDashboardPageWidgetTableArrayOutput() OneDashboardPageWidgetTableArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableArrayOutput) ToOneDashboardPageWidgetTableArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTable {
+		return vs[0].([]OneDashboardPageWidgetTable)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableOutput)
+}
+
+type OneDashboardPageWidgetTableQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql string `pulumi:"nrql"`
+}
+
+// OneDashboardPageWidgetTableQueryInput is an input type that accepts OneDashboardPageWidgetTableQueryArgs and OneDashboardPageWidgetTableQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableQueryInput` via:
+//
+//          OneDashboardPageWidgetTableQueryArgs{...}
+type OneDashboardPageWidgetTableQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableQueryOutput() OneDashboardPageWidgetTableQueryOutput
+	ToOneDashboardPageWidgetTableQueryOutputWithContext(context.Context) OneDashboardPageWidgetTableQueryOutput
+}
+
+type OneDashboardPageWidgetTableQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Nrql pulumi.StringInput `pulumi:"nrql"`
+}
+
+func (OneDashboardPageWidgetTableQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableQueryArgs) ToOneDashboardPageWidgetTableQueryOutput() OneDashboardPageWidgetTableQueryOutput {
+	return i.ToOneDashboardPageWidgetTableQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableQueryArgs) ToOneDashboardPageWidgetTableQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableQueryOutput)
+}
+
+// OneDashboardPageWidgetTableQueryArrayInput is an input type that accepts OneDashboardPageWidgetTableQueryArray and OneDashboardPageWidgetTableQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetTableQueryArray{ OneDashboardPageWidgetTableQueryArgs{...} }
+type OneDashboardPageWidgetTableQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableQueryArrayOutput() OneDashboardPageWidgetTableQueryArrayOutput
+	ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableQueryArrayOutput
+}
+
+type OneDashboardPageWidgetTableQueryArray []OneDashboardPageWidgetTableQueryInput
+
+func (OneDashboardPageWidgetTableQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableQueryArray) ToOneDashboardPageWidgetTableQueryArrayOutput() OneDashboardPageWidgetTableQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableQueryArray) ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetTableQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableQueryOutput) ToOneDashboardPageWidgetTableQueryOutput() OneDashboardPageWidgetTableQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableQueryOutput) ToOneDashboardPageWidgetTableQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetTableQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableQuery) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetTableQueryOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableQuery) string { return v.Nrql }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetTableQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableQueryArrayOutput) ToOneDashboardPageWidgetTableQueryArrayOutput() OneDashboardPageWidgetTableQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableQueryArrayOutput) ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableQuery {
+		return vs[0].([]OneDashboardPageWidgetTableQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableQueryOutput)
+}
+
 type GetAlertChannelConfig struct {
 	ApiKey                *string           `pulumi:"apiKey"`
 	AuthPassword          *string           `pulumi:"authPassword"`
@@ -3025,6 +4896,34 @@ func init() {
 	pulumi.RegisterOutputType(NrqlAlertConditionTermArrayOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 }

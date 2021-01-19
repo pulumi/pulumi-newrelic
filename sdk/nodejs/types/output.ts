@@ -359,6 +359,320 @@ export interface NrqlAlertConditionWarning {
      */
     timeFunction?: string;
 }
+
+export interface OneDashboardPage {
+    /**
+     * Brief text describing the dashboard.
+     */
+    description?: string;
+    /**
+     * The unique entity identifier of the dashboard page in New Relic.
+     */
+    guid: string;
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
+     */
+    widgetAreas?: outputs.OneDashboardPageWidgetArea[];
+    /**
+     * (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
+     */
+    widgetBars?: outputs.OneDashboardPageWidgetBar[];
+    /**
+     * (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
+     */
+    widgetBillboards?: outputs.OneDashboardPageWidgetBillboard[];
+    /**
+     * (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
+     */
+    widgetLines?: outputs.OneDashboardPageWidgetLine[];
+    /**
+     * (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
+     */
+    widgetMarkdowns?: outputs.OneDashboardPageWidgetMarkdown[];
+    /**
+     * (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
+     */
+    widgetPies?: outputs.OneDashboardPageWidgetPy[];
+    /**
+     * (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
+     */
+    widgetTables?: outputs.OneDashboardPageWidgetTable[];
+}
+
+export interface OneDashboardPageWidgetArea {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     */
+    queries: outputs.OneDashboardPageWidgetAreaQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetAreaQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    nrql: string;
+}
+
+export interface OneDashboardPageWidgetBar {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     */
+    queries: outputs.OneDashboardPageWidgetBarQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetBarQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    nrql: string;
+}
+
+export interface OneDashboardPageWidgetBillboard {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Threshold above which the displayed value will be styled with a red color.
+     */
+    critical?: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     */
+    queries: outputs.OneDashboardPageWidgetBillboardQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Threshold above which the displayed value will be styled with a yellow color.
+     * * `widgetMarkdown`:
+     */
+    warning?: number;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetBillboardQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    nrql: string;
+}
+
+export interface OneDashboardPageWidgetLine {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     */
+    queries: outputs.OneDashboardPageWidgetLineQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetLineQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    nrql: string;
+}
+
+export interface OneDashboardPageWidgetMarkdown {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) The markdown source to be rendered in the widget.
+     */
+    text?: string;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetPy {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     */
+    queries: outputs.OneDashboardPageWidgetPyQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetPyQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    nrql: string;
+}
+
+export interface OneDashboardPageWidgetTable {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     */
+    queries: outputs.OneDashboardPageWidgetTableQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetTableQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    nrql: string;
+}
 export namespace insights {
     export interface EventEvent {
         attributes: outputs.insights.EventEventAttribute[];
