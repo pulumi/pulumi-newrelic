@@ -536,6 +536,8 @@ github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQz
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/mitchellh/mapstructure v1.4.0 h1:7ks8ZkOP5/ujthUsT07rNv+nkLXCQWKNHuwzOAesEks=
 github.com/mitchellh/mapstructure v1.4.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
+github.com/mitchellh/mapstructure v1.4.1 h1:CpVNEelQCZBooIPDn+AR3NpivK/TIKU8bDxdASFVQag=
+github.com/mitchellh/mapstructure v1.4.1/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/mitchellh/reflectwalk v1.0.0/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/mitchellh/reflectwalk v1.0.1 h1:FVzMWA5RllMAKIdUSC8mdWo3XtwoecrH79BY70sEEpE=
 github.com/mitchellh/reflectwalk v1.0.1/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
@@ -551,8 +553,8 @@ github.com/newrelic/go-agent/v3 v3.10.0 h1:qHcDwtC1DjOTI0r0nCtf8jT2LfEoNQ6gSo2tc
 github.com/newrelic/go-agent/v3 v3.10.0/go.mod h1:1A1dssWBwzB7UemzRU6ZVaGDsI+cEn5/bNxI0wiYlIc=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.55.5 h1:wGIalEJoJvDmuwxamr0kUSdS9JG0tnqTE2XH2tl7d7A=
-github.com/newrelic/newrelic-client-go v0.55.5/go.mod h1:afAuAfcxjAl5JC3AjkGZa0eqcBBazOTP+hEyBsx23KA=
+github.com/newrelic/newrelic-client-go v0.56.1 h1:6lh9lP6BIYPtmTZVtx4jQK0phEkCe8Jmo8XuCk1wbP0=
+github.com/newrelic/newrelic-client-go v0.56.1/go.mod h1:k6e8L+H4I1n7oimYAwAe1b07wyutjNTkFpw0yGIEbug=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
@@ -605,8 +607,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.17.0 h1:mFsYS4Qnpk0uGcN4cGPd/S6KWdx92BbudOerx
 github.com/pulumi/pulumi/sdk/v2 v2.17.0/go.mod h1:fCFhRV6NmidWetmgDPA76efL+s0JqLlS54JJIwfOt+o=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20210115141514-70b1b0fe7bca h1:QVDtKqwY7SykpMREHnO743slpecs72om/JEOn4Zh3/k=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20210115141514-70b1b0fe7bca/go.mod h1:HcJ4biKbIlHyydTEVVFF49l6jOhfevHZ/OuRxBFoZmA=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20210125223228-60669605e631 h1:tcqha/iOEyccYQglTettCnwBEI5X1eTu5Bmh7QHbxGQ=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.1.2-0.20210125223228-60669605e631/go.mod h1:XM3jUWE9QqlwLB2GOWnPsiZv2r/utNP8jc8J+ai7XD4=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/remyoudompheng/go-misc v0.0.0-20190427085024-2d6ac652a50e/go.mod h1:80FQABjoFzZ2M5uEa6FUaJYEmqU2UOKojlFVak1UAwI=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
@@ -670,6 +672,8 @@ github.com/stretchr/testify v1.5.1 h1:nOGnQDM7FYENwehXlg/kFVnos3rEvtKTjRvOWSzb6H
 github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5cxcmMvtA=
 github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
+github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/terraform-providers/terraform-provider-archive v1.3.0 h1:8WzDXMwTdTd4Z7KAUjnYwopk1DgGJ/DLH0xowJ8h+/8=
 github.com/terraform-providers/terraform-provider-archive v1.3.0/go.mod h1:7oAwNW55F65KauS++/XmAnrXhLfQRTYt549eYs4zU0w=

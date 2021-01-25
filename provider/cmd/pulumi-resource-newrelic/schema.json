@@ -1223,12 +1223,12 @@
                         }
                     }
                 },
-                "queries": {
+                "nrqlQueries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaQuery:OneDashboardPageWidgetAreaQuery"
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaNrqlQuery:OneDashboardPageWidgetAreaNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1266,7 +1266,7 @@
             "type": "object",
             "required": [
                 "column",
-                "queries",
+                "nrqlQueries",
                 "row",
                 "title"
             ],
@@ -1275,14 +1275,14 @@
                     "requiredOutputs": [
                         "column",
                         "id",
-                        "queries",
+                        "nrqlQueries",
                         "row",
                         "title"
                     ]
                 }
             }
         },
-        "newrelic:index/OneDashboardPageWidgetAreaQuery:OneDashboardPageWidgetAreaQuery": {
+        "newrelic:index/OneDashboardPageWidgetAreaNrqlQuery:OneDashboardPageWidgetAreaNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -1293,7 +1293,7 @@
                         }
                     }
                 },
-                "nrql": {
+                "query": {
                     "type": "string",
                     "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
                     "language": {
@@ -1306,7 +1306,7 @@
             "type": "object",
             "required": [
                 "accountId",
-                "nrql"
+                "query"
             ]
         },
         "newrelic:index/OneDashboardPageWidgetBar:OneDashboardPageWidgetBar": {
@@ -1337,12 +1337,12 @@
                         }
                     }
                 },
-                "queries": {
+                "nrqlQueries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarQuery:OneDashboardPageWidgetBarQuery"
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarNrqlQuery:OneDashboardPageWidgetBarNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1380,7 +1380,7 @@
             "type": "object",
             "required": [
                 "column",
-                "queries",
+                "nrqlQueries",
                 "row",
                 "title"
             ],
@@ -1389,14 +1389,14 @@
                     "requiredOutputs": [
                         "column",
                         "id",
-                        "queries",
+                        "nrqlQueries",
                         "row",
                         "title"
                     ]
                 }
             }
         },
-        "newrelic:index/OneDashboardPageWidgetBarQuery:OneDashboardPageWidgetBarQuery": {
+        "newrelic:index/OneDashboardPageWidgetBarNrqlQuery:OneDashboardPageWidgetBarNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -1407,7 +1407,7 @@
                         }
                     }
                 },
-                "nrql": {
+                "query": {
                     "type": "string",
                     "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
                     "language": {
@@ -1420,7 +1420,7 @@
             "type": "object",
             "required": [
                 "accountId",
-                "nrql"
+                "query"
             ]
         },
         "newrelic:index/OneDashboardPageWidgetBillboard:OneDashboardPageWidgetBillboard": {
@@ -1460,12 +1460,12 @@
                         }
                     }
                 },
-                "queries": {
+                "nrqlQueries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardQuery:OneDashboardPageWidgetBillboardQuery"
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardNrqlQuery:OneDashboardPageWidgetBillboardNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1512,7 +1512,7 @@
             "type": "object",
             "required": [
                 "column",
-                "queries",
+                "nrqlQueries",
                 "row",
                 "title"
             ],
@@ -1521,14 +1521,14 @@
                     "requiredOutputs": [
                         "column",
                         "id",
-                        "queries",
+                        "nrqlQueries",
                         "row",
                         "title"
                     ]
                 }
             }
         },
-        "newrelic:index/OneDashboardPageWidgetBillboardQuery:OneDashboardPageWidgetBillboardQuery": {
+        "newrelic:index/OneDashboardPageWidgetBillboardNrqlQuery:OneDashboardPageWidgetBillboardNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -1539,7 +1539,7 @@
                         }
                     }
                 },
-                "nrql": {
+                "query": {
                     "type": "string",
                     "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
                     "language": {
@@ -1552,7 +1552,7 @@
             "type": "object",
             "required": [
                 "accountId",
-                "nrql"
+                "query"
             ]
         },
         "newrelic:index/OneDashboardPageWidgetLine:OneDashboardPageWidgetLine": {
@@ -1583,12 +1583,12 @@
                         }
                     }
                 },
-                "queries": {
+                "nrqlQueries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineQuery:OneDashboardPageWidgetLineQuery"
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineNrqlQuery:OneDashboardPageWidgetLineNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1626,7 +1626,7 @@
             "type": "object",
             "required": [
                 "column",
-                "queries",
+                "nrqlQueries",
                 "row",
                 "title"
             ],
@@ -1635,14 +1635,14 @@
                     "requiredOutputs": [
                         "column",
                         "id",
-                        "queries",
+                        "nrqlQueries",
                         "row",
                         "title"
                     ]
                 }
             }
         },
-        "newrelic:index/OneDashboardPageWidgetLineQuery:OneDashboardPageWidgetLineQuery": {
+        "newrelic:index/OneDashboardPageWidgetLineNrqlQuery:OneDashboardPageWidgetLineNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -1653,7 +1653,7 @@
                         }
                     }
                 },
-                "nrql": {
+                "query": {
                     "type": "string",
                     "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
                     "language": {
@@ -1666,7 +1666,7 @@
             "type": "object",
             "required": [
                 "accountId",
-                "nrql"
+                "query"
             ]
         },
         "newrelic:index/OneDashboardPageWidgetMarkdown:OneDashboardPageWidgetMarkdown": {
@@ -1779,12 +1779,12 @@
                         }
                     }
                 },
-                "queries": {
+                "nrqlQueries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyQuery:OneDashboardPageWidgetPyQuery"
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyNrqlQuery:OneDashboardPageWidgetPyNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1822,7 +1822,7 @@
             "type": "object",
             "required": [
                 "column",
-                "queries",
+                "nrqlQueries",
                 "row",
                 "title"
             ],
@@ -1831,14 +1831,14 @@
                     "requiredOutputs": [
                         "column",
                         "id",
-                        "queries",
+                        "nrqlQueries",
                         "row",
                         "title"
                     ]
                 }
             }
         },
-        "newrelic:index/OneDashboardPageWidgetPyQuery:OneDashboardPageWidgetPyQuery": {
+        "newrelic:index/OneDashboardPageWidgetPyNrqlQuery:OneDashboardPageWidgetPyNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -1849,7 +1849,7 @@
                         }
                     }
                 },
-                "nrql": {
+                "query": {
                     "type": "string",
                     "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
                     "language": {
@@ -1862,7 +1862,7 @@
             "type": "object",
             "required": [
                 "accountId",
-                "nrql"
+                "query"
             ]
         },
         "newrelic:index/OneDashboardPageWidgetTable:OneDashboardPageWidgetTable": {
@@ -1893,12 +1893,12 @@
                         }
                     }
                 },
-                "queries": {
+                "nrqlQueries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableQuery:OneDashboardPageWidgetTableQuery"
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableNrqlQuery:OneDashboardPageWidgetTableNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1936,7 +1936,7 @@
             "type": "object",
             "required": [
                 "column",
-                "queries",
+                "nrqlQueries",
                 "row",
                 "title"
             ],
@@ -1945,14 +1945,14 @@
                     "requiredOutputs": [
                         "column",
                         "id",
-                        "queries",
+                        "nrqlQueries",
                         "row",
                         "title"
                     ]
                 }
             }
         },
-        "newrelic:index/OneDashboardPageWidgetTableQuery:OneDashboardPageWidgetTableQuery": {
+        "newrelic:index/OneDashboardPageWidgetTableNrqlQuery:OneDashboardPageWidgetTableNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -1963,7 +1963,7 @@
                         }
                     }
                 },
-                "nrql": {
+                "query": {
                     "type": "string",
                     "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
                     "language": {
@@ -1976,7 +1976,7 @@
             "type": "object",
             "required": [
                 "accountId",
-                "nrql"
+                "query"
             ]
         },
         "newrelic:index/getAlertChannelConfig:getAlertChannelConfig": {

@@ -7,29 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.NewRelic.Outputs
+namespace Pulumi.NewRelic.Inputs
 {
 
-    [OutputType]
-    public sealed class OneDashboardPageWidgetBillboardQuery
+    public sealed class OneDashboardPageWidgetPyNrqlQueryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         /// </summary>
-        public readonly int AccountId;
+        [Input("accountId", required: true)]
+        public Input<int> AccountId { get; set; } = null!;
+
         /// <summary>
         /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         /// </summary>
-        public readonly string Nrql;
+        [Input("query", required: true)]
+        public Input<string> Query { get; set; } = null!;
 
-        [OutputConstructor]
-        private OneDashboardPageWidgetBillboardQuery(
-            int accountId,
-
-            string nrql)
+        public OneDashboardPageWidgetPyNrqlQueryArgs()
         {
-            AccountId = accountId;
-            Nrql = nrql;
         }
     }
 }

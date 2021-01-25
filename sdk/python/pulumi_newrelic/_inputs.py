@@ -27,18 +27,18 @@ __all__ = [
     'NrqlAlertConditionWarningArgs',
     'OneDashboardPageArgs',
     'OneDashboardPageWidgetAreaArgs',
-    'OneDashboardPageWidgetAreaQueryArgs',
+    'OneDashboardPageWidgetAreaNrqlQueryArgs',
     'OneDashboardPageWidgetBarArgs',
-    'OneDashboardPageWidgetBarQueryArgs',
+    'OneDashboardPageWidgetBarNrqlQueryArgs',
     'OneDashboardPageWidgetBillboardArgs',
-    'OneDashboardPageWidgetBillboardQueryArgs',
+    'OneDashboardPageWidgetBillboardNrqlQueryArgs',
     'OneDashboardPageWidgetLineArgs',
-    'OneDashboardPageWidgetLineQueryArgs',
+    'OneDashboardPageWidgetLineNrqlQueryArgs',
     'OneDashboardPageWidgetMarkdownArgs',
     'OneDashboardPageWidgetPyArgs',
-    'OneDashboardPageWidgetPyQueryArgs',
+    'OneDashboardPageWidgetPyNrqlQueryArgs',
     'OneDashboardPageWidgetTableArgs',
-    'OneDashboardPageWidgetTableQueryArgs',
+    'OneDashboardPageWidgetTableNrqlQueryArgs',
     'GetEntityTagArgs',
 ]
 
@@ -1659,7 +1659,7 @@ class OneDashboardPageArgs:
 class OneDashboardPageWidgetAreaArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
-                 queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaQueryArgs']]],
+                 nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
@@ -1667,14 +1667,14 @@ class OneDashboardPageWidgetAreaArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaQueryArgs']]] queries: (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         if height is not None:
@@ -1697,16 +1697,16 @@ class OneDashboardPageWidgetAreaArgs:
         pulumi.set(self, "column", value)
 
     @property
-    @pulumi.getter
-    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaQueryArgs']]]:
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]]:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         """
-        return pulumi.get(self, "queries")
+        return pulumi.get(self, "nrql_queries")
 
-    @queries.setter
-    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaQueryArgs']]]):
-        pulumi.set(self, "queries", value)
+    @nrql_queries.setter
+    def nrql_queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]]):
+        pulumi.set(self, "nrql_queries", value)
 
     @property
     @pulumi.getter
@@ -1767,16 +1767,16 @@ class OneDashboardPageWidgetAreaArgs:
 
 
 @pulumi.input_type
-class OneDashboardPageWidgetAreaQueryArgs:
+class OneDashboardPageWidgetAreaNrqlQueryArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[int],
-                 nrql: pulumi.Input[str]):
+                 query: pulumi.Input[str]):
         """
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1792,22 +1792,22 @@ class OneDashboardPageWidgetAreaQueryArgs:
 
     @property
     @pulumi.getter
-    def nrql(self) -> pulumi.Input[str]:
+    def query(self) -> pulumi.Input[str]:
         """
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
-        return pulumi.get(self, "nrql")
+        return pulumi.get(self, "query")
 
-    @nrql.setter
-    def nrql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "nrql", value)
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
 class OneDashboardPageWidgetBarArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
-                 queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarQueryArgs']]],
+                 nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
@@ -1815,14 +1815,14 @@ class OneDashboardPageWidgetBarArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarQueryArgs']]] queries: (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         if height is not None:
@@ -1845,16 +1845,16 @@ class OneDashboardPageWidgetBarArgs:
         pulumi.set(self, "column", value)
 
     @property
-    @pulumi.getter
-    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarQueryArgs']]]:
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]]:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         """
-        return pulumi.get(self, "queries")
+        return pulumi.get(self, "nrql_queries")
 
-    @queries.setter
-    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarQueryArgs']]]):
-        pulumi.set(self, "queries", value)
+    @nrql_queries.setter
+    def nrql_queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]]):
+        pulumi.set(self, "nrql_queries", value)
 
     @property
     @pulumi.getter
@@ -1915,16 +1915,16 @@ class OneDashboardPageWidgetBarArgs:
 
 
 @pulumi.input_type
-class OneDashboardPageWidgetBarQueryArgs:
+class OneDashboardPageWidgetBarNrqlQueryArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[int],
-                 nrql: pulumi.Input[str]):
+                 query: pulumi.Input[str]):
         """
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1940,22 +1940,22 @@ class OneDashboardPageWidgetBarQueryArgs:
 
     @property
     @pulumi.getter
-    def nrql(self) -> pulumi.Input[str]:
+    def query(self) -> pulumi.Input[str]:
         """
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
-        return pulumi.get(self, "nrql")
+        return pulumi.get(self, "query")
 
-    @nrql.setter
-    def nrql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "nrql", value)
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
 class OneDashboardPageWidgetBillboardArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
-                 queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardQueryArgs']]],
+                 nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  critical: Optional[pulumi.Input[float]] = None,
@@ -1965,7 +1965,7 @@ class OneDashboardPageWidgetBillboardArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardQueryArgs']]] queries: (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[float] critical: (Optional) Threshold above which the displayed value will be styled with a red color.
@@ -1975,7 +1975,7 @@ class OneDashboardPageWidgetBillboardArgs:
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         if critical is not None:
@@ -2002,16 +2002,16 @@ class OneDashboardPageWidgetBillboardArgs:
         pulumi.set(self, "column", value)
 
     @property
-    @pulumi.getter
-    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardQueryArgs']]]:
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]]:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         """
-        return pulumi.get(self, "queries")
+        return pulumi.get(self, "nrql_queries")
 
-    @queries.setter
-    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardQueryArgs']]]):
-        pulumi.set(self, "queries", value)
+    @nrql_queries.setter
+    def nrql_queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]]):
+        pulumi.set(self, "nrql_queries", value)
 
     @property
     @pulumi.getter
@@ -2097,16 +2097,16 @@ class OneDashboardPageWidgetBillboardArgs:
 
 
 @pulumi.input_type
-class OneDashboardPageWidgetBillboardQueryArgs:
+class OneDashboardPageWidgetBillboardNrqlQueryArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[int],
-                 nrql: pulumi.Input[str]):
+                 query: pulumi.Input[str]):
         """
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2122,22 +2122,22 @@ class OneDashboardPageWidgetBillboardQueryArgs:
 
     @property
     @pulumi.getter
-    def nrql(self) -> pulumi.Input[str]:
+    def query(self) -> pulumi.Input[str]:
         """
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
-        return pulumi.get(self, "nrql")
+        return pulumi.get(self, "query")
 
-    @nrql.setter
-    def nrql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "nrql", value)
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
 class OneDashboardPageWidgetLineArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
-                 queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineQueryArgs']]],
+                 nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
@@ -2145,14 +2145,14 @@ class OneDashboardPageWidgetLineArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineQueryArgs']]] queries: (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         if height is not None:
@@ -2175,16 +2175,16 @@ class OneDashboardPageWidgetLineArgs:
         pulumi.set(self, "column", value)
 
     @property
-    @pulumi.getter
-    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineQueryArgs']]]:
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]]:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         """
-        return pulumi.get(self, "queries")
+        return pulumi.get(self, "nrql_queries")
 
-    @queries.setter
-    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineQueryArgs']]]):
-        pulumi.set(self, "queries", value)
+    @nrql_queries.setter
+    def nrql_queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]]):
+        pulumi.set(self, "nrql_queries", value)
 
     @property
     @pulumi.getter
@@ -2245,16 +2245,16 @@ class OneDashboardPageWidgetLineArgs:
 
 
 @pulumi.input_type
-class OneDashboardPageWidgetLineQueryArgs:
+class OneDashboardPageWidgetLineNrqlQueryArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[int],
-                 nrql: pulumi.Input[str]):
+                 query: pulumi.Input[str]):
         """
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2270,15 +2270,15 @@ class OneDashboardPageWidgetLineQueryArgs:
 
     @property
     @pulumi.getter
-    def nrql(self) -> pulumi.Input[str]:
+    def query(self) -> pulumi.Input[str]:
         """
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
-        return pulumi.get(self, "nrql")
+        return pulumi.get(self, "query")
 
-    @nrql.setter
-    def nrql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "nrql", value)
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
@@ -2397,7 +2397,7 @@ class OneDashboardPageWidgetMarkdownArgs:
 class OneDashboardPageWidgetPyArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
-                 queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyQueryArgs']]],
+                 nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
@@ -2405,14 +2405,14 @@ class OneDashboardPageWidgetPyArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyQueryArgs']]] queries: (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         if height is not None:
@@ -2435,16 +2435,16 @@ class OneDashboardPageWidgetPyArgs:
         pulumi.set(self, "column", value)
 
     @property
-    @pulumi.getter
-    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyQueryArgs']]]:
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]]:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         """
-        return pulumi.get(self, "queries")
+        return pulumi.get(self, "nrql_queries")
 
-    @queries.setter
-    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyQueryArgs']]]):
-        pulumi.set(self, "queries", value)
+    @nrql_queries.setter
+    def nrql_queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]]):
+        pulumi.set(self, "nrql_queries", value)
 
     @property
     @pulumi.getter
@@ -2505,16 +2505,16 @@ class OneDashboardPageWidgetPyArgs:
 
 
 @pulumi.input_type
-class OneDashboardPageWidgetPyQueryArgs:
+class OneDashboardPageWidgetPyNrqlQueryArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[int],
-                 nrql: pulumi.Input[str]):
+                 query: pulumi.Input[str]):
         """
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2530,22 +2530,22 @@ class OneDashboardPageWidgetPyQueryArgs:
 
     @property
     @pulumi.getter
-    def nrql(self) -> pulumi.Input[str]:
+    def query(self) -> pulumi.Input[str]:
         """
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
-        return pulumi.get(self, "nrql")
+        return pulumi.get(self, "query")
 
-    @nrql.setter
-    def nrql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "nrql", value)
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
 class OneDashboardPageWidgetTableArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
-                 queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableQueryArgs']]],
+                 nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
@@ -2553,14 +2553,14 @@ class OneDashboardPageWidgetTableArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableQueryArgs']]] queries: (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "queries", queries)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
         if height is not None:
@@ -2583,16 +2583,16 @@ class OneDashboardPageWidgetTableArgs:
         pulumi.set(self, "column", value)
 
     @property
-    @pulumi.getter
-    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableQueryArgs']]]:
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]]:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         """
-        return pulumi.get(self, "queries")
+        return pulumi.get(self, "nrql_queries")
 
-    @queries.setter
-    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableQueryArgs']]]):
-        pulumi.set(self, "queries", value)
+    @nrql_queries.setter
+    def nrql_queries(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]]):
+        pulumi.set(self, "nrql_queries", value)
 
     @property
     @pulumi.getter
@@ -2653,16 +2653,16 @@ class OneDashboardPageWidgetTableArgs:
 
 
 @pulumi.input_type
-class OneDashboardPageWidgetTableQueryArgs:
+class OneDashboardPageWidgetTableNrqlQueryArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[int],
-                 nrql: pulumi.Input[str]):
+                 query: pulumi.Input[str]):
         """
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[str] nrql: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param pulumi.Input[str] query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "nrql", nrql)
+        pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2678,15 +2678,15 @@ class OneDashboardPageWidgetTableQueryArgs:
 
     @property
     @pulumi.getter
-    def nrql(self) -> pulumi.Input[str]:
+    def query(self) -> pulumi.Input[str]:
         """
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
-        return pulumi.get(self, "nrql")
+        return pulumi.get(self, "query")
 
-    @nrql.setter
-    def nrql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "nrql", value)
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
 
 
 @pulumi.input_type

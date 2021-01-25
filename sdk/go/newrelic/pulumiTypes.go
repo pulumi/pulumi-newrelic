@@ -2965,8 +2965,8 @@ type OneDashboardPageWidgetArea struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries []OneDashboardPageWidgetAreaQuery `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries []OneDashboardPageWidgetAreaNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -2992,8 +2992,8 @@ type OneDashboardPageWidgetAreaArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries OneDashboardPageWidgetAreaQueryArrayInput `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries OneDashboardPageWidgetAreaNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3067,9 +3067,9 @@ func (o OneDashboardPageWidgetAreaOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-func (o OneDashboardPageWidgetAreaOutput) Queries() OneDashboardPageWidgetAreaQueryArrayOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaQuery { return v.Queries }).(OneDashboardPageWidgetAreaQueryArrayOutput)
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) NrqlQueries() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3107,110 +3107,110 @@ func (o OneDashboardPageWidgetAreaArrayOutput) Index(i pulumi.IntInput) OneDashb
 	}).(OneDashboardPageWidgetAreaOutput)
 }
 
-type OneDashboardPageWidgetAreaQuery struct {
+type OneDashboardPageWidgetAreaNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId int `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql string `pulumi:"nrql"`
+	Query string `pulumi:"query"`
 }
 
-// OneDashboardPageWidgetAreaQueryInput is an input type that accepts OneDashboardPageWidgetAreaQueryArgs and OneDashboardPageWidgetAreaQueryOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetAreaQueryInput` via:
+// OneDashboardPageWidgetAreaNrqlQueryInput is an input type that accepts OneDashboardPageWidgetAreaNrqlQueryArgs and OneDashboardPageWidgetAreaNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaNrqlQueryInput` via:
 //
-//          OneDashboardPageWidgetAreaQueryArgs{...}
-type OneDashboardPageWidgetAreaQueryInput interface {
+//          OneDashboardPageWidgetAreaNrqlQueryArgs{...}
+type OneDashboardPageWidgetAreaNrqlQueryInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetAreaQueryOutput() OneDashboardPageWidgetAreaQueryOutput
-	ToOneDashboardPageWidgetAreaQueryOutputWithContext(context.Context) OneDashboardPageWidgetAreaQueryOutput
+	ToOneDashboardPageWidgetAreaNrqlQueryOutput() OneDashboardPageWidgetAreaNrqlQueryOutput
+	ToOneDashboardPageWidgetAreaNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetAreaNrqlQueryOutput
 }
 
-type OneDashboardPageWidgetAreaQueryArgs struct {
+type OneDashboardPageWidgetAreaNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql pulumi.StringInput `pulumi:"nrql"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
-func (OneDashboardPageWidgetAreaQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+func (OneDashboardPageWidgetAreaNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetAreaQueryArgs) ToOneDashboardPageWidgetAreaQueryOutput() OneDashboardPageWidgetAreaQueryOutput {
-	return i.ToOneDashboardPageWidgetAreaQueryOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetAreaNrqlQueryArgs) ToOneDashboardPageWidgetAreaNrqlQueryOutput() OneDashboardPageWidgetAreaNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetAreaNrqlQueryOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetAreaQueryArgs) ToOneDashboardPageWidgetAreaQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaQueryOutput)
+func (i OneDashboardPageWidgetAreaNrqlQueryArgs) ToOneDashboardPageWidgetAreaNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNrqlQueryOutput)
 }
 
-// OneDashboardPageWidgetAreaQueryArrayInput is an input type that accepts OneDashboardPageWidgetAreaQueryArray and OneDashboardPageWidgetAreaQueryArrayOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetAreaQueryArrayInput` via:
+// OneDashboardPageWidgetAreaNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetAreaNrqlQueryArray and OneDashboardPageWidgetAreaNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaNrqlQueryArrayInput` via:
 //
-//          OneDashboardPageWidgetAreaQueryArray{ OneDashboardPageWidgetAreaQueryArgs{...} }
-type OneDashboardPageWidgetAreaQueryArrayInput interface {
+//          OneDashboardPageWidgetAreaNrqlQueryArray{ OneDashboardPageWidgetAreaNrqlQueryArgs{...} }
+type OneDashboardPageWidgetAreaNrqlQueryArrayInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetAreaQueryArrayOutput() OneDashboardPageWidgetAreaQueryArrayOutput
-	ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaQueryArrayOutput
+	ToOneDashboardPageWidgetAreaNrqlQueryArrayOutput() OneDashboardPageWidgetAreaNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetAreaNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaNrqlQueryArrayOutput
 }
 
-type OneDashboardPageWidgetAreaQueryArray []OneDashboardPageWidgetAreaQueryInput
+type OneDashboardPageWidgetAreaNrqlQueryArray []OneDashboardPageWidgetAreaNrqlQueryInput
 
-func (OneDashboardPageWidgetAreaQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+func (OneDashboardPageWidgetAreaNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetAreaQueryArray) ToOneDashboardPageWidgetAreaQueryArrayOutput() OneDashboardPageWidgetAreaQueryArrayOutput {
-	return i.ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetAreaNrqlQueryArray) ToOneDashboardPageWidgetAreaNrqlQueryArrayOutput() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaNrqlQueryArrayOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetAreaQueryArray) ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaQueryArrayOutput)
+func (i OneDashboardPageWidgetAreaNrqlQueryArray) ToOneDashboardPageWidgetAreaNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
 }
 
-type OneDashboardPageWidgetAreaQueryOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetAreaNrqlQueryOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetAreaQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+func (OneDashboardPageWidgetAreaNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetAreaQueryOutput) ToOneDashboardPageWidgetAreaQueryOutput() OneDashboardPageWidgetAreaQueryOutput {
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaNrqlQueryOutput() OneDashboardPageWidgetAreaNrqlQueryOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetAreaQueryOutput) ToOneDashboardPageWidgetAreaQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryOutput {
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) ToOneDashboardPageWidgetAreaNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNrqlQueryOutput {
 	return o
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetAreaQueryOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetAreaQuery) int { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-func (o OneDashboardPageWidgetAreaQueryOutput) Nrql() pulumi.StringOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetAreaQuery) string { return v.Nrql }).(pulumi.StringOutput)
+func (o OneDashboardPageWidgetAreaNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type OneDashboardPageWidgetAreaQueryArrayOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetAreaNrqlQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetAreaQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaQuery)(nil)).Elem()
+func (OneDashboardPageWidgetAreaNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetAreaQueryArrayOutput) ToOneDashboardPageWidgetAreaQueryArrayOutput() OneDashboardPageWidgetAreaQueryArrayOutput {
+func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) ToOneDashboardPageWidgetAreaNrqlQueryArrayOutput() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetAreaQueryArrayOutput) ToOneDashboardPageWidgetAreaQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaQueryArrayOutput {
+func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) ToOneDashboardPageWidgetAreaNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetAreaQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaQuery {
-		return vs[0].([]OneDashboardPageWidgetAreaQuery)[vs[1].(int)]
-	}).(OneDashboardPageWidgetAreaQueryOutput)
+func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetAreaNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaNrqlQueryOutput)
 }
 
 type OneDashboardPageWidgetBar struct {
@@ -3219,8 +3219,8 @@ type OneDashboardPageWidgetBar struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries []OneDashboardPageWidgetBarQuery `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3246,8 +3246,8 @@ type OneDashboardPageWidgetBarArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries OneDashboardPageWidgetBarQueryArrayInput `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3321,9 +3321,9 @@ func (o OneDashboardPageWidgetBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-func (o OneDashboardPageWidgetBarOutput) Queries() OneDashboardPageWidgetBarQueryArrayOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarQuery { return v.Queries }).(OneDashboardPageWidgetBarQueryArrayOutput)
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) NrqlQueries() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3361,110 +3361,110 @@ func (o OneDashboardPageWidgetBarArrayOutput) Index(i pulumi.IntInput) OneDashbo
 	}).(OneDashboardPageWidgetBarOutput)
 }
 
-type OneDashboardPageWidgetBarQuery struct {
+type OneDashboardPageWidgetBarNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId int `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql string `pulumi:"nrql"`
+	Query string `pulumi:"query"`
 }
 
-// OneDashboardPageWidgetBarQueryInput is an input type that accepts OneDashboardPageWidgetBarQueryArgs and OneDashboardPageWidgetBarQueryOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetBarQueryInput` via:
+// OneDashboardPageWidgetBarNrqlQueryInput is an input type that accepts OneDashboardPageWidgetBarNrqlQueryArgs and OneDashboardPageWidgetBarNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarNrqlQueryInput` via:
 //
-//          OneDashboardPageWidgetBarQueryArgs{...}
-type OneDashboardPageWidgetBarQueryInput interface {
+//          OneDashboardPageWidgetBarNrqlQueryArgs{...}
+type OneDashboardPageWidgetBarNrqlQueryInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetBarQueryOutput() OneDashboardPageWidgetBarQueryOutput
-	ToOneDashboardPageWidgetBarQueryOutputWithContext(context.Context) OneDashboardPageWidgetBarQueryOutput
+	ToOneDashboardPageWidgetBarNrqlQueryOutput() OneDashboardPageWidgetBarNrqlQueryOutput
+	ToOneDashboardPageWidgetBarNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetBarNrqlQueryOutput
 }
 
-type OneDashboardPageWidgetBarQueryArgs struct {
+type OneDashboardPageWidgetBarNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql pulumi.StringInput `pulumi:"nrql"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
-func (OneDashboardPageWidgetBarQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetBarQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBarNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetBarQueryArgs) ToOneDashboardPageWidgetBarQueryOutput() OneDashboardPageWidgetBarQueryOutput {
-	return i.ToOneDashboardPageWidgetBarQueryOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetBarNrqlQueryArgs) ToOneDashboardPageWidgetBarNrqlQueryOutput() OneDashboardPageWidgetBarNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetBarNrqlQueryOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetBarQueryArgs) ToOneDashboardPageWidgetBarQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarQueryOutput)
+func (i OneDashboardPageWidgetBarNrqlQueryArgs) ToOneDashboardPageWidgetBarNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNrqlQueryOutput)
 }
 
-// OneDashboardPageWidgetBarQueryArrayInput is an input type that accepts OneDashboardPageWidgetBarQueryArray and OneDashboardPageWidgetBarQueryArrayOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetBarQueryArrayInput` via:
+// OneDashboardPageWidgetBarNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetBarNrqlQueryArray and OneDashboardPageWidgetBarNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarNrqlQueryArrayInput` via:
 //
-//          OneDashboardPageWidgetBarQueryArray{ OneDashboardPageWidgetBarQueryArgs{...} }
-type OneDashboardPageWidgetBarQueryArrayInput interface {
+//          OneDashboardPageWidgetBarNrqlQueryArray{ OneDashboardPageWidgetBarNrqlQueryArgs{...} }
+type OneDashboardPageWidgetBarNrqlQueryArrayInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetBarQueryArrayOutput() OneDashboardPageWidgetBarQueryArrayOutput
-	ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarQueryArrayOutput
+	ToOneDashboardPageWidgetBarNrqlQueryArrayOutput() OneDashboardPageWidgetBarNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetBarNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarNrqlQueryArrayOutput
 }
 
-type OneDashboardPageWidgetBarQueryArray []OneDashboardPageWidgetBarQueryInput
+type OneDashboardPageWidgetBarNrqlQueryArray []OneDashboardPageWidgetBarNrqlQueryInput
 
-func (OneDashboardPageWidgetBarQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetBarQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBarNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetBarQueryArray) ToOneDashboardPageWidgetBarQueryArrayOutput() OneDashboardPageWidgetBarQueryArrayOutput {
-	return i.ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetBarNrqlQueryArray) ToOneDashboardPageWidgetBarNrqlQueryArrayOutput() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetBarNrqlQueryArrayOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetBarQueryArray) ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarQueryArrayOutput)
+func (i OneDashboardPageWidgetBarNrqlQueryArray) ToOneDashboardPageWidgetBarNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
 }
 
-type OneDashboardPageWidgetBarQueryOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetBarNrqlQueryOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetBarQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetBarQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBarNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetBarQueryOutput) ToOneDashboardPageWidgetBarQueryOutput() OneDashboardPageWidgetBarQueryOutput {
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrqlQueryOutput() OneDashboardPageWidgetBarNrqlQueryOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetBarQueryOutput) ToOneDashboardPageWidgetBarQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryOutput {
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) ToOneDashboardPageWidgetBarNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNrqlQueryOutput {
 	return o
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetBarQueryOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBarQuery) int { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-func (o OneDashboardPageWidgetBarQueryOutput) Nrql() pulumi.StringOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBarQuery) string { return v.Nrql }).(pulumi.StringOutput)
+func (o OneDashboardPageWidgetBarNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type OneDashboardPageWidgetBarQueryArrayOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetBarNrqlQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetBarQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetBarQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBarNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetBarQueryArrayOutput) ToOneDashboardPageWidgetBarQueryArrayOutput() OneDashboardPageWidgetBarQueryArrayOutput {
+func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetBarNrqlQueryArrayOutput() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetBarQueryArrayOutput) ToOneDashboardPageWidgetBarQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarQueryArrayOutput {
+func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetBarNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetBarQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarQuery {
-		return vs[0].([]OneDashboardPageWidgetBarQuery)[vs[1].(int)]
-	}).(OneDashboardPageWidgetBarQueryOutput)
+func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetBarNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarNrqlQueryOutput)
 }
 
 type OneDashboardPageWidgetBillboard struct {
@@ -3475,8 +3475,8 @@ type OneDashboardPageWidgetBillboard struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries []OneDashboardPageWidgetBillboardQuery `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries []OneDashboardPageWidgetBillboardNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3507,8 +3507,8 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries OneDashboardPageWidgetBillboardQueryArrayInput `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries OneDashboardPageWidgetBillboardNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3590,9 +3590,11 @@ func (o OneDashboardPageWidgetBillboardOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-func (o OneDashboardPageWidgetBillboardOutput) Queries() OneDashboardPageWidgetBillboardQueryArrayOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardQuery { return v.Queries }).(OneDashboardPageWidgetBillboardQueryArrayOutput)
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) NrqlQueries() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNrqlQuery {
+		return v.NrqlQueries
+	}).(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3636,110 +3638,110 @@ func (o OneDashboardPageWidgetBillboardArrayOutput) Index(i pulumi.IntInput) One
 	}).(OneDashboardPageWidgetBillboardOutput)
 }
 
-type OneDashboardPageWidgetBillboardQuery struct {
+type OneDashboardPageWidgetBillboardNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId int `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql string `pulumi:"nrql"`
+	Query string `pulumi:"query"`
 }
 
-// OneDashboardPageWidgetBillboardQueryInput is an input type that accepts OneDashboardPageWidgetBillboardQueryArgs and OneDashboardPageWidgetBillboardQueryOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetBillboardQueryInput` via:
+// OneDashboardPageWidgetBillboardNrqlQueryInput is an input type that accepts OneDashboardPageWidgetBillboardNrqlQueryArgs and OneDashboardPageWidgetBillboardNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardNrqlQueryInput` via:
 //
-//          OneDashboardPageWidgetBillboardQueryArgs{...}
-type OneDashboardPageWidgetBillboardQueryInput interface {
+//          OneDashboardPageWidgetBillboardNrqlQueryArgs{...}
+type OneDashboardPageWidgetBillboardNrqlQueryInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetBillboardQueryOutput() OneDashboardPageWidgetBillboardQueryOutput
-	ToOneDashboardPageWidgetBillboardQueryOutputWithContext(context.Context) OneDashboardPageWidgetBillboardQueryOutput
+	ToOneDashboardPageWidgetBillboardNrqlQueryOutput() OneDashboardPageWidgetBillboardNrqlQueryOutput
+	ToOneDashboardPageWidgetBillboardNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetBillboardNrqlQueryOutput
 }
 
-type OneDashboardPageWidgetBillboardQueryArgs struct {
+type OneDashboardPageWidgetBillboardNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql pulumi.StringInput `pulumi:"nrql"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
-func (OneDashboardPageWidgetBillboardQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBillboardNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetBillboardQueryArgs) ToOneDashboardPageWidgetBillboardQueryOutput() OneDashboardPageWidgetBillboardQueryOutput {
-	return i.ToOneDashboardPageWidgetBillboardQueryOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetBillboardNrqlQueryArgs) ToOneDashboardPageWidgetBillboardNrqlQueryOutput() OneDashboardPageWidgetBillboardNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetBillboardNrqlQueryOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetBillboardQueryArgs) ToOneDashboardPageWidgetBillboardQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardQueryOutput)
+func (i OneDashboardPageWidgetBillboardNrqlQueryArgs) ToOneDashboardPageWidgetBillboardNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNrqlQueryOutput)
 }
 
-// OneDashboardPageWidgetBillboardQueryArrayInput is an input type that accepts OneDashboardPageWidgetBillboardQueryArray and OneDashboardPageWidgetBillboardQueryArrayOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetBillboardQueryArrayInput` via:
+// OneDashboardPageWidgetBillboardNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetBillboardNrqlQueryArray and OneDashboardPageWidgetBillboardNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardNrqlQueryArrayInput` via:
 //
-//          OneDashboardPageWidgetBillboardQueryArray{ OneDashboardPageWidgetBillboardQueryArgs{...} }
-type OneDashboardPageWidgetBillboardQueryArrayInput interface {
+//          OneDashboardPageWidgetBillboardNrqlQueryArray{ OneDashboardPageWidgetBillboardNrqlQueryArgs{...} }
+type OneDashboardPageWidgetBillboardNrqlQueryArrayInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetBillboardQueryArrayOutput() OneDashboardPageWidgetBillboardQueryArrayOutput
-	ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardQueryArrayOutput
+	ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutput() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardNrqlQueryArrayOutput
 }
 
-type OneDashboardPageWidgetBillboardQueryArray []OneDashboardPageWidgetBillboardQueryInput
+type OneDashboardPageWidgetBillboardNrqlQueryArray []OneDashboardPageWidgetBillboardNrqlQueryInput
 
-func (OneDashboardPageWidgetBillboardQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBillboardNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetBillboardQueryArray) ToOneDashboardPageWidgetBillboardQueryArrayOutput() OneDashboardPageWidgetBillboardQueryArrayOutput {
-	return i.ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetBillboardNrqlQueryArray) ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutput() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetBillboardQueryArray) ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardQueryArrayOutput)
+func (i OneDashboardPageWidgetBillboardNrqlQueryArray) ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput)
 }
 
-type OneDashboardPageWidgetBillboardQueryOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetBillboardNrqlQueryOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetBillboardQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBillboardNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetBillboardQueryOutput) ToOneDashboardPageWidgetBillboardQueryOutput() OneDashboardPageWidgetBillboardQueryOutput {
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidgetBillboardNrqlQueryOutput() OneDashboardPageWidgetBillboardNrqlQueryOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetBillboardQueryOutput) ToOneDashboardPageWidgetBillboardQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryOutput {
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) ToOneDashboardPageWidgetBillboardNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNrqlQueryOutput {
 	return o
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetBillboardQueryOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboardQuery) int { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-func (o OneDashboardPageWidgetBillboardQueryOutput) Nrql() pulumi.StringOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboardQuery) string { return v.Nrql }).(pulumi.StringOutput)
+func (o OneDashboardPageWidgetBillboardNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type OneDashboardPageWidgetBillboardQueryArrayOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetBillboardNrqlQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetBillboardQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardQuery)(nil)).Elem()
+func (OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetBillboardQueryArrayOutput) ToOneDashboardPageWidgetBillboardQueryArrayOutput() OneDashboardPageWidgetBillboardQueryArrayOutput {
+func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutput() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetBillboardQueryArrayOutput) ToOneDashboardPageWidgetBillboardQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardQueryArrayOutput {
+func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) ToOneDashboardPageWidgetBillboardNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetBillboardQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardQuery {
-		return vs[0].([]OneDashboardPageWidgetBillboardQuery)[vs[1].(int)]
-	}).(OneDashboardPageWidgetBillboardQueryOutput)
+func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetBillboardNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardNrqlQueryOutput)
 }
 
 type OneDashboardPageWidgetLine struct {
@@ -3748,8 +3750,8 @@ type OneDashboardPageWidgetLine struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries []OneDashboardPageWidgetLineQuery `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3775,8 +3777,8 @@ type OneDashboardPageWidgetLineArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries OneDashboardPageWidgetLineQueryArrayInput `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -3850,9 +3852,9 @@ func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-func (o OneDashboardPageWidgetLineOutput) Queries() OneDashboardPageWidgetLineQueryArrayOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineQuery { return v.Queries }).(OneDashboardPageWidgetLineQueryArrayOutput)
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) NrqlQueries() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3890,110 +3892,110 @@ func (o OneDashboardPageWidgetLineArrayOutput) Index(i pulumi.IntInput) OneDashb
 	}).(OneDashboardPageWidgetLineOutput)
 }
 
-type OneDashboardPageWidgetLineQuery struct {
+type OneDashboardPageWidgetLineNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId int `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql string `pulumi:"nrql"`
+	Query string `pulumi:"query"`
 }
 
-// OneDashboardPageWidgetLineQueryInput is an input type that accepts OneDashboardPageWidgetLineQueryArgs and OneDashboardPageWidgetLineQueryOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetLineQueryInput` via:
+// OneDashboardPageWidgetLineNrqlQueryInput is an input type that accepts OneDashboardPageWidgetLineNrqlQueryArgs and OneDashboardPageWidgetLineNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineNrqlQueryInput` via:
 //
-//          OneDashboardPageWidgetLineQueryArgs{...}
-type OneDashboardPageWidgetLineQueryInput interface {
+//          OneDashboardPageWidgetLineNrqlQueryArgs{...}
+type OneDashboardPageWidgetLineNrqlQueryInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetLineQueryOutput() OneDashboardPageWidgetLineQueryOutput
-	ToOneDashboardPageWidgetLineQueryOutputWithContext(context.Context) OneDashboardPageWidgetLineQueryOutput
+	ToOneDashboardPageWidgetLineNrqlQueryOutput() OneDashboardPageWidgetLineNrqlQueryOutput
+	ToOneDashboardPageWidgetLineNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetLineNrqlQueryOutput
 }
 
-type OneDashboardPageWidgetLineQueryArgs struct {
+type OneDashboardPageWidgetLineNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql pulumi.StringInput `pulumi:"nrql"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
-func (OneDashboardPageWidgetLineQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetLineQuery)(nil)).Elem()
+func (OneDashboardPageWidgetLineNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetLineQueryArgs) ToOneDashboardPageWidgetLineQueryOutput() OneDashboardPageWidgetLineQueryOutput {
-	return i.ToOneDashboardPageWidgetLineQueryOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetLineNrqlQueryArgs) ToOneDashboardPageWidgetLineNrqlQueryOutput() OneDashboardPageWidgetLineNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetLineNrqlQueryOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetLineQueryArgs) ToOneDashboardPageWidgetLineQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineQueryOutput)
+func (i OneDashboardPageWidgetLineNrqlQueryArgs) ToOneDashboardPageWidgetLineNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNrqlQueryOutput)
 }
 
-// OneDashboardPageWidgetLineQueryArrayInput is an input type that accepts OneDashboardPageWidgetLineQueryArray and OneDashboardPageWidgetLineQueryArrayOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetLineQueryArrayInput` via:
+// OneDashboardPageWidgetLineNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetLineNrqlQueryArray and OneDashboardPageWidgetLineNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineNrqlQueryArrayInput` via:
 //
-//          OneDashboardPageWidgetLineQueryArray{ OneDashboardPageWidgetLineQueryArgs{...} }
-type OneDashboardPageWidgetLineQueryArrayInput interface {
+//          OneDashboardPageWidgetLineNrqlQueryArray{ OneDashboardPageWidgetLineNrqlQueryArgs{...} }
+type OneDashboardPageWidgetLineNrqlQueryArrayInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetLineQueryArrayOutput() OneDashboardPageWidgetLineQueryArrayOutput
-	ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineQueryArrayOutput
+	ToOneDashboardPageWidgetLineNrqlQueryArrayOutput() OneDashboardPageWidgetLineNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetLineNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineNrqlQueryArrayOutput
 }
 
-type OneDashboardPageWidgetLineQueryArray []OneDashboardPageWidgetLineQueryInput
+type OneDashboardPageWidgetLineNrqlQueryArray []OneDashboardPageWidgetLineNrqlQueryInput
 
-func (OneDashboardPageWidgetLineQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetLineQuery)(nil)).Elem()
+func (OneDashboardPageWidgetLineNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetLineQueryArray) ToOneDashboardPageWidgetLineQueryArrayOutput() OneDashboardPageWidgetLineQueryArrayOutput {
-	return i.ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetLineNrqlQueryArray) ToOneDashboardPageWidgetLineNrqlQueryArrayOutput() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetLineNrqlQueryArrayOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetLineQueryArray) ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineQueryArrayOutput)
+func (i OneDashboardPageWidgetLineNrqlQueryArray) ToOneDashboardPageWidgetLineNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
 }
 
-type OneDashboardPageWidgetLineQueryOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetLineNrqlQueryOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetLineQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetLineQuery)(nil)).Elem()
+func (OneDashboardPageWidgetLineNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetLineQueryOutput) ToOneDashboardPageWidgetLineQueryOutput() OneDashboardPageWidgetLineQueryOutput {
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineNrqlQueryOutput() OneDashboardPageWidgetLineNrqlQueryOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetLineQueryOutput) ToOneDashboardPageWidgetLineQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryOutput {
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) ToOneDashboardPageWidgetLineNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNrqlQueryOutput {
 	return o
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetLineQueryOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineQuery) int { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-func (o OneDashboardPageWidgetLineQueryOutput) Nrql() pulumi.StringOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetLineQuery) string { return v.Nrql }).(pulumi.StringOutput)
+func (o OneDashboardPageWidgetLineNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type OneDashboardPageWidgetLineQueryArrayOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetLineNrqlQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetLineQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetLineQuery)(nil)).Elem()
+func (OneDashboardPageWidgetLineNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetLineQueryArrayOutput) ToOneDashboardPageWidgetLineQueryArrayOutput() OneDashboardPageWidgetLineQueryArrayOutput {
+func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) ToOneDashboardPageWidgetLineNrqlQueryArrayOutput() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetLineQueryArrayOutput) ToOneDashboardPageWidgetLineQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineQueryArrayOutput {
+func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) ToOneDashboardPageWidgetLineNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetLineQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineQuery {
-		return vs[0].([]OneDashboardPageWidgetLineQuery)[vs[1].(int)]
-	}).(OneDashboardPageWidgetLineQueryOutput)
+func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetLineNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineNrqlQueryOutput)
 }
 
 type OneDashboardPageWidgetMarkdown struct {
@@ -4150,8 +4152,8 @@ type OneDashboardPageWidgetPy struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries []OneDashboardPageWidgetPyQuery `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -4177,8 +4179,8 @@ type OneDashboardPageWidgetPyArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries OneDashboardPageWidgetPyQueryArrayInput `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -4252,9 +4254,9 @@ func (o OneDashboardPageWidgetPyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-func (o OneDashboardPageWidgetPyOutput) Queries() OneDashboardPageWidgetPyQueryArrayOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyQuery { return v.Queries }).(OneDashboardPageWidgetPyQueryArrayOutput)
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) NrqlQueries() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4292,110 +4294,110 @@ func (o OneDashboardPageWidgetPyArrayOutput) Index(i pulumi.IntInput) OneDashboa
 	}).(OneDashboardPageWidgetPyOutput)
 }
 
-type OneDashboardPageWidgetPyQuery struct {
+type OneDashboardPageWidgetPyNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId int `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql string `pulumi:"nrql"`
+	Query string `pulumi:"query"`
 }
 
-// OneDashboardPageWidgetPyQueryInput is an input type that accepts OneDashboardPageWidgetPyQueryArgs and OneDashboardPageWidgetPyQueryOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetPyQueryInput` via:
+// OneDashboardPageWidgetPyNrqlQueryInput is an input type that accepts OneDashboardPageWidgetPyNrqlQueryArgs and OneDashboardPageWidgetPyNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyNrqlQueryInput` via:
 //
-//          OneDashboardPageWidgetPyQueryArgs{...}
-type OneDashboardPageWidgetPyQueryInput interface {
+//          OneDashboardPageWidgetPyNrqlQueryArgs{...}
+type OneDashboardPageWidgetPyNrqlQueryInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetPyQueryOutput() OneDashboardPageWidgetPyQueryOutput
-	ToOneDashboardPageWidgetPyQueryOutputWithContext(context.Context) OneDashboardPageWidgetPyQueryOutput
+	ToOneDashboardPageWidgetPyNrqlQueryOutput() OneDashboardPageWidgetPyNrqlQueryOutput
+	ToOneDashboardPageWidgetPyNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetPyNrqlQueryOutput
 }
 
-type OneDashboardPageWidgetPyQueryArgs struct {
+type OneDashboardPageWidgetPyNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql pulumi.StringInput `pulumi:"nrql"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
-func (OneDashboardPageWidgetPyQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetPyQuery)(nil)).Elem()
+func (OneDashboardPageWidgetPyNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetPyQueryArgs) ToOneDashboardPageWidgetPyQueryOutput() OneDashboardPageWidgetPyQueryOutput {
-	return i.ToOneDashboardPageWidgetPyQueryOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetPyNrqlQueryArgs) ToOneDashboardPageWidgetPyNrqlQueryOutput() OneDashboardPageWidgetPyNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetPyNrqlQueryOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetPyQueryArgs) ToOneDashboardPageWidgetPyQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyQueryOutput)
+func (i OneDashboardPageWidgetPyNrqlQueryArgs) ToOneDashboardPageWidgetPyNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNrqlQueryOutput)
 }
 
-// OneDashboardPageWidgetPyQueryArrayInput is an input type that accepts OneDashboardPageWidgetPyQueryArray and OneDashboardPageWidgetPyQueryArrayOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetPyQueryArrayInput` via:
+// OneDashboardPageWidgetPyNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetPyNrqlQueryArray and OneDashboardPageWidgetPyNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyNrqlQueryArrayInput` via:
 //
-//          OneDashboardPageWidgetPyQueryArray{ OneDashboardPageWidgetPyQueryArgs{...} }
-type OneDashboardPageWidgetPyQueryArrayInput interface {
+//          OneDashboardPageWidgetPyNrqlQueryArray{ OneDashboardPageWidgetPyNrqlQueryArgs{...} }
+type OneDashboardPageWidgetPyNrqlQueryArrayInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetPyQueryArrayOutput() OneDashboardPageWidgetPyQueryArrayOutput
-	ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyQueryArrayOutput
+	ToOneDashboardPageWidgetPyNrqlQueryArrayOutput() OneDashboardPageWidgetPyNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetPyNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyNrqlQueryArrayOutput
 }
 
-type OneDashboardPageWidgetPyQueryArray []OneDashboardPageWidgetPyQueryInput
+type OneDashboardPageWidgetPyNrqlQueryArray []OneDashboardPageWidgetPyNrqlQueryInput
 
-func (OneDashboardPageWidgetPyQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetPyQuery)(nil)).Elem()
+func (OneDashboardPageWidgetPyNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetPyQueryArray) ToOneDashboardPageWidgetPyQueryArrayOutput() OneDashboardPageWidgetPyQueryArrayOutput {
-	return i.ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetPyNrqlQueryArray) ToOneDashboardPageWidgetPyNrqlQueryArrayOutput() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetPyNrqlQueryArrayOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetPyQueryArray) ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyQueryArrayOutput)
+func (i OneDashboardPageWidgetPyNrqlQueryArray) ToOneDashboardPageWidgetPyNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
 }
 
-type OneDashboardPageWidgetPyQueryOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetPyNrqlQueryOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetPyQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetPyQuery)(nil)).Elem()
+func (OneDashboardPageWidgetPyNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetPyQueryOutput) ToOneDashboardPageWidgetPyQueryOutput() OneDashboardPageWidgetPyQueryOutput {
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQueryOutput() OneDashboardPageWidgetPyNrqlQueryOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetPyQueryOutput) ToOneDashboardPageWidgetPyQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryOutput {
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) ToOneDashboardPageWidgetPyNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNrqlQueryOutput {
 	return o
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetPyQueryOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetPyQuery) int { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-func (o OneDashboardPageWidgetPyQueryOutput) Nrql() pulumi.StringOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetPyQuery) string { return v.Nrql }).(pulumi.StringOutput)
+func (o OneDashboardPageWidgetPyNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type OneDashboardPageWidgetPyQueryArrayOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetPyNrqlQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetPyQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetPyQuery)(nil)).Elem()
+func (OneDashboardPageWidgetPyNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetPyQueryArrayOutput) ToOneDashboardPageWidgetPyQueryArrayOutput() OneDashboardPageWidgetPyQueryArrayOutput {
+func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) ToOneDashboardPageWidgetPyNrqlQueryArrayOutput() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetPyQueryArrayOutput) ToOneDashboardPageWidgetPyQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyQueryArrayOutput {
+func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) ToOneDashboardPageWidgetPyNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetPyQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyQuery {
-		return vs[0].([]OneDashboardPageWidgetPyQuery)[vs[1].(int)]
-	}).(OneDashboardPageWidgetPyQueryOutput)
+func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetPyNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyNrqlQueryOutput)
 }
 
 type OneDashboardPageWidgetTable struct {
@@ -4404,8 +4406,8 @@ type OneDashboardPageWidgetTable struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries []OneDashboardPageWidgetTableQuery `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries []OneDashboardPageWidgetTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -4431,8 +4433,8 @@ type OneDashboardPageWidgetTableArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-	Queries OneDashboardPageWidgetTableQueryArrayInput `pulumi:"queries"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	NrqlQueries OneDashboardPageWidgetTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -4506,9 +4508,9 @@ func (o OneDashboardPageWidgetTableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
-func (o OneDashboardPageWidgetTableOutput) Queries() OneDashboardPageWidgetTableQueryArrayOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableQuery { return v.Queries }).(OneDashboardPageWidgetTableQueryArrayOutput)
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) NrqlQueries() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4546,110 +4548,110 @@ func (o OneDashboardPageWidgetTableArrayOutput) Index(i pulumi.IntInput) OneDash
 	}).(OneDashboardPageWidgetTableOutput)
 }
 
-type OneDashboardPageWidgetTableQuery struct {
+type OneDashboardPageWidgetTableNrqlQuery struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId int `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql string `pulumi:"nrql"`
+	Query string `pulumi:"query"`
 }
 
-// OneDashboardPageWidgetTableQueryInput is an input type that accepts OneDashboardPageWidgetTableQueryArgs and OneDashboardPageWidgetTableQueryOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetTableQueryInput` via:
+// OneDashboardPageWidgetTableNrqlQueryInput is an input type that accepts OneDashboardPageWidgetTableNrqlQueryArgs and OneDashboardPageWidgetTableNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableNrqlQueryInput` via:
 //
-//          OneDashboardPageWidgetTableQueryArgs{...}
-type OneDashboardPageWidgetTableQueryInput interface {
+//          OneDashboardPageWidgetTableNrqlQueryArgs{...}
+type OneDashboardPageWidgetTableNrqlQueryInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetTableQueryOutput() OneDashboardPageWidgetTableQueryOutput
-	ToOneDashboardPageWidgetTableQueryOutputWithContext(context.Context) OneDashboardPageWidgetTableQueryOutput
+	ToOneDashboardPageWidgetTableNrqlQueryOutput() OneDashboardPageWidgetTableNrqlQueryOutput
+	ToOneDashboardPageWidgetTableNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetTableNrqlQueryOutput
 }
 
-type OneDashboardPageWidgetTableQueryArgs struct {
+type OneDashboardPageWidgetTableNrqlQueryArgs struct {
 	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-	Nrql pulumi.StringInput `pulumi:"nrql"`
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
-func (OneDashboardPageWidgetTableQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetTableQuery)(nil)).Elem()
+func (OneDashboardPageWidgetTableNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetTableQueryArgs) ToOneDashboardPageWidgetTableQueryOutput() OneDashboardPageWidgetTableQueryOutput {
-	return i.ToOneDashboardPageWidgetTableQueryOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetTableNrqlQueryArgs) ToOneDashboardPageWidgetTableNrqlQueryOutput() OneDashboardPageWidgetTableNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetTableNrqlQueryOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetTableQueryArgs) ToOneDashboardPageWidgetTableQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableQueryOutput)
+func (i OneDashboardPageWidgetTableNrqlQueryArgs) ToOneDashboardPageWidgetTableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNrqlQueryOutput)
 }
 
-// OneDashboardPageWidgetTableQueryArrayInput is an input type that accepts OneDashboardPageWidgetTableQueryArray and OneDashboardPageWidgetTableQueryArrayOutput values.
-// You can construct a concrete instance of `OneDashboardPageWidgetTableQueryArrayInput` via:
+// OneDashboardPageWidgetTableNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetTableNrqlQueryArray and OneDashboardPageWidgetTableNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableNrqlQueryArrayInput` via:
 //
-//          OneDashboardPageWidgetTableQueryArray{ OneDashboardPageWidgetTableQueryArgs{...} }
-type OneDashboardPageWidgetTableQueryArrayInput interface {
+//          OneDashboardPageWidgetTableNrqlQueryArray{ OneDashboardPageWidgetTableNrqlQueryArgs{...} }
+type OneDashboardPageWidgetTableNrqlQueryArrayInput interface {
 	pulumi.Input
 
-	ToOneDashboardPageWidgetTableQueryArrayOutput() OneDashboardPageWidgetTableQueryArrayOutput
-	ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableQueryArrayOutput
+	ToOneDashboardPageWidgetTableNrqlQueryArrayOutput() OneDashboardPageWidgetTableNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetTableNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableNrqlQueryArrayOutput
 }
 
-type OneDashboardPageWidgetTableQueryArray []OneDashboardPageWidgetTableQueryInput
+type OneDashboardPageWidgetTableNrqlQueryArray []OneDashboardPageWidgetTableNrqlQueryInput
 
-func (OneDashboardPageWidgetTableQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetTableQuery)(nil)).Elem()
+func (OneDashboardPageWidgetTableNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableNrqlQuery)(nil)).Elem()
 }
 
-func (i OneDashboardPageWidgetTableQueryArray) ToOneDashboardPageWidgetTableQueryArrayOutput() OneDashboardPageWidgetTableQueryArrayOutput {
-	return i.ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(context.Background())
+func (i OneDashboardPageWidgetTableNrqlQueryArray) ToOneDashboardPageWidgetTableNrqlQueryArrayOutput() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetTableNrqlQueryArrayOutputWithContext(context.Background())
 }
 
-func (i OneDashboardPageWidgetTableQueryArray) ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableQueryArrayOutput)
+func (i OneDashboardPageWidgetTableNrqlQueryArray) ToOneDashboardPageWidgetTableNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
 }
 
-type OneDashboardPageWidgetTableQueryOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetTableNrqlQueryOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetTableQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardPageWidgetTableQuery)(nil)).Elem()
+func (OneDashboardPageWidgetTableNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetTableQueryOutput) ToOneDashboardPageWidgetTableQueryOutput() OneDashboardPageWidgetTableQueryOutput {
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTableNrqlQueryOutput() OneDashboardPageWidgetTableNrqlQueryOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetTableQueryOutput) ToOneDashboardPageWidgetTableQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryOutput {
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) ToOneDashboardPageWidgetTableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNrqlQueryOutput {
 	return o
 }
 
 // Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-func (o OneDashboardPageWidgetTableQueryOutput) AccountId() pulumi.IntOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableQuery) int { return v.AccountId }).(pulumi.IntOutput)
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-func (o OneDashboardPageWidgetTableQueryOutput) Nrql() pulumi.StringOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetTableQuery) string { return v.Nrql }).(pulumi.StringOutput)
+func (o OneDashboardPageWidgetTableNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
-type OneDashboardPageWidgetTableQueryArrayOutput struct{ *pulumi.OutputState }
+type OneDashboardPageWidgetTableNrqlQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (OneDashboardPageWidgetTableQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboardPageWidgetTableQuery)(nil)).Elem()
+func (OneDashboardPageWidgetTableNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableNrqlQuery)(nil)).Elem()
 }
 
-func (o OneDashboardPageWidgetTableQueryArrayOutput) ToOneDashboardPageWidgetTableQueryArrayOutput() OneDashboardPageWidgetTableQueryArrayOutput {
+func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) ToOneDashboardPageWidgetTableNrqlQueryArrayOutput() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetTableQueryArrayOutput) ToOneDashboardPageWidgetTableQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableQueryArrayOutput {
+func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) ToOneDashboardPageWidgetTableNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o
 }
 
-func (o OneDashboardPageWidgetTableQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableQuery {
-		return vs[0].([]OneDashboardPageWidgetTableQuery)[vs[1].(int)]
-	}).(OneDashboardPageWidgetTableQueryOutput)
+func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetTableNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableNrqlQueryOutput)
 }
 
 type GetAlertChannelConfig struct {
@@ -4900,30 +4902,30 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaArrayOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaQueryOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarArrayOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetBarQueryOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetBarQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardArrayOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardQueryOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineArrayOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetLineQueryOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetLineQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyArrayOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetPyQueryOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetPyQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableArrayOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetTableQueryOutput{})
-	pulumi.RegisterOutputType(OneDashboardPageWidgetTableQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 }

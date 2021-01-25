@@ -11,7 +11,7 @@ namespace Pulumi.NewRelic.Outputs
 {
 
     [OutputType]
-    public sealed class OneDashboardPageWidgetTableQuery
+    public sealed class OneDashboardPageWidgetLineNrqlQuery
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -20,16 +20,16 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         /// </summary>
-        public readonly string Nrql;
+        public readonly string Query;
 
         [OutputConstructor]
-        private OneDashboardPageWidgetTableQuery(
+        private OneDashboardPageWidgetLineNrqlQuery(
             int accountId,
 
-            string nrql)
+            string query)
         {
             AccountId = accountId;
-            Nrql = nrql;
+            Query = query;
         }
     }
 }

@@ -33,16 +33,16 @@ namespace Pulumi.NewRelic.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        [Input("queries", required: true)]
-        private InputList<Inputs.OneDashboardPageWidgetBillboardQueryArgs>? _queries;
+        [Input("nrqlQueries", required: true)]
+        private InputList<Inputs.OneDashboardPageWidgetBillboardNrqlQueryArgs>? _nrqlQueries;
 
         /// <summary>
-        /// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// </summary>
-        public InputList<Inputs.OneDashboardPageWidgetBillboardQueryArgs> Queries
+        public InputList<Inputs.OneDashboardPageWidgetBillboardNrqlQueryArgs> NrqlQueries
         {
-            get => _queries ?? (_queries = new InputList<Inputs.OneDashboardPageWidgetBillboardQueryArgs>());
-            set => _queries = value;
+            get => _nrqlQueries ?? (_nrqlQueries = new InputList<Inputs.OneDashboardPageWidgetBillboardNrqlQueryArgs>());
+            set => _nrqlQueries = value;
         }
 
         /// <summary>
