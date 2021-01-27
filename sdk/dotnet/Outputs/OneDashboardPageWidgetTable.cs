@@ -23,9 +23,9 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
-        /// (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+        /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTableQuery> Queries;
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTableNrqlQuery> NrqlQueries;
         /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
-            ImmutableArray<Outputs.OneDashboardPageWidgetTableQuery> queries,
+            ImmutableArray<Outputs.OneDashboardPageWidgetTableNrqlQuery> nrqlQueries,
 
             int row,
 
@@ -58,7 +58,7 @@ namespace Pulumi.NewRelic.Outputs
             Column = column;
             Height = height;
             Id = id;
-            Queries = queries;
+            NrqlQueries = nrqlQueries;
             Row = row;
             Title = title;
             Width = width;

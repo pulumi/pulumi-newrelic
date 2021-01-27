@@ -392,9 +392,9 @@ export interface OneDashboardPageWidgetArea {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaQuery>[]>;
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNrqlQuery>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -409,7 +409,7 @@ export interface OneDashboardPageWidgetArea {
     width?: pulumi.Input<number>;
 }
 
-export interface OneDashboardPageWidgetAreaQuery {
+export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -417,7 +417,7 @@ export interface OneDashboardPageWidgetAreaQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: pulumi.Input<string>;
+    query: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBar {
@@ -431,9 +431,9 @@ export interface OneDashboardPageWidgetBar {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarQuery>[]>;
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNrqlQuery>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -448,7 +448,7 @@ export interface OneDashboardPageWidgetBar {
     width?: pulumi.Input<number>;
 }
 
-export interface OneDashboardPageWidgetBarQuery {
+export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -456,7 +456,7 @@ export interface OneDashboardPageWidgetBarQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: pulumi.Input<string>;
+    query: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBillboard {
@@ -474,9 +474,9 @@ export interface OneDashboardPageWidgetBillboard {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardQuery>[]>;
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNrqlQuery>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -496,7 +496,7 @@ export interface OneDashboardPageWidgetBillboard {
     width?: pulumi.Input<number>;
 }
 
-export interface OneDashboardPageWidgetBillboardQuery {
+export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -504,7 +504,7 @@ export interface OneDashboardPageWidgetBillboardQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: pulumi.Input<string>;
+    query: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLine {
@@ -518,9 +518,9 @@ export interface OneDashboardPageWidgetLine {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineQuery>[]>;
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNrqlQuery>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -535,7 +535,7 @@ export interface OneDashboardPageWidgetLine {
     width?: pulumi.Input<number>;
 }
 
-export interface OneDashboardPageWidgetLineQuery {
+export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -543,7 +543,7 @@ export interface OneDashboardPageWidgetLineQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: pulumi.Input<string>;
+    query: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetMarkdown {
@@ -585,9 +585,9 @@ export interface OneDashboardPageWidgetPy {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyQuery>[]>;
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNrqlQuery>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -602,7 +602,7 @@ export interface OneDashboardPageWidgetPy {
     width?: pulumi.Input<number>;
 }
 
-export interface OneDashboardPageWidgetPyQuery {
+export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -610,7 +610,7 @@ export interface OneDashboardPageWidgetPyQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: pulumi.Input<string>;
+    query: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetTable {
@@ -624,9 +624,9 @@ export interface OneDashboardPageWidgetTable {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableQuery>[]>;
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNrqlQuery>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -641,7 +641,7 @@ export interface OneDashboardPageWidgetTable {
     width?: pulumi.Input<number>;
 }
 
-export interface OneDashboardPageWidgetTableQuery {
+export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -649,7 +649,7 @@ export interface OneDashboardPageWidgetTableQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: pulumi.Input<string>;
+    query: pulumi.Input<string>;
 }
 export namespace insights {
     export interface EventEvent {

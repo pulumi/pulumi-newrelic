@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageWidgetAreaQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageWidgetLineNrqlQueryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -21,10 +21,10 @@ namespace Pulumi.NewRelic.Inputs
         /// <summary>
         /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         /// </summary>
-        [Input("nrql", required: true)]
-        public Input<string> Nrql { get; set; } = null!;
+        [Input("query", required: true)]
+        public Input<string> Query { get; set; } = null!;
 
-        public OneDashboardPageWidgetAreaQueryGetArgs()
+        public OneDashboardPageWidgetLineNrqlQueryArgs()
         {
         }
     }

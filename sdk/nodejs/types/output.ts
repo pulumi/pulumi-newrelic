@@ -414,9 +414,9 @@ export interface OneDashboardPageWidgetArea {
     height?: number;
     id: string;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: outputs.OneDashboardPageWidgetAreaQuery[];
+    nrqlQueries: outputs.OneDashboardPageWidgetAreaNrqlQuery[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -431,7 +431,7 @@ export interface OneDashboardPageWidgetArea {
     width?: number;
 }
 
-export interface OneDashboardPageWidgetAreaQuery {
+export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -439,7 +439,7 @@ export interface OneDashboardPageWidgetAreaQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: string;
+    query: string;
 }
 
 export interface OneDashboardPageWidgetBar {
@@ -453,9 +453,9 @@ export interface OneDashboardPageWidgetBar {
     height?: number;
     id: string;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: outputs.OneDashboardPageWidgetBarQuery[];
+    nrqlQueries: outputs.OneDashboardPageWidgetBarNrqlQuery[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -470,7 +470,7 @@ export interface OneDashboardPageWidgetBar {
     width?: number;
 }
 
-export interface OneDashboardPageWidgetBarQuery {
+export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -478,7 +478,7 @@ export interface OneDashboardPageWidgetBarQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: string;
+    query: string;
 }
 
 export interface OneDashboardPageWidgetBillboard {
@@ -496,9 +496,9 @@ export interface OneDashboardPageWidgetBillboard {
     height?: number;
     id: string;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: outputs.OneDashboardPageWidgetBillboardQuery[];
+    nrqlQueries: outputs.OneDashboardPageWidgetBillboardNrqlQuery[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -518,7 +518,7 @@ export interface OneDashboardPageWidgetBillboard {
     width?: number;
 }
 
-export interface OneDashboardPageWidgetBillboardQuery {
+export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -526,7 +526,7 @@ export interface OneDashboardPageWidgetBillboardQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: string;
+    query: string;
 }
 
 export interface OneDashboardPageWidgetLine {
@@ -540,9 +540,9 @@ export interface OneDashboardPageWidgetLine {
     height?: number;
     id: string;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: outputs.OneDashboardPageWidgetLineQuery[];
+    nrqlQueries: outputs.OneDashboardPageWidgetLineNrqlQuery[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -557,7 +557,7 @@ export interface OneDashboardPageWidgetLine {
     width?: number;
 }
 
-export interface OneDashboardPageWidgetLineQuery {
+export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -565,7 +565,7 @@ export interface OneDashboardPageWidgetLineQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: string;
+    query: string;
 }
 
 export interface OneDashboardPageWidgetMarkdown {
@@ -607,9 +607,9 @@ export interface OneDashboardPageWidgetPy {
     height?: number;
     id: string;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: outputs.OneDashboardPageWidgetPyQuery[];
+    nrqlQueries: outputs.OneDashboardPageWidgetPyNrqlQuery[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -624,7 +624,7 @@ export interface OneDashboardPageWidgetPy {
     width?: number;
 }
 
-export interface OneDashboardPageWidgetPyQuery {
+export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -632,7 +632,7 @@ export interface OneDashboardPageWidgetPyQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: string;
+    query: string;
 }
 
 export interface OneDashboardPageWidgetTable {
@@ -646,9 +646,9 @@ export interface OneDashboardPageWidgetTable {
     height?: number;
     id: string;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested query blocks below for details.
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
-    queries: outputs.OneDashboardPageWidgetTableQuery[];
+    nrqlQueries: outputs.OneDashboardPageWidgetTableNrqlQuery[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -663,7 +663,7 @@ export interface OneDashboardPageWidgetTable {
     width?: number;
 }
 
-export interface OneDashboardPageWidgetTableQuery {
+export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -671,7 +671,7 @@ export interface OneDashboardPageWidgetTableQuery {
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
-    nrql: string;
+    query: string;
 }
 export namespace insights {
     export interface EventEvent {
