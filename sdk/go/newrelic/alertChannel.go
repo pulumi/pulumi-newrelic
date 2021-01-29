@@ -114,15 +114,15 @@ type AlertChannelInput interface {
 	ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput
 }
 
-func (AlertChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertChannel)(nil)).Elem()
+func (*AlertChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertChannel)(nil))
 }
 
-func (i AlertChannel) ToAlertChannelOutput() AlertChannelOutput {
+func (i *AlertChannel) ToAlertChannelOutput() AlertChannelOutput {
 	return i.ToAlertChannelOutputWithContext(context.Background())
 }
 
-func (i AlertChannel) ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput {
+func (i *AlertChannel) ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelOutput)
 }
 
@@ -131,7 +131,7 @@ type AlertChannelOutput struct {
 }
 
 func (AlertChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertChannel)(nil))
 }
 
 func (o AlertChannelOutput) ToAlertChannelOutput() AlertChannelOutput {

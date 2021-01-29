@@ -51,6 +51,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///  $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main &lt;id&gt;
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:synthetics/monitorScript:MonitorScript")]
     public partial class MonitorScript : Pulumi.CustomResource
     {
         /// <summary>

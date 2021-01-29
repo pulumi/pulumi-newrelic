@@ -135,15 +135,15 @@ type AlertMutingRuleInput interface {
 	ToAlertMutingRuleOutputWithContext(ctx context.Context) AlertMutingRuleOutput
 }
 
-func (AlertMutingRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertMutingRule)(nil)).Elem()
+func (*AlertMutingRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRule)(nil))
 }
 
-func (i AlertMutingRule) ToAlertMutingRuleOutput() AlertMutingRuleOutput {
+func (i *AlertMutingRule) ToAlertMutingRuleOutput() AlertMutingRuleOutput {
 	return i.ToAlertMutingRuleOutputWithContext(context.Background())
 }
 
-func (i AlertMutingRule) ToAlertMutingRuleOutputWithContext(ctx context.Context) AlertMutingRuleOutput {
+func (i *AlertMutingRule) ToAlertMutingRuleOutputWithContext(ctx context.Context) AlertMutingRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleOutput)
 }
 
@@ -152,7 +152,7 @@ type AlertMutingRuleOutput struct {
 }
 
 func (AlertMutingRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertMutingRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertMutingRule)(nil))
 }
 
 func (o AlertMutingRuleOutput) ToAlertMutingRuleOutput() AlertMutingRuleOutput {

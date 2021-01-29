@@ -31,7 +31,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -191,15 +191,15 @@ type ApiAccessKeyInput interface {
 	ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput
 }
 
-func (ApiAccessKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAccessKey)(nil)).Elem()
+func (*ApiAccessKey) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAccessKey)(nil))
 }
 
-func (i ApiAccessKey) ToApiAccessKeyOutput() ApiAccessKeyOutput {
+func (i *ApiAccessKey) ToApiAccessKeyOutput() ApiAccessKeyOutput {
 	return i.ToApiAccessKeyOutputWithContext(context.Background())
 }
 
-func (i ApiAccessKey) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput {
+func (i *ApiAccessKey) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyOutput)
 }
 
@@ -208,7 +208,7 @@ type ApiAccessKeyOutput struct {
 }
 
 func (ApiAccessKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAccessKeyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApiAccessKey)(nil))
 }
 
 func (o ApiAccessKeyOutput) ToApiAccessKeyOutput() ApiAccessKeyOutput {

@@ -21,6 +21,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -126,6 +127,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -364,15 +366,15 @@ type DashboardInput interface {
 	ToDashboardOutputWithContext(ctx context.Context) DashboardOutput
 }
 
-func (Dashboard) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dashboard)(nil)).Elem()
+func (*Dashboard) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dashboard)(nil))
 }
 
-func (i Dashboard) ToDashboardOutput() DashboardOutput {
+func (i *Dashboard) ToDashboardOutput() DashboardOutput {
 	return i.ToDashboardOutputWithContext(context.Background())
 }
 
-func (i Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
 }
 
@@ -381,7 +383,7 @@ type DashboardOutput struct {
 }
 
 func (DashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardOutput)(nil)).Elem()
+	return reflect.TypeOf((*Dashboard)(nil))
 }
 
 func (o DashboardOutput) ToDashboardOutput() DashboardOutput {

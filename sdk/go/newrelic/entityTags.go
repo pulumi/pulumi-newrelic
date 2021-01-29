@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -157,15 +158,15 @@ type EntityTagsInput interface {
 	ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput
 }
 
-func (EntityTags) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityTags)(nil)).Elem()
+func (*EntityTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTags)(nil))
 }
 
-func (i EntityTags) ToEntityTagsOutput() EntityTagsOutput {
+func (i *EntityTags) ToEntityTagsOutput() EntityTagsOutput {
 	return i.ToEntityTagsOutputWithContext(context.Background())
 }
 
-func (i EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput {
+func (i *EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsOutput)
 }
 
@@ -174,7 +175,7 @@ type EntityTagsOutput struct {
 }
 
 func (EntityTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityTagsOutput)(nil)).Elem()
+	return reflect.TypeOf((*EntityTags)(nil))
 }
 
 func (o EntityTagsOutput) ToEntityTagsOutput() EntityTagsOutput {

@@ -163,15 +163,15 @@ type ApplicationSettingsInput interface {
 	ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput
 }
 
-func (ApplicationSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSettings)(nil)).Elem()
+func (*ApplicationSettings) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSettings)(nil))
 }
 
-func (i ApplicationSettings) ToApplicationSettingsOutput() ApplicationSettingsOutput {
+func (i *ApplicationSettings) ToApplicationSettingsOutput() ApplicationSettingsOutput {
 	return i.ToApplicationSettingsOutputWithContext(context.Background())
 }
 
-func (i ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
+func (i *ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsOutput)
 }
 
@@ -180,7 +180,7 @@ type ApplicationSettingsOutput struct {
 }
 
 func (ApplicationSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationSettingsOutput)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationSettings)(nil))
 }
 
 func (o ApplicationSettingsOutput) ToApplicationSettingsOutput() ApplicationSettingsOutput {

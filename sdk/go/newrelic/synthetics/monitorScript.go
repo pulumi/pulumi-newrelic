@@ -107,15 +107,15 @@ type MonitorScriptInput interface {
 	ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput
 }
 
-func (MonitorScript) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorScript)(nil)).Elem()
+func (*MonitorScript) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorScript)(nil))
 }
 
-func (i MonitorScript) ToMonitorScriptOutput() MonitorScriptOutput {
+func (i *MonitorScript) ToMonitorScriptOutput() MonitorScriptOutput {
 	return i.ToMonitorScriptOutputWithContext(context.Background())
 }
 
-func (i MonitorScript) ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput {
+func (i *MonitorScript) ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptOutput)
 }
 
@@ -124,7 +124,7 @@ type MonitorScriptOutput struct {
 }
 
 func (MonitorScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorScriptOutput)(nil)).Elem()
+	return reflect.TypeOf((*MonitorScript)(nil))
 }
 
 func (o MonitorScriptOutput) ToMonitorScriptOutput() MonitorScriptOutput {

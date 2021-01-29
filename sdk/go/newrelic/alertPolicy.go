@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -146,15 +146,15 @@ type AlertPolicyInput interface {
 	ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput
 }
 
-func (AlertPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertPolicy)(nil)).Elem()
+func (*AlertPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicy)(nil))
 }
 
-func (i AlertPolicy) ToAlertPolicyOutput() AlertPolicyOutput {
+func (i *AlertPolicy) ToAlertPolicyOutput() AlertPolicyOutput {
 	return i.ToAlertPolicyOutputWithContext(context.Background())
 }
 
-func (i AlertPolicy) ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput {
+func (i *AlertPolicy) ToAlertPolicyOutputWithContext(ctx context.Context) AlertPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyOutput)
 }
 
@@ -163,7 +163,7 @@ type AlertPolicyOutput struct {
 }
 
 func (AlertPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertPolicy)(nil))
 }
 
 func (o AlertPolicyOutput) ToAlertPolicyOutput() AlertPolicyOutput {

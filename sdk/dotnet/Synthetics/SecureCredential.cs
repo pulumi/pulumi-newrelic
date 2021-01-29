@@ -41,6 +41,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:synthetics/secureCredential:SecureCredential")]
     public partial class SecureCredential : Pulumi.CustomResource
     {
         /// <summary>

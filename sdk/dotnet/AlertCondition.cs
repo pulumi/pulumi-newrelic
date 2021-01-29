@@ -78,6 +78,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/alertCondition:AlertCondition")]
     public partial class AlertCondition : Pulumi.CustomResource
     {
         /// <summary>
