@@ -47,6 +47,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:synthetics/alertCondition:AlertCondition")]
     public partial class AlertCondition : Pulumi.CustomResource
     {
         /// <summary>

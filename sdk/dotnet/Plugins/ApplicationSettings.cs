@@ -49,6 +49,7 @@ namespace Pulumi.NewRelic.Plugins
     ///  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:plugins/applicationSettings:ApplicationSettings")]
     public partial class ApplicationSettings : Pulumi.CustomResource
     {
         /// <summary>

@@ -132,6 +132,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///  $ pulumi import newrelic:synthetics/monitor:Monitor main &lt;id&gt;
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:synthetics/monitor:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>

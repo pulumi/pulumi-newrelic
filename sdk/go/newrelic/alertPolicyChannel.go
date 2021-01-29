@@ -22,6 +22,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -164,15 +165,15 @@ type AlertPolicyChannelInput interface {
 	ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput
 }
 
-func (AlertPolicyChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertPolicyChannel)(nil)).Elem()
+func (*AlertPolicyChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPolicyChannel)(nil))
 }
 
-func (i AlertPolicyChannel) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {
+func (i *AlertPolicyChannel) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {
 	return i.ToAlertPolicyChannelOutputWithContext(context.Background())
 }
 
-func (i AlertPolicyChannel) ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput {
+func (i *AlertPolicyChannel) ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelOutput)
 }
 
@@ -181,7 +182,7 @@ type AlertPolicyChannelOutput struct {
 }
 
 func (AlertPolicyChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertPolicyChannelOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertPolicyChannel)(nil))
 }
 
 func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {

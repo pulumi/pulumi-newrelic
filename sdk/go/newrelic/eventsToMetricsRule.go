@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -167,15 +167,15 @@ type EventsToMetricsRuleInput interface {
 	ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput
 }
 
-func (EventsToMetricsRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventsToMetricsRule)(nil)).Elem()
+func (*EventsToMetricsRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventsToMetricsRule)(nil))
 }
 
-func (i EventsToMetricsRule) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {
+func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {
 	return i.ToEventsToMetricsRuleOutputWithContext(context.Background())
 }
 
-func (i EventsToMetricsRule) ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput {
+func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRuleOutput)
 }
 
@@ -184,7 +184,7 @@ type EventsToMetricsRuleOutput struct {
 }
 
 func (EventsToMetricsRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventsToMetricsRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventsToMetricsRule)(nil))
 }
 
 func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {

@@ -202,6 +202,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/alertChannel:AlertChannel main &lt;id&gt;
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/alertChannel:AlertChannel")]
     public partial class AlertChannel : Pulumi.CustomResource
     {
         /// <summary>

@@ -24,6 +24,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -344,15 +345,15 @@ type InfraAlertConditionInput interface {
 	ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput
 }
 
-func (InfraAlertCondition) ElementType() reflect.Type {
-	return reflect.TypeOf((*InfraAlertCondition)(nil)).Elem()
+func (*InfraAlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfraAlertCondition)(nil))
 }
 
-func (i InfraAlertCondition) ToInfraAlertConditionOutput() InfraAlertConditionOutput {
+func (i *InfraAlertCondition) ToInfraAlertConditionOutput() InfraAlertConditionOutput {
 	return i.ToInfraAlertConditionOutputWithContext(context.Background())
 }
 
-func (i InfraAlertCondition) ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput {
+func (i *InfraAlertCondition) ToInfraAlertConditionOutputWithContext(ctx context.Context) InfraAlertConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionOutput)
 }
 
@@ -361,7 +362,7 @@ type InfraAlertConditionOutput struct {
 }
 
 func (InfraAlertConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InfraAlertConditionOutput)(nil)).Elem()
+	return reflect.TypeOf((*InfraAlertCondition)(nil))
 }
 
 func (o InfraAlertConditionOutput) ToInfraAlertConditionOutput() InfraAlertConditionOutput {

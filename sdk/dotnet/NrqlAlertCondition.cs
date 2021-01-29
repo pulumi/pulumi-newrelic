@@ -65,6 +65,7 @@ namespace Pulumi.NewRelic
     /// 
     ///  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import&lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
     /// </summary>
+    [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]
     public partial class NrqlAlertCondition : Pulumi.CustomResource
     {
         /// <summary>

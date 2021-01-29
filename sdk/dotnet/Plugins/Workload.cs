@@ -60,6 +60,7 @@ namespace Pulumi.NewRelic.Plugins
     ///  $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:plugins/workload:Workload")]
     public partial class Workload : Pulumi.CustomResource
     {
         /// <summary>

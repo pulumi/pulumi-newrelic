@@ -151,15 +151,15 @@ type OneDashboardInput interface {
 	ToOneDashboardOutputWithContext(ctx context.Context) OneDashboardOutput
 }
 
-func (OneDashboard) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboard)(nil)).Elem()
+func (*OneDashboard) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboard)(nil))
 }
 
-func (i OneDashboard) ToOneDashboardOutput() OneDashboardOutput {
+func (i *OneDashboard) ToOneDashboardOutput() OneDashboardOutput {
 	return i.ToOneDashboardOutputWithContext(context.Background())
 }
 
-func (i OneDashboard) ToOneDashboardOutputWithContext(ctx context.Context) OneDashboardOutput {
+func (i *OneDashboard) ToOneDashboardOutputWithContext(ctx context.Context) OneDashboardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardOutput)
 }
 
@@ -168,7 +168,7 @@ type OneDashboardOutput struct {
 }
 
 func (OneDashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboardOutput)(nil)).Elem()
+	return reflect.TypeOf((*OneDashboard)(nil))
 }
 
 func (o OneDashboardOutput) ToOneDashboardOutput() OneDashboardOutput {

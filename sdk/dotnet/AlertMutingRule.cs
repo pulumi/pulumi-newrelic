@@ -18,6 +18,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/alertMutingRule:AlertMutingRule")]
     public partial class AlertMutingRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -162,15 +162,15 @@ type SecureCredentialInput interface {
 	ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput
 }
 
-func (SecureCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecureCredential)(nil)).Elem()
+func (*SecureCredential) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecureCredential)(nil))
 }
 
-func (i SecureCredential) ToSecureCredentialOutput() SecureCredentialOutput {
+func (i *SecureCredential) ToSecureCredentialOutput() SecureCredentialOutput {
 	return i.ToSecureCredentialOutputWithContext(context.Background())
 }
 
-func (i SecureCredential) ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput {
+func (i *SecureCredential) ToSecureCredentialOutputWithContext(ctx context.Context) SecureCredentialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialOutput)
 }
 
@@ -179,7 +179,7 @@ type SecureCredentialOutput struct {
 }
 
 func (SecureCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecureCredentialOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecureCredential)(nil))
 }
 
 func (o SecureCredentialOutput) ToSecureCredentialOutput() SecureCredentialOutput {

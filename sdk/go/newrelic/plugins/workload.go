@@ -160,15 +160,15 @@ type WorkloadInput interface {
 	ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput
 }
 
-func (Workload) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workload)(nil)).Elem()
+func (*Workload) ElementType() reflect.Type {
+	return reflect.TypeOf((*Workload)(nil))
 }
 
-func (i Workload) ToWorkloadOutput() WorkloadOutput {
+func (i *Workload) ToWorkloadOutput() WorkloadOutput {
 	return i.ToWorkloadOutputWithContext(context.Background())
 }
 
-func (i Workload) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput {
+func (i *Workload) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadOutput)
 }
 
@@ -177,7 +177,7 @@ type WorkloadOutput struct {
 }
 
 func (WorkloadOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadOutput)(nil)).Elem()
+	return reflect.TypeOf((*Workload)(nil))
 }
 
 func (o WorkloadOutput) ToWorkloadOutput() WorkloadOutput {

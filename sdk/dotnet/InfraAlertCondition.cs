@@ -107,6 +107,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/infraAlertCondition:InfraAlertCondition")]
     public partial class InfraAlertCondition : Pulumi.CustomResource
     {
         /// <summary>

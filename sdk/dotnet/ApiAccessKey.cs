@@ -54,6 +54,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/apiAccessKey:ApiAccessKey")]
     public partial class ApiAccessKey : Pulumi.CustomResource
     {
         /// <summary>

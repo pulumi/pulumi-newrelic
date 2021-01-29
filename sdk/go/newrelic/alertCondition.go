@@ -22,6 +22,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -500,15 +501,15 @@ type AlertConditionInput interface {
 	ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput
 }
 
-func (AlertCondition) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertCondition)(nil)).Elem()
+func (*AlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertCondition)(nil))
 }
 
-func (i AlertCondition) ToAlertConditionOutput() AlertConditionOutput {
+func (i *AlertCondition) ToAlertConditionOutput() AlertConditionOutput {
 	return i.ToAlertConditionOutputWithContext(context.Background())
 }
 
-func (i AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
+func (i *AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) AlertConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionOutput)
 }
 
@@ -517,7 +518,7 @@ type AlertConditionOutput struct {
 }
 
 func (AlertConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertConditionOutput)(nil)).Elem()
+	return reflect.TypeOf((*AlertCondition)(nil))
 }
 
 func (o AlertConditionOutput) ToAlertConditionOutput() AlertConditionOutput {

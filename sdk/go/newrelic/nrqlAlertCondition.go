@@ -412,15 +412,15 @@ type NrqlAlertConditionInput interface {
 	ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput
 }
 
-func (NrqlAlertCondition) ElementType() reflect.Type {
-	return reflect.TypeOf((*NrqlAlertCondition)(nil)).Elem()
+func (*NrqlAlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*NrqlAlertCondition)(nil))
 }
 
-func (i NrqlAlertCondition) ToNrqlAlertConditionOutput() NrqlAlertConditionOutput {
+func (i *NrqlAlertCondition) ToNrqlAlertConditionOutput() NrqlAlertConditionOutput {
 	return i.ToNrqlAlertConditionOutputWithContext(context.Background())
 }
 
-func (i NrqlAlertCondition) ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput {
+func (i *NrqlAlertCondition) ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutput)
 }
 
@@ -429,7 +429,7 @@ type NrqlAlertConditionOutput struct {
 }
 
 func (NrqlAlertConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NrqlAlertConditionOutput)(nil)).Elem()
+	return reflect.TypeOf((*NrqlAlertCondition)(nil))
 }
 
 func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutput() NrqlAlertConditionOutput {

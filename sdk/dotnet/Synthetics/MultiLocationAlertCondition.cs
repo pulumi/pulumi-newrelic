@@ -24,6 +24,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///  $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition")]
     public partial class MultiLocationAlertCondition : Pulumi.CustomResource
     {
         /// <summary>

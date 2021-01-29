@@ -182,15 +182,15 @@ type MultiLocationAlertConditionInput interface {
 	ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput
 }
 
-func (MultiLocationAlertCondition) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiLocationAlertCondition)(nil)).Elem()
+func (*MultiLocationAlertCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiLocationAlertCondition)(nil))
 }
 
-func (i MultiLocationAlertCondition) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {
+func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {
 	return i.ToMultiLocationAlertConditionOutputWithContext(context.Background())
 }
 
-func (i MultiLocationAlertCondition) ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput {
+func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionOutput)
 }
 
@@ -199,7 +199,7 @@ type MultiLocationAlertConditionOutput struct {
 }
 
 func (MultiLocationAlertConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiLocationAlertConditionOutput)(nil)).Elem()
+	return reflect.TypeOf((*MultiLocationAlertCondition)(nil))
 }
 
 func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {

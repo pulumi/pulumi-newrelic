@@ -43,6 +43,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/eventsToMetricsRule:EventsToMetricsRule")]
     public partial class EventsToMetricsRule : Pulumi.CustomResource
     {
         /// <summary>

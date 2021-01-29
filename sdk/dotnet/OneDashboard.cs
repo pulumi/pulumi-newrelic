@@ -25,6 +25,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;Dashboard GUID&gt;
     /// ```
     /// </summary>
+    [NewRelicResourceType("newrelic:index/oneDashboard:OneDashboard")]
     public partial class OneDashboard : Pulumi.CustomResource
     {
         /// <summary>
