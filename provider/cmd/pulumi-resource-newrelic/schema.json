@@ -2867,7 +2867,7 @@
             }
         },
         "newrelic:index/apiAccessKey:ApiAccessKey": {
-            "description": "Use this resource to programmatically create and manage the following types of keys:\n- [User API keys](https://docs.newrelic.co/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)\n- License (or ingest) keys, including:\n    - General [license key](https://docs.newrelic.co/docs/accounts/install-new-relic/account-setup/license-key) used for APM\n    - [Browser license key](https://docs.newrelic.co/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)\n\nPlease visit the New Relic article ['Use NerdGraph to manage license keys and User API keys'](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys)\nfor more information.\n\n\u003e **IMPORTANT!**\nPlease be very careful when updating existing `newrelic.ApiAccessKey` resources as only `newrelic_api_access_key.name`\nand `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will\ninvalidate the previous API key(s).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foobar = new newrelic.ApiAccessKey(\"foobar\", {\n    accountId: 1234567,\n    ingestType: \"LICENSE\",\n    keyType: \"INGEST\",\n    notes: \"To be used with service X\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoobar = newrelic.ApiAccessKey(\"foobar\",\n    account_id=1234567,\n    ingest_type=\"LICENSE\",\n    key_type=\"INGEST\",\n    notes=\"To be used with service X\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foobar = new NewRelic.ApiAccessKey(\"foobar\", new NewRelic.ApiAccessKeyArgs\n        {\n            AccountId = 1234567,\n            IngestType = \"LICENSE\",\n            KeyType = \"INGEST\",\n            Notes = \"To be used with service X\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewApiAccessKey(ctx, \"foobar\", \u0026newrelic.ApiAccessKeyArgs{\n\t\t\tAccountId:  pulumi.Int(1234567),\n\t\t\tIngestType: pulumi.String(\"LICENSE\"),\n\t\t\tKeyType:    pulumi.String(\"INGEST\"),\n\t\t\tNotes:      pulumi.String(\"To be used with service X\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nExisting API access keys can be imported using a composite ID of `\u003capi_access_key_id\u003e:\u003ckey_type\u003e`. `\u003ckey_type\u003e` will be either `INGEST` or `USER`. For example\n\n```sh\n $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar \"1234567:INGEST\"\n```\n\n ",
+            "description": "Use this resource to programmatically create and manage the following types of keys:\n- [User API keys](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)\n- License (or ingest) keys, including:\n    - General [license key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM\n    - [Browser license key](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)\n\nPlease visit the New Relic article ['Use NerdGraph to manage license keys and User API keys'](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys)\nfor more information.\n\n\u003e **IMPORTANT!**\nPlease be very careful when updating existing `newrelic.ApiAccessKey` resources as only `newrelic_api_access_key.name`\nand `newrelic_api_access_key.notes` are updatable. All other resource attributes will force a resource recreation which will\ninvalidate the previous API key(s).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foobar = new newrelic.ApiAccessKey(\"foobar\", {\n    accountId: 1234567,\n    ingestType: \"LICENSE\",\n    keyType: \"INGEST\",\n    notes: \"To be used with service X\",\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoobar = newrelic.ApiAccessKey(\"foobar\",\n    account_id=1234567,\n    ingest_type=\"LICENSE\",\n    key_type=\"INGEST\",\n    notes=\"To be used with service X\")\n```\n```csharp\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foobar = new NewRelic.ApiAccessKey(\"foobar\", new NewRelic.ApiAccessKeyArgs\n        {\n            AccountId = 1234567,\n            IngestType = \"LICENSE\",\n            KeyType = \"INGEST\",\n            Notes = \"To be used with service X\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := newrelic.NewApiAccessKey(ctx, \"foobar\", \u0026newrelic.ApiAccessKeyArgs{\n\t\t\tAccountId:  pulumi.Int(1234567),\n\t\t\tIngestType: pulumi.String(\"LICENSE\"),\n\t\t\tKeyType:    pulumi.String(\"INGEST\"),\n\t\t\tNotes:      pulumi.String(\"To be used with service X\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nExisting API access keys can be imported using a composite ID of `\u003capi_access_key_id\u003e:\u003ckey_type\u003e`. `\u003ckey_type\u003e` will be either `INGEST` or `USER`. For example\n\n```sh\n $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar \"1234567:INGEST\"\n```\n\n ",
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -3459,7 +3459,7 @@
             }
         },
         "newrelic:index/nrqlAlertCondition:NrqlAlertCondition": {
-            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}\n## NRQL\n\nThe `nrql` block supports the following arguments:\n\n- `query` - (Required) The NRQL query to execute for the condition.\n- `evaluation_offset` - (Optional*) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.\u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.\u003c/small\u003e\n\n- `since_value` - (Optional*)  **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE \u003cX\u003e minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). \u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.\u003c/small\u003e\n\n## Terms\n\n\u003e **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.\n\nNRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.\n\nThe `term` block the following arguments:\n\n- `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.\n- `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.\n- `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.\n- `threshold_duration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).\n\n- `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n- `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).\n- `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n\n\n## Import\n\nAlert conditions can be imported using a composite ID of `\u003cpolicy_id\u003e:\u003ccondition_id\u003e:\u003cconditionType\u003e`, e.g. // For `baseline` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline\n```\n\n // For `static` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static\n```\n\n // For `outlier` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier\n```\n\n The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import\u003csmall\u003ealerts.newrelic.com/accounts/**\\\u003caccount_id\\\u003e**/policies/**\\\u003cpolicy_id\\\u003e**/conditions/**\\\u003ccondition_id\\\u003e**/edit\u003c/small\u003e ",
+            "description": "Use this resource to create and manage NRQL alert conditions in New Relic.\n\n## NRQL\n\nThe `nrql` block supports the following arguments:\n\n- `query` - (Required) The NRQL query to execute for the condition.\n- `evaluation_offset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.\n- `since_value` - (Optional)  **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE \u003cX\u003e minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).\n\n## Terms\n\n\u003e **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.\n\nNRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.\n\nThe `term` block the following arguments:\n\n- `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.\n- `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`. Note that when using a `type` of `outlier`, the only valid option here is `above`.\n- `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.\n- `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.\n- `threshold_duration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.\n\u003cbr\u003eFor _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).\n\u003cbr\u003eFor _static_ NRQL alert conditions, the value must be within 120-7200 seconds (inclusive).\n\n- `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).\n- `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).\n- `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.\n\n\n## Import\n\nAlert conditions can be imported using a composite ID of `\u003cpolicy_id\u003e:\u003ccondition_id\u003e:\u003cconditionType\u003e`, e.g. // For `baseline` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline\n```\n\n // For `static` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static\n```\n\n // For `outlier` conditions\n\n```sh\n $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier\n```\n\n The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import\u003csmall\u003ealerts.newrelic.com/accounts/**\\\u003caccount_id\\\u003e**/policies/**\\\u003cpolicy_id\\\u003e**/conditions/**\\\u003ccondition_id\\\u003e**/edit\u003c/small\u003e ",
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -3467,7 +3467,7 @@
                 },
                 "aggregationWindow": {
                     "type": "integer",
-                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.\n"
+                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds.\n"
                 },
                 "baselineDirection": {
                     "type": "string",
@@ -3499,11 +3499,11 @@
                 },
                 "fillOption": {
                     "type": "string",
-                    "description": "Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.\n"
+                    "description": "Which strategy to use when filling gaps in the signal. If static, the 'fill value' will be used for filling gaps in the\nsignal. Valid values are: 'NONE', 'LAST_VALUE', or 'STATIC' (case insensitive).\n"
                 },
                 "fillValue": {
                     "type": "number",
-                    "description": "This value will be used for filling gaps in the signal.\n"
+                    "description": "If using the 'static' fill option, this value will be used for filling gaps in the signal.\n"
                 },
                 "ignoreOverlap": {
                     "type": "boolean",
@@ -3548,16 +3548,16 @@
                 },
                 "valueFunction": {
                     "type": "string",
-                    "description": "Possible values are `single_value`, `sum` (case insensitive).\n"
+                    "description": "Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.\n"
                 },
                 "violationTimeLimit": {
                     "type": "string",
-                    "description": "**DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).\u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.\u003c/small\u003e\n",
+                    "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).\n",
                     "deprecationMessage": "use `violation_time_limit_seconds` attribute instead"
                 },
                 "violationTimeLimitSeconds": {
                     "type": "integer",
-                    "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). \u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.\u003c/small\u003e\n"
+                    "description": "**DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.\n"
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
@@ -3579,7 +3579,7 @@
                 },
                 "aggregationWindow": {
                     "type": "integer",
-                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.\n"
+                    "description": "The duration of the time window used to evaluate the NRQL query, in seconds.\n"
                 },
                 "baselineDirection": {
                     "type": "string",
@@ -3611,11 +3611,11 @@
                 },
                 "fillOption": {
                     "type": "string",
-                    "description": "Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.\n"
+                    "description": "Which strategy to use when filling gaps in the signal. If static, the 'fill value' will be used for filling gaps in the\nsignal. Valid values are: 'NONE', 'LAST_VALUE', or 'STATIC' (case insensitive).\n"
                 },
                 "fillValue": {
                     "type": "number",
-                    "description": "This value will be used for filling gaps in the signal.\n"
+                    "description": "If using the 'static' fill option, this value will be used for filling gaps in the signal.\n"
                 },
                 "ignoreOverlap": {
                     "type": "boolean",
@@ -3660,16 +3660,16 @@
                 },
                 "valueFunction": {
                     "type": "string",
-                    "description": "Possible values are `single_value`, `sum` (case insensitive).\n"
+                    "description": "Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.\n"
                 },
                 "violationTimeLimit": {
                     "type": "string",
-                    "description": "**DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).\u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.\u003c/small\u003e\n",
+                    "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).\n",
                     "deprecationMessage": "use `violation_time_limit_seconds` attribute instead"
                 },
                 "violationTimeLimitSeconds": {
                     "type": "integer",
-                    "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). \u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.\u003c/small\u003e\n"
+                    "description": "**DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.\n"
                 },
                 "warning": {
                     "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
@@ -3689,7 +3689,7 @@
                     },
                     "aggregationWindow": {
                         "type": "integer",
-                        "description": "The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.\n"
+                        "description": "The duration of the time window used to evaluate the NRQL query, in seconds.\n"
                     },
                     "baselineDirection": {
                         "type": "string",
@@ -3721,11 +3721,11 @@
                     },
                     "fillOption": {
                         "type": "string",
-                        "description": "Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.\n"
+                        "description": "Which strategy to use when filling gaps in the signal. If static, the 'fill value' will be used for filling gaps in the\nsignal. Valid values are: 'NONE', 'LAST_VALUE', or 'STATIC' (case insensitive).\n"
                     },
                     "fillValue": {
                         "type": "number",
-                        "description": "This value will be used for filling gaps in the signal.\n"
+                        "description": "If using the 'static' fill option, this value will be used for filling gaps in the signal.\n"
                     },
                     "ignoreOverlap": {
                         "type": "boolean",
@@ -3770,16 +3770,16 @@
                     },
                     "valueFunction": {
                         "type": "string",
-                        "description": "Possible values are `single_value`, `sum` (case insensitive).\n"
+                        "description": "Possible values are `single_value`, `sum` (case insensitive). Defaults to `single_value`.\n"
                     },
                     "violationTimeLimit": {
                         "type": "string",
-                        "description": "**DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).\u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.\u003c/small\u003e\n",
+                        "description": "Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).\n",
                         "deprecationMessage": "use `violation_time_limit_seconds` attribute instead"
                     },
                     "violationTimeLimitSeconds": {
                         "type": "integer",
-                        "description": "Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). \u003cbr\u003e\n\u003csmall\u003e\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.\u003c/small\u003e\n"
+                        "description": "**DEPRECATED:** Use `violation_time_limit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.\n"
                     },
                     "warning": {
                         "$ref": "#/types/newrelic:index/NrqlAlertConditionWarning:NrqlAlertConditionWarning",
@@ -3790,7 +3790,7 @@
             }
         },
         "newrelic:index/oneDashboard:OneDashboard": {
-            "description": "**NOTE:** This feature is currently in **CLOSED BETA**, and will **NOT WORK** for most New Relic customers and is subject to **BREAKING CHANGES**.\n\nUse this resource to create and manage New Relic One dashboards.\n\n{{% examples %}}\n## Example Usage\n{{% /examples %}}\n## Additional Examples\n\n\n## Import\n\nNew Relic dashboards can be imported using their GUID, e.g.\n\n```sh\n $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard \u003cDashboard GUID\u003e\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% /examples %}}\n## Additional Examples\n\n\n## Import\n\nNew Relic dashboards can be imported using their GUID, e.g.\n\n```sh\n $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard \u003cDashboard GUID\u003e\n```\n\n ",
             "properties": {
                 "accountId": {
                     "type": "integer",
