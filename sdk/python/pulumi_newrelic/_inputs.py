@@ -1812,6 +1812,7 @@ class OneDashboardPageWidgetBarArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -1829,6 +1830,8 @@ class OneDashboardPageWidgetBarArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -1900,6 +1903,15 @@ class OneDashboardPageWidgetBarArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "linked_entity_guids")
+
+    @linked_entity_guids.setter
+    def linked_entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_entity_guids", value)
 
     @property
     @pulumi.getter
@@ -2142,6 +2154,7 @@ class OneDashboardPageWidgetLineArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2159,6 +2172,8 @@ class OneDashboardPageWidgetLineArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2230,6 +2245,15 @@ class OneDashboardPageWidgetLineArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "linked_entity_guids")
+
+    @linked_entity_guids.setter
+    def linked_entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_entity_guids", value)
 
     @property
     @pulumi.getter
@@ -2402,6 +2426,7 @@ class OneDashboardPageWidgetPyArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2419,6 +2444,8 @@ class OneDashboardPageWidgetPyArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2490,6 +2517,15 @@ class OneDashboardPageWidgetPyArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "linked_entity_guids")
+
+    @linked_entity_guids.setter
+    def linked_entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_entity_guids", value)
 
     @property
     @pulumi.getter

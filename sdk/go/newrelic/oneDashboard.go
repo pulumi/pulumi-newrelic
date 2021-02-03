@@ -11,10 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// **NOTE:** This feature is currently in **CLOSED BETA**, and will **NOT WORK** for most New Relic customers and is subject to **BREAKING CHANGES**.
-//
-// Use this resource to create and manage New Relic One dashboards.
-//
 // ## Example Usage
 // ## Additional Examples
 //

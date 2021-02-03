@@ -8,17 +8,13 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to create and manage NRQL alert conditions in New Relic.
  *
- * ## Example Usage
  * ## NRQL
  *
  * The `nrql` block supports the following arguments:
  *
  * - `query` - (Required) The NRQL query to execute for the condition.
- * - `evaluationOffset` - (Optional*) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
- * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
- *
- * - `sinceValue` - (Optional*)  **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
- * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+ * - `evaluationOffset` - (Optional) Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.
+ * - `sinceValue` - (Optional)  **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive).
  *
  * ## Terms
  *
@@ -28,7 +24,8 @@ import * as utilities from "./utilities";
  *
  * The `term` block the following arguments:
  *
- * - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
+ * - `duration` - (Required) In minutes, must be in the range of `1` to `120`, inclusive.
+ * - `operator` - (Optional) `above`, `below`, or `equal`. Defaults to `equal`. Note that when using a `type` of `outlier`, the only valid option here is `above`.
  * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
  * - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
  * - `thresholdDuration` - (Optional) The duration of time, in seconds, that the threshold must violate for in order to create a violation. Value must be a multiple of 60.
@@ -94,7 +91,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds.
      */
     public readonly aggregationWindow!: pulumi.Output<number>;
     /**
@@ -126,11 +123,12 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly expirationDuration!: pulumi.Output<number | undefined>;
     /**
-     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. If static, the 'fill value' will be used for filling gaps in the
+     * signal. Valid values are: 'NONE', 'LAST_VALUE', or 'STATIC' (case insensitive).
      */
     public readonly fillOption!: pulumi.Output<string | undefined>;
     /**
-     * This value will be used for filling gaps in the signal.
+     * If using the 'static' fill option, this value will be used for filling gaps in the signal.
      */
     public readonly fillValue!: pulumi.Output<number | undefined>;
     /**
@@ -174,19 +172,17 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * Possible values are `singleValue`, `sum` (case insensitive).
+     * Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
      */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
     /**
-     * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
      *
      * @deprecated use `violation_time_limit_seconds` attribute instead
      */
     public readonly violationTimeLimit!: pulumi.Output<string>;
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -283,7 +279,7 @@ export interface NrqlAlertConditionState {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds.
      */
     readonly aggregationWindow?: pulumi.Input<number>;
     /**
@@ -315,11 +311,12 @@ export interface NrqlAlertConditionState {
      */
     readonly expirationDuration?: pulumi.Input<number>;
     /**
-     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. If static, the 'fill value' will be used for filling gaps in the
+     * signal. Valid values are: 'NONE', 'LAST_VALUE', or 'STATIC' (case insensitive).
      */
     readonly fillOption?: pulumi.Input<string>;
     /**
-     * This value will be used for filling gaps in the signal.
+     * If using the 'static' fill option, this value will be used for filling gaps in the signal.
      */
     readonly fillValue?: pulumi.Input<number>;
     /**
@@ -363,19 +360,17 @@ export interface NrqlAlertConditionState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Possible values are `singleValue`, `sum` (case insensitive).
+     * Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
-     * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
      *
      * @deprecated use `violation_time_limit_seconds` attribute instead
      */
     readonly violationTimeLimit?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
      */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
@@ -393,7 +388,7 @@ export interface NrqlAlertConditionArgs {
      */
     readonly accountId?: pulumi.Input<number>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds.
      */
     readonly aggregationWindow?: pulumi.Input<number>;
     /**
@@ -425,11 +420,12 @@ export interface NrqlAlertConditionArgs {
      */
     readonly expirationDuration?: pulumi.Input<number>;
     /**
-     * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+     * Which strategy to use when filling gaps in the signal. If static, the 'fill value' will be used for filling gaps in the
+     * signal. Valid values are: 'NONE', 'LAST_VALUE', or 'STATIC' (case insensitive).
      */
     readonly fillOption?: pulumi.Input<string>;
     /**
-     * This value will be used for filling gaps in the signal.
+     * If using the 'static' fill option, this value will be used for filling gaps in the signal.
      */
     readonly fillValue?: pulumi.Input<number>;
     /**
@@ -473,19 +469,17 @@ export interface NrqlAlertConditionArgs {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Possible values are `singleValue`, `sum` (case insensitive).
+     * Possible values are `singleValue`, `sum` (case insensitive). Defaults to `singleValue`.
      */
     readonly valueFunction?: pulumi.Input<string>;
     /**
-     * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS` (case insensitive).
      *
      * @deprecated use `violation_time_limit_seconds` attribute instead
      */
     readonly violationTimeLimit?: pulumi.Input<string>;
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
-     * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+     * **DEPRECATED:** Use `violationTimeLimit` instead. Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `3600`, `7200`, `14400`, `28800`, `43200`, and `86400`.
      */
     readonly violationTimeLimitSeconds?: pulumi.Input<number>;
     /**

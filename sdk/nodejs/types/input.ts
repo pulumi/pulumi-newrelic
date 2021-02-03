@@ -430,6 +430,7 @@ export interface OneDashboardPageWidgetBar {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
@@ -517,6 +518,7 @@ export interface OneDashboardPageWidgetLine {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
@@ -584,6 +586,7 @@ export interface OneDashboardPageWidgetPy {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */

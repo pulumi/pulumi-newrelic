@@ -27,6 +27,14 @@ namespace Pulumi.NewRelic.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("linkedEntityGuids")]
+        private InputList<string>? _linkedEntityGuids;
+        public InputList<string> LinkedEntityGuids
+        {
+            get => _linkedEntityGuids ?? (_linkedEntityGuids = new InputList<string>());
+            set => _linkedEntityGuids = value;
+        }
+
         [Input("nrqlQueries", required: true)]
         private InputList<Inputs.OneDashboardPageWidgetLineNrqlQueryGetArgs>? _nrqlQueries;
 

@@ -452,6 +452,7 @@ export interface OneDashboardPageWidgetBar {
      */
     height?: number;
     id: string;
+    linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
@@ -539,6 +540,7 @@ export interface OneDashboardPageWidgetLine {
      */
     height?: number;
     id: string;
+    linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */
@@ -606,6 +608,7 @@ export interface OneDashboardPageWidgetPy {
      */
     height?: number;
     id: string;
+    linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      */

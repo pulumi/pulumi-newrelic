@@ -1398,6 +1398,7 @@ class OneDashboardPageWidgetBar(dict):
                  title: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
+                 linked_entity_guids: Optional[Sequence[str]] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
@@ -1415,6 +1416,8 @@ class OneDashboardPageWidgetBar(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -1462,6 +1465,11 @@ class OneDashboardPageWidgetBar(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "linked_entity_guids")
 
     @property
     @pulumi.getter
@@ -1660,6 +1668,7 @@ class OneDashboardPageWidgetLine(dict):
                  title: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
+                 linked_entity_guids: Optional[Sequence[str]] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
@@ -1677,6 +1686,8 @@ class OneDashboardPageWidgetLine(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -1724,6 +1735,11 @@ class OneDashboardPageWidgetLine(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "linked_entity_guids")
 
     @property
     @pulumi.getter
@@ -1865,6 +1881,7 @@ class OneDashboardPageWidgetPy(dict):
                  title: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
+                 linked_entity_guids: Optional[Sequence[str]] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
@@ -1882,6 +1899,8 @@ class OneDashboardPageWidgetPy(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -1929,6 +1948,11 @@ class OneDashboardPageWidgetPy(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "linked_entity_guids")
 
     @property
     @pulumi.getter

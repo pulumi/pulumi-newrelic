@@ -6,10 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * **NOTE:** This feature is currently in **CLOSED BETA**, and will **NOT WORK** for most New Relic customers and is subject to **BREAKING CHANGES**.
- *
- * Use this resource to create and manage New Relic One dashboards.
- *
  * ## Example Usage
  * ## Additional Examples
  *
