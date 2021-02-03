@@ -3217,8 +3217,9 @@ type OneDashboardPageWidgetBar struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height            *int     `pulumi:"height"`
+	Id                *string  `pulumi:"id"`
+	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -3244,8 +3245,9 @@ type OneDashboardPageWidgetBarArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height            pulumi.IntPtrInput      `pulumi:"height"`
+	Id                pulumi.StringPtrInput   `pulumi:"id"`
+	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -3319,6 +3321,10 @@ func (o OneDashboardPageWidgetBarOutput) Height() pulumi.IntPtrOutput {
 
 func (o OneDashboardPageWidgetBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBarOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -3748,8 +3754,9 @@ type OneDashboardPageWidgetLine struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height            *int     `pulumi:"height"`
+	Id                *string  `pulumi:"id"`
+	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -3775,8 +3782,9 @@ type OneDashboardPageWidgetLineArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height            pulumi.IntPtrInput      `pulumi:"height"`
+	Id                pulumi.StringPtrInput   `pulumi:"id"`
+	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -3850,6 +3858,10 @@ func (o OneDashboardPageWidgetLineOutput) Height() pulumi.IntPtrOutput {
 
 func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLineOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -4150,8 +4162,9 @@ type OneDashboardPageWidgetPy struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height *int    `pulumi:"height"`
-	Id     *string `pulumi:"id"`
+	Height            *int     `pulumi:"height"`
+	Id                *string  `pulumi:"id"`
+	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -4177,8 +4190,9 @@ type OneDashboardPageWidgetPyArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-	Height pulumi.IntPtrInput    `pulumi:"height"`
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Height            pulumi.IntPtrInput      `pulumi:"height"`
+	Id                pulumi.StringPtrInput   `pulumi:"id"`
+	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
@@ -4252,6 +4266,10 @@ func (o OneDashboardPageWidgetPyOutput) Height() pulumi.IntPtrOutput {
 
 func (o OneDashboardPageWidgetPyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetPyOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
