@@ -13,6 +13,7 @@ __all__ = [
     'AlertConditionTermArgs',
     'AlertMutingRuleConditionArgs',
     'AlertMutingRuleConditionConditionArgs',
+    'AlertMutingRuleScheduleArgs',
     'DashboardFilterArgs',
     'DashboardWidgetArgs',
     'DashboardWidgetCompareWithArgs',
@@ -540,6 +541,120 @@ class AlertMutingRuleConditionConditionArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertMutingRuleScheduleArgs:
+    def __init__(__self__, *,
+                 time_zone: pulumi.Input[str],
+                 end_repeat: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 repeat: Optional[pulumi.Input[str]] = None,
+                 repeat_count: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 weekly_repeat_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] end_repeat: The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
+        :param pulumi.Input[str] end_time: The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+        :param pulumi.Input[str] repeat: The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+        :param pulumi.Input[int] repeat_count: The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+        :param pulumi.Input[str] start_time: The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekly_repeat_days: The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+        """
+        pulumi.set(__self__, "time_zone", time_zone)
+        if end_repeat is not None:
+            pulumi.set(__self__, "end_repeat", end_repeat)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if repeat is not None:
+            pulumi.set(__self__, "repeat", repeat)
+        if repeat_count is not None:
+            pulumi.set(__self__, "repeat_count", repeat_count)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if weekly_repeat_days is not None:
+            pulumi.set(__self__, "weekly_repeat_days", weekly_repeat_days)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone", value)
+
+    @property
+    @pulumi.getter(name="endRepeat")
+    def end_repeat(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
+        """
+        return pulumi.get(self, "end_repeat")
+
+    @end_repeat.setter
+    def end_repeat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_repeat", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def repeat(self) -> Optional[pulumi.Input[str]]:
+        """
+        The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+        """
+        return pulumi.get(self, "repeat")
+
+    @repeat.setter
+    def repeat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repeat", value)
+
+    @property
+    @pulumi.getter(name="repeatCount")
+    def repeat_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`
+        """
+        return pulumi.get(self, "repeat_count")
+
+    @repeat_count.setter
+    def repeat_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "repeat_count", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="weeklyRepeatDays")
+    def weekly_repeat_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+        """
+        return pulumi.get(self, "weekly_repeat_days")
+
+    @weekly_repeat_days.setter
+    def weekly_repeat_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "weekly_repeat_days", value)
 
 
 @pulumi.input_type

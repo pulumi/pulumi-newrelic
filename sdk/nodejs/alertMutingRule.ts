@@ -62,6 +62,10 @@ export class AlertMutingRule extends pulumi.CustomResource {
      * The name of the MutingRule.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
+     */
+    public readonly schedule!: pulumi.Output<outputs.AlertMutingRuleSchedule | undefined>;
 
     /**
      * Create a AlertMutingRule resource with the given unique name, arguments, and options.
@@ -80,6 +84,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["schedule"] = state ? state.schedule : undefined;
         } else {
             const args = argsOrState as AlertMutingRuleArgs | undefined;
             if ((!args || args.condition === undefined) && !(opts && opts.urn)) {
@@ -93,6 +98,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
         }
         if (!opts) {
             opts = {}
@@ -129,6 +135,10 @@ export interface AlertMutingRuleState {
      * The name of the MutingRule.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
+     */
+    readonly schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
 }
 
 /**
@@ -155,4 +165,8 @@ export interface AlertMutingRuleArgs {
      * The name of the MutingRule.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specify a schedule for enabling the MutingRule. See Schedule below for details
+     */
+    readonly schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
 }

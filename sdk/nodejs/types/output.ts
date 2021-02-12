@@ -127,6 +127,34 @@ export interface AlertMutingRuleConditionCondition {
     values: string[];
 }
 
+export interface AlertMutingRuleSchedule {
+    /**
+     * The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
+     */
+    endRepeat?: string;
+    /**
+     * The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+     */
+    endTime?: string;
+    /**
+     * The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+     */
+    repeat?: string;
+    /**
+     * The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
+     */
+    repeatCount?: number;
+    /**
+     * The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+     */
+    startTime?: string;
+    timeZone: string;
+    /**
+     * The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+     */
+    weeklyRepeatDays?: string[];
+}
+
 export interface DashboardFilter {
     /**
      * (Optional) A list of attributes belonging to the specified event types to enable filtering for.

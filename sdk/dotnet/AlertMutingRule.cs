@@ -51,6 +51,12 @@ namespace Pulumi.NewRelic
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify a schedule for enabling the MutingRule. See Schedule below for details
+        /// </summary>
+        [Output("schedule")]
+        public Output<Outputs.AlertMutingRuleSchedule?> Schedule { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AlertMutingRule resource with the given unique name, arguments, and options.
@@ -127,6 +133,12 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specify a schedule for enabling the MutingRule. See Schedule below for details
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.AlertMutingRuleScheduleArgs>? Schedule { get; set; }
+
         public AlertMutingRuleArgs()
         {
         }
@@ -163,6 +175,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specify a schedule for enabling the MutingRule. See Schedule below for details
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.AlertMutingRuleScheduleGetArgs>? Schedule { get; set; }
 
         public AlertMutingRuleState()
         {

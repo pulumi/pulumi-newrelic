@@ -22,6 +22,7 @@ class AlertMutingRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,6 +42,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
+        :param pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,6 +70,7 @@ class AlertMutingRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             __props__['name'] = name
+            __props__['schedule'] = schedule
         super(AlertMutingRule, __self__).__init__(
             'newrelic:index/alertMutingRule:AlertMutingRule',
             resource_name,
@@ -82,7 +85,8 @@ class AlertMutingRule(pulumi.CustomResource):
             condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'AlertMutingRule':
+            name: Optional[pulumi.Input[str]] = None,
+            schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None) -> 'AlertMutingRule':
         """
         Get an existing AlertMutingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -95,6 +99,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
+        :param pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -105,6 +110,7 @@ class AlertMutingRule(pulumi.CustomResource):
         __props__["description"] = description
         __props__["enabled"] = enabled
         __props__["name"] = name
+        __props__["schedule"] = schedule
         return AlertMutingRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -146,6 +152,14 @@ class AlertMutingRule(pulumi.CustomResource):
         The name of the MutingRule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Output[Optional['outputs.AlertMutingRuleSchedule']]:
+        """
+        Specify a schedule for enabling the MutingRule. See Schedule below for details
+        """
+        return pulumi.get(self, "schedule")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
