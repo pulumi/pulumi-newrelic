@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v2.18.0 of the Datadog Terraform Provider
+_(none)_
 
 ---
+
+## 3.13.0 (2021-02-16)
+* Update to v2.18.0 of the Datadog Terraform Provider
 
 ## 3.12.0 (2021-02-03)
 * Upgrade to v2.17.0 of the NewRelic Terraform Provider
