@@ -395,6 +395,79 @@
                 "values"
             ]
         },
+        "newrelic:index/AlertMutingRuleSchedule:AlertMutingRuleSchedule": {
+            "properties": {
+                "endRepeat": {
+                    "type": "string",
+                    "description": "The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repeat": {
+                    "type": "string",
+                    "description": "The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repeatCount": {
+                    "type": "integer",
+                    "description": "The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `end_repeat`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeZone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "weeklyRepeatDays": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "timeZone"
+            ]
+        },
         "newrelic:index/DashboardFilter:DashboardFilter": {
             "properties": {
                 "attributes": {
@@ -2710,6 +2783,10 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the MutingRule.\n"
+                },
+                "schedule": {
+                    "$ref": "#/types/newrelic:index/AlertMutingRuleSchedule:AlertMutingRuleSchedule",
+                    "description": "Specify a schedule for enabling the MutingRule. See Schedule below for details\n"
                 }
             },
             "required": [
@@ -2738,6 +2815,10 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the MutingRule.\n"
+                },
+                "schedule": {
+                    "$ref": "#/types/newrelic:index/AlertMutingRuleSchedule:AlertMutingRuleSchedule",
+                    "description": "Specify a schedule for enabling the MutingRule. See Schedule below for details\n"
                 }
             },
             "requiredInputs": [
@@ -2766,6 +2847,10 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the MutingRule.\n"
+                    },
+                    "schedule": {
+                        "$ref": "#/types/newrelic:index/AlertMutingRuleSchedule:AlertMutingRuleSchedule",
+                        "description": "Specify a schedule for enabling the MutingRule. See Schedule below for details\n"
                     }
                 },
                 "type": "object"

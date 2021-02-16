@@ -31,6 +31,8 @@ type AlertMutingRule struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the MutingRule.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	Schedule AlertMutingRuleSchedulePtrOutput `pulumi:"schedule"`
 }
 
 // NewAlertMutingRule registers a new resource with the given unique name, arguments, and options.
@@ -78,6 +80,8 @@ type alertMutingRuleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the MutingRule.
 	Name *string `pulumi:"name"`
+	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	Schedule *AlertMutingRuleSchedule `pulumi:"schedule"`
 }
 
 type AlertMutingRuleState struct {
@@ -91,6 +95,8 @@ type AlertMutingRuleState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the MutingRule.
 	Name pulumi.StringPtrInput
+	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	Schedule AlertMutingRuleSchedulePtrInput
 }
 
 func (AlertMutingRuleState) ElementType() reflect.Type {
@@ -108,6 +114,8 @@ type alertMutingRuleArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// The name of the MutingRule.
 	Name *string `pulumi:"name"`
+	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	Schedule *AlertMutingRuleSchedule `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a AlertMutingRule resource.
@@ -122,6 +130,8 @@ type AlertMutingRuleArgs struct {
 	Enabled pulumi.BoolInput
 	// The name of the MutingRule.
 	Name pulumi.StringPtrInput
+	// Specify a schedule for enabling the MutingRule. See Schedule below for details
+	Schedule AlertMutingRuleSchedulePtrInput
 }
 
 func (AlertMutingRuleArgs) ElementType() reflect.Type {

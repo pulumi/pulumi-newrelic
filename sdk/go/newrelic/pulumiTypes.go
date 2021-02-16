@@ -920,6 +920,247 @@ func (o AlertMutingRuleConditionConditionArrayOutput) Index(i pulumi.IntInput) A
 	}).(AlertMutingRuleConditionConditionOutput)
 }
 
+type AlertMutingRuleSchedule struct {
+	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
+	EndRepeat *string `pulumi:"endRepeat"`
+	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	EndTime *string `pulumi:"endTime"`
+	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+	Repeat *string `pulumi:"repeat"`
+	// The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
+	RepeatCount *int `pulumi:"repeatCount"`
+	// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+	StartTime *string `pulumi:"startTime"`
+	TimeZone  string  `pulumi:"timeZone"`
+	// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+	WeeklyRepeatDays []string `pulumi:"weeklyRepeatDays"`
+}
+
+// AlertMutingRuleScheduleInput is an input type that accepts AlertMutingRuleScheduleArgs and AlertMutingRuleScheduleOutput values.
+// You can construct a concrete instance of `AlertMutingRuleScheduleInput` via:
+//
+//          AlertMutingRuleScheduleArgs{...}
+type AlertMutingRuleScheduleInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleScheduleOutput() AlertMutingRuleScheduleOutput
+	ToAlertMutingRuleScheduleOutputWithContext(context.Context) AlertMutingRuleScheduleOutput
+}
+
+type AlertMutingRuleScheduleArgs struct {
+	// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
+	EndRepeat pulumi.StringPtrInput `pulumi:"endRepeat"`
+	// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+	Repeat pulumi.StringPtrInput `pulumi:"repeat"`
+	// The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
+	RepeatCount pulumi.IntPtrInput `pulumi:"repeatCount"`
+	// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	TimeZone  pulumi.StringInput    `pulumi:"timeZone"`
+	// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+	WeeklyRepeatDays pulumi.StringArrayInput `pulumi:"weeklyRepeatDays"`
+}
+
+func (AlertMutingRuleScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleSchedule)(nil)).Elem()
+}
+
+func (i AlertMutingRuleScheduleArgs) ToAlertMutingRuleScheduleOutput() AlertMutingRuleScheduleOutput {
+	return i.ToAlertMutingRuleScheduleOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRuleScheduleArgs) ToAlertMutingRuleScheduleOutputWithContext(ctx context.Context) AlertMutingRuleScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleScheduleOutput)
+}
+
+func (i AlertMutingRuleScheduleArgs) ToAlertMutingRuleSchedulePtrOutput() AlertMutingRuleSchedulePtrOutput {
+	return i.ToAlertMutingRuleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AlertMutingRuleScheduleArgs) ToAlertMutingRuleSchedulePtrOutputWithContext(ctx context.Context) AlertMutingRuleSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleScheduleOutput).ToAlertMutingRuleSchedulePtrOutputWithContext(ctx)
+}
+
+// AlertMutingRuleSchedulePtrInput is an input type that accepts AlertMutingRuleScheduleArgs, AlertMutingRuleSchedulePtr and AlertMutingRuleSchedulePtrOutput values.
+// You can construct a concrete instance of `AlertMutingRuleSchedulePtrInput` via:
+//
+//          AlertMutingRuleScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type AlertMutingRuleSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAlertMutingRuleSchedulePtrOutput() AlertMutingRuleSchedulePtrOutput
+	ToAlertMutingRuleSchedulePtrOutputWithContext(context.Context) AlertMutingRuleSchedulePtrOutput
+}
+
+type alertMutingRuleSchedulePtrType AlertMutingRuleScheduleArgs
+
+func AlertMutingRuleSchedulePtr(v *AlertMutingRuleScheduleArgs) AlertMutingRuleSchedulePtrInput {
+	return (*alertMutingRuleSchedulePtrType)(v)
+}
+
+func (*alertMutingRuleSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMutingRuleSchedule)(nil)).Elem()
+}
+
+func (i *alertMutingRuleSchedulePtrType) ToAlertMutingRuleSchedulePtrOutput() AlertMutingRuleSchedulePtrOutput {
+	return i.ToAlertMutingRuleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *alertMutingRuleSchedulePtrType) ToAlertMutingRuleSchedulePtrOutputWithContext(ctx context.Context) AlertMutingRuleSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMutingRuleSchedulePtrOutput)
+}
+
+type AlertMutingRuleScheduleOutput struct{ *pulumi.OutputState }
+
+func (AlertMutingRuleScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMutingRuleSchedule)(nil)).Elem()
+}
+
+func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleScheduleOutput() AlertMutingRuleScheduleOutput {
+	return o
+}
+
+func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleScheduleOutputWithContext(ctx context.Context) AlertMutingRuleScheduleOutput {
+	return o
+}
+
+func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleSchedulePtrOutput() AlertMutingRuleSchedulePtrOutput {
+	return o.ToAlertMutingRuleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleSchedulePtrOutputWithContext(ctx context.Context) AlertMutingRuleSchedulePtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) *AlertMutingRuleSchedule {
+		return &v
+	}).(AlertMutingRuleSchedulePtrOutput)
+}
+
+// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
+func (o AlertMutingRuleScheduleOutput) EndRepeat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.EndRepeat }).(pulumi.StringPtrOutput)
+}
+
+// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+func (o AlertMutingRuleScheduleOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+func (o AlertMutingRuleScheduleOutput) Repeat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.Repeat }).(pulumi.StringPtrOutput)
+}
+
+// The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
+func (o AlertMutingRuleScheduleOutput) RepeatCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) *int { return v.RepeatCount }).(pulumi.IntPtrOutput)
+}
+
+// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+func (o AlertMutingRuleScheduleOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertMutingRuleScheduleOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+func (o AlertMutingRuleScheduleOutput) WeeklyRepeatDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertMutingRuleSchedule) []string { return v.WeeklyRepeatDays }).(pulumi.StringArrayOutput)
+}
+
+type AlertMutingRuleSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertMutingRuleSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMutingRuleSchedule)(nil)).Elem()
+}
+
+func (o AlertMutingRuleSchedulePtrOutput) ToAlertMutingRuleSchedulePtrOutput() AlertMutingRuleSchedulePtrOutput {
+	return o
+}
+
+func (o AlertMutingRuleSchedulePtrOutput) ToAlertMutingRuleSchedulePtrOutputWithContext(ctx context.Context) AlertMutingRuleSchedulePtrOutput {
+	return o
+}
+
+func (o AlertMutingRuleSchedulePtrOutput) Elem() AlertMutingRuleScheduleOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) AlertMutingRuleSchedule { return *v }).(AlertMutingRuleScheduleOutput)
+}
+
+// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
+func (o AlertMutingRuleSchedulePtrOutput) EndRepeat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndRepeat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The datetime stamp that represents when the muting rule ends. This is in local ISO 8601 format without an offset. Example: '2020-07-15T14:30:00'
+func (o AlertMutingRuleSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The frequency the muting rule schedule repeats. If it does not repeat, omit this field. Options are DAILY, WEEKLY, MONTHLY
+func (o AlertMutingRuleSchedulePtrOutput) Repeat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repeat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of times the muting rule schedule repeats. This includes the original schedule. For example, a repeatCount of 2 will recur one time. Conflicts with `endRepeat`
+func (o AlertMutingRuleSchedulePtrOutput) RepeatCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RepeatCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The datetime stamp that represents when the muting rule starts. This is in local ISO 8601 format without an offset. Example: '2020-07-08T14:30:00'
+func (o AlertMutingRuleSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlertMutingRuleSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The day(s) of the week that a muting rule should repeat when the repeat field is set to 'WEEKLY'. Example: ['MONDAY', 'WEDNESDAY']
+func (o AlertMutingRuleSchedulePtrOutput) WeeklyRepeatDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyRepeatDays
+	}).(pulumi.StringArrayOutput)
+}
+
 type DashboardFilter struct {
 	// (Optional) A list of attributes belonging to the specified event types to enable filtering for.
 	Attributes []string `pulumi:"attributes"`
@@ -4893,6 +5134,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertMutingRuleConditionPtrOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionArrayOutput{})
+	pulumi.RegisterOutputType(AlertMutingRuleScheduleOutput{})
+	pulumi.RegisterOutputType(AlertMutingRuleSchedulePtrOutput{})
 	pulumi.RegisterOutputType(DashboardFilterOutput{})
 	pulumi.RegisterOutputType(DashboardFilterPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetOutput{})
