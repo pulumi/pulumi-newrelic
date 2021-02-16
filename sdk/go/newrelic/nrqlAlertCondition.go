@@ -416,6 +416,85 @@ func (i *NrqlAlertCondition) ToNrqlAlertConditionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionOutput)
 }
 
+func (i *NrqlAlertCondition) ToNrqlAlertConditionPtrOutput() NrqlAlertConditionPtrOutput {
+	return i.ToNrqlAlertConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *NrqlAlertCondition) ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionPtrOutput)
+}
+
+type NrqlAlertConditionPtrInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionPtrOutput() NrqlAlertConditionPtrOutput
+	ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput
+}
+
+type nrqlAlertConditionPtrType NrqlAlertConditionArgs
+
+func (*nrqlAlertConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertCondition)(nil))
+}
+
+func (i *nrqlAlertConditionPtrType) ToNrqlAlertConditionPtrOutput() NrqlAlertConditionPtrOutput {
+	return i.ToNrqlAlertConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *nrqlAlertConditionPtrType) ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionPtrOutput)
+}
+
+// NrqlAlertConditionArrayInput is an input type that accepts NrqlAlertConditionArray and NrqlAlertConditionArrayOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionArrayInput` via:
+//
+//          NrqlAlertConditionArray{ NrqlAlertConditionArgs{...} }
+type NrqlAlertConditionArrayInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionArrayOutput() NrqlAlertConditionArrayOutput
+	ToNrqlAlertConditionArrayOutputWithContext(context.Context) NrqlAlertConditionArrayOutput
+}
+
+type NrqlAlertConditionArray []NrqlAlertConditionInput
+
+func (NrqlAlertConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*NrqlAlertCondition)(nil))
+}
+
+func (i NrqlAlertConditionArray) ToNrqlAlertConditionArrayOutput() NrqlAlertConditionArrayOutput {
+	return i.ToNrqlAlertConditionArrayOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionArray) ToNrqlAlertConditionArrayOutputWithContext(ctx context.Context) NrqlAlertConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionArrayOutput)
+}
+
+// NrqlAlertConditionMapInput is an input type that accepts NrqlAlertConditionMap and NrqlAlertConditionMapOutput values.
+// You can construct a concrete instance of `NrqlAlertConditionMapInput` via:
+//
+//          NrqlAlertConditionMap{ "key": NrqlAlertConditionArgs{...} }
+type NrqlAlertConditionMapInput interface {
+	pulumi.Input
+
+	ToNrqlAlertConditionMapOutput() NrqlAlertConditionMapOutput
+	ToNrqlAlertConditionMapOutputWithContext(context.Context) NrqlAlertConditionMapOutput
+}
+
+type NrqlAlertConditionMap map[string]NrqlAlertConditionInput
+
+func (NrqlAlertConditionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*NrqlAlertCondition)(nil))
+}
+
+func (i NrqlAlertConditionMap) ToNrqlAlertConditionMapOutput() NrqlAlertConditionMapOutput {
+	return i.ToNrqlAlertConditionMapOutputWithContext(context.Background())
+}
+
+func (i NrqlAlertConditionMap) ToNrqlAlertConditionMapOutputWithContext(ctx context.Context) NrqlAlertConditionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionMapOutput)
+}
+
 type NrqlAlertConditionOutput struct {
 	*pulumi.OutputState
 }
@@ -432,6 +511,75 @@ func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutputWithContext(ctx cont
 	return o
 }
 
+func (o NrqlAlertConditionOutput) ToNrqlAlertConditionPtrOutput() NrqlAlertConditionPtrOutput {
+	return o.ToNrqlAlertConditionPtrOutputWithContext(context.Background())
+}
+
+func (o NrqlAlertConditionOutput) ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput {
+	return o.ApplyT(func(v NrqlAlertCondition) *NrqlAlertCondition {
+		return &v
+	}).(NrqlAlertConditionPtrOutput)
+}
+
+type NrqlAlertConditionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NrqlAlertConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NrqlAlertCondition)(nil))
+}
+
+func (o NrqlAlertConditionPtrOutput) ToNrqlAlertConditionPtrOutput() NrqlAlertConditionPtrOutput {
+	return o
+}
+
+func (o NrqlAlertConditionPtrOutput) ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput {
+	return o
+}
+
+type NrqlAlertConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NrqlAlertCondition)(nil))
+}
+
+func (o NrqlAlertConditionArrayOutput) ToNrqlAlertConditionArrayOutput() NrqlAlertConditionArrayOutput {
+	return o
+}
+
+func (o NrqlAlertConditionArrayOutput) ToNrqlAlertConditionArrayOutputWithContext(ctx context.Context) NrqlAlertConditionArrayOutput {
+	return o
+}
+
+func (o NrqlAlertConditionArrayOutput) Index(i pulumi.IntInput) NrqlAlertConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NrqlAlertCondition {
+		return vs[0].([]NrqlAlertCondition)[vs[1].(int)]
+	}).(NrqlAlertConditionOutput)
+}
+
+type NrqlAlertConditionMapOutput struct{ *pulumi.OutputState }
+
+func (NrqlAlertConditionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NrqlAlertCondition)(nil))
+}
+
+func (o NrqlAlertConditionMapOutput) ToNrqlAlertConditionMapOutput() NrqlAlertConditionMapOutput {
+	return o
+}
+
+func (o NrqlAlertConditionMapOutput) ToNrqlAlertConditionMapOutputWithContext(ctx context.Context) NrqlAlertConditionMapOutput {
+	return o
+}
+
+func (o NrqlAlertConditionMapOutput) MapIndex(k pulumi.StringInput) NrqlAlertConditionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NrqlAlertCondition {
+		return vs[0].(map[string]NrqlAlertCondition)[vs[1].(string)]
+	}).(NrqlAlertConditionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NrqlAlertConditionOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionPtrOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionArrayOutput{})
+	pulumi.RegisterOutputType(NrqlAlertConditionMapOutput{})
 }

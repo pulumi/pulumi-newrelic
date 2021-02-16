@@ -183,26 +183,23 @@ export class AlertChannel extends pulumi.CustomResource {
     constructor(name: string, args: AlertChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertChannelArgs | AlertChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertChannelState | undefined;
             inputs["config"] = state ? state.config : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AlertChannelArgs | undefined;
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["config"] = args ? args.config : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertChannel.__pulumiType, name, inputs, opts);
     }

@@ -166,7 +166,8 @@ export class Monitor extends pulumi.CustomResource {
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
             inputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
@@ -181,16 +182,16 @@ export class Monitor extends pulumi.CustomResource {
             inputs["verifySsl"] = state ? state.verifySsl : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.frequency === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.locations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["bypassHeadRequest"] = args ? args.bypassHeadRequest : undefined;
@@ -205,12 +206,8 @@ export class Monitor extends pulumi.CustomResource {
             inputs["validationString"] = args ? args.validationString : undefined;
             inputs["verifySsl"] = args ? args.verifySsl : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Monitor.__pulumiType, name, inputs, opts);
     }

@@ -135,7 +135,8 @@ export class AlertPolicy extends pulumi.CustomResource {
     constructor(name: string, args?: AlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertPolicyArgs | AlertPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["channelIds"] = state ? state.channelIds : undefined;
@@ -148,12 +149,8 @@ export class AlertPolicy extends pulumi.CustomResource {
             inputs["incidentPreference"] = args ? args.incidentPreference : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertPolicy.__pulumiType, name, inputs, opts);
     }

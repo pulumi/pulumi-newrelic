@@ -142,7 +142,8 @@ export class AlertCondition extends pulumi.CustomResource {
     constructor(name: string, args: AlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["entities"] = state ? state.entities : undefined;
@@ -157,28 +158,28 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["valueFunction"] = state ? state.valueFunction : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if ((!args || args.entities === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entities'");
             }
-            if ((!args || args.metric === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metric === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
-            if ((!args || args.metricDescription === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metricDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricDescription'");
             }
-            if ((!args || args.pluginGuid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pluginGuid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pluginGuid'");
             }
-            if ((!args || args.pluginId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pluginId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pluginId'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.terms === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.terms === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'terms'");
             }
-            if ((!args || args.valueFunction === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.valueFunction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'valueFunction'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -193,12 +194,8 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["terms"] = args ? args.terms : undefined;
             inputs["valueFunction"] = args ? args.valueFunction : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertCondition.__pulumiType, name, inputs, opts);
     }

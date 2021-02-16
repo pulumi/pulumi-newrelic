@@ -84,7 +84,8 @@ export class OneDashboard extends pulumi.CustomResource {
     constructor(name: string, args: OneDashboardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OneDashboardArgs | OneDashboardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as OneDashboardState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -95,7 +96,7 @@ export class OneDashboard extends pulumi.CustomResource {
             inputs["permissions"] = state ? state.permissions : undefined;
         } else {
             const args = argsOrState as OneDashboardArgs | undefined;
-            if ((!args || args.pages === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pages === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pages'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -106,12 +107,8 @@ export class OneDashboard extends pulumi.CustomResource {
             inputs["guid"] = undefined /*out*/;
             inputs["permalink"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(OneDashboard.__pulumiType, name, inputs, opts);
     }

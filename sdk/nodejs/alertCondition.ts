@@ -189,7 +189,8 @@ export class AlertCondition extends pulumi.CustomResource {
     constructor(name: string, args: AlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
             inputs["conditionScope"] = state ? state.conditionScope : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -206,19 +207,19 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if ((!args || args.entities === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.entities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'entities'");
             }
-            if ((!args || args.metric === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.metric === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.terms === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.terms === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'terms'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["conditionScope"] = args ? args.conditionScope : undefined;
@@ -235,12 +236,8 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
             inputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertCondition.__pulumiType, name, inputs, opts);
     }

@@ -24,7 +24,6 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -357,6 +356,85 @@ func (i *InfraAlertCondition) ToInfraAlertConditionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionOutput)
 }
 
+func (i *InfraAlertCondition) ToInfraAlertConditionPtrOutput() InfraAlertConditionPtrOutput {
+	return i.ToInfraAlertConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *InfraAlertCondition) ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionPtrOutput)
+}
+
+type InfraAlertConditionPtrInput interface {
+	pulumi.Input
+
+	ToInfraAlertConditionPtrOutput() InfraAlertConditionPtrOutput
+	ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput
+}
+
+type infraAlertConditionPtrType InfraAlertConditionArgs
+
+func (*infraAlertConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfraAlertCondition)(nil))
+}
+
+func (i *infraAlertConditionPtrType) ToInfraAlertConditionPtrOutput() InfraAlertConditionPtrOutput {
+	return i.ToInfraAlertConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *infraAlertConditionPtrType) ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionPtrOutput)
+}
+
+// InfraAlertConditionArrayInput is an input type that accepts InfraAlertConditionArray and InfraAlertConditionArrayOutput values.
+// You can construct a concrete instance of `InfraAlertConditionArrayInput` via:
+//
+//          InfraAlertConditionArray{ InfraAlertConditionArgs{...} }
+type InfraAlertConditionArrayInput interface {
+	pulumi.Input
+
+	ToInfraAlertConditionArrayOutput() InfraAlertConditionArrayOutput
+	ToInfraAlertConditionArrayOutputWithContext(context.Context) InfraAlertConditionArrayOutput
+}
+
+type InfraAlertConditionArray []InfraAlertConditionInput
+
+func (InfraAlertConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*InfraAlertCondition)(nil))
+}
+
+func (i InfraAlertConditionArray) ToInfraAlertConditionArrayOutput() InfraAlertConditionArrayOutput {
+	return i.ToInfraAlertConditionArrayOutputWithContext(context.Background())
+}
+
+func (i InfraAlertConditionArray) ToInfraAlertConditionArrayOutputWithContext(ctx context.Context) InfraAlertConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionArrayOutput)
+}
+
+// InfraAlertConditionMapInput is an input type that accepts InfraAlertConditionMap and InfraAlertConditionMapOutput values.
+// You can construct a concrete instance of `InfraAlertConditionMapInput` via:
+//
+//          InfraAlertConditionMap{ "key": InfraAlertConditionArgs{...} }
+type InfraAlertConditionMapInput interface {
+	pulumi.Input
+
+	ToInfraAlertConditionMapOutput() InfraAlertConditionMapOutput
+	ToInfraAlertConditionMapOutputWithContext(context.Context) InfraAlertConditionMapOutput
+}
+
+type InfraAlertConditionMap map[string]InfraAlertConditionInput
+
+func (InfraAlertConditionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*InfraAlertCondition)(nil))
+}
+
+func (i InfraAlertConditionMap) ToInfraAlertConditionMapOutput() InfraAlertConditionMapOutput {
+	return i.ToInfraAlertConditionMapOutputWithContext(context.Background())
+}
+
+func (i InfraAlertConditionMap) ToInfraAlertConditionMapOutputWithContext(ctx context.Context) InfraAlertConditionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionMapOutput)
+}
+
 type InfraAlertConditionOutput struct {
 	*pulumi.OutputState
 }
@@ -373,6 +451,75 @@ func (o InfraAlertConditionOutput) ToInfraAlertConditionOutputWithContext(ctx co
 	return o
 }
 
+func (o InfraAlertConditionOutput) ToInfraAlertConditionPtrOutput() InfraAlertConditionPtrOutput {
+	return o.ToInfraAlertConditionPtrOutputWithContext(context.Background())
+}
+
+func (o InfraAlertConditionOutput) ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput {
+	return o.ApplyT(func(v InfraAlertCondition) *InfraAlertCondition {
+		return &v
+	}).(InfraAlertConditionPtrOutput)
+}
+
+type InfraAlertConditionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (InfraAlertConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfraAlertCondition)(nil))
+}
+
+func (o InfraAlertConditionPtrOutput) ToInfraAlertConditionPtrOutput() InfraAlertConditionPtrOutput {
+	return o
+}
+
+func (o InfraAlertConditionPtrOutput) ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput {
+	return o
+}
+
+type InfraAlertConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (InfraAlertConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InfraAlertCondition)(nil))
+}
+
+func (o InfraAlertConditionArrayOutput) ToInfraAlertConditionArrayOutput() InfraAlertConditionArrayOutput {
+	return o
+}
+
+func (o InfraAlertConditionArrayOutput) ToInfraAlertConditionArrayOutputWithContext(ctx context.Context) InfraAlertConditionArrayOutput {
+	return o
+}
+
+func (o InfraAlertConditionArrayOutput) Index(i pulumi.IntInput) InfraAlertConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InfraAlertCondition {
+		return vs[0].([]InfraAlertCondition)[vs[1].(int)]
+	}).(InfraAlertConditionOutput)
+}
+
+type InfraAlertConditionMapOutput struct{ *pulumi.OutputState }
+
+func (InfraAlertConditionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InfraAlertCondition)(nil))
+}
+
+func (o InfraAlertConditionMapOutput) ToInfraAlertConditionMapOutput() InfraAlertConditionMapOutput {
+	return o
+}
+
+func (o InfraAlertConditionMapOutput) ToInfraAlertConditionMapOutputWithContext(ctx context.Context) InfraAlertConditionMapOutput {
+	return o
+}
+
+func (o InfraAlertConditionMapOutput) MapIndex(k pulumi.StringInput) InfraAlertConditionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InfraAlertCondition {
+		return vs[0].(map[string]InfraAlertCondition)[vs[1].(string)]
+	}).(InfraAlertConditionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InfraAlertConditionOutput{})
+	pulumi.RegisterOutputType(InfraAlertConditionPtrOutput{})
+	pulumi.RegisterOutputType(InfraAlertConditionArrayOutput{})
+	pulumi.RegisterOutputType(InfraAlertConditionMapOutput{})
 }

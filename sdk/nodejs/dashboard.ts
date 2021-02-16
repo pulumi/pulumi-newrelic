@@ -233,7 +233,8 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
             inputs["dashboardUrl"] = state ? state.dashboardUrl : undefined;
             inputs["editable"] = state ? state.editable : undefined;
@@ -245,7 +246,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["widgets"] = state ? state.widgets : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["editable"] = args ? args.editable : undefined;
@@ -257,12 +258,8 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["widgets"] = args ? args.widgets : undefined;
             inputs["dashboardUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Dashboard.__pulumiType, name, inputs, opts);
     }

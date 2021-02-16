@@ -94,27 +94,24 @@ export class EntityTags extends pulumi.CustomResource {
     constructor(name: string, args: EntityTagsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EntityTagsArgs | EntityTagsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EntityTagsState | undefined;
             inputs["guid"] = state ? state.guid : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EntityTagsArgs | undefined;
-            if ((!args || args.guid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.guid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'guid'");
             }
-            if ((!args || args.tags === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
             inputs["guid"] = args ? args.guid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EntityTags.__pulumiType, name, inputs, opts);
     }

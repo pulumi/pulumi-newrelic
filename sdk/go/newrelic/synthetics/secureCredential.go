@@ -174,6 +174,85 @@ func (i *SecureCredential) ToSecureCredentialOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialOutput)
 }
 
+func (i *SecureCredential) ToSecureCredentialPtrOutput() SecureCredentialPtrOutput {
+	return i.ToSecureCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *SecureCredential) ToSecureCredentialPtrOutputWithContext(ctx context.Context) SecureCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialPtrOutput)
+}
+
+type SecureCredentialPtrInput interface {
+	pulumi.Input
+
+	ToSecureCredentialPtrOutput() SecureCredentialPtrOutput
+	ToSecureCredentialPtrOutputWithContext(ctx context.Context) SecureCredentialPtrOutput
+}
+
+type secureCredentialPtrType SecureCredentialArgs
+
+func (*secureCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecureCredential)(nil))
+}
+
+func (i *secureCredentialPtrType) ToSecureCredentialPtrOutput() SecureCredentialPtrOutput {
+	return i.ToSecureCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *secureCredentialPtrType) ToSecureCredentialPtrOutputWithContext(ctx context.Context) SecureCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialPtrOutput)
+}
+
+// SecureCredentialArrayInput is an input type that accepts SecureCredentialArray and SecureCredentialArrayOutput values.
+// You can construct a concrete instance of `SecureCredentialArrayInput` via:
+//
+//          SecureCredentialArray{ SecureCredentialArgs{...} }
+type SecureCredentialArrayInput interface {
+	pulumi.Input
+
+	ToSecureCredentialArrayOutput() SecureCredentialArrayOutput
+	ToSecureCredentialArrayOutputWithContext(context.Context) SecureCredentialArrayOutput
+}
+
+type SecureCredentialArray []SecureCredentialInput
+
+func (SecureCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecureCredential)(nil))
+}
+
+func (i SecureCredentialArray) ToSecureCredentialArrayOutput() SecureCredentialArrayOutput {
+	return i.ToSecureCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i SecureCredentialArray) ToSecureCredentialArrayOutputWithContext(ctx context.Context) SecureCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialArrayOutput)
+}
+
+// SecureCredentialMapInput is an input type that accepts SecureCredentialMap and SecureCredentialMapOutput values.
+// You can construct a concrete instance of `SecureCredentialMapInput` via:
+//
+//          SecureCredentialMap{ "key": SecureCredentialArgs{...} }
+type SecureCredentialMapInput interface {
+	pulumi.Input
+
+	ToSecureCredentialMapOutput() SecureCredentialMapOutput
+	ToSecureCredentialMapOutputWithContext(context.Context) SecureCredentialMapOutput
+}
+
+type SecureCredentialMap map[string]SecureCredentialInput
+
+func (SecureCredentialMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecureCredential)(nil))
+}
+
+func (i SecureCredentialMap) ToSecureCredentialMapOutput() SecureCredentialMapOutput {
+	return i.ToSecureCredentialMapOutputWithContext(context.Background())
+}
+
+func (i SecureCredentialMap) ToSecureCredentialMapOutputWithContext(ctx context.Context) SecureCredentialMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecureCredentialMapOutput)
+}
+
 type SecureCredentialOutput struct {
 	*pulumi.OutputState
 }
@@ -190,6 +269,75 @@ func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.
 	return o
 }
 
+func (o SecureCredentialOutput) ToSecureCredentialPtrOutput() SecureCredentialPtrOutput {
+	return o.ToSecureCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o SecureCredentialOutput) ToSecureCredentialPtrOutputWithContext(ctx context.Context) SecureCredentialPtrOutput {
+	return o.ApplyT(func(v SecureCredential) *SecureCredential {
+		return &v
+	}).(SecureCredentialPtrOutput)
+}
+
+type SecureCredentialPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecureCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecureCredential)(nil))
+}
+
+func (o SecureCredentialPtrOutput) ToSecureCredentialPtrOutput() SecureCredentialPtrOutput {
+	return o
+}
+
+func (o SecureCredentialPtrOutput) ToSecureCredentialPtrOutputWithContext(ctx context.Context) SecureCredentialPtrOutput {
+	return o
+}
+
+type SecureCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (SecureCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecureCredential)(nil))
+}
+
+func (o SecureCredentialArrayOutput) ToSecureCredentialArrayOutput() SecureCredentialArrayOutput {
+	return o
+}
+
+func (o SecureCredentialArrayOutput) ToSecureCredentialArrayOutputWithContext(ctx context.Context) SecureCredentialArrayOutput {
+	return o
+}
+
+func (o SecureCredentialArrayOutput) Index(i pulumi.IntInput) SecureCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecureCredential {
+		return vs[0].([]SecureCredential)[vs[1].(int)]
+	}).(SecureCredentialOutput)
+}
+
+type SecureCredentialMapOutput struct{ *pulumi.OutputState }
+
+func (SecureCredentialMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecureCredential)(nil))
+}
+
+func (o SecureCredentialMapOutput) ToSecureCredentialMapOutput() SecureCredentialMapOutput {
+	return o
+}
+
+func (o SecureCredentialMapOutput) ToSecureCredentialMapOutputWithContext(ctx context.Context) SecureCredentialMapOutput {
+	return o
+}
+
+func (o SecureCredentialMapOutput) MapIndex(k pulumi.StringInput) SecureCredentialOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecureCredential {
+		return vs[0].(map[string]SecureCredential)[vs[1].(string)]
+	}).(SecureCredentialOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecureCredentialOutput{})
+	pulumi.RegisterOutputType(SecureCredentialPtrOutput{})
+	pulumi.RegisterOutputType(SecureCredentialArrayOutput{})
+	pulumi.RegisterOutputType(SecureCredentialMapOutput{})
 }
