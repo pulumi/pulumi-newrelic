@@ -22,7 +22,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -177,6 +176,85 @@ func (i *AlertPolicyChannel) ToAlertPolicyChannelOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelOutput)
 }
 
+func (i *AlertPolicyChannel) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
+	return i.ToAlertPolicyChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *AlertPolicyChannel) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelPtrOutput)
+}
+
+type AlertPolicyChannelPtrInput interface {
+	pulumi.Input
+
+	ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput
+	ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput
+}
+
+type alertPolicyChannelPtrType AlertPolicyChannelArgs
+
+func (*alertPolicyChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPolicyChannel)(nil))
+}
+
+func (i *alertPolicyChannelPtrType) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
+	return i.ToAlertPolicyChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *alertPolicyChannelPtrType) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelPtrOutput)
+}
+
+// AlertPolicyChannelArrayInput is an input type that accepts AlertPolicyChannelArray and AlertPolicyChannelArrayOutput values.
+// You can construct a concrete instance of `AlertPolicyChannelArrayInput` via:
+//
+//          AlertPolicyChannelArray{ AlertPolicyChannelArgs{...} }
+type AlertPolicyChannelArrayInput interface {
+	pulumi.Input
+
+	ToAlertPolicyChannelArrayOutput() AlertPolicyChannelArrayOutput
+	ToAlertPolicyChannelArrayOutputWithContext(context.Context) AlertPolicyChannelArrayOutput
+}
+
+type AlertPolicyChannelArray []AlertPolicyChannelInput
+
+func (AlertPolicyChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AlertPolicyChannel)(nil))
+}
+
+func (i AlertPolicyChannelArray) ToAlertPolicyChannelArrayOutput() AlertPolicyChannelArrayOutput {
+	return i.ToAlertPolicyChannelArrayOutputWithContext(context.Background())
+}
+
+func (i AlertPolicyChannelArray) ToAlertPolicyChannelArrayOutputWithContext(ctx context.Context) AlertPolicyChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelArrayOutput)
+}
+
+// AlertPolicyChannelMapInput is an input type that accepts AlertPolicyChannelMap and AlertPolicyChannelMapOutput values.
+// You can construct a concrete instance of `AlertPolicyChannelMapInput` via:
+//
+//          AlertPolicyChannelMap{ "key": AlertPolicyChannelArgs{...} }
+type AlertPolicyChannelMapInput interface {
+	pulumi.Input
+
+	ToAlertPolicyChannelMapOutput() AlertPolicyChannelMapOutput
+	ToAlertPolicyChannelMapOutputWithContext(context.Context) AlertPolicyChannelMapOutput
+}
+
+type AlertPolicyChannelMap map[string]AlertPolicyChannelInput
+
+func (AlertPolicyChannelMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AlertPolicyChannel)(nil))
+}
+
+func (i AlertPolicyChannelMap) ToAlertPolicyChannelMapOutput() AlertPolicyChannelMapOutput {
+	return i.ToAlertPolicyChannelMapOutputWithContext(context.Background())
+}
+
+func (i AlertPolicyChannelMap) ToAlertPolicyChannelMapOutputWithContext(ctx context.Context) AlertPolicyChannelMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelMapOutput)
+}
+
 type AlertPolicyChannelOutput struct {
 	*pulumi.OutputState
 }
@@ -193,6 +271,75 @@ func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutputWithContext(ctx cont
 	return o
 }
 
+func (o AlertPolicyChannelOutput) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
+	return o.ToAlertPolicyChannelPtrOutputWithContext(context.Background())
+}
+
+func (o AlertPolicyChannelOutput) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
+	return o.ApplyT(func(v AlertPolicyChannel) *AlertPolicyChannel {
+		return &v
+	}).(AlertPolicyChannelPtrOutput)
+}
+
+type AlertPolicyChannelPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AlertPolicyChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPolicyChannel)(nil))
+}
+
+func (o AlertPolicyChannelPtrOutput) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
+	return o
+}
+
+func (o AlertPolicyChannelPtrOutput) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
+	return o
+}
+
+type AlertPolicyChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertPolicyChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertPolicyChannel)(nil))
+}
+
+func (o AlertPolicyChannelArrayOutput) ToAlertPolicyChannelArrayOutput() AlertPolicyChannelArrayOutput {
+	return o
+}
+
+func (o AlertPolicyChannelArrayOutput) ToAlertPolicyChannelArrayOutputWithContext(ctx context.Context) AlertPolicyChannelArrayOutput {
+	return o
+}
+
+func (o AlertPolicyChannelArrayOutput) Index(i pulumi.IntInput) AlertPolicyChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPolicyChannel {
+		return vs[0].([]AlertPolicyChannel)[vs[1].(int)]
+	}).(AlertPolicyChannelOutput)
+}
+
+type AlertPolicyChannelMapOutput struct{ *pulumi.OutputState }
+
+func (AlertPolicyChannelMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AlertPolicyChannel)(nil))
+}
+
+func (o AlertPolicyChannelMapOutput) ToAlertPolicyChannelMapOutput() AlertPolicyChannelMapOutput {
+	return o
+}
+
+func (o AlertPolicyChannelMapOutput) ToAlertPolicyChannelMapOutputWithContext(ctx context.Context) AlertPolicyChannelMapOutput {
+	return o
+}
+
+func (o AlertPolicyChannelMapOutput) MapIndex(k pulumi.StringInput) AlertPolicyChannelOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertPolicyChannel {
+		return vs[0].(map[string]AlertPolicyChannel)[vs[1].(string)]
+	}).(AlertPolicyChannelOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertPolicyChannelOutput{})
+	pulumi.RegisterOutputType(AlertPolicyChannelPtrOutput{})
+	pulumi.RegisterOutputType(AlertPolicyChannelArrayOutput{})
+	pulumi.RegisterOutputType(AlertPolicyChannelMapOutput{})
 }

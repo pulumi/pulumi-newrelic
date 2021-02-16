@@ -93,7 +93,8 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
     constructor(name: string, args: EventsToMetricsRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventsToMetricsRuleArgs | EventsToMetricsRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventsToMetricsRuleState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -103,7 +104,7 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
             inputs["ruleId"] = state ? state.ruleId : undefined;
         } else {
             const args = argsOrState as EventsToMetricsRuleArgs | undefined;
-            if ((!args || args.nrql === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nrql === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -113,12 +114,8 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
             inputs["nrql"] = args ? args.nrql : undefined;
             inputs["ruleId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventsToMetricsRule.__pulumiType, name, inputs, opts);
     }

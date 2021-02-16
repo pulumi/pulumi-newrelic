@@ -81,27 +81,24 @@ export class MonitorScript extends pulumi.CustomResource {
     constructor(name: string, args: MonitorScriptArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorScriptArgs | MonitorScriptState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MonitorScriptState | undefined;
             inputs["monitorId"] = state ? state.monitorId : undefined;
             inputs["text"] = state ? state.text : undefined;
         } else {
             const args = argsOrState as MonitorScriptArgs | undefined;
-            if ((!args || args.monitorId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            if ((!args || args.text === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.text === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'text'");
             }
             inputs["monitorId"] = args ? args.monitorId : undefined;
             inputs["text"] = args ? args.text : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(MonitorScript.__pulumiType, name, inputs, opts);
     }

@@ -192,7 +192,8 @@ export class InfraAlertCondition extends pulumi.CustomResource {
     constructor(name: string, args: InfraAlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InfraAlertConditionArgs | InfraAlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as InfraAlertConditionState | undefined;
             inputs["comparison"] = state ? state.comparison : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
@@ -213,10 +214,10 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["where"] = state ? state.where : undefined;
         } else {
             const args = argsOrState as InfraAlertConditionArgs | undefined;
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["comparison"] = args ? args.comparison : undefined;
@@ -237,12 +238,8 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(InfraAlertCondition.__pulumiType, name, inputs, opts);
     }

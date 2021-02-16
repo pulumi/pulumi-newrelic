@@ -108,7 +108,8 @@ export class ApiAccessKey extends pulumi.CustomResource {
     constructor(name: string, args: ApiAccessKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiAccessKeyArgs | ApiAccessKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ApiAccessKeyState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["ingestType"] = state ? state.ingestType : undefined;
@@ -119,10 +120,10 @@ export class ApiAccessKey extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as ApiAccessKeyArgs | undefined;
-            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.keyType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.keyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -133,12 +134,8 @@ export class ApiAccessKey extends pulumi.CustomResource {
             inputs["userId"] = args ? args.userId : undefined;
             inputs["key"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ApiAccessKey.__pulumiType, name, inputs, opts);
     }

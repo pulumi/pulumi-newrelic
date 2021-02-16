@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -170,6 +169,85 @@ func (i *EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTa
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsOutput)
 }
 
+func (i *EntityTags) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
+	return i.ToEntityTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *EntityTags) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsPtrOutput)
+}
+
+type EntityTagsPtrInput interface {
+	pulumi.Input
+
+	ToEntityTagsPtrOutput() EntityTagsPtrOutput
+	ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput
+}
+
+type entityTagsPtrType EntityTagsArgs
+
+func (*entityTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityTags)(nil))
+}
+
+func (i *entityTagsPtrType) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
+	return i.ToEntityTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *entityTagsPtrType) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsPtrOutput)
+}
+
+// EntityTagsArrayInput is an input type that accepts EntityTagsArray and EntityTagsArrayOutput values.
+// You can construct a concrete instance of `EntityTagsArrayInput` via:
+//
+//          EntityTagsArray{ EntityTagsArgs{...} }
+type EntityTagsArrayInput interface {
+	pulumi.Input
+
+	ToEntityTagsArrayOutput() EntityTagsArrayOutput
+	ToEntityTagsArrayOutputWithContext(context.Context) EntityTagsArrayOutput
+}
+
+type EntityTagsArray []EntityTagsInput
+
+func (EntityTagsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EntityTags)(nil))
+}
+
+func (i EntityTagsArray) ToEntityTagsArrayOutput() EntityTagsArrayOutput {
+	return i.ToEntityTagsArrayOutputWithContext(context.Background())
+}
+
+func (i EntityTagsArray) ToEntityTagsArrayOutputWithContext(ctx context.Context) EntityTagsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsArrayOutput)
+}
+
+// EntityTagsMapInput is an input type that accepts EntityTagsMap and EntityTagsMapOutput values.
+// You can construct a concrete instance of `EntityTagsMapInput` via:
+//
+//          EntityTagsMap{ "key": EntityTagsArgs{...} }
+type EntityTagsMapInput interface {
+	pulumi.Input
+
+	ToEntityTagsMapOutput() EntityTagsMapOutput
+	ToEntityTagsMapOutputWithContext(context.Context) EntityTagsMapOutput
+}
+
+type EntityTagsMap map[string]EntityTagsInput
+
+func (EntityTagsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EntityTags)(nil))
+}
+
+func (i EntityTagsMap) ToEntityTagsMapOutput() EntityTagsMapOutput {
+	return i.ToEntityTagsMapOutputWithContext(context.Background())
+}
+
+func (i EntityTagsMap) ToEntityTagsMapOutputWithContext(ctx context.Context) EntityTagsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsMapOutput)
+}
+
 type EntityTagsOutput struct {
 	*pulumi.OutputState
 }
@@ -186,6 +264,75 @@ func (o EntityTagsOutput) ToEntityTagsOutputWithContext(ctx context.Context) Ent
 	return o
 }
 
+func (o EntityTagsOutput) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
+	return o.ToEntityTagsPtrOutputWithContext(context.Background())
+}
+
+func (o EntityTagsOutput) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
+	return o.ApplyT(func(v EntityTags) *EntityTags {
+		return &v
+	}).(EntityTagsPtrOutput)
+}
+
+type EntityTagsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EntityTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityTags)(nil))
+}
+
+func (o EntityTagsPtrOutput) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
+	return o
+}
+
+func (o EntityTagsPtrOutput) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
+	return o
+}
+
+type EntityTagsArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityTagsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityTags)(nil))
+}
+
+func (o EntityTagsArrayOutput) ToEntityTagsArrayOutput() EntityTagsArrayOutput {
+	return o
+}
+
+func (o EntityTagsArrayOutput) ToEntityTagsArrayOutputWithContext(ctx context.Context) EntityTagsArrayOutput {
+	return o
+}
+
+func (o EntityTagsArrayOutput) Index(i pulumi.IntInput) EntityTagsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityTags {
+		return vs[0].([]EntityTags)[vs[1].(int)]
+	}).(EntityTagsOutput)
+}
+
+type EntityTagsMapOutput struct{ *pulumi.OutputState }
+
+func (EntityTagsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EntityTags)(nil))
+}
+
+func (o EntityTagsMapOutput) ToEntityTagsMapOutput() EntityTagsMapOutput {
+	return o
+}
+
+func (o EntityTagsMapOutput) ToEntityTagsMapOutputWithContext(ctx context.Context) EntityTagsMapOutput {
+	return o
+}
+
+func (o EntityTagsMapOutput) MapIndex(k pulumi.StringInput) EntityTagsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EntityTags {
+		return vs[0].(map[string]EntityTags)[vs[1].(string)]
+	}).(EntityTagsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EntityTagsOutput{})
+	pulumi.RegisterOutputType(EntityTagsPtrOutput{})
+	pulumi.RegisterOutputType(EntityTagsArrayOutput{})
+	pulumi.RegisterOutputType(EntityTagsMapOutput{})
 }

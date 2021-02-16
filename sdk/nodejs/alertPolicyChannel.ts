@@ -102,27 +102,24 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     constructor(name: string, args: AlertPolicyChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertPolicyChannelArgs | AlertPolicyChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertPolicyChannelState | undefined;
             inputs["channelIds"] = state ? state.channelIds : undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
         } else {
             const args = argsOrState as AlertPolicyChannelArgs | undefined;
-            if ((!args || args.channelIds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.channelIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelIds'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["channelIds"] = args ? args.channelIds : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertPolicyChannel.__pulumiType, name, inputs, opts);
     }

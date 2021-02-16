@@ -200,7 +200,8 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     constructor(name: string, args: NrqlAlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NrqlAlertConditionArgs | NrqlAlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NrqlAlertConditionState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["aggregationWindow"] = state ? state.aggregationWindow : undefined;
@@ -228,10 +229,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["warning"] = state ? state.warning : undefined;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
-            if ((!args || args.nrql === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.nrql === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -259,12 +260,8 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             inputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
             inputs["warning"] = args ? args.warning : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(NrqlAlertCondition.__pulumiType, name, inputs, opts);
     }

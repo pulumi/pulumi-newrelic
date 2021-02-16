@@ -113,7 +113,8 @@ export class Workload extends pulumi.CustomResource {
     constructor(name: string, args?: WorkloadArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkloadArgs | WorkloadState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkloadState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["compositeEntitySearchQuery"] = state ? state.compositeEntitySearchQuery : undefined;
@@ -136,12 +137,8 @@ export class Workload extends pulumi.CustomResource {
             inputs["permalink"] = undefined /*out*/;
             inputs["workloadId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Workload.__pulumiType, name, inputs, opts);
     }

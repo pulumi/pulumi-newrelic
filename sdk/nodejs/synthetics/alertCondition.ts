@@ -92,7 +92,8 @@ export class AlertCondition extends pulumi.CustomResource {
     constructor(name: string, args: AlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["monitorId"] = state ? state.monitorId : undefined;
@@ -101,10 +102,10 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
-            if ((!args || args.monitorId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.monitorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -113,12 +114,8 @@ export class AlertCondition extends pulumi.CustomResource {
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AlertCondition.__pulumiType, name, inputs, opts);
     }

@@ -87,7 +87,8 @@ export class SecureCredential extends pulumi.CustomResource {
     constructor(name: string, args: SecureCredentialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecureCredentialArgs | SecureCredentialState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecureCredentialState | undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -96,10 +97,10 @@ export class SecureCredential extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as SecureCredentialArgs | undefined;
-            if ((!args || args.key === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["createdAt"] = args ? args.createdAt : undefined;
@@ -108,12 +109,8 @@ export class SecureCredential extends pulumi.CustomResource {
             inputs["lastUpdated"] = args ? args.lastUpdated : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecureCredential.__pulumiType, name, inputs, opts);
     }
