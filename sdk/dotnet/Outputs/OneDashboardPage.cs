@@ -38,6 +38,22 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboard> WidgetBillboards;
         /// <summary>
+        /// (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBullet> WidgetBullets;
+        /// <summary>
+        /// (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetFunnel> WidgetFunnels;
+        /// <summary>
+        /// (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHeatmap> WidgetHeatmaps;
+        /// <summary>
+        /// (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> WidgetHistograms;
+        /// <summary>
         /// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLine> WidgetLines;
@@ -68,6 +84,14 @@ namespace Pulumi.NewRelic.Outputs
 
             ImmutableArray<Outputs.OneDashboardPageWidgetBillboard> widgetBillboards,
 
+            ImmutableArray<Outputs.OneDashboardPageWidgetBullet> widgetBullets,
+
+            ImmutableArray<Outputs.OneDashboardPageWidgetFunnel> widgetFunnels,
+
+            ImmutableArray<Outputs.OneDashboardPageWidgetHeatmap> widgetHeatmaps,
+
+            ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> widgetHistograms,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetLine> widgetLines,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> widgetMarkdowns,
@@ -82,6 +106,10 @@ namespace Pulumi.NewRelic.Outputs
             WidgetAreas = widgetAreas;
             WidgetBars = widgetBars;
             WidgetBillboards = widgetBillboards;
+            WidgetBullets = widgetBullets;
+            WidgetFunnels = widgetFunnels;
+            WidgetHeatmaps = widgetHeatmaps;
+            WidgetHistograms = widgetHistograms;
             WidgetLines = widgetLines;
             WidgetMarkdowns = widgetMarkdowns;
             WidgetPies = widgetPies;

@@ -34,6 +34,14 @@ __all__ = [
     'OneDashboardPageWidgetBarNrqlQuery',
     'OneDashboardPageWidgetBillboard',
     'OneDashboardPageWidgetBillboardNrqlQuery',
+    'OneDashboardPageWidgetBullet',
+    'OneDashboardPageWidgetBulletNrqlQuery',
+    'OneDashboardPageWidgetFunnel',
+    'OneDashboardPageWidgetFunnelNrqlQuery',
+    'OneDashboardPageWidgetHeatmap',
+    'OneDashboardPageWidgetHeatmapNrqlQuery',
+    'OneDashboardPageWidgetHistogram',
+    'OneDashboardPageWidgetHistogramNrqlQuery',
     'OneDashboardPageWidgetLine',
     'OneDashboardPageWidgetLineNrqlQuery',
     'OneDashboardPageWidgetMarkdown',
@@ -1241,6 +1249,10 @@ class OneDashboardPage(dict):
                  widget_areas: Optional[Sequence['outputs.OneDashboardPageWidgetArea']] = None,
                  widget_bars: Optional[Sequence['outputs.OneDashboardPageWidgetBar']] = None,
                  widget_billboards: Optional[Sequence['outputs.OneDashboardPageWidgetBillboard']] = None,
+                 widget_bullets: Optional[Sequence['outputs.OneDashboardPageWidgetBullet']] = None,
+                 widget_funnels: Optional[Sequence['outputs.OneDashboardPageWidgetFunnel']] = None,
+                 widget_heatmaps: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmap']] = None,
+                 widget_histograms: Optional[Sequence['outputs.OneDashboardPageWidgetHistogram']] = None,
                  widget_lines: Optional[Sequence['outputs.OneDashboardPageWidgetLine']] = None,
                  widget_markdowns: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdown']] = None,
                  widget_pies: Optional[Sequence['outputs.OneDashboardPageWidgetPy']] = None,
@@ -1252,6 +1264,10 @@ class OneDashboardPage(dict):
         :param Sequence['OneDashboardPageWidgetAreaArgs'] widget_areas: (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetBarArgs'] widget_bars: (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetBillboardArgs'] widget_billboards: (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBulletArgs'] widget_bullets: (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
+        :param Sequence['OneDashboardPageWidgetFunnelArgs'] widget_funnels: (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
+        :param Sequence['OneDashboardPageWidgetHeatmapArgs'] widget_heatmaps: (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
+        :param Sequence['OneDashboardPageWidgetHistogramArgs'] widget_histograms: (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetLineArgs'] widget_lines: (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetMarkdownArgs'] widget_markdowns: (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetPyArgs'] widget_pies: (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
@@ -1268,6 +1284,14 @@ class OneDashboardPage(dict):
             pulumi.set(__self__, "widget_bars", widget_bars)
         if widget_billboards is not None:
             pulumi.set(__self__, "widget_billboards", widget_billboards)
+        if widget_bullets is not None:
+            pulumi.set(__self__, "widget_bullets", widget_bullets)
+        if widget_funnels is not None:
+            pulumi.set(__self__, "widget_funnels", widget_funnels)
+        if widget_heatmaps is not None:
+            pulumi.set(__self__, "widget_heatmaps", widget_heatmaps)
+        if widget_histograms is not None:
+            pulumi.set(__self__, "widget_histograms", widget_histograms)
         if widget_lines is not None:
             pulumi.set(__self__, "widget_lines", widget_lines)
         if widget_markdowns is not None:
@@ -1326,6 +1350,38 @@ class OneDashboardPage(dict):
         return pulumi.get(self, "widget_billboards")
 
     @property
+    @pulumi.getter(name="widgetBullets")
+    def widget_bullets(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBullet']]:
+        """
+        (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widget_bullets")
+
+    @property
+    @pulumi.getter(name="widgetFunnels")
+    def widget_funnels(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnel']]:
+        """
+        (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widget_funnels")
+
+    @property
+    @pulumi.getter(name="widgetHeatmaps")
+    def widget_heatmaps(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmap']]:
+        """
+        (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widget_heatmaps")
+
+    @property
+    @pulumi.getter(name="widgetHistograms")
+    def widget_histograms(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogram']]:
+        """
+        (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widget_histograms")
+
+    @property
     @pulumi.getter(name="widgetLines")
     def widget_lines(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLine']]:
         """
@@ -1374,6 +1430,7 @@ class OneDashboardPageWidgetArea(dict):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetAreaNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -1403,6 +1460,7 @@ class OneDashboardPageWidgetArea(dict):
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetAreaNrqlQuery']:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1450,22 +1508,15 @@ class OneDashboardPageWidgetArea(dict):
 @pulumi.output_type
 class OneDashboardPageWidgetAreaNrqlQuery(dict):
     def __init__(__self__, *,
-                 account_id: int,
-                 query: str):
+                 query: str,
+                 account_id: Optional[int] = None):
         """
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
-        """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -1474,6 +1525,14 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1493,6 +1552,7 @@ class OneDashboardPageWidgetBar(dict):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetBarNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -1524,6 +1584,7 @@ class OneDashboardPageWidgetBar(dict):
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery']:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1576,22 +1637,15 @@ class OneDashboardPageWidgetBar(dict):
 @pulumi.output_type
 class OneDashboardPageWidgetBarNrqlQuery(dict):
     def __init__(__self__, *,
-                 account_id: int,
-                 query: str):
+                 query: str,
+                 account_id: Optional[int] = None):
         """
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
-        """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -1600,6 +1654,14 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1620,12 +1682,13 @@ class OneDashboardPageWidgetBillboard(dict):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetBillboardNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param float critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param float warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
-               * `widget_markdown`:
+               * `widget_bullet`
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -1656,6 +1719,7 @@ class OneDashboardPageWidgetBillboard(dict):
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery']:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1701,7 +1765,7 @@ class OneDashboardPageWidgetBillboard(dict):
     def warning(self) -> Optional[float]:
         """
         (Optional) Threshold above which the displayed value will be styled with a yellow color.
-        * `widget_markdown`:
+        * `widget_bullet`
         """
         return pulumi.get(self, "warning")
 
@@ -1720,22 +1784,15 @@ class OneDashboardPageWidgetBillboard(dict):
 @pulumi.output_type
 class OneDashboardPageWidgetBillboardNrqlQuery(dict):
     def __init__(__self__, *,
-                 account_id: int,
-                 query: str):
+                 query: str,
+                 account_id: Optional[int] = None):
         """
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
-        """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -1745,27 +1802,38 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
         """
         return pulumi.get(self, "query")
 
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class OneDashboardPageWidgetLine(dict):
+class OneDashboardPageWidgetBullet(dict):
     def __init__(__self__, *,
                  column: int,
-                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery'],
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery'],
                  row: int,
                  title: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
-                 linked_entity_guids: Optional[Sequence[str]] = None,
+                 limit: Optional[float] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetLineNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBulletNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param float limit: (Optional) Visualization limit for the widget.
+               * `widget_funnel`
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -1776,8 +1844,8 @@ class OneDashboardPageWidgetLine(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if linked_entity_guids is not None:
-            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -1791,9 +1859,10 @@ class OneDashboardPageWidgetLine(dict):
 
     @property
     @pulumi.getter(name="nrqlQueries")
-    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery']:
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery']:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1827,9 +1896,497 @@ class OneDashboardPageWidgetLine(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="linkedEntityGuids")
-    def linked_entity_guids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "linked_entity_guids")
+    @pulumi.getter
+    def limit(self) -> Optional[float]:
+        """
+        (Optional) Visualization limit for the widget.
+        * `widget_funnel`
+        """
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletNrqlQuery(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 account_id: Optional[int] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnel(dict):
+    def __init__(__self__, *,
+                 column: int,
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery'],
+                 row: int,
+                 title: str,
+                 height: Optional[int] = None,
+                 id: Optional[str] = None,
+                 width: Optional[int] = None):
+        """
+        :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param Sequence['OneDashboardPageWidgetFunnelNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str title: (Required) A title for the widget.
+        :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> int:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery']:
+        """
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        return pulumi.get(self, "nrql_queries")
+
+    @property
+    @pulumi.getter
+    def row(self) -> int:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelNrqlQuery(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 account_id: Optional[int] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmap(dict):
+    def __init__(__self__, *,
+                 column: int,
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery'],
+                 row: int,
+                 title: str,
+                 height: Optional[int] = None,
+                 id: Optional[str] = None,
+                 width: Optional[int] = None):
+        """
+        :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param Sequence['OneDashboardPageWidgetHeatmapNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str title: (Required) A title for the widget.
+        :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> int:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery']:
+        """
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        return pulumi.get(self, "nrql_queries")
+
+    @property
+    @pulumi.getter
+    def row(self) -> int:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 account_id: Optional[int] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogram(dict):
+    def __init__(__self__, *,
+                 column: int,
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery'],
+                 row: int,
+                 title: str,
+                 height: Optional[int] = None,
+                 id: Optional[str] = None,
+                 width: Optional[int] = None):
+        """
+        :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param Sequence['OneDashboardPageWidgetHistogramNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str title: (Required) A title for the widget.
+        :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> int:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery']:
+        """
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        return pulumi.get(self, "nrql_queries")
+
+    @property
+    @pulumi.getter
+    def row(self) -> int:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramNrqlQuery(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 account_id: Optional[int] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLine(dict):
+    def __init__(__self__, *,
+                 column: int,
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery'],
+                 row: int,
+                 title: str,
+                 height: Optional[int] = None,
+                 id: Optional[str] = None,
+                 width: Optional[int] = None):
+        """
+        :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param Sequence['OneDashboardPageWidgetLineNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str title: (Required) A title for the widget.
+        :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> int:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery']:
+        """
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        return pulumi.get(self, "nrql_queries")
+
+    @property
+    @pulumi.getter
+    def row(self) -> int:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1846,22 +2403,15 @@ class OneDashboardPageWidgetLine(dict):
 @pulumi.output_type
 class OneDashboardPageWidgetLineNrqlQuery(dict):
     def __init__(__self__, *,
-                 account_id: int,
-                 query: str):
+                 query: str,
+                 account_id: Optional[int] = None):
         """
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
-        """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -1870,6 +2420,14 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1891,6 +2449,7 @@ class OneDashboardPageWidgetMarkdown(dict):
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str text: (Required) The markdown source to be rendered in the widget.
+               * `widget_pie`
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -1947,6 +2506,7 @@ class OneDashboardPageWidgetMarkdown(dict):
     def text(self) -> Optional[str]:
         """
         (Required) The markdown source to be rendered in the widget.
+        * `widget_pie`
         """
         return pulumi.get(self, "text")
 
@@ -1976,6 +2536,7 @@ class OneDashboardPageWidgetPy(dict):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetPyNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2007,6 +2568,7 @@ class OneDashboardPageWidgetPy(dict):
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery']:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2059,22 +2621,15 @@ class OneDashboardPageWidgetPy(dict):
 @pulumi.output_type
 class OneDashboardPageWidgetPyNrqlQuery(dict):
     def __init__(__self__, *,
-                 account_id: int,
-                 query: str):
+                 query: str,
+                 account_id: Optional[int] = None):
         """
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
-        """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -2083,6 +2638,14 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2097,10 +2660,12 @@ class OneDashboardPageWidgetTable(dict):
                  title: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
+                 linked_entity_guids: Optional[Sequence[str]] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetTableNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2114,6 +2679,8 @@ class OneDashboardPageWidgetTable(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2130,6 +2697,7 @@ class OneDashboardPageWidgetTable(dict):
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery']:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2163,6 +2731,11 @@ class OneDashboardPageWidgetTable(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "linked_entity_guids")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
@@ -2177,22 +2750,15 @@ class OneDashboardPageWidgetTable(dict):
 @pulumi.output_type
 class OneDashboardPageWidgetTableNrqlQuery(dict):
     def __init__(__self__, *,
-                 account_id: int,
-                 query: str):
+                 query: str,
+                 account_id: Optional[int] = None):
         """
-        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> int:
-        """
-        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -2201,6 +2767,14 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
         (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
         """
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

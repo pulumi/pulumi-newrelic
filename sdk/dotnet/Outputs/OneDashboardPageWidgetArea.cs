@@ -24,6 +24,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string? Id;
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetAreaNrqlQuery> NrqlQueries;
         /// <summary>

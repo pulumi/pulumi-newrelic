@@ -28,6 +28,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string? Id;
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboardNrqlQuery> NrqlQueries;
         /// <summary>
@@ -40,7 +41,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string Title;
         /// <summary>
         /// (Optional) Threshold above which the displayed value will be styled with a yellow color.
-        /// * `widget_markdown`:
+        /// * `widget_bullet`
         /// </summary>
         public readonly double? Warning;
         /// <summary>
