@@ -22,9 +22,9 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly int? Height;
         public readonly string? Id;
-        public readonly ImmutableArray<string> LinkedEntityGuids;
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLineNrqlQuery> NrqlQueries;
         /// <summary>
@@ -48,8 +48,6 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
-            ImmutableArray<string> linkedEntityGuids,
-
             ImmutableArray<Outputs.OneDashboardPageWidgetLineNrqlQuery> nrqlQueries,
 
             int row,
@@ -61,7 +59,6 @@ namespace Pulumi.NewRelic.Outputs
             Column = column;
             Height = height;
             Id = id;
-            LinkedEntityGuids = linkedEntityGuids;
             NrqlQueries = nrqlQueries;
             Row = row;
             Title = title;

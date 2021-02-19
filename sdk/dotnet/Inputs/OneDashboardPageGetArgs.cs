@@ -66,6 +66,54 @@ namespace Pulumi.NewRelic.Inputs
             set => _widgetBillboards = value;
         }
 
+        [Input("widgetBullets")]
+        private InputList<Inputs.OneDashboardPageWidgetBulletGetArgs>? _widgetBullets;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetBulletGetArgs> WidgetBullets
+        {
+            get => _widgetBullets ?? (_widgetBullets = new InputList<Inputs.OneDashboardPageWidgetBulletGetArgs>());
+            set => _widgetBullets = value;
+        }
+
+        [Input("widgetFunnels")]
+        private InputList<Inputs.OneDashboardPageWidgetFunnelGetArgs>? _widgetFunnels;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetFunnelGetArgs> WidgetFunnels
+        {
+            get => _widgetFunnels ?? (_widgetFunnels = new InputList<Inputs.OneDashboardPageWidgetFunnelGetArgs>());
+            set => _widgetFunnels = value;
+        }
+
+        [Input("widgetHeatmaps")]
+        private InputList<Inputs.OneDashboardPageWidgetHeatmapGetArgs>? _widgetHeatmaps;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetHeatmapGetArgs> WidgetHeatmaps
+        {
+            get => _widgetHeatmaps ?? (_widgetHeatmaps = new InputList<Inputs.OneDashboardPageWidgetHeatmapGetArgs>());
+            set => _widgetHeatmaps = value;
+        }
+
+        [Input("widgetHistograms")]
+        private InputList<Inputs.OneDashboardPageWidgetHistogramGetArgs>? _widgetHistograms;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetHistogramGetArgs> WidgetHistograms
+        {
+            get => _widgetHistograms ?? (_widgetHistograms = new InputList<Inputs.OneDashboardPageWidgetHistogramGetArgs>());
+            set => _widgetHistograms = value;
+        }
+
         [Input("widgetLines")]
         private InputList<Inputs.OneDashboardPageWidgetLineGetArgs>? _widgetLines;
 

@@ -414,6 +414,22 @@ export interface OneDashboardPage {
      */
     widgetBillboards?: outputs.OneDashboardPageWidgetBillboard[];
     /**
+     * (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
+     */
+    widgetBullets?: outputs.OneDashboardPageWidgetBullet[];
+    /**
+     * (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
+     */
+    widgetFunnels?: outputs.OneDashboardPageWidgetFunnel[];
+    /**
+     * (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
+     */
+    widgetHeatmaps?: outputs.OneDashboardPageWidgetHeatmap[];
+    /**
+     * (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
+     */
+    widgetHistograms?: outputs.OneDashboardPageWidgetHistogram[];
+    /**
      * (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
      */
     widgetLines?: outputs.OneDashboardPageWidgetLine[];
@@ -443,6 +459,7 @@ export interface OneDashboardPageWidgetArea {
     id: string;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetAreaNrqlQuery[];
     /**
@@ -483,6 +500,7 @@ export interface OneDashboardPageWidgetBar {
     linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBarNrqlQuery[];
     /**
@@ -526,6 +544,7 @@ export interface OneDashboardPageWidgetBillboard {
     id: string;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBillboardNrqlQuery[];
     /**
@@ -538,7 +557,7 @@ export interface OneDashboardPageWidgetBillboard {
     title: string;
     /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widgetMarkdown`:
+     * * `widgetBullet`
      */
     warning?: number;
     /**
@@ -548,6 +567,171 @@ export interface OneDashboardPageWidgetBillboard {
 }
 
 export interface OneDashboardPageWidgetBillboardNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: string;
+}
+
+export interface OneDashboardPageWidgetBullet {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Optional) Visualization limit for the widget.
+     * * `widgetFunnel`
+     */
+    limit?: number;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: outputs.OneDashboardPageWidgetBulletNrqlQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetBulletNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: string;
+}
+
+export interface OneDashboardPageWidgetFunnel {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: outputs.OneDashboardPageWidgetFunnelNrqlQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetFunnelNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: string;
+}
+
+export interface OneDashboardPageWidgetHeatmap {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: outputs.OneDashboardPageWidgetHeatmapNrqlQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetHeatmapNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: string;
+}
+
+export interface OneDashboardPageWidgetHistogram {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: outputs.OneDashboardPageWidgetHistogramNrqlQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetHistogramNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
@@ -568,9 +752,9 @@ export interface OneDashboardPageWidgetLine {
      */
     height?: number;
     id: string;
-    linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLineNrqlQuery[];
     /**
@@ -614,6 +798,7 @@ export interface OneDashboardPageWidgetMarkdown {
     row: number;
     /**
      * (Required) The markdown source to be rendered in the widget.
+     * * `widgetPie`
      */
     text?: string;
     /**
@@ -639,6 +824,7 @@ export interface OneDashboardPageWidgetPy {
     linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetPyNrqlQuery[];
     /**
@@ -676,8 +862,10 @@ export interface OneDashboardPageWidgetTable {
      */
     height?: number;
     id: string;
+    linkedEntityGuids?: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetTableNrqlQuery[];
     /**

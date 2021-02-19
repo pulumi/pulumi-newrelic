@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update to v2.18.0 of the NewRelic Terraform Provider
 
 ---
 
@@ -11,7 +11,7 @@ _(none)_
   **Please Note:** This includes a bug fix that stops mutating resources options in the nodejs provider
 
 ## 3.13.0 (2021-02-16)
-* Update to v2.18.0 of the Datadog Terraform Provider
+* Update to v2.18.0 of the NewRelic Terraform Provider
 
 ## 3.12.0 (2021-02-03)
 * Upgrade to v2.17.0 of the NewRelic Terraform Provider

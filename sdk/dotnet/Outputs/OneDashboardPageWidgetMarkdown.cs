@@ -28,6 +28,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int Row;
         /// <summary>
         /// (Required) The markdown source to be rendered in the widget.
+        /// * `widget_pie`
         /// </summary>
         public readonly string? Text;
         /// <summary>

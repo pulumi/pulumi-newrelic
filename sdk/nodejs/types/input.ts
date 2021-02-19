@@ -392,6 +392,22 @@ export interface OneDashboardPage {
      */
     widgetBillboards?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboard>[]>;
     /**
+     * (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
+     */
+    widgetBullets?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBullet>[]>;
+    /**
+     * (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
+     */
+    widgetFunnels?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnel>[]>;
+    /**
+     * (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
+     */
+    widgetHeatmaps?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmap>[]>;
+    /**
+     * (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
+     */
+    widgetHistograms?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogram>[]>;
+    /**
      * (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
      */
     widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[]>;
@@ -421,6 +437,7 @@ export interface OneDashboardPageWidgetArea {
     id?: pulumi.Input<string>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNrqlQuery>[]>;
     /**
@@ -441,7 +458,7 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -461,6 +478,7 @@ export interface OneDashboardPageWidgetBar {
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNrqlQuery>[]>;
     /**
@@ -481,7 +499,7 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -504,6 +522,7 @@ export interface OneDashboardPageWidgetBillboard {
     id?: pulumi.Input<string>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNrqlQuery>[]>;
     /**
@@ -516,7 +535,7 @@ export interface OneDashboardPageWidgetBillboard {
     title: pulumi.Input<string>;
     /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widgetMarkdown`:
+     * * `widgetBullet`
      */
     warning?: pulumi.Input<number>;
     /**
@@ -529,7 +548,172 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBullet {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Optional) Visualization limit for the widget.
+     * * `widgetFunnel`
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBulletNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetFunnel {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetFunnelNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHeatmap {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetHeatmapNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHistogram {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetHistogramNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -546,9 +730,9 @@ export interface OneDashboardPageWidgetLine {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
-    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNrqlQuery>[]>;
     /**
@@ -569,7 +753,7 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -592,6 +776,7 @@ export interface OneDashboardPageWidgetMarkdown {
     row: pulumi.Input<number>;
     /**
      * (Required) The markdown source to be rendered in the widget.
+     * * `widgetPie`
      */
     text?: pulumi.Input<string>;
     /**
@@ -617,6 +802,7 @@ export interface OneDashboardPageWidgetPy {
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNrqlQuery>[]>;
     /**
@@ -637,7 +823,7 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
@@ -654,8 +840,10 @@ export interface OneDashboardPageWidgetTable {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNrqlQuery>[]>;
     /**
@@ -676,7 +864,7 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */

@@ -27,19 +27,12 @@ namespace Pulumi.NewRelic.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        [Input("linkedEntityGuids")]
-        private InputList<string>? _linkedEntityGuids;
-        public InputList<string> LinkedEntityGuids
-        {
-            get => _linkedEntityGuids ?? (_linkedEntityGuids = new InputList<string>());
-            set => _linkedEntityGuids = value;
-        }
-
         [Input("nrqlQueries", required: true)]
         private InputList<Inputs.OneDashboardPageWidgetLineNrqlQueryArgs>? _nrqlQueries;
 
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLineNrqlQueryArgs> NrqlQueries
         {

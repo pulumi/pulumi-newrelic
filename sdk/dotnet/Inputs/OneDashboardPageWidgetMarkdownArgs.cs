@@ -35,6 +35,7 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// (Required) The markdown source to be rendered in the widget.
+        /// * `widget_pie`
         /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
