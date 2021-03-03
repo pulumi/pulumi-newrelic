@@ -28,6 +28,12 @@ namespace Pulumi.NewRelic
         public string? Domain { get; set; }
 
         /// <summary>
+        /// Ignore case of the `name` when searching for the entity. Defaults to false.
+        /// </summary>
+        [Input("ignoreCase")]
+        public bool? IgnoreCase { get; set; }
+
+        /// <summary>
         /// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
         /// </summary>
         [Input("name", required: true)]
@@ -68,6 +74,7 @@ namespace Pulumi.NewRelic
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IgnoreCase;
         public readonly string Name;
         public readonly int ServingApmApplicationId;
         public readonly Outputs.GetEntityTagResult? Tag;
@@ -85,6 +92,8 @@ namespace Pulumi.NewRelic
 
             string id,
 
+            bool? ignoreCase,
+
             string name,
 
             int servingApmApplicationId,
@@ -98,6 +107,7 @@ namespace Pulumi.NewRelic
             Domain = domain;
             Guid = guid;
             Id = id;
+            IgnoreCase = ignoreCase;
             Name = name;
             ServingApmApplicationId = servingApmApplicationId;
             Tag = tag;

@@ -5756,6 +5756,10 @@
                         "type": "string",
                         "description": "The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.\n"
                     },
+                    "ignoreCase": {
+                        "type": "boolean",
+                        "description": "Ignore case of the `name` when searching for the entity. Defaults to false.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.\n"
@@ -5794,6 +5798,9 @@
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ignoreCase": {
+                        "type": "boolean"
                     },
                     "name": {
                         "type": "string"

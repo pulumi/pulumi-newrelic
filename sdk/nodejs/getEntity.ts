@@ -18,6 +18,7 @@ export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("newrelic:index/getEntity:getEntity", {
         "domain": args.domain,
+        "ignoreCase": args.ignoreCase,
         "name": args.name,
         "tag": args.tag,
         "type": args.type,
@@ -32,6 +33,10 @@ export interface GetEntityArgs {
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
      */
     readonly domain?: string;
+    /**
+     * Ignore case of the `name` when searching for the entity. Defaults to false.
+     */
+    readonly ignoreCase?: boolean;
     /**
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */
@@ -64,6 +69,7 @@ export interface GetEntityResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ignoreCase?: boolean;
     readonly name: string;
     readonly servingApmApplicationId: number;
     readonly tag?: outputs.GetEntityTag;
