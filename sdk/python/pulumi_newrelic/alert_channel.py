@@ -27,21 +27,19 @@ class AlertChannel(pulumi.CustomResource):
         Use this resource to create and manage New Relic alert channels.
 
         ## Example Usage
-
-        ##### Email
+        ### Email
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.AlertChannel("foo",
             config=newrelic.AlertChannelConfigArgs(
-                include_json_attachment="1",
+                include_json_attachment="true",
                 recipients="foo@example.com",
             ),
             type="email")
         ```
-
-        ##### Slack
+        ### Slack
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -53,8 +51,7 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="slack")
         ```
-
-        ##### OpsGenie
+        ### OpsGenie
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -68,8 +65,7 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="opsgenie")
         ```
-
-        ##### PagerDuty
+        ### PagerDuty
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -80,8 +76,7 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="pagerduty")
         ```
-
-        ##### VictorOps
+        ### VictorOps
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -93,8 +88,7 @@ class AlertChannel(pulumi.CustomResource):
             ),
             type="victorops")
         ```
-
-        ##### Webhook
+        ### Webhook
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -114,8 +108,7 @@ class AlertChannel(pulumi.CustomResource):
                 },
             ))
         ```
-
-        ##### Webhook with complex payload
+        ### Webhook with complex payload
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -148,7 +141,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] type: The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -194,7 +187,7 @@ class AlertChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertChannelConfigArgs']] config: A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] type: The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+        :param pulumi.Input[str] type: The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -225,7 +218,7 @@ class AlertChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+        The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         """
         return pulumi.get(self, "type")
 

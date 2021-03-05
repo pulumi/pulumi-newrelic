@@ -13,8 +13,7 @@ namespace Pulumi.NewRelic
     /// Use this resource to create and manage New Relic alert channels.
     /// 
     /// ## Example Usage
-    /// 
-    /// ##### Email
+    /// ### Email
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -27,7 +26,7 @@ namespace Pulumi.NewRelic
     ///         {
     ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
     ///             {
-    ///                 IncludeJsonAttachment = "1",
+    ///                 IncludeJsonAttachment = "true",
     ///                 Recipients = "foo@example.com",
     ///             },
     ///             Type = "email",
@@ -36,8 +35,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
-    /// ##### Slack
+    /// ### Slack
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -59,8 +57,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
-    /// ##### OpsGenie
+    /// ### OpsGenie
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -84,8 +81,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
-    /// ##### PagerDuty
+    /// ### PagerDuty
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -106,8 +102,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
-    /// ##### VictorOps
+    /// ### VictorOps
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -129,8 +124,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
-    /// ##### Webhook
+    /// ### Webhook
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -162,8 +156,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// 
-    /// ##### Webhook with complex payload
+    /// ### Webhook with complex payload
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -218,7 +211,7 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -282,7 +275,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -307,7 +300,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+        /// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

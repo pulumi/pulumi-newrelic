@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v2.20.0 of the NewRelic Terraform Provider
+* Update to v2.21.0 of the NewRelic Terraform Provider
 
 ---
 

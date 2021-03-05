@@ -39,7 +39,7 @@ export interface AlertChannelConfig {
      */
     headersString?: pulumi.Input<string>;
     /**
-     * `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+     * `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
      * * `webhook`
      */
     includeJsonAttachment?: pulumi.Input<string>;

@@ -28,7 +28,7 @@ type AlertChannelConfig struct {
 	Headers map[string]string `pulumi:"headers"`
 	// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 	HeadersString *string `pulumi:"headersString"`
-	// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+	// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 	// * `webhook`
 	IncludeJsonAttachment *string `pulumi:"includeJsonAttachment"`
 	// The key for integrating with VictorOps.
@@ -88,7 +88,7 @@ type AlertChannelConfigArgs struct {
 	Headers pulumi.StringMapInput `pulumi:"headers"`
 	// Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
 	HeadersString pulumi.StringPtrInput `pulumi:"headersString"`
-	// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+	// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 	// * `webhook`
 	IncludeJsonAttachment pulumi.StringPtrInput `pulumi:"includeJsonAttachment"`
 	// The key for integrating with VictorOps.
@@ -237,7 +237,7 @@ func (o AlertChannelConfigOutput) HeadersString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.HeadersString }).(pulumi.StringPtrOutput)
 }
 
-// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 // * `webhook`
 func (o AlertChannelConfigOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertChannelConfig) *string { return v.IncludeJsonAttachment }).(pulumi.StringPtrOutput)
@@ -404,7 +404,7 @@ func (o AlertChannelConfigPtrOutput) HeadersString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
 // * `webhook`
 func (o AlertChannelConfigPtrOutput) IncludeJsonAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertChannelConfig) *string {

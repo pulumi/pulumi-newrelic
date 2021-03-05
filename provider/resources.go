@@ -118,6 +118,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_one_dashboard":          {Tok: makeResource(mainMod, "OneDashboard")},
 			"newrelic_infra_alert_condition":  {Tok: makeResource(mainMod, "InfraAlertCondition")},
 			"newrelic_nrql_alert_condition":   {Tok: makeResource(mainMod, "NrqlAlertCondition")},
+			"newrelic_nrql_drop_rule":         {Tok: makeResource(mainMod, "NrqlDropRule")},
 			"newrelic_entity_tags":            {Tok: makeResource(mainMod, "EntityTags")},
 			"newrelic_events_to_metrics_rule": {Tok: makeResource(mainMod, "EventsToMetricsRule")},
 			"newrelic_alert_muting_rule":      {Tok: makeResource(mainMod, "AlertMutingRule")},
