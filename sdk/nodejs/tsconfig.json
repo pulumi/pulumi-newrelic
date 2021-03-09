@@ -35,6 +35,7 @@
         "insights/event.ts",
         "insights/index.ts",
         "nrqlAlertCondition.ts",
+        "nrqlDropRule.ts",
         "oneDashboard.ts",
         "plugins/alertCondition.ts",
         "plugins/applicationSettings.ts",

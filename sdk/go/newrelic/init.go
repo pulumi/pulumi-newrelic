@@ -42,6 +42,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewInfraAlertCondition(ctx, name, nil, pulumi.URN_(urn))
 	case "newrelic:index/nrqlAlertCondition:NrqlAlertCondition":
 		r, err = NewNrqlAlertCondition(ctx, name, nil, pulumi.URN_(urn))
+	case "newrelic:index/nrqlDropRule:NrqlDropRule":
+		r, err = NewNrqlDropRule(ctx, name, nil, pulumi.URN_(urn))
 	case "newrelic:index/oneDashboard:OneDashboard":
 		r, err = NewOneDashboard(ctx, name, nil, pulumi.URN_(urn))
 	default:
@@ -125,6 +127,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/nrqlAlertCondition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/nrqlDropRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -21,6 +21,8 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 type GetEntityArgs struct {
 	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
 	Domain *string `pulumi:"domain"`
+	// Ignore case of the `name` when searching for the entity. Defaults to false.
+	IgnoreCase *bool `pulumi:"ignoreCase"`
 	// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
 	Name string        `pulumi:"name"`
 	Tag  *GetEntityTag `pulumi:"tag"`
@@ -39,6 +41,7 @@ type GetEntityResult struct {
 	Guid string `pulumi:"guid"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string        `pulumi:"id"`
+	IgnoreCase              *bool         `pulumi:"ignoreCase"`
 	Name                    string        `pulumi:"name"`
 	ServingApmApplicationId int           `pulumi:"servingApmApplicationId"`
 	Tag                     *GetEntityTag `pulumi:"tag"`

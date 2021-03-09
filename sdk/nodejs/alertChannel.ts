@@ -9,22 +9,20 @@ import * as utilities from "./utilities";
  * Use this resource to create and manage New Relic alert channels.
  *
  * ## Example Usage
- *
- * ##### Email
+ * ### Email
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.AlertChannel("foo", {
  *     config: {
- *         includeJsonAttachment: "1",
+ *         includeJsonAttachment: "true",
  *         recipients: "foo@example.com",
  *     },
  *     type: "email",
  * });
  * ```
- *
- * ##### Slack
+ * ### Slack
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -37,8 +35,7 @@ import * as utilities from "./utilities";
  *     type: "slack",
  * });
  * ```
- *
- * ##### OpsGenie
+ * ### OpsGenie
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -53,8 +50,7 @@ import * as utilities from "./utilities";
  *     type: "opsgenie",
  * });
  * ```
- *
- * ##### PagerDuty
+ * ### PagerDuty
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -66,8 +62,7 @@ import * as utilities from "./utilities";
  *     type: "pagerduty",
  * });
  * ```
- *
- * ##### VictorOps
+ * ### VictorOps
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -80,8 +75,7 @@ import * as utilities from "./utilities";
  *     type: "victorops",
  * });
  * ```
- *
- * ##### Webhook
+ * ### Webhook
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -102,8 +96,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ##### Webhook with complex payload
+ * ### Webhook with complex payload
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -169,7 +162,7 @@ export class AlertChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -218,7 +211,7 @@ export interface AlertChannelState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -236,7 +229,7 @@ export interface AlertChannelArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+     * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
     readonly type: pulumi.Input<string>;
 }

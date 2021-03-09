@@ -13,6 +13,162 @@ import (
 
 // Use this resource to create and manage New Relic alert channels.
 //
+// ## Example Usage
+// ### Email
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				IncludeJsonAttachment: pulumi.String("true"),
+// 				Recipients:            pulumi.String("foo@example.com"),
+// 			},
+// 			Type: pulumi.String("email"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Slack
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				Channel: pulumi.String("example-alerts-channel"),
+// 				Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
+// 			},
+// 			Type: pulumi.String("slack"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### OpsGenie
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				ApiKey:     pulumi.String("abc123"),
+// 				Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
+// 				Tags:       pulumi.String("tag1, tag2"),
+// 				Teams:      pulumi.String("team1, team2"),
+// 			},
+// 			Type: pulumi.String("opsgenie"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### PagerDuty
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				ServiceKey: pulumi.String("abc123"),
+// 			},
+// 			Type: pulumi.String("pagerduty"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### VictorOps
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				Key:      pulumi.String("abc123"),
+// 				RouteKey: pulumi.String("/example"),
+// 			},
+// 			Type: pulumi.String("victorops"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Webhook with complex payload
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v3/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Config: &newrelic.AlertChannelConfigArgs{
+// 				BaseUrl:       pulumi.String("http://www.test.com"),
+// 				PayloadString: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"my_custom_values\": {\n", "    \"condition_name\": \"", "$", "CONDITION_NAME\",\n", "    \"policy_name\": \"", "$", "POLICY_NAME\"\n", "  }\n", "}\n", "\n")),
+// 				PayloadType:   pulumi.String("application/json"),
+// 			},
+// 			Type: pulumi.String("webhook"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Alert channels can be imported using the `id`, e.g. bash
@@ -27,7 +183,7 @@ type AlertChannel struct {
 	Config AlertChannelConfigPtrOutput `pulumi:"config"`
 	// The name of the channel.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -67,7 +223,7 @@ type alertChannelState struct {
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type *string `pulumi:"type"`
 }
 
@@ -76,7 +232,7 @@ type AlertChannelState struct {
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type pulumi.StringPtrInput
 }
 
@@ -89,7 +245,7 @@ type alertChannelArgs struct {
 	Config *AlertChannelConfig `pulumi:"config"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type string `pulumi:"type"`
 }
 
@@ -99,7 +255,7 @@ type AlertChannelArgs struct {
 	Config AlertChannelConfigPtrInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// The type of channel.  Accepted values are 'email', 'slack', 'opsgenie', 'pagerduty', 'victorops', or 'webhook'.
+	// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
 	Type pulumi.StringInput
 }
 

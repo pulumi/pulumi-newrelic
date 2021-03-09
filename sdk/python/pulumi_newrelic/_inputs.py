@@ -85,7 +85,7 @@ class AlertChannelConfigArgs:
                * `opsgenie`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
         :param pulumi.Input[str] headers_string: Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
-        :param pulumi.Input[str] include_json_attachment: `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        :param pulumi.Input[str] include_json_attachment: `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
                * `webhook`
         :param pulumi.Input[str] key: The key for integrating with VictorOps.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] payload: A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
@@ -246,7 +246,7 @@ class AlertChannelConfigArgs:
     @pulumi.getter(name="includeJsonAttachment")
     def include_json_attachment(self) -> Optional[pulumi.Input[str]]:
         """
-        `0` or `1`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
+        `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
         * `webhook`
         """
         return pulumi.get(self, "include_json_attachment")
