@@ -1323,7 +1323,7 @@ class NrqlAlertConditionCriticalArgs:
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("duration is deprecated: use `threshold_duration` attribute instead")
+            pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
@@ -1334,7 +1334,7 @@ class NrqlAlertConditionCriticalArgs:
             pulumi.set(__self__, "threshold_occurrences", threshold_occurrences)
         if time_function is not None:
             warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("time_function is deprecated: use `threshold_occurrences` attribute instead")
+            pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
         if time_function is not None:
             pulumi.set(__self__, "time_function", time_function)
 
@@ -1404,7 +1404,7 @@ class NrqlAlertConditionNrqlArgs:
             pulumi.set(__self__, "evaluation_offset", evaluation_offset)
         if since_value is not None:
             warnings.warn("""use `evaluation_offset` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("since_value is deprecated: use `evaluation_offset` attribute instead")
+            pulumi.log.warn("""since_value is deprecated: use `evaluation_offset` attribute instead""")
         if since_value is not None:
             pulumi.set(__self__, "since_value", since_value)
 
@@ -1449,7 +1449,7 @@ class NrqlAlertConditionTermArgs:
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("duration is deprecated: use `threshold_duration` attribute instead")
+            pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
@@ -1462,7 +1462,7 @@ class NrqlAlertConditionTermArgs:
             pulumi.set(__self__, "threshold_occurrences", threshold_occurrences)
         if time_function is not None:
             warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("time_function is deprecated: use `threshold_occurrences` attribute instead")
+            pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
         if time_function is not None:
             pulumi.set(__self__, "time_function", time_function)
 
@@ -1542,7 +1542,7 @@ class NrqlAlertConditionWarningArgs:
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("duration is deprecated: use `threshold_duration` attribute instead")
+            pulumi.log.warn("""duration is deprecated: use `threshold_duration` attribute instead""")
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if operator is not None:
@@ -1553,7 +1553,7 @@ class NrqlAlertConditionWarningArgs:
             pulumi.set(__self__, "threshold_occurrences", threshold_occurrences)
         if time_function is not None:
             warnings.warn("""use `threshold_occurrences` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("time_function is deprecated: use `threshold_occurrences` attribute instead")
+            pulumi.log.warn("""time_function is deprecated: use `threshold_occurrences` attribute instead""")
         if time_function is not None:
             pulumi.set(__self__, "time_function", time_function)
 

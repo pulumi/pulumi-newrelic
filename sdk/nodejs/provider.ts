@@ -37,7 +37,7 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["accountId"] = pulumi.output((args ? args.accountId : undefined) || <any>utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
+            inputs["accountId"] = pulumi.output((args ? args.accountId : undefined) ?? <any>utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
             inputs["adminApiKey"] = args ? args.adminApiKey : undefined;
             inputs["apiKey"] = args ? args.apiKey : undefined;
             inputs["apiUrl"] = args ? args.apiUrl : undefined;
@@ -48,7 +48,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["insightsInsertUrl"] = args ? args.insightsInsertUrl : undefined;
             inputs["insightsQueryUrl"] = args ? args.insightsQueryUrl : undefined;
             inputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
-            inputs["region"] = (args ? args.region : undefined) || (utilities.getEnv("NEW_RELIC_REGION") || "US");
+            inputs["region"] = (args ? args.region : undefined) ?? (utilities.getEnv("NEW_RELIC_REGION") || "US");
             inputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
         }
         if (!opts.version) {
