@@ -160,7 +160,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['fill_value'] = fill_value
             if ignore_overlap is not None and not opts.urn:
                 warnings.warn("""use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""", DeprecationWarning)
-                pulumi.log.warn("ignore_overlap is deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true")
+                pulumi.log.warn("""ignore_overlap is deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""")
             __props__['ignore_overlap'] = ignore_overlap
             __props__['name'] = name
             if nrql is None and not opts.urn:
@@ -174,13 +174,13 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__['runbook_url'] = runbook_url
             if terms is not None and not opts.urn:
                 warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
-                pulumi.log.warn("terms is deprecated: use `critical` and `warning` attributes instead")
+                pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
             __props__['terms'] = terms
             __props__['type'] = type
             __props__['value_function'] = value_function
             if violation_time_limit is not None and not opts.urn:
                 warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
-                pulumi.log.warn("violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead")
+                pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
             __props__['violation_time_limit'] = violation_time_limit
             __props__['violation_time_limit_seconds'] = violation_time_limit_seconds
             __props__['warning'] = warning
