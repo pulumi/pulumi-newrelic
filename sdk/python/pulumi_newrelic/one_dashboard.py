@@ -5,15 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OneDashboard']
+__all__ = ['OneDashboardArgs', 'OneDashboard']
+
+@pulumi.input_type
+class OneDashboardArgs:
+    def __init__(__self__, *,
+                 pages: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]],
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a OneDashboard resource.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] description: Brief text describing the dashboard.
+        :param pulumi.Input[str] name: The title of the dashboard.
+        :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        """
+        pulumi.set(__self__, "pages", pages)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def pages(self) -> pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]:
+        """
+        A nested block that describes a page. See Nested page blocks below for details.
+        """
+        return pulumi.get(self, "pages")
+
+    @pages.setter
+    def pages(self, value: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]):
+        pulumi.set(self, "pages", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Brief text describing the dashboard.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permissions", value)
 
 
 class OneDashboard(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +132,47 @@ class OneDashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OneDashboardArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Example Usage
+        ## Additional Examples
+
+        ## Import
+
+        New Relic dashboards can be imported using their GUID, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <Dashboard GUID>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OneDashboardArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OneDashboardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

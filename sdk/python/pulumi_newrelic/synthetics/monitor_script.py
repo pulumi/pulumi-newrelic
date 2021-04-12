@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['MonitorScript']
+__all__ = ['MonitorScriptArgs', 'MonitorScript']
+
+@pulumi.input_type
+class MonitorScriptArgs:
+    def __init__(__self__, *,
+                 monitor_id: pulumi.Input[str],
+                 text: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a MonitorScript resource.
+        :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
+        :param pulumi.Input[str] text: The plaintext representing the monitor script.
+        """
+        pulumi.set(__self__, "monitor_id", monitor_id)
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the monitor to attach the script to.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @monitor_id.setter
+    def monitor_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "monitor_id", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        """
+        The plaintext representing the monitor script.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
 
 
 class MonitorScript(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -52,6 +90,59 @@ class MonitorScript(pulumi.CustomResource):
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
         :param pulumi.Input[str] text: The plaintext representing the monitor script.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MonitorScriptArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to update a synthetics monitor script in New Relic.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            type="SCRIPT_BROWSER",
+            frequency=5,
+            status="ENABLED",
+            locations=["AWS_US_EAST_1"])
+        foo_script = newrelic.synthetics.MonitorScript("fooScript",
+            monitor_id=foo.id,
+            text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"))
+        ```
+
+        ## Import
+
+        Synthetics monitor scripts can be imported using the `id`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MonitorScriptArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MonitorScriptArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 monitor_id: Optional[pulumi.Input[str]] = None,
+                 text: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

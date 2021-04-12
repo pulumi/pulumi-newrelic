@@ -5,13 +5,99 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AlertCondition']
+__all__ = ['AlertConditionArgs', 'AlertCondition']
+
+@pulumi.input_type
+class AlertConditionArgs:
+    def __init__(__self__, *,
+                 monitor_id: pulumi.Input[str],
+                 policy_id: pulumi.Input[int],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AlertCondition resource.
+        :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
+        :param pulumi.Input[str] name: The title of this condition.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        """
+        pulumi.set(__self__, "monitor_id", monitor_id)
+        pulumi.set(__self__, "policy_id", policy_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if runbook_url is not None:
+            pulumi.set(__self__, "runbook_url", runbook_url)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Synthetics monitor to be referenced in the alert condition.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @monitor_id.setter
+    def monitor_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "monitor_id", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Input[int]:
+        """
+        The ID of the policy where this condition should be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set whether to enable the alert condition. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of this condition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
+    @runbook_url.setter
+    def runbook_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runbook_url", value)
 
 
 class AlertCondition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +143,61 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AlertConditionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create and manage synthetics alert conditions in New Relic.
+
+        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_monitor = newrelic.synthetics.get_monitor(name="foo")
+        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
+            policy_id=newrelic_alert_policy["foo"]["id"],
+            monitor_id=foo_monitor.id,
+            runbook_url="https://www.example.com")
+        ```
+
+        ## Import
+
+        Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AlertConditionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AlertConditionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 monitor_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,100 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['EventsToMetricsRule']
+__all__ = ['EventsToMetricsRuleArgs', 'EventsToMetricsRule']
+
+@pulumi.input_type
+class EventsToMetricsRuleArgs:
+    def __init__(__self__, *,
+                 nrql: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a EventsToMetricsRule resource.
+        :param pulumi.Input[str] nrql: Explains how to create metrics from events.
+        :param pulumi.Input[int] account_id: Account with the event and where the metrics will be put.
+        :param pulumi.Input[str] description: Provides additional information about the rule.
+        :param pulumi.Input[bool] enabled: True means this rule is enabled. False means the rule is currently not creating metrics.
+        :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
+        """
+        pulumi.set(__self__, "nrql", nrql)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def nrql(self) -> pulumi.Input[str]:
+        """
+        Explains how to create metrics from events.
+        """
+        return pulumi.get(self, "nrql")
+
+    @nrql.setter
+    def nrql(self, value: pulumi.Input[str]):
+        pulumi.set(self, "nrql", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Account with the event and where the metrics will be put.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides additional information about the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True means this rule is enabled. False means the rule is currently not creating metrics.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule. This must be unique within an account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class EventsToMetricsRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +143,60 @@ class EventsToMetricsRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the rule. This must be unique within an account.
         :param pulumi.Input[str] nrql: Explains how to create metrics from events.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventsToMetricsRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create, update, and delete New Relic Events to Metrics rules.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.EventsToMetricsRule("foo",
+            account_id=12345,
+            description="Example description",
+            nrql="SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name")
+        ```
+
+        ## Import
+
+        New Relic Events to Metrics rules can be imported using a concatenated string of the format
+
+        `<account_id>:<rule_id>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventsToMetricsRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventsToMetricsRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nrql: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

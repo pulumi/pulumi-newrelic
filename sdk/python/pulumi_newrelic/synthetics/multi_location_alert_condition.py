@@ -5,15 +5,149 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MultiLocationAlertCondition']
+__all__ = ['MultiLocationAlertConditionArgs', 'MultiLocationAlertCondition']
+
+@pulumi.input_type
+class MultiLocationAlertConditionArgs:
+    def __init__(__self__, *,
+                 critical: pulumi.Input['MultiLocationAlertConditionCriticalArgs'],
+                 entities: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 policy_id: pulumi.Input[int],
+                 violation_time_limit_seconds: pulumi.Input[int],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 warning: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']] = None):
+        """
+        The set of arguments for constructing a MultiLocationAlertCondition resource.
+        :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
+               7200, 14400, 28800, 43200, 86400
+        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
+        :param pulumi.Input[str] name: The title of the condition.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        :param pulumi.Input['MultiLocationAlertConditionWarningArgs'] warning: A condition term with the priority set to warning.
+        """
+        pulumi.set(__self__, "critical", critical)
+        pulumi.set(__self__, "entities", entities)
+        pulumi.set(__self__, "policy_id", policy_id)
+        pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if runbook_url is not None:
+            pulumi.set(__self__, "runbook_url", runbook_url)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> pulumi.Input['MultiLocationAlertConditionCriticalArgs']:
+        """
+        A condition term with the priority set to critical.
+        """
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: pulumi.Input['MultiLocationAlertConditionCriticalArgs']):
+        pulumi.set(self, "critical", value)
+
+    @property
+    @pulumi.getter
+    def entities(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The GUIDs of the Synthetics monitors to alert on.
+        """
+        return pulumi.get(self, "entities")
+
+    @entities.setter
+    def entities(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "entities", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Input[int]:
+        """
+        The ID of the policy where this condition will be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="violationTimeLimitSeconds")
+    def violation_time_limit_seconds(self) -> pulumi.Input[int]:
+        """
+        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
+        7200, 14400, 28800, 43200, 86400
+        """
+        return pulumi.get(self, "violation_time_limit_seconds")
+
+    @violation_time_limit_seconds.setter
+    def violation_time_limit_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "violation_time_limit_seconds", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set whether to enable the alert condition.  Defaults to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the condition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
+    @runbook_url.setter
+    def runbook_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runbook_url", value)
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]:
+        """
+        A condition term with the priority set to warning.
+        """
+        return pulumi.get(self, "warning")
+
+    @warning.setter
+    def warning(self, value: Optional[pulumi.Input['MultiLocationAlertConditionWarningArgs']]):
+        pulumi.set(self, "warning", value)
 
 
 class MultiLocationAlertCondition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +189,53 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
                7200, 14400, 28800, 43200, 86400
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MultiLocationAlertConditionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
+
+        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+
+        ## Import
+
+        New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+
+        `<policy_id>:<condition_id>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MultiLocationAlertConditionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MultiLocationAlertConditionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 critical: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
+                 warning: Optional[pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

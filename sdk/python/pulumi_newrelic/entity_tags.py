@@ -5,15 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EntityTags']
+__all__ = ['EntityTagsArgs', 'EntityTags']
+
+@pulumi.input_type
+class EntityTagsArgs:
+    def __init__(__self__, *,
+                 guid: pulumi.Input[str],
+                 tags: pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]):
+        """
+        The set of arguments for constructing a EntityTags resource.
+        :param pulumi.Input[str] guid: The guid of the entity to tag.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        """
+        pulumi.set(__self__, "guid", guid)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> pulumi.Input[str]:
+        """
+        The guid of the entity to tag.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]:
+        """
+        A nested block that describes an entity tag. See Nested tag blocks below for details.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]):
+        pulumi.set(self, "tags", value)
 
 
 class EntityTags(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +104,71 @@ class EntityTags(pulumi.CustomResource):
         :param pulumi.Input[str] guid: The guid of the entity to tag.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EntityTagsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create, update, and delete tags for a New Relic One entity.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo_entity = newrelic.get_entity(name="Example application",
+            type="APPLICATION",
+            domain="APM")
+        foo_entity_tags = newrelic.EntityTags("fooEntityTags",
+            guid=foo_entity.guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="my-key",
+                    values=[
+                        "my-value",
+                        "my-other-value",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="my-key-2",
+                    values=["my-value-2"],
+                ),
+            ])
+        ```
+
+        ## Import
+
+        New Relic One entity tags can be imported using a concatenated string of the format
+
+        `<guid>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EntityTagsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EntityTagsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntityTagsTagArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['AlertPolicy']
+__all__ = ['AlertPolicyArgs', 'AlertPolicy']
+
+@pulumi.input_type
+class AlertPolicyArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 incident_preference: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AlertPolicy resource.
+        :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        :param pulumi.Input[str] name: The name of the policy.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if channel_ids is not None:
+            pulumi.set(__self__, "channel_ids", channel_ids)
+        if incident_preference is not None:
+            pulumi.set(__self__, "incident_preference", incident_preference)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="channelIds")
+    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+        """
+        return pulumi.get(self, "channel_ids")
+
+    @channel_ids.setter
+    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "channel_ids", value)
+
+    @property
+    @pulumi.getter(name="incidentPreference")
+    def incident_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+        """
+        return pulumi.get(self, "incident_preference")
+
+    @incident_preference.setter
+    def incident_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incident_preference", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class AlertPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -95,6 +167,100 @@ class AlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] incident_preference: The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
         :param pulumi.Input[str] name: The name of the policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[AlertPolicyArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create and manage New Relic alert policies.
+
+        ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertPolicy("foo", incident_preference="PER_POLICY")
+        ```
+        ### Provision multiple notification channels and add those channels to a policy
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        # Provision a Slack notification channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config=newrelic.AlertChannelConfigArgs(
+                url="https://hooks.slack.com/services/xxxxxxx/yyyyyyyy",
+                channel="example-alerts-channel",
+            ))
+        # Provision an email notification channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="example@testing.com",
+                include_json_attachment="1",
+            ))
+        # Provision the alert policy.
+        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+            incident_preference="PER_CONDITION",
+            channel_ids=[
+                slack_channel.id,
+                email_channel.id,
+            ])
+        ```
+        ### Reference existing notification channels and add those channel to a policy
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        slack_channel = newrelic.get_alert_channel(name="slack-channel-notification")
+        email_channel = newrelic.get_alert_channel(name="test@example.com")
+        # Provision the alert policy.
+        policy_with_channels = newrelic.AlertPolicy("policyWithChannels",
+            incident_preference="PER_CONDITION",
+            channel_ids=[
+                slack_channel.id,
+                email_channel.id,
+            ])
+        ```
+
+        ## Import
+
+        Alert policies can be imported using a composite ID of `<id>:<account_id>`, where `account_id` is the account number scoped to the alert policy resource. Example import
+
+        ```sh
+         $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
+        ```
+
+         Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `terraform apply`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
+
+        :param str resource_name: The name of the resource.
+        :param AlertPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AlertPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 incident_preference: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,103 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Workload']
+__all__ = ['WorkloadArgs', 'Workload']
+
+@pulumi.input_type
+class WorkloadArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        The set of arguments for constructing a Workload resource.
+        :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the workload.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_guids: A list of entity GUIDs manually assigned to this workload.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]] entity_search_queries: A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+        :param pulumi.Input[str] name: The workload's name.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] scope_account_ids: A list of account IDs that will be used to get entities from.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if entity_guids is not None:
+            pulumi.set(__self__, "entity_guids", entity_guids)
+        if entity_search_queries is not None:
+            pulumi.set(__self__, "entity_search_queries", entity_search_queries)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scope_account_ids is not None:
+            pulumi.set(__self__, "scope_account_ids", scope_account_ids)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The New Relic account ID where you want to create the workload.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="entityGuids")
+    def entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of entity GUIDs manually assigned to this workload.
+        """
+        return pulumi.get(self, "entity_guids")
+
+    @entity_guids.setter
+    def entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entity_guids", value)
+
+    @property
+    @pulumi.getter(name="entitySearchQueries")
+    def entity_search_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]:
+        """
+        A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+        """
+        return pulumi.get(self, "entity_search_queries")
+
+    @entity_search_queries.setter
+    def entity_search_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadEntitySearchQueryArgs']]]]):
+        pulumi.set(self, "entity_search_queries", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The workload's name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scopeAccountIds")
+    def scope_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list of account IDs that will be used to get entities from.
+        """
+        return pulumi.get(self, "scope_account_ids")
+
+    @scope_account_ids.setter
+    def scope_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "scope_account_ids", value)
 
 
 class Workload(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +153,67 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[str] name: The workload's name.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] scope_account_ids: A list of account IDs that will be used to get entities from.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[WorkloadArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create, update, and delete a New Relic One workload.
+
+        A New Relic User API key is required to provision this resource.  Set the `api_key`
+        attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
+        variable with your User API key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="name like 'Example application'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+
+        ## Import
+
+        New Relic One workloads can be imported using a concatenated string of the format
+
+        `<account_id>:<workload_id>:<guid>`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WorkloadArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkloadArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 entity_search_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadEntitySearchQueryArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
