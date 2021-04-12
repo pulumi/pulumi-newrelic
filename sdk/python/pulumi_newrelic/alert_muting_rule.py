@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AlertMutingRule']
+__all__ = ['AlertMutingRuleArgs', 'AlertMutingRule']
+
+@pulumi.input_type
+class AlertMutingRuleArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['AlertMutingRuleConditionArgs'],
+                 enabled: pulumi.Input[bool],
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
+        """
+        The set of arguments for constructing a AlertMutingRule resource.
+        :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
+        :param pulumi.Input[int] account_id: The account id of the MutingRule.
+        :param pulumi.Input[str] description: The description of the MutingRule.
+        :param pulumi.Input[str] name: The name of the MutingRule.
+        :param pulumi.Input['AlertMutingRuleScheduleArgs'] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "enabled", enabled)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['AlertMutingRuleConditionArgs']:
+        """
+        The condition that defines which violations to target. See Nested condition blocks below for details.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['AlertMutingRuleConditionArgs']):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether the MutingRule is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The account id of the MutingRule.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the MutingRule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the MutingRule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['AlertMutingRuleScheduleArgs']]:
+        """
+        Specify a schedule for enabling the MutingRule. See Schedule below for details
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
 
 
 class AlertMutingRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +146,45 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the MutingRule.
         :param pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']] schedule: Specify a schedule for enabling the MutingRule. See Schedule below for details
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AlertMutingRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AlertMutingRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AlertMutingRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

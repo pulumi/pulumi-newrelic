@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "newrelic:synthetics/alertCondition:AlertCondition":
-		r, err = NewAlertCondition(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertCondition{}
 	case "newrelic:synthetics/monitor:Monitor":
-		r, err = NewMonitor(ctx, name, nil, pulumi.URN_(urn))
+		r = &Monitor{}
 	case "newrelic:synthetics/monitorScript:MonitorScript":
-		r, err = NewMonitorScript(ctx, name, nil, pulumi.URN_(urn))
+		r = &MonitorScript{}
 	case "newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition":
-		r, err = NewMultiLocationAlertCondition(ctx, name, nil, pulumi.URN_(urn))
+		r = &MultiLocationAlertCondition{}
 	case "newrelic:synthetics/secureCredential:SecureCredential":
-		r, err = NewSecureCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecureCredential{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

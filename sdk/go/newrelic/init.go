@@ -21,35 +21,36 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "newrelic:index/alertChannel:AlertChannel":
-		r, err = NewAlertChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertChannel{}
 	case "newrelic:index/alertCondition:AlertCondition":
-		r, err = NewAlertCondition(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertCondition{}
 	case "newrelic:index/alertMutingRule:AlertMutingRule":
-		r, err = NewAlertMutingRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertMutingRule{}
 	case "newrelic:index/alertPolicy:AlertPolicy":
-		r, err = NewAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertPolicy{}
 	case "newrelic:index/alertPolicyChannel:AlertPolicyChannel":
-		r, err = NewAlertPolicyChannel(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertPolicyChannel{}
 	case "newrelic:index/apiAccessKey:ApiAccessKey":
-		r, err = NewApiAccessKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiAccessKey{}
 	case "newrelic:index/dashboard:Dashboard":
-		r, err = NewDashboard(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dashboard{}
 	case "newrelic:index/entityTags:EntityTags":
-		r, err = NewEntityTags(ctx, name, nil, pulumi.URN_(urn))
+		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
-		r, err = NewEventsToMetricsRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventsToMetricsRule{}
 	case "newrelic:index/infraAlertCondition:InfraAlertCondition":
-		r, err = NewInfraAlertCondition(ctx, name, nil, pulumi.URN_(urn))
+		r = &InfraAlertCondition{}
 	case "newrelic:index/nrqlAlertCondition:NrqlAlertCondition":
-		r, err = NewNrqlAlertCondition(ctx, name, nil, pulumi.URN_(urn))
+		r = &NrqlAlertCondition{}
 	case "newrelic:index/nrqlDropRule:NrqlDropRule":
-		r, err = NewNrqlDropRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NrqlDropRule{}
 	case "newrelic:index/oneDashboard:OneDashboard":
-		r, err = NewOneDashboard(ctx, name, nil, pulumi.URN_(urn))
+		r = &OneDashboard{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -66,7 +67,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

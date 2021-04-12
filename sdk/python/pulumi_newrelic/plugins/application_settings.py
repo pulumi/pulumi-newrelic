@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ApplicationSettings']
+__all__ = ['ApplicationSettingsArgs', 'ApplicationSettings']
+
+@pulumi.input_type
+class ApplicationSettingsArgs:
+    def __init__(__self__, *,
+                 app_apdex_threshold: pulumi.Input[float],
+                 enable_real_user_monitoring: pulumi.Input[bool],
+                 end_user_apdex_threshold: pulumi.Input[float],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ApplicationSettings resource.
+        :param pulumi.Input[float] app_apdex_threshold: The appex threshold for the New Relic application.
+        :param pulumi.Input[bool] enable_real_user_monitoring: Enable or disable real user monitoring for the New Relic application.
+        :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
+        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        """
+        pulumi.set(__self__, "app_apdex_threshold", app_apdex_threshold)
+        pulumi.set(__self__, "enable_real_user_monitoring", enable_real_user_monitoring)
+        pulumi.set(__self__, "end_user_apdex_threshold", end_user_apdex_threshold)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="appApdexThreshold")
+    def app_apdex_threshold(self) -> pulumi.Input[float]:
+        """
+        The appex threshold for the New Relic application.
+        """
+        return pulumi.get(self, "app_apdex_threshold")
+
+    @app_apdex_threshold.setter
+    def app_apdex_threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "app_apdex_threshold", value)
+
+    @property
+    @pulumi.getter(name="enableRealUserMonitoring")
+    def enable_real_user_monitoring(self) -> pulumi.Input[bool]:
+        """
+        Enable or disable real user monitoring for the New Relic application.
+        """
+        return pulumi.get(self, "enable_real_user_monitoring")
+
+    @enable_real_user_monitoring.setter
+    def enable_real_user_monitoring(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable_real_user_monitoring", value)
+
+    @property
+    @pulumi.getter(name="endUserApdexThreshold")
+    def end_user_apdex_threshold(self) -> pulumi.Input[float]:
+        """
+        The user's apdex threshold for the New Relic application.
+        """
+        return pulumi.get(self, "end_user_apdex_threshold")
+
+    @end_user_apdex_threshold.setter
+    def end_user_apdex_threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "end_user_apdex_threshold", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application in New Relic APM.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ApplicationSettings(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +129,65 @@ class ApplicationSettings(pulumi.CustomResource):
         :param pulumi.Input[float] end_user_apdex_threshold: The user's apdex threshold for the New Relic application.
         :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApplicationSettingsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        > **NOTE:** Applications are not created by this resource, but are created by
+        a reporting agent.
+
+        Use this resource to manage configuration for an application that already
+        exists in New Relic.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        app = newrelic.plugins.ApplicationSettings("app",
+            app_apdex_threshold=0.7,
+            enable_real_user_monitoring=False,
+            end_user_apdex_threshold=0.8)
+        ```
+        ## Notes
+
+        > **NOTE:** Applications that have reported data in the last twelve hours
+        cannot be deleted.
+
+        ## Import
+
+        Applications can be imported using notation `application_id`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ApplicationSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 enable_real_user_monitoring: Optional[pulumi.Input[bool]] = None,
+                 end_user_apdex_threshold: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

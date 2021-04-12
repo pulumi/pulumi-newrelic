@@ -5,15 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Event']
+__all__ = ['EventArgs', 'Event']
+
+@pulumi.input_type
+class EventArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]):
+        """
+        The set of arguments for constructing a Event resource.
+        :param pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        """
+        pulumi.set(__self__, "events", events)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]:
+        """
+        An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]):
+        pulumi.set(self, "events", value)
 
 
 class Event(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +94,77 @@ class Event(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create one or more Insights events.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.insights.Event("foo", events=[newrelic.insights.EventEventArgs(
+            attributes=[
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_string_attribute",
+                    value="a string",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="an_integer_attribute",
+                    type="int",
+                    value="42",
+                ),
+                newrelic.insights.EventEventAttributeArgs(
+                    key="a_float_attribute",
+                    type="float",
+                    value="101.1",
+                ),
+            ],
+            timestamp=1232471100,
+            type="MyEvent",
+        )])
+        ```
+        ## Events
+
+        The `event` mapping supports the following arguments:
+
+          * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+          * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+          * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+
+        ### Attributes
+
+        The `attribute` mapping supports the following arguments:
+
+          * `key` - (Required) The name of the attribute.
+          * `value` - (Required) The value of the attribute.
+          * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+
+        :param str resource_name: The name of the resource.
+        :param EventArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEventArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

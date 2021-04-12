@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['AlertPolicyChannel']
+__all__ = ['AlertPolicyChannelArgs', 'AlertPolicyChannel']
+
+@pulumi.input_type
+class AlertPolicyChannelArgs:
+    def __init__(__self__, *,
+                 channel_ids: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 policy_id: pulumi.Input[int]):
+        """
+        The set of arguments for constructing a AlertPolicyChannel resource.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[int] policy_id: The ID of the policy.
+        """
+        pulumi.set(__self__, "channel_ids", channel_ids)
+        pulumi.set(__self__, "policy_id", policy_id)
+
+    @property
+    @pulumi.getter(name="channelIds")
+    def channel_ids(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        """
+        return pulumi.get(self, "channel_ids")
+
+    @channel_ids.setter
+    def channel_ids(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "channel_ids", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> pulumi.Input[int]:
+        """
+        The ID of the policy.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "policy_id", value)
 
 
 class AlertPolicyChannel(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +109,78 @@ class AlertPolicyChannel(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         :param pulumi.Input[int] policy_id: The ID of the policy.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AlertPolicyChannelArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to map alert policies to alert channels in New Relic.
+
+        ## Example Usage
+
+        The example below will apply multiple alert channels to an existing New Relic alert policy.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        example_policy = newrelic.get_alert_policy(name="my-alert-policy")
+        # Creates an email alert channel.
+        email_channel = newrelic.AlertChannel("emailChannel",
+            type="email",
+            config=newrelic.AlertChannelConfigArgs(
+                recipients="foo@example.com",
+                include_json_attachment="1",
+            ))
+        # Creates a Slack alert channel.
+        slack_channel = newrelic.AlertChannel("slackChannel",
+            type="slack",
+            config=newrelic.AlertChannelConfigArgs(
+                channel="#example-channel",
+                url="http://example-org.slack.com",
+            ))
+        # Applies the created channels above to the alert policy
+        # referenced at the top of the config.
+        foo = newrelic.AlertPolicyChannel("foo",
+            policy_id=newrelic_alert_policy["example_policy"]["id"],
+            channel_ids=[
+                email_channel.id,
+                slack_channel.id,
+            ])
+        ```
+
+        ## Import
+
+        Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.
+
+        ```sh
+         $ pulumi import newrelic:index/alertPolicyChannel:AlertPolicyChannel foo 123456:3462754:2938324
+        ```
+
+         When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
+
+        :param str resource_name: The name of the resource.
+        :param AlertPolicyChannelArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AlertPolicyChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

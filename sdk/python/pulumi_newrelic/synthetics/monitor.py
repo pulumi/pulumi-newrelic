@@ -5,13 +5,193 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Monitor']
+__all__ = ['MonitorArgs', 'Monitor']
+
+@pulumi.input_type
+class MonitorArgs:
+    def __init__(__self__, *,
+                 frequency: pulumi.Input[int],
+                 locations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 status: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 bypass_head_request: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sla_threshold: Optional[pulumi.Input[float]] = None,
+                 treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 validation_string: Optional[pulumi.Input[str]] = None,
+                 verify_ssl: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Monitor resource.
+        :param pulumi.Input[int] frequency: The interval (in minutes) at which this monitor should run.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The locations in which this monitor should be run.
+        :param pulumi.Input[str] status: The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+        :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+        :param pulumi.Input[bool] bypass_head_request: Bypass HEAD request.
+        :param pulumi.Input[str] name: The title of this monitor.
+        :param pulumi.Input[float] sla_threshold: The base threshold for the SLA report.
+        :param pulumi.Input[bool] treat_redirect_as_failure: Fail the monitor check if redirected.
+        :param pulumi.Input[str] uri: The URI for the monitor to hit.
+        :param pulumi.Input[str] validation_string: The string to validate against in the response.
+        :param pulumi.Input[bool] verify_ssl: Verify SSL.
+        """
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+        if bypass_head_request is not None:
+            pulumi.set(__self__, "bypass_head_request", bypass_head_request)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sla_threshold is not None:
+            pulumi.set(__self__, "sla_threshold", sla_threshold)
+        if treat_redirect_as_failure is not None:
+            pulumi.set(__self__, "treat_redirect_as_failure", treat_redirect_as_failure)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if validation_string is not None:
+            pulumi.set(__self__, "validation_string", validation_string)
+        if verify_ssl is not None:
+            pulumi.set(__self__, "verify_ssl", verify_ssl)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[int]:
+        """
+        The interval (in minutes) at which this monitor should run.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The locations in which this monitor should be run.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bypassHeadRequest")
+    def bypass_head_request(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass HEAD request.
+        """
+        return pulumi.get(self, "bypass_head_request")
+
+    @bypass_head_request.setter
+    def bypass_head_request(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_head_request", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of this monitor.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="slaThreshold")
+    def sla_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The base threshold for the SLA report.
+        """
+        return pulumi.get(self, "sla_threshold")
+
+    @sla_threshold.setter
+    def sla_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sla_threshold", value)
+
+    @property
+    @pulumi.getter(name="treatRedirectAsFailure")
+    def treat_redirect_as_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Fail the monitor check if redirected.
+        """
+        return pulumi.get(self, "treat_redirect_as_failure")
+
+    @treat_redirect_as_failure.setter
+    def treat_redirect_as_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "treat_redirect_as_failure", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI for the monitor to hit.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="validationString")
+    def validation_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The string to validate against in the response.
+        """
+        return pulumi.get(self, "validation_string")
+
+    @validation_string.setter
+    def validation_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validation_string", value)
+
+    @property
+    @pulumi.getter(name="verifySsl")
+    def verify_ssl(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Verify SSL.
+        """
+        return pulumi.get(self, "verify_ssl")
+
+    @verify_ssl.setter
+    def verify_ssl(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verify_ssl", value)
 
 
 class Monitor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -120,6 +300,118 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] validation_string: The string to validate against in the response.
         :param pulumi.Input[bool] verify_ssl: Verify SSL.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MonitorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Use this resource to create, update, and delete a synthetics monitor in New Relic.
+
+        ## Example Usage
+
+        ##### Type: `SIMPLE`
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            frequency=5,
+            locations=[
+                "AWS_US_EAST_1",
+                "AWS_US_EAST_2",
+            ],
+            status="ENABLED",
+            type="SIMPLE",
+            uri="https://example.com",
+            validation_string="add example validation check here",
+            verify_ssl=True)
+        # Optional for type "SIMPLE" and "BROWSER"
+        ```
+
+        ##### Type: `BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            bypass_head_request=True,
+            frequency=5,
+            locations=["AWS_US_EAST_1"],
+            status="ENABLED",
+            treat_redirect_as_failure=True,
+            type="BROWSER",
+            uri="https://example.com",
+            validation_string="add example validation check here",
+            verify_ssl=True)
+        # optional for type "SIMPLE" and "BROWSER"
+        ```
+
+        ##### Type: `SCRIPT_BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            frequency=5,
+            locations=["AWS_US_EAST_1"],
+            status="ENABLED",
+            type="SCRIPT_BROWSER")
+        ```
+
+        ##### Type: `SCRIPT_API`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.Monitor("foo",
+            frequency=5,
+            locations=["AWS_US_EAST_1"],
+            status="ENABLED",
+            type="SCRIPT_API")
+        ```
+
+        ## Import
+
+        Synthetics monitors can be imported using the `id`, e.g. bash
+
+        ```sh
+         $ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MonitorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bypass_head_request: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[int]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sla_threshold: Optional[pulumi.Input[float]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 treat_redirect_as_failure: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 validation_string: Optional[pulumi.Input[str]] = None,
+                 verify_ssl: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
