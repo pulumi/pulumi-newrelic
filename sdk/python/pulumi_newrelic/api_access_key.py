@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ApiAccessKeyArgs', 'ApiAccessKey']
 
@@ -74,6 +74,126 @@ class ApiAccessKeyArgs:
     @ingest_type.setter
     def ingest_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ingest_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any notes about this ingest key.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "user_id", value)
+
+
+@pulumi.input_type
+class _ApiAccessKeyState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 ingest_type: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering ApiAccessKey resources.
+        :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the API access key.
+        :param pulumi.Input[str] ingest_type: Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        :param pulumi.Input[str] key: The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+        :param pulumi.Input[str] key_type: What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        :param pulumi.Input[str] name: The name of the key.
+        :param pulumi.Input[str] notes: Any notes about this ingest key.
+        :param pulumi.Input[int] user_id: Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if ingest_type is not None:
+            pulumi.set(__self__, "ingest_type", ingest_type)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The New Relic account ID of the account you wish to create the API access key.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="ingestType")
+    def ingest_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required if `key_type = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+        """
+        return pulumi.get(self, "ingest_type")
+
+    @ingest_type.setter
+    def ingest_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ingest_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_type", value)
 
     @property
     @pulumi.getter
@@ -252,19 +372,19 @@ class ApiAccessKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiAccessKeyArgs.__new__(ApiAccessKeyArgs)
 
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
-            __props__['account_id'] = account_id
-            __props__['ingest_type'] = ingest_type
+            __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["ingest_type"] = ingest_type
             if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
-            __props__['key_type'] = key_type
-            __props__['name'] = name
-            __props__['notes'] = notes
-            __props__['user_id'] = user_id
-            __props__['key'] = None
+            __props__.__dict__["key_type"] = key_type
+            __props__.__dict__["name"] = name
+            __props__.__dict__["notes"] = notes
+            __props__.__dict__["user_id"] = user_id
+            __props__.__dict__["key"] = None
         super(ApiAccessKey, __self__).__init__(
             'newrelic:index/apiAccessKey:ApiAccessKey',
             resource_name,
@@ -299,15 +419,15 @@ class ApiAccessKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiAccessKeyState.__new__(_ApiAccessKeyState)
 
-        __props__["account_id"] = account_id
-        __props__["ingest_type"] = ingest_type
-        __props__["key"] = key
-        __props__["key_type"] = key_type
-        __props__["name"] = name
-        __props__["notes"] = notes
-        __props__["user_id"] = user_id
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["ingest_type"] = ingest_type
+        __props__.__dict__["key"] = key
+        __props__.__dict__["key_type"] = key_type
+        __props__.__dict__["name"] = name
+        __props__.__dict__["notes"] = notes
+        __props__.__dict__["user_id"] = user_id
         return ApiAccessKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -365,10 +485,4 @@ class ApiAccessKey(pulumi.CustomResource):
         Required if `key_type = USER`. The New Relic user ID yous wish to create the API access key for in an account.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

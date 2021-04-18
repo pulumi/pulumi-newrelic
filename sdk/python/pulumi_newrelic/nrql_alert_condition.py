@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -415,6 +415,411 @@ class NrqlAlertConditionArgs:
         pulumi.set(self, "warning", value)
 
 
+@pulumi.input_type
+class _NrqlAlertConditionState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 aggregation_window: Optional[pulumi.Input[int]] = None,
+                 baseline_direction: Optional[pulumi.Input[str]] = None,
+                 close_violations_on_expiration: Optional[pulumi.Input[bool]] = None,
+                 critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 expected_groups: Optional[pulumi.Input[int]] = None,
+                 expiration_duration: Optional[pulumi.Input[int]] = None,
+                 fill_option: Optional[pulumi.Input[str]] = None,
+                 fill_value: Optional[pulumi.Input[float]] = None,
+                 ignore_overlap: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 nrql: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']] = None,
+                 open_violation_on_expiration: Optional[pulumi.Input[bool]] = None,
+                 open_violation_on_group_overlap: Optional[pulumi.Input[bool]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value_function: Optional[pulumi.Input[str]] = None,
+                 violation_time_limit: Optional[pulumi.Input[str]] = None,
+                 violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
+                 warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
+        """
+        Input properties used for looking up and filtering NrqlAlertCondition resources.
+        :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open violations when the signal expires.
+        :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
+        :param pulumi.Input[str] description: The description of the NRQL alert condition.
+        :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[int] expected_groups: Number of expected groups when using `outlier` detection.
+        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
+        :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
+        :param pulumi.Input[bool] ignore_overlap: **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
+        :param pulumi.Input[str] name: The title of the condition.
+        :param pulumi.Input['NrqlAlertConditionNrqlArgs'] nrql: A NRQL query. See NRQL below for details.
+        :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new violation to capture that the signal expired.
+        :param pulumi.Input[bool] open_violation_on_group_overlap: Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
+        :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
+               <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
+               <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        :param pulumi.Input['NrqlAlertConditionWarningArgs'] warning: A list containing the `warning` threshold values. See Terms below for details.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if aggregation_window is not None:
+            pulumi.set(__self__, "aggregation_window", aggregation_window)
+        if baseline_direction is not None:
+            pulumi.set(__self__, "baseline_direction", baseline_direction)
+        if close_violations_on_expiration is not None:
+            pulumi.set(__self__, "close_violations_on_expiration", close_violations_on_expiration)
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if expected_groups is not None:
+            pulumi.set(__self__, "expected_groups", expected_groups)
+        if expiration_duration is not None:
+            pulumi.set(__self__, "expiration_duration", expiration_duration)
+        if fill_option is not None:
+            pulumi.set(__self__, "fill_option", fill_option)
+        if fill_value is not None:
+            pulumi.set(__self__, "fill_value", fill_value)
+        if ignore_overlap is not None:
+            warnings.warn("""use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""", DeprecationWarning)
+            pulumi.log.warn("""ignore_overlap is deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""")
+        if ignore_overlap is not None:
+            pulumi.set(__self__, "ignore_overlap", ignore_overlap)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if nrql is not None:
+            pulumi.set(__self__, "nrql", nrql)
+        if open_violation_on_expiration is not None:
+            pulumi.set(__self__, "open_violation_on_expiration", open_violation_on_expiration)
+        if open_violation_on_group_overlap is not None:
+            pulumi.set(__self__, "open_violation_on_group_overlap", open_violation_on_group_overlap)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if runbook_url is not None:
+            pulumi.set(__self__, "runbook_url", runbook_url)
+        if terms is not None:
+            warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
+            pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
+        if terms is not None:
+            pulumi.set(__self__, "terms", terms)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value_function is not None:
+            pulumi.set(__self__, "value_function", value_function)
+        if violation_time_limit is not None:
+            warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
+        if violation_time_limit is not None:
+            pulumi.set(__self__, "violation_time_limit", violation_time_limit)
+        if violation_time_limit_seconds is not None:
+            pulumi.set(__self__, "violation_time_limit_seconds", violation_time_limit_seconds)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="aggregationWindow")
+    def aggregation_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        """
+        return pulumi.get(self, "aggregation_window")
+
+    @aggregation_window.setter
+    def aggregation_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "aggregation_window", value)
+
+    @property
+    @pulumi.getter(name="baselineDirection")
+    def baseline_direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
+        """
+        return pulumi.get(self, "baseline_direction")
+
+    @baseline_direction.setter
+    def baseline_direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "baseline_direction", value)
+
+    @property
+    @pulumi.getter(name="closeViolationsOnExpiration")
+    def close_violations_on_expiration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to close all open violations when the signal expires.
+        """
+        return pulumi.get(self, "close_violations_on_expiration")
+
+    @close_violations_on_expiration.setter
+    def close_violations_on_expiration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "close_violations_on_expiration", value)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]:
+        """
+        A list containing the `critical` threshold values. See Terms below for details.
+        """
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']]):
+        pulumi.set(self, "critical", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the NRQL alert condition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="expectedGroups")
+    def expected_groups(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of expected groups when using `outlier` detection.
+        """
+        return pulumi.get(self, "expected_groups")
+
+    @expected_groups.setter
+    def expected_groups(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expected_groups", value)
+
+    @property
+    @pulumi.getter(name="expirationDuration")
+    def expiration_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time (in seconds) to wait before considering the signal expired.
+        """
+        return pulumi.get(self, "expiration_duration")
+
+    @expiration_duration.setter
+    def expiration_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expiration_duration", value)
+
+    @property
+    @pulumi.getter(name="fillOption")
+    def fill_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
+        """
+        return pulumi.get(self, "fill_option")
+
+    @fill_option.setter
+    def fill_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fill_option", value)
+
+    @property
+    @pulumi.getter(name="fillValue")
+    def fill_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        This value will be used for filling gaps in the signal.
+        """
+        return pulumi.get(self, "fill_value")
+
+    @fill_value.setter
+    def fill_value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "fill_value", value)
+
+    @property
+    @pulumi.getter(name="ignoreOverlap")
+    def ignore_overlap(self) -> Optional[pulumi.Input[bool]]:
+        """
+        **DEPRECATED:** Use `open_violation_on_group_overlap` instead, but use the inverse value of your boolean - e.g. if `ignore_overlap = false`, use `open_violation_on_group_overlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
+        """
+        return pulumi.get(self, "ignore_overlap")
+
+    @ignore_overlap.setter
+    def ignore_overlap(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_overlap", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the condition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def nrql(self) -> Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']]:
+        """
+        A NRQL query. See NRQL below for details.
+        """
+        return pulumi.get(self, "nrql")
+
+    @nrql.setter
+    def nrql(self, value: Optional[pulumi.Input['NrqlAlertConditionNrqlArgs']]):
+        pulumi.set(self, "nrql", value)
+
+    @property
+    @pulumi.getter(name="openViolationOnExpiration")
+    def open_violation_on_expiration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to create a new violation to capture that the signal expired.
+        """
+        return pulumi.get(self, "open_violation_on_expiration")
+
+    @open_violation_on_expiration.setter
+    def open_violation_on_expiration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "open_violation_on_expiration", value)
+
+    @property
+    @pulumi.getter(name="openViolationOnGroupOverlap")
+    def open_violation_on_group_overlap(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
+        """
+        return pulumi.get(self, "open_violation_on_group_overlap")
+
+    @open_violation_on_group_overlap.setter
+    def open_violation_on_group_overlap(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "open_violation_on_group_overlap", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the policy where this condition should be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
+    @runbook_url.setter
+    def runbook_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runbook_url", value)
+
+    @property
+    @pulumi.getter
+    def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]:
+        """
+        **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+        """
+        return pulumi.get(self, "terms")
+
+    @terms.setter
+    def terms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]]):
+        pulumi.set(self, "terms", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="valueFunction")
+    def value_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible values are `single_value`, `sum` (case insensitive).
+        """
+        return pulumi.get(self, "value_function")
+
+    @value_function.setter
+    def value_function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_function", value)
+
+    @property
+    @pulumi.getter(name="violationTimeLimit")
+    def violation_time_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
+        <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        """
+        return pulumi.get(self, "violation_time_limit")
+
+    @violation_time_limit.setter
+    def violation_time_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "violation_time_limit", value)
+
+    @property
+    @pulumi.getter(name="violationTimeLimitSeconds")
+    def violation_time_limit_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
+        <small>\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
+        """
+        return pulumi.get(self, "violation_time_limit_seconds")
+
+    @violation_time_limit_seconds.setter
+    def violation_time_limit_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "violation_time_limit_seconds", value)
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]:
+        """
+        A list containing the `warning` threshold values. See Terms below for details.
+        """
+        return pulumi.get(self, "warning")
+
+    @warning.setter
+    def warning(self, value: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']]):
+        pulumi.set(self, "warning", value)
+
+
 class NrqlAlertCondition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -653,45 +1058,45 @@ class NrqlAlertCondition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NrqlAlertConditionArgs.__new__(NrqlAlertConditionArgs)
 
-            __props__['account_id'] = account_id
-            __props__['aggregation_window'] = aggregation_window
-            __props__['baseline_direction'] = baseline_direction
-            __props__['close_violations_on_expiration'] = close_violations_on_expiration
-            __props__['critical'] = critical
-            __props__['description'] = description
-            __props__['enabled'] = enabled
-            __props__['expected_groups'] = expected_groups
-            __props__['expiration_duration'] = expiration_duration
-            __props__['fill_option'] = fill_option
-            __props__['fill_value'] = fill_value
+            __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["aggregation_window"] = aggregation_window
+            __props__.__dict__["baseline_direction"] = baseline_direction
+            __props__.__dict__["close_violations_on_expiration"] = close_violations_on_expiration
+            __props__.__dict__["critical"] = critical
+            __props__.__dict__["description"] = description
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["expected_groups"] = expected_groups
+            __props__.__dict__["expiration_duration"] = expiration_duration
+            __props__.__dict__["fill_option"] = fill_option
+            __props__.__dict__["fill_value"] = fill_value
             if ignore_overlap is not None and not opts.urn:
                 warnings.warn("""use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""", DeprecationWarning)
                 pulumi.log.warn("""ignore_overlap is deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true""")
-            __props__['ignore_overlap'] = ignore_overlap
-            __props__['name'] = name
+            __props__.__dict__["ignore_overlap"] = ignore_overlap
+            __props__.__dict__["name"] = name
             if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
-            __props__['nrql'] = nrql
-            __props__['open_violation_on_expiration'] = open_violation_on_expiration
-            __props__['open_violation_on_group_overlap'] = open_violation_on_group_overlap
+            __props__.__dict__["nrql"] = nrql
+            __props__.__dict__["open_violation_on_expiration"] = open_violation_on_expiration
+            __props__.__dict__["open_violation_on_group_overlap"] = open_violation_on_group_overlap
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
-            __props__['policy_id'] = policy_id
-            __props__['runbook_url'] = runbook_url
+            __props__.__dict__["policy_id"] = policy_id
+            __props__.__dict__["runbook_url"] = runbook_url
             if terms is not None and not opts.urn:
                 warnings.warn("""use `critical` and `warning` attributes instead""", DeprecationWarning)
                 pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
-            __props__['terms'] = terms
-            __props__['type'] = type
-            __props__['value_function'] = value_function
+            __props__.__dict__["terms"] = terms
+            __props__.__dict__["type"] = type
+            __props__.__dict__["value_function"] = value_function
             if violation_time_limit is not None and not opts.urn:
                 warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
                 pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
-            __props__['violation_time_limit'] = violation_time_limit
-            __props__['violation_time_limit_seconds'] = violation_time_limit_seconds
-            __props__['warning'] = warning
+            __props__.__dict__["violation_time_limit"] = violation_time_limit
+            __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
+            __props__.__dict__["warning"] = warning
         super(NrqlAlertCondition, __self__).__init__(
             'newrelic:index/nrqlAlertCondition:NrqlAlertCondition',
             resource_name,
@@ -762,32 +1167,32 @@ class NrqlAlertCondition(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NrqlAlertConditionState.__new__(_NrqlAlertConditionState)
 
-        __props__["account_id"] = account_id
-        __props__["aggregation_window"] = aggregation_window
-        __props__["baseline_direction"] = baseline_direction
-        __props__["close_violations_on_expiration"] = close_violations_on_expiration
-        __props__["critical"] = critical
-        __props__["description"] = description
-        __props__["enabled"] = enabled
-        __props__["expected_groups"] = expected_groups
-        __props__["expiration_duration"] = expiration_duration
-        __props__["fill_option"] = fill_option
-        __props__["fill_value"] = fill_value
-        __props__["ignore_overlap"] = ignore_overlap
-        __props__["name"] = name
-        __props__["nrql"] = nrql
-        __props__["open_violation_on_expiration"] = open_violation_on_expiration
-        __props__["open_violation_on_group_overlap"] = open_violation_on_group_overlap
-        __props__["policy_id"] = policy_id
-        __props__["runbook_url"] = runbook_url
-        __props__["terms"] = terms
-        __props__["type"] = type
-        __props__["value_function"] = value_function
-        __props__["violation_time_limit"] = violation_time_limit
-        __props__["violation_time_limit_seconds"] = violation_time_limit_seconds
-        __props__["warning"] = warning
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["aggregation_window"] = aggregation_window
+        __props__.__dict__["baseline_direction"] = baseline_direction
+        __props__.__dict__["close_violations_on_expiration"] = close_violations_on_expiration
+        __props__.__dict__["critical"] = critical
+        __props__.__dict__["description"] = description
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["expected_groups"] = expected_groups
+        __props__.__dict__["expiration_duration"] = expiration_duration
+        __props__.__dict__["fill_option"] = fill_option
+        __props__.__dict__["fill_value"] = fill_value
+        __props__.__dict__["ignore_overlap"] = ignore_overlap
+        __props__.__dict__["name"] = name
+        __props__.__dict__["nrql"] = nrql
+        __props__.__dict__["open_violation_on_expiration"] = open_violation_on_expiration
+        __props__.__dict__["open_violation_on_group_overlap"] = open_violation_on_group_overlap
+        __props__.__dict__["policy_id"] = policy_id
+        __props__.__dict__["runbook_url"] = runbook_url
+        __props__.__dict__["terms"] = terms
+        __props__.__dict__["type"] = type
+        __props__.__dict__["value_function"] = value_function
+        __props__.__dict__["violation_time_limit"] = violation_time_limit
+        __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
+        __props__.__dict__["warning"] = warning
         return NrqlAlertCondition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -983,10 +1388,4 @@ class NrqlAlertCondition(pulumi.CustomResource):
         A list containing the `warning` threshold values. See Terms below for details.
         """
         return pulumi.get(self, "warning")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

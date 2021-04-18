@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -32,6 +32,30 @@ class EventArgs:
 
     @events.setter
     def events(self, value: pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]):
+        pulumi.set(self, "events", value)
+
+
+@pulumi.input_type
+class _EventState:
+    def __init__(__self__, *,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Event resources.
+        :param pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]] events: An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        """
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]]:
+        """
+        An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventEventArgs']]]]):
         pulumi.set(self, "events", value)
 
 
@@ -180,11 +204,11 @@ class Event(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventArgs.__new__(EventArgs)
 
             if events is None and not opts.urn:
                 raise TypeError("Missing required property 'events'")
-            __props__['events'] = events
+            __props__.__dict__["events"] = events
         super(Event, __self__).__init__(
             'newrelic:insights/event:Event',
             resource_name,
@@ -207,9 +231,9 @@ class Event(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventState.__new__(_EventState)
 
-        __props__["events"] = events
+        __props__.__dict__["events"] = events
         return Event(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,10 +243,4 @@ class Event(pulumi.CustomResource):
         An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
         """
         return pulumi.get(self, "events")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -85,6 +85,126 @@ class OneDashboardArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class _OneDashboardState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]] = None,
+                 permalink: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OneDashboard resources.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] description: Brief text describing the dashboard.
+        :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
+        :param pulumi.Input[str] name: The title of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
+        :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
+        :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if pages is not None:
+            pulumi.set(__self__, "pages", pages)
+        if permalink is not None:
+            pulumi.set(__self__, "permalink", permalink)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Brief text describing the dashboard.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique entity identifier of the dashboard page in New Relic.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]]:
+        """
+        A nested block that describes a page. See Nested page blocks below for details.
+        """
+        return pulumi.get(self, "pages")
+
+    @pages.setter
+    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]]):
+        pulumi.set(self, "pages", value)
+
+    @property
+    @pulumi.getter
+    def permalink(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for viewing the dashboard.
+        """
+        return pulumi.get(self, "permalink")
+
+    @permalink.setter
+    def permalink(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permalink", value)
 
     @property
     @pulumi.getter
@@ -188,17 +308,17 @@ class OneDashboard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OneDashboardArgs.__new__(OneDashboardArgs)
 
-            __props__['account_id'] = account_id
-            __props__['description'] = description
-            __props__['name'] = name
+            __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if pages is None and not opts.urn:
                 raise TypeError("Missing required property 'pages'")
-            __props__['pages'] = pages
-            __props__['permissions'] = permissions
-            __props__['guid'] = None
-            __props__['permalink'] = None
+            __props__.__dict__["pages"] = pages
+            __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["guid"] = None
+            __props__.__dict__["permalink"] = None
         super(OneDashboard, __self__).__init__(
             'newrelic:index/oneDashboard:OneDashboard',
             resource_name,
@@ -233,15 +353,15 @@ class OneDashboard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OneDashboardState.__new__(_OneDashboardState)
 
-        __props__["account_id"] = account_id
-        __props__["description"] = description
-        __props__["guid"] = guid
-        __props__["name"] = name
-        __props__["pages"] = pages
-        __props__["permalink"] = permalink
-        __props__["permissions"] = permissions
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["guid"] = guid
+        __props__.__dict__["name"] = name
+        __props__.__dict__["pages"] = pages
+        __props__.__dict__["permalink"] = permalink
+        __props__.__dict__["permissions"] = permissions
         return OneDashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -299,10 +419,4 @@ class OneDashboard(pulumi.CustomResource):
         Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         """
         return pulumi.get(self, "permissions")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

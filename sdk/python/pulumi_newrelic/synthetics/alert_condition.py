@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AlertConditionArgs', 'AlertCondition']
 
@@ -82,6 +82,94 @@ class AlertConditionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
+    @runbook_url.setter
+    def runbook_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runbook_url", value)
+
+
+@pulumi.input_type
+class _AlertConditionState:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 monitor_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AlertCondition resources.
+        :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
+        :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
+        :param pulumi.Input[str] name: The title of this condition.
+        :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if monitor_id is not None:
+            pulumi.set(__self__, "monitor_id", monitor_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if runbook_url is not None:
+            pulumi.set(__self__, "runbook_url", runbook_url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set whether to enable the alert condition. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Synthetics monitor to be referenced in the alert condition.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @monitor_id.setter
+    def monitor_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitor_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of this condition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the policy where this condition should be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "policy_id", value)
 
     @property
     @pulumi.getter(name="runbookUrl")
@@ -213,17 +301,17 @@ class AlertCondition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AlertConditionArgs.__new__(AlertConditionArgs)
 
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_id'")
-            __props__['monitor_id'] = monitor_id
-            __props__['name'] = name
+            __props__.__dict__["monitor_id"] = monitor_id
+            __props__.__dict__["name"] = name
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
-            __props__['policy_id'] = policy_id
-            __props__['runbook_url'] = runbook_url
+            __props__.__dict__["policy_id"] = policy_id
+            __props__.__dict__["runbook_url"] = runbook_url
         super(AlertCondition, __self__).__init__(
             'newrelic:synthetics/alertCondition:AlertCondition',
             resource_name,
@@ -254,13 +342,13 @@ class AlertCondition(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AlertConditionState.__new__(_AlertConditionState)
 
-        __props__["enabled"] = enabled
-        __props__["monitor_id"] = monitor_id
-        __props__["name"] = name
-        __props__["policy_id"] = policy_id
-        __props__["runbook_url"] = runbook_url
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["monitor_id"] = monitor_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["policy_id"] = policy_id
+        __props__.__dict__["runbook_url"] = runbook_url
         return AlertCondition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -302,10 +390,4 @@ class AlertCondition(pulumi.CustomResource):
         Runbook URL to display in notifications.
         """
         return pulumi.get(self, "runbook_url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
