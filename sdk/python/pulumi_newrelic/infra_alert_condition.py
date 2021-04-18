@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -220,6 +220,286 @@ class InfraAlertConditionArgs:
     @select.setter
     def select(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "select", value)
+
+    @property
+    @pulumi.getter(name="violationCloseTimer")
+    def violation_close_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        """
+        return pulumi.get(self, "violation_close_timer")
+
+    @violation_close_timer.setter
+    def violation_close_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "violation_close_timer", value)
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[pulumi.Input['InfraAlertConditionWarningArgs']]:
+        """
+        Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+        """
+        return pulumi.get(self, "warning")
+
+    @warning.setter
+    def warning(self, value: Optional[pulumi.Input['InfraAlertConditionWarningArgs']]):
+        pulumi.set(self, "warning", value)
+
+    @property
+    @pulumi.getter
+    def where(self) -> Optional[pulumi.Input[str]]:
+        """
+        If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+        """
+        return pulumi.get(self, "where")
+
+    @where.setter
+    def where(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "where", value)
+
+
+@pulumi.input_type
+class _InfraAlertConditionState:
+    def __init__(__self__, *,
+                 comparison: Optional[pulumi.Input[str]] = None,
+                 created_at: Optional[pulumi.Input[int]] = None,
+                 critical: Optional[pulumi.Input['InfraAlertConditionCriticalArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event: Optional[pulumi.Input[str]] = None,
+                 integration_provider: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None,
+                 process_where: Optional[pulumi.Input[str]] = None,
+                 runbook_url: Optional[pulumi.Input[str]] = None,
+                 select: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 updated_at: Optional[pulumi.Input[int]] = None,
+                 violation_close_timer: Optional[pulumi.Input[int]] = None,
+                 warning: Optional[pulumi.Input['InfraAlertConditionWarningArgs']] = None,
+                 where: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering InfraAlertCondition resources.
+        :param pulumi.Input[str] comparison: The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+        :param pulumi.Input[int] created_at: The timestamp the alert condition was created.
+        :param pulumi.Input['InfraAlertConditionCriticalArgs'] critical: Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+        :param pulumi.Input[str] description: The description of the Infrastructure alert condition.
+        :param pulumi.Input[bool] enabled: Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        :param pulumi.Input[str] event: The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+        :param pulumi.Input[str] integration_provider: For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+        :param pulumi.Input[str] name: The Infrastructure alert condition's name.
+        :param pulumi.Input[int] policy_id: The ID of the alert policy where this condition should be used.
+        :param pulumi.Input[str] process_where: Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
+        :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
+        :param pulumi.Input[str] select: The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+        :param pulumi.Input[str] type: The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        :param pulumi.Input[int] updated_at: The timestamp the alert condition was last updated.
+        :param pulumi.Input[int] violation_close_timer: Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        :param pulumi.Input['InfraAlertConditionWarningArgs'] warning: Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+        :param pulumi.Input[str] where: If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+        """
+        if comparison is not None:
+            pulumi.set(__self__, "comparison", comparison)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if event is not None:
+            pulumi.set(__self__, "event", event)
+        if integration_provider is not None:
+            pulumi.set(__self__, "integration_provider", integration_provider)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if process_where is not None:
+            pulumi.set(__self__, "process_where", process_where)
+        if runbook_url is not None:
+            pulumi.set(__self__, "runbook_url", runbook_url)
+        if select is not None:
+            pulumi.set(__self__, "select", select)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+        if violation_close_timer is not None:
+            pulumi.set(__self__, "violation_close_timer", violation_close_timer)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+        if where is not None:
+            pulumi.set(__self__, "where", where)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> Optional[pulumi.Input[str]]:
+        """
+        The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
+        """
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comparison", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timestamp the alert condition was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> Optional[pulumi.Input['InfraAlertConditionCriticalArgs']]:
+        """
+        Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+        """
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: Optional[pulumi.Input['InfraAlertConditionCriticalArgs']]):
+        pulumi.set(self, "critical", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Infrastructure alert condition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def event(self) -> Optional[pulumi.Input[str]]:
+        """
+        The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infra_metric` condition type.
+        """
+        return pulumi.get(self, "event")
+
+    @event.setter
+    def event(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event", value)
+
+    @property
+    @pulumi.getter(name="integrationProvider")
+    def integration_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        For alerts on integrations, use this instead of `event`.  Supported by the `infra_metric` condition type.
+        """
+        return pulumi.get(self, "integration_provider")
+
+    @integration_provider.setter
+    def integration_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_provider", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Infrastructure alert condition's name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the alert policy where this condition should be used.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="processWhere")
+    def process_where(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infra_process_running` condition type.
+        """
+        return pulumi.get(self, "process_where")
+
+    @process_where.setter
+    def process_where(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "process_where", value)
+
+    @property
+    @pulumi.getter(name="runbookUrl")
+    def runbook_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runbook URL to display in notifications.
+        """
+        return pulumi.get(self, "runbook_url")
+
+    @runbook_url.setter
+    def runbook_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runbook_url", value)
+
+    @property
+    @pulumi.getter
+    def select(self) -> Optional[pulumi.Input[str]]:
+        """
+        The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infra_metric` condition type.
+        """
+        return pulumi.get(self, "select")
+
+    @select.setter
+    def select(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "select", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of Infrastructure alert condition.  Valid values are  `infra_process_running`, `infra_metric`, and `infra_host_not_reporting`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timestamp the alert condition was last updated.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "updated_at", value)
 
     @property
     @pulumi.getter(name="violationCloseTimer")
@@ -505,29 +785,29 @@ class InfraAlertCondition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InfraAlertConditionArgs.__new__(InfraAlertConditionArgs)
 
-            __props__['comparison'] = comparison
-            __props__['critical'] = critical
-            __props__['description'] = description
-            __props__['enabled'] = enabled
-            __props__['event'] = event
-            __props__['integration_provider'] = integration_provider
-            __props__['name'] = name
+            __props__.__dict__["comparison"] = comparison
+            __props__.__dict__["critical"] = critical
+            __props__.__dict__["description"] = description
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["event"] = event
+            __props__.__dict__["integration_provider"] = integration_provider
+            __props__.__dict__["name"] = name
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
-            __props__['policy_id'] = policy_id
-            __props__['process_where'] = process_where
-            __props__['runbook_url'] = runbook_url
-            __props__['select'] = select
+            __props__.__dict__["policy_id"] = policy_id
+            __props__.__dict__["process_where"] = process_where
+            __props__.__dict__["runbook_url"] = runbook_url
+            __props__.__dict__["select"] = select
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['violation_close_timer'] = violation_close_timer
-            __props__['warning'] = warning
-            __props__['where'] = where
-            __props__['created_at'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["violation_close_timer"] = violation_close_timer
+            __props__.__dict__["warning"] = warning
+            __props__.__dict__["where"] = where
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["updated_at"] = None
         super(InfraAlertCondition, __self__).__init__(
             'newrelic:index/infraAlertCondition:InfraAlertCondition',
             resource_name,
@@ -582,25 +862,25 @@ class InfraAlertCondition(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InfraAlertConditionState.__new__(_InfraAlertConditionState)
 
-        __props__["comparison"] = comparison
-        __props__["created_at"] = created_at
-        __props__["critical"] = critical
-        __props__["description"] = description
-        __props__["enabled"] = enabled
-        __props__["event"] = event
-        __props__["integration_provider"] = integration_provider
-        __props__["name"] = name
-        __props__["policy_id"] = policy_id
-        __props__["process_where"] = process_where
-        __props__["runbook_url"] = runbook_url
-        __props__["select"] = select
-        __props__["type"] = type
-        __props__["updated_at"] = updated_at
-        __props__["violation_close_timer"] = violation_close_timer
-        __props__["warning"] = warning
-        __props__["where"] = where
+        __props__.__dict__["comparison"] = comparison
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["critical"] = critical
+        __props__.__dict__["description"] = description
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["event"] = event
+        __props__.__dict__["integration_provider"] = integration_provider
+        __props__.__dict__["name"] = name
+        __props__.__dict__["policy_id"] = policy_id
+        __props__.__dict__["process_where"] = process_where
+        __props__.__dict__["runbook_url"] = runbook_url
+        __props__.__dict__["select"] = select
+        __props__.__dict__["type"] = type
+        __props__.__dict__["updated_at"] = updated_at
+        __props__.__dict__["violation_close_timer"] = violation_close_timer
+        __props__.__dict__["warning"] = warning
+        __props__.__dict__["where"] = where
         return InfraAlertCondition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -738,10 +1018,4 @@ class InfraAlertCondition(pulumi.CustomResource):
         If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
         """
         return pulumi.get(self, "where")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

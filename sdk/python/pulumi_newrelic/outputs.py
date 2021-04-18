@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -55,6 +55,45 @@ __all__ = [
 
 @pulumi.output_type
 class AlertChannelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "authPassword":
+            suggest = "auth_password"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "authUsername":
+            suggest = "auth_username"
+        elif key == "baseUrl":
+            suggest = "base_url"
+        elif key == "headersString":
+            suggest = "headers_string"
+        elif key == "includeJsonAttachment":
+            suggest = "include_json_attachment"
+        elif key == "payloadString":
+            suggest = "payload_string"
+        elif key == "payloadType":
+            suggest = "payload_type"
+        elif key == "routeKey":
+            suggest = "route_key"
+        elif key == "serviceKey":
+            suggest = "service_key"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertChannelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertChannelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertChannelConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: Optional[str] = None,
                  auth_password: Optional[str] = None,
@@ -317,12 +356,26 @@ class AlertChannelConfig(dict):
     def user_id(self) -> Optional[str]:
         return pulumi.get(self, "user_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertConditionTerm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertConditionTerm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertConditionTerm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertConditionTerm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: int,
                  threshold: float,
@@ -362,9 +415,6 @@ class AlertConditionTerm(dict):
     def priority(self) -> Optional[str]:
         return pulumi.get(self, "priority")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertMutingRuleCondition(dict):
@@ -393,9 +443,6 @@ class AlertMutingRuleCondition(dict):
         The operator used to combine all the MutingRuleConditions within the group.
         """
         return pulumi.get(self, "operator")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -437,12 +484,36 @@ class AlertMutingRuleConditionCondition(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertMutingRuleSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZone":
+            suggest = "time_zone"
+        elif key == "endRepeat":
+            suggest = "end_repeat"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "repeatCount":
+            suggest = "repeat_count"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "weeklyRepeatDays":
+            suggest = "weekly_repeat_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertMutingRuleSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertMutingRuleSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertMutingRuleSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_zone: str,
                  end_repeat: Optional[str] = None,
@@ -526,12 +597,26 @@ class AlertMutingRuleSchedule(dict):
         """
         return pulumi.get(self, "weekly_repeat_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTypes":
+            suggest = "event_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_types: Sequence[str],
                  attributes: Optional[Sequence[str]] = None):
@@ -559,12 +644,44 @@ class DashboardFilter(dict):
         """
         return pulumi.get(self, "attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "compareWiths":
+            suggest = "compare_withs"
+        elif key == "drilldownDashboardId":
+            suggest = "drilldown_dashboard_id"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "entityIds":
+            suggest = "entity_ids"
+        elif key == "orderBy":
+            suggest = "order_by"
+        elif key == "rawMetricName":
+            suggest = "raw_metric_name"
+        elif key == "thresholdRed":
+            suggest = "threshold_red"
+        elif key == "thresholdYellow":
+            suggest = "threshold_yellow"
+        elif key == "widgetId":
+            suggest = "widget_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  row: int,
@@ -839,12 +956,26 @@ class DashboardWidget(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetCompareWith(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offsetDuration":
+            suggest = "offset_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetCompareWith. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetCompareWith.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetCompareWith.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  offset_duration: str,
                  presentation: 'outputs.DashboardWidgetCompareWithPresentation'):
@@ -860,9 +991,6 @@ class DashboardWidgetCompareWith(dict):
     @pulumi.getter
     def presentation(self) -> 'outputs.DashboardWidgetCompareWithPresentation':
         return pulumi.get(self, "presentation")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -888,9 +1016,6 @@ class DashboardWidgetCompareWithPresentation(dict):
         (Required) The metric name to display.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -938,9 +1063,6 @@ class DashboardWidgetMetric(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EntityTagsTag(dict):
@@ -970,12 +1092,26 @@ class EntityTagsTag(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InfraAlertConditionCritical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfraAlertConditionCritical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfraAlertConditionCritical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfraAlertConditionCritical.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: int,
                  time_function: Optional[str] = None,
@@ -1000,13 +1136,27 @@ class InfraAlertConditionCritical(dict):
     @pulumi.getter
     def value(self) -> Optional[float]:
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class InfraAlertConditionWarning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfraAlertConditionWarning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfraAlertConditionWarning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfraAlertConditionWarning.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: int,
                  time_function: Optional[str] = None,
@@ -1032,12 +1182,30 @@ class InfraAlertConditionWarning(dict):
     def value(self) -> Optional[float]:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NrqlAlertConditionCritical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdDuration":
+            suggest = "threshold_duration"
+        elif key == "thresholdOccurrences":
+            suggest = "threshold_occurrences"
+        elif key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionCritical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionCritical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionCritical.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  threshold: float,
                  duration: Optional[int] = None,
@@ -1087,12 +1255,28 @@ class NrqlAlertConditionCritical(dict):
     def time_function(self) -> Optional[str]:
         return pulumi.get(self, "time_function")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NrqlAlertConditionNrql(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationOffset":
+            suggest = "evaluation_offset"
+        elif key == "sinceValue":
+            suggest = "since_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionNrql. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionNrql.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionNrql.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  evaluation_offset: Optional[int] = None,
@@ -1118,12 +1302,30 @@ class NrqlAlertConditionNrql(dict):
     def since_value(self) -> Optional[str]:
         return pulumi.get(self, "since_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NrqlAlertConditionTerm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdDuration":
+            suggest = "threshold_duration"
+        elif key == "thresholdOccurrences":
+            suggest = "threshold_occurrences"
+        elif key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionTerm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionTerm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionTerm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  threshold: float,
                  duration: Optional[int] = None,
@@ -1181,12 +1383,30 @@ class NrqlAlertConditionTerm(dict):
     def time_function(self) -> Optional[str]:
         return pulumi.get(self, "time_function")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NrqlAlertConditionWarning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdDuration":
+            suggest = "threshold_duration"
+        elif key == "thresholdOccurrences":
+            suggest = "threshold_occurrences"
+        elif key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NrqlAlertConditionWarning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NrqlAlertConditionWarning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NrqlAlertConditionWarning.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  threshold: float,
                  duration: Optional[int] = None,
@@ -1236,12 +1456,46 @@ class NrqlAlertConditionWarning(dict):
     def time_function(self) -> Optional[str]:
         return pulumi.get(self, "time_function")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "widgetAreas":
+            suggest = "widget_areas"
+        elif key == "widgetBars":
+            suggest = "widget_bars"
+        elif key == "widgetBillboards":
+            suggest = "widget_billboards"
+        elif key == "widgetBullets":
+            suggest = "widget_bullets"
+        elif key == "widgetFunnels":
+            suggest = "widget_funnels"
+        elif key == "widgetHeatmaps":
+            suggest = "widget_heatmaps"
+        elif key == "widgetHistograms":
+            suggest = "widget_histograms"
+        elif key == "widgetLines":
+            suggest = "widget_lines"
+        elif key == "widgetMarkdowns":
+            suggest = "widget_markdowns"
+        elif key == "widgetPies":
+            suggest = "widget_pies"
+        elif key == "widgetTables":
+            suggest = "widget_tables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1413,12 +1667,26 @@ class OneDashboardPage(dict):
         """
         return pulumi.get(self, "widget_tables")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetArea(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetArea. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetArea.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetArea.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetAreaNrqlQuery'],
@@ -1501,12 +1769,26 @@ class OneDashboardPageWidgetArea(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetAreaNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -1534,12 +1816,28 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetBar(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+        elif key == "linkedEntityGuids":
+            suggest = "linked_entity_guids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBar. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBar.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBar.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery'],
@@ -1630,12 +1928,26 @@ class OneDashboardPageWidgetBar(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetBarNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -1663,12 +1975,26 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetBillboard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboard.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery'],
@@ -1777,12 +2103,26 @@ class OneDashboardPageWidgetBillboard(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetBillboardNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -1810,12 +2150,26 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetBullet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBullet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBullet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBullet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery'],
@@ -1912,12 +2266,26 @@ class OneDashboardPageWidgetBullet(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetBulletNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -1945,12 +2313,26 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetFunnel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnel.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery'],
@@ -2033,12 +2415,26 @@ class OneDashboardPageWidgetFunnel(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetFunnelNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -2066,12 +2462,26 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetHeatmap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmap.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery'],
@@ -2154,12 +2564,26 @@ class OneDashboardPageWidgetHeatmap(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -2187,12 +2611,26 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetHistogram(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogram. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogram.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogram.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery'],
@@ -2275,12 +2713,26 @@ class OneDashboardPageWidgetHistogram(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetHistogramNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -2308,12 +2760,26 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetLine(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLine. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLine.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLine.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery'],
@@ -2396,12 +2862,26 @@ class OneDashboardPageWidgetLine(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetLineNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -2428,9 +2908,6 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2518,12 +2995,28 @@ class OneDashboardPageWidgetMarkdown(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetPy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+        elif key == "linkedEntityGuids":
+            suggest = "linked_entity_guids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery'],
@@ -2614,12 +3107,26 @@ class OneDashboardPageWidgetPy(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetPyNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -2647,12 +3154,28 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
         """
         return pulumi.get(self, "account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+        elif key == "linkedEntityGuids":
+            suggest = "linked_entity_guids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column: int,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery'],
@@ -2743,12 +3266,26 @@ class OneDashboardPageWidgetTable(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OneDashboardPageWidgetTableNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  account_id: Optional[int] = None):
@@ -2775,9 +3312,6 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

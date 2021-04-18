@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -47,6 +47,46 @@ class EntityTagsArgs:
 
     @tags.setter
     def tags(self, value: pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _EntityTagsState:
+    def __init__(__self__, *,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering EntityTags resources.
+        :param pulumi.Input[str] guid: The guid of the entity to tag.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]] tags: A nested block that describes an entity tag. See Nested tag blocks below for details.
+        """
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The guid of the entity to tag.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]]:
+        """
+        A nested block that describes an entity tag. See Nested tag blocks below for details.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityTagsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -184,14 +224,14 @@ class EntityTags(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EntityTagsArgs.__new__(EntityTagsArgs)
 
             if guid is None and not opts.urn:
                 raise TypeError("Missing required property 'guid'")
-            __props__['guid'] = guid
+            __props__.__dict__["guid"] = guid
             if tags is None and not opts.urn:
                 raise TypeError("Missing required property 'tags'")
-            __props__['tags'] = tags
+            __props__.__dict__["tags"] = tags
         super(EntityTags, __self__).__init__(
             'newrelic:index/entityTags:EntityTags',
             resource_name,
@@ -216,10 +256,10 @@ class EntityTags(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EntityTagsState.__new__(_EntityTagsState)
 
-        __props__["guid"] = guid
-        __props__["tags"] = tags
+        __props__.__dict__["guid"] = guid
+        __props__.__dict__["tags"] = tags
         return EntityTags(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -237,10 +277,4 @@ class EntityTags(pulumi.CustomResource):
         A nested block that describes an entity tag. See Nested tag blocks below for details.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

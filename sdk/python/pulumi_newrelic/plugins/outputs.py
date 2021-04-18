@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'AlertConditionTerm',
@@ -15,6 +15,23 @@ __all__ = [
 
 @pulumi.output_type
 class AlertConditionTerm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFunction":
+            suggest = "time_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertConditionTerm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertConditionTerm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertConditionTerm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: int,
                  threshold: float,
@@ -54,9 +71,6 @@ class AlertConditionTerm(dict):
     def priority(self) -> Optional[str]:
         return pulumi.get(self, "priority")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkloadEntitySearchQuery(dict):
@@ -74,8 +88,5 @@ class WorkloadEntitySearchQuery(dict):
         The query.
         """
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

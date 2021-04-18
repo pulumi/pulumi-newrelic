@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['MonitorScriptArgs', 'MonitorScript']
 
@@ -45,6 +45,46 @@ class MonitorScriptArgs:
 
     @text.setter
     def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class _MonitorScriptState:
+    def __init__(__self__, *,
+                 monitor_id: Optional[pulumi.Input[str]] = None,
+                 text: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MonitorScript resources.
+        :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
+        :param pulumi.Input[str] text: The plaintext representing the monitor script.
+        """
+        if monitor_id is not None:
+            pulumi.set(__self__, "monitor_id", monitor_id)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the monitor to attach the script to.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @monitor_id.setter
+    def monitor_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitor_id", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plaintext representing the monitor script.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text", value)
 
 
@@ -158,14 +198,14 @@ class MonitorScript(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MonitorScriptArgs.__new__(MonitorScriptArgs)
 
             if monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_id'")
-            __props__['monitor_id'] = monitor_id
+            __props__.__dict__["monitor_id"] = monitor_id
             if text is None and not opts.urn:
                 raise TypeError("Missing required property 'text'")
-            __props__['text'] = text
+            __props__.__dict__["text"] = text
         super(MonitorScript, __self__).__init__(
             'newrelic:synthetics/monitorScript:MonitorScript',
             resource_name,
@@ -190,10 +230,10 @@ class MonitorScript(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MonitorScriptState.__new__(_MonitorScriptState)
 
-        __props__["monitor_id"] = monitor_id
-        __props__["text"] = text
+        __props__.__dict__["monitor_id"] = monitor_id
+        __props__.__dict__["text"] = text
         return MonitorScript(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -211,10 +251,4 @@ class MonitorScript(pulumi.CustomResource):
         The plaintext representing the monitor script.
         """
         return pulumi.get(self, "text")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

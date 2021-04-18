@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['NrqlDropRuleArgs', 'NrqlDropRule']
 
@@ -78,6 +78,94 @@ class NrqlDropRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _NrqlDropRuleState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 nrql: Optional[pulumi.Input[str]] = None,
+                 rule_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NrqlDropRule resources.
+        :param pulumi.Input[int] account_id: Account where the drop rule will be put. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] action: An action type specifying how to apply the NRQL string (either `drop_data` or `drop_attributes`).
+        :param pulumi.Input[str] description: The description of the drop rule.
+        :param pulumi.Input[str] nrql: A NRQL string that specifies what data types to drop.
+        :param pulumi.Input[str] rule_id: The id, uniquely identifying the rule.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if nrql is not None:
+            pulumi.set(__self__, "nrql", nrql)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Account where the drop rule will be put. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        An action type specifying how to apply the NRQL string (either `drop_data` or `drop_attributes`).
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the drop rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def nrql(self) -> Optional[pulumi.Input[str]]:
+        """
+        A NRQL string that specifies what data types to drop.
+        """
+        return pulumi.get(self, "nrql")
+
+    @nrql.setter
+    def nrql(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nrql", value)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id, uniquely identifying the rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_id", value)
 
 
 class NrqlDropRule(pulumi.CustomResource):
@@ -164,17 +252,17 @@ class NrqlDropRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NrqlDropRuleArgs.__new__(NrqlDropRuleArgs)
 
-            __props__['account_id'] = account_id
+            __props__.__dict__["account_id"] = account_id
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
-            __props__['action'] = action
-            __props__['description'] = description
+            __props__.__dict__["action"] = action
+            __props__.__dict__["description"] = description
             if nrql is None and not opts.urn:
                 raise TypeError("Missing required property 'nrql'")
-            __props__['nrql'] = nrql
-            __props__['rule_id'] = None
+            __props__.__dict__["nrql"] = nrql
+            __props__.__dict__["rule_id"] = None
         super(NrqlDropRule, __self__).__init__(
             'newrelic:index/nrqlDropRule:NrqlDropRule',
             resource_name,
@@ -205,13 +293,13 @@ class NrqlDropRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NrqlDropRuleState.__new__(_NrqlDropRuleState)
 
-        __props__["account_id"] = account_id
-        __props__["action"] = action
-        __props__["description"] = description
-        __props__["nrql"] = nrql
-        __props__["rule_id"] = rule_id
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["action"] = action
+        __props__.__dict__["description"] = description
+        __props__.__dict__["nrql"] = nrql
+        __props__.__dict__["rule_id"] = rule_id
         return NrqlDropRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -253,10 +341,4 @@ class NrqlDropRule(pulumi.CustomResource):
         The id, uniquely identifying the rule.
         """
         return pulumi.get(self, "rule_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['AlertPolicyChannelArgs', 'AlertPolicyChannel']
 
@@ -45,6 +45,46 @@ class AlertPolicyChannelArgs:
 
     @policy_id.setter
     def policy_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "policy_id", value)
+
+
+@pulumi.input_type
+class _AlertPolicyChannelState:
+    def __init__(__self__, *,
+                 channel_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 policy_id: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering AlertPolicyChannel resources.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] channel_ids: Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        :param pulumi.Input[int] policy_id: The ID of the policy.
+        """
+        if channel_ids is not None:
+            pulumi.set(__self__, "channel_ids", channel_ids)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+
+    @property
+    @pulumi.getter(name="channelIds")
+    def channel_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+        """
+        return pulumi.get(self, "channel_ids")
+
+    @channel_ids.setter
+    def channel_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "channel_ids", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the policy.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "policy_id", value)
 
 
@@ -196,14 +236,14 @@ class AlertPolicyChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AlertPolicyChannelArgs.__new__(AlertPolicyChannelArgs)
 
             if channel_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_ids'")
-            __props__['channel_ids'] = channel_ids
+            __props__.__dict__["channel_ids"] = channel_ids
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
-            __props__['policy_id'] = policy_id
+            __props__.__dict__["policy_id"] = policy_id
         super(AlertPolicyChannel, __self__).__init__(
             'newrelic:index/alertPolicyChannel:AlertPolicyChannel',
             resource_name,
@@ -228,10 +268,10 @@ class AlertPolicyChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AlertPolicyChannelState.__new__(_AlertPolicyChannelState)
 
-        __props__["channel_ids"] = channel_ids
-        __props__["policy_id"] = policy_id
+        __props__.__dict__["channel_ids"] = channel_ids
+        __props__.__dict__["policy_id"] = policy_id
         return AlertPolicyChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -249,10 +289,4 @@ class AlertPolicyChannel(pulumi.CustomResource):
         The ID of the policy.
         """
         return pulumi.get(self, "policy_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
