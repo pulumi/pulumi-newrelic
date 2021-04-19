@@ -2,9 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v2.21.1 of the NewRelic Terraform Provider
+_(none)_
 
 ---
+
+## 4.0.0 (2021-04-19)
+* Update to v2.21.1 of the NewRelic Terraform Provider
+* Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
+  Node SDK performance, general availability of Automation API, and more.
 
 ## 3.17.0 (2021-04-12)
 * Upgrade to pulumi-terraform-bridge v2.23.0
