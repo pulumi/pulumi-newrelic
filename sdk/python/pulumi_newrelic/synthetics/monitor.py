@@ -390,9 +390,7 @@ class Monitor(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  validation_string: Optional[pulumi.Input[str]] = None,
                  verify_ssl: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Use this resource to create, update, and delete a synthetics monitor in New Relic.
 
@@ -593,15 +591,7 @@ class Monitor(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  validation_string: Optional[pulumi.Input[str]] = None,
                  verify_ssl: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
