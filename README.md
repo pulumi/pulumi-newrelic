@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fnewrelic.svg)](https://www.npmjs.com/package/@pulumi/newrelic)
 [![Python version](https://badge.fury.io/py/pulumi-newrelic.svg)](https://pypi.org/project/pulumi-newrelic)
 [![NuGet version](https://badge.fury.io/nu/pulumi.newrelic.svg)](https://badge.fury.io/nu/pulumi.newrelic)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-newrelic/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-newrelic/sdk/v3/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-newrelic/sdk/v4/go)](https://pkg.go.dev/github.com/pulumi/pulumi-newrelic/sdk/v4/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-newrelic/blob/master/LICENSE)
 
 # New Relic Provider
@@ -35,7 +35,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-newrelic/sdk/v3/go/...
+    $ go get github.com/pulumi/pulumi-newrelic/sdk/v4/go/...
     
 
 ### .NET
