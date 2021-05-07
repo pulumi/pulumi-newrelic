@@ -114,6 +114,18 @@ namespace Pulumi.NewRelic.Inputs
             set => _widgetHistograms = value;
         }
 
+        [Input("widgetJsons")]
+        private InputList<Inputs.OneDashboardPageWidgetJsonArgs>? _widgetJsons;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetJsonArgs> WidgetJsons
+        {
+            get => _widgetJsons ?? (_widgetJsons = new InputList<Inputs.OneDashboardPageWidgetJsonArgs>());
+            set => _widgetJsons = value;
+        }
+
         [Input("widgetLines")]
         private InputList<Inputs.OneDashboardPageWidgetLineArgs>? _widgetLines;
 
