@@ -54,6 +54,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> WidgetHistograms;
         /// <summary>
+        /// (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetJson> WidgetJsons;
+        /// <summary>
         /// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLine> WidgetLines;
@@ -92,6 +96,8 @@ namespace Pulumi.NewRelic.Outputs
 
             ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> widgetHistograms,
 
+            ImmutableArray<Outputs.OneDashboardPageWidgetJson> widgetJsons,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetLine> widgetLines,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> widgetMarkdowns,
@@ -110,6 +116,7 @@ namespace Pulumi.NewRelic.Outputs
             WidgetFunnels = widgetFunnels;
             WidgetHeatmaps = widgetHeatmaps;
             WidgetHistograms = widgetHistograms;
+            WidgetJsons = widgetJsons;
             WidgetLines = widgetLines;
             WidgetMarkdowns = widgetMarkdowns;
             WidgetPies = widgetPies;

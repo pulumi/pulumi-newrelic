@@ -1254,6 +1254,18 @@
                         }
                     }
                 },
+                "widgetJsons": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJson:OneDashboardPageWidgetJson"
+                    },
+                    "description": "(Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "widgetLines": {
                     "type": "array",
                     "items": {
@@ -2168,6 +2180,127 @@
             }
         },
         "newrelic:index/OneDashboardPageWidgetHistogramNrqlQuery:OneDashboardPageWidgetHistogramNrqlQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountId",
+                        "query"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetJson:OneDashboardPageWidgetJson": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrqlQueries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJsonNrqlQuery:OneDashboardPageWidgetJsonNrqlQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "nrqlQueries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "nrqlQueries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetJsonNrqlQuery:OneDashboardPageWidgetJsonNrqlQuery": {
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -6171,7 +6304,7 @@
                 "synthetics": "Synthetics"
             },
             "packageReferences": {
-                "Pulumi": "3.*-*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -6182,7 +6315,7 @@
         "nodejs": {
             "compatibility": "tfbridge20",
             "dependencies": {
-                "@pulumi/pulumi": "^3.0.0-alpha.0"
+                "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -6198,7 +6331,7 @@
             "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/newrelic/terraform-provider-newrelic)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-newrelic` repo](https://github.com/pulumi/pulumi-newrelic/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`newrelic/terraform-provider-newrelic` repo](https://github.com/newrelic/terraform-provider-newrelic/issues).",
             "requires": {
-                "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }
