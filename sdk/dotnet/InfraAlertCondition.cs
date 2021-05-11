@@ -30,6 +30,7 @@ namespace Pulumi.NewRelic
     ///         var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new NewRelic.InfraAlertConditionArgs
     ///         {
     ///             PolicyId = foo.Id,
+    ///             Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
     ///             Type = "infra_metric",
     ///             Event = "StorageSample",
     ///             Select = "diskUsedPercent",
@@ -51,6 +52,7 @@ namespace Pulumi.NewRelic
     ///         var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new NewRelic.InfraAlertConditionArgs
     ///         {
     ///             PolicyId = foo.Id,
+    ///             Description = "Critical alert when the number of database connections goes above 90",
     ///             Type = "infra_metric",
     ///             Event = "DatastoreSample",
     ///             Select = "provider.databaseConnections.Average",
@@ -67,6 +69,7 @@ namespace Pulumi.NewRelic
     ///         var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new NewRelic.InfraAlertConditionArgs
     ///         {
     ///             PolicyId = foo.Id,
+    ///             Description = "Critical alert when ruby isn't running",
     ///             Type = "infra_process_running",
     ///             Comparison = "equal",
     ///             Where = "hostname = 'web01'",
@@ -80,6 +83,7 @@ namespace Pulumi.NewRelic
     ///         var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new NewRelic.InfraAlertConditionArgs
     ///         {
     ///             PolicyId = foo.Id,
+    ///             Description = "Critical alert when the host is not reporting",
     ///             Type = "infra_host_not_reporting",
     ///             Where = "(hostname LIKE '%frontend%')",
     ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs

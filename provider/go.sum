@@ -893,6 +893,8 @@ github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210418181834-24c01d
 github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210418181834-24c01db822fd/go.mod h1:poyTNczjOdx0wcLse2s/R/PKCUMhoMNUCMo1PsZI/WA=
 github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210507113056-ee3611ae0480 h1:N6ySf44d95RaLNYq1E3/eq5kApFIZLhPGDr7hJmaWP0=
 github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210507113056-ee3611ae0480/go.mod h1:uCndDxEv+AJyuqbppnurL4a9C9uJECaHFdi2JDQ4VXM=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210511105011-ea0d6cf71f04 h1:i6W8oHi5fapGs0H0DwvjJOWSQxBndfEJm+8/7Ml1MN8=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210511105011-ea0d6cf71f04/go.mod h1:uCndDxEv+AJyuqbppnurL4a9C9uJECaHFdi2JDQ4VXM=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c h1:JoUA0uz9U0FVFq5p4LjEq4C0VgQ0El320s3Ms0V4eww=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/remyoudompheng/go-misc v0.0.0-20190427085024-2d6ac652a50e h1:eTWZyPUnHcuGRDiryS/l2I7FfKjbU3IBx3IjqHPxuKU=
