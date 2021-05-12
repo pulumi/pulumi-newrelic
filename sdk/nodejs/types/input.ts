@@ -408,6 +408,10 @@ export interface OneDashboardPage {
      */
     widgetHistograms?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogram>[]>;
     /**
+     * (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
+     */
+    widgetJsons?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJson>[]>;
+    /**
      * (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
      */
     widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[]>;
@@ -710,6 +714,46 @@ export interface OneDashboardPageWidgetHistogram {
 }
 
 export interface OneDashboardPageWidgetHistogramNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetJson {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetJsonNrqlQuery {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */

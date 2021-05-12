@@ -42,6 +42,8 @@ __all__ = [
     'OneDashboardPageWidgetHeatmapNrqlQuery',
     'OneDashboardPageWidgetHistogram',
     'OneDashboardPageWidgetHistogramNrqlQuery',
+    'OneDashboardPageWidgetJson',
+    'OneDashboardPageWidgetJsonNrqlQuery',
     'OneDashboardPageWidgetLine',
     'OneDashboardPageWidgetLineNrqlQuery',
     'OneDashboardPageWidgetMarkdown',
@@ -1476,6 +1478,8 @@ class OneDashboardPage(dict):
             suggest = "widget_heatmaps"
         elif key == "widgetHistograms":
             suggest = "widget_histograms"
+        elif key == "widgetJsons":
+            suggest = "widget_jsons"
         elif key == "widgetLines":
             suggest = "widget_lines"
         elif key == "widgetMarkdowns":
@@ -1507,6 +1511,7 @@ class OneDashboardPage(dict):
                  widget_funnels: Optional[Sequence['outputs.OneDashboardPageWidgetFunnel']] = None,
                  widget_heatmaps: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmap']] = None,
                  widget_histograms: Optional[Sequence['outputs.OneDashboardPageWidgetHistogram']] = None,
+                 widget_jsons: Optional[Sequence['outputs.OneDashboardPageWidgetJson']] = None,
                  widget_lines: Optional[Sequence['outputs.OneDashboardPageWidgetLine']] = None,
                  widget_markdowns: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdown']] = None,
                  widget_pies: Optional[Sequence['outputs.OneDashboardPageWidgetPy']] = None,
@@ -1522,6 +1527,7 @@ class OneDashboardPage(dict):
         :param Sequence['OneDashboardPageWidgetFunnelArgs'] widget_funnels: (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetHeatmapArgs'] widget_heatmaps: (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetHistogramArgs'] widget_histograms: (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
+        :param Sequence['OneDashboardPageWidgetJsonArgs'] widget_jsons: (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetLineArgs'] widget_lines: (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetMarkdownArgs'] widget_markdowns: (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetPyArgs'] widget_pies: (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
@@ -1546,6 +1552,8 @@ class OneDashboardPage(dict):
             pulumi.set(__self__, "widget_heatmaps", widget_heatmaps)
         if widget_histograms is not None:
             pulumi.set(__self__, "widget_histograms", widget_histograms)
+        if widget_jsons is not None:
+            pulumi.set(__self__, "widget_jsons", widget_jsons)
         if widget_lines is not None:
             pulumi.set(__self__, "widget_lines", widget_lines)
         if widget_markdowns is not None:
@@ -1634,6 +1642,14 @@ class OneDashboardPage(dict):
         (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
         """
         return pulumi.get(self, "widget_histograms")
+
+    @property
+    @pulumi.getter(name="widgetJsons")
+    def widget_jsons(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJson']]:
+        """
+        (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widget_jsons")
 
     @property
     @pulumi.getter(name="widgetLines")
@@ -2731,6 +2747,155 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
 
     def get(self, key: str, default = None) -> Any:
         OneDashboardPageWidgetHistogramNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query: str,
+                 account_id: Optional[int] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column: int,
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetJsonNrqlQuery'],
+                 row: int,
+                 title: str,
+                 height: Optional[int] = None,
+                 id: Optional[str] = None,
+                 width: Optional[int] = None):
+        """
+        :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param Sequence['OneDashboardPageWidgetJsonNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str title: (Required) A title for the widget.
+        :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> int:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetJsonNrqlQuery']:
+        """
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        return pulumi.get(self, "nrql_queries")
+
+    @property
+    @pulumi.getter
+    def row(self) -> int:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonNrqlQuery.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

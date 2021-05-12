@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.AlertPolicy("foo", {});
  * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
  *     policyId: foo.id,
+ *     description: `Warning if disk usage goes above 80% and critical alert if goes above 90%`,
  *     type: "infra_metric",
  *     event: "StorageSample",
  *     select: "diskUsedPercent",
@@ -37,6 +38,7 @@ import * as utilities from "./utilities";
  * });
  * const highDbConnCount = new newrelic.InfraAlertCondition("highDbConnCount", {
  *     policyId: foo.id,
+ *     description: "Critical alert when the number of database connections goes above 90",
  *     type: "infra_metric",
  *     event: "DatastoreSample",
  *     select: "provider.databaseConnections.Average",
@@ -51,6 +53,7 @@ import * as utilities from "./utilities";
  * });
  * const processNotRunning = new newrelic.InfraAlertCondition("processNotRunning", {
  *     policyId: foo.id,
+ *     description: "Critical alert when ruby isn't running",
  *     type: "infra_process_running",
  *     comparison: "equal",
  *     where: "hostname = 'web01'",
@@ -62,6 +65,7 @@ import * as utilities from "./utilities";
  * });
  * const hostNotReporting = new newrelic.InfraAlertCondition("hostNotReporting", {
  *     policyId: foo.id,
+ *     description: "Critical alert when the host is not reporting",
  *     type: "infra_host_not_reporting",
  *     where: `(hostname LIKE '%frontend%')`,
  *     critical: {

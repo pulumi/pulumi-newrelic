@@ -573,6 +573,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         foo = newrelic.AlertPolicy("foo")
         high_disk_usage = newrelic.InfraAlertCondition("highDiskUsage",
             policy_id=foo.id,
+            description="Warning if disk usage goes above 80% and critical alert if goes above 90%",
             type="infra_metric",
             event="StorageSample",
             select="diskUsedPercent",
@@ -590,6 +591,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             ))
         high_db_conn_count = newrelic.InfraAlertCondition("highDbConnCount",
             policy_id=foo.id,
+            description="Critical alert when the number of database connections goes above 90",
             type="infra_metric",
             event="DatastoreSample",
             select="provider.databaseConnections.Average",
@@ -603,6 +605,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             ))
         process_not_running = newrelic.InfraAlertCondition("processNotRunning",
             policy_id=foo.id,
+            description="Critical alert when ruby isn't running",
             type="infra_process_running",
             comparison="equal",
             where="hostname = 'web01'",
@@ -613,6 +616,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             ))
         host_not_reporting = newrelic.InfraAlertCondition("hostNotReporting",
             policy_id=foo.id,
+            description="Critical alert when the host is not reporting",
             type="infra_host_not_reporting",
             where="(hostname LIKE '%frontend%')",
             critical=newrelic.InfraAlertConditionCriticalArgs(
@@ -673,6 +677,7 @@ class InfraAlertCondition(pulumi.CustomResource):
         foo = newrelic.AlertPolicy("foo")
         high_disk_usage = newrelic.InfraAlertCondition("highDiskUsage",
             policy_id=foo.id,
+            description="Warning if disk usage goes above 80% and critical alert if goes above 90%",
             type="infra_metric",
             event="StorageSample",
             select="diskUsedPercent",
@@ -690,6 +695,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             ))
         high_db_conn_count = newrelic.InfraAlertCondition("highDbConnCount",
             policy_id=foo.id,
+            description="Critical alert when the number of database connections goes above 90",
             type="infra_metric",
             event="DatastoreSample",
             select="provider.databaseConnections.Average",
@@ -703,6 +709,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             ))
         process_not_running = newrelic.InfraAlertCondition("processNotRunning",
             policy_id=foo.id,
+            description="Critical alert when ruby isn't running",
             type="infra_process_running",
             comparison="equal",
             where="hostname = 'web01'",
@@ -713,6 +720,7 @@ class InfraAlertCondition(pulumi.CustomResource):
             ))
         host_not_reporting = newrelic.InfraAlertCondition("hostNotReporting",
             policy_id=foo.id,
+            description="Critical alert when the host is not reporting",
             type="infra_host_not_reporting",
             where="(hostname LIKE '%frontend%')",
             critical=newrelic.InfraAlertConditionCriticalArgs(

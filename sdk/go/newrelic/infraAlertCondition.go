@@ -34,12 +34,13 @@ import (
 // 			return err
 // 		}
 // 		_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
-// 			PolicyId:   foo.ID(),
-// 			Type:       pulumi.String("infra_metric"),
-// 			Event:      pulumi.String("StorageSample"),
-// 			Select:     pulumi.String("diskUsedPercent"),
-// 			Comparison: pulumi.String("above"),
-// 			Where:      pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
+// 			PolicyId:    foo.ID(),
+// 			Description: pulumi.String(fmt.Sprintf("%v%v%v%v", "Warning if disk usage goes above 80", "%", " and critical alert if goes above 90", "%")),
+// 			Type:        pulumi.String("infra_metric"),
+// 			Event:       pulumi.String("StorageSample"),
+// 			Select:      pulumi.String("diskUsedPercent"),
+// 			Comparison:  pulumi.String("above"),
+// 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
 // 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
 // 				Value:        pulumi.Float64(90),
@@ -56,6 +57,7 @@ import (
 // 		}
 // 		_, err = newrelic.NewInfraAlertCondition(ctx, "highDbConnCount", &newrelic.InfraAlertConditionArgs{
 // 			PolicyId:            foo.ID(),
+// 			Description:         pulumi.String("Critical alert when the number of database connections goes above 90"),
 // 			Type:                pulumi.String("infra_metric"),
 // 			Event:               pulumi.String("DatastoreSample"),
 // 			Select:              pulumi.String("provider.databaseConnections.Average"),
@@ -73,6 +75,7 @@ import (
 // 		}
 // 		_, err = newrelic.NewInfraAlertCondition(ctx, "processNotRunning", &newrelic.InfraAlertConditionArgs{
 // 			PolicyId:     foo.ID(),
+// 			Description:  pulumi.String("Critical alert when ruby isn't running"),
 // 			Type:         pulumi.String("infra_process_running"),
 // 			Comparison:   pulumi.String("equal"),
 // 			Where:        pulumi.String("hostname = 'web01'"),
@@ -86,9 +89,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = newrelic.NewInfraAlertCondition(ctx, "hostNotReporting", &newrelic.InfraAlertConditionArgs{
-// 			PolicyId: foo.ID(),
-// 			Type:     pulumi.String("infra_host_not_reporting"),
-// 			Where:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
+// 			PolicyId:    foo.ID(),
+// 			Description: pulumi.String("Critical alert when the host is not reporting"),
+// 			Type:        pulumi.String("infra_host_not_reporting"),
+// 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
 // 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
 // 				Duration: pulumi.Int(5),
 // 			},
