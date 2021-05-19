@@ -13,6 +13,6 @@ require (
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
-	github.com/newrelic/terraform-provider-newrelic/v2 => github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210511105011-ea0d6cf71f04
+	github.com/newrelic/terraform-provider-newrelic/v2 => github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20210519092201-4cd20226cfb8
 	golang.org/x/sys => golang.org/x/sys v0.0.0-20200124204421-9fbb57f87de9
 )
