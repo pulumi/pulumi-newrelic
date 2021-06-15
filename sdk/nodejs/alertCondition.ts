@@ -102,48 +102,47 @@ export class AlertCondition extends pulumi.CustomResource {
     public readonly gcMetric!: pulumi.Output<string | undefined>;
     /**
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-     * * `apmAppMetric`
+     * * `apm_app_metric`
      * * `apdex`
-     * * `errorPercentage`
-     * * `responseTimeBackground`
-     * * `responseTimeWeb`
-     * * `throughputBackground`
-     * * `throughputWeb`
-     * * `userDefined`
-     * * `apmJvmMetric`
-     * * `cpuUtilizationTime`
-     * * `deadlockedThreads`
-     * * `gcCpuTime`
-     * * `heapMemoryUsage`
-     * * `apmKtMetric`
+     * * `error_percentage`
+     * * `response_time_background`
+     * * `response_time_web`
+     * * `throughput_background`
+     * * `throughput_web`
+     * * `user_defined`
+     * * `apm_jvm_metric`
+     * * `cpu_utilization_time`
+     * * `deadlocked_threads`
+     * * `gc_cpu_time`
+     * * `heap_memory_usage`
+     * * `apm_kt_metric`
      * * `apdex`
-     * * `errorCount`
-     * * `errorPercentage`
-     * * `responseTime`
+     * * `error_count`
+     * * `response_time`
      * * `throughput`
-     * * `browserMetric`
-     * * `ajaxResponseTime`
-     * * `ajaxThroughput`
-     * * `domProcessing`
-     * * `endUserApdex`
+     * * `browser_metric`
+     * * `ajax_response_time`
+     * * `ajax_throughput`
+     * * `dom_processing`
+     * * `end_user_apdex`
      * * `network`
-     * * `pageRendering`
-     * * `pageViewThroughput`
-     * * `pageViewsWithJsErrors`
-     * * `requestQueuing`
-     * * `totalPageLoad`
-     * * `userDefined`
-     * * `webApplication`
-     * * `mobileMetric`
+     * * `page_rendering`
+     * * `page_view_throughput`
+     * * `page_views_with_js_errors`
+     * * `request_queuing`
+     * * `total_page_load`
+     * * `user_defined`
+     * * `web_application`
+     * * `mobile_metric`
      * * `database`
      * * `images`
      * * `json`
-     * * `mobileCrashRate`
-     * * `networkErrorPercentage`
+     * * `mobile_crash_rate`
+     * * `network_error_percentage`
      * * `network`
-     * * `statusErrorPercentage`
-     * * `userDefined`
-     * * `viewLoading`
+     * * `status_error_percentage`
+     * * `user_defined`
+     * * `view_loading`
      */
     public readonly metric!: pulumi.Output<string>;
     /**
@@ -163,7 +162,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<outputs.AlertConditionTerm[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -265,48 +264,47 @@ export interface AlertConditionState {
     readonly gcMetric?: pulumi.Input<string>;
     /**
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-     * * `apmAppMetric`
+     * * `apm_app_metric`
      * * `apdex`
-     * * `errorPercentage`
-     * * `responseTimeBackground`
-     * * `responseTimeWeb`
-     * * `throughputBackground`
-     * * `throughputWeb`
-     * * `userDefined`
-     * * `apmJvmMetric`
-     * * `cpuUtilizationTime`
-     * * `deadlockedThreads`
-     * * `gcCpuTime`
-     * * `heapMemoryUsage`
-     * * `apmKtMetric`
+     * * `error_percentage`
+     * * `response_time_background`
+     * * `response_time_web`
+     * * `throughput_background`
+     * * `throughput_web`
+     * * `user_defined`
+     * * `apm_jvm_metric`
+     * * `cpu_utilization_time`
+     * * `deadlocked_threads`
+     * * `gc_cpu_time`
+     * * `heap_memory_usage`
+     * * `apm_kt_metric`
      * * `apdex`
-     * * `errorCount`
-     * * `errorPercentage`
-     * * `responseTime`
+     * * `error_count`
+     * * `response_time`
      * * `throughput`
-     * * `browserMetric`
-     * * `ajaxResponseTime`
-     * * `ajaxThroughput`
-     * * `domProcessing`
-     * * `endUserApdex`
+     * * `browser_metric`
+     * * `ajax_response_time`
+     * * `ajax_throughput`
+     * * `dom_processing`
+     * * `end_user_apdex`
      * * `network`
-     * * `pageRendering`
-     * * `pageViewThroughput`
-     * * `pageViewsWithJsErrors`
-     * * `requestQueuing`
-     * * `totalPageLoad`
-     * * `userDefined`
-     * * `webApplication`
-     * * `mobileMetric`
+     * * `page_rendering`
+     * * `page_view_throughput`
+     * * `page_views_with_js_errors`
+     * * `request_queuing`
+     * * `total_page_load`
+     * * `user_defined`
+     * * `web_application`
+     * * `mobile_metric`
      * * `database`
      * * `images`
      * * `json`
-     * * `mobileCrashRate`
-     * * `networkErrorPercentage`
+     * * `mobile_crash_rate`
+     * * `network_error_percentage`
      * * `network`
-     * * `statusErrorPercentage`
-     * * `userDefined`
-     * * `viewLoading`
+     * * `status_error_percentage`
+     * * `user_defined`
+     * * `view_loading`
      */
     readonly metric?: pulumi.Input<string>;
     /**
@@ -326,7 +324,7 @@ export interface AlertConditionState {
      */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -365,48 +363,47 @@ export interface AlertConditionArgs {
     readonly gcMetric?: pulumi.Input<string>;
     /**
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-     * * `apmAppMetric`
+     * * `apm_app_metric`
      * * `apdex`
-     * * `errorPercentage`
-     * * `responseTimeBackground`
-     * * `responseTimeWeb`
-     * * `throughputBackground`
-     * * `throughputWeb`
-     * * `userDefined`
-     * * `apmJvmMetric`
-     * * `cpuUtilizationTime`
-     * * `deadlockedThreads`
-     * * `gcCpuTime`
-     * * `heapMemoryUsage`
-     * * `apmKtMetric`
+     * * `error_percentage`
+     * * `response_time_background`
+     * * `response_time_web`
+     * * `throughput_background`
+     * * `throughput_web`
+     * * `user_defined`
+     * * `apm_jvm_metric`
+     * * `cpu_utilization_time`
+     * * `deadlocked_threads`
+     * * `gc_cpu_time`
+     * * `heap_memory_usage`
+     * * `apm_kt_metric`
      * * `apdex`
-     * * `errorCount`
-     * * `errorPercentage`
-     * * `responseTime`
+     * * `error_count`
+     * * `response_time`
      * * `throughput`
-     * * `browserMetric`
-     * * `ajaxResponseTime`
-     * * `ajaxThroughput`
-     * * `domProcessing`
-     * * `endUserApdex`
+     * * `browser_metric`
+     * * `ajax_response_time`
+     * * `ajax_throughput`
+     * * `dom_processing`
+     * * `end_user_apdex`
      * * `network`
-     * * `pageRendering`
-     * * `pageViewThroughput`
-     * * `pageViewsWithJsErrors`
-     * * `requestQueuing`
-     * * `totalPageLoad`
-     * * `userDefined`
-     * * `webApplication`
-     * * `mobileMetric`
+     * * `page_rendering`
+     * * `page_view_throughput`
+     * * `page_views_with_js_errors`
+     * * `request_queuing`
+     * * `total_page_load`
+     * * `user_defined`
+     * * `web_application`
+     * * `mobile_metric`
      * * `database`
      * * `images`
      * * `json`
-     * * `mobileCrashRate`
-     * * `networkErrorPercentage`
+     * * `mobile_crash_rate`
+     * * `network_error_percentage`
      * * `network`
-     * * `statusErrorPercentage`
-     * * `userDefined`
-     * * `viewLoading`
+     * * `status_error_percentage`
+     * * `user_defined`
+     * * `view_loading`
      */
     readonly metric: pulumi.Input<string>;
     /**
@@ -426,7 +423,7 @@ export interface AlertConditionArgs {
      */
     readonly terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
-     * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+     * The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
      */
     readonly type: pulumi.Input<string>;
     /**

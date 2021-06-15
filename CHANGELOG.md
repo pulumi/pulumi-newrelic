@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fix comments on Alert Conditions API to be snake_case instead of camelCase
 
 ---
 
