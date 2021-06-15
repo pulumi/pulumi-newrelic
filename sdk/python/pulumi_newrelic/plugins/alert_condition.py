@@ -390,7 +390,7 @@ class AlertCondition(pulumi.CustomResource):
                  value_function: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature may be removed in the next major release.
+        > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
 
         Use this resource to create and manage plugins alert conditions in New Relic.
 
@@ -459,7 +459,7 @@ class AlertCondition(pulumi.CustomResource):
                  args: AlertConditionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature may be removed in the next major release.
+        > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
 
         Use this resource to create and manage plugins alert conditions in New Relic.
 
