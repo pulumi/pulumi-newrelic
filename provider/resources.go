@@ -20,12 +20,11 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
 	"github.com/pulumi/pulumi-newrelic/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
@@ -82,7 +81,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(newrelic.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(newrelic.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -139,7 +138,14 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_application_settings":    {Tok: makeResource(pluginsMod, "ApplicationSettings")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"newrelic_alert_channel":   {Tok: makeDataSource(mainMod, "getAlertChannel")},
+			"newrelic_alert_channel": {
+				Tok: makeDataSource(mainMod, "getAlertChannel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"config": {
+						MaxItemsOne: tfbridge.True(),
+					},
+				},
+			},
 			"newrelic_alert_policy":    {Tok: makeDataSource(mainMod, "getAlertPolicy")},
 			"newrelic_application":     {Tok: makeDataSource(mainMod, "getApplication")},
 			"newrelic_key_transaction": {Tok: makeDataSource(mainMod, "getKeyTransaction")},
