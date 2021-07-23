@@ -12,57 +12,11 @@ namespace Pulumi.NewRelic.Plugins
     public static class GetPlugin
     {
         /// <summary>
-        /// &gt; **DEPRECATED** This data source is deprecated and will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+        /// New Relic Plugins reached end of life Wednesday June 16, 2021.
         /// 
-        /// Use this data source to get information about a specific installed plugin in New Relic.
+        /// **This data source has been removed.**
         /// 
-        /// Each plugin published to New Relic's Plugin Central is assigned a [GUID](https://docs.newrelic.com/docs/plugins/plugin-developer-resources/planning-your-plugin/parts-plugin#guid). Once you have installed a plugin into your account it is assigned an ID. This account-specific ID is required when creating Plugins alert conditions.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var fooPlugin = Output.Create(NewRelic.Plugins.GetPlugin.InvokeAsync(new NewRelic.Plugins.GetPluginArgs
-        ///         {
-        ///             Guid = "com.example.my-plugin",
-        ///         }));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooAlertCondition = new NewRelic.Plugins.AlertCondition("fooAlertCondition", new NewRelic.Plugins.AlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Metric = "Component/Summary/Consumers[consumers]",
-        ///             PluginId = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Id),
-        ///             PluginGuid = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Guid),
-        ///             ValueFunction = "average",
-        ///             MetricDescription = "Queue consumers",
-        ///             Terms = 
-        ///             {
-        ///                 new NewRelic.Plugins.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
         /// </summary>
         public static Task<GetPluginResult> InvokeAsync(GetPluginArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? new GetPluginArgs(), options.WithVersion());
@@ -71,9 +25,6 @@ namespace Pulumi.NewRelic.Plugins
 
     public sealed class GetPluginArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The GUID of the plugin in New Relic.
-        /// </summary>
         [Input("guid", required: true)]
         public string Guid { get; set; } = null!;
 
@@ -87,9 +38,6 @@ namespace Pulumi.NewRelic.Plugins
     public sealed class GetPluginResult
     {
         public readonly string Guid;
-        /// <summary>
-        /// The ID of the installed plugin instance.
-        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

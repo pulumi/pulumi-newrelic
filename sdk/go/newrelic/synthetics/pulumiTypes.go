@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type MonitorScriptLocation struct {
+	// The monitor script authentication code for the location.
+	Hmac *string `pulumi:"hmac"`
+	// The monitor script location name.
+	Name string `pulumi:"name"`
+}
+
+// MonitorScriptLocationInput is an input type that accepts MonitorScriptLocationArgs and MonitorScriptLocationOutput values.
+// You can construct a concrete instance of `MonitorScriptLocationInput` via:
+//
+//          MonitorScriptLocationArgs{...}
+type MonitorScriptLocationInput interface {
+	pulumi.Input
+
+	ToMonitorScriptLocationOutput() MonitorScriptLocationOutput
+	ToMonitorScriptLocationOutputWithContext(context.Context) MonitorScriptLocationOutput
+}
+
+type MonitorScriptLocationArgs struct {
+	// The monitor script authentication code for the location.
+	Hmac pulumi.StringPtrInput `pulumi:"hmac"`
+	// The monitor script location name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (MonitorScriptLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorScriptLocation)(nil)).Elem()
+}
+
+func (i MonitorScriptLocationArgs) ToMonitorScriptLocationOutput() MonitorScriptLocationOutput {
+	return i.ToMonitorScriptLocationOutputWithContext(context.Background())
+}
+
+func (i MonitorScriptLocationArgs) ToMonitorScriptLocationOutputWithContext(ctx context.Context) MonitorScriptLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptLocationOutput)
+}
+
+// MonitorScriptLocationArrayInput is an input type that accepts MonitorScriptLocationArray and MonitorScriptLocationArrayOutput values.
+// You can construct a concrete instance of `MonitorScriptLocationArrayInput` via:
+//
+//          MonitorScriptLocationArray{ MonitorScriptLocationArgs{...} }
+type MonitorScriptLocationArrayInput interface {
+	pulumi.Input
+
+	ToMonitorScriptLocationArrayOutput() MonitorScriptLocationArrayOutput
+	ToMonitorScriptLocationArrayOutputWithContext(context.Context) MonitorScriptLocationArrayOutput
+}
+
+type MonitorScriptLocationArray []MonitorScriptLocationInput
+
+func (MonitorScriptLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorScriptLocation)(nil)).Elem()
+}
+
+func (i MonitorScriptLocationArray) ToMonitorScriptLocationArrayOutput() MonitorScriptLocationArrayOutput {
+	return i.ToMonitorScriptLocationArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorScriptLocationArray) ToMonitorScriptLocationArrayOutputWithContext(ctx context.Context) MonitorScriptLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptLocationArrayOutput)
+}
+
+type MonitorScriptLocationOutput struct{ *pulumi.OutputState }
+
+func (MonitorScriptLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorScriptLocation)(nil)).Elem()
+}
+
+func (o MonitorScriptLocationOutput) ToMonitorScriptLocationOutput() MonitorScriptLocationOutput {
+	return o
+}
+
+func (o MonitorScriptLocationOutput) ToMonitorScriptLocationOutputWithContext(ctx context.Context) MonitorScriptLocationOutput {
+	return o
+}
+
+// The monitor script authentication code for the location.
+func (o MonitorScriptLocationOutput) Hmac() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorScriptLocation) *string { return v.Hmac }).(pulumi.StringPtrOutput)
+}
+
+// The monitor script location name.
+func (o MonitorScriptLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorScriptLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type MonitorScriptLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorScriptLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorScriptLocation)(nil)).Elem()
+}
+
+func (o MonitorScriptLocationArrayOutput) ToMonitorScriptLocationArrayOutput() MonitorScriptLocationArrayOutput {
+	return o
+}
+
+func (o MonitorScriptLocationArrayOutput) ToMonitorScriptLocationArrayOutputWithContext(ctx context.Context) MonitorScriptLocationArrayOutput {
+	return o
+}
+
+func (o MonitorScriptLocationArrayOutput) Index(i pulumi.IntInput) MonitorScriptLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorScriptLocation {
+		return vs[0].([]MonitorScriptLocation)[vs[1].(int)]
+	}).(MonitorScriptLocationOutput)
+}
+
 type MultiLocationAlertConditionCritical struct {
 	Threshold int `pulumi:"threshold"`
 }
@@ -263,6 +369,8 @@ func (o MultiLocationAlertConditionWarningPtrOutput) Threshold() pulumi.IntPtrOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(MonitorScriptLocationOutput{})
+	pulumi.RegisterOutputType(MonitorScriptLocationArrayOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionWarningOutput{})

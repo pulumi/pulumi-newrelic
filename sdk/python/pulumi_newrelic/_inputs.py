@@ -50,6 +50,8 @@ __all__ = [
     'OneDashboardPageWidgetPyNrqlQueryArgs',
     'OneDashboardPageWidgetTableArgs',
     'OneDashboardPageWidgetTableNrqlQueryArgs',
+    'OneDashboardRawPageArgs',
+    'OneDashboardRawPageWidgetArgs',
     'GetEntityTagArgs',
 ]
 
@@ -1322,6 +1324,17 @@ class NrqlAlertConditionCriticalArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] threshold: The value which will trigger a violation. Must be `0` or greater.
+        :param pulumi.Input[int] duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+        :param pulumi.Input[str] operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+               <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+               <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+               <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
+        :param pulumi.Input[str] time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1343,6 +1356,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        The value which will trigger a violation. Must be `0` or greater.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1352,6 +1368,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -1361,6 +1380,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1370,6 +1392,12 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+        <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1379,6 +1407,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
+        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1388,6 +1419,9 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -1401,6 +1435,13 @@ class NrqlAlertConditionNrqlArgs:
                  query: pulumi.Input[str],
                  evaluation_offset: Optional[pulumi.Input[int]] = None,
                  since_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] query: The NRQL query to execute for the condition.
+        :param pulumi.Input[int] evaluation_offset: Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
+               <small>\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
+        :param pulumi.Input[str] since_value: **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
+               <small>\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
+        """
         pulumi.set(__self__, "query", query)
         if evaluation_offset is not None:
             pulumi.set(__self__, "evaluation_offset", evaluation_offset)
@@ -1413,6 +1454,9 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
+        """
+        The NRQL query to execute for the condition.
+        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -1422,6 +1466,10 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter(name="evaluationOffset")
     def evaluation_offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
+        <small>\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
+        """
         return pulumi.get(self, "evaluation_offset")
 
     @evaluation_offset.setter
@@ -1431,6 +1479,10 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter(name="sinceValue")
     def since_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
+        <small>\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
+        """
         return pulumi.get(self, "since_value")
 
     @since_value.setter
@@ -1448,6 +1500,18 @@ class NrqlAlertConditionTermArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] threshold: The value which will trigger a violation. Must be `0` or greater.
+        :param pulumi.Input[int] duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+        :param pulumi.Input[str] operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        :param pulumi.Input[str] priority: `critical` or `warning`. Defaults to `critical`.
+        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+               <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+               <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+               <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
+        :param pulumi.Input[str] time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1471,6 +1535,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        The value which will trigger a violation. Must be `0` or greater.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1480,6 +1547,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -1489,6 +1559,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1498,6 +1571,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        `critical` or `warning`. Defaults to `critical`.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -1507,6 +1583,12 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+        <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1516,6 +1598,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
+        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1525,6 +1610,9 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -1541,6 +1629,17 @@ class NrqlAlertConditionWarningArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] threshold: The value which will trigger a violation. Must be `0` or greater.
+        :param pulumi.Input[int] duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+        :param pulumi.Input[str] operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+               <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+               <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+               <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
+        :param pulumi.Input[str] time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1562,6 +1661,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
+        """
+        The value which will trigger a violation. Must be `0` or greater.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1571,6 +1673,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -1580,6 +1685,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1589,6 +1697,12 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+        <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1598,6 +1712,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
+        """
+        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
+        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1607,6 +1724,9 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -3721,6 +3841,202 @@ class OneDashboardPageWidgetTableNrqlQueryArgs:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
+
+
+@pulumi.input_type
+class OneDashboardRawPageArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: The title of the dashboard.
+        :param pulumi.Input[str] description: Brief text describing the dashboard.
+        :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]] widgets: (Optional) A nested block that describes a widget. See Nested widget blocks below for details.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
+        if widgets is not None:
+            pulumi.set(__self__, "widgets", widgets)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Brief text describing the dashboard.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique entity identifier of the dashboard page in New Relic.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]]]:
+        """
+        (Optional) A nested block that describes a widget. See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widgets")
+
+    @widgets.setter
+    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardRawPageWidgetArgs']]]]):
+        pulumi.set(self, "widgets", value)
+
+
+@pulumi.input_type
+class OneDashboardRawPageWidgetArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[int],
+                 configuration: pulumi.Input[str],
+                 row: pulumi.Input[int],
+                 title: pulumi.Input[str],
+                 visualization_id: pulumi.Input[str],
+                 height: Optional[pulumi.Input[int]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 width: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
+        :param pulumi.Input[str] configuration: (Required) The configuration of the widget.
+        :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
+        :param pulumi.Input[str] title: (Required) A title for the widget.
+        :param pulumi.Input[str] visualization_id: (Required) The visualization ID of the widget
+        :param pulumi.Input[int] height: (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
+        :param pulumi.Input[int] width: (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "visualization_id", visualization_id)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[int]:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[int]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input[str]:
+        """
+        (Required) The configuration of the widget.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def row(self) -> pulumi.Input[int]:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @row.setter
+    def row(self, value: pulumi.Input[int]):
+        pulumi.set(self, "row", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="visualizationId")
+    def visualization_id(self) -> pulumi.Input[str]:
+        """
+        (Required) The visualization ID of the widget
+        """
+        return pulumi.get(self, "visualization_id")
+
+    @visualization_id.setter
+    def visualization_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "visualization_id", value)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @height.setter
+    def height(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "height", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "width", value)
 
 
 @pulumi.input_type

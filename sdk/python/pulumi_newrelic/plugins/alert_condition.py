@@ -34,8 +34,7 @@ class AlertConditionArgs:
         :param pulumi.Input[str] plugin_guid: The GUID of the plugin which produces the metric.
         :param pulumi.Input[str] plugin_id: The ID of the installed plugin instance which produces the metric.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        :param pulumi.Input[str] value_function: The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         :param pulumi.Input[bool] enabled: Whether or not this condition is enabled.
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -130,9 +129,6 @@ class AlertConditionArgs:
     @property
     @pulumi.getter
     def terms(self) -> pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]:
-        """
-        A list of terms for this condition. See Terms below for details.
-        """
         return pulumi.get(self, "terms")
 
     @terms.setter
@@ -143,7 +139,7 @@ class AlertConditionArgs:
     @pulumi.getter(name="valueFunction")
     def value_function(self) -> pulumi.Input[str]:
         """
-        The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         return pulumi.get(self, "value_function")
 
@@ -213,8 +209,7 @@ class _AlertConditionState:
         :param pulumi.Input[str] plugin_id: The ID of the installed plugin instance which produces the metric.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        :param pulumi.Input[str] value_function: The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -350,9 +345,6 @@ class _AlertConditionState:
     @property
     @pulumi.getter
     def terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]]]:
-        """
-        A list of terms for this condition. See Terms below for details.
-        """
         return pulumi.get(self, "terms")
 
     @terms.setter
@@ -363,7 +355,7 @@ class _AlertConditionState:
     @pulumi.getter(name="valueFunction")
     def value_function(self) -> Optional[pulumi.Input[str]]:
         """
-        The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         return pulumi.get(self, "value_function")
 
@@ -390,53 +382,11 @@ class AlertCondition(pulumi.CustomResource):
                  value_function: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+        New Relic Plugins reached end of life Wednesday June 16, 2021.
 
-        Use this resource to create and manage plugins alert conditions in New Relic.
+        **This resource has been removed.**
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_plugin = newrelic.plugins.get_plugin(guid="com.example.my-plugin")
-        foo_plugin_component = newrelic.plugins.get_plugin_component(plugin_id=foo_plugin.id,
-            name="MyPlugin")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.plugins.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
-            entities=[foo_plugin_component.id],
-            metric="Component/Summary/Consumers[consumers]",
-            plugin_id=foo_plugin.id,
-            plugin_guid=foo_plugin.guid,
-            value_function="average",
-            metric_description="Queue consumers",
-            terms=[newrelic.plugins.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
-        ```
-        ## Terms
-
-        The `term` mapping supports the following arguments:
-
-          * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
-          * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-          * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-          * `threshold` - (Required) Must be 0 or greater.
-          * `time_function` - (Required) `all` or `any`.
-
-        ## Import
-
-        Alert conditions can be imported using the `id`, e.g.
-
-        ```sh
-         $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
-        ```
+        For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -449,8 +399,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] plugin_id: The ID of the installed plugin instance which produces the metric.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        :param pulumi.Input[str] value_function: The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         ...
     @overload
@@ -459,53 +408,11 @@ class AlertCondition(pulumi.CustomResource):
                  args: AlertConditionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+        New Relic Plugins reached end of life Wednesday June 16, 2021.
 
-        Use this resource to create and manage plugins alert conditions in New Relic.
+        **This resource has been removed.**
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_plugin = newrelic.plugins.get_plugin(guid="com.example.my-plugin")
-        foo_plugin_component = newrelic.plugins.get_plugin_component(plugin_id=foo_plugin.id,
-            name="MyPlugin")
-        foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-        foo_alert_condition = newrelic.plugins.AlertCondition("fooAlertCondition",
-            policy_id=foo_alert_policy.id,
-            entities=[foo_plugin_component.id],
-            metric="Component/Summary/Consumers[consumers]",
-            plugin_id=foo_plugin.id,
-            plugin_guid=foo_plugin.guid,
-            value_function="average",
-            metric_description="Queue consumers",
-            terms=[newrelic.plugins.AlertConditionTermArgs(
-                duration=5,
-                operator="below",
-                priority="critical",
-                threshold=0.75,
-                time_function="all",
-            )])
-        ```
-        ## Terms
-
-        The `term` mapping supports the following arguments:
-
-          * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
-          * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-          * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-          * `threshold` - (Required) Must be 0 or greater.
-          * `time_function` - (Required) `all` or `any`.
-
-        ## Import
-
-        Alert conditions can be imported using the `id`, e.g.
-
-        ```sh
-         $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
-        ```
+        For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
 
         :param str resource_name: The name of the resource.
         :param AlertConditionArgs args: The arguments to use to populate this resource's properties.
@@ -609,8 +516,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] plugin_id: The ID of the installed plugin instance which produces the metric.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertConditionTermArgs']]]] terms: A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] value_function: The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        :param pulumi.Input[str] value_function: The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -704,16 +610,13 @@ class AlertCondition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def terms(self) -> pulumi.Output[Sequence['outputs.AlertConditionTerm']]:
-        """
-        A list of terms for this condition. See Terms below for details.
-        """
         return pulumi.get(self, "terms")
 
     @property
     @pulumi.getter(name="valueFunction")
     def value_function(self) -> pulumi.Output[str]:
         """
-        The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         """
         return pulumi.get(self, "value_function")
 

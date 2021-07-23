@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MonitorScriptArgs', 'MonitorScript']
 
@@ -14,14 +16,18 @@ __all__ = ['MonitorScriptArgs', 'MonitorScript']
 class MonitorScriptArgs:
     def __init__(__self__, *,
                  monitor_id: pulumi.Input[str],
-                 text: pulumi.Input[str]):
+                 text: pulumi.Input[str],
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]]] = None):
         """
         The set of arguments for constructing a MonitorScript resource.
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
         :param pulumi.Input[str] text: The plaintext representing the monitor script.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]] locations: A nested block that describes a monitor script location. See Nested location blocks below for details
         """
         pulumi.set(__self__, "monitor_id", monitor_id)
         pulumi.set(__self__, "text", text)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
 
     @property
     @pulumi.getter(name="monitorId")
@@ -47,21 +53,49 @@ class MonitorScriptArgs:
     def text(self, value: pulumi.Input[str]):
         pulumi.set(self, "text", value)
 
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]]]:
+        """
+        A nested block that describes a monitor script location. See Nested location blocks below for details
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]]]):
+        pulumi.set(self, "locations", value)
+
 
 @pulumi.input_type
 class _MonitorScriptState:
     def __init__(__self__, *,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MonitorScript resources.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]] locations: A nested block that describes a monitor script location. See Nested location blocks below for details
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
         :param pulumi.Input[str] text: The plaintext representing the monitor script.
         """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
         if monitor_id is not None:
             pulumi.set(__self__, "monitor_id", monitor_id)
         if text is not None:
             pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]]]:
+        """
+        A nested block that describes a monitor script location. See Nested location blocks below for details
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorScriptLocationArgs']]]]):
+        pulumi.set(self, "locations", value)
 
     @property
     @pulumi.getter(name="monitorId")
@@ -93,6 +127,7 @@ class MonitorScript(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorScriptLocationArgs']]]]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -112,7 +147,11 @@ class MonitorScript(pulumi.CustomResource):
             locations=["AWS_US_EAST_1"])
         foo_script = newrelic.synthetics.MonitorScript("fooScript",
             monitor_id=foo.id,
-            text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"))
+            text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"),
+            locations=[newrelic.synthetics.MonitorScriptLocationArgs(
+                name="YWJjZAo=",
+                hmac="ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ==",
+            )])
         ```
 
         ## Import
@@ -125,6 +164,7 @@ class MonitorScript(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorScriptLocationArgs']]]] locations: A nested block that describes a monitor script location. See Nested location blocks below for details
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
         :param pulumi.Input[str] text: The plaintext representing the monitor script.
         """
@@ -150,7 +190,11 @@ class MonitorScript(pulumi.CustomResource):
             locations=["AWS_US_EAST_1"])
         foo_script = newrelic.synthetics.MonitorScript("fooScript",
             monitor_id=foo.id,
-            text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"))
+            text=(lambda path: open(path).read())(f"{path['module']}/foo_script.js"),
+            locations=[newrelic.synthetics.MonitorScriptLocationArgs(
+                name="YWJjZAo=",
+                hmac="ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ==",
+            )])
         ```
 
         ## Import
@@ -176,6 +220,7 @@ class MonitorScript(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorScriptLocationArgs']]]]] = None,
                  monitor_id: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -190,6 +235,7 @@ class MonitorScript(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorScriptArgs.__new__(MonitorScriptArgs)
 
+            __props__.__dict__["locations"] = locations
             if monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_id'")
             __props__.__dict__["monitor_id"] = monitor_id
@@ -206,6 +252,7 @@ class MonitorScript(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorScriptLocationArgs']]]]] = None,
             monitor_id: Optional[pulumi.Input[str]] = None,
             text: Optional[pulumi.Input[str]] = None) -> 'MonitorScript':
         """
@@ -215,6 +262,7 @@ class MonitorScript(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorScriptLocationArgs']]]] locations: A nested block that describes a monitor script location. See Nested location blocks below for details
         :param pulumi.Input[str] monitor_id: The ID of the monitor to attach the script to.
         :param pulumi.Input[str] text: The plaintext representing the monitor script.
         """
@@ -222,9 +270,18 @@ class MonitorScript(pulumi.CustomResource):
 
         __props__ = _MonitorScriptState.__new__(_MonitorScriptState)
 
+        __props__.__dict__["locations"] = locations
         __props__.__dict__["monitor_id"] = monitor_id
         __props__.__dict__["text"] = text
         return MonitorScript(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorScriptLocation']]]:
+        """
+        A nested block that describes a monitor script location. See Nested location blocks below for details
+        """
+        return pulumi.get(self, "locations")
 
     @property
     @pulumi.getter(name="monitorId")

@@ -36,17 +36,11 @@ class GetPluginComponentResult:
     @property
     @pulumi.getter(name="healthStatus")
     def health_status(self) -> str:
-        """
-        The health status of the plugin component.
-        """
         return pulumi.get(self, "health_status")
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of the plugin component.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -76,42 +70,11 @@ def get_plugin_component(name: Optional[str] = None,
                          plugin_id: Optional[int] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPluginComponentResult:
     """
-    > **DEPRECATED** This data source is deprecated and will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+    New Relic Plugins reached end of life Wednesday June 16, 2021.
 
-    Use this data source to get information about a single plugin component in New Relic that already exists.
+    **This data source has been removed.**
 
-    Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_newrelic as newrelic
-
-    foo_plugin = newrelic.plugins.get_plugin(guid="com.example.my-plugin")
-    foo_plugin_component = newrelic.plugins.get_plugin_component(plugin_id=foo_plugin.id,
-        name="My Plugin Component")
-    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
-    foo_alert_condition = newrelic.plugins.AlertCondition("fooAlertCondition",
-        policy_id=foo_alert_policy.id,
-        metric="Component/Summary/Consumers[consumers]",
-        plugin_id=foo_plugin.id,
-        plugin_guid=foo_plugin.guid,
-        entities=[foo_plugin_component.id],
-        value_function="average",
-        metric_description="Queue consumers",
-        terms=[newrelic.plugins.AlertConditionTermArgs(
-            duration=5,
-            operator="below",
-            priority="critical",
-            threshold=0.75,
-            time_function="all",
-        )])
-    ```
-
-
-    :param str name: The name of the plugin component.
-    :param int plugin_id: The ID of the plugin instance this component belongs to.
+    For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
     """
     __args__ = dict()
     __args__['name'] = name

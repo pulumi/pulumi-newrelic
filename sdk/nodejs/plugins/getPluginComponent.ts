@@ -6,43 +6,11 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * > **DEPRECATED** This data source is deprecated and will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+ * New Relic Plugins reached end of life Wednesday June 16, 2021.
  *
- * Use this data source to get information about a single plugin component in New Relic that already exists.
+ * **This data source has been removed.**
  *
- * Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooPlugin = newrelic.plugins.getPlugin({
- *     guid: "com.example.my-plugin",
- * });
- * const fooPluginComponent = fooPlugin.then(fooPlugin => newrelic.plugins.getPluginComponent({
- *     pluginId: fooPlugin.id,
- *     name: "My Plugin Component",
- * }));
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.plugins.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     metric: "Component/Summary/Consumers[consumers]",
- *     pluginId: fooPlugin.then(fooPlugin => fooPlugin.id),
- *     pluginGuid: fooPlugin.then(fooPlugin => fooPlugin.guid),
- *     entities: [fooPluginComponent.then(fooPluginComponent => fooPluginComponent.id)],
- *     valueFunction: "average",
- *     metricDescription: "Queue consumers",
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: "0.75",
- *         timeFunction: "all",
- *     }],
- * });
- * ```
+ * For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
  */
 export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetPluginComponentResult> {
     if (!opts) {
@@ -62,13 +30,7 @@ export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.I
  * A collection of arguments for invoking getPluginComponent.
  */
 export interface GetPluginComponentArgs {
-    /**
-     * The name of the plugin component.
-     */
     readonly name: string;
-    /**
-     * The ID of the plugin instance this component belongs to.
-     */
     readonly pluginId: number;
 }
 
@@ -76,13 +38,7 @@ export interface GetPluginComponentArgs {
  * A collection of values returned by getPluginComponent.
  */
 export interface GetPluginComponentResult {
-    /**
-     * The health status of the plugin component.
-     */
     readonly healthStatus: string;
-    /**
-     * The ID of the plugin component.
-     */
     readonly id: string;
     readonly name: string;
     readonly pluginId: number;

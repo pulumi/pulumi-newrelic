@@ -150,7 +150,7 @@ type InfraAlertCondition struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The timestamp the alert condition was last updated.
 	UpdatedAt pulumi.IntOutput `pulumi:"updatedAt"`
-	// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrOutput `pulumi:"warning"`
@@ -221,7 +221,7 @@ type infraAlertConditionState struct {
 	Type *string `pulumi:"type"`
 	// The timestamp the alert condition was last updated.
 	UpdatedAt *int `pulumi:"updatedAt"`
-	// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
@@ -258,7 +258,7 @@ type InfraAlertConditionState struct {
 	Type pulumi.StringPtrInput
 	// The timestamp the alert condition was last updated.
 	UpdatedAt pulumi.IntPtrInput
-	// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
@@ -295,7 +295,7 @@ type infraAlertConditionArgs struct {
 	Select *string `pulumi:"select"`
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type string `pulumi:"type"`
-	// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
@@ -329,7 +329,7 @@ type InfraAlertConditionArgs struct {
 	Select pulumi.StringPtrInput
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type pulumi.StringInput
-	// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer pulumi.IntPtrInput
 	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput

@@ -9,9 +9,40 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'MonitorScriptLocation',
     'MultiLocationAlertConditionCritical',
     'MultiLocationAlertConditionWarning',
 ]
+
+@pulumi.output_type
+class MonitorScriptLocation(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 hmac: Optional[str] = None):
+        """
+        :param str name: The monitor script location name.
+        :param str hmac: The monitor script authentication code for the location.
+        """
+        pulumi.set(__self__, "name", name)
+        if hmac is not None:
+            pulumi.set(__self__, "hmac", hmac)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The monitor script location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def hmac(self) -> Optional[str]:
+        """
+        The monitor script authentication code for the location.
+        """
+        return pulumi.get(self, "hmac")
+
 
 @pulumi.output_type
 class MultiLocationAlertConditionCritical(dict):

@@ -199,7 +199,7 @@ namespace Pulumi.NewRelic
         public Output<int> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        /// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
@@ -335,7 +335,7 @@ namespace Pulumi.NewRelic
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        /// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -444,7 +444,7 @@ namespace Pulumi.NewRelic
         public Input<int>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+        /// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }

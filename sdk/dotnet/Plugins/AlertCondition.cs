@@ -10,77 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Plugins
 {
     /// <summary>
-    /// &gt; **DEPRECATED** Use at your own risk. Use the `newrelic.NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+    /// New Relic Plugins reached end of life Wednesday June 16, 2021.
     /// 
-    /// Use this resource to create and manage plugins alert conditions in New Relic.
+    /// **This resource has been removed.**
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var fooPlugin = Output.Create(NewRelic.Plugins.GetPlugin.InvokeAsync(new NewRelic.Plugins.GetPluginArgs
-    ///         {
-    ///             Guid = "com.example.my-plugin",
-    ///         }));
-    ///         var fooPluginComponent = fooPlugin.Apply(fooPlugin =&gt; Output.Create(NewRelic.Plugins.GetPluginComponent.InvokeAsync(new NewRelic.Plugins.GetPluginComponentArgs
-    ///         {
-    ///             PluginId = fooPlugin.Id,
-    ///             Name = "MyPlugin",
-    ///         })));
-    ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-    ///         {
-    ///         });
-    ///         var fooAlertCondition = new NewRelic.Plugins.AlertCondition("fooAlertCondition", new NewRelic.Plugins.AlertConditionArgs
-    ///         {
-    ///             PolicyId = fooAlertPolicy.Id,
-    ///             Entities = 
-    ///             {
-    ///                 fooPluginComponent.Apply(fooPluginComponent =&gt; fooPluginComponent.Id),
-    ///             },
-    ///             Metric = "Component/Summary/Consumers[consumers]",
-    ///             PluginId = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Id),
-    ///             PluginGuid = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Guid),
-    ///             ValueFunction = "average",
-    ///             MetricDescription = "Queue consumers",
-    ///             Terms = 
-    ///             {
-    ///                 new NewRelic.Plugins.Inputs.AlertConditionTermArgs
-    ///                 {
-    ///                     Duration = 5,
-    ///                     Operator = "below",
-    ///                     Priority = "critical",
-    ///                     Threshold = 0.75,
-    ///                     TimeFunction = "all",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ## Terms
-    /// 
-    /// The `term` mapping supports the following arguments:
-    /// 
-    ///   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
-    ///   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-    ///   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-    ///   * `threshold` - (Required) Must be 0 or greater.
-    ///   * `time_function` - (Required) `all` or `any`.
-    /// 
-    /// ## Import
-    /// 
-    /// Alert conditions can be imported using the `id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
-    /// ```
+    /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/alertCondition:AlertCondition")]
     public partial class AlertCondition : Pulumi.CustomResource
@@ -139,14 +73,11 @@ namespace Pulumi.NewRelic.Plugins
         [Output("runbookUrl")]
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of terms for this condition. See Terms below for details.
-        /// </summary>
         [Output("terms")]
         public Output<ImmutableArray<Outputs.AlertConditionTerm>> Terms { get; private set; } = null!;
 
         /// <summary>
-        /// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        /// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         /// </summary>
         [Output("valueFunction")]
         public Output<string> ValueFunction { get; private set; } = null!;
@@ -259,10 +190,6 @@ namespace Pulumi.NewRelic.Plugins
 
         [Input("terms", required: true)]
         private InputList<Inputs.AlertConditionTermArgs>? _terms;
-
-        /// <summary>
-        /// A list of terms for this condition. See Terms below for details.
-        /// </summary>
         public InputList<Inputs.AlertConditionTermArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.AlertConditionTermArgs>());
@@ -270,7 +197,7 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        /// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         /// </summary>
         [Input("valueFunction", required: true)]
         public Input<string> ValueFunction { get; set; } = null!;
@@ -344,10 +271,6 @@ namespace Pulumi.NewRelic.Plugins
 
         [Input("terms")]
         private InputList<Inputs.AlertConditionTermGetArgs>? _terms;
-
-        /// <summary>
-        /// A list of terms for this condition. See Terms below for details.
-        /// </summary>
         public InputList<Inputs.AlertConditionTermGetArgs> Terms
         {
             get => _terms ?? (_terms = new InputList<Inputs.AlertConditionTermGetArgs>());
@@ -355,7 +278,7 @@ namespace Pulumi.NewRelic.Plugins
         }
 
         /// <summary>
-        /// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+        /// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
         /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
