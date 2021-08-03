@@ -37,6 +37,14 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             MonitorId = foo.Id,
     ///             Text = File.ReadAllText($"{path.Module}/foo_script.js"),
+    ///             Locations = 
+    ///             {
+    ///                 new NewRelic.Synthetics.Inputs.MonitorScriptLocationArgs
+    ///                 {
+    ///                     Name = "YWJjZAo=",
+    ///                     Hmac = "ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ==",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -54,6 +62,12 @@ namespace Pulumi.NewRelic.Synthetics
     [NewRelicResourceType("newrelic:synthetics/monitorScript:MonitorScript")]
     public partial class MonitorScript : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A nested block that describes a monitor script location. See Nested location blocks below for details
+        /// </summary>
+        [Output("locations")]
+        public Output<ImmutableArray<Outputs.MonitorScriptLocation>> Locations { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the monitor to attach the script to.
         /// </summary>
@@ -112,6 +126,18 @@ namespace Pulumi.NewRelic.Synthetics
 
     public sealed class MonitorScriptArgs : Pulumi.ResourceArgs
     {
+        [Input("locations")]
+        private InputList<Inputs.MonitorScriptLocationArgs>? _locations;
+
+        /// <summary>
+        /// A nested block that describes a monitor script location. See Nested location blocks below for details
+        /// </summary>
+        public InputList<Inputs.MonitorScriptLocationArgs> Locations
+        {
+            get => _locations ?? (_locations = new InputList<Inputs.MonitorScriptLocationArgs>());
+            set => _locations = value;
+        }
+
         /// <summary>
         /// The ID of the monitor to attach the script to.
         /// </summary>
@@ -131,6 +157,18 @@ namespace Pulumi.NewRelic.Synthetics
 
     public sealed class MonitorScriptState : Pulumi.ResourceArgs
     {
+        [Input("locations")]
+        private InputList<Inputs.MonitorScriptLocationGetArgs>? _locations;
+
+        /// <summary>
+        /// A nested block that describes a monitor script location. See Nested location blocks below for details
+        /// </summary>
+        public InputList<Inputs.MonitorScriptLocationGetArgs> Locations
+        {
+            get => _locations ?? (_locations = new InputList<Inputs.MonitorScriptLocationGetArgs>());
+            set => _locations = value;
+        }
+
         /// <summary>
         /// The ID of the monitor to attach the script to.
         /// </summary>

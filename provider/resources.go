@@ -115,6 +115,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_alert_policy_channel":   {Tok: makeResource(mainMod, "AlertPolicyChannel")},
 			"newrelic_dashboard":              {Tok: makeResource(mainMod, "Dashboard")},
 			"newrelic_one_dashboard":          {Tok: makeResource(mainMod, "OneDashboard")},
+			"newrelic_one_dashboard_raw":      {Tok: makeResource(mainMod, "OneDashboardRaw")},
 			"newrelic_infra_alert_condition":  {Tok: makeResource(mainMod, "InfraAlertCondition")},
 			"newrelic_nrql_alert_condition":   {Tok: makeResource(mainMod, "NrqlAlertCondition")},
 			"newrelic_nrql_drop_rule":         {Tok: makeResource(mainMod, "NrqlDropRule")},
@@ -184,8 +185,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
 		},

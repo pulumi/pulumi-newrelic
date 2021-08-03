@@ -12,66 +12,11 @@ namespace Pulumi.NewRelic.Plugins
     public static class GetPluginComponent
     {
         /// <summary>
-        /// &gt; **DEPRECATED** This data source is deprecated and will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+        /// New Relic Plugins reached end of life Wednesday June 16, 2021.
         /// 
-        /// Use this data source to get information about a single plugin component in New Relic that already exists.
+        /// **This data source has been removed.**
         /// 
-        /// Each plugin component reporting into to New Relic is assigned a unique ID. Once you have a plugin component reporting data into your account, its component ID can be used to create Plugins alert conditions.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using NewRelic = Pulumi.NewRelic;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var fooPlugin = Output.Create(NewRelic.Plugins.GetPlugin.InvokeAsync(new NewRelic.Plugins.GetPluginArgs
-        ///         {
-        ///             Guid = "com.example.my-plugin",
-        ///         }));
-        ///         var fooPluginComponent = fooPlugin.Apply(fooPlugin =&gt; Output.Create(NewRelic.Plugins.GetPluginComponent.InvokeAsync(new NewRelic.Plugins.GetPluginComponentArgs
-        ///         {
-        ///             PluginId = fooPlugin.Id,
-        ///             Name = "My Plugin Component",
-        ///         })));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooAlertCondition = new NewRelic.Plugins.AlertCondition("fooAlertCondition", new NewRelic.Plugins.AlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Metric = "Component/Summary/Consumers[consumers]",
-        ///             PluginId = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Id),
-        ///             PluginGuid = fooPlugin.Apply(fooPlugin =&gt; fooPlugin.Guid),
-        ///             Entities = 
-        ///             {
-        ///                 fooPluginComponent.Apply(fooPluginComponent =&gt; fooPluginComponent.Id),
-        ///             },
-        ///             ValueFunction = "average",
-        ///             MetricDescription = "Queue consumers",
-        ///             Terms = 
-        ///             {
-        ///                 new NewRelic.Plugins.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
         /// </summary>
         public static Task<GetPluginComponentResult> InvokeAsync(GetPluginComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? new GetPluginComponentArgs(), options.WithVersion());
@@ -80,15 +25,9 @@ namespace Pulumi.NewRelic.Plugins
 
     public sealed class GetPluginComponentArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the plugin component.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the plugin instance this component belongs to.
-        /// </summary>
         [Input("pluginId", required: true)]
         public int PluginId { get; set; }
 
@@ -101,13 +40,7 @@ namespace Pulumi.NewRelic.Plugins
     [OutputType]
     public sealed class GetPluginComponentResult
     {
-        /// <summary>
-        /// The health status of the plugin component.
-        /// </summary>
         public readonly string HealthStatus;
-        /// <summary>
-        /// The ID of the plugin component.
-        /// </summary>
         public readonly string Id;
         public readonly string Name;
         public readonly int PluginId;

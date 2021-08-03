@@ -37,6 +37,7 @@
         "nrqlAlertCondition.ts",
         "nrqlDropRule.ts",
         "oneDashboard.ts",
+        "oneDashboardRaw.ts",
         "plugins/alertCondition.ts",
         "plugins/applicationSettings.ts",
         "plugins/getPlugin.ts",

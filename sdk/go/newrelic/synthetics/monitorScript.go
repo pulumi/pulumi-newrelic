@@ -23,6 +23,8 @@ import (
 type MonitorScript struct {
 	pulumi.CustomResourceState
 
+	// A nested block that describes a monitor script location. See Nested location blocks below for details
+	Locations MonitorScriptLocationArrayOutput `pulumi:"locations"`
 	// The ID of the monitor to attach the script to.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
 	// The plaintext representing the monitor script.
@@ -64,6 +66,8 @@ func GetMonitorScript(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitorScript resources.
 type monitorScriptState struct {
+	// A nested block that describes a monitor script location. See Nested location blocks below for details
+	Locations []MonitorScriptLocation `pulumi:"locations"`
 	// The ID of the monitor to attach the script to.
 	MonitorId *string `pulumi:"monitorId"`
 	// The plaintext representing the monitor script.
@@ -71,6 +75,8 @@ type monitorScriptState struct {
 }
 
 type MonitorScriptState struct {
+	// A nested block that describes a monitor script location. See Nested location blocks below for details
+	Locations MonitorScriptLocationArrayInput
 	// The ID of the monitor to attach the script to.
 	MonitorId pulumi.StringPtrInput
 	// The plaintext representing the monitor script.
@@ -82,6 +88,8 @@ func (MonitorScriptState) ElementType() reflect.Type {
 }
 
 type monitorScriptArgs struct {
+	// A nested block that describes a monitor script location. See Nested location blocks below for details
+	Locations []MonitorScriptLocation `pulumi:"locations"`
 	// The ID of the monitor to attach the script to.
 	MonitorId string `pulumi:"monitorId"`
 	// The plaintext representing the monitor script.
@@ -90,6 +98,8 @@ type monitorScriptArgs struct {
 
 // The set of arguments for constructing a MonitorScript resource.
 type MonitorScriptArgs struct {
+	// A nested block that describes a monitor script location. See Nested location blocks below for details
+	Locations MonitorScriptLocationArrayInput
 	// The ID of the monitor to attach the script to.
 	MonitorId pulumi.StringInput
 	// The plaintext representing the monitor script.

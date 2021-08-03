@@ -6,58 +6,11 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * > **DEPRECATED** Use at your own risk. Use the `newrelic.NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+ * New Relic Plugins reached end of life Wednesday June 16, 2021.
  *
- * Use this resource to create and manage plugins alert conditions in New Relic.
+ * **This resource has been removed.**
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooPlugin = newrelic.plugins.getPlugin({
- *     guid: "com.example.my-plugin",
- * });
- * const fooPluginComponent = fooPlugin.then(fooPlugin => newrelic.plugins.getPluginComponent({
- *     pluginId: fooPlugin.id,
- *     name: "MyPlugin",
- * }));
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.plugins.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     entities: [fooPluginComponent.then(fooPluginComponent => fooPluginComponent.id)],
- *     metric: "Component/Summary/Consumers[consumers]",
- *     pluginId: fooPlugin.then(fooPlugin => fooPlugin.id),
- *     pluginGuid: fooPlugin.then(fooPlugin => fooPlugin.guid),
- *     valueFunction: "average",
- *     metricDescription: "Queue consumers",
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: "0.75",
- *         timeFunction: "all",
- *     }],
- * });
- * ```
- * ## Terms
- *
- * The `term` mapping supports the following arguments:
- *
- *   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
- *   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
- *   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
- *   * `threshold` - (Required) Must be 0 or greater.
- *   * `timeFunction` - (Required) `all` or `any`.
- *
- * ## Import
- *
- * Alert conditions can be imported using the `id`, e.g.
- *
- * ```sh
- *  $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
- * ```
+ * For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
  */
 export class AlertCondition extends pulumi.CustomResource {
     /**
@@ -123,12 +76,9 @@ export class AlertCondition extends pulumi.CustomResource {
      * Runbook URL to display in notifications.
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
-    /**
-     * A list of terms for this condition. See Terms below for details.
-     */
     public readonly terms!: pulumi.Output<outputs.plugins.AlertConditionTerm[]>;
     /**
-     * The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+     * The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
      */
     public readonly valueFunction!: pulumi.Output<string>;
 
@@ -241,12 +191,9 @@ export interface AlertConditionState {
      * Runbook URL to display in notifications.
      */
     readonly runbookUrl?: pulumi.Input<string>;
-    /**
-     * A list of terms for this condition. See Terms below for details.
-     */
     readonly terms?: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
     /**
-     * The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+     * The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
      */
     readonly valueFunction?: pulumi.Input<string>;
 }
@@ -291,12 +238,9 @@ export interface AlertConditionArgs {
      * Runbook URL to display in notifications.
      */
     readonly runbookUrl?: pulumi.Input<string>;
-    /**
-     * A list of terms for this condition. See Terms below for details.
-     */
     readonly terms: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
     /**
-     * The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+     * The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
      */
     readonly valueFunction: pulumi.Input<string>;
 }

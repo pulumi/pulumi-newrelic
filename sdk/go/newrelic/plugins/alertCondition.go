@@ -11,84 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **DEPRECATED** Use at your own risk. Use the `NrqlAlertCondition` resource instead. This feature will stop being supported as of June 16, 2021. For more information, check out [https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+// New Relic Plugins reached end of life Wednesday June 16, 2021.
 //
-// Use this resource to create and manage plugins alert conditions in New Relic.
+// **This resource has been removed.**
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooPlugin, err := plugins.GetPlugin(ctx, &plugins.GetPluginArgs{
-// 			Guid: "com.example.my-plugin",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooPluginComponent, err := plugins.GetPluginComponent(ctx, &plugins.GetPluginComponentArgs{
-// 			PluginId: fooPlugin.Id,
-// 			Name:     "MyPlugin",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = plugins.NewAlertCondition(ctx, "fooAlertCondition", &plugins.AlertConditionArgs{
-// 			PolicyId: fooAlertPolicy.ID(),
-// 			Entities: pulumi.IntArray{
-// 				pulumi.String(fooPluginComponent.Id),
-// 			},
-// 			Metric:            pulumi.String("Component/Summary/Consumers[consumers]"),
-// 			PluginId:          pulumi.String(fooPlugin.Id),
-// 			PluginGuid:        pulumi.String(fooPlugin.Guid),
-// 			ValueFunction:     pulumi.String("average"),
-// 			MetricDescription: pulumi.String("Queue consumers"),
-// 			Terms: plugins.AlertConditionTermArray{
-// 				&plugins.AlertConditionTermArgs{
-// 					Duration:     pulumi.Int(5),
-// 					Operator:     pulumi.String("below"),
-// 					Priority:     pulumi.String("critical"),
-// 					Threshold:    pulumi.Float64(0.75),
-// 					TimeFunction: pulumi.String("all"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ## Terms
-//
-// The `term` mapping supports the following arguments:
-//
-//   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
-//   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-//   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`.
-//   * `threshold` - (Required) Must be 0 or greater.
-//   * `timeFunction` - (Required) `all` or `any`.
-//
-// ## Import
-//
-// Alert conditions can be imported using the `id`, e.g.
-//
-// ```sh
-//  $ pulumi import newrelic:plugins/alertCondition:AlertCondition main 12345
-// ```
+// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
 type AlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -109,10 +36,9 @@ type AlertCondition struct {
 	// The ID of the policy where this condition should be used.
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
-	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
-	// A list of terms for this condition. See Terms below for details.
-	Terms AlertConditionTermArrayOutput `pulumi:"terms"`
-	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+	RunbookUrl pulumi.StringPtrOutput        `pulumi:"runbookUrl"`
+	Terms      AlertConditionTermArrayOutput `pulumi:"terms"`
+	// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
 	ValueFunction pulumi.StringOutput `pulumi:"valueFunction"`
 }
 
@@ -186,10 +112,9 @@ type alertConditionState struct {
 	// The ID of the policy where this condition should be used.
 	PolicyId *int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
-	RunbookUrl *string `pulumi:"runbookUrl"`
-	// A list of terms for this condition. See Terms below for details.
-	Terms []AlertConditionTerm `pulumi:"terms"`
-	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+	RunbookUrl *string              `pulumi:"runbookUrl"`
+	Terms      []AlertConditionTerm `pulumi:"terms"`
+	// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
 	ValueFunction *string `pulumi:"valueFunction"`
 }
 
@@ -212,9 +137,8 @@ type AlertConditionState struct {
 	PolicyId pulumi.IntPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// A list of terms for this condition. See Terms below for details.
-	Terms AlertConditionTermArrayInput
-	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+	Terms      AlertConditionTermArrayInput
+	// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
 	ValueFunction pulumi.StringPtrInput
 }
 
@@ -240,10 +164,9 @@ type alertConditionArgs struct {
 	// The ID of the policy where this condition should be used.
 	PolicyId int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
-	RunbookUrl *string `pulumi:"runbookUrl"`
-	// A list of terms for this condition. See Terms below for details.
-	Terms []AlertConditionTerm `pulumi:"terms"`
-	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+	RunbookUrl *string              `pulumi:"runbookUrl"`
+	Terms      []AlertConditionTerm `pulumi:"terms"`
+	// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
 	ValueFunction string `pulumi:"valueFunction"`
 }
 
@@ -267,9 +190,8 @@ type AlertConditionArgs struct {
 	PolicyId pulumi.IntInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// A list of terms for this condition. See Terms below for details.
-	Terms AlertConditionTermArrayInput
-	// The value function to apply to the metric data.  One of `min`, `max`, `average`, `sampleSize`, `total`, or `percent`.
+	Terms      AlertConditionTermArrayInput
+	// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
 	ValueFunction pulumi.StringInput
 }
 

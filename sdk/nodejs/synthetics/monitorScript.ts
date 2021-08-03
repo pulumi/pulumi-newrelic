@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -23,6 +24,10 @@ import * as utilities from "../utilities";
  * const fooScript = new newrelic.synthetics.MonitorScript("fooScript", {
  *     monitorId: foo.id,
  *     text: fs.readFileSync(`${path.module}/foo_script.js`),
+ *     locations: [{
+ *         name: "YWJjZAo=",
+ *         hmac: "ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ==",
+ *     }],
  * });
  * ```
  *
@@ -63,6 +68,10 @@ export class MonitorScript extends pulumi.CustomResource {
     }
 
     /**
+     * A nested block that describes a monitor script location. See Nested location blocks below for details
+     */
+    public readonly locations!: pulumi.Output<outputs.synthetics.MonitorScriptLocation[] | undefined>;
+    /**
      * The ID of the monitor to attach the script to.
      */
     public readonly monitorId!: pulumi.Output<string>;
@@ -84,6 +93,7 @@ export class MonitorScript extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorScriptState | undefined;
+            inputs["locations"] = state ? state.locations : undefined;
             inputs["monitorId"] = state ? state.monitorId : undefined;
             inputs["text"] = state ? state.text : undefined;
         } else {
@@ -94,6 +104,7 @@ export class MonitorScript extends pulumi.CustomResource {
             if ((!args || args.text === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'text'");
             }
+            inputs["locations"] = args ? args.locations : undefined;
             inputs["monitorId"] = args ? args.monitorId : undefined;
             inputs["text"] = args ? args.text : undefined;
         }
@@ -109,6 +120,10 @@ export class MonitorScript extends pulumi.CustomResource {
  */
 export interface MonitorScriptState {
     /**
+     * A nested block that describes a monitor script location. See Nested location blocks below for details
+     */
+    readonly locations?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorScriptLocation>[]>;
+    /**
      * The ID of the monitor to attach the script to.
      */
     readonly monitorId?: pulumi.Input<string>;
@@ -122,6 +137,10 @@ export interface MonitorScriptState {
  * The set of arguments for constructing a MonitorScript resource.
  */
 export interface MonitorScriptArgs {
+    /**
+     * A nested block that describes a monitor script location. See Nested location blocks below for details
+     */
+    readonly locations?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorScriptLocation>[]>;
     /**
      * The ID of the monitor to attach the script to.
      */

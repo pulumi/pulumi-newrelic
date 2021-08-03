@@ -174,7 +174,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
     /**
-     * Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
@@ -310,7 +310,7 @@ export interface InfraAlertConditionState {
      */
     readonly updatedAt?: pulumi.Input<number>;
     /**
-     * Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
     readonly violationCloseTimer?: pulumi.Input<number>;
     /**
@@ -376,7 +376,7 @@ export interface InfraAlertConditionArgs {
      */
     readonly type: pulumi.Input<string>;
     /**
-     * Determines how much time will pass before a violation is automatically closed. Setting the time limit to 0 prevents a violation from being force-closed.
+     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
     readonly violationCloseTimer?: pulumi.Input<number>;
     /**

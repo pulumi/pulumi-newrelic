@@ -46,6 +46,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NrqlDropRule{}
 	case "newrelic:index/oneDashboard:OneDashboard":
 		r = &OneDashboard{}
+	case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
+		r = &OneDashboardRaw{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -140,6 +142,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/oneDashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/oneDashboardRaw",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(
