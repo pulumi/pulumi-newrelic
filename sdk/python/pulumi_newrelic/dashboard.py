@@ -25,12 +25,13 @@ class DashboardArgs:
         """
         The set of arguments for constructing a Dashboard resource.
         :param pulumi.Input[str] title: The title of the dashboard.
-        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-        :param pulumi.Input['DashboardFilterArgs'] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-        :param pulumi.Input[int] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
-        :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
-        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+               read_only. Defaults to editable_by_all.
+        :param pulumi.Input['DashboardFilterArgs'] filter: A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
+        :param pulumi.Input[int] grid_column_count: New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
+        :param pulumi.Input[str] icon: The icon for the dashboard.
+        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         pulumi.set(__self__, "title", title)
         if editable is not None:
@@ -62,7 +63,8 @@ class DashboardArgs:
     @pulumi.getter
     def editable(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
+        Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+        read_only. Defaults to editable_by_all.
         """
         return pulumi.get(self, "editable")
 
@@ -74,7 +76,7 @@ class DashboardArgs:
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['DashboardFilterArgs']]:
         """
-        A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
         """
         return pulumi.get(self, "filter")
 
@@ -86,7 +88,7 @@ class DashboardArgs:
     @pulumi.getter(name="gridColumnCount")
     def grid_column_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
         """
         return pulumi.get(self, "grid_column_count")
 
@@ -98,7 +100,7 @@ class DashboardArgs:
     @pulumi.getter
     def icon(self) -> Optional[pulumi.Input[str]]:
         """
-        The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        The icon for the dashboard.
         """
         return pulumi.get(self, "icon")
 
@@ -110,7 +112,7 @@ class DashboardArgs:
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+        Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
         """
         return pulumi.get(self, "visibility")
 
@@ -122,7 +124,7 @@ class DashboardArgs:
     @pulumi.getter
     def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
         """
-        A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         return pulumi.get(self, "widgets")
 
@@ -145,13 +147,14 @@ class _DashboardState:
         """
         Input properties used for looking up and filtering Dashboard resources.
         :param pulumi.Input[str] dashboard_url: The URL for viewing the dashboard.
-        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-        :param pulumi.Input['DashboardFilterArgs'] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-        :param pulumi.Input[int] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
-        :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+               read_only. Defaults to editable_by_all.
+        :param pulumi.Input['DashboardFilterArgs'] filter: A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
+        :param pulumi.Input[int] grid_column_count: New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
+        :param pulumi.Input[str] icon: The icon for the dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
-        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         if dashboard_url is not None:
             pulumi.set(__self__, "dashboard_url", dashboard_url)
@@ -186,7 +189,8 @@ class _DashboardState:
     @pulumi.getter
     def editable(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
+        Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+        read_only. Defaults to editable_by_all.
         """
         return pulumi.get(self, "editable")
 
@@ -198,7 +202,7 @@ class _DashboardState:
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['DashboardFilterArgs']]:
         """
-        A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
         """
         return pulumi.get(self, "filter")
 
@@ -210,7 +214,7 @@ class _DashboardState:
     @pulumi.getter(name="gridColumnCount")
     def grid_column_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
         """
         return pulumi.get(self, "grid_column_count")
 
@@ -222,7 +226,7 @@ class _DashboardState:
     @pulumi.getter
     def icon(self) -> Optional[pulumi.Input[str]]:
         """
-        The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        The icon for the dashboard.
         """
         return pulumi.get(self, "icon")
 
@@ -246,7 +250,7 @@ class _DashboardState:
     @pulumi.getter
     def visibility(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+        Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
         """
         return pulumi.get(self, "visibility")
 
@@ -258,7 +262,7 @@ class _DashboardState:
     @pulumi.getter
     def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
         """
-        A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         return pulumi.get(self, "widgets")
 
@@ -281,25 +285,22 @@ class Dashboard(pulumi.CustomResource):
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None,
                  __props__=None):
         """
-        ## Import
+        New Relic legacy Dashboards reached end of life Wednesday July 28, 2021.
 
-        New Relic dashboards can be imported using their ID, e.g.
+        **This resource has been removed.**
 
-        ```sh
-         $ pulumi import newrelic:index/dashboard:Dashboard my_dashboard 8675309
-        ```
-
-         ~> **NOTE** Due to API restrictions, importing a dashboard resource will set the `grid_column_count` attribute to `3`. If your dashboard is a New Relic One dashboard _and_ uses a 12 column grid, you will need to make sure `grid_column_count` is set to `12` in your configuration, then run `terraform apply` after importing to sync remote state with Terraform state. Also note, cross-account widgets cannot be imported due to API restrictions.
+        For more information, [click here](https://discuss.newrelic.com/t/important-insights-dashboard-api-end-of-life/149357)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-        :param pulumi.Input[pulumi.InputType['DashboardFilterArgs']] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-        :param pulumi.Input[int] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
-        :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+               read_only. Defaults to editable_by_all.
+        :param pulumi.Input[pulumi.InputType['DashboardFilterArgs']] filter: A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
+        :param pulumi.Input[int] grid_column_count: New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
+        :param pulumi.Input[str] icon: The icon for the dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
-        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         ...
     @overload
@@ -308,15 +309,11 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
+        New Relic legacy Dashboards reached end of life Wednesday July 28, 2021.
 
-        New Relic dashboards can be imported using their ID, e.g.
+        **This resource has been removed.**
 
-        ```sh
-         $ pulumi import newrelic:index/dashboard:Dashboard my_dashboard 8675309
-        ```
-
-         ~> **NOTE** Due to API restrictions, importing a dashboard resource will set the `grid_column_count` attribute to `3`. If your dashboard is a New Relic One dashboard _and_ uses a 12 column grid, you will need to make sure `grid_column_count` is set to `12` in your configuration, then run `terraform apply` after importing to sync remote state with Terraform state. Also note, cross-account widgets cannot be imported due to API restrictions.
+        For more information, [click here](https://discuss.newrelic.com/t/important-insights-dashboard-api-end-of-life/149357)
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
@@ -388,13 +385,14 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_url: The URL for viewing the dashboard.
-        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
-        :param pulumi.Input[pulumi.InputType['DashboardFilterArgs']] filter: A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
-        :param pulumi.Input[int] grid_column_count: The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
-        :param pulumi.Input[str] icon: The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        :param pulumi.Input[str] editable: Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+               read_only. Defaults to editable_by_all.
+        :param pulumi.Input[pulumi.InputType['DashboardFilterArgs']] filter: A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
+        :param pulumi.Input[int] grid_column_count: New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
+        :param pulumi.Input[str] icon: The icon for the dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
-        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        :param pulumi.Input[str] visibility: Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,7 +420,8 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def editable(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.
+        Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+        read_only. Defaults to editable_by_all.
         """
         return pulumi.get(self, "editable")
 
@@ -430,7 +429,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def filter(self) -> pulumi.Output[Optional['outputs.DashboardFilter']]:
         """
-        A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+        A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
         """
         return pulumi.get(self, "filter")
 
@@ -438,7 +437,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="gridColumnCount")
     def grid_column_count(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+        New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
         """
         return pulumi.get(self, "grid_column_count")
 
@@ -446,7 +445,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def icon(self) -> pulumi.Output[Optional[str]]:
         """
-        The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+        The icon for the dashboard.
         """
         return pulumi.get(self, "icon")
 
@@ -462,7 +461,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def visibility(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+        Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
         """
         return pulumi.get(self, "visibility")
 
@@ -470,7 +469,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def widgets(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardWidget']]]:
         """
-        A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+        A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
         """
         return pulumi.get(self, "widgets")
 

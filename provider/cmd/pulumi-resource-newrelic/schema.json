@@ -475,7 +475,6 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Optional) A list of attributes belonging to the specified event types to enable filtering for.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -487,7 +486,6 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Optional) A list of event types to enable filtering for.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -504,7 +502,6 @@
             "properties": {
                 "accountId": {
                     "type": "integer",
-                    "description": "(Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -513,7 +510,6 @@
                 },
                 "column": {
                     "type": "integer",
-                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -533,7 +529,6 @@
                 },
                 "drilldownDashboardId": {
                     "type": "integer",
-                    "description": "(Optional) The ID of a dashboard to link to from the widget's facets.\n* `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -542,7 +537,6 @@
                 },
                 "duration": {
                     "type": "integer",
-                    "description": "(Required) The duration, in ms, of the time window represented in the chart.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -551,7 +545,6 @@
                 },
                 "endTime": {
                     "type": "integer",
-                    "description": "(Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -563,7 +556,6 @@
                     "items": {
                         "type": "integer"
                     },
-                    "description": "(Required) A collection of entity IDs to display data. These are typically application IDs.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -572,7 +564,6 @@
                 },
                 "facet": {
                     "type": "string",
-                    "description": "(Optional) Can be set to \"host\" to facet the metric data by host.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -581,7 +572,6 @@
                 },
                 "height": {
                     "type": "integer",
-                    "description": "(Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -590,7 +580,6 @@
                 },
                 "limit": {
                     "type": "integer",
-                    "description": "(Optional) The limit of distinct data series to display.  Requires `order_by` to be set.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -602,7 +591,6 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/DashboardWidgetMetric:DashboardWidgetMetric"
                     },
-                    "description": "(Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -611,7 +599,6 @@
                 },
                 "notes": {
                     "type": "string",
-                    "description": "(Optional) Description of the widget.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -620,7 +607,6 @@
                 },
                 "nrql": {
                     "type": "string",
-                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n* `markdown`:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -629,7 +615,6 @@
                 },
                 "orderBy": {
                     "type": "string",
-                    "description": "(Optional) Set the order of the results.  Required when using `limit`.\n* `application_breakdown`:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -646,7 +631,6 @@
                 },
                 "row": {
                     "type": "integer",
-                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -655,7 +639,6 @@
                 },
                 "source": {
                     "type": "string",
-                    "description": "(Required) The markdown source to be rendered in the widget.\n* `metric_line_chart`:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -664,7 +647,6 @@
                 },
                 "thresholdRed": {
                     "type": "number",
-                    "description": "(Required) Threshold above which the displayed value will be styled with a red color.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -673,7 +655,6 @@
                 },
                 "thresholdYellow": {
                     "type": "number",
-                    "description": "(Optional) Threshold above which the displayed value will be styled with a yellow color.\n* `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -682,7 +663,6 @@
                 },
                 "title": {
                     "type": "string",
-                    "description": "The title of the dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -691,7 +671,6 @@
                 },
                 "visualization": {
                     "type": "string",
-                    "description": "(Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -708,7 +687,6 @@
                 },
                 "width": {
                     "type": "integer",
-                    "description": "(Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -773,7 +751,6 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "(Required) The metric name to display.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -791,7 +768,6 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "(Required) The metric name to display.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -819,7 +795,6 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required) The metric values to display.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4005,7 +3980,7 @@
             }
         },
         "newrelic:index/dashboard:Dashboard": {
-            "description": "\n\n\n## Import\n\nNew Relic dashboards can be imported using their ID, e.g.\n\n```sh\n $ pulumi import newrelic:index/dashboard:Dashboard my_dashboard 8675309\n```\n\n ~\u003e **NOTE** Due to API restrictions, importing a dashboard resource will set the `grid_column_count` attribute to `3`. If your dashboard is a New Relic One dashboard _and_ uses a 12 column grid, you will need to make sure `grid_column_count` is set to `12` in your configuration, then run `terraform apply` after importing to sync remote state with Terraform state. Also note, cross-account widgets cannot be imported due to API restrictions. ",
+            "description": "New Relic legacy Dashboards reached end of life Wednesday July 28, 2021.\n\n**This resource has been removed.**\n\nFor more information, [click here](https://discuss.newrelic.com/t/important-insights-dashboard-api-end-of-life/149357)\n",
             "properties": {
                 "dashboardUrl": {
                     "type": "string",
@@ -4013,19 +3988,19 @@
                 },
                 "editable": {
                     "type": "string",
-                    "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
+                    "description": "Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or\nread_only. Defaults to editable_by_all.\n"
                 },
                 "filter": {
                     "$ref": "#/types/newrelic:index/DashboardFilter:DashboardFilter",
-                    "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
+                    "description": "A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.\n"
                 },
                 "gridColumnCount": {
                     "type": "integer",
-                    "description": "The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.\n"
+                    "description": "New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.\n"
                 },
                 "icon": {
                     "type": "string",
-                    "description": "The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.\n"
+                    "description": "The icon for the dashboard.\n"
                 },
                 "title": {
                     "type": "string",
@@ -4033,14 +4008,14 @@
                 },
                 "visibility": {
                     "type": "string",
-                    "description": "Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.\n"
+                    "description": "Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.\n"
                 },
                 "widgets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/DashboardWidget:DashboardWidget"
                     },
-                    "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.\n"
+                    "description": "A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.\n"
                 }
             },
             "required": [
@@ -4050,19 +4025,19 @@
             "inputProperties": {
                 "editable": {
                     "type": "string",
-                    "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
+                    "description": "Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or\nread_only. Defaults to editable_by_all.\n"
                 },
                 "filter": {
                     "$ref": "#/types/newrelic:index/DashboardFilter:DashboardFilter",
-                    "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
+                    "description": "A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.\n"
                 },
                 "gridColumnCount": {
                     "type": "integer",
-                    "description": "The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.\n"
+                    "description": "New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.\n"
                 },
                 "icon": {
                     "type": "string",
-                    "description": "The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.\n"
+                    "description": "The icon for the dashboard.\n"
                 },
                 "title": {
                     "type": "string",
@@ -4070,14 +4045,14 @@
                 },
                 "visibility": {
                     "type": "string",
-                    "description": "Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.\n"
+                    "description": "Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.\n"
                 },
                 "widgets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/newrelic:index/DashboardWidget:DashboardWidget"
                     },
-                    "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.\n"
+                    "description": "A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.\n"
                 }
             },
             "requiredInputs": [
@@ -4092,19 +4067,19 @@
                     },
                     "editable": {
                         "type": "string",
-                        "description": "Determines who can edit the dashboard in an account. Valid values are `all`,  `editable_by_all`, `editable_by_owner`, or `read_only`.  Defaults to `editable_by_all`.\n"
+                        "description": "Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or\nread_only. Defaults to editable_by_all.\n"
                     },
                     "filter": {
                         "$ref": "#/types/newrelic:index/DashboardFilter:DashboardFilter",
-                        "description": "A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.\n"
+                        "description": "A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.\n"
                     },
                     "gridColumnCount": {
                         "type": "integer",
-                        "description": "The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.\n"
+                        "description": "New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.\n"
                     },
                     "icon": {
                         "type": "string",
-                        "description": "The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.\n"
+                        "description": "The icon for the dashboard.\n"
                     },
                     "title": {
                         "type": "string",
@@ -4112,14 +4087,14 @@
                     },
                     "visibility": {
                         "type": "string",
-                        "description": "Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.\n"
+                        "description": "Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.\n"
                     },
                     "widgets": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/newrelic:index/DashboardWidget:DashboardWidget"
                         },
-                        "description": "A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.\n"
+                        "description": "A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.\n"
                     }
                 },
                 "type": "object"
