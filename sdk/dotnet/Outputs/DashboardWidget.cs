@@ -13,93 +13,28 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class DashboardWidget
     {
-        /// <summary>
-        /// (Optional) The account ID to use when querying data. If `account_id` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `account_id` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
-        /// </summary>
         public readonly int? AccountId;
-        /// <summary>
-        /// (Required) Column position of widget from top left, starting at `1`.
-        /// </summary>
         public readonly int Column;
         public readonly ImmutableArray<Outputs.DashboardWidgetCompareWith> CompareWiths;
-        /// <summary>
-        /// (Optional) The ID of a dashboard to link to from the widget's facets.
-        /// * `attribute_sheet`, `comparison_line_chart`, `event_feed`, `event_table`, `funnel`, `histogram`, `line_chart`, `raw_json`, `single_event`, or `uniques_list`:
-        /// </summary>
         public readonly int? DrilldownDashboardId;
-        /// <summary>
-        /// (Required) The duration, in ms, of the time window represented in the chart.
-        /// </summary>
         public readonly int? Duration;
-        /// <summary>
-        /// (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
-        /// </summary>
         public readonly int? EndTime;
-        /// <summary>
-        /// (Required) A collection of entity IDs to display data. These are typically application IDs.
-        /// </summary>
         public readonly ImmutableArray<int> EntityIds;
-        /// <summary>
-        /// (Optional) Can be set to "host" to facet the metric data by host.
-        /// </summary>
         public readonly string? Facet;
-        /// <summary>
-        /// (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-        /// </summary>
         public readonly int? Height;
-        /// <summary>
-        /// (Optional) The limit of distinct data series to display.  Requires `order_by` to be set.
-        /// </summary>
         public readonly int? Limit;
-        /// <summary>
-        /// (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetMetric> Metrics;
-        /// <summary>
-        /// (Optional) Description of the widget.
-        /// </summary>
         public readonly string? Notes;
-        /// <summary>
-        /// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-        /// * `markdown`:
-        /// </summary>
         public readonly string? Nrql;
-        /// <summary>
-        /// (Optional) Set the order of the results.  Required when using `limit`.
-        /// * `application_breakdown`:
-        /// </summary>
         public readonly string? OrderBy;
         public readonly string? RawMetricName;
-        /// <summary>
-        /// (Required) Row position of widget from top left, starting at `1`.
-        /// </summary>
         public readonly int Row;
-        /// <summary>
-        /// (Required) The markdown source to be rendered in the widget.
-        /// * `metric_line_chart`:
-        /// </summary>
         public readonly string? Source;
-        /// <summary>
-        /// (Required) Threshold above which the displayed value will be styled with a red color.
-        /// </summary>
         public readonly double? ThresholdRed;
-        /// <summary>
-        /// (Optional) Threshold above which the displayed value will be styled with a yellow color.
-        /// * `facet_bar_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `faceted_line_chart`, or `heatmap`:
-        /// </summary>
         public readonly double? ThresholdYellow;
-        /// <summary>
-        /// The title of the dashboard.
-        /// </summary>
         public readonly string Title;
-        /// <summary>
-        /// (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboard_comparison`, `facet_bar_chart`, `faceted_line_chart`, `facet_pie_chart`, `facet_table`, `faceted_area_chart`, `heatmap`, `attribute_sheet`, `single_event`, `histogram`, `funnel`, `raw_json`, `event_feed`, `event_table`, `uniques_list`, `line_chart`, `comparison_line_chart`, `markdown`, and `metric_line_chart`.
-        /// </summary>
         public readonly string Visualization;
         public readonly int? WidgetId;
-        /// <summary>
-        /// (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-        /// </summary>
         public readonly int? Width;
 
         [OutputConstructor]

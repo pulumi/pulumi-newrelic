@@ -11,33 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
+// New Relic legacy Dashboards reached end of life Wednesday July 28, 2021.
 //
-// New Relic dashboards can be imported using their ID, e.g.
+// **This resource has been removed.**
 //
-// ```sh
-//  $ pulumi import newrelic:index/dashboard:Dashboard my_dashboard 8675309
-// ```
-//
-//  ~> **NOTE** Due to API restrictions, importing a dashboard resource will set the `grid_column_count` attribute to `3`. If your dashboard is a New Relic One dashboard _and_ uses a 12 column grid, you will need to make sure `grid_column_count` is set to `12` in your configuration, then run `terraform apply` after importing to sync remote state with Terraform state. Also note, cross-account widgets cannot be imported due to API restrictions.
+// For more information, [click here](https://discuss.newrelic.com/t/important-insights-dashboard-api-end-of-life/149357)
 type Dashboard struct {
 	pulumi.CustomResourceState
 
 	// The URL for viewing the dashboard.
 	DashboardUrl pulumi.StringOutput `pulumi:"dashboardUrl"`
-	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+	// read_only. Defaults to editable_by_all.
 	Editable pulumi.StringPtrOutput `pulumi:"editable"`
-	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+	// A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
 	Filter DashboardFilterPtrOutput `pulumi:"filter"`
-	// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+	// New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
 	GridColumnCount pulumi.IntPtrOutput `pulumi:"gridColumnCount"`
-	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+	// The icon for the dashboard.
 	Icon pulumi.StringPtrOutput `pulumi:"icon"`
 	// The title of the dashboard.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+	// A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
 	Widgets DashboardWidgetArrayOutput `pulumi:"widgets"`
 }
 
@@ -75,38 +72,40 @@ func GetDashboard(ctx *pulumi.Context,
 type dashboardState struct {
 	// The URL for viewing the dashboard.
 	DashboardUrl *string `pulumi:"dashboardUrl"`
-	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+	// read_only. Defaults to editable_by_all.
 	Editable *string `pulumi:"editable"`
-	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+	// A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
 	Filter *DashboardFilter `pulumi:"filter"`
-	// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+	// New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
 	GridColumnCount *int `pulumi:"gridColumnCount"`
-	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+	// The icon for the dashboard.
 	Icon *string `pulumi:"icon"`
 	// The title of the dashboard.
 	Title *string `pulumi:"title"`
-	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
 	Visibility *string `pulumi:"visibility"`
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+	// A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
 type DashboardState struct {
 	// The URL for viewing the dashboard.
 	DashboardUrl pulumi.StringPtrInput
-	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+	// read_only. Defaults to editable_by_all.
 	Editable pulumi.StringPtrInput
-	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+	// A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
 	Filter DashboardFilterPtrInput
-	// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+	// New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
 	GridColumnCount pulumi.IntPtrInput
-	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+	// The icon for the dashboard.
 	Icon pulumi.StringPtrInput
 	// The title of the dashboard.
 	Title pulumi.StringPtrInput
-	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
 	Visibility pulumi.StringPtrInput
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+	// A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
 	Widgets DashboardWidgetArrayInput
 }
 
@@ -115,37 +114,39 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+	// read_only. Defaults to editable_by_all.
 	Editable *string `pulumi:"editable"`
-	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+	// A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
 	Filter *DashboardFilter `pulumi:"filter"`
-	// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+	// New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
 	GridColumnCount *int `pulumi:"gridColumnCount"`
-	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+	// The icon for the dashboard.
 	Icon *string `pulumi:"icon"`
 	// The title of the dashboard.
 	Title string `pulumi:"title"`
-	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
 	Visibility *string `pulumi:"visibility"`
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+	// A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// Determines who can edit the dashboard in an account. Valid values are `all`,  `editableByAll`, `editableByOwner`, or `readOnly`.  Defaults to `editableByAll`.
+	// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+	// read_only. Defaults to editable_by_all.
 	Editable pulumi.StringPtrInput
-	// A nested block that describes a dashboard filter.  Exactly one nested `filter` block is allowed. See Nested filter block below for details.
+	// A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
 	Filter DashboardFilterPtrInput
-	// The number of columns to use when organizing and displaying widgets. New Relic One supports a 3 column grid and a 12 column grid. New Relic Insights supports a 3 column grid.
+	// New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
 	GridColumnCount pulumi.IntPtrInput
-	// The icon for the dashboard.  Valid values are `adjust`, `archive`, `bar-chart`, `bell`, `bolt`, `bug`, `bullhorn`, `bullseye`, `clock-o`, `cloud`, `cog`, `comments-o`, `crosshairs`, `dashboard`, `envelope`, `fire`, `flag`, `flask`, `globe`, `heart`, `leaf`, `legal`, `life-ring`, `line-chart`, `magic`, `mobile`, `money`, `none`, `paper-plane`, `pie-chart`, `puzzle-piece`, `road`, `rocket`, `shopping-cart`, `sitemap`, `sliders`, `tablet`, `thumbs-down`, `thumbs-up`, `trophy`, `usd`, `user`, and `users`.  Defaults to `bar-chart`.
+	// The icon for the dashboard.
 	Icon pulumi.StringPtrInput
 	// The title of the dashboard.
 	Title pulumi.StringInput
-	// Determines who can see the dashboard in an account. Valid values are `all` or `owner`.  Defaults to `all`.
+	// Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
 	Visibility pulumi.StringPtrInput
-	// A nested block that describes a visualization.  Up to 300 `widget` blocks are allowed in a dashboard definition. See Nested widget blocks below for details.
+	// A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
 	Widgets DashboardWidgetArrayInput
 }
 

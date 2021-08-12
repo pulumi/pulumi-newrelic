@@ -156,104 +156,33 @@ export interface AlertMutingRuleSchedule {
 }
 
 export interface DashboardFilter {
-    /**
-     * (Optional) A list of attributes belonging to the specified event types to enable filtering for.
-     */
     attributes?: string[];
-    /**
-     * (Optional) A list of event types to enable filtering for.
-     */
     eventTypes: string[];
 }
 
 export interface DashboardWidget {
-    /**
-     * (Optional) The account ID to use when querying data. If `accountId` is omitted, the widget will use the account ID associated with the API key used in your provider configuration. You can also use `accountId` to configure cross-account widgets or simply to be explicit about which account the widget will be pulling data from.
-     */
     accountId?: number;
-    /**
-     * (Required) Column position of widget from top left, starting at `1`.
-     */
     column: number;
     compareWiths?: outputs.DashboardWidgetCompareWith[];
-    /**
-     * (Optional) The ID of a dashboard to link to from the widget's facets.
-     * * `attributeSheet`, `comparisonLineChart`, `eventFeed`, `eventTable`, `funnel`, `histogram`, `lineChart`, `rawJson`, `singleEvent`, or `uniquesList`:
-     */
     drilldownDashboardId?: number;
-    /**
-     * (Required) The duration, in ms, of the time window represented in the chart.
-     */
     duration?: number;
-    /**
-     * (Optional) The end time of the time window represented in the chart in epoch time.  When not set, the time window will end at the current time.
-     */
     endTime?: number;
-    /**
-     * (Required) A collection of entity IDs to display data. These are typically application IDs.
-     */
     entityIds?: number[];
-    /**
-     * (Optional) Can be set to "host" to facet the metric data by host.
-     */
     facet?: string;
-    /**
-     * (Optional) Height of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-     */
     height?: number;
-    /**
-     * (Optional) The limit of distinct data series to display.  Requires `orderBy` to be set.
-     */
     limit?: number;
-    /**
-     * (Required) A nested block that describes a metric.  Nested `metric` blocks support the following arguments:
-     */
     metrics?: outputs.DashboardWidgetMetric[];
-    /**
-     * (Optional) Description of the widget.
-     */
     notes?: string;
-    /**
-     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
-     * * `markdown`:
-     */
     nrql?: string;
-    /**
-     * (Optional) Set the order of the results.  Required when using `limit`.
-     * * `applicationBreakdown`:
-     */
     orderBy?: string;
     rawMetricName: string;
-    /**
-     * (Required) Row position of widget from top left, starting at `1`.
-     */
     row: number;
-    /**
-     * (Required) The markdown source to be rendered in the widget.
-     * * `metricLineChart`:
-     */
     source?: string;
-    /**
-     * (Required) Threshold above which the displayed value will be styled with a red color.
-     */
     thresholdRed?: number;
-    /**
-     * (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `facetBarChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `facetedLineChart`, or `heatmap`:
-     */
     thresholdYellow?: number;
-    /**
-     * The title of the dashboard.
-     */
     title: string;
-    /**
-     * (Required) How the widget visualizes data.  Valid values are `billboard`, `gauge`, `billboardComparison`, `facetBarChart`, `facetedLineChart`, `facetPieChart`, `facetTable`, `facetedAreaChart`, `heatmap`, `attributeSheet`, `singleEvent`, `histogram`, `funnel`, `rawJson`, `eventFeed`, `eventTable`, `uniquesList`, `lineChart`, `comparisonLineChart`, `markdown`, and `metricLineChart`.
-     */
     visualization: string;
     widgetId: number;
-    /**
-     * (Optional) Width of the widget.  Valid values are `1` to `3` inclusive.  Defaults to `1`.
-     */
     width?: number;
 }
 
@@ -264,22 +193,13 @@ export interface DashboardWidgetCompareWith {
 
 export interface DashboardWidgetCompareWithPresentation {
     color: string;
-    /**
-     * (Required) The metric name to display.
-     */
     name: string;
 }
 
 export interface DashboardWidgetMetric {
-    /**
-     * (Required) The metric name to display.
-     */
     name: string;
     scope?: string;
     units?: string;
-    /**
-     * (Required) The metric values to display.
-     */
     values?: string[];
 }
 

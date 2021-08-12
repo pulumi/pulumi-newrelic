@@ -14,9 +14,6 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class DashboardWidgetCompareWithPresentation
     {
         public readonly string Color;
-        /// <summary>
-        /// (Required) The metric name to display.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
