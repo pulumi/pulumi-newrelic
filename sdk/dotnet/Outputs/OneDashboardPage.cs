@@ -70,6 +70,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetPy> WidgetPies;
         /// <summary>
+        /// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetStackedBar> WidgetStackedBars;
+        /// <summary>
         /// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTable> WidgetTables;
@@ -104,6 +108,8 @@ namespace Pulumi.NewRelic.Outputs
 
             ImmutableArray<Outputs.OneDashboardPageWidgetPy> widgetPies,
 
+            ImmutableArray<Outputs.OneDashboardPageWidgetStackedBar> widgetStackedBars,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetTable> widgetTables)
         {
             Description = description;
@@ -120,6 +126,7 @@ namespace Pulumi.NewRelic.Outputs
             WidgetLines = widgetLines;
             WidgetMarkdowns = widgetMarkdowns;
             WidgetPies = widgetPies;
+            WidgetStackedBars = widgetStackedBars;
             WidgetTables = widgetTables;
         }
     }

@@ -12,54 +12,6 @@ import (
 )
 
 // ## Example Usage
-// ### Create A New Relic One Dashboard With RawConfiguration
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewOneDashboardRaw(ctx, "exampledash", &newrelic.OneDashboardRawArgs{
-// 			Pages: newrelic.OneDashboardRawPageArray{
-// 				&newrelic.OneDashboardRawPageArgs{
-// 					Name: pulumi.String("Page Name"),
-// 					Widgets: newrelic.OneDashboardRawPageWidgetArray{
-// 						&newrelic.OneDashboardRawPageWidgetArgs{
-// 							Column:          pulumi.Int(1),
-// 							Configuration:   pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "      {\n", "        \"legend\": {\n", "          \"enabled\": false\n", "        },\n", "        \"nrqlQueries\": [\n", "          {\n", "            \"accountId\": ` + accountID + `,\n", "            \"query\": \"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\"\n", "          }\n", "        ],\n", "        \"yAxisLeft\": {\n", "          \"max\": 100,\n", "          \"min\": 50,\n", "          \"zero\": false\n", "        }\n", "      }\n", "      \n")),
-// 							Height:          pulumi.Int(1),
-// 							Row:             pulumi.Int(1),
-// 							Title:           pulumi.String("Custom widget"),
-// 							VisualizationId: pulumi.String("viz.custom"),
-// 							Width:           pulumi.Int(1),
-// 						},
-// 						&newrelic.OneDashboardRawPageWidgetArgs{
-// 							Column:          pulumi.Int(2),
-// 							Configuration:   pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "      {\n", "        \"nrqlQueries\": [\n", "          {\n", "            \"accountId\": ` + accountID + `,\n", "            \"query\": \"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\"\n", "          }\n", "        ]\n", "      }\n", "      \n")),
-// 							Height:          pulumi.Int(1),
-// 							Row:             pulumi.Int(1),
-// 							Title:           pulumi.String("Server CPU"),
-// 							VisualizationId: pulumi.String("viz.testing"),
-// 							Width:           pulumi.Int(1),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type OneDashboardRaw struct {
 	pulumi.CustomResourceState
 

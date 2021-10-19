@@ -48,6 +48,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OneDashboard{}
 	case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
 		r = &OneDashboardRaw{}
+	case "newrelic:index/serviceLevel:ServiceLevel":
+		r = &ServiceLevel{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -147,6 +149,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/oneDashboardRaw",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/serviceLevel",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

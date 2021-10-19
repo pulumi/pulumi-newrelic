@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
+        [Input("filterCurrentDashboard")]
+        public Input<bool>? FilterCurrentDashboard { get; set; }
+
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         /// </summary>

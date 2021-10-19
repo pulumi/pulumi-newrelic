@@ -15,6 +15,126 @@ import (
 //
 // ## Example Usage
 //
+// ### Type: `baseline`
+// =======
+// ## NRQL
+//
+// The `nrql` block supports the following arguments:
+//
+// - `query` - (Required) The NRQL query to execute for the condition.
+// - `evaluationOffset` - (Optional) **DEPRECATED:** Use `aggregationMethod` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregationWindow` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 windows and an `aggregationWindow` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluationOffset` cannot be set with `aggregationMethod`, `aggregationDelay`, or `aggregationTimer`.<br>
+// - `sinceValue` - (Optional)  **DEPRECATED:** Use `aggregationMethod` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
+//
+// ## Terms
+//
+// > **NOTE:** The direct use of the `term` has been deprecated, and users should use `critical` and `warning` instead.  What follows now applies to the named priority attributes for `critical` and `warning`, but for those attributes the priority is not allowed.
+//
+// NRQL alert conditions support up to two terms. At least one `term` must have `priority` set to `critical` and the second optional `term` must have `priority` set to `warning`.
+//
+// The `term` block supports the following arguments:
+//
+// - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
+// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+// <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
+// - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
+// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
+//
+// - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+// - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+// - `timeFunction` - (Optional) **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
+//
+// ## Upgrade from 1.x to 2.x
+//
+// There have been several deprecations in the `NrqlAlertCondition`
+// resource.  Users will need to make some updates in order to have a smooth
+// upgrade.
+//
+// An example resource from 1.x might look like the following.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+// 			PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
+// 			Type:               pulumi.String("static"),
+// 			RunbookUrl:         pulumi.String("https://localhost"),
+// 			Enabled:            pulumi.Bool(true),
+// 			ValueFunction:      pulumi.String("sum"),
+// 			ViolationTimeLimit: pulumi.String("TWENTY_FOUR_HOURS"),
+// 			Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+// 				Operator:             pulumi.String("above"),
+// 				ThresholdDuration:    pulumi.Int(120),
+// 				Threshold:            pulumi.Float64(3),
+// 				ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
+// 			},
+// 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+// 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// After making the appropriate adjustments mentioned in the deprecation warnings,
+// the resource now looks like the following.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+// 			PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
+// 			Type:                      pulumi.String("static"),
+// 			RunbookUrl:                pulumi.String("https://localhost"),
+// 			Enabled:                   pulumi.Bool(true),
+// 			ValueFunction:             pulumi.String("sum"),
+// 			ViolationTimeLimitSeconds: pulumi.Int(86400),
+// 			Terms: newrelic.NrqlAlertConditionTermArray{
+// 				&newrelic.NrqlAlertConditionTermArgs{
+// 					Priority:     pulumi.String("critical"),
+// 					Operator:     pulumi.String("above"),
+// 					Threshold:    pulumi.Float64(3),
+// 					Duration:     pulumi.Int(5),
+// 					TimeFunction: pulumi.String("any"),
+// 				},
+// 			},
+// 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+// 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// > > > > > > > v2.30.0
+//
 // ## Import
 //
 // Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -35,12 +155,18 @@ import (
 //  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
 // ```
 //
-//  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import<small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
+//  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import<<<<<<< HEAD <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small> ======= <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
+	AggregationDelay pulumi.IntPtrOutput `pulumi:"aggregationDelay"`
+	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
+	AggregationMethod pulumi.StringPtrOutput `pulumi:"aggregationMethod"`
+	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
+	AggregationTimer pulumi.IntPtrOutput `pulumi:"aggregationTimer"`
 	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
 	AggregationWindow pulumi.IntOutput `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
@@ -134,6 +260,12 @@ func GetNrqlAlertCondition(ctx *pulumi.Context,
 type nrqlAlertConditionState struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
+	AggregationDelay *int `pulumi:"aggregationDelay"`
+	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
+	AggregationMethod *string `pulumi:"aggregationMethod"`
+	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
+	AggregationTimer *int `pulumi:"aggregationTimer"`
 	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
 	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
@@ -193,6 +325,12 @@ type nrqlAlertConditionState struct {
 type NrqlAlertConditionState struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
+	AggregationDelay pulumi.IntPtrInput
+	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
+	AggregationMethod pulumi.StringPtrInput
+	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
+	AggregationTimer pulumi.IntPtrInput
 	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
 	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
@@ -256,6 +394,12 @@ func (NrqlAlertConditionState) ElementType() reflect.Type {
 type nrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
+	AggregationDelay *int `pulumi:"aggregationDelay"`
+	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
+	AggregationMethod *string `pulumi:"aggregationMethod"`
+	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
+	AggregationTimer *int `pulumi:"aggregationTimer"`
 	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
 	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
@@ -316,6 +460,12 @@ type nrqlAlertConditionArgs struct {
 type NrqlAlertConditionArgs struct {
 	// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
+	AggregationDelay pulumi.IntPtrInput
+	// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
+	AggregationMethod pulumi.StringPtrInput
+	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
+	AggregationTimer pulumi.IntPtrInput
 	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
 	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).

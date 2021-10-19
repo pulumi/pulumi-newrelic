@@ -2470,13 +2470,15 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 type NrqlAlertConditionNrql struct {
 	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+	//
+	// Deprecated: use `signal.aggregation_method` attribute instead
 	EvaluationOffset *int `pulumi:"evaluationOffset"`
 	// The NRQL query to execute for the condition.
 	Query string `pulumi:"query"`
 	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 	//
-	// Deprecated: use `evaluation_offset` attribute instead
+	// Deprecated: use `signal.aggregation_method` attribute instead
 	SinceValue *string `pulumi:"sinceValue"`
 }
 
@@ -2494,13 +2496,15 @@ type NrqlAlertConditionNrqlInput interface {
 type NrqlAlertConditionNrqlArgs struct {
 	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+	//
+	// Deprecated: use `signal.aggregation_method` attribute instead
 	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
 	// The NRQL query to execute for the condition.
 	Query pulumi.StringInput `pulumi:"query"`
 	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 	//
-	// Deprecated: use `evaluation_offset` attribute instead
+	// Deprecated: use `signal.aggregation_method` attribute instead
 	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
 
@@ -2583,6 +2587,8 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 
 // Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+//
+// Deprecated: use `signal.aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
 }
@@ -2595,7 +2601,7 @@ func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 // **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 //
-// Deprecated: use `evaluation_offset` attribute instead
+// Deprecated: use `signal.aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
 }
@@ -2620,6 +2626,8 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 
 // Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+//
+// Deprecated: use `signal.aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
 		if v == nil {
@@ -2642,7 +2650,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 // **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 //
-// Deprecated: use `evaluation_offset` attribute instead
+// Deprecated: use `signal.aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
@@ -3107,6 +3115,8 @@ type OneDashboardPage struct {
 	WidgetMarkdowns []OneDashboardPageWidgetMarkdown `pulumi:"widgetMarkdowns"`
 	// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
 	WidgetPies []OneDashboardPageWidgetPy `pulumi:"widgetPies"`
+	// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+	WidgetStackedBars []OneDashboardPageWidgetStackedBar `pulumi:"widgetStackedBars"`
 	// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
 	WidgetTables []OneDashboardPageWidgetTable `pulumi:"widgetTables"`
 }
@@ -3151,6 +3161,8 @@ type OneDashboardPageArgs struct {
 	WidgetMarkdowns OneDashboardPageWidgetMarkdownArrayInput `pulumi:"widgetMarkdowns"`
 	// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
 	WidgetPies OneDashboardPageWidgetPyArrayInput `pulumi:"widgetPies"`
+	// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+	WidgetStackedBars OneDashboardPageWidgetStackedBarArrayInput `pulumi:"widgetStackedBars"`
 	// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
 	WidgetTables OneDashboardPageWidgetTableArrayInput `pulumi:"widgetTables"`
 }
@@ -3274,6 +3286,11 @@ func (o OneDashboardPageOutput) WidgetMarkdowns() OneDashboardPageWidgetMarkdown
 // (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
 func (o OneDashboardPageOutput) WidgetPies() OneDashboardPageWidgetPyArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetPy { return v.WidgetPies }).(OneDashboardPageWidgetPyArrayOutput)
+}
+
+// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetStackedBars() OneDashboardPageWidgetStackedBarArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetStackedBar { return v.WidgetStackedBars }).(OneDashboardPageWidgetStackedBarArrayOutput)
 }
 
 // (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
@@ -3560,7 +3577,8 @@ func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) Index(i pulumi.IntInput)
 
 type OneDashboardPageWidgetBar struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column int `pulumi:"column"`
+	Column                 int   `pulumi:"column"`
+	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height            *int     `pulumi:"height"`
 	Id                *string  `pulumi:"id"`
@@ -3589,7 +3607,8 @@ type OneDashboardPageWidgetBarInput interface {
 
 type OneDashboardPageWidgetBarArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column pulumi.IntInput `pulumi:"column"`
+	Column                 pulumi.IntInput     `pulumi:"column"`
+	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height            pulumi.IntPtrInput      `pulumi:"height"`
 	Id                pulumi.StringPtrInput   `pulumi:"id"`
@@ -3659,6 +3678,10 @@ func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutputWithCo
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetBarOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+func (o OneDashboardPageWidgetBarOutput) FilterCurrentDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.FilterCurrentDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -5666,7 +5689,7 @@ type OneDashboardPageWidgetMarkdown struct {
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
-	// * `widgetPie`
+	// * `widgetStackedBar`
 	Text *string `pulumi:"text"`
 	// (Required) A title for the widget.
 	Title string `pulumi:"title"`
@@ -5694,7 +5717,7 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
-	// * `widgetPie`
+	// * `widgetStackedBar`
 	Text pulumi.StringPtrInput `pulumi:"text"`
 	// (Required) A title for the widget.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -5773,7 +5796,7 @@ func (o OneDashboardPageWidgetMarkdownOutput) Row() pulumi.IntOutput {
 }
 
 // (Required) The markdown source to be rendered in the widget.
-// * `widgetPie`
+// * `widgetStackedBar`
 func (o OneDashboardPageWidgetMarkdownOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
@@ -5810,7 +5833,8 @@ func (o OneDashboardPageWidgetMarkdownArrayOutput) Index(i pulumi.IntInput) OneD
 
 type OneDashboardPageWidgetPy struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column int `pulumi:"column"`
+	Column                 int   `pulumi:"column"`
+	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height            *int     `pulumi:"height"`
 	Id                *string  `pulumi:"id"`
@@ -5839,7 +5863,8 @@ type OneDashboardPageWidgetPyInput interface {
 
 type OneDashboardPageWidgetPyArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column pulumi.IntInput `pulumi:"column"`
+	Column                 pulumi.IntInput     `pulumi:"column"`
+	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height            pulumi.IntPtrInput      `pulumi:"height"`
 	Id                pulumi.StringPtrInput   `pulumi:"id"`
@@ -5909,6 +5934,10 @@ func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutputWithCont
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetPyOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) int { return v.Column }).(pulumi.IntOutput)
+}
+
+func (o OneDashboardPageWidgetPyOutput) FilterCurrentDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.FilterCurrentDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6071,9 +6100,269 @@ func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) Index(i pulumi.IntInput) O
 	}).(OneDashboardPageWidgetPyNrqlQueryOutput)
 }
 
-type OneDashboardPageWidgetTable struct {
+type OneDashboardPageWidgetStackedBar struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	NrqlQueries []OneDashboardPageWidgetStackedBarNrqlQuery `pulumi:"nrqlQueries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetStackedBarInput is an input type that accepts OneDashboardPageWidgetStackedBarArgs and OneDashboardPageWidgetStackedBarOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarInput` via:
+//
+//          OneDashboardPageWidgetStackedBarArgs{...}
+type OneDashboardPageWidgetStackedBarInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarOutput() OneDashboardPageWidgetStackedBarOutput
+	ToOneDashboardPageWidgetStackedBarOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarOutput
+}
+
+type OneDashboardPageWidgetStackedBarArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	NrqlQueries OneDashboardPageWidgetStackedBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetStackedBarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBar)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarArgs) ToOneDashboardPageWidgetStackedBarOutput() OneDashboardPageWidgetStackedBarOutput {
+	return i.ToOneDashboardPageWidgetStackedBarOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarArgs) ToOneDashboardPageWidgetStackedBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarOutput)
+}
+
+// OneDashboardPageWidgetStackedBarArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarArray and OneDashboardPageWidgetStackedBarArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarArrayInput` via:
+//
+//          OneDashboardPageWidgetStackedBarArray{ OneDashboardPageWidgetStackedBarArgs{...} }
+type OneDashboardPageWidgetStackedBarArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarArrayOutput() OneDashboardPageWidgetStackedBarArrayOutput
+	ToOneDashboardPageWidgetStackedBarArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarArray []OneDashboardPageWidgetStackedBarInput
+
+func (OneDashboardPageWidgetStackedBarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBar)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarArray) ToOneDashboardPageWidgetStackedBarArrayOutput() OneDashboardPageWidgetStackedBarArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarArray) ToOneDashboardPageWidgetStackedBarArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBar)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedBarOutput() OneDashboardPageWidgetStackedBarOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedBarOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetStackedBarOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetStackedBarOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetStackedBarOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+func (o OneDashboardPageWidgetStackedBarOutput) NrqlQueries() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNrqlQuery {
+		return v.NrqlQueries
+	}).(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetStackedBarOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetStackedBarOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetStackedBarOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBar)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarArrayOutput) ToOneDashboardPageWidgetStackedBarArrayOutput() OneDashboardPageWidgetStackedBarArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarArrayOutput) ToOneDashboardPageWidgetStackedBarArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBar {
+		return vs[0].([]OneDashboardPageWidgetStackedBar)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNrqlQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Query string `pulumi:"query"`
+}
+
+// OneDashboardPageWidgetStackedBarNrqlQueryInput is an input type that accepts OneDashboardPageWidgetStackedBarNrqlQueryArgs and OneDashboardPageWidgetStackedBarNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNrqlQueryInput` via:
+//
+//          OneDashboardPageWidgetStackedBarNrqlQueryArgs{...}
+type OneDashboardPageWidgetStackedBarNrqlQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarNrqlQueryOutput() OneDashboardPageWidgetStackedBarNrqlQueryOutput
+	ToOneDashboardPageWidgetStackedBarNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarNrqlQueryOutput
+}
+
+type OneDashboardPageWidgetStackedBarNrqlQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (OneDashboardPageWidgetStackedBarNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarNrqlQueryArgs) ToOneDashboardPageWidgetStackedBarNrqlQueryOutput() OneDashboardPageWidgetStackedBarNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetStackedBarNrqlQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarNrqlQueryArgs) ToOneDashboardPageWidgetStackedBarNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNrqlQueryOutput)
+}
+
+// OneDashboardPageWidgetStackedBarNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarNrqlQueryArray and OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNrqlQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetStackedBarNrqlQueryArray{ OneDashboardPageWidgetStackedBarNrqlQueryArgs{...} }
+type OneDashboardPageWidgetStackedBarNrqlQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutput() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarNrqlQueryArray []OneDashboardPageWidgetStackedBarNrqlQueryInput
+
+func (OneDashboardPageWidgetStackedBarNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarNrqlQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarNrqlQueryArray) ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutput() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarNrqlQueryArray) ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNrqlQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidgetStackedBarNrqlQueryOutput() OneDashboardPageWidgetStackedBarNrqlQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) ToOneDashboardPageWidgetStackedBarNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNrqlQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetStackedBarNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarNrqlQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutput() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) ToOneDashboardPageWidgetStackedBarNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetStackedBarNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarNrqlQueryOutput)
+}
+
+type OneDashboardPageWidgetTable struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column                 int   `pulumi:"column"`
+	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height            *int     `pulumi:"height"`
 	Id                *string  `pulumi:"id"`
@@ -6102,7 +6391,8 @@ type OneDashboardPageWidgetTableInput interface {
 
 type OneDashboardPageWidgetTableArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column pulumi.IntInput `pulumi:"column"`
+	Column                 pulumi.IntInput     `pulumi:"column"`
+	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height            pulumi.IntPtrInput      `pulumi:"height"`
 	Id                pulumi.StringPtrInput   `pulumi:"id"`
@@ -6172,6 +6462,10 @@ func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutputWi
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetTableOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+func (o OneDashboardPageWidgetTableOutput) FilterCurrentDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.FilterCurrentDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6466,6 +6760,8 @@ type OneDashboardRawPageWidget struct {
 	// (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
+	// (Optional) Related entity GUIDs.
+	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -6495,6 +6791,8 @@ type OneDashboardRawPageWidgetArgs struct {
 	// (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Optional) Related entity GUIDs.
+	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) A title for the widget.
@@ -6575,6 +6873,11 @@ func (o OneDashboardRawPageWidgetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardRawPageWidget) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Related entity GUIDs.
+func (o OneDashboardRawPageWidgetOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardRawPageWidget) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
+}
+
 // (Required) Row position of widget from top left, starting at `1`.
 func (o OneDashboardRawPageWidgetOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardRawPageWidget) int { return v.Row }).(pulumi.IntOutput)
@@ -6613,6 +6916,909 @@ func (o OneDashboardRawPageWidgetArrayOutput) Index(i pulumi.IntInput) OneDashbo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardRawPageWidget {
 		return vs[0].([]OneDashboardRawPageWidget)[vs[1].(int)]
 	}).(OneDashboardRawPageWidgetOutput)
+}
+
+type ServiceLevelEvents struct {
+	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+	// and that contains the NRDB data for the SLI/SLO calculations.
+	AccountId int `pulumi:"accountId"`
+	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+	BadEvents *ServiceLevelEventsBadEvents `pulumi:"badEvents"`
+	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+	GoodEvents *ServiceLevelEventsGoodEvents `pulumi:"goodEvents"`
+	// The definition of valid requests.
+	ValidEvents ServiceLevelEventsValidEvents `pulumi:"validEvents"`
+}
+
+// ServiceLevelEventsInput is an input type that accepts ServiceLevelEventsArgs and ServiceLevelEventsOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsInput` via:
+//
+//          ServiceLevelEventsArgs{...}
+type ServiceLevelEventsInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsOutput() ServiceLevelEventsOutput
+	ToServiceLevelEventsOutputWithContext(context.Context) ServiceLevelEventsOutput
+}
+
+type ServiceLevelEventsArgs struct {
+	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+	// and that contains the NRDB data for the SLI/SLO calculations.
+	AccountId pulumi.IntInput `pulumi:"accountId"`
+	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+	BadEvents ServiceLevelEventsBadEventsPtrInput `pulumi:"badEvents"`
+	// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+	GoodEvents ServiceLevelEventsGoodEventsPtrInput `pulumi:"goodEvents"`
+	// The definition of valid requests.
+	ValidEvents ServiceLevelEventsValidEventsInput `pulumi:"validEvents"`
+}
+
+func (ServiceLevelEventsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEvents)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsArgs) ToServiceLevelEventsOutput() ServiceLevelEventsOutput {
+	return i.ToServiceLevelEventsOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsArgs) ToServiceLevelEventsOutputWithContext(ctx context.Context) ServiceLevelEventsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsOutput)
+}
+
+func (i ServiceLevelEventsArgs) ToServiceLevelEventsPtrOutput() ServiceLevelEventsPtrOutput {
+	return i.ToServiceLevelEventsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsArgs) ToServiceLevelEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsOutput).ToServiceLevelEventsPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsPtrInput is an input type that accepts ServiceLevelEventsArgs, ServiceLevelEventsPtr and ServiceLevelEventsPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsPtrInput` via:
+//
+//          ServiceLevelEventsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelEventsPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsPtrOutput() ServiceLevelEventsPtrOutput
+	ToServiceLevelEventsPtrOutputWithContext(context.Context) ServiceLevelEventsPtrOutput
+}
+
+type serviceLevelEventsPtrType ServiceLevelEventsArgs
+
+func ServiceLevelEventsPtr(v *ServiceLevelEventsArgs) ServiceLevelEventsPtrInput {
+	return (*serviceLevelEventsPtrType)(v)
+}
+
+func (*serviceLevelEventsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEvents)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsPtrType) ToServiceLevelEventsPtrOutput() ServiceLevelEventsPtrOutput {
+	return i.ToServiceLevelEventsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsPtrType) ToServiceLevelEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsPtrOutput)
+}
+
+type ServiceLevelEventsOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsOutput) ToServiceLevelEventsOutput() ServiceLevelEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsOutput) ToServiceLevelEventsOutputWithContext(ctx context.Context) ServiceLevelEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutput() ServiceLevelEventsPtrOutput {
+	return o.ToServiceLevelEventsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEvents {
+		return &v
+	}).(ServiceLevelEventsPtrOutput)
+}
+
+// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+// and that contains the NRDB data for the SLI/SLO calculations.
+func (o ServiceLevelEventsOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+func (o ServiceLevelEventsOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEventsBadEvents { return v.BadEvents }).(ServiceLevelEventsBadEventsPtrOutput)
+}
+
+// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+func (o ServiceLevelEventsOutput) GoodEvents() ServiceLevelEventsGoodEventsPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEventsGoodEvents { return v.GoodEvents }).(ServiceLevelEventsGoodEventsPtrOutput)
+}
+
+// The definition of valid requests.
+func (o ServiceLevelEventsOutput) ValidEvents() ServiceLevelEventsValidEventsOutput {
+	return o.ApplyT(func(v ServiceLevelEvents) ServiceLevelEventsValidEvents { return v.ValidEvents }).(ServiceLevelEventsValidEventsOutput)
+}
+
+type ServiceLevelEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsPtrOutput) ToServiceLevelEventsPtrOutput() ServiceLevelEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsPtrOutput) ToServiceLevelEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) ServiceLevelEvents { return *v }).(ServiceLevelEventsOutput)
+}
+
+// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+// and that contains the NRDB data for the SLI/SLO calculations.
+func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+func (o ServiceLevelEventsPtrOutput) BadEvents() ServiceLevelEventsBadEventsPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) *ServiceLevelEventsBadEvents {
+		if v == nil {
+			return nil
+		}
+		return v.BadEvents
+	}).(ServiceLevelEventsBadEventsPtrOutput)
+}
+
+// The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+func (o ServiceLevelEventsPtrOutput) GoodEvents() ServiceLevelEventsGoodEventsPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) *ServiceLevelEventsGoodEvents {
+		if v == nil {
+			return nil
+		}
+		return v.GoodEvents
+	}).(ServiceLevelEventsGoodEventsPtrOutput)
+}
+
+// The definition of valid requests.
+func (o ServiceLevelEventsPtrOutput) ValidEvents() ServiceLevelEventsValidEventsPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEvents) *ServiceLevelEventsValidEvents {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidEvents
+	}).(ServiceLevelEventsValidEventsPtrOutput)
+}
+
+type ServiceLevelEventsBadEvents struct {
+	// The event type where NRDB data will be fetched from.
+	From string `pulumi:"from"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	// a particular entity and were successful).
+	// a particular entity and returned an error).
+	Where *string `pulumi:"where"`
+}
+
+// ServiceLevelEventsBadEventsInput is an input type that accepts ServiceLevelEventsBadEventsArgs and ServiceLevelEventsBadEventsOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsBadEventsInput` via:
+//
+//          ServiceLevelEventsBadEventsArgs{...}
+type ServiceLevelEventsBadEventsInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsBadEventsOutput() ServiceLevelEventsBadEventsOutput
+	ToServiceLevelEventsBadEventsOutputWithContext(context.Context) ServiceLevelEventsBadEventsOutput
+}
+
+type ServiceLevelEventsBadEventsArgs struct {
+	// The event type where NRDB data will be fetched from.
+	From pulumi.StringInput `pulumi:"from"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	// a particular entity and were successful).
+	// a particular entity and returned an error).
+	Where pulumi.StringPtrInput `pulumi:"where"`
+}
+
+func (ServiceLevelEventsBadEventsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsBadEvents)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsBadEventsArgs) ToServiceLevelEventsBadEventsOutput() ServiceLevelEventsBadEventsOutput {
+	return i.ToServiceLevelEventsBadEventsOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsBadEventsArgs) ToServiceLevelEventsBadEventsOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsOutput)
+}
+
+func (i ServiceLevelEventsBadEventsArgs) ToServiceLevelEventsBadEventsPtrOutput() ServiceLevelEventsBadEventsPtrOutput {
+	return i.ToServiceLevelEventsBadEventsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsBadEventsArgs) ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsOutput).ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsBadEventsPtrInput is an input type that accepts ServiceLevelEventsBadEventsArgs, ServiceLevelEventsBadEventsPtr and ServiceLevelEventsBadEventsPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsBadEventsPtrInput` via:
+//
+//          ServiceLevelEventsBadEventsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelEventsBadEventsPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsBadEventsPtrOutput() ServiceLevelEventsBadEventsPtrOutput
+	ToServiceLevelEventsBadEventsPtrOutputWithContext(context.Context) ServiceLevelEventsBadEventsPtrOutput
+}
+
+type serviceLevelEventsBadEventsPtrType ServiceLevelEventsBadEventsArgs
+
+func ServiceLevelEventsBadEventsPtr(v *ServiceLevelEventsBadEventsArgs) ServiceLevelEventsBadEventsPtrInput {
+	return (*serviceLevelEventsBadEventsPtrType)(v)
+}
+
+func (*serviceLevelEventsBadEventsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsBadEvents)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsBadEventsPtrType) ToServiceLevelEventsBadEventsPtrOutput() ServiceLevelEventsBadEventsPtrOutput {
+	return i.ToServiceLevelEventsBadEventsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsBadEventsPtrType) ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsPtrOutput)
+}
+
+type ServiceLevelEventsBadEventsOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsBadEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsBadEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsOutput() ServiceLevelEventsBadEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsPtrOutput() ServiceLevelEventsBadEventsPtrOutput {
+	return o.ToServiceLevelEventsBadEventsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEvents {
+		return &v
+	}).(ServiceLevelEventsBadEventsPtrOutput)
+}
+
+// The event type where NRDB data will be fetched from.
+func (o ServiceLevelEventsBadEventsOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEvents) string { return v.From }).(pulumi.StringOutput)
+}
+
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+// a particular entity and were successful).
+// a particular entity and returned an error).
+func (o ServiceLevelEventsBadEventsOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelEventsBadEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsBadEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsBadEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsBadEventsPtrOutput) ToServiceLevelEventsBadEventsPtrOutput() ServiceLevelEventsBadEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsPtrOutput) ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsPtrOutput) Elem() ServiceLevelEventsBadEventsOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) ServiceLevelEventsBadEvents { return *v }).(ServiceLevelEventsBadEventsOutput)
+}
+
+// The event type where NRDB data will be fetched from.
+func (o ServiceLevelEventsBadEventsPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+// a particular entity and were successful).
+// a particular entity and returned an error).
+func (o ServiceLevelEventsBadEventsPtrOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Where
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelEventsGoodEvents struct {
+	// The event type where NRDB data will be fetched from.
+	From string `pulumi:"from"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	// a particular entity and were successful).
+	// a particular entity and returned an error).
+	Where *string `pulumi:"where"`
+}
+
+// ServiceLevelEventsGoodEventsInput is an input type that accepts ServiceLevelEventsGoodEventsArgs and ServiceLevelEventsGoodEventsOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsGoodEventsInput` via:
+//
+//          ServiceLevelEventsGoodEventsArgs{...}
+type ServiceLevelEventsGoodEventsInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsGoodEventsOutput() ServiceLevelEventsGoodEventsOutput
+	ToServiceLevelEventsGoodEventsOutputWithContext(context.Context) ServiceLevelEventsGoodEventsOutput
+}
+
+type ServiceLevelEventsGoodEventsArgs struct {
+	// The event type where NRDB data will be fetched from.
+	From pulumi.StringInput `pulumi:"from"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	// a particular entity and were successful).
+	// a particular entity and returned an error).
+	Where pulumi.StringPtrInput `pulumi:"where"`
+}
+
+func (ServiceLevelEventsGoodEventsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsGoodEvents)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsGoodEventsArgs) ToServiceLevelEventsGoodEventsOutput() ServiceLevelEventsGoodEventsOutput {
+	return i.ToServiceLevelEventsGoodEventsOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsGoodEventsArgs) ToServiceLevelEventsGoodEventsOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsOutput)
+}
+
+func (i ServiceLevelEventsGoodEventsArgs) ToServiceLevelEventsGoodEventsPtrOutput() ServiceLevelEventsGoodEventsPtrOutput {
+	return i.ToServiceLevelEventsGoodEventsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsGoodEventsArgs) ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsOutput).ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsGoodEventsPtrInput is an input type that accepts ServiceLevelEventsGoodEventsArgs, ServiceLevelEventsGoodEventsPtr and ServiceLevelEventsGoodEventsPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsGoodEventsPtrInput` via:
+//
+//          ServiceLevelEventsGoodEventsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelEventsGoodEventsPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsGoodEventsPtrOutput() ServiceLevelEventsGoodEventsPtrOutput
+	ToServiceLevelEventsGoodEventsPtrOutputWithContext(context.Context) ServiceLevelEventsGoodEventsPtrOutput
+}
+
+type serviceLevelEventsGoodEventsPtrType ServiceLevelEventsGoodEventsArgs
+
+func ServiceLevelEventsGoodEventsPtr(v *ServiceLevelEventsGoodEventsArgs) ServiceLevelEventsGoodEventsPtrInput {
+	return (*serviceLevelEventsGoodEventsPtrType)(v)
+}
+
+func (*serviceLevelEventsGoodEventsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsGoodEvents)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsGoodEventsPtrType) ToServiceLevelEventsGoodEventsPtrOutput() ServiceLevelEventsGoodEventsPtrOutput {
+	return i.ToServiceLevelEventsGoodEventsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsGoodEventsPtrType) ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsPtrOutput)
+}
+
+type ServiceLevelEventsGoodEventsOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsGoodEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsGoodEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsOutput() ServiceLevelEventsGoodEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsPtrOutput() ServiceLevelEventsGoodEventsPtrOutput {
+	return o.ToServiceLevelEventsGoodEventsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEvents {
+		return &v
+	}).(ServiceLevelEventsGoodEventsPtrOutput)
+}
+
+// The event type where NRDB data will be fetched from.
+func (o ServiceLevelEventsGoodEventsOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) string { return v.From }).(pulumi.StringOutput)
+}
+
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+// a particular entity and were successful).
+// a particular entity and returned an error).
+func (o ServiceLevelEventsGoodEventsOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelEventsGoodEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsGoodEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsGoodEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsGoodEventsPtrOutput) ToServiceLevelEventsGoodEventsPtrOutput() ServiceLevelEventsGoodEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsPtrOutput) ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsPtrOutput) Elem() ServiceLevelEventsGoodEventsOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) ServiceLevelEventsGoodEvents { return *v }).(ServiceLevelEventsGoodEventsOutput)
+}
+
+// The event type where NRDB data will be fetched from.
+func (o ServiceLevelEventsGoodEventsPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+// a particular entity and were successful).
+// a particular entity and returned an error).
+func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Where
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelEventsValidEvents struct {
+	// The event type where NRDB data will be fetched from.
+	From string `pulumi:"from"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	// a particular entity and were successful).
+	// a particular entity and returned an error).
+	Where *string `pulumi:"where"`
+}
+
+// ServiceLevelEventsValidEventsInput is an input type that accepts ServiceLevelEventsValidEventsArgs and ServiceLevelEventsValidEventsOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsValidEventsInput` via:
+//
+//          ServiceLevelEventsValidEventsArgs{...}
+type ServiceLevelEventsValidEventsInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsValidEventsOutput() ServiceLevelEventsValidEventsOutput
+	ToServiceLevelEventsValidEventsOutputWithContext(context.Context) ServiceLevelEventsValidEventsOutput
+}
+
+type ServiceLevelEventsValidEventsArgs struct {
+	// The event type where NRDB data will be fetched from.
+	From pulumi.StringInput `pulumi:"from"`
+	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+	// a particular entity and were successful).
+	// a particular entity and returned an error).
+	Where pulumi.StringPtrInput `pulumi:"where"`
+}
+
+func (ServiceLevelEventsValidEventsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsValidEvents)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsValidEventsArgs) ToServiceLevelEventsValidEventsOutput() ServiceLevelEventsValidEventsOutput {
+	return i.ToServiceLevelEventsValidEventsOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsValidEventsArgs) ToServiceLevelEventsValidEventsOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsOutput)
+}
+
+func (i ServiceLevelEventsValidEventsArgs) ToServiceLevelEventsValidEventsPtrOutput() ServiceLevelEventsValidEventsPtrOutput {
+	return i.ToServiceLevelEventsValidEventsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsValidEventsArgs) ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsOutput).ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsValidEventsPtrInput is an input type that accepts ServiceLevelEventsValidEventsArgs, ServiceLevelEventsValidEventsPtr and ServiceLevelEventsValidEventsPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsValidEventsPtrInput` via:
+//
+//          ServiceLevelEventsValidEventsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelEventsValidEventsPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsValidEventsPtrOutput() ServiceLevelEventsValidEventsPtrOutput
+	ToServiceLevelEventsValidEventsPtrOutputWithContext(context.Context) ServiceLevelEventsValidEventsPtrOutput
+}
+
+type serviceLevelEventsValidEventsPtrType ServiceLevelEventsValidEventsArgs
+
+func ServiceLevelEventsValidEventsPtr(v *ServiceLevelEventsValidEventsArgs) ServiceLevelEventsValidEventsPtrInput {
+	return (*serviceLevelEventsValidEventsPtrType)(v)
+}
+
+func (*serviceLevelEventsValidEventsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsValidEvents)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsValidEventsPtrType) ToServiceLevelEventsValidEventsPtrOutput() ServiceLevelEventsValidEventsPtrOutput {
+	return i.ToServiceLevelEventsValidEventsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsValidEventsPtrType) ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsPtrOutput)
+}
+
+type ServiceLevelEventsValidEventsOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsValidEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsValidEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsOutput() ServiceLevelEventsValidEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsPtrOutput() ServiceLevelEventsValidEventsPtrOutput {
+	return o.ToServiceLevelEventsValidEventsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEvents {
+		return &v
+	}).(ServiceLevelEventsValidEventsPtrOutput)
+}
+
+// The event type where NRDB data will be fetched from.
+func (o ServiceLevelEventsValidEventsOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEvents) string { return v.From }).(pulumi.StringOutput)
+}
+
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+// a particular entity and were successful).
+// a particular entity and returned an error).
+func (o ServiceLevelEventsValidEventsOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *string { return v.Where }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelEventsValidEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsValidEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsValidEvents)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsValidEventsPtrOutput) ToServiceLevelEventsValidEventsPtrOutput() ServiceLevelEventsValidEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsPtrOutput) ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsPtrOutput) Elem() ServiceLevelEventsValidEventsOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) ServiceLevelEventsValidEvents { return *v }).(ServiceLevelEventsValidEventsOutput)
+}
+
+// The event type where NRDB data will be fetched from.
+func (o ServiceLevelEventsValidEventsPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+// a particular entity and were successful).
+// a particular entity and returned an error).
+func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Where
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjective struct {
+	// The description of the SLI.
+	Description *string `pulumi:"description"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name *string `pulumi:"name"`
+	// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+	Target float64 `pulumi:"target"`
+	// Time window is the period for the SLO.
+	TimeWindow ServiceLevelObjectiveTimeWindow `pulumi:"timeWindow"`
+}
+
+// ServiceLevelObjectiveInput is an input type that accepts ServiceLevelObjectiveArgs and ServiceLevelObjectiveOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveInput` via:
+//
+//          ServiceLevelObjectiveArgs{...}
+type ServiceLevelObjectiveInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput
+	ToServiceLevelObjectiveOutputWithContext(context.Context) ServiceLevelObjectiveOutput
+}
+
+type ServiceLevelObjectiveArgs struct {
+	// The description of the SLI.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A short name for the SLI that will help anyone understand what it is about.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+	Target pulumi.Float64Input `pulumi:"target"`
+	// Time window is the period for the SLO.
+	TimeWindow ServiceLevelObjectiveTimeWindowInput `pulumi:"timeWindow"`
+}
+
+func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjective)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {
+	return i.ToServiceLevelObjectiveOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
+}
+
+// ServiceLevelObjectiveArrayInput is an input type that accepts ServiceLevelObjectiveArray and ServiceLevelObjectiveArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveArrayInput` via:
+//
+//          ServiceLevelObjectiveArray{ ServiceLevelObjectiveArgs{...} }
+type ServiceLevelObjectiveArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput
+	ToServiceLevelObjectiveArrayOutputWithContext(context.Context) ServiceLevelObjectiveArrayOutput
+}
+
+type ServiceLevelObjectiveArray []ServiceLevelObjectiveInput
+
+func (ServiceLevelObjectiveArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjective)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
+	return i.ToServiceLevelObjectiveArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveArrayOutput)
+}
+
+type ServiceLevelObjectiveOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjective)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
+	return o
+}
+
+// The description of the SLI.
+func (o ServiceLevelObjectiveOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjective) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A short name for the SLI that will help anyone understand what it is about.
+func (o ServiceLevelObjectiveOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjective) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+func (o ServiceLevelObjectiveOutput) Target() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceLevelObjective) float64 { return v.Target }).(pulumi.Float64Output)
+}
+
+// Time window is the period for the SLO.
+func (o ServiceLevelObjectiveOutput) TimeWindow() ServiceLevelObjectiveTimeWindowOutput {
+	return o.ApplyT(func(v ServiceLevelObjective) ServiceLevelObjectiveTimeWindow { return v.TimeWindow }).(ServiceLevelObjectiveTimeWindowOutput)
+}
+
+type ServiceLevelObjectiveArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjective)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjective {
+		return vs[0].([]ServiceLevelObjective)[vs[1].(int)]
+	}).(ServiceLevelObjectiveOutput)
+}
+
+type ServiceLevelObjectiveTimeWindow struct {
+	// Rolling window.
+	Rolling ServiceLevelObjectiveTimeWindowRolling `pulumi:"rolling"`
+}
+
+// ServiceLevelObjectiveTimeWindowInput is an input type that accepts ServiceLevelObjectiveTimeWindowArgs and ServiceLevelObjectiveTimeWindowOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveTimeWindowInput` via:
+//
+//          ServiceLevelObjectiveTimeWindowArgs{...}
+type ServiceLevelObjectiveTimeWindowInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveTimeWindowOutput() ServiceLevelObjectiveTimeWindowOutput
+	ToServiceLevelObjectiveTimeWindowOutputWithContext(context.Context) ServiceLevelObjectiveTimeWindowOutput
+}
+
+type ServiceLevelObjectiveTimeWindowArgs struct {
+	// Rolling window.
+	Rolling ServiceLevelObjectiveTimeWindowRollingInput `pulumi:"rolling"`
+}
+
+func (ServiceLevelObjectiveTimeWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveTimeWindow)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowOutput() ServiceLevelObjectiveTimeWindowOutput {
+	return i.ToServiceLevelObjectiveTimeWindowOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowOutput)
+}
+
+type ServiceLevelObjectiveTimeWindowOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveTimeWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveTimeWindow)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindowOutput() ServiceLevelObjectiveTimeWindowOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindowOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowOutput {
+	return o
+}
+
+// Rolling window.
+func (o ServiceLevelObjectiveTimeWindowOutput) Rolling() ServiceLevelObjectiveTimeWindowRollingOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindow) ServiceLevelObjectiveTimeWindowRolling { return v.Rolling }).(ServiceLevelObjectiveTimeWindowRollingOutput)
+}
+
+type ServiceLevelObjectiveTimeWindowRolling struct {
+	// Valid values are `1`, `7`, `14`, `28` and `30`.
+	Count int `pulumi:"count"`
+	// The only supported value is `DAY`.
+	Unit string `pulumi:"unit"`
+}
+
+// ServiceLevelObjectiveTimeWindowRollingInput is an input type that accepts ServiceLevelObjectiveTimeWindowRollingArgs and ServiceLevelObjectiveTimeWindowRollingOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveTimeWindowRollingInput` via:
+//
+//          ServiceLevelObjectiveTimeWindowRollingArgs{...}
+type ServiceLevelObjectiveTimeWindowRollingInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveTimeWindowRollingOutput() ServiceLevelObjectiveTimeWindowRollingOutput
+	ToServiceLevelObjectiveTimeWindowRollingOutputWithContext(context.Context) ServiceLevelObjectiveTimeWindowRollingOutput
+}
+
+type ServiceLevelObjectiveTimeWindowRollingArgs struct {
+	// Valid values are `1`, `7`, `14`, `28` and `30`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The only supported value is `DAY`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (ServiceLevelObjectiveTimeWindowRollingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRolling)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeWindowRollingOutput() ServiceLevelObjectiveTimeWindowRollingOutput {
+	return i.ToServiceLevelObjectiveTimeWindowRollingOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeWindowRollingOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowRollingOutput)
+}
+
+type ServiceLevelObjectiveTimeWindowRollingOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveTimeWindowRollingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRolling)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTimeWindowRollingOutput() ServiceLevelObjectiveTimeWindowRollingOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTimeWindowRollingOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingOutput {
+	return o
+}
+
+// Valid values are `1`, `7`, `14`, `28` and `30`.
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The only supported value is `DAY`.
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) string { return v.Unit }).(pulumi.StringOutput)
 }
 
 type GetAlertChannelConfig struct {
@@ -6905,6 +8111,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryOutput{})
@@ -6913,6 +8123,18 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardRawPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageWidgetOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageWidgetArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsGoodEventsOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsGoodEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 }
