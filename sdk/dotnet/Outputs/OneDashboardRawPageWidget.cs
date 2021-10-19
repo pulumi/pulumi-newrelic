@@ -27,6 +27,10 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
+        /// (Optional) Related entity GUIDs.
+        /// </summary>
+        public readonly ImmutableArray<string> LinkedEntityGuids;
+        /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>
         public readonly int Row;
@@ -53,6 +57,8 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
+            ImmutableArray<string> linkedEntityGuids,
+
             int row,
 
             string title,
@@ -65,6 +71,7 @@ namespace Pulumi.NewRelic.Outputs
             Configuration = configuration;
             Height = height;
             Id = id;
+            LinkedEntityGuids = linkedEntityGuids;
             Row = row;
             Title = title;
             VisualizationId = visualizationId;

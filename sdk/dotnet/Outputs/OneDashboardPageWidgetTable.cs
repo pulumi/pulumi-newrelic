@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic.Outputs
         /// (Required) Column position of widget from top left, starting at `1`.
         /// </summary>
         public readonly int Column;
+        public readonly bool? FilterCurrentDashboard;
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         /// </summary>
@@ -45,6 +46,8 @@ namespace Pulumi.NewRelic.Outputs
         private OneDashboardPageWidgetTable(
             int column,
 
+            bool? filterCurrentDashboard,
+
             int? height,
 
             string? id,
@@ -60,6 +63,7 @@ namespace Pulumi.NewRelic.Outputs
             int? width)
         {
             Column = column;
+            FilterCurrentDashboard = filterCurrentDashboard;
             Height = height;
             Id = id;
             LinkedEntityGuids = linkedEntityGuids;

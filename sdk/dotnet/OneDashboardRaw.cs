@@ -14,6 +14,8 @@ namespace Pulumi.NewRelic
     /// ### Create A New Relic One Dashboard With RawConfiguration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
@@ -32,7 +34,12 @@ namespace Pulumi.NewRelic
     ///                     {
     ///                         new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
     ///                         {
+    ///                             Title = "Custom widget",
+    ///                             Row = 1,
     ///                             Column = 1,
+    ///                             Width = 1,
+    ///                             Height = 1,
+    ///                             VisualizationId = "viz.custom",
     ///                             Configuration = @"      {
     ///         ""legend"": {
     ///           ""enabled"": false
@@ -49,17 +56,16 @@ namespace Pulumi.NewRelic
     ///           ""zero"": false
     ///         }
     ///       }
-    ///       
     /// ",
-    ///                             Height = 1,
-    ///                             Row = 1,
-    ///                             Title = "Custom widget",
-    ///                             VisualizationId = "viz.custom",
-    ///                             Width = 1,
     ///                         },
     ///                         new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
     ///                         {
+    ///                             Title = "Server CPU",
+    ///                             Row = 1,
     ///                             Column = 2,
+    ///                             Width = 1,
+    ///                             Height = 1,
+    ///                             VisualizationId = "viz.testing",
     ///                             Configuration = @"      {
     ///         ""nrqlQueries"": [
     ///           {
@@ -68,13 +74,36 @@ namespace Pulumi.NewRelic
     ///           }
     ///         ]
     ///       }
-    ///       
     /// ",
-    ///                             Height = 1,
+    ///                         },
+    ///                         new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
+    ///                         {
+    ///                             Title = "Docker Server CPU",
     ///                             Row = 1,
-    ///                             Title = "Server CPU",
-    ///                             VisualizationId = "viz.testing",
+    ///                             Column = 3,
+    ///                             Height = 1,
     ///                             Width = 1,
+    ///                             VisualizationId = "viz.bar",
+    ///                             Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "facet", new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "showOtherSeries", false },
+    ///                                 } },
+    ///                                 { "nrqlQueries", new[]
+    ///                                     {
+    ///                                         new Dictionary&lt;string, object?&gt;
+    ///                                         {
+    ///                                             { "accountId", local.AccountID },
+    ///                                             { "query", "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400" },
+    ///                                         },
+    ///                                     }
+    ///                                  },
+    ///                             }),
+    ///                             LinkedEntityGuids = 
+    ///                             {
+    ///                                 "MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc",
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

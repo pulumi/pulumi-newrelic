@@ -162,6 +162,18 @@ namespace Pulumi.NewRelic.Inputs
             set => _widgetPies = value;
         }
 
+        [Input("widgetStackedBars")]
+        private InputList<Inputs.OneDashboardPageWidgetStackedBarGetArgs>? _widgetStackedBars;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetStackedBarGetArgs> WidgetStackedBars
+        {
+            get => _widgetStackedBars ?? (_widgetStackedBars = new InputList<Inputs.OneDashboardPageWidgetStackedBarGetArgs>());
+            set => _widgetStackedBars = value;
+        }
+
         [Input("widgetTables")]
         private InputList<Inputs.OneDashboardPageWidgetTableGetArgs>? _widgetTables;
 

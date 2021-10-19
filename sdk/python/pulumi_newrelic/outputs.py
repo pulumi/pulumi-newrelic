@@ -49,10 +49,19 @@ __all__ = [
     'OneDashboardPageWidgetMarkdown',
     'OneDashboardPageWidgetPy',
     'OneDashboardPageWidgetPyNrqlQuery',
+    'OneDashboardPageWidgetStackedBar',
+    'OneDashboardPageWidgetStackedBarNrqlQuery',
     'OneDashboardPageWidgetTable',
     'OneDashboardPageWidgetTableNrqlQuery',
     'OneDashboardRawPage',
     'OneDashboardRawPageWidget',
+    'ServiceLevelEvents',
+    'ServiceLevelEventsBadEvents',
+    'ServiceLevelEventsGoodEvents',
+    'ServiceLevelEventsValidEvents',
+    'ServiceLevelObjective',
+    'ServiceLevelObjectiveTimeWindow',
+    'ServiceLevelObjectiveTimeWindowRolling',
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
 ]
@@ -1488,6 +1497,8 @@ class OneDashboardPage(dict):
             suggest = "widget_markdowns"
         elif key == "widgetPies":
             suggest = "widget_pies"
+        elif key == "widgetStackedBars":
+            suggest = "widget_stacked_bars"
         elif key == "widgetTables":
             suggest = "widget_tables"
 
@@ -1517,6 +1528,7 @@ class OneDashboardPage(dict):
                  widget_lines: Optional[Sequence['outputs.OneDashboardPageWidgetLine']] = None,
                  widget_markdowns: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdown']] = None,
                  widget_pies: Optional[Sequence['outputs.OneDashboardPageWidgetPy']] = None,
+                 widget_stacked_bars: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBar']] = None,
                  widget_tables: Optional[Sequence['outputs.OneDashboardPageWidgetTable']] = None):
         """
         :param str name: The title of the dashboard.
@@ -1533,6 +1545,7 @@ class OneDashboardPage(dict):
         :param Sequence['OneDashboardPageWidgetLineArgs'] widget_lines: (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetMarkdownArgs'] widget_markdowns: (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetPyArgs'] widget_pies: (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
+        :param Sequence['OneDashboardPageWidgetStackedBarArgs'] widget_stacked_bars: (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
         :param Sequence['OneDashboardPageWidgetTableArgs'] widget_tables: (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
         """
         pulumi.set(__self__, "name", name)
@@ -1562,6 +1575,8 @@ class OneDashboardPage(dict):
             pulumi.set(__self__, "widget_markdowns", widget_markdowns)
         if widget_pies is not None:
             pulumi.set(__self__, "widget_pies", widget_pies)
+        if widget_stacked_bars is not None:
+            pulumi.set(__self__, "widget_stacked_bars", widget_stacked_bars)
         if widget_tables is not None:
             pulumi.set(__self__, "widget_tables", widget_tables)
 
@@ -1676,6 +1691,14 @@ class OneDashboardPage(dict):
         (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
         """
         return pulumi.get(self, "widget_pies")
+
+    @property
+    @pulumi.getter(name="widgetStackedBars")
+    def widget_stacked_bars(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBar']]:
+        """
+        (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+        """
+        return pulumi.get(self, "widget_stacked_bars")
 
     @property
     @pulumi.getter(name="widgetTables")
@@ -1842,6 +1865,8 @@ class OneDashboardPageWidgetBar(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "filterCurrentDashboard":
+            suggest = "filter_current_dashboard"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
 
@@ -1861,6 +1886,7 @@ class OneDashboardPageWidgetBar(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery'],
                  row: int,
                  title: str,
+                 filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
@@ -1878,6 +1904,8 @@ class OneDashboardPageWidgetBar(dict):
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if filter_current_dashboard is not None:
+            pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
@@ -1919,6 +1947,11 @@ class OneDashboardPageWidgetBar(dict):
         (Required) A title for the widget.
         """
         return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="filterCurrentDashboard")
+    def filter_current_dashboard(self) -> Optional[bool]:
+        return pulumi.get(self, "filter_current_dashboard")
 
     @property
     @pulumi.getter
@@ -3093,7 +3126,7 @@ class OneDashboardPageWidgetMarkdown(dict):
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param str text: (Required) The markdown source to be rendered in the widget.
-               * `widget_pie`
+               * `widget_stacked_bar`
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3150,7 +3183,7 @@ class OneDashboardPageWidgetMarkdown(dict):
     def text(self) -> Optional[str]:
         """
         (Required) The markdown source to be rendered in the widget.
-        * `widget_pie`
+        * `widget_stacked_bar`
         """
         return pulumi.get(self, "text")
 
@@ -3170,6 +3203,8 @@ class OneDashboardPageWidgetPy(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "filterCurrentDashboard":
+            suggest = "filter_current_dashboard"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
 
@@ -3189,6 +3224,7 @@ class OneDashboardPageWidgetPy(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery'],
                  row: int,
                  title: str,
+                 filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
@@ -3206,6 +3242,8 @@ class OneDashboardPageWidgetPy(dict):
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if filter_current_dashboard is not None:
+            pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
@@ -3247,6 +3285,11 @@ class OneDashboardPageWidgetPy(dict):
         (Required) A title for the widget.
         """
         return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="filterCurrentDashboard")
+    def filter_current_dashboard(self) -> Optional[bool]:
+        return pulumi.get(self, "filter_current_dashboard")
 
     @property
     @pulumi.getter
@@ -3323,12 +3366,163 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetStackedBar(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nrqlQueries":
+            suggest = "nrql_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBar. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBar.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBar.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column: int,
+                 nrql_queries: Sequence['outputs.OneDashboardPageWidgetStackedBarNrqlQuery'],
+                 row: int,
+                 title: str,
+                 height: Optional[int] = None,
+                 id: Optional[str] = None,
+                 width: Optional[int] = None):
+        """
+        :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param Sequence['OneDashboardPageWidgetStackedBarNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param int row: (Required) Row position of widget from top left, starting at `1`.
+        :param str title: (Required) A title for the widget.
+        :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "nrql_queries", nrql_queries)
+        pulumi.set(__self__, "row", row)
+        pulumi.set(__self__, "title", title)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def column(self) -> int:
+        """
+        (Required) Column position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="nrqlQueries")
+    def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetStackedBarNrqlQuery']:
+        """
+        (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
+        return pulumi.get(self, "nrql_queries")
+
+    @property
+    @pulumi.getter
+    def row(self) -> int:
+        """
+        (Required) Row position of widget from top left, starting at `1`.
+        """
+        return pulumi.get(self, "row")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Required) A title for the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query: str,
+                 account_id: Optional[int] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        :param int account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[int]:
+        """
+        Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "filterCurrentDashboard":
+            suggest = "filter_current_dashboard"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
 
@@ -3348,6 +3542,7 @@ class OneDashboardPageWidgetTable(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery'],
                  row: int,
                  title: str,
+                 filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
@@ -3365,6 +3560,8 @@ class OneDashboardPageWidgetTable(dict):
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if filter_current_dashboard is not None:
+            pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
@@ -3406,6 +3603,11 @@ class OneDashboardPageWidgetTable(dict):
         (Required) A title for the widget.
         """
         return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="filterCurrentDashboard")
+    def filter_current_dashboard(self) -> Optional[bool]:
+        return pulumi.get(self, "filter_current_dashboard")
 
     @property
     @pulumi.getter
@@ -3542,6 +3744,8 @@ class OneDashboardRawPageWidget(dict):
         suggest = None
         if key == "visualizationId":
             suggest = "visualization_id"
+        elif key == "linkedEntityGuids":
+            suggest = "linked_entity_guids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardRawPageWidget. Access the value via the '{suggest}' property getter instead.")
@@ -3562,6 +3766,7 @@ class OneDashboardRawPageWidget(dict):
                  visualization_id: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
+                 linked_entity_guids: Optional[Sequence[str]] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
@@ -3570,6 +3775,7 @@ class OneDashboardRawPageWidget(dict):
         :param str title: (Required) A title for the widget.
         :param str visualization_id: (Required) The visualization ID of the widget
         :param int height: (Optional) Height of the widget. Valid values are `1` to `12` inclusive. Defaults to `3`.
+        :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs.
         :param int width: (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3581,6 +3787,8 @@ class OneDashboardRawPageWidget(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -3638,12 +3846,368 @@ class OneDashboardRawPageWidget(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) Related entity GUIDs.
+        """
+        return pulumi.get(self, "linked_entity_guids")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class ServiceLevelEvents(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "validEvents":
+            suggest = "valid_events"
+        elif key == "badEvents":
+            suggest = "bad_events"
+        elif key == "goodEvents":
+            suggest = "good_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: int,
+                 valid_events: 'outputs.ServiceLevelEventsValidEvents',
+                 bad_events: Optional['outputs.ServiceLevelEventsBadEvents'] = None,
+                 good_events: Optional['outputs.ServiceLevelEventsGoodEvents'] = None):
+        """
+        :param int account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+               and that contains the NRDB data for the SLI/SLO calculations.
+        :param 'ServiceLevelEventsValidEventsArgs' valid_events: The definition of valid requests.
+        :param 'ServiceLevelEventsBadEventsArgs' bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        :param 'ServiceLevelEventsGoodEventsArgs' good_events: The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "valid_events", valid_events)
+        if bad_events is not None:
+            pulumi.set(__self__, "bad_events", bad_events)
+        if good_events is not None:
+            pulumi.set(__self__, "good_events", good_events)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> int:
+        """
+        The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+        and that contains the NRDB data for the SLI/SLO calculations.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="validEvents")
+    def valid_events(self) -> 'outputs.ServiceLevelEventsValidEvents':
+        """
+        The definition of valid requests.
+        """
+        return pulumi.get(self, "valid_events")
+
+    @property
+    @pulumi.getter(name="badEvents")
+    def bad_events(self) -> Optional['outputs.ServiceLevelEventsBadEvents']:
+        """
+        The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+        """
+        return pulumi.get(self, "bad_events")
+
+    @property
+    @pulumi.getter(name="goodEvents")
+    def good_events(self) -> Optional['outputs.ServiceLevelEventsGoodEvents']:
+        """
+        The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+        """
+        return pulumi.get(self, "good_events")
+
+
+@pulumi.output_type
+class ServiceLevelEventsBadEvents(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelEventsBadEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelEventsBadEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelEventsBadEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: str,
+                 where: Optional[str] = None):
+        """
+        :param str from_: The event type where NRDB data will be fetched from.
+        :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+               a particular entity and were successful).
+               a particular entity and returned an error).
+        """
+        pulumi.set(__self__, "from_", from_)
+        if where is not None:
+            pulumi.set(__self__, "where", where)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The event type where NRDB data will be fetched from.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def where(self) -> Optional[str]:
+        """
+        A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        a particular entity and were successful).
+        a particular entity and returned an error).
+        """
+        return pulumi.get(self, "where")
+
+
+@pulumi.output_type
+class ServiceLevelEventsGoodEvents(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelEventsGoodEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelEventsGoodEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelEventsGoodEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: str,
+                 where: Optional[str] = None):
+        """
+        :param str from_: The event type where NRDB data will be fetched from.
+        :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+               a particular entity and were successful).
+               a particular entity and returned an error).
+        """
+        pulumi.set(__self__, "from_", from_)
+        if where is not None:
+            pulumi.set(__self__, "where", where)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The event type where NRDB data will be fetched from.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def where(self) -> Optional[str]:
+        """
+        A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        a particular entity and were successful).
+        a particular entity and returned an error).
+        """
+        return pulumi.get(self, "where")
+
+
+@pulumi.output_type
+class ServiceLevelEventsValidEvents(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelEventsValidEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelEventsValidEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelEventsValidEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: str,
+                 where: Optional[str] = None):
+        """
+        :param str from_: The event type where NRDB data will be fetched from.
+        :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+               a particular entity and were successful).
+               a particular entity and returned an error).
+        """
+        pulumi.set(__self__, "from_", from_)
+        if where is not None:
+            pulumi.set(__self__, "where", where)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        The event type where NRDB data will be fetched from.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def where(self) -> Optional[str]:
+        """
+        A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+        a particular entity and were successful).
+        a particular entity and returned an error).
+        """
+        return pulumi.get(self, "where")
+
+
+@pulumi.output_type
+class ServiceLevelObjective(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeWindow":
+            suggest = "time_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjective. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjective.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjective.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target: float,
+                 time_window: 'outputs.ServiceLevelObjectiveTimeWindow',
+                 description: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param float target: The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+        :param 'ServiceLevelObjectiveTimeWindowArgs' time_window: Time window is the period for the SLO.
+        :param str description: The description of the SLI.
+        :param str name: A short name for the SLI that will help anyone understand what it is about.
+        """
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "time_window", time_window)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def target(self) -> float:
+        """
+        The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> 'outputs.ServiceLevelObjectiveTimeWindow':
+        """
+        Time window is the period for the SLO.
+        """
+        return pulumi.get(self, "time_window")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the SLI.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        A short name for the SLI that will help anyone understand what it is about.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveTimeWindow(dict):
+    def __init__(__self__, *,
+                 rolling: 'outputs.ServiceLevelObjectiveTimeWindowRolling'):
+        """
+        :param 'ServiceLevelObjectiveTimeWindowRollingArgs' rolling: Rolling window.
+        """
+        pulumi.set(__self__, "rolling", rolling)
+
+    @property
+    @pulumi.getter
+    def rolling(self) -> 'outputs.ServiceLevelObjectiveTimeWindowRolling':
+        """
+        Rolling window.
+        """
+        return pulumi.get(self, "rolling")
+
+
+@pulumi.output_type
+class ServiceLevelObjectiveTimeWindowRolling(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 unit: str):
+        """
+        :param int count: Valid values are `1`, `7`, `14`, `28` and `30`.
+        :param str unit: The only supported value is `DAY`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        Valid values are `1`, `7`, `14`, `28` and `30`.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The only supported value is `DAY`.
+        """
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

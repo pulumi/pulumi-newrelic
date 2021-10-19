@@ -33,6 +33,18 @@ namespace Pulumi.NewRelic.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("linkedEntityGuids")]
+        private InputList<string>? _linkedEntityGuids;
+
+        /// <summary>
+        /// (Optional) Related entity GUIDs.
+        /// </summary>
+        public InputList<string> LinkedEntityGuids
+        {
+            get => _linkedEntityGuids ?? (_linkedEntityGuids = new InputList<string>());
+            set => _linkedEntityGuids = value;
+        }
+
         /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>

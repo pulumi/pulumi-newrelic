@@ -236,13 +236,19 @@ class OneDashboardRaw(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_newrelic as newrelic
 
         exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
             name="Page Name",
             widgets=[
                 newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Custom widget",
+                    row=1,
                     column=1,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.custom",
                     configuration=\"\"\"      {
                 "legend": {
                   "enabled": false
@@ -259,16 +265,15 @@ class OneDashboardRaw(pulumi.CustomResource):
                   "zero": false
                 }
               }
-              
         \"\"\",
-                    height=1,
-                    row=1,
-                    title="Custom widget",
-                    visualization_id="viz.custom",
-                    width=1,
                 ),
                 newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Server CPU",
+                    row=1,
                     column=2,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.testing",
                     configuration=\"\"\"      {
                 "nrqlQueries": [
                   {
@@ -277,13 +282,25 @@ class OneDashboardRaw(pulumi.CustomResource):
                   }
                 ]
               }
-              
         \"\"\",
-                    height=1,
+                ),
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Docker Server CPU",
                     row=1,
-                    title="Server CPU",
-                    visualization_id="viz.testing",
+                    column=3,
+                    height=1,
                     width=1,
+                    visualization_id="viz.bar",
+                    configuration=json.dumps({
+                        "facet": {
+                            "showOtherSeries": False,
+                        },
+                        "nrqlQueries": [{
+                            "accountId": local["accountID"],
+                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                        }],
+                    }),
+                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
                 ),
             ],
         )])
@@ -309,13 +326,19 @@ class OneDashboardRaw(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_newrelic as newrelic
 
         exampledash = newrelic.OneDashboardRaw("exampledash", pages=[newrelic.OneDashboardRawPageArgs(
             name="Page Name",
             widgets=[
                 newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Custom widget",
+                    row=1,
                     column=1,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.custom",
                     configuration=\"\"\"      {
                 "legend": {
                   "enabled": false
@@ -332,16 +355,15 @@ class OneDashboardRaw(pulumi.CustomResource):
                   "zero": false
                 }
               }
-              
         \"\"\",
-                    height=1,
-                    row=1,
-                    title="Custom widget",
-                    visualization_id="viz.custom",
-                    width=1,
                 ),
                 newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Server CPU",
+                    row=1,
                     column=2,
+                    width=1,
+                    height=1,
+                    visualization_id="viz.testing",
                     configuration=\"\"\"      {
                 "nrqlQueries": [
                   {
@@ -350,13 +372,25 @@ class OneDashboardRaw(pulumi.CustomResource):
                   }
                 ]
               }
-              
         \"\"\",
-                    height=1,
+                ),
+                newrelic.OneDashboardRawPageWidgetArgs(
+                    title="Docker Server CPU",
                     row=1,
-                    title="Server CPU",
-                    visualization_id="viz.testing",
+                    column=3,
+                    height=1,
                     width=1,
+                    visualization_id="viz.bar",
+                    configuration=json.dumps({
+                        "facet": {
+                            "showOtherSeries": False,
+                        },
+                        "nrqlQueries": [{
+                            "accountId": local["accountID"],
+                            "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+                        }],
+                    }),
+                    linked_entity_guids=["MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc"],
                 ),
             ],
         )])

@@ -269,6 +269,8 @@ export interface NrqlAlertConditionNrql {
     /**
      * Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
      * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
+     *
+     * @deprecated use `signal.aggregation_method` attribute instead
      */
     evaluationOffset?: pulumi.Input<number>;
     /**
@@ -279,7 +281,7 @@ export interface NrqlAlertConditionNrql {
      * **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
      * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
      *
-     * @deprecated use `evaluation_offset` attribute instead
+     * @deprecated use `signal.aggregation_method` attribute instead
      */
     sinceValue?: pulumi.Input<string>;
 }
@@ -414,6 +416,10 @@ export interface OneDashboardPage {
      */
     widgetPies?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPy>[]>;
     /**
+     * (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
+     */
+    widgetStackedBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBar>[]>;
+    /**
      * (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
      */
     widgetTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTable>[]>;
@@ -464,6 +470,7 @@ export interface OneDashboardPageWidgetBar {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -810,7 +817,7 @@ export interface OneDashboardPageWidgetMarkdown {
     row: pulumi.Input<number>;
     /**
      * (Required) The markdown source to be rendered in the widget.
-     * * `widgetPie`
+     * * `widgetStackedBar`
      */
     text?: pulumi.Input<string>;
     /**
@@ -828,6 +835,7 @@ export interface OneDashboardPageWidgetPy {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -864,11 +872,52 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetStackedBar {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetStackedBarNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetTable {
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -939,6 +988,10 @@ export interface OneDashboardRawPageWidget {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) Related entity GUIDs.
+     */
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
     row: pulumi.Input<number>;
@@ -954,6 +1007,102 @@ export interface OneDashboardRawPageWidget {
      * (Optional) Width of the widget. Valid values are `1` to `12` inclusive. Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+}
+
+export interface ServiceLevelEvents {
+    /**
+     * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
+     * and that contains the NRDB data for the SLI/SLO calculations.
+     */
+    accountId: pulumi.Input<number>;
+    /**
+     * The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
+     */
+    badEvents?: pulumi.Input<inputs.ServiceLevelEventsBadEvents>;
+    /**
+     * The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
+     */
+    goodEvents?: pulumi.Input<inputs.ServiceLevelEventsGoodEvents>;
+    /**
+     * The definition of valid requests.
+     */
+    validEvents: pulumi.Input<inputs.ServiceLevelEventsValidEvents>;
+}
+
+export interface ServiceLevelEventsBadEvents {
+    /**
+     * The event type where NRDB data will be fetched from.
+     */
+    from: pulumi.Input<string>;
+    /**
+     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * a particular entity and were successful).
+     * a particular entity and returned an error).
+     */
+    where?: pulumi.Input<string>;
+}
+
+export interface ServiceLevelEventsGoodEvents {
+    /**
+     * The event type where NRDB data will be fetched from.
+     */
+    from: pulumi.Input<string>;
+    /**
+     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * a particular entity and were successful).
+     * a particular entity and returned an error).
+     */
+    where?: pulumi.Input<string>;
+}
+
+export interface ServiceLevelEventsValidEvents {
+    /**
+     * The event type where NRDB data will be fetched from.
+     */
+    from: pulumi.Input<string>;
+    /**
+     * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
+     * a particular entity and were successful).
+     * a particular entity and returned an error).
+     */
+    where?: pulumi.Input<string>;
+}
+
+export interface ServiceLevelObjective {
+    /**
+     * The description of the SLI.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * A short name for the SLI that will help anyone understand what it is about.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+     */
+    target: pulumi.Input<number>;
+    /**
+     * Time window is the period for the SLO.
+     */
+    timeWindow: pulumi.Input<inputs.ServiceLevelObjectiveTimeWindow>;
+}
+
+export interface ServiceLevelObjectiveTimeWindow {
+    /**
+     * Rolling window.
+     */
+    rolling: pulumi.Input<inputs.ServiceLevelObjectiveTimeWindowRolling>;
+}
+
+export interface ServiceLevelObjectiveTimeWindowRolling {
+    /**
+     * Valid values are `1`, `7`, `14`, `28` and `30`.
+     */
+    count: pulumi.Input<number>;
+    /**
+     * The only supported value is `DAY`.
+     */
+    unit: pulumi.Input<string>;
 }
 export namespace insights {
     export interface EventEvent {

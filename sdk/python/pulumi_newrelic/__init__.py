@@ -24,6 +24,7 @@ from .nrql_drop_rule import *
 from .one_dashboard import *
 from .one_dashboard_raw import *
 from .provider import *
+from .service_level import *
 from ._inputs import *
 from . import outputs
 
@@ -75,6 +76,8 @@ def _register_module():
                 return OneDashboard(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "newrelic:index/oneDashboardRaw:OneDashboardRaw":
                 return OneDashboardRaw(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "newrelic:index/serviceLevel:ServiceLevel":
+                return ServiceLevel(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -94,6 +97,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("newrelic", "index/nrqlDropRule", _module_instance)
     pulumi.runtime.register_resource_module("newrelic", "index/oneDashboard", _module_instance)
     pulumi.runtime.register_resource_module("newrelic", "index/oneDashboardRaw", _module_instance)
+    pulumi.runtime.register_resource_module("newrelic", "index/serviceLevel", _module_instance)
 
 
     class Package(pulumi.runtime.ResourcePackage):

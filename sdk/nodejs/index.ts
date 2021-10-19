@@ -26,6 +26,7 @@ export * from "./nrqlDropRule";
 export * from "./oneDashboard";
 export * from "./oneDashboardRaw";
 export * from "./provider";
+export * from "./serviceLevel";
 
 // Export sub-modules:
 import * as config from "./config";
@@ -57,6 +58,7 @@ import { NrqlAlertCondition } from "./nrqlAlertCondition";
 import { NrqlDropRule } from "./nrqlDropRule";
 import { OneDashboard } from "./oneDashboard";
 import { OneDashboardRaw } from "./oneDashboardRaw";
+import { ServiceLevel } from "./serviceLevel";
 
 const _module = {
     version: utilities.getVersion(),
@@ -90,6 +92,8 @@ const _module = {
                 return new OneDashboard(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
                 return new OneDashboardRaw(name, <any>undefined, { urn })
+            case "newrelic:index/serviceLevel:ServiceLevel":
+                return new ServiceLevel(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -109,6 +113,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _m
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlDropRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
 
 import { Provider } from "./provider";
 

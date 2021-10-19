@@ -45,6 +45,7 @@
         "plugins/index.ts",
         "plugins/workload.ts",
         "provider.ts",
+        "serviceLevel.ts",
         "synthetics/alertCondition.ts",
         "synthetics/getMonitor.ts",
         "synthetics/getMonitorLocation.ts",
