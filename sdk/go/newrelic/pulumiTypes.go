@@ -808,7 +808,7 @@ func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 type AlertMutingRuleConditionCondition struct {
 	// The attribute on a violation.
 	Attribute string `pulumi:"attribute"`
-	// The operator used to compare the attribute's value with the supplied value(s)
+	// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 	Operator string `pulumi:"operator"`
 	// The value(s) to compare against the attribute's value.
 	Values []string `pulumi:"values"`
@@ -828,7 +828,7 @@ type AlertMutingRuleConditionConditionInput interface {
 type AlertMutingRuleConditionConditionArgs struct {
 	// The attribute on a violation.
 	Attribute pulumi.StringInput `pulumi:"attribute"`
-	// The operator used to compare the attribute's value with the supplied value(s)
+	// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The value(s) to compare against the attribute's value.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -890,7 +890,7 @@ func (o AlertMutingRuleConditionConditionOutput) Attribute() pulumi.StringOutput
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-// The operator used to compare the attribute's value with the supplied value(s)
+// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 func (o AlertMutingRuleConditionConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -3326,6 +3326,7 @@ type OneDashboardPageWidgetArea struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetAreaNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -3354,6 +3355,7 @@ type OneDashboardPageWidgetAreaArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetAreaNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -3430,6 +3432,7 @@ func (o OneDashboardPageWidgetAreaOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetAreaOutput) NrqlQueries() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
 }
@@ -3585,6 +3588,7 @@ type OneDashboardPageWidgetBar struct {
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -3615,6 +3619,7 @@ type OneDashboardPageWidgetBarArgs struct {
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -3699,6 +3704,7 @@ func (o OneDashboardPageWidgetBarOutput) LinkedEntityGuids() pulumi.StringArrayO
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetBarOutput) NrqlQueries() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
 }
@@ -3854,6 +3860,7 @@ type OneDashboardPageWidgetBillboard struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetBillboardNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -3887,6 +3894,7 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetBillboardNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -3971,6 +3979,7 @@ func (o OneDashboardPageWidgetBillboardOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetBillboardOutput) NrqlQueries() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNrqlQuery {
 		return v.NrqlQueries
@@ -4135,6 +4144,7 @@ type OneDashboardPageWidgetBullet struct {
 	Limit *float64 `pulumi:"limit"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetBulletNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -4166,6 +4176,7 @@ type OneDashboardPageWidgetBulletArgs struct {
 	Limit pulumi.Float64PtrInput `pulumi:"limit"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetBulletNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -4248,6 +4259,7 @@ func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64PtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetBulletOutput) NrqlQueries() OneDashboardPageWidgetBulletNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBulletNrqlQueryArrayOutput)
 }
@@ -4401,6 +4413,7 @@ type OneDashboardPageWidgetFunnel struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetFunnelNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -4429,6 +4442,7 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetFunnelNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -4505,6 +4519,7 @@ func (o OneDashboardPageWidgetFunnelOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetFunnelOutput) NrqlQueries() OneDashboardPageWidgetFunnelNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput)
 }
@@ -4658,6 +4673,7 @@ type OneDashboardPageWidgetHeatmap struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetHeatmapNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -4686,6 +4702,7 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetHeatmapNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -4762,6 +4779,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetHeatmapOutput) NrqlQueries() OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput)
 }
@@ -4915,6 +4933,7 @@ type OneDashboardPageWidgetHistogram struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetHistogramNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -4943,6 +4962,7 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetHistogramNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -5019,6 +5039,7 @@ func (o OneDashboardPageWidgetHistogramOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetHistogramOutput) NrqlQueries() OneDashboardPageWidgetHistogramNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramNrqlQuery {
 		return v.NrqlQueries
@@ -5174,6 +5195,7 @@ type OneDashboardPageWidgetJson struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetJsonNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -5202,6 +5224,7 @@ type OneDashboardPageWidgetJsonArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetJsonNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -5278,6 +5301,7 @@ func (o OneDashboardPageWidgetJsonOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetJsonOutput) NrqlQueries() OneDashboardPageWidgetJsonNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetJsonNrqlQueryArrayOutput)
 }
@@ -5431,6 +5455,7 @@ type OneDashboardPageWidgetLine struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -5459,6 +5484,7 @@ type OneDashboardPageWidgetLineArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -5535,6 +5561,7 @@ func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetLineOutput) NrqlQueries() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
 }
@@ -5841,6 +5868,7 @@ type OneDashboardPageWidgetPy struct {
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -5871,6 +5899,7 @@ type OneDashboardPageWidgetPyArgs struct {
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -5955,6 +5984,7 @@ func (o OneDashboardPageWidgetPyOutput) LinkedEntityGuids() pulumi.StringArrayOu
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetPyOutput) NrqlQueries() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
 }
@@ -6108,6 +6138,7 @@ type OneDashboardPageWidgetStackedBar struct {
 	Id     *string `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetStackedBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -6136,6 +6167,7 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetStackedBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -6212,6 +6244,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) Id() pulumi.StringPtrOutput {
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetStackedBarOutput) NrqlQueries() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNrqlQuery {
 		return v.NrqlQueries
@@ -6369,6 +6402,7 @@ type OneDashboardPageWidgetTable struct {
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries []OneDashboardPageWidgetTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -6399,6 +6433,7 @@ type OneDashboardPageWidgetTableArgs struct {
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 	NrqlQueries OneDashboardPageWidgetTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -6483,6 +6518,7 @@ func (o OneDashboardPageWidgetTableOutput) LinkedEntityGuids() pulumi.StringArra
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 // * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
 func (o OneDashboardPageWidgetTableOutput) NrqlQueries() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
 }

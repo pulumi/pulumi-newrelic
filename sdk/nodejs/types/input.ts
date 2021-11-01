@@ -118,7 +118,7 @@ export interface AlertMutingRuleConditionCondition {
      */
     attribute: pulumi.Input<string>;
     /**
-     * The operator used to compare the attribute's value with the supplied value(s)
+     * The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
      */
     operator: pulumi.Input<string>;
     /**
@@ -438,6 +438,7 @@ export interface OneDashboardPageWidgetArea {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNrqlQuery>[]>;
     /**
@@ -480,6 +481,7 @@ export interface OneDashboardPageWidgetBar {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNrqlQuery>[]>;
     /**
@@ -524,6 +526,7 @@ export interface OneDashboardPageWidgetBillboard {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNrqlQuery>[]>;
     /**
@@ -574,6 +577,7 @@ export interface OneDashboardPageWidgetBullet {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNrqlQuery>[]>;
     /**
@@ -614,6 +618,7 @@ export interface OneDashboardPageWidgetFunnel {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNrqlQuery>[]>;
     /**
@@ -654,6 +659,7 @@ export interface OneDashboardPageWidgetHeatmap {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNrqlQuery>[]>;
     /**
@@ -694,6 +700,7 @@ export interface OneDashboardPageWidgetHistogram {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNrqlQuery>[]>;
     /**
@@ -734,6 +741,7 @@ export interface OneDashboardPageWidgetJson {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNrqlQuery>[]>;
     /**
@@ -774,6 +782,7 @@ export interface OneDashboardPageWidgetLine {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNrqlQuery>[]>;
     /**
@@ -845,6 +854,7 @@ export interface OneDashboardPageWidgetPy {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNrqlQuery>[]>;
     /**
@@ -885,6 +895,7 @@ export interface OneDashboardPageWidgetStackedBar {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNrqlQuery>[]>;
     /**
@@ -927,6 +938,7 @@ export interface OneDashboardPageWidgetTable {
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNrqlQuery>[]>;
     /**

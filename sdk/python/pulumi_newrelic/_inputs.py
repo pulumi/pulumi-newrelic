@@ -520,7 +520,7 @@ class AlertMutingRuleConditionConditionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] attribute: The attribute on a violation.
-        :param pulumi.Input[str] operator: The operator used to compare the attribute's value with the supplied value(s)
+        :param pulumi.Input[str] operator: The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -543,7 +543,7 @@ class AlertMutingRuleConditionConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        The operator used to compare the attribute's value with the supplied value(s)
+        The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
         """
         return pulumi.get(self, "operator")
 
@@ -1904,6 +1904,7 @@ class OneDashboardPageWidgetAreaArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -1938,6 +1939,7 @@ class OneDashboardPageWidgetAreaArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2057,6 +2059,7 @@ class OneDashboardPageWidgetBarArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2095,6 +2098,7 @@ class OneDashboardPageWidgetBarArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2232,6 +2236,7 @@ class OneDashboardPageWidgetBillboardArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[float] critical: (Optional) Threshold above which the displayed value will be styled with a red color.
@@ -2273,6 +2278,7 @@ class OneDashboardPageWidgetBillboardArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2416,6 +2422,7 @@ class OneDashboardPageWidgetBulletArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2454,6 +2461,7 @@ class OneDashboardPageWidgetBulletArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2584,6 +2592,7 @@ class OneDashboardPageWidgetFunnelArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2618,6 +2627,7 @@ class OneDashboardPageWidgetFunnelArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2735,6 +2745,7 @@ class OneDashboardPageWidgetHeatmapArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2769,6 +2780,7 @@ class OneDashboardPageWidgetHeatmapArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2886,6 +2898,7 @@ class OneDashboardPageWidgetHistogramArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2920,6 +2933,7 @@ class OneDashboardPageWidgetHistogramArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3037,6 +3051,7 @@ class OneDashboardPageWidgetJsonArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3071,6 +3086,7 @@ class OneDashboardPageWidgetJsonArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3188,6 +3204,7 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3222,6 +3239,7 @@ class OneDashboardPageWidgetLineArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3455,6 +3473,7 @@ class OneDashboardPageWidgetPyArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3493,6 +3512,7 @@ class OneDashboardPageWidgetPyArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3628,6 +3648,7 @@ class OneDashboardPageWidgetStackedBarArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3662,6 +3683,7 @@ class OneDashboardPageWidgetStackedBarArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3781,6 +3803,7 @@ class OneDashboardPageWidgetTableArgs:
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3819,6 +3842,7 @@ class OneDashboardPageWidgetTableArgs:
         """
         (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         """
         return pulumi.get(self, "nrql_queries")
 
