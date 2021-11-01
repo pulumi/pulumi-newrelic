@@ -25,6 +25,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        /// * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetFunnelNrqlQuery> NrqlQueries;
         /// <summary>

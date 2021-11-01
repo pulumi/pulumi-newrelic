@@ -368,7 +368,7 @@
                 },
                 "operator": {
                     "type": "string",
-                    "description": "The operator used to compare the attribute's value with the supplied value(s)\n",
+                    "description": "The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1371,7 +1371,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetAreaNrqlQuery:OneDashboardPageWidgetAreaNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1511,7 +1511,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBarNrqlQuery:OneDashboardPageWidgetBarNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1642,7 +1642,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBillboardNrqlQuery:OneDashboardPageWidgetBillboardNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1781,7 +1781,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetBulletNrqlQuery:OneDashboardPageWidgetBulletNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1902,7 +1902,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetFunnelNrqlQuery:OneDashboardPageWidgetFunnelNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2023,7 +2023,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHeatmapNrqlQuery:OneDashboardPageWidgetHeatmapNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2144,7 +2144,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetHistogramNrqlQuery:OneDashboardPageWidgetHistogramNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2265,7 +2265,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetJsonNrqlQuery:OneDashboardPageWidgetJsonNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2386,7 +2386,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLineNrqlQuery:OneDashboardPageWidgetLineNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2608,7 +2608,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetPyNrqlQuery:OneDashboardPageWidgetPyNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2730,7 +2730,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetStackedBarNrqlQuery:OneDashboardPageWidgetStackedBarNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2870,7 +2870,7 @@
                     "items": {
                         "$ref": "#/types/newrelic:index/OneDashboardPageWidgetTableNrqlQuery:OneDashboardPageWidgetTableNrqlQuery"
                     },
-                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n",
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
                     "language": {
                         "python": {
                             "mapCase": false
