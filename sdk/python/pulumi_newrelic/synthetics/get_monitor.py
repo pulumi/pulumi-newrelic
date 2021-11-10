@@ -12,6 +12,7 @@ __all__ = [
     'GetMonitorResult',
     'AwaitableGetMonitorResult',
     'get_monitor',
+    'get_monitor_output',
 ]
 
 @pulumi.output_type
@@ -96,3 +97,28 @@ def get_monitor(name: Optional[str] = None,
         id=__ret__.id,
         monitor_id=__ret__.monitor_id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_monitor)
+def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
+    """
+    Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    bar = newrelic.synthetics.get_monitor(name="bar")
+    baz = newrelic.synthetics.AlertCondition("baz",
+        policy_id=newrelic_alert_policy["foo"]["id"],
+        monitor_id=bar.id,
+        runbook_url="https://www.example.com")
+    ```
+
+
+    :param str name: The name of the synthetics monitor in New Relic.
+    """
+    ...

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -18,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const acc = pulumi.output(newrelic.getAccount({
  *     scope: "global",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
@@ -44,15 +43,15 @@ export interface GetAccountArgs {
     /**
      * The account ID in New Relic.
      */
-    readonly accountId?: number;
+    accountId?: number;
     /**
      * The account name in New Relic.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
      */
-    readonly scope?: string;
+    scope?: string;
 }
 
 /**
@@ -66,4 +65,26 @@ export interface GetAccountResult {
     readonly id: string;
     readonly name?: string;
     readonly scope?: string;
+}
+
+export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+    return pulumi.output(args).apply(a => getAccount(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccount.
+ */
+export interface GetAccountOutputArgs {
+    /**
+     * The account ID in New Relic.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * The account name in New Relic.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
+     */
+    scope?: pulumi.Input<string>;
 }

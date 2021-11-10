@@ -12,6 +12,7 @@ __all__ = [
     'GetKeyTransactionResult',
     'AwaitableGetKeyTransactionResult',
     'get_key_transaction',
+    'get_key_transaction_output',
 ]
 
 @pulumi.output_type
@@ -93,3 +94,38 @@ def get_key_transaction(name: Optional[str] = None,
     return AwaitableGetKeyTransactionResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_key_transaction)
+def get_key_transaction_output(name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyTransactionResult]:
+    """
+    Use this data source to get information about a specific key transaction in New Relic that already exists.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    txn = newrelic.get_key_transaction(name="txn")
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        type="apm_kt_metric",
+        entities=[txn.id],
+        metric="error_percentage",
+        runbook_url="https://www.example.com",
+        terms=[newrelic.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
+    ```
+
+
+    :param str name: The name of the key transaction in New Relic.
+    """
+    ...

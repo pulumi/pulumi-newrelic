@@ -25,6 +25,32 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    public readonly adminApiKey!: pulumi.Output<string | undefined>;
+    public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
+     */
+    public readonly apiUrl!: pulumi.Output<string | undefined>;
+    public readonly cacertFile!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
+     */
+    public readonly infrastructureApiUrl!: pulumi.Output<string | undefined>;
+    public readonly insightsInsertKey!: pulumi.Output<string | undefined>;
+    public readonly insightsInsertUrl!: pulumi.Output<string | undefined>;
+    public readonly insightsQueryUrl!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
+     */
+    public readonly nerdgraphApiUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+     */
+    public readonly region!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
+     */
+    public readonly syntheticsApiUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -62,32 +88,32 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly accountId?: pulumi.Input<number>;
-    readonly adminApiKey?: pulumi.Input<string>;
-    readonly apiKey?: pulumi.Input<string>;
+    accountId?: pulumi.Input<number>;
+    adminApiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    readonly apiUrl?: pulumi.Input<string>;
-    readonly cacertFile?: pulumi.Input<string>;
+    apiUrl?: pulumi.Input<string>;
+    cacertFile?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    readonly infrastructureApiUrl?: pulumi.Input<string>;
-    readonly insecureSkipVerify?: pulumi.Input<boolean>;
-    readonly insightsInsertKey?: pulumi.Input<string>;
-    readonly insightsInsertUrl?: pulumi.Input<string>;
-    readonly insightsQueryUrl?: pulumi.Input<string>;
+    infrastructureApiUrl?: pulumi.Input<string>;
+    insecureSkipVerify?: pulumi.Input<boolean>;
+    insightsInsertKey?: pulumi.Input<string>;
+    insightsInsertUrl?: pulumi.Input<string>;
+    insightsQueryUrl?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    readonly nerdgraphApiUrl?: pulumi.Input<string>;
+    nerdgraphApiUrl?: pulumi.Input<string>;
     /**
      * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
      */
-    readonly region?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
-    readonly syntheticsApiUrl?: pulumi.Input<string>;
+    syntheticsApiUrl?: pulumi.Input<string>;
 }

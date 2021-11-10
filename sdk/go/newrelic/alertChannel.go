@@ -26,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &newrelic.AlertChannelConfigArgs{
+// 			Config: &AlertChannelConfigArgs{
 // 				IncludeJsonAttachment: pulumi.String("true"),
 // 				Recipients:            pulumi.String("foo@example.com"),
 // 			},
@@ -51,7 +51,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &newrelic.AlertChannelConfigArgs{
+// 			Config: &AlertChannelConfigArgs{
 // 				Channel: pulumi.String("example-alerts-channel"),
 // 				Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
 // 			},
@@ -76,7 +76,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &newrelic.AlertChannelConfigArgs{
+// 			Config: &AlertChannelConfigArgs{
 // 				ApiKey:     pulumi.String("abc123"),
 // 				Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
 // 				Tags:       pulumi.String("tag1, tag2"),
@@ -103,7 +103,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &newrelic.AlertChannelConfigArgs{
+// 			Config: &AlertChannelConfigArgs{
 // 				ServiceKey: pulumi.String("abc123"),
 // 			},
 // 			Type: pulumi.String("pagerduty"),
@@ -127,11 +127,46 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &newrelic.AlertChannelConfigArgs{
+// 			Config: &AlertChannelConfigArgs{
 // 				Key:      pulumi.String("abc123"),
 // 				RouteKey: pulumi.String("/example"),
 // 			},
 // 			Type: pulumi.String("victorops"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Webhook
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+// 			Type: pulumi.String("webhook"),
+// 			Config: &AlertChannelConfigArgs{
+// 				BaseUrl:     pulumi.String("http://www.test.com"),
+// 				PayloadType: pulumi.String("application/json"),
+// 				Payload: pulumi.StringMap{
+// 					"condition_name": pulumi.String(fmt.Sprintf("%v%v", "$", "CONDITION_NAME")),
+// 					"policy_name":    pulumi.String(fmt.Sprintf("%v%v", "$", "POLICY_NAME")),
+// 				},
+// 				Headers: pulumi.StringMap{
+// 					"header1": pulumi.Any(value1),
+// 					"header2": pulumi.Any(value2),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -154,7 +189,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &newrelic.AlertChannelConfigArgs{
+// 			Config: &AlertChannelConfigArgs{
 // 				BaseUrl:       pulumi.String("http://www.test.com"),
 // 				PayloadString: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"my_custom_values\": {\n", "    \"condition_name\": \"", "$", "CONDITION_NAME\",\n", "    \"policy_name\": \"", "$", "POLICY_NAME\"\n", "  }\n", "}\n", "\n")),
 // 				PayloadType:   pulumi.String("application/json"),
@@ -325,7 +360,7 @@ type AlertChannelArrayInput interface {
 type AlertChannelArray []AlertChannelInput
 
 func (AlertChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertChannel)(nil))
+	return reflect.TypeOf((*[]*AlertChannel)(nil)).Elem()
 }
 
 func (i AlertChannelArray) ToAlertChannelArrayOutput() AlertChannelArrayOutput {
@@ -350,7 +385,7 @@ type AlertChannelMapInput interface {
 type AlertChannelMap map[string]AlertChannelInput
 
 func (AlertChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertChannel)(nil))
+	return reflect.TypeOf((*map[string]*AlertChannel)(nil)).Elem()
 }
 
 func (i AlertChannelMap) ToAlertChannelMapOutput() AlertChannelMapOutput {
@@ -361,9 +396,7 @@ func (i AlertChannelMap) ToAlertChannelMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelMapOutput)
 }
 
-type AlertChannelOutput struct {
-	*pulumi.OutputState
-}
+type AlertChannelOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertChannel)(nil))
@@ -382,14 +415,12 @@ func (o AlertChannelOutput) ToAlertChannelPtrOutput() AlertChannelPtrOutput {
 }
 
 func (o AlertChannelOutput) ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput {
-	return o.ApplyT(func(v AlertChannel) *AlertChannel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertChannel) *AlertChannel {
 		return &v
 	}).(AlertChannelPtrOutput)
 }
 
-type AlertChannelPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertChannel)(nil))
@@ -401,6 +432,16 @@ func (o AlertChannelPtrOutput) ToAlertChannelPtrOutput() AlertChannelPtrOutput {
 
 func (o AlertChannelPtrOutput) ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput {
 	return o
+}
+
+func (o AlertChannelPtrOutput) Elem() AlertChannelOutput {
+	return o.ApplyT(func(v *AlertChannel) AlertChannel {
+		if v != nil {
+			return *v
+		}
+		var ret AlertChannel
+		return ret
+	}).(AlertChannelOutput)
 }
 
 type AlertChannelArrayOutput struct{ *pulumi.OutputState }
@@ -444,6 +485,10 @@ func (o AlertChannelMapOutput) MapIndex(k pulumi.StringInput) AlertChannelOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelInput)(nil)).Elem(), &AlertChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelPtrInput)(nil)).Elem(), &AlertChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelArrayInput)(nil)).Elem(), AlertChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelMapInput)(nil)).Elem(), AlertChannelMap{})
 	pulumi.RegisterOutputType(AlertChannelOutput{})
 	pulumi.RegisterOutputType(AlertChannelPtrOutput{})
 	pulumi.RegisterOutputType(AlertChannelArrayOutput{})

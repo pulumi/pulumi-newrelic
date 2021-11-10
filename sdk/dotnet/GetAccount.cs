@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic
 {
@@ -41,6 +42,37 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("newrelic:index/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific account in New Relic.
+        /// Accounts can be located by ID or name.  Exactly one of the two attributes is
+        /// required.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var acc = Output.Create(NewRelic.GetAccount.InvokeAsync(new NewRelic.GetAccountArgs
+        ///         {
+        ///             Scope = "global",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("newrelic:index/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.NewRelic
         public string? Scope { get; set; }
 
         public GetAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The account ID in New Relic.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// The account name in New Relic.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        public GetAccountInvokeArgs()
         {
         }
     }

@@ -14,6 +14,7 @@ __all__ = [
     'GetEntityResult',
     'AwaitableGetEntityResult',
     'get_entity',
+    'get_entity_output',
 ]
 
 @pulumi.output_type
@@ -172,3 +173,22 @@ def get_entity(domain: Optional[str] = None,
         serving_apm_application_id=__ret__.serving_apm_application_id,
         tag=__ret__.tag,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_entity)
+def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
+                      ignore_case: Optional[pulumi.Input[Optional[bool]]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      tag: Optional[pulumi.Input[Optional[pulumi.InputType['GetEntityTagArgs']]]] = None,
+                      type: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
+    """
+    Use this data source to get information about a specific entity in New Relic One that already exists.
+
+
+    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+    :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
+    :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
+    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+    """
+    ...

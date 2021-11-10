@@ -128,19 +128,19 @@ export interface ApplicationSettingsState {
     /**
      * The appex threshold for the New Relic application.
      */
-    readonly appApdexThreshold?: pulumi.Input<number>;
+    appApdexThreshold?: pulumi.Input<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
      */
-    readonly enableRealUserMonitoring?: pulumi.Input<boolean>;
+    enableRealUserMonitoring?: pulumi.Input<boolean>;
     /**
      * The user's apdex threshold for the New Relic application.
      */
-    readonly endUserApdexThreshold?: pulumi.Input<number>;
+    endUserApdexThreshold?: pulumi.Input<number>;
     /**
      * The name of the application in New Relic APM.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -150,17 +150,17 @@ export interface ApplicationSettingsArgs {
     /**
      * The appex threshold for the New Relic application.
      */
-    readonly appApdexThreshold: pulumi.Input<number>;
+    appApdexThreshold: pulumi.Input<number>;
     /**
      * Enable or disable real user monitoring for the New Relic application.
      */
-    readonly enableRealUserMonitoring: pulumi.Input<boolean>;
+    enableRealUserMonitoring: pulumi.Input<boolean>;
     /**
      * The user's apdex threshold for the New Relic application.
      */
-    readonly endUserApdexThreshold: pulumi.Input<number>;
+    endUserApdexThreshold: pulumi.Input<number>;
     /**
      * The name of the application in New Relic APM.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

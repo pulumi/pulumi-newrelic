@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Synthetics
 {
@@ -45,6 +46,41 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitor.InvokeAsync(new NewRelic.Synthetics.GetMonitorArgs
+        ///         {
+        ///             Name = "bar",
+        ///         }));
+        ///         var baz = new NewRelic.Synthetics.AlertCondition("baz", new NewRelic.Synthetics.AlertConditionArgs
+        ///         {
+        ///             PolicyId = newrelic_alert_policy.Foo.Id,
+        ///             MonitorId = bar.Apply(bar =&gt; bar.Id),
+        ///             RunbookUrl = "https://www.example.com",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("newrelic:synthetics/getMonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +93,19 @@ namespace Pulumi.NewRelic.Synthetics
         public string Name { get; set; } = null!;
 
         public GetMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the synthetics monitor in New Relic.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetMonitorInvokeArgs()
         {
         }
     }

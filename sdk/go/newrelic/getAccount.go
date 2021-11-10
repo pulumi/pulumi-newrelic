@@ -4,6 +4,9 @@
 package newrelic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +27,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "global"
-// 		_, err := newrelic.GetAccount(ctx, &newrelic.GetAccountArgs{
+// 		_, err := newrelic.GetAccount(ctx, &GetAccountArgs{
 // 			Scope: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -60,4 +63,63 @@ type GetAccountResult struct {
 	Id    string  `pulumi:"id"`
 	Name  *string `pulumi:"name"`
 	Scope *string `pulumi:"scope"`
+}
+
+func GetAccountOutput(ctx *pulumi.Context, args GetAccountOutputArgs, opts ...pulumi.InvokeOption) GetAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAccountResult, error) {
+			args := v.(GetAccountArgs)
+			r, err := GetAccount(ctx, &args, opts...)
+			return *r, err
+		}).(GetAccountResultOutput)
+}
+
+// A collection of arguments for invoking getAccount.
+type GetAccountOutputArgs struct {
+	// The account ID in New Relic.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// The account name in New Relic.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The scope of the account in New Relic.  Valid values are "global" and "inRegion".  Defaults to "inRegion".
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (GetAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccount.
+type GetAccountResultOutput struct{ *pulumi.OutputState }
+
+func (GetAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountResult)(nil)).Elem()
+}
+
+func (o GetAccountResultOutput) ToGetAccountResultOutput() GetAccountResultOutput {
+	return o
+}
+
+func (o GetAccountResultOutput) ToGetAccountResultOutputWithContext(ctx context.Context) GetAccountResultOutput {
+	return o
+}
+
+func (o GetAccountResultOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAccountResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAccountResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccountResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetAccountResultOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAccountResult) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAccountResultOutput{})
 }

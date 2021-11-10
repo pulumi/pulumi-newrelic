@@ -38,25 +38,25 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
 // 			Description: pulumi.String("SLI that measures the availability of the service."),
-// 			Events: &newrelic.ServiceLevelEventsArgs{
+// 			Events: &ServiceLevelEventsArgs{
 // 				AccountId: pulumi.Int(12345678),
-// 				BadEvents: &newrelic.ServiceLevelEventsBadEventsArgs{
+// 				BadEvents: &ServiceLevelEventsBadEventsArgs{
 // 					From:  pulumi.String("TransactionError"),
 // 					Where: pulumi.String("appName = 'Example application' AND error.expected is false"),
 // 				},
-// 				ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
+// 				ValidEvents: &ServiceLevelEventsValidEventsArgs{
 // 					From:  pulumi.String("Transaction"),
 // 					Where: pulumi.String("appName = 'Example application'"),
 // 				},
 // 			},
 // 			Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
-// 			Objectives: newrelic.ServiceLevelObjectiveArray{
-// 				&newrelic.ServiceLevelObjectiveArgs{
+// 			Objectives: ServiceLevelObjectiveArray{
+// 				&ServiceLevelObjectiveArgs{
 // 					Description: pulumi.String("A realistic objective."),
 // 					Name:        pulumi.String("Realistic"),
 // 					Target:      pulumi.Float64(99),
-// 					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
-// 						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
+// 					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
+// 						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
 // 							Count: pulumi.Int(7),
 // 							Unit:  pulumi.String("DAY"),
 // 						},
@@ -269,7 +269,7 @@ type ServiceLevelArrayInput interface {
 type ServiceLevelArray []ServiceLevelInput
 
 func (ServiceLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceLevel)(nil))
+	return reflect.TypeOf((*[]*ServiceLevel)(nil)).Elem()
 }
 
 func (i ServiceLevelArray) ToServiceLevelArrayOutput() ServiceLevelArrayOutput {
@@ -294,7 +294,7 @@ type ServiceLevelMapInput interface {
 type ServiceLevelMap map[string]ServiceLevelInput
 
 func (ServiceLevelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceLevel)(nil))
+	return reflect.TypeOf((*map[string]*ServiceLevel)(nil)).Elem()
 }
 
 func (i ServiceLevelMap) ToServiceLevelMapOutput() ServiceLevelMapOutput {
@@ -305,9 +305,7 @@ func (i ServiceLevelMap) ToServiceLevelMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelMapOutput)
 }
 
-type ServiceLevelOutput struct {
-	*pulumi.OutputState
-}
+type ServiceLevelOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceLevel)(nil))
@@ -326,14 +324,12 @@ func (o ServiceLevelOutput) ToServiceLevelPtrOutput() ServiceLevelPtrOutput {
 }
 
 func (o ServiceLevelOutput) ToServiceLevelPtrOutputWithContext(ctx context.Context) ServiceLevelPtrOutput {
-	return o.ApplyT(func(v ServiceLevel) *ServiceLevel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevel) *ServiceLevel {
 		return &v
 	}).(ServiceLevelPtrOutput)
 }
 
-type ServiceLevelPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceLevelPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceLevel)(nil))
@@ -345,6 +341,16 @@ func (o ServiceLevelPtrOutput) ToServiceLevelPtrOutput() ServiceLevelPtrOutput {
 
 func (o ServiceLevelPtrOutput) ToServiceLevelPtrOutputWithContext(ctx context.Context) ServiceLevelPtrOutput {
 	return o
+}
+
+func (o ServiceLevelPtrOutput) Elem() ServiceLevelOutput {
+	return o.ApplyT(func(v *ServiceLevel) ServiceLevel {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevel
+		return ret
+	}).(ServiceLevelOutput)
 }
 
 type ServiceLevelArrayOutput struct{ *pulumi.OutputState }
@@ -388,6 +394,10 @@ func (o ServiceLevelMapOutput) MapIndex(k pulumi.StringInput) ServiceLevelOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelInput)(nil)).Elem(), &ServiceLevel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelPtrInput)(nil)).Elem(), &ServiceLevel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelArrayInput)(nil)).Elem(), ServiceLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelMapInput)(nil)).Elem(), ServiceLevelMap{})
 	pulumi.RegisterOutputType(ServiceLevelOutput{})
 	pulumi.RegisterOutputType(ServiceLevelPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelArrayOutput{})

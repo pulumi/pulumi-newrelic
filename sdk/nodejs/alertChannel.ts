@@ -205,15 +205,15 @@ export interface AlertChannelState {
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
-    readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
+    config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * The name of the channel.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -223,13 +223,13 @@ export interface AlertChannelArgs {
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
-    readonly config?: pulumi.Input<inputs.AlertChannelConfig>;
+    config?: pulumi.Input<inputs.AlertChannelConfig>;
     /**
      * The name of the channel.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

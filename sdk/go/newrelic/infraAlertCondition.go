@@ -41,12 +41,12 @@ import (
 // 			Select:      pulumi.String("diskUsedPercent"),
 // 			Comparison:  pulumi.String("above"),
 // 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
-// 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
+// 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
 // 				Value:        pulumi.Float64(90),
 // 				TimeFunction: pulumi.String("all"),
 // 			},
-// 			Warning: &newrelic.InfraAlertConditionWarningArgs{
+// 			Warning: &InfraAlertConditionWarningArgs{
 // 				Duration:     pulumi.Int(10),
 // 				Value:        pulumi.Float64(80),
 // 				TimeFunction: pulumi.String("all"),
@@ -64,7 +64,7 @@ import (
 // 			Comparison:          pulumi.String("above"),
 // 			Where:               pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "db", "%", "')")),
 // 			IntegrationProvider: pulumi.String("RdsDbInstance"),
-// 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
+// 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
 // 				Value:        pulumi.Float64(90),
 // 				TimeFunction: pulumi.String("all"),
@@ -80,7 +80,7 @@ import (
 // 			Comparison:   pulumi.String("equal"),
 // 			Where:        pulumi.String("hostname = 'web01'"),
 // 			ProcessWhere: pulumi.String("commandName = '/usr/bin/ruby'"),
-// 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
+// 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration: pulumi.Int(5),
 // 				Value:    pulumi.Float64(0),
 // 			},
@@ -93,7 +93,7 @@ import (
 // 			Description: pulumi.String("Critical alert when the host is not reporting"),
 // 			Type:        pulumi.String("infra_host_not_reporting"),
 // 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
-// 			Critical: &newrelic.InfraAlertConditionCriticalArgs{
+// 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration: pulumi.Int(5),
 // 			},
 // 		})
@@ -403,7 +403,7 @@ type InfraAlertConditionArrayInput interface {
 type InfraAlertConditionArray []InfraAlertConditionInput
 
 func (InfraAlertConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InfraAlertCondition)(nil))
+	return reflect.TypeOf((*[]*InfraAlertCondition)(nil)).Elem()
 }
 
 func (i InfraAlertConditionArray) ToInfraAlertConditionArrayOutput() InfraAlertConditionArrayOutput {
@@ -428,7 +428,7 @@ type InfraAlertConditionMapInput interface {
 type InfraAlertConditionMap map[string]InfraAlertConditionInput
 
 func (InfraAlertConditionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InfraAlertCondition)(nil))
+	return reflect.TypeOf((*map[string]*InfraAlertCondition)(nil)).Elem()
 }
 
 func (i InfraAlertConditionMap) ToInfraAlertConditionMapOutput() InfraAlertConditionMapOutput {
@@ -439,9 +439,7 @@ func (i InfraAlertConditionMap) ToInfraAlertConditionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InfraAlertConditionMapOutput)
 }
 
-type InfraAlertConditionOutput struct {
-	*pulumi.OutputState
-}
+type InfraAlertConditionOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InfraAlertCondition)(nil))
@@ -460,14 +458,12 @@ func (o InfraAlertConditionOutput) ToInfraAlertConditionPtrOutput() InfraAlertCo
 }
 
 func (o InfraAlertConditionOutput) ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput {
-	return o.ApplyT(func(v InfraAlertCondition) *InfraAlertCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfraAlertCondition) *InfraAlertCondition {
 		return &v
 	}).(InfraAlertConditionPtrOutput)
 }
 
-type InfraAlertConditionPtrOutput struct {
-	*pulumi.OutputState
-}
+type InfraAlertConditionPtrOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InfraAlertCondition)(nil))
@@ -479,6 +475,16 @@ func (o InfraAlertConditionPtrOutput) ToInfraAlertConditionPtrOutput() InfraAler
 
 func (o InfraAlertConditionPtrOutput) ToInfraAlertConditionPtrOutputWithContext(ctx context.Context) InfraAlertConditionPtrOutput {
 	return o
+}
+
+func (o InfraAlertConditionPtrOutput) Elem() InfraAlertConditionOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertCondition {
+		if v != nil {
+			return *v
+		}
+		var ret InfraAlertCondition
+		return ret
+	}).(InfraAlertConditionOutput)
 }
 
 type InfraAlertConditionArrayOutput struct{ *pulumi.OutputState }
@@ -522,6 +528,10 @@ func (o InfraAlertConditionMapOutput) MapIndex(k pulumi.StringInput) InfraAlertC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionInput)(nil)).Elem(), &InfraAlertCondition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionPtrInput)(nil)).Elem(), &InfraAlertCondition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionArrayInput)(nil)).Elem(), InfraAlertConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionMapInput)(nil)).Elem(), InfraAlertConditionMap{})
 	pulumi.RegisterOutputType(InfraAlertConditionOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionArrayOutput{})

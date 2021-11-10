@@ -10,15 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class GetEntityTagInputArgs : Pulumi.ResourceArgs
+    public sealed class GetEntityTagArgs : Pulumi.InvokeArgs
     {
         [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        public string Key { get; set; } = null!;
 
         [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public string Value { get; set; } = null!;
 
-        public GetEntityTagInputArgs()
+        public GetEntityTagArgs()
         {
         }
     }

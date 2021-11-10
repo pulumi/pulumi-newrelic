@@ -357,119 +357,119 @@ export interface NrqlAlertConditionState {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
-    readonly aggregationDelay?: pulumi.Input<number>;
+    aggregationDelay?: pulumi.Input<number>;
     /**
      * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      */
-    readonly aggregationMethod?: pulumi.Input<string>;
+    aggregationMethod?: pulumi.Input<string>;
     /**
      * How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      */
-    readonly aggregationTimer?: pulumi.Input<number>;
+    aggregationTimer?: pulumi.Input<number>;
     /**
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
      */
-    readonly aggregationWindow?: pulumi.Input<number>;
+    aggregationWindow?: pulumi.Input<number>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
-    readonly baselineDirection?: pulumi.Input<string>;
+    baselineDirection?: pulumi.Input<string>;
     /**
      * Whether to close all open violations when the signal expires.
      */
-    readonly closeViolationsOnExpiration?: pulumi.Input<boolean>;
+    closeViolationsOnExpiration?: pulumi.Input<boolean>;
     /**
      * A list containing the `critical` threshold values. See Terms below for details.
      */
-    readonly critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
     /**
      * The description of the NRQL alert condition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Number of expected groups when using `outlier` detection.
      */
-    readonly expectedGroups?: pulumi.Input<number>;
+    expectedGroups?: pulumi.Input<number>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired.
      */
-    readonly expirationDuration?: pulumi.Input<number>;
+    expirationDuration?: pulumi.Input<number>;
     /**
      * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
-    readonly fillOption?: pulumi.Input<string>;
+    fillOption?: pulumi.Input<string>;
     /**
      * This value will be used for filling gaps in the signal.
      */
-    readonly fillValue?: pulumi.Input<number>;
+    fillValue?: pulumi.Input<number>;
     /**
      * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
      *
      * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
-    readonly ignoreOverlap?: pulumi.Input<boolean>;
+    ignoreOverlap?: pulumi.Input<boolean>;
     /**
      * The title of the condition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A NRQL query. See NRQL below for details.
      */
-    readonly nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
+    nrql?: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
      * Whether to create a new violation to capture that the signal expired.
      */
-    readonly openViolationOnExpiration?: pulumi.Input<boolean>;
+    openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
      * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
      */
-    readonly openViolationOnGroupOverlap?: pulumi.Input<boolean>;
+    openViolationOnGroupOverlap?: pulumi.Input<boolean>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
-    readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
      * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Possible values are `singleValue`, `sum` (case insensitive).
      */
-    readonly valueFunction?: pulumi.Input<string>;
+    valueFunction?: pulumi.Input<string>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violation_time_limit_seconds` attribute instead
      */
-    readonly violationTimeLimit?: pulumi.Input<string>;
+    violationTimeLimit?: pulumi.Input<string>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
-    readonly violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A list containing the `warning` threshold values. See Terms below for details.
      */
-    readonly warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }
 
 /**
@@ -479,117 +479,117 @@ export interface NrqlAlertConditionArgs {
     /**
      * The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
      */
-    readonly aggregationDelay?: pulumi.Input<number>;
+    aggregationDelay?: pulumi.Input<number>;
     /**
      * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
      */
-    readonly aggregationMethod?: pulumi.Input<string>;
+    aggregationMethod?: pulumi.Input<string>;
     /**
      * How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
      */
-    readonly aggregationTimer?: pulumi.Input<number>;
+    aggregationTimer?: pulumi.Input<number>;
     /**
      * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
      */
-    readonly aggregationWindow?: pulumi.Input<number>;
+    aggregationWindow?: pulumi.Input<number>;
     /**
      * The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
      */
-    readonly baselineDirection?: pulumi.Input<string>;
+    baselineDirection?: pulumi.Input<string>;
     /**
      * Whether to close all open violations when the signal expires.
      */
-    readonly closeViolationsOnExpiration?: pulumi.Input<boolean>;
+    closeViolationsOnExpiration?: pulumi.Input<boolean>;
     /**
      * A list containing the `critical` threshold values. See Terms below for details.
      */
-    readonly critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.NrqlAlertConditionCritical>;
     /**
      * The description of the NRQL alert condition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Number of expected groups when using `outlier` detection.
      */
-    readonly expectedGroups?: pulumi.Input<number>;
+    expectedGroups?: pulumi.Input<number>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired.
      */
-    readonly expirationDuration?: pulumi.Input<number>;
+    expirationDuration?: pulumi.Input<number>;
     /**
      * Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
      */
-    readonly fillOption?: pulumi.Input<string>;
+    fillOption?: pulumi.Input<string>;
     /**
      * This value will be used for filling gaps in the signal.
      */
-    readonly fillValue?: pulumi.Input<number>;
+    fillValue?: pulumi.Input<number>;
     /**
      * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
      *
      * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
      */
-    readonly ignoreOverlap?: pulumi.Input<boolean>;
+    ignoreOverlap?: pulumi.Input<boolean>;
     /**
      * The title of the condition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A NRQL query. See NRQL below for details.
      */
-    readonly nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
+    nrql: pulumi.Input<inputs.NrqlAlertConditionNrql>;
     /**
      * Whether to create a new violation to capture that the signal expired.
      */
-    readonly openViolationOnExpiration?: pulumi.Input<boolean>;
+    openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
      * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
      */
-    readonly openViolationOnGroupOverlap?: pulumi.Input<boolean>;
+    openViolationOnGroupOverlap?: pulumi.Input<boolean>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
      */
-    readonly terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
+    terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
      * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Possible values are `singleValue`, `sum` (case insensitive).
      */
-    readonly valueFunction?: pulumi.Input<string>;
+    valueFunction?: pulumi.Input<string>;
     /**
      * **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      *
      * @deprecated use `violation_time_limit_seconds` attribute instead
      */
-    readonly violationTimeLimit?: pulumi.Input<string>;
+    violationTimeLimit?: pulumi.Input<string>;
     /**
      * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
      * <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
      */
-    readonly violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A list containing the `warning` threshold values. See Terms below for details.
      */
-    readonly warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.NrqlAlertConditionWarning>;
 }

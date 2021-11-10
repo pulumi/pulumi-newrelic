@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Plugins
 {
@@ -20,6 +21,16 @@ namespace Pulumi.NewRelic.Plugins
         /// </summary>
         public static Task<GetPluginComponentResult> InvokeAsync(GetPluginComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? new GetPluginComponentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// New Relic Plugins reached end of life Wednesday June 16, 2021.
+        /// 
+        /// **This data source has been removed.**
+        /// 
+        /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+        /// </summary>
+        public static Output<GetPluginComponentResult> Invoke(GetPluginComponentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPluginComponentResult>("newrelic:plugins/getPluginComponent:getPluginComponent", args ?? new GetPluginComponentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -32,6 +43,19 @@ namespace Pulumi.NewRelic.Plugins
         public int PluginId { get; set; }
 
         public GetPluginComponentArgs()
+        {
+        }
+    }
+
+    public sealed class GetPluginComponentInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("pluginId", required: true)]
+        public Input<int> PluginId { get; set; } = null!;
+
+        public GetPluginComponentInvokeArgs()
         {
         }
     }

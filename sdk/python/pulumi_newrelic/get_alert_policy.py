@@ -12,6 +12,7 @@ __all__ = [
     'GetAlertPolicyResult',
     'AwaitableGetAlertPolicyResult',
     'get_alert_policy',
+    'get_alert_policy_output',
 ]
 
 @pulumi.output_type
@@ -124,3 +125,18 @@ def get_alert_policy(account_id: Optional[int] = None,
         incident_preference=__ret__.incident_preference,
         name=__ret__.name,
         updated_at=__ret__.updated_at)
+
+
+@_utilities.lift_output_func(get_alert_policy)
+def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+                            incident_preference: Optional[pulumi.Input[Optional[str]]] = None,
+                            name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertPolicyResult]:
+    """
+    Use this data source to get information about a specific alert policy in New Relic that already exists.
+
+
+    :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+    :param str name: The name of the alert policy in New Relic.
+    """
+    ...

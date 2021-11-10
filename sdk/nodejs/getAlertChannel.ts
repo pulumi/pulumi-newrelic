@@ -46,7 +46,7 @@ export interface GetAlertChannelArgs {
     /**
      * The name of the alert channel in New Relic.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -70,4 +70,18 @@ export interface GetAlertChannelResult {
      * Alert channel type, either: `email`, `opsgenie`, `pagerduty`, `slack`, `victorops`, or `webhook`.
      */
     readonly type: string;
+}
+
+export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertChannelResult> {
+    return pulumi.output(args).apply(a => getAlertChannel(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAlertChannel.
+ */
+export interface GetAlertChannelOutputArgs {
+    /**
+     * The name of the alert channel in New Relic.
+     */
+    name: pulumi.Input<string>;
 }

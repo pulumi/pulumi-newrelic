@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic
 {
@@ -16,6 +17,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Task<GetAlertPolicyResult> InvokeAsync(GetAlertPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific alert policy in New Relic that already exists.
+        /// </summary>
+        public static Output<GetAlertPolicyResult> Invoke(GetAlertPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAlertPolicyResult>("newrelic:index/getAlertPolicy:getAlertPolicy", args ?? new GetAlertPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -37,6 +44,28 @@ namespace Pulumi.NewRelic
         public string Name { get; set; } = null!;
 
         public GetAlertPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetAlertPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+        /// </summary>
+        [Input("incidentPreference")]
+        public Input<string>? IncidentPreference { get; set; }
+
+        /// <summary>
+        /// The name of the alert policy in New Relic.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetAlertPolicyInvokeArgs()
         {
         }
     }

@@ -4,6 +4,9 @@
 package synthetics
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,71 @@ type GetMonitorLocationResult struct {
 	Name string `pulumi:"name"`
 	// Represents if this location is a private location. A value of true means that the location is private, and a value of false means it is public.
 	Private bool `pulumi:"private"`
+}
+
+func GetMonitorLocationOutput(ctx *pulumi.Context, args GetMonitorLocationOutputArgs, opts ...pulumi.InvokeOption) GetMonitorLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetMonitorLocationResult, error) {
+			args := v.(GetMonitorLocationArgs)
+			r, err := GetMonitorLocation(ctx, &args, opts...)
+			return *r, err
+		}).(GetMonitorLocationResultOutput)
+}
+
+// A collection of arguments for invoking getMonitorLocation.
+type GetMonitorLocationOutputArgs struct {
+	// The label of the Synthetics monitor location.
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (GetMonitorLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorLocationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMonitorLocation.
+type GetMonitorLocationResultOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorLocationResult)(nil)).Elem()
+}
+
+func (o GetMonitorLocationResultOutput) ToGetMonitorLocationResultOutput() GetMonitorLocationResultOutput {
+	return o
+}
+
+func (o GetMonitorLocationResultOutput) ToGetMonitorLocationResultOutputWithContext(ctx context.Context) GetMonitorLocationResultOutput {
+	return o
+}
+
+// A description of the Synthetics monitor location.
+func (o GetMonitorLocationResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorLocationResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Represents if high security mode is enabled for the location. A value of true means that high security mode is enabled, and a value of false means it is disabled.
+func (o GetMonitorLocationResultOutput) HighSecurityMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMonitorLocationResult) bool { return v.HighSecurityMode }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetMonitorLocationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorLocationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetMonitorLocationResultOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorLocationResult) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// The name of the Synthetics monitor location.
+func (o GetMonitorLocationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorLocationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Represents if this location is a private location. A value of true means that the location is private, and a value of false means it is public.
+func (o GetMonitorLocationResultOutput) Private() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMonitorLocationResult) bool { return v.Private }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetMonitorLocationResultOutput{})
 }

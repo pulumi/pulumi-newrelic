@@ -29,7 +29,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "APPLICATION"
 // 		opt1 := "APM"
-// 		app, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+// 		app, err := newrelic.GetEntity(ctx, &GetEntityArgs{
 // 			Name:   "my-app",
 // 			Type:   &opt0,
 // 			Domain: &opt1,
@@ -50,8 +50,8 @@ import (
 // 			Metric:         pulumi.String("apdex"),
 // 			RunbookUrl:     pulumi.String("https://www.example.com"),
 // 			ConditionScope: pulumi.String("application"),
-// 			Terms: newrelic.AlertConditionTermArray{
-// 				&newrelic.AlertConditionTermArgs{
+// 			Terms: AlertConditionTermArray{
+// 				&AlertConditionTermArgs{
 // 					Duration:     pulumi.Int(5),
 // 					Operator:     pulumi.String("below"),
 // 					Priority:     pulumi.String("critical"),
@@ -555,7 +555,7 @@ type AlertConditionArrayInput interface {
 type AlertConditionArray []AlertConditionInput
 
 func (AlertConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertCondition)(nil))
+	return reflect.TypeOf((*[]*AlertCondition)(nil)).Elem()
 }
 
 func (i AlertConditionArray) ToAlertConditionArrayOutput() AlertConditionArrayOutput {
@@ -580,7 +580,7 @@ type AlertConditionMapInput interface {
 type AlertConditionMap map[string]AlertConditionInput
 
 func (AlertConditionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertCondition)(nil))
+	return reflect.TypeOf((*map[string]*AlertCondition)(nil)).Elem()
 }
 
 func (i AlertConditionMap) ToAlertConditionMapOutput() AlertConditionMapOutput {
@@ -591,9 +591,7 @@ func (i AlertConditionMap) ToAlertConditionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertConditionMapOutput)
 }
 
-type AlertConditionOutput struct {
-	*pulumi.OutputState
-}
+type AlertConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertCondition)(nil))
@@ -612,14 +610,12 @@ func (o AlertConditionOutput) ToAlertConditionPtrOutput() AlertConditionPtrOutpu
 }
 
 func (o AlertConditionOutput) ToAlertConditionPtrOutputWithContext(ctx context.Context) AlertConditionPtrOutput {
-	return o.ApplyT(func(v AlertCondition) *AlertCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertCondition) *AlertCondition {
 		return &v
 	}).(AlertConditionPtrOutput)
 }
 
-type AlertConditionPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertConditionPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertCondition)(nil))
@@ -631,6 +627,16 @@ func (o AlertConditionPtrOutput) ToAlertConditionPtrOutput() AlertConditionPtrOu
 
 func (o AlertConditionPtrOutput) ToAlertConditionPtrOutputWithContext(ctx context.Context) AlertConditionPtrOutput {
 	return o
+}
+
+func (o AlertConditionPtrOutput) Elem() AlertConditionOutput {
+	return o.ApplyT(func(v *AlertCondition) AlertCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertCondition
+		return ret
+	}).(AlertConditionOutput)
 }
 
 type AlertConditionArrayOutput struct{ *pulumi.OutputState }
@@ -674,6 +680,10 @@ func (o AlertConditionMapOutput) MapIndex(k pulumi.StringInput) AlertConditionOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionInput)(nil)).Elem(), &AlertCondition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionPtrInput)(nil)).Elem(), &AlertCondition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionArrayInput)(nil)).Elem(), AlertConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionMapInput)(nil)).Elem(), AlertConditionMap{})
 	pulumi.RegisterOutputType(AlertConditionOutput{})
 	pulumi.RegisterOutputType(AlertConditionPtrOutput{})
 	pulumi.RegisterOutputType(AlertConditionArrayOutput{})

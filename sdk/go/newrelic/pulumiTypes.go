@@ -191,7 +191,7 @@ func (o AlertChannelConfigOutput) ToAlertChannelConfigPtrOutput() AlertChannelCo
 }
 
 func (o AlertChannelConfigOutput) ToAlertChannelConfigPtrOutputWithContext(ctx context.Context) AlertChannelConfigPtrOutput {
-	return o.ApplyT(func(v AlertChannelConfig) *AlertChannelConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertChannelConfig) *AlertChannelConfig {
 		return &v
 	}).(AlertChannelConfigPtrOutput)
 }
@@ -320,7 +320,13 @@ func (o AlertChannelConfigPtrOutput) ToAlertChannelConfigPtrOutputWithContext(ct
 }
 
 func (o AlertChannelConfigPtrOutput) Elem() AlertChannelConfigOutput {
-	return o.ApplyT(func(v *AlertChannelConfig) AlertChannelConfig { return *v }).(AlertChannelConfigOutput)
+	return o.ApplyT(func(v *AlertChannelConfig) AlertChannelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlertChannelConfig
+		return ret
+	}).(AlertChannelConfigOutput)
 }
 
 // The API key for integrating with OpsGenie.
@@ -752,7 +758,7 @@ func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionPtrOutput() Al
 }
 
 func (o AlertMutingRuleConditionOutput) ToAlertMutingRuleConditionPtrOutputWithContext(ctx context.Context) AlertMutingRuleConditionPtrOutput {
-	return o.ApplyT(func(v AlertMutingRuleCondition) *AlertMutingRuleCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertMutingRuleCondition) *AlertMutingRuleCondition {
 		return &v
 	}).(AlertMutingRuleConditionPtrOutput)
 }
@@ -782,7 +788,13 @@ func (o AlertMutingRuleConditionPtrOutput) ToAlertMutingRuleConditionPtrOutputWi
 }
 
 func (o AlertMutingRuleConditionPtrOutput) Elem() AlertMutingRuleConditionOutput {
-	return o.ApplyT(func(v *AlertMutingRuleCondition) AlertMutingRuleCondition { return *v }).(AlertMutingRuleConditionOutput)
+	return o.ApplyT(func(v *AlertMutingRuleCondition) AlertMutingRuleCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertMutingRuleCondition
+		return ret
+	}).(AlertMutingRuleConditionOutput)
 }
 
 // The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
@@ -1035,7 +1047,7 @@ func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleSchedulePtrOutput() Aler
 }
 
 func (o AlertMutingRuleScheduleOutput) ToAlertMutingRuleSchedulePtrOutputWithContext(ctx context.Context) AlertMutingRuleSchedulePtrOutput {
-	return o.ApplyT(func(v AlertMutingRuleSchedule) *AlertMutingRuleSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertMutingRuleSchedule) *AlertMutingRuleSchedule {
 		return &v
 	}).(AlertMutingRuleSchedulePtrOutput)
 }
@@ -1089,7 +1101,13 @@ func (o AlertMutingRuleSchedulePtrOutput) ToAlertMutingRuleSchedulePtrOutputWith
 }
 
 func (o AlertMutingRuleSchedulePtrOutput) Elem() AlertMutingRuleScheduleOutput {
-	return o.ApplyT(func(v *AlertMutingRuleSchedule) AlertMutingRuleSchedule { return *v }).(AlertMutingRuleScheduleOutput)
+	return o.ApplyT(func(v *AlertMutingRuleSchedule) AlertMutingRuleSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AlertMutingRuleSchedule
+		return ret
+	}).(AlertMutingRuleScheduleOutput)
 }
 
 // The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeatCount`
@@ -1254,10 +1272,11 @@ func (o DashboardFilterOutput) ToDashboardFilterPtrOutput() DashboardFilterPtrOu
 }
 
 func (o DashboardFilterOutput) ToDashboardFilterPtrOutputWithContext(ctx context.Context) DashboardFilterPtrOutput {
-	return o.ApplyT(func(v DashboardFilter) *DashboardFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardFilter) *DashboardFilter {
 		return &v
 	}).(DashboardFilterPtrOutput)
 }
+
 func (o DashboardFilterOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
@@ -1281,7 +1300,13 @@ func (o DashboardFilterPtrOutput) ToDashboardFilterPtrOutputWithContext(ctx cont
 }
 
 func (o DashboardFilterPtrOutput) Elem() DashboardFilterOutput {
-	return o.ApplyT(func(v *DashboardFilter) DashboardFilter { return *v }).(DashboardFilterOutput)
+	return o.ApplyT(func(v *DashboardFilter) DashboardFilter {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardFilter
+		return ret
+	}).(DashboardFilterOutput)
 }
 
 func (o DashboardFilterPtrOutput) Attributes() pulumi.StringArrayOutput {
@@ -1996,10 +2021,11 @@ func (o InfraAlertConditionCriticalOutput) ToInfraAlertConditionCriticalPtrOutpu
 }
 
 func (o InfraAlertConditionCriticalOutput) ToInfraAlertConditionCriticalPtrOutputWithContext(ctx context.Context) InfraAlertConditionCriticalPtrOutput {
-	return o.ApplyT(func(v InfraAlertConditionCritical) *InfraAlertConditionCritical {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfraAlertConditionCritical) *InfraAlertConditionCritical {
 		return &v
 	}).(InfraAlertConditionCriticalPtrOutput)
 }
+
 func (o InfraAlertConditionCriticalOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v InfraAlertConditionCritical) int { return v.Duration }).(pulumi.IntOutput)
 }
@@ -2027,7 +2053,13 @@ func (o InfraAlertConditionCriticalPtrOutput) ToInfraAlertConditionCriticalPtrOu
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Elem() InfraAlertConditionCriticalOutput {
-	return o.ApplyT(func(v *InfraAlertConditionCritical) InfraAlertConditionCritical { return *v }).(InfraAlertConditionCriticalOutput)
+	return o.ApplyT(func(v *InfraAlertConditionCritical) InfraAlertConditionCritical {
+		if v != nil {
+			return *v
+		}
+		var ret InfraAlertConditionCritical
+		return ret
+	}).(InfraAlertConditionCriticalOutput)
 }
 
 func (o InfraAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
@@ -2152,10 +2184,11 @@ func (o InfraAlertConditionWarningOutput) ToInfraAlertConditionWarningPtrOutput(
 }
 
 func (o InfraAlertConditionWarningOutput) ToInfraAlertConditionWarningPtrOutputWithContext(ctx context.Context) InfraAlertConditionWarningPtrOutput {
-	return o.ApplyT(func(v InfraAlertConditionWarning) *InfraAlertConditionWarning {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfraAlertConditionWarning) *InfraAlertConditionWarning {
 		return &v
 	}).(InfraAlertConditionWarningPtrOutput)
 }
+
 func (o InfraAlertConditionWarningOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v InfraAlertConditionWarning) int { return v.Duration }).(pulumi.IntOutput)
 }
@@ -2183,7 +2216,13 @@ func (o InfraAlertConditionWarningPtrOutput) ToInfraAlertConditionWarningPtrOutp
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Elem() InfraAlertConditionWarningOutput {
-	return o.ApplyT(func(v *InfraAlertConditionWarning) InfraAlertConditionWarning { return *v }).(InfraAlertConditionWarningOutput)
+	return o.ApplyT(func(v *InfraAlertConditionWarning) InfraAlertConditionWarning {
+		if v != nil {
+			return *v
+		}
+		var ret InfraAlertConditionWarning
+		return ret
+	}).(InfraAlertConditionWarningOutput)
 }
 
 func (o InfraAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
@@ -2340,7 +2379,7 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutput(
 }
 
 func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputWithContext(ctx context.Context) NrqlAlertConditionCriticalPtrOutput {
-	return o.ApplyT(func(v NrqlAlertConditionCritical) *NrqlAlertConditionCritical {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionCritical) *NrqlAlertConditionCritical {
 		return &v
 	}).(NrqlAlertConditionCriticalPtrOutput)
 }
@@ -2397,7 +2436,13 @@ func (o NrqlAlertConditionCriticalPtrOutput) ToNrqlAlertConditionCriticalPtrOutp
 }
 
 func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOutput {
-	return o.ApplyT(func(v *NrqlAlertConditionCritical) NrqlAlertConditionCritical { return *v }).(NrqlAlertConditionCriticalOutput)
+	return o.ApplyT(func(v *NrqlAlertConditionCritical) NrqlAlertConditionCritical {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionCritical
+		return ret
+	}).(NrqlAlertConditionCriticalOutput)
 }
 
 // **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
@@ -2580,7 +2625,7 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutput() NrqlAl
 }
 
 func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithContext(ctx context.Context) NrqlAlertConditionNrqlPtrOutput {
-	return o.ApplyT(func(v NrqlAlertConditionNrql) *NrqlAlertConditionNrql {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionNrql) *NrqlAlertConditionNrql {
 		return &v
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
@@ -2621,7 +2666,13 @@ func (o NrqlAlertConditionNrqlPtrOutput) ToNrqlAlertConditionNrqlPtrOutputWithCo
 }
 
 func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
-	return o.ApplyT(func(v *NrqlAlertConditionNrql) NrqlAlertConditionNrql { return *v }).(NrqlAlertConditionNrqlOutput)
+	return o.ApplyT(func(v *NrqlAlertConditionNrql) NrqlAlertConditionNrql {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionNrql
+		return ret
+	}).(NrqlAlertConditionNrqlOutput)
 }
 
 // Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
@@ -2959,7 +3010,7 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutput() 
 }
 
 func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWithContext(ctx context.Context) NrqlAlertConditionWarningPtrOutput {
-	return o.ApplyT(func(v NrqlAlertConditionWarning) *NrqlAlertConditionWarning {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertConditionWarning) *NrqlAlertConditionWarning {
 		return &v
 	}).(NrqlAlertConditionWarningPtrOutput)
 }
@@ -3016,7 +3067,13 @@ func (o NrqlAlertConditionWarningPtrOutput) ToNrqlAlertConditionWarningPtrOutput
 }
 
 func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutput {
-	return o.ApplyT(func(v *NrqlAlertConditionWarning) NrqlAlertConditionWarning { return *v }).(NrqlAlertConditionWarningOutput)
+	return o.ApplyT(func(v *NrqlAlertConditionWarning) NrqlAlertConditionWarning {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertConditionWarning
+		return ret
+	}).(NrqlAlertConditionWarningOutput)
 }
 
 // **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
@@ -7061,7 +7118,7 @@ func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutput() ServiceLevelEv
 }
 
 func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsPtrOutput {
-	return o.ApplyT(func(v ServiceLevelEvents) *ServiceLevelEvents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEvents) *ServiceLevelEvents {
 		return &v
 	}).(ServiceLevelEventsPtrOutput)
 }
@@ -7102,7 +7159,13 @@ func (o ServiceLevelEventsPtrOutput) ToServiceLevelEventsPtrOutputWithContext(ct
 }
 
 func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
-	return o.ApplyT(func(v *ServiceLevelEvents) ServiceLevelEvents { return *v }).(ServiceLevelEventsOutput)
+	return o.ApplyT(func(v *ServiceLevelEvents) ServiceLevelEvents {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEvents
+		return ret
+	}).(ServiceLevelEventsOutput)
 }
 
 // The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -7247,7 +7310,7 @@ func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsPtrOutpu
 }
 
 func (o ServiceLevelEventsBadEventsOutput) ToServiceLevelEventsBadEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsPtrOutput {
-	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEvents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEvents {
 		return &v
 	}).(ServiceLevelEventsBadEventsPtrOutput)
 }
@@ -7279,7 +7342,13 @@ func (o ServiceLevelEventsBadEventsPtrOutput) ToServiceLevelEventsBadEventsPtrOu
 }
 
 func (o ServiceLevelEventsBadEventsPtrOutput) Elem() ServiceLevelEventsBadEventsOutput {
-	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) ServiceLevelEventsBadEvents { return *v }).(ServiceLevelEventsBadEventsOutput)
+	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) ServiceLevelEventsBadEvents {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEventsBadEvents
+		return ret
+	}).(ServiceLevelEventsBadEventsOutput)
 }
 
 // The event type where NRDB data will be fetched from.
@@ -7405,7 +7474,7 @@ func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsPtrOut
 }
 
 func (o ServiceLevelEventsGoodEventsOutput) ToServiceLevelEventsGoodEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsPtrOutput {
-	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEvents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEvents {
 		return &v
 	}).(ServiceLevelEventsGoodEventsPtrOutput)
 }
@@ -7437,7 +7506,13 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) ToServiceLevelEventsGoodEventsPtr
 }
 
 func (o ServiceLevelEventsGoodEventsPtrOutput) Elem() ServiceLevelEventsGoodEventsOutput {
-	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) ServiceLevelEventsGoodEvents { return *v }).(ServiceLevelEventsGoodEventsOutput)
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) ServiceLevelEventsGoodEvents {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEventsGoodEvents
+		return ret
+	}).(ServiceLevelEventsGoodEventsOutput)
 }
 
 // The event type where NRDB data will be fetched from.
@@ -7563,7 +7638,7 @@ func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsPtrO
 }
 
 func (o ServiceLevelEventsValidEventsOutput) ToServiceLevelEventsValidEventsPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsPtrOutput {
-	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEvents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEvents {
 		return &v
 	}).(ServiceLevelEventsValidEventsPtrOutput)
 }
@@ -7595,7 +7670,13 @@ func (o ServiceLevelEventsValidEventsPtrOutput) ToServiceLevelEventsValidEventsP
 }
 
 func (o ServiceLevelEventsValidEventsPtrOutput) Elem() ServiceLevelEventsValidEventsOutput {
-	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) ServiceLevelEventsValidEvents { return *v }).(ServiceLevelEventsValidEventsOutput)
+	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) ServiceLevelEventsValidEvents {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEventsValidEvents
+		return ret
+	}).(ServiceLevelEventsValidEventsOutput)
 }
 
 // The event type where NRDB data will be fetched from.
@@ -8047,6 +8128,47 @@ func (i GetEntityTagArgs) ToGetEntityTagOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagOutput)
 }
 
+func (i GetEntityTagArgs) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
+	return i.ToGetEntityTagPtrOutputWithContext(context.Background())
+}
+
+func (i GetEntityTagArgs) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagOutput).ToGetEntityTagPtrOutputWithContext(ctx)
+}
+
+// GetEntityTagPtrInput is an input type that accepts GetEntityTagArgs, GetEntityTagPtr and GetEntityTagPtrOutput values.
+// You can construct a concrete instance of `GetEntityTagPtrInput` via:
+//
+//          GetEntityTagArgs{...}
+//
+//  or:
+//
+//          nil
+type GetEntityTagPtrInput interface {
+	pulumi.Input
+
+	ToGetEntityTagPtrOutput() GetEntityTagPtrOutput
+	ToGetEntityTagPtrOutputWithContext(context.Context) GetEntityTagPtrOutput
+}
+
+type getEntityTagPtrType GetEntityTagArgs
+
+func GetEntityTagPtr(v *GetEntityTagArgs) GetEntityTagPtrInput {
+	return (*getEntityTagPtrType)(v)
+}
+
+func (*getEntityTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntityTag)(nil)).Elem()
+}
+
+func (i *getEntityTagPtrType) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
+	return i.ToGetEntityTagPtrOutputWithContext(context.Background())
+}
+
+func (i *getEntityTagPtrType) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagPtrOutput)
+}
+
 type GetEntityTagOutput struct{ *pulumi.OutputState }
 
 func (GetEntityTagOutput) ElementType() reflect.Type {
@@ -8061,6 +8183,16 @@ func (o GetEntityTagOutput) ToGetEntityTagOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GetEntityTagOutput) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
+	return o.ToGetEntityTagPtrOutputWithContext(context.Background())
+}
+
+func (o GetEntityTagOutput) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntityTag) *GetEntityTag {
+		return &v
+	}).(GetEntityTagPtrOutput)
+}
+
 func (o GetEntityTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -8069,7 +8201,153 @@ func (o GetEntityTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
+type GetEntityTagPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEntityTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntityTag)(nil)).Elem()
+}
+
+func (o GetEntityTagPtrOutput) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
+	return o
+}
+
+func (o GetEntityTagPtrOutput) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
+	return o
+}
+
+func (o GetEntityTagPtrOutput) Elem() GetEntityTagOutput {
+	return o.ApplyT(func(v *GetEntityTag) GetEntityTag {
+		if v != nil {
+			return *v
+		}
+		var ret GetEntityTag
+		return ret
+	}).(GetEntityTagOutput)
+}
+
+func (o GetEntityTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntityTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetEntityTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntityTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelConfigInput)(nil)).Elem(), AlertChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelConfigPtrInput)(nil)).Elem(), AlertChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionTermInput)(nil)).Elem(), AlertConditionTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionTermArrayInput)(nil)).Elem(), AlertConditionTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionInput)(nil)).Elem(), AlertMutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionPtrInput)(nil)).Elem(), AlertMutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionConditionInput)(nil)).Elem(), AlertMutingRuleConditionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionConditionArrayInput)(nil)).Elem(), AlertMutingRuleConditionConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleScheduleInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleSchedulePtrInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterInput)(nil)).Elem(), DashboardFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterPtrInput)(nil)).Elem(), DashboardFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetInput)(nil)).Elem(), DashboardWidgetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetArrayInput)(nil)).Elem(), DashboardWidgetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetCompareWithInput)(nil)).Elem(), DashboardWidgetCompareWithArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetCompareWithArrayInput)(nil)).Elem(), DashboardWidgetCompareWithArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetCompareWithPresentationInput)(nil)).Elem(), DashboardWidgetCompareWithPresentationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetMetricInput)(nil)).Elem(), DashboardWidgetMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetMetricArrayInput)(nil)).Elem(), DashboardWidgetMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagInput)(nil)).Elem(), EntityTagsTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagArrayInput)(nil)).Elem(), EntityTagsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalPtrInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningPtrInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlPtrInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermInput)(nil)).Elem(), NrqlAlertConditionTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermArrayInput)(nil)).Elem(), NrqlAlertConditionTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningInput)(nil)).Elem(), NrqlAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningPtrInput)(nil)).Elem(), NrqlAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageInput)(nil)).Elem(), OneDashboardPageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageArrayInput)(nil)).Elem(), OneDashboardPageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInput)(nil)).Elem(), OneDashboardPageWidgetAreaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInput)(nil)).Elem(), OneDashboardPageWidgetBarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInput)(nil)).Elem(), OneDashboardPageWidgetBillboardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInput)(nil)).Elem(), OneDashboardPageWidgetBulletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInput)(nil)).Elem(), OneDashboardPageWidgetFunnelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInput)(nil)).Elem(), OneDashboardPageWidgetHistogramArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInput)(nil)).Elem(), OneDashboardPageWidgetJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInput)(nil)).Elem(), OneDashboardPageWidgetLineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInput)(nil)).Elem(), OneDashboardPageWidgetPyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInput)(nil)).Elem(), OneDashboardPageWidgetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageInput)(nil)).Elem(), OneDashboardRawPageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageArrayInput)(nil)).Elem(), OneDashboardRawPageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageWidgetInput)(nil)).Elem(), OneDashboardRawPageWidgetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageWidgetArrayInput)(nil)).Elem(), OneDashboardRawPageWidgetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsInput)(nil)).Elem(), ServiceLevelEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsPtrInput)(nil)).Elem(), ServiceLevelEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsInput)(nil)).Elem(), ServiceLevelEventsBadEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsPtrInput)(nil)).Elem(), ServiceLevelEventsBadEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsGoodEventsInput)(nil)).Elem(), ServiceLevelEventsGoodEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsGoodEventsPtrInput)(nil)).Elem(), ServiceLevelEventsGoodEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsInput)(nil)).Elem(), ServiceLevelEventsValidEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsPtrInput)(nil)).Elem(), ServiceLevelEventsValidEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveInput)(nil)).Elem(), ServiceLevelObjectiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveArrayInput)(nil)).Elem(), ServiceLevelObjectiveArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertChannelConfigInput)(nil)).Elem(), GetAlertChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagInput)(nil)).Elem(), GetEntityTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagPtrInput)(nil)).Elem(), GetEntityTagArgs{})
 	pulumi.RegisterOutputType(AlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(AlertChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
@@ -8173,4 +8451,5 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
+	pulumi.RegisterOutputType(GetEntityTagPtrOutput{})
 }

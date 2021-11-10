@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -18,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const foo = pulumi.output(newrelic.synthetics.getSecureCredential({
  *     key: "MY_KEY",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
@@ -41,7 +40,7 @@ export interface GetSecureCredentialArgs {
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
-    readonly key: string;
+    key: string;
 }
 
 /**
@@ -65,4 +64,18 @@ export interface GetSecureCredentialResult {
      * The time the secure credential was last updated.
      */
     readonly lastUpdated: string;
+}
+
+export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
+    return pulumi.output(args).apply(a => getSecureCredential(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSecureCredential.
+ */
+export interface GetSecureCredentialOutputArgs {
+    /**
+     * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+     */
+    key: pulumi.Input<string>;
 }

@@ -123,23 +123,23 @@ export interface SecureCredentialState {
     /**
      * The time the secure credential was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * The secure credential's description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * The time the secure credential was last updated.
      */
-    readonly lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string>;
     /**
      * The secure credential's value.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -149,21 +149,21 @@ export interface SecureCredentialArgs {
     /**
      * The time the secure credential was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * The secure credential's description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * The time the secure credential was last updated.
      */
-    readonly lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string>;
     /**
      * The secure credential's value.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

@@ -110,23 +110,23 @@ export interface NrqlDropRuleState {
     /**
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * The description of the drop rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A NRQL string that specifies what data types to drop.
      */
-    readonly nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string>;
     /**
      * The id, uniquely identifying the rule.
      */
-    readonly ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string>;
 }
 
 /**
@@ -136,17 +136,17 @@ export interface NrqlDropRuleArgs {
     /**
      * Account where the drop rule will be put. Defaults to the account associated with the API key used.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
      */
-    readonly action: pulumi.Input<string>;
+    action: pulumi.Input<string>;
     /**
      * The description of the drop rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A NRQL string that specifies what data types to drop.
      */
-    readonly nrql: pulumi.Input<string>;
+    nrql: pulumi.Input<string>;
 }

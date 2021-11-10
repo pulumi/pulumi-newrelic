@@ -128,27 +128,27 @@ export interface EventsToMetricsRuleState {
     /**
      * Account with the event and where the metrics will be put.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * Provides additional information about the rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * True means this rule is enabled. False means the rule is currently not creating metrics.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Explains how to create metrics from events.
      */
-    readonly nrql?: pulumi.Input<string>;
+    nrql?: pulumi.Input<string>;
     /**
      * The id, uniquely identifying the rule.
      */
-    readonly ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string>;
 }
 
 /**
@@ -158,21 +158,21 @@ export interface EventsToMetricsRuleArgs {
     /**
      * Account with the event and where the metrics will be put.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * Provides additional information about the rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * True means this rule is enabled. False means the rule is currently not creating metrics.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the rule. This must be unique within an account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Explains how to create metrics from events.
      */
-    readonly nrql: pulumi.Input<string>;
+    nrql: pulumi.Input<string>;
 }

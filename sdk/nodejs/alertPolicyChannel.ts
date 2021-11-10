@@ -132,11 +132,11 @@ export interface AlertPolicyChannelState {
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    readonly channelIds?: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The ID of the policy.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
 }
 
 /**
@@ -146,9 +146,9 @@ export interface AlertPolicyChannelArgs {
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
-    readonly channelIds: pulumi.Input<pulumi.Input<number>[]>;
+    channelIds: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The ID of the policy.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
 }

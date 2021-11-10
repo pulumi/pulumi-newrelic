@@ -250,19 +250,19 @@ export interface AlertConditionState {
     /**
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
-    readonly conditionScope?: pulumi.Input<string>;
+    conditionScope?: pulumi.Input<string>;
     /**
      * Whether the condition is enabled or not. Defaults to true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The instance IDs associated with this condition.
      */
-    readonly entities?: pulumi.Input<pulumi.Input<number>[]>;
+    entities?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
-    readonly gcMetric?: pulumi.Input<string>;
+    gcMetric?: pulumi.Input<string>;
     /**
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * * `apmAppMetric`
@@ -308,39 +308,39 @@ export interface AlertConditionState {
      * * `userDefined`
      * * `viewLoading`
      */
-    readonly metric?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    readonly terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
+    terms?: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
      * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * A custom metric to be evaluated.
      */
-    readonly userDefinedMetric?: pulumi.Input<string>;
+    userDefinedMetric?: pulumi.Input<string>;
     /**
      * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
      */
-    readonly userDefinedValueFunction?: pulumi.Input<string>;
+    userDefinedValueFunction?: pulumi.Input<string>;
     /**
      * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      */
-    readonly violationCloseTimer?: pulumi.Input<number>;
+    violationCloseTimer?: pulumi.Input<number>;
 }
 
 /**
@@ -350,19 +350,19 @@ export interface AlertConditionArgs {
     /**
      * `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
      */
-    readonly conditionScope?: pulumi.Input<string>;
+    conditionScope?: pulumi.Input<string>;
     /**
      * Whether the condition is enabled or not. Defaults to true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The instance IDs associated with this condition.
      */
-    readonly entities: pulumi.Input<pulumi.Input<number>[]>;
+    entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
      */
-    readonly gcMetric?: pulumi.Input<string>;
+    gcMetric?: pulumi.Input<string>;
     /**
      * The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
      * * `apmAppMetric`
@@ -408,37 +408,37 @@ export interface AlertConditionArgs {
      * * `userDefined`
      * * `viewLoading`
      */
-    readonly metric: pulumi.Input<string>;
+    metric: pulumi.Input<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * A list of terms for this condition. See Terms below for details.
      */
-    readonly terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
+    terms: pulumi.Input<pulumi.Input<inputs.AlertConditionTerm>[]>;
     /**
      * The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * A custom metric to be evaluated.
      */
-    readonly userDefinedMetric?: pulumi.Input<string>;
+    userDefinedMetric?: pulumi.Input<string>;
     /**
      * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
      */
-    readonly userDefinedValueFunction?: pulumi.Input<string>;
+    userDefinedValueFunction?: pulumi.Input<string>;
     /**
      * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      */
-    readonly violationCloseTimer?: pulumi.Input<number>;
+    violationCloseTimer?: pulumi.Input<number>;
 }

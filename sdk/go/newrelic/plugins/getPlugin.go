@@ -4,6 +4,9 @@
 package plugins
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,49 @@ type GetPluginArgs struct {
 type GetPluginResult struct {
 	Guid string `pulumi:"guid"`
 	Id   string `pulumi:"id"`
+}
+
+func GetPluginOutput(ctx *pulumi.Context, args GetPluginOutputArgs, opts ...pulumi.InvokeOption) GetPluginResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPluginResult, error) {
+			args := v.(GetPluginArgs)
+			r, err := GetPlugin(ctx, &args, opts...)
+			return *r, err
+		}).(GetPluginResultOutput)
+}
+
+// A collection of arguments for invoking getPlugin.
+type GetPluginOutputArgs struct {
+	Guid pulumi.StringInput `pulumi:"guid"`
+}
+
+func (GetPluginOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPluginArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPlugin.
+type GetPluginResultOutput struct{ *pulumi.OutputState }
+
+func (GetPluginResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPluginResult)(nil)).Elem()
+}
+
+func (o GetPluginResultOutput) ToGetPluginResultOutput() GetPluginResultOutput {
+	return o
+}
+
+func (o GetPluginResultOutput) ToGetPluginResultOutputWithContext(ctx context.Context) GetPluginResultOutput {
+	return o
+}
+
+func (o GetPluginResultOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPluginResult) string { return v.Guid }).(pulumi.StringOutput)
+}
+
+func (o GetPluginResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPluginResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPluginResultOutput{})
 }

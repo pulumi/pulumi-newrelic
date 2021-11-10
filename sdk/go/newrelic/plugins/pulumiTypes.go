@@ -226,6 +226,10 @@ func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadE
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionTermInput)(nil)).Elem(), AlertConditionTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertConditionTermArrayInput)(nil)).Elem(), AlertConditionTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryInput)(nil)).Elem(), WorkloadEntitySearchQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryArrayInput)(nil)).Elem(), WorkloadEntitySearchQueryArray{})
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryOutput{})

@@ -151,39 +151,39 @@ export interface WorkloadState {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * The composite query used to compose a dynamic workload.
      */
-    readonly compositeEntitySearchQuery?: pulumi.Input<string>;
+    compositeEntitySearchQuery?: pulumi.Input<string>;
     /**
      * A list of entity GUIDs manually assigned to this workload.
      */
-    readonly entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
      */
-    readonly entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
+    entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
     /**
      * The unique entity identifier of the workload in New Relic.
      */
-    readonly guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string>;
     /**
      * The workload's name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The URL of the workload.
      */
-    readonly permalink?: pulumi.Input<string>;
+    permalink?: pulumi.Input<string>;
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    readonly scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The unique entity identifier of the workload.
      */
-    readonly workloadId?: pulumi.Input<number>;
+    workloadId?: pulumi.Input<number>;
 }
 
 /**
@@ -193,21 +193,21 @@ export interface WorkloadArgs {
     /**
      * The New Relic account ID where you want to create the workload.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * A list of entity GUIDs manually assigned to this workload.
      */
-    readonly entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+    entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
      */
-    readonly entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
+    entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
     /**
      * The workload's name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of account IDs that will be used to get entities from.
      */
-    readonly scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
 }

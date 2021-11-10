@@ -4,6 +4,9 @@
 package newrelic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,73 @@ type LookupAlertPolicyResult struct {
 	Name               string  `pulumi:"name"`
 	// The time the policy was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+func LookupAlertPolicyOutput(ctx *pulumi.Context, args LookupAlertPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAlertPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAlertPolicyResult, error) {
+			args := v.(LookupAlertPolicyArgs)
+			r, err := LookupAlertPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAlertPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getAlertPolicy.
+type LookupAlertPolicyOutputArgs struct {
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+	IncidentPreference pulumi.StringPtrInput `pulumi:"incidentPreference"`
+	// The name of the alert policy in New Relic.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupAlertPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAlertPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAlertPolicy.
+type LookupAlertPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAlertPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAlertPolicyResult)(nil)).Elem()
+}
+
+func (o LookupAlertPolicyResultOutput) ToLookupAlertPolicyResultOutput() LookupAlertPolicyResultOutput {
+	return o
+}
+
+func (o LookupAlertPolicyResultOutput) ToLookupAlertPolicyResultOutputWithContext(ctx context.Context) LookupAlertPolicyResultOutput {
+	return o
+}
+
+func (o LookupAlertPolicyResultOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) int { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// The time the policy was created.
+func (o LookupAlertPolicyResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAlertPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+func (o LookupAlertPolicyResultOutput) IncidentPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) *string { return v.IncidentPreference }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAlertPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The time the policy was last updated.
+func (o LookupAlertPolicyResultOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAlertPolicyResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAlertPolicyResultOutput{})
 }

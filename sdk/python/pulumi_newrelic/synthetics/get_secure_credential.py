@@ -12,6 +12,7 @@ __all__ = [
     'GetSecureCredentialResult',
     'AwaitableGetSecureCredentialResult',
     'get_secure_credential',
+    'get_secure_credential_output',
 ]
 
 @pulumi.output_type
@@ -120,3 +121,26 @@ def get_secure_credential(key: Optional[str] = None,
         id=__ret__.id,
         key=__ret__.key,
         last_updated=__ret__.last_updated)
+
+
+@_utilities.lift_output_func(get_secure_credential)
+def get_secure_credential_output(key: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecureCredentialResult]:
+    """
+    Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
+
+    Note that the secure credential's value is not returned as an attribute for security reasons.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.synthetics.get_secure_credential(key="MY_KEY")
+    ```
+
+
+    :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+    """
+    ...

@@ -1138,6 +1138,7 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
      */
     unit: string;
 }
+
 export namespace insights {
     export interface EventEvent {
         attributes: outputs.insights.EventEventAttribute[];
@@ -1150,6 +1151,7 @@ export namespace insights {
         type?: string;
         value: string;
     }
+
 }
 
 export namespace plugins {
@@ -1167,6 +1169,7 @@ export namespace plugins {
          */
         query: string;
     }
+
 }
 
 export namespace synthetics {
@@ -1188,4 +1191,5 @@ export namespace synthetics {
     export interface MultiLocationAlertConditionWarning {
         threshold: number;
     }
+
 }

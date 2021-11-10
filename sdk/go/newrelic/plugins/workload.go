@@ -16,6 +16,40 @@ import (
 // attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
 // variable with your User API key.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+// 			AccountId: pulumi.Int(12345678),
+// 			EntityGuids: pulumi.StringArray{
+// 				pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+// 			},
+// 			EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+// 				&plugins.WorkloadEntitySearchQueryArgs{
+// 					Query: pulumi.String("name like 'Example application'"),
+// 				},
+// 			},
+// 			ScopeAccountIds: pulumi.IntArray{
+// 				pulumi.Int(12345678),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // New Relic One workloads can be imported using a concatenated string of the format
@@ -215,7 +249,7 @@ type WorkloadArrayInput interface {
 type WorkloadArray []WorkloadInput
 
 func (WorkloadArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Workload)(nil))
+	return reflect.TypeOf((*[]*Workload)(nil)).Elem()
 }
 
 func (i WorkloadArray) ToWorkloadArrayOutput() WorkloadArrayOutput {
@@ -240,7 +274,7 @@ type WorkloadMapInput interface {
 type WorkloadMap map[string]WorkloadInput
 
 func (WorkloadMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Workload)(nil))
+	return reflect.TypeOf((*map[string]*Workload)(nil)).Elem()
 }
 
 func (i WorkloadMap) ToWorkloadMapOutput() WorkloadMapOutput {
@@ -251,9 +285,7 @@ func (i WorkloadMap) ToWorkloadMapOutputWithContext(ctx context.Context) Workloa
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadMapOutput)
 }
 
-type WorkloadOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadOutput struct{ *pulumi.OutputState }
 
 func (WorkloadOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workload)(nil))
@@ -272,14 +304,12 @@ func (o WorkloadOutput) ToWorkloadPtrOutput() WorkloadPtrOutput {
 }
 
 func (o WorkloadOutput) ToWorkloadPtrOutputWithContext(ctx context.Context) WorkloadPtrOutput {
-	return o.ApplyT(func(v Workload) *Workload {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Workload) *Workload {
 		return &v
 	}).(WorkloadPtrOutput)
 }
 
-type WorkloadPtrOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkloadPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Workload)(nil))
@@ -291,6 +321,16 @@ func (o WorkloadPtrOutput) ToWorkloadPtrOutput() WorkloadPtrOutput {
 
 func (o WorkloadPtrOutput) ToWorkloadPtrOutputWithContext(ctx context.Context) WorkloadPtrOutput {
 	return o
+}
+
+func (o WorkloadPtrOutput) Elem() WorkloadOutput {
+	return o.ApplyT(func(v *Workload) Workload {
+		if v != nil {
+			return *v
+		}
+		var ret Workload
+		return ret
+	}).(WorkloadOutput)
 }
 
 type WorkloadArrayOutput struct{ *pulumi.OutputState }
@@ -334,6 +374,10 @@ func (o WorkloadMapOutput) MapIndex(k pulumi.StringInput) WorkloadOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInput)(nil)).Elem(), &Workload{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadPtrInput)(nil)).Elem(), &Workload{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadArrayInput)(nil)).Elem(), WorkloadArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadMapInput)(nil)).Elem(), WorkloadMap{})
 	pulumi.RegisterOutputType(WorkloadOutput{})
 	pulumi.RegisterOutputType(WorkloadPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadArrayOutput{})

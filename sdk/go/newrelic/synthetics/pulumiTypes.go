@@ -207,10 +207,11 @@ func (o MultiLocationAlertConditionCriticalOutput) ToMultiLocationAlertCondition
 }
 
 func (o MultiLocationAlertConditionCriticalOutput) ToMultiLocationAlertConditionCriticalPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionCriticalPtrOutput {
-	return o.ApplyT(func(v MultiLocationAlertConditionCritical) *MultiLocationAlertConditionCritical {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiLocationAlertConditionCritical) *MultiLocationAlertConditionCritical {
 		return &v
 	}).(MultiLocationAlertConditionCriticalPtrOutput)
 }
+
 func (o MultiLocationAlertConditionCriticalOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiLocationAlertConditionCritical) int { return v.Threshold }).(pulumi.IntOutput)
 }
@@ -230,7 +231,13 @@ func (o MultiLocationAlertConditionCriticalPtrOutput) ToMultiLocationAlertCondit
 }
 
 func (o MultiLocationAlertConditionCriticalPtrOutput) Elem() MultiLocationAlertConditionCriticalOutput {
-	return o.ApplyT(func(v *MultiLocationAlertConditionCritical) MultiLocationAlertConditionCritical { return *v }).(MultiLocationAlertConditionCriticalOutput)
+	return o.ApplyT(func(v *MultiLocationAlertConditionCritical) MultiLocationAlertConditionCritical {
+		if v != nil {
+			return *v
+		}
+		var ret MultiLocationAlertConditionCritical
+		return ret
+	}).(MultiLocationAlertConditionCriticalOutput)
 }
 
 func (o MultiLocationAlertConditionCriticalPtrOutput) Threshold() pulumi.IntPtrOutput {
@@ -333,10 +340,11 @@ func (o MultiLocationAlertConditionWarningOutput) ToMultiLocationAlertConditionW
 }
 
 func (o MultiLocationAlertConditionWarningOutput) ToMultiLocationAlertConditionWarningPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionWarningPtrOutput {
-	return o.ApplyT(func(v MultiLocationAlertConditionWarning) *MultiLocationAlertConditionWarning {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiLocationAlertConditionWarning) *MultiLocationAlertConditionWarning {
 		return &v
 	}).(MultiLocationAlertConditionWarningPtrOutput)
 }
+
 func (o MultiLocationAlertConditionWarningOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiLocationAlertConditionWarning) int { return v.Threshold }).(pulumi.IntOutput)
 }
@@ -356,7 +364,13 @@ func (o MultiLocationAlertConditionWarningPtrOutput) ToMultiLocationAlertConditi
 }
 
 func (o MultiLocationAlertConditionWarningPtrOutput) Elem() MultiLocationAlertConditionWarningOutput {
-	return o.ApplyT(func(v *MultiLocationAlertConditionWarning) MultiLocationAlertConditionWarning { return *v }).(MultiLocationAlertConditionWarningOutput)
+	return o.ApplyT(func(v *MultiLocationAlertConditionWarning) MultiLocationAlertConditionWarning {
+		if v != nil {
+			return *v
+		}
+		var ret MultiLocationAlertConditionWarning
+		return ret
+	}).(MultiLocationAlertConditionWarningOutput)
 }
 
 func (o MultiLocationAlertConditionWarningPtrOutput) Threshold() pulumi.IntPtrOutput {
@@ -369,6 +383,12 @@ func (o MultiLocationAlertConditionWarningPtrOutput) Threshold() pulumi.IntPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptLocationInput)(nil)).Elem(), MonitorScriptLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptLocationArrayInput)(nil)).Elem(), MonitorScriptLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionCriticalInput)(nil)).Elem(), MultiLocationAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionCriticalPtrInput)(nil)).Elem(), MultiLocationAlertConditionCriticalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionWarningInput)(nil)).Elem(), MultiLocationAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionWarningPtrInput)(nil)).Elem(), MultiLocationAlertConditionWarningArgs{})
 	pulumi.RegisterOutputType(MonitorScriptLocationOutput{})
 	pulumi.RegisterOutputType(MonitorScriptLocationArrayOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionCriticalOutput{})

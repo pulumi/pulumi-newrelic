@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +48,7 @@ export interface GetMonitorLocationArgs {
     /**
      * The label of the Synthetics monitor location.
      */
-    readonly label: string;
+    label: string;
 }
 
 /**
@@ -77,4 +76,18 @@ export interface GetMonitorLocationResult {
      * Represents if this location is a private location. A value of true means that the location is private, and a value of false means it is public.
      */
     readonly private: boolean;
+}
+
+export function getMonitorLocationOutput(args: GetMonitorLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorLocationResult> {
+    return pulumi.output(args).apply(a => getMonitorLocation(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMonitorLocation.
+ */
+export interface GetMonitorLocationOutputArgs {
+    /**
+     * The label of the Synthetics monitor location.
+     */
+    label: pulumi.Input<string>;
 }

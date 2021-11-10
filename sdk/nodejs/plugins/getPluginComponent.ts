@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -30,8 +29,8 @@ export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.I
  * A collection of arguments for invoking getPluginComponent.
  */
 export interface GetPluginComponentArgs {
-    readonly name: string;
-    readonly pluginId: number;
+    name: string;
+    pluginId: number;
 }
 
 /**
@@ -42,4 +41,16 @@ export interface GetPluginComponentResult {
     readonly id: string;
     readonly name: string;
     readonly pluginId: number;
+}
+
+export function getPluginComponentOutput(args: GetPluginComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPluginComponentResult> {
+    return pulumi.output(args).apply(a => getPluginComponent(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPluginComponent.
+ */
+export interface GetPluginComponentOutputArgs {
+    name: pulumi.Input<string>;
+    pluginId: pulumi.Input<number>;
 }

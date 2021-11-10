@@ -13,6 +13,7 @@ __all__ = [
     'GetAlertChannelResult',
     'AwaitableGetAlertChannelResult',
     'get_alert_channel',
+    'get_alert_channel_output',
 ]
 
 @pulumi.output_type
@@ -110,3 +111,15 @@ def get_alert_channel(name: Optional[str] = None,
         name=__ret__.name,
         policy_ids=__ret__.policy_ids,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_alert_channel)
+def get_alert_channel_output(name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertChannelResult]:
+    """
+    Use this data source to get information about a specific alert channel in New Relic that already exists.
+
+
+    :param str name: The name of the alert channel in New Relic.
+    """
+    ...

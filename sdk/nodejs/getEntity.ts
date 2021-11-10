@@ -32,20 +32,20 @@ export interface GetEntityArgs {
     /**
      * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
      */
-    readonly domain?: string;
+    domain?: string;
     /**
      * Ignore case of the `name` when searching for the entity. Defaults to false.
      */
-    readonly ignoreCase?: boolean;
+    ignoreCase?: boolean;
     /**
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */
-    readonly name: string;
-    readonly tag?: inputs.GetEntityTag;
+    name: string;
+    tag?: inputs.GetEntityTag;
     /**
      * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
      */
-    readonly type?: string;
+    type?: string;
 }
 
 /**
@@ -74,4 +74,31 @@ export interface GetEntityResult {
     readonly servingApmApplicationId: number;
     readonly tag?: outputs.GetEntityTag;
     readonly type: string;
+}
+
+export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
+    return pulumi.output(args).apply(a => getEntity(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEntity.
+ */
+export interface GetEntityOutputArgs {
+    /**
+     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * Ignore case of the `name` when searching for the entity. Defaults to false.
+     */
+    ignoreCase?: pulumi.Input<boolean>;
+    /**
+     * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
+     */
+    name: pulumi.Input<string>;
+    tag?: pulumi.Input<inputs.GetEntityTagArgs>;
+    /**
+     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+     */
+    type?: pulumi.Input<string>;
 }

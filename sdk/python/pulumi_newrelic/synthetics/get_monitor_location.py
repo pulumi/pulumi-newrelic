@@ -12,6 +12,7 @@ __all__ = [
     'GetMonitorLocationResult',
     'AwaitableGetMonitorLocationResult',
     'get_monitor_location',
+    'get_monitor_location_output',
 ]
 
 @pulumi.output_type
@@ -140,3 +141,33 @@ def get_monitor_location(label: Optional[str] = None,
         label=__ret__.label,
         name=__ret__.name,
         private=__ret__.private)
+
+
+@_utilities.lift_output_func(get_monitor_location)
+def get_monitor_location_output(label: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorLocationResult]:
+    """
+    Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    bar = newrelic.synthetics.get_monitor_location(label="My private location")
+    foo = newrelic.synthetics.Monitor("foo",
+        type="SIMPLE",
+        frequency=5,
+        status="ENABLED",
+        locations=[bar.name],
+        uri="https://example.com",
+        validation_string="add example validation check here",
+        verify_ssl=True)
+    # Optional for type "SIMPLE" and "BROWSER"
+    ```
+
+
+    :param str label: The label of the Synthetics monitor location.
+    """
+    ...

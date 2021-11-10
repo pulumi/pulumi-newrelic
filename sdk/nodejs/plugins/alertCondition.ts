@@ -158,44 +158,44 @@ export interface AlertConditionState {
     /**
      * Whether or not this condition is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The plugin component IDs to target.
      */
-    readonly entities?: pulumi.Input<pulumi.Input<number>[]>;
+    entities?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The plugin metric to evaluate.
      */
-    readonly metric?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
     /**
      * The metric description.
      */
-    readonly metricDescription?: pulumi.Input<string>;
+    metricDescription?: pulumi.Input<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The GUID of the plugin which produces the metric.
      */
-    readonly pluginGuid?: pulumi.Input<string>;
+    pluginGuid?: pulumi.Input<string>;
     /**
      * The ID of the installed plugin instance which produces the metric.
      */
-    readonly pluginId?: pulumi.Input<string>;
+    pluginId?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
-    readonly terms?: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
+    runbookUrl?: pulumi.Input<string>;
+    terms?: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
     /**
      * The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
      */
-    readonly valueFunction?: pulumi.Input<string>;
+    valueFunction?: pulumi.Input<string>;
 }
 
 /**
@@ -205,42 +205,42 @@ export interface AlertConditionArgs {
     /**
      * Whether or not this condition is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The plugin component IDs to target.
      */
-    readonly entities: pulumi.Input<pulumi.Input<number>[]>;
+    entities: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The plugin metric to evaluate.
      */
-    readonly metric: pulumi.Input<string>;
+    metric: pulumi.Input<string>;
     /**
      * The metric description.
      */
-    readonly metricDescription: pulumi.Input<string>;
+    metricDescription: pulumi.Input<string>;
     /**
      * The title of the condition. Must be between 1 and 64 characters, inclusive.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The GUID of the plugin which produces the metric.
      */
-    readonly pluginGuid: pulumi.Input<string>;
+    pluginGuid: pulumi.Input<string>;
     /**
      * The ID of the installed plugin instance which produces the metric.
      */
-    readonly pluginId: pulumi.Input<string>;
+    pluginId: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
-    readonly terms: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
+    runbookUrl?: pulumi.Input<string>;
+    terms: pulumi.Input<pulumi.Input<inputs.plugins.AlertConditionTerm>[]>;
     /**
      * The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
      */
-    readonly valueFunction: pulumi.Input<string>;
+    valueFunction: pulumi.Input<string>;
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -78,7 +79,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    #### DEPRECATED! Use at your own risk. Use the `getEntity` data source instead. This feature may be removed in the next major release.
+    #### DEPRECATED! Use at your own risk. Use the `get_entity` data source instead. This feature may be removed in the next major release.
 
     Use this data source to get information about a specific application in New Relic that already exists.
 
@@ -121,3 +122,40 @@ def get_application(name: Optional[str] = None,
         id=__ret__.id,
         instance_ids=__ret__.instance_ids,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    #### DEPRECATED! Use at your own risk. Use the `get_entity` data source instead. This feature may be removed in the next major release.
+
+    Use this data source to get information about a specific application in New Relic that already exists.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_application(name="my-app")
+    foo_alert_policy = newrelic.AlertPolicy("fooAlertPolicy")
+    foo_alert_condition = newrelic.AlertCondition("fooAlertCondition",
+        policy_id=foo_alert_policy.id,
+        type="apm_app_metric",
+        entities=[app.id],
+        metric="apdex",
+        runbook_url="https://www.example.com",
+        terms=[newrelic.AlertConditionTermArgs(
+            duration=5,
+            operator="below",
+            priority="critical",
+            threshold=0.75,
+            time_function="all",
+        )])
+    ```
+
+
+    :param str name: The name of the application in New Relic.
+    """
+    ...

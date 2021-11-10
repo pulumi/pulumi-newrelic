@@ -310,3 +310,61 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="adminApiKey")
+    def admin_api_key(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "admin_api_key")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiUrl")
+    def api_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "api_url")
+
+    @property
+    @pulumi.getter(name="cacertFile")
+    def cacert_file(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "cacert_file")
+
+    @property
+    @pulumi.getter(name="infrastructureApiUrl")
+    def infrastructure_api_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "infrastructure_api_url")
+
+    @property
+    @pulumi.getter(name="insightsInsertKey")
+    def insights_insert_key(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "insights_insert_key")
+
+    @property
+    @pulumi.getter(name="insightsInsertUrl")
+    def insights_insert_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "insights_insert_url")
+
+    @property
+    @pulumi.getter(name="insightsQueryUrl")
+    def insights_query_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "insights_query_url")
+
+    @property
+    @pulumi.getter(name="nerdgraphApiUrl")
+    def nerdgraph_api_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "nerdgraph_api_url")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="syntheticsApiUrl")
+    def synthetics_api_url(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "synthetics_api_url")
+
