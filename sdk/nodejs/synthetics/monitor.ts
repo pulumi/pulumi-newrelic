@@ -220,47 +220,47 @@ export interface MonitorState {
     /**
      * Bypass HEAD request.
      */
-    readonly bypassHeadRequest?: pulumi.Input<boolean>;
+    bypassHeadRequest?: pulumi.Input<boolean>;
     /**
      * The interval (in minutes) at which this monitor should run.
      */
-    readonly frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number>;
     /**
      * The locations in which this monitor should be run.
      */
-    readonly locations?: pulumi.Input<pulumi.Input<string>[]>;
+    locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of this monitor.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The base threshold for the SLA report.
      */
-    readonly slaThreshold?: pulumi.Input<number>;
+    slaThreshold?: pulumi.Input<number>;
     /**
      * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Fail the monitor check if redirected.
      */
-    readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
+    treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
      * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The URI for the monitor to hit.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * The string to validate against in the response.
      */
-    readonly validationString?: pulumi.Input<string>;
+    validationString?: pulumi.Input<string>;
     /**
      * Verify SSL.
      */
-    readonly verifySsl?: pulumi.Input<boolean>;
+    verifySsl?: pulumi.Input<boolean>;
 }
 
 /**
@@ -270,45 +270,45 @@ export interface MonitorArgs {
     /**
      * Bypass HEAD request.
      */
-    readonly bypassHeadRequest?: pulumi.Input<boolean>;
+    bypassHeadRequest?: pulumi.Input<boolean>;
     /**
      * The interval (in minutes) at which this monitor should run.
      */
-    readonly frequency: pulumi.Input<number>;
+    frequency: pulumi.Input<number>;
     /**
      * The locations in which this monitor should be run.
      */
-    readonly locations: pulumi.Input<pulumi.Input<string>[]>;
+    locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of this monitor.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The base threshold for the SLA report.
      */
-    readonly slaThreshold?: pulumi.Input<number>;
+    slaThreshold?: pulumi.Input<number>;
     /**
      * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
      */
-    readonly status: pulumi.Input<string>;
+    status: pulumi.Input<string>;
     /**
      * Fail the monitor check if redirected.
      */
-    readonly treatRedirectAsFailure?: pulumi.Input<boolean>;
+    treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
      * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * The URI for the monitor to hit.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * The string to validate against in the response.
      */
-    readonly validationString?: pulumi.Input<string>;
+    validationString?: pulumi.Input<string>;
     /**
      * Verify SSL.
      */
-    readonly verifySsl?: pulumi.Input<boolean>;
+    verifySsl?: pulumi.Input<boolean>;
 }

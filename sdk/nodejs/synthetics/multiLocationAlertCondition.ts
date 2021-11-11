@@ -140,36 +140,36 @@ export interface MultiLocationAlertConditionState {
     /**
      * A condition term with the priority set to critical.
      */
-    readonly critical?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
     /**
      * Set whether to enable the alert condition.  Defaults to true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The GUIDs of the Synthetics monitors to alert on.
      */
-    readonly entities?: pulumi.Input<pulumi.Input<string>[]>;
+    entities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of the condition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition will be used.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
      * 7200, 14400, 28800, 43200, 86400
      */
-    readonly violationTimeLimitSeconds?: pulumi.Input<number>;
+    violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
      */
-    readonly warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }
 
 /**
@@ -179,34 +179,34 @@ export interface MultiLocationAlertConditionArgs {
     /**
      * A condition term with the priority set to critical.
      */
-    readonly critical: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
+    critical: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionCritical>;
     /**
      * Set whether to enable the alert condition.  Defaults to true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The GUIDs of the Synthetics monitors to alert on.
      */
-    readonly entities: pulumi.Input<pulumi.Input<string>[]>;
+    entities: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The title of the condition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition will be used.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
      * 7200, 14400, 28800, 43200, 86400
      */
-    readonly violationTimeLimitSeconds: pulumi.Input<number>;
+    violationTimeLimitSeconds: pulumi.Input<number>;
     /**
      * A condition term with the priority set to warning.
      */
-    readonly warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.synthetics.MultiLocationAlertConditionWarning>;
 }

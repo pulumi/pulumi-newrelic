@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -54,7 +53,7 @@ export interface GetKeyTransactionArgs {
     /**
      * The name of the key transaction in New Relic.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -66,4 +65,18 @@ export interface GetKeyTransactionResult {
      */
     readonly id: string;
     readonly name: string;
+}
+
+export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyTransactionResult> {
+    return pulumi.output(args).apply(a => getKeyTransaction(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getKeyTransaction.
+ */
+export interface GetKeyTransactionOutputArgs {
+    /**
+     * The name of the key transaction in New Relic.
+     */
+    name: pulumi.Input<string>;
 }

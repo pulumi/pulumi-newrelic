@@ -4,6 +4,9 @@
 package synthetics
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,56 @@ type LookupMonitorResult struct {
 	// The ID of the synthetics monitor.
 	MonitorId string `pulumi:"monitorId"`
 	Name      string `pulumi:"name"`
+}
+
+func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMonitorResult, error) {
+			args := v.(LookupMonitorArgs)
+			r, err := LookupMonitor(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMonitorResultOutput)
+}
+
+// A collection of arguments for invoking getMonitor.
+type LookupMonitorOutputArgs struct {
+	// The name of the synthetics monitor in New Relic.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupMonitorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitorArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMonitor.
+type LookupMonitorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMonitorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitorResult)(nil)).Elem()
+}
+
+func (o LookupMonitorResultOutput) ToLookupMonitorResultOutput() LookupMonitorResultOutput {
+	return o
+}
+
+func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx context.Context) LookupMonitorResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupMonitorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the synthetics monitor.
+func (o LookupMonitorResultOutput) MonitorId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.MonitorId }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMonitorResultOutput{})
 }

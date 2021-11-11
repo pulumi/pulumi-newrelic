@@ -8,50 +8,64 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'account_id',
-    'admin_api_key',
-    'api_key',
-    'api_url',
-    'cacert_file',
-    'infrastructure_api_url',
-    'insecure_skip_verify',
-    'insights_insert_key',
-    'insights_insert_url',
-    'insights_query_url',
-    'nerdgraph_api_url',
-    'region',
-    'synthetics_api_url',
-]
+import types
 
 __config__ = pulumi.Config('newrelic')
 
-account_id = __config__.get('accountId') or _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
 
-admin_api_key = __config__.get('adminApiKey')
+class _ExportableConfig(types.ModuleType):
+    @property
+    def account_id(self) -> Optional[int]:
+        return __config__.get_int('accountId') or _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
 
-api_key = __config__.get('apiKey')
+    @property
+    def admin_api_key(self) -> Optional[str]:
+        return __config__.get('adminApiKey')
 
-api_url = __config__.get('apiUrl')
+    @property
+    def api_key(self) -> Optional[str]:
+        return __config__.get('apiKey')
 
-cacert_file = __config__.get('cacertFile')
+    @property
+    def api_url(self) -> Optional[str]:
+        return __config__.get('apiUrl')
 
-infrastructure_api_url = __config__.get('infrastructureApiUrl')
+    @property
+    def cacert_file(self) -> Optional[str]:
+        return __config__.get('cacertFile')
 
-insecure_skip_verify = __config__.get('insecureSkipVerify')
+    @property
+    def infrastructure_api_url(self) -> Optional[str]:
+        return __config__.get('infrastructureApiUrl')
 
-insights_insert_key = __config__.get('insightsInsertKey')
+    @property
+    def insecure_skip_verify(self) -> Optional[bool]:
+        return __config__.get_bool('insecureSkipVerify')
 
-insights_insert_url = __config__.get('insightsInsertUrl')
+    @property
+    def insights_insert_key(self) -> Optional[str]:
+        return __config__.get('insightsInsertKey')
 
-insights_query_url = __config__.get('insightsQueryUrl')
+    @property
+    def insights_insert_url(self) -> Optional[str]:
+        return __config__.get('insightsInsertUrl')
 
-nerdgraph_api_url = __config__.get('nerdgraphApiUrl')
+    @property
+    def insights_query_url(self) -> Optional[str]:
+        return __config__.get('insightsQueryUrl')
 
-region = __config__.get('region') or (_utilities.get_env('NEW_RELIC_REGION') or 'US')
-"""
-The data center for which your New Relic account is configured. Only one region per provider block is permitted.
-"""
+    @property
+    def nerdgraph_api_url(self) -> Optional[str]:
+        return __config__.get('nerdgraphApiUrl')
 
-synthetics_api_url = __config__.get('syntheticsApiUrl')
+    @property
+    def region(self) -> str:
+        """
+        The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+        """
+        return __config__.get('region') or (_utilities.get_env('NEW_RELIC_REGION') or 'US')
+
+    @property
+    def synthetics_api_url(self) -> Optional[str]:
+        return __config__.get('syntheticsApiUrl')
 

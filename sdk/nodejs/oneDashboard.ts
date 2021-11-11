@@ -121,31 +121,31 @@ export interface OneDashboardState {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * Brief text describing the dashboard.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The unique entity identifier of the dashboard page in New Relic.
      */
-    readonly guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string>;
     /**
      * The title of the dashboard.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A nested block that describes a page. See Nested page blocks below for details.
      */
-    readonly pages?: pulumi.Input<pulumi.Input<inputs.OneDashboardPage>[]>;
+    pages?: pulumi.Input<pulumi.Input<inputs.OneDashboardPage>[]>;
     /**
      * The URL for viewing the dashboard.
      */
-    readonly permalink?: pulumi.Input<string>;
+    permalink?: pulumi.Input<string>;
     /**
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
 }
 
 /**
@@ -155,21 +155,21 @@ export interface OneDashboardArgs {
     /**
      * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * Brief text describing the dashboard.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The title of the dashboard.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A nested block that describes a page. See Nested page blocks below for details.
      */
-    readonly pages: pulumi.Input<pulumi.Input<inputs.OneDashboardPage>[]>;
+    pages: pulumi.Input<pulumi.Input<inputs.OneDashboardPage>[]>;
     /**
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
-    readonly permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string>;
 }

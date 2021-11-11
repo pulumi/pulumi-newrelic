@@ -73,13 +73,13 @@ import (
 // 			Enabled:            pulumi.Bool(true),
 // 			ValueFunction:      pulumi.String("sum"),
 // 			ViolationTimeLimit: pulumi.String("TWENTY_FOUR_HOURS"),
-// 			Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+// 			Critical: &NrqlAlertConditionCriticalArgs{
 // 				Operator:             pulumi.String("above"),
 // 				ThresholdDuration:    pulumi.Int(120),
 // 				Threshold:            pulumi.Float64(3),
 // 				ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
 // 			},
-// 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+// 			Nrql: &NrqlAlertConditionNrqlArgs{
 // 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
 // 			},
 // 		})
@@ -113,8 +113,8 @@ import (
 // 			Enabled:                   pulumi.Bool(true),
 // 			ValueFunction:             pulumi.String("sum"),
 // 			ViolationTimeLimitSeconds: pulumi.Int(86400),
-// 			Terms: newrelic.NrqlAlertConditionTermArray{
-// 				&newrelic.NrqlAlertConditionTermArgs{
+// 			Terms: NrqlAlertConditionTermArray{
+// 				&NrqlAlertConditionTermArgs{
 // 					Priority:     pulumi.String("critical"),
 // 					Operator:     pulumi.String("above"),
 // 					Threshold:    pulumi.Float64(3),
@@ -122,7 +122,7 @@ import (
 // 					TimeFunction: pulumi.String("any"),
 // 				},
 // 			},
-// 			Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+// 			Nrql: &NrqlAlertConditionNrqlArgs{
 // 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
 // 			},
 // 		})
@@ -588,7 +588,7 @@ type NrqlAlertConditionArrayInput interface {
 type NrqlAlertConditionArray []NrqlAlertConditionInput
 
 func (NrqlAlertConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NrqlAlertCondition)(nil))
+	return reflect.TypeOf((*[]*NrqlAlertCondition)(nil)).Elem()
 }
 
 func (i NrqlAlertConditionArray) ToNrqlAlertConditionArrayOutput() NrqlAlertConditionArrayOutput {
@@ -613,7 +613,7 @@ type NrqlAlertConditionMapInput interface {
 type NrqlAlertConditionMap map[string]NrqlAlertConditionInput
 
 func (NrqlAlertConditionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NrqlAlertCondition)(nil))
+	return reflect.TypeOf((*map[string]*NrqlAlertCondition)(nil)).Elem()
 }
 
 func (i NrqlAlertConditionMap) ToNrqlAlertConditionMapOutput() NrqlAlertConditionMapOutput {
@@ -624,9 +624,7 @@ func (i NrqlAlertConditionMap) ToNrqlAlertConditionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlAlertConditionMapOutput)
 }
 
-type NrqlAlertConditionOutput struct {
-	*pulumi.OutputState
-}
+type NrqlAlertConditionOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NrqlAlertCondition)(nil))
@@ -645,14 +643,12 @@ func (o NrqlAlertConditionOutput) ToNrqlAlertConditionPtrOutput() NrqlAlertCondi
 }
 
 func (o NrqlAlertConditionOutput) ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput {
-	return o.ApplyT(func(v NrqlAlertCondition) *NrqlAlertCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlAlertCondition) *NrqlAlertCondition {
 		return &v
 	}).(NrqlAlertConditionPtrOutput)
 }
 
-type NrqlAlertConditionPtrOutput struct {
-	*pulumi.OutputState
-}
+type NrqlAlertConditionPtrOutput struct{ *pulumi.OutputState }
 
 func (NrqlAlertConditionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NrqlAlertCondition)(nil))
@@ -664,6 +660,16 @@ func (o NrqlAlertConditionPtrOutput) ToNrqlAlertConditionPtrOutput() NrqlAlertCo
 
 func (o NrqlAlertConditionPtrOutput) ToNrqlAlertConditionPtrOutputWithContext(ctx context.Context) NrqlAlertConditionPtrOutput {
 	return o
+}
+
+func (o NrqlAlertConditionPtrOutput) Elem() NrqlAlertConditionOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertCondition {
+		if v != nil {
+			return *v
+		}
+		var ret NrqlAlertCondition
+		return ret
+	}).(NrqlAlertConditionOutput)
 }
 
 type NrqlAlertConditionArrayOutput struct{ *pulumi.OutputState }
@@ -707,6 +713,10 @@ func (o NrqlAlertConditionMapOutput) MapIndex(k pulumi.StringInput) NrqlAlertCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionInput)(nil)).Elem(), &NrqlAlertCondition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionPtrInput)(nil)).Elem(), &NrqlAlertCondition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionArrayInput)(nil)).Elem(), NrqlAlertConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionMapInput)(nil)).Elem(), NrqlAlertConditionMap{})
 	pulumi.RegisterOutputType(NrqlAlertConditionOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionArrayOutput{})

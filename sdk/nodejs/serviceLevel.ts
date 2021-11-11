@@ -166,29 +166,29 @@ export interface ServiceLevelState {
     /**
      * The description of the SLI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The events that define the NRDB data for the SLI/SLO calculations.
      * See Events below for details.
      */
-    readonly events?: pulumi.Input<inputs.ServiceLevelEvents>;
+    events?: pulumi.Input<inputs.ServiceLevelEvents>;
     /**
      * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
      */
-    readonly guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string>;
     /**
      * A short name for the SLI that will help anyone understand what it is about.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An objective for the SLI. Multiple objective blocks can be defined for an SLI.
      * See Nested objective blocks below for details.
      */
-    readonly objectives?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjective>[]>;
+    objectives?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjective>[]>;
     /**
      * The unique entity identifier of the Service Level Indicator.
      */
-    readonly sliId?: pulumi.Input<string>;
+    sliId?: pulumi.Input<string>;
 }
 
 /**
@@ -198,23 +198,23 @@ export interface ServiceLevelArgs {
     /**
      * The description of the SLI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The events that define the NRDB data for the SLI/SLO calculations.
      * See Events below for details.
      */
-    readonly events: pulumi.Input<inputs.ServiceLevelEvents>;
+    events: pulumi.Input<inputs.ServiceLevelEvents>;
     /**
      * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
      */
-    readonly guid: pulumi.Input<string>;
+    guid: pulumi.Input<string>;
     /**
      * A short name for the SLI that will help anyone understand what it is about.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An objective for the SLI. Multiple objective blocks can be defined for an SLI.
      * See Nested objective blocks below for details.
      */
-    readonly objectives?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjective>[]>;
+    objectives?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjective>[]>;
 }

@@ -128,23 +128,23 @@ export interface AlertConditionState {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Synthetics monitor to be referenced in the alert condition.
      */
-    readonly monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string>;
     /**
      * The title of this condition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
 }
 
 /**
@@ -154,21 +154,21 @@ export interface AlertConditionArgs {
     /**
      * Set whether to enable the alert condition. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Synthetics monitor to be referenced in the alert condition.
      */
-    readonly monitorId: pulumi.Input<string>;
+    monitorId: pulumi.Input<string>;
     /**
      * The title of this condition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the policy where this condition should be used.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
 }

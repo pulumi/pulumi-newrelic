@@ -4,6 +4,9 @@
 package synthetics
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,66 @@ type LookupSecureCredentialResult struct {
 	Key string `pulumi:"key"`
 	// The time the secure credential was last updated.
 	LastUpdated string `pulumi:"lastUpdated"`
+}
+
+func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredentialOutputArgs, opts ...pulumi.InvokeOption) LookupSecureCredentialResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecureCredentialResult, error) {
+			args := v.(LookupSecureCredentialArgs)
+			r, err := LookupSecureCredential(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecureCredentialResultOutput)
+}
+
+// A collection of arguments for invoking getSecureCredential.
+type LookupSecureCredentialOutputArgs struct {
+	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (LookupSecureCredentialOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecureCredentialArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecureCredential.
+type LookupSecureCredentialResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecureCredentialResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecureCredentialResult)(nil)).Elem()
+}
+
+func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutput() LookupSecureCredentialResultOutput {
+	return o
+}
+
+func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutputWithContext(ctx context.Context) LookupSecureCredentialResultOutput {
+	return o
+}
+
+// The time the secure credential was created.
+func (o LookupSecureCredentialResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The secure credential's description.
+func (o LookupSecureCredentialResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSecureCredentialResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSecureCredentialResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The time the secure credential was last updated.
+func (o LookupSecureCredentialResultOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecureCredentialResultOutput{})
 }

@@ -218,7 +218,7 @@ type ApplicationSettingsArrayInput interface {
 type ApplicationSettingsArray []ApplicationSettingsInput
 
 func (ApplicationSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApplicationSettings)(nil))
+	return reflect.TypeOf((*[]*ApplicationSettings)(nil)).Elem()
 }
 
 func (i ApplicationSettingsArray) ToApplicationSettingsArrayOutput() ApplicationSettingsArrayOutput {
@@ -243,7 +243,7 @@ type ApplicationSettingsMapInput interface {
 type ApplicationSettingsMap map[string]ApplicationSettingsInput
 
 func (ApplicationSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApplicationSettings)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationSettings)(nil)).Elem()
 }
 
 func (i ApplicationSettingsMap) ToApplicationSettingsMapOutput() ApplicationSettingsMapOutput {
@@ -254,9 +254,7 @@ func (i ApplicationSettingsMap) ToApplicationSettingsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsMapOutput)
 }
 
-type ApplicationSettingsOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationSettings)(nil))
@@ -275,14 +273,12 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsPtrOutput() ApplicationS
 }
 
 func (o ApplicationSettingsOutput) ToApplicationSettingsPtrOutputWithContext(ctx context.Context) ApplicationSettingsPtrOutput {
-	return o.ApplyT(func(v ApplicationSettings) *ApplicationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSettings) *ApplicationSettings {
 		return &v
 	}).(ApplicationSettingsPtrOutput)
 }
 
-type ApplicationSettingsPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationSettings)(nil))
@@ -294,6 +290,16 @@ func (o ApplicationSettingsPtrOutput) ToApplicationSettingsPtrOutput() Applicati
 
 func (o ApplicationSettingsPtrOutput) ToApplicationSettingsPtrOutputWithContext(ctx context.Context) ApplicationSettingsPtrOutput {
 	return o
+}
+
+func (o ApplicationSettingsPtrOutput) Elem() ApplicationSettingsOutput {
+	return o.ApplyT(func(v *ApplicationSettings) ApplicationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSettings
+		return ret
+	}).(ApplicationSettingsOutput)
 }
 
 type ApplicationSettingsArrayOutput struct{ *pulumi.OutputState }
@@ -337,6 +343,10 @@ func (o ApplicationSettingsMapOutput) MapIndex(k pulumi.StringInput) Application
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsInput)(nil)).Elem(), &ApplicationSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsPtrInput)(nil)).Elem(), &ApplicationSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsArrayInput)(nil)).Elem(), ApplicationSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsMapInput)(nil)).Elem(), ApplicationSettingsMap{})
 	pulumi.RegisterOutputType(ApplicationSettingsOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsArrayOutput{})

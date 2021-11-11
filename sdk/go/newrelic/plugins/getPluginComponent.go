@@ -4,6 +4,9 @@
 package plugins
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,58 @@ type GetPluginComponentResult struct {
 	Id           string `pulumi:"id"`
 	Name         string `pulumi:"name"`
 	PluginId     int    `pulumi:"pluginId"`
+}
+
+func GetPluginComponentOutput(ctx *pulumi.Context, args GetPluginComponentOutputArgs, opts ...pulumi.InvokeOption) GetPluginComponentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPluginComponentResult, error) {
+			args := v.(GetPluginComponentArgs)
+			r, err := GetPluginComponent(ctx, &args, opts...)
+			return *r, err
+		}).(GetPluginComponentResultOutput)
+}
+
+// A collection of arguments for invoking getPluginComponent.
+type GetPluginComponentOutputArgs struct {
+	Name     pulumi.StringInput `pulumi:"name"`
+	PluginId pulumi.IntInput    `pulumi:"pluginId"`
+}
+
+func (GetPluginComponentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPluginComponentArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPluginComponent.
+type GetPluginComponentResultOutput struct{ *pulumi.OutputState }
+
+func (GetPluginComponentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPluginComponentResult)(nil)).Elem()
+}
+
+func (o GetPluginComponentResultOutput) ToGetPluginComponentResultOutput() GetPluginComponentResultOutput {
+	return o
+}
+
+func (o GetPluginComponentResultOutput) ToGetPluginComponentResultOutputWithContext(ctx context.Context) GetPluginComponentResultOutput {
+	return o
+}
+
+func (o GetPluginComponentResultOutput) HealthStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPluginComponentResult) string { return v.HealthStatus }).(pulumi.StringOutput)
+}
+
+func (o GetPluginComponentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPluginComponentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetPluginComponentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPluginComponentResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPluginComponentResultOutput) PluginId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPluginComponentResult) int { return v.PluginId }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPluginComponentResultOutput{})
 }

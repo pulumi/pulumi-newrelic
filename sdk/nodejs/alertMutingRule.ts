@@ -115,27 +115,27 @@ export interface AlertMutingRuleState {
     /**
      * The account id of the MutingRule.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * The condition that defines which violations to target. See Nested condition blocks below for details.
      */
-    readonly condition?: pulumi.Input<inputs.AlertMutingRuleCondition>;
+    condition?: pulumi.Input<inputs.AlertMutingRuleCondition>;
     /**
      * The description of the MutingRule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether the MutingRule is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the MutingRule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
-    readonly schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
+    schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
 }
 
 /**
@@ -145,25 +145,25 @@ export interface AlertMutingRuleArgs {
     /**
      * The account id of the MutingRule.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * The condition that defines which violations to target. See Nested condition blocks below for details.
      */
-    readonly condition: pulumi.Input<inputs.AlertMutingRuleCondition>;
+    condition: pulumi.Input<inputs.AlertMutingRuleCondition>;
     /**
      * The description of the MutingRule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether the MutingRule is enabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The name of the MutingRule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specify a schedule for enabling the MutingRule. See Schedule below for details
      */
-    readonly schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
+    schedule?: pulumi.Input<inputs.AlertMutingRuleSchedule>;
 }

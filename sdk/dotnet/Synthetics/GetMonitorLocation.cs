@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Synthetics
 {
@@ -53,6 +54,49 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         public static Task<GetMonitorLocationResult> InvokeAsync(GetMonitorLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorLocationResult>("newrelic:synthetics/getMonitorLocation:getMonitorLocation", args ?? new GetMonitorLocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitorLocation.InvokeAsync(new NewRelic.Synthetics.GetMonitorLocationArgs
+        ///         {
+        ///             Label = "My private location",
+        ///         }));
+        ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+        ///         {
+        ///             Type = "SIMPLE",
+        ///             Frequency = 5,
+        ///             Status = "ENABLED",
+        ///             Locations = 
+        ///             {
+        ///                 bar.Apply(bar =&gt; bar.Name),
+        ///             },
+        ///             Uri = "https://example.com",
+        ///             ValidationString = "add example validation check here",
+        ///             VerifySsl = true,
+        ///         });
+        ///         // Optional for type "SIMPLE" and "BROWSER"
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMonitorLocationResult> Invoke(GetMonitorLocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorLocationResult>("newrelic:synthetics/getMonitorLocation:getMonitorLocation", args ?? new GetMonitorLocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +109,19 @@ namespace Pulumi.NewRelic.Synthetics
         public string Label { get; set; } = null!;
 
         public GetMonitorLocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorLocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The label of the Synthetics monitor location.
+        /// </summary>
+        [Input("label", required: true)]
+        public Input<string> Label { get; set; } = null!;
+
+        public GetMonitorLocationInvokeArgs()
         {
         }
     }

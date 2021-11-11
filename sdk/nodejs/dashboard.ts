@@ -123,36 +123,36 @@ export interface DashboardState {
     /**
      * The URL for viewing the dashboard.
      */
-    readonly dashboardUrl?: pulumi.Input<string>;
+    dashboardUrl?: pulumi.Input<string>;
     /**
      * Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
      * read_only. Defaults to editable_by_all.
      */
-    readonly editable?: pulumi.Input<string>;
+    editable?: pulumi.Input<string>;
     /**
      * A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
      */
-    readonly filter?: pulumi.Input<inputs.DashboardFilter>;
+    filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
      * New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
      */
-    readonly gridColumnCount?: pulumi.Input<number>;
+    gridColumnCount?: pulumi.Input<number>;
     /**
      * The icon for the dashboard.
      */
-    readonly icon?: pulumi.Input<string>;
+    icon?: pulumi.Input<string>;
     /**
      * The title of the dashboard.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
     /**
      * A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
 
 /**
@@ -163,29 +163,29 @@ export interface DashboardArgs {
      * Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
      * read_only. Defaults to editable_by_all.
      */
-    readonly editable?: pulumi.Input<string>;
+    editable?: pulumi.Input<string>;
     /**
      * A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
      */
-    readonly filter?: pulumi.Input<inputs.DashboardFilter>;
+    filter?: pulumi.Input<inputs.DashboardFilter>;
     /**
      * New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
      */
-    readonly gridColumnCount?: pulumi.Input<number>;
+    gridColumnCount?: pulumi.Input<number>;
     /**
      * The icon for the dashboard.
      */
-    readonly icon?: pulumi.Input<string>;
+    icon?: pulumi.Input<string>;
     /**
      * The title of the dashboard.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
     /**
      * A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -56,7 +55,7 @@ export interface GetApplicationArgs {
     /**
      * The name of the application in New Relic.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -76,4 +75,18 @@ export interface GetApplicationResult {
      */
     readonly instanceIds: number[];
     readonly name: string;
+}
+
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+    return pulumi.output(args).apply(a => getApplication(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApplication.
+ */
+export interface GetApplicationOutputArgs {
+    /**
+     * The name of the application in New Relic.
+     */
+    name: pulumi.Input<string>;
 }

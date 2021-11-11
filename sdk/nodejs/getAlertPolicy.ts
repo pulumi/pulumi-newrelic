@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -45,15 +44,15 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAlertPolicy.
  */
 export interface GetAlertPolicyArgs {
-    readonly accountId?: number;
+    accountId?: number;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
      */
-    readonly incidentPreference?: string;
+    incidentPreference?: string;
     /**
      * The name of the alert policy in New Relic.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -78,4 +77,23 @@ export interface GetAlertPolicyResult {
      * The time the policy was last updated.
      */
     readonly updatedAt: string;
+}
+
+export function getAlertPolicyOutput(args: GetAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertPolicyResult> {
+    return pulumi.output(args).apply(a => getAlertPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAlertPolicy.
+ */
+export interface GetAlertPolicyOutputArgs {
+    accountId?: pulumi.Input<number>;
+    /**
+     * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
+     */
+    incidentPreference?: pulumi.Input<string>;
+    /**
+     * The name of the alert policy in New Relic.
+     */
+    name: pulumi.Input<string>;
 }

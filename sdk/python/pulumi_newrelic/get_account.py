@@ -12,6 +12,7 @@ __all__ = [
     'GetAccountResult',
     'AwaitableGetAccountResult',
     'get_account',
+    'get_account_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,30 @@ def get_account(account_id: Optional[int] = None,
         id=__ret__.id,
         name=__ret__.name,
         scope=__ret__.scope)
+
+
+@_utilities.lift_output_func(get_account)
+def get_account_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+                       name: Optional[pulumi.Input[Optional[str]]] = None,
+                       scope: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+    """
+    Use this data source to get information about a specific account in New Relic.
+    Accounts can be located by ID or name.  Exactly one of the two attributes is
+    required.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    acc = newrelic.get_account(scope="global")
+    ```
+
+
+    :param int account_id: The account ID in New Relic.
+    :param str name: The account name in New Relic.
+    :param str scope: The scope of the account in New Relic.  Valid values are "global" and "in_region".  Defaults to "in_region".
+    """
+    ...

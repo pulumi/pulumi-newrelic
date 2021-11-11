@@ -35,6 +35,89 @@ import (
 // 	})
 // }
 // ```
+// ### Provision multiple notification channels and add those channels to a policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
+// 			Type: pulumi.String("slack"),
+// 			Config: &AlertChannelConfigArgs{
+// 				Url:     pulumi.String("https://hooks.slack.com/services/xxxxxxx/yyyyyyyy"),
+// 				Channel: pulumi.String("example-alerts-channel"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
+// 			Type: pulumi.String("email"),
+// 			Config: &AlertChannelConfigArgs{
+// 				Recipients:            pulumi.String("example@testing.com"),
+// 				IncludeJsonAttachment: pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
+// 			IncidentPreference: pulumi.String("PER_CONDITION"),
+// 			ChannelIds: pulumi.IntArray{
+// 				slackChannel.ID(),
+// 				emailChannel.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Reference existing notification channels and add those channel to a policy
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		slackChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
+// 			Name: "slack-channel-notification",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		emailChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
+// 			Name: "test@example.com",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
+// 			IncidentPreference: pulumi.String("PER_CONDITION"),
+// 			ChannelIds: pulumi.IntArray{
+// 				pulumi.String(slackChannel.Id),
+// 				pulumi.String(emailChannel.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -201,7 +284,7 @@ type AlertPolicyArrayInput interface {
 type AlertPolicyArray []AlertPolicyInput
 
 func (AlertPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AlertPolicy)(nil))
+	return reflect.TypeOf((*[]*AlertPolicy)(nil)).Elem()
 }
 
 func (i AlertPolicyArray) ToAlertPolicyArrayOutput() AlertPolicyArrayOutput {
@@ -226,7 +309,7 @@ type AlertPolicyMapInput interface {
 type AlertPolicyMap map[string]AlertPolicyInput
 
 func (AlertPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AlertPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AlertPolicy)(nil)).Elem()
 }
 
 func (i AlertPolicyMap) ToAlertPolicyMapOutput() AlertPolicyMapOutput {
@@ -237,9 +320,7 @@ func (i AlertPolicyMap) ToAlertPolicyMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyMapOutput)
 }
 
-type AlertPolicyOutput struct {
-	*pulumi.OutputState
-}
+type AlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertPolicy)(nil))
@@ -258,14 +339,12 @@ func (o AlertPolicyOutput) ToAlertPolicyPtrOutput() AlertPolicyPtrOutput {
 }
 
 func (o AlertPolicyOutput) ToAlertPolicyPtrOutputWithContext(ctx context.Context) AlertPolicyPtrOutput {
-	return o.ApplyT(func(v AlertPolicy) *AlertPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertPolicy) *AlertPolicy {
 		return &v
 	}).(AlertPolicyPtrOutput)
 }
 
-type AlertPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type AlertPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AlertPolicy)(nil))
@@ -277,6 +356,16 @@ func (o AlertPolicyPtrOutput) ToAlertPolicyPtrOutput() AlertPolicyPtrOutput {
 
 func (o AlertPolicyPtrOutput) ToAlertPolicyPtrOutputWithContext(ctx context.Context) AlertPolicyPtrOutput {
 	return o
+}
+
+func (o AlertPolicyPtrOutput) Elem() AlertPolicyOutput {
+	return o.ApplyT(func(v *AlertPolicy) AlertPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AlertPolicy
+		return ret
+	}).(AlertPolicyOutput)
 }
 
 type AlertPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -320,6 +409,10 @@ func (o AlertPolicyMapOutput) MapIndex(k pulumi.StringInput) AlertPolicyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyInput)(nil)).Elem(), &AlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyPtrInput)(nil)).Elem(), &AlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyArrayInput)(nil)).Elem(), AlertPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyMapInput)(nil)).Elem(), AlertPolicyMap{})
 	pulumi.RegisterOutputType(AlertPolicyOutput{})
 	pulumi.RegisterOutputType(AlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AlertPolicyArrayOutput{})

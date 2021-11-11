@@ -13,6 +13,58 @@ import (
 
 // Use this resource to update a synthetics monitor script in New Relic.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foo, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+// 			Type:      pulumi.String("SCRIPT_BROWSER"),
+// 			Frequency: pulumi.Int(5),
+// 			Status:    pulumi.String("ENABLED"),
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("AWS_US_EAST_1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = synthetics.NewMonitorScript(ctx, "fooScript", &synthetics.MonitorScriptArgs{
+// 			MonitorId: foo.ID(),
+// 			Text:      readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/foo_script.js")),
+// 			Locations: synthetics.MonitorScriptLocationArray{
+// 				&synthetics.MonitorScriptLocationArgs{
+// 					Name: pulumi.String("YWJjZAo="),
+// 					Hmac: pulumi.String("ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ=="),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Synthetics monitor scripts can be imported using the `id`, e.g. bash
@@ -172,7 +224,7 @@ type MonitorScriptArrayInput interface {
 type MonitorScriptArray []MonitorScriptInput
 
 func (MonitorScriptArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MonitorScript)(nil))
+	return reflect.TypeOf((*[]*MonitorScript)(nil)).Elem()
 }
 
 func (i MonitorScriptArray) ToMonitorScriptArrayOutput() MonitorScriptArrayOutput {
@@ -197,7 +249,7 @@ type MonitorScriptMapInput interface {
 type MonitorScriptMap map[string]MonitorScriptInput
 
 func (MonitorScriptMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MonitorScript)(nil))
+	return reflect.TypeOf((*map[string]*MonitorScript)(nil)).Elem()
 }
 
 func (i MonitorScriptMap) ToMonitorScriptMapOutput() MonitorScriptMapOutput {
@@ -208,9 +260,7 @@ func (i MonitorScriptMap) ToMonitorScriptMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptMapOutput)
 }
 
-type MonitorScriptOutput struct {
-	*pulumi.OutputState
-}
+type MonitorScriptOutput struct{ *pulumi.OutputState }
 
 func (MonitorScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MonitorScript)(nil))
@@ -229,14 +279,12 @@ func (o MonitorScriptOutput) ToMonitorScriptPtrOutput() MonitorScriptPtrOutput {
 }
 
 func (o MonitorScriptOutput) ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput {
-	return o.ApplyT(func(v MonitorScript) *MonitorScript {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorScript) *MonitorScript {
 		return &v
 	}).(MonitorScriptPtrOutput)
 }
 
-type MonitorScriptPtrOutput struct {
-	*pulumi.OutputState
-}
+type MonitorScriptPtrOutput struct{ *pulumi.OutputState }
 
 func (MonitorScriptPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MonitorScript)(nil))
@@ -248,6 +296,16 @@ func (o MonitorScriptPtrOutput) ToMonitorScriptPtrOutput() MonitorScriptPtrOutpu
 
 func (o MonitorScriptPtrOutput) ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput {
 	return o
+}
+
+func (o MonitorScriptPtrOutput) Elem() MonitorScriptOutput {
+	return o.ApplyT(func(v *MonitorScript) MonitorScript {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorScript
+		return ret
+	}).(MonitorScriptOutput)
 }
 
 type MonitorScriptArrayOutput struct{ *pulumi.OutputState }
@@ -291,6 +349,10 @@ func (o MonitorScriptMapOutput) MapIndex(k pulumi.StringInput) MonitorScriptOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptInput)(nil)).Elem(), &MonitorScript{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptPtrInput)(nil)).Elem(), &MonitorScript{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptArrayInput)(nil)).Elem(), MonitorScriptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptMapInput)(nil)).Elem(), MonitorScriptMap{})
 	pulumi.RegisterOutputType(MonitorScriptOutput{})
 	pulumi.RegisterOutputType(MonitorScriptPtrOutput{})
 	pulumi.RegisterOutputType(MonitorScriptArrayOutput{})

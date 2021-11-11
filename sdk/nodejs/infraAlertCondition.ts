@@ -256,71 +256,71 @@ export interface InfraAlertConditionState {
     /**
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
-    readonly comparison?: pulumi.Input<string>;
+    comparison?: pulumi.Input<string>;
     /**
      * The timestamp the alert condition was created.
      */
-    readonly createdAt?: pulumi.Input<number>;
+    createdAt?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
-    readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
      * The description of the Infrastructure alert condition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
-    readonly event?: pulumi.Input<string>;
+    event?: pulumi.Input<string>;
     /**
      * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
-    readonly integrationProvider?: pulumi.Input<string>;
+    integrationProvider?: pulumi.Input<string>;
     /**
      * The Infrastructure alert condition's name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    readonly policyId?: pulumi.Input<number>;
+    policyId?: pulumi.Input<number>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
-    readonly processWhere?: pulumi.Input<string>;
+    processWhere?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
-    readonly select?: pulumi.Input<string>;
+    select?: pulumi.Input<string>;
     /**
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The timestamp the alert condition was last updated.
      */
-    readonly updatedAt?: pulumi.Input<number>;
+    updatedAt?: pulumi.Input<number>;
     /**
      * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
-    readonly violationCloseTimer?: pulumi.Input<number>;
+    violationCloseTimer?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
-    readonly warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
      * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
-    readonly where?: pulumi.Input<string>;
+    where?: pulumi.Input<string>;
 }
 
 /**
@@ -330,61 +330,61 @@ export interface InfraAlertConditionArgs {
     /**
      * The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
      */
-    readonly comparison?: pulumi.Input<string>;
+    comparison?: pulumi.Input<string>;
     /**
      * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
      */
-    readonly critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
+    critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
      * The description of the Infrastructure alert condition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
      */
-    readonly event?: pulumi.Input<string>;
+    event?: pulumi.Input<string>;
     /**
      * For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
      */
-    readonly integrationProvider?: pulumi.Input<string>;
+    integrationProvider?: pulumi.Input<string>;
     /**
      * The Infrastructure alert condition's name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the alert policy where this condition should be used.
      */
-    readonly policyId: pulumi.Input<number>;
+    policyId: pulumi.Input<number>;
     /**
      * Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
      */
-    readonly processWhere?: pulumi.Input<string>;
+    processWhere?: pulumi.Input<string>;
     /**
      * Runbook URL to display in notifications.
      */
-    readonly runbookUrl?: pulumi.Input<string>;
+    runbookUrl?: pulumi.Input<string>;
     /**
      * The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
      */
-    readonly select?: pulumi.Input<string>;
+    select?: pulumi.Input<string>;
     /**
      * The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
-    readonly violationCloseTimer?: pulumi.Input<number>;
+    violationCloseTimer?: pulumi.Input<number>;
     /**
      * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
      */
-    readonly warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
+    warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
      * If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
      */
-    readonly where?: pulumi.Input<string>;
+    where?: pulumi.Input<string>;
 }

@@ -121,7 +121,7 @@ export interface EventState {
     /**
      * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
      */
-    readonly events?: pulumi.Input<pulumi.Input<inputs.insights.EventEvent>[]>;
+    events?: pulumi.Input<pulumi.Input<inputs.insights.EventEvent>[]>;
 }
 
 /**
@@ -131,5 +131,5 @@ export interface EventArgs {
     /**
      * An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
      */
-    readonly events: pulumi.Input<pulumi.Input<inputs.insights.EventEvent>[]>;
+    events: pulumi.Input<pulumi.Input<inputs.insights.EventEvent>[]>;
 }

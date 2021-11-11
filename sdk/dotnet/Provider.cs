@@ -18,6 +18,43 @@ namespace Pulumi.NewRelic
     [NewRelicResourceType("pulumi:providers:newrelic")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        [Output("adminApiKey")]
+        public Output<string?> AdminApiKey { get; private set; } = null!;
+
+        [Output("apiKey")]
+        public Output<string?> ApiKey { get; private set; } = null!;
+
+        [Output("apiUrl")]
+        public Output<string?> ApiUrl { get; private set; } = null!;
+
+        [Output("cacertFile")]
+        public Output<string?> CacertFile { get; private set; } = null!;
+
+        [Output("infrastructureApiUrl")]
+        public Output<string?> InfrastructureApiUrl { get; private set; } = null!;
+
+        [Output("insightsInsertKey")]
+        public Output<string?> InsightsInsertKey { get; private set; } = null!;
+
+        [Output("insightsInsertUrl")]
+        public Output<string?> InsightsInsertUrl { get; private set; } = null!;
+
+        [Output("insightsQueryUrl")]
+        public Output<string?> InsightsQueryUrl { get; private set; } = null!;
+
+        [Output("nerdgraphApiUrl")]
+        public Output<string?> NerdgraphApiUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+        /// </summary>
+        [Output("region")]
+        public Output<string?> Region { get; private set; } = null!;
+
+        [Output("syntheticsApiUrl")]
+        public Output<string?> SyntheticsApiUrl { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>

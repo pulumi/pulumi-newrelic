@@ -124,11 +124,11 @@ export interface EntityTagsState {
     /**
      * The guid of the entity to tag.
      */
-    readonly guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string>;
     /**
      * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
 }
 
 /**
@@ -138,9 +138,9 @@ export interface EntityTagsArgs {
     /**
      * The guid of the entity to tag.
      */
-    readonly guid: pulumi.Input<string>;
+    guid: pulumi.Input<string>;
     /**
      * A nested block that describes an entity tag. See Nested tag blocks below for details.
      */
-    readonly tags: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
+    tags: pulumi.Input<pulumi.Input<inputs.EntityTagsTag>[]>;
 }

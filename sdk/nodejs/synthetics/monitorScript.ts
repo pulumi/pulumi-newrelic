@@ -122,15 +122,15 @@ export interface MonitorScriptState {
     /**
      * A nested block that describes a monitor script location. See Nested location blocks below for details
      */
-    readonly locations?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorScriptLocation>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorScriptLocation>[]>;
     /**
      * The ID of the monitor to attach the script to.
      */
-    readonly monitorId?: pulumi.Input<string>;
+    monitorId?: pulumi.Input<string>;
     /**
      * The plaintext representing the monitor script.
      */
-    readonly text?: pulumi.Input<string>;
+    text?: pulumi.Input<string>;
 }
 
 /**
@@ -140,13 +140,13 @@ export interface MonitorScriptArgs {
     /**
      * A nested block that describes a monitor script location. See Nested location blocks below for details
      */
-    readonly locations?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorScriptLocation>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorScriptLocation>[]>;
     /**
      * The ID of the monitor to attach the script to.
      */
-    readonly monitorId: pulumi.Input<string>;
+    monitorId: pulumi.Input<string>;
     /**
      * The plaintext representing the monitor script.
      */
-    readonly text: pulumi.Input<string>;
+    text: pulumi.Input<string>;
 }

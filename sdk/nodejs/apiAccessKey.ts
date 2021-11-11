@@ -148,31 +148,31 @@ export interface ApiAccessKeyState {
     /**
      * The New Relic account ID of the account you wish to create the API access key.
      */
-    readonly accountId?: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      */
-    readonly ingestType?: pulumi.Input<string>;
+    ingestType?: pulumi.Input<string>;
     /**
      * The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
      */
-    readonly keyType?: pulumi.Input<string>;
+    keyType?: pulumi.Input<string>;
     /**
      * The name of the key.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Any notes about this ingest key.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      */
-    readonly userId?: pulumi.Input<number>;
+    userId?: pulumi.Input<number>;
 }
 
 /**
@@ -182,25 +182,25 @@ export interface ApiAccessKeyArgs {
     /**
      * The New Relic account ID of the account you wish to create the API access key.
      */
-    readonly accountId: pulumi.Input<number>;
+    accountId: pulumi.Input<number>;
     /**
      * Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
      */
-    readonly ingestType?: pulumi.Input<string>;
+    ingestType?: pulumi.Input<string>;
     /**
      * What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
      */
-    readonly keyType: pulumi.Input<string>;
+    keyType: pulumi.Input<string>;
     /**
      * The name of the key.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Any notes about this ingest key.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
      */
-    readonly userId?: pulumi.Input<number>;
+    userId?: pulumi.Input<number>;
 }

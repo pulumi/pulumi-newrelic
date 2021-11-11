@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic
 {
@@ -64,6 +65,60 @@ namespace Pulumi.NewRelic
         /// </summary>
         public static Task<GetKeyTransactionResult> InvokeAsync(GetKeyTransactionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific key transaction in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var txn = Output.Create(NewRelic.GetKeyTransaction.InvokeAsync(new NewRelic.GetKeyTransactionArgs
+        ///         {
+        ///             Name = "txn",
+        ///         }));
+        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
+        ///         {
+        ///         });
+        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
+        ///         {
+        ///             PolicyId = fooAlertPolicy.Id,
+        ///             Type = "apm_kt_metric",
+        ///             Entities = 
+        ///             {
+        ///                 txn.Apply(txn =&gt; txn.Id),
+        ///             },
+        ///             Metric = "error_percentage",
+        ///             RunbookUrl = "https://www.example.com",
+        ///             Terms = 
+        ///             {
+        ///                 new NewRelic.Inputs.AlertConditionTermArgs
+        ///                 {
+        ///                     Duration = 5,
+        ///                     Operator = "below",
+        ///                     Priority = "critical",
+        ///                     Threshold = 0.75,
+        ///                     TimeFunction = "all",
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetKeyTransactionResult> Invoke(GetKeyTransactionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKeyTransactionResult>("newrelic:index/getKeyTransaction:getKeyTransaction", args ?? new GetKeyTransactionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -76,6 +131,19 @@ namespace Pulumi.NewRelic
         public string Name { get; set; } = null!;
 
         public GetKeyTransactionArgs()
+        {
+        }
+    }
+
+    public sealed class GetKeyTransactionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the key transaction in New Relic.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetKeyTransactionInvokeArgs()
         {
         }
     }

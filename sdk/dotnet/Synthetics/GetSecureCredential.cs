@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Synthetics
 {
@@ -41,6 +42,37 @@ namespace Pulumi.NewRelic.Synthetics
         /// </summary>
         public static Task<GetSecureCredentialResult> InvokeAsync(GetSecureCredentialArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
+        /// 
+        /// Note that the secure credential's value is not returned as an attribute for security reasons.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(NewRelic.Synthetics.GetSecureCredential.InvokeAsync(new NewRelic.Synthetics.GetSecureCredentialArgs
+        ///         {
+        ///             Key = "MY_KEY",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSecureCredentialResult> Invoke(GetSecureCredentialInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +85,19 @@ namespace Pulumi.NewRelic.Synthetics
         public string Key { get; set; } = null!;
 
         public GetSecureCredentialArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecureCredentialInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+        /// </summary>
+        [Input("key", required: true)]
+        public Input<string> Key { get; set; } = null!;
+
+        public GetSecureCredentialInvokeArgs()
         {
         }
     }

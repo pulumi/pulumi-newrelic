@@ -223,6 +223,10 @@ func (o EventEventAttributeArrayOutput) Index(i pulumi.IntInput) EventEventAttri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEventInput)(nil)).Elem(), EventEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEventArrayInput)(nil)).Elem(), EventEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEventAttributeInput)(nil)).Elem(), EventEventAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEventAttributeArrayInput)(nil)).Elem(), EventEventAttributeArray{})
 	pulumi.RegisterOutputType(EventEventOutput{})
 	pulumi.RegisterOutputType(EventEventArrayOutput{})
 	pulumi.RegisterOutputType(EventEventAttributeOutput{})

@@ -219,6 +219,11 @@ export interface GetEntityTag {
     value: string;
 }
 
+export interface GetEntityTagArgs {
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
 export interface InfraAlertConditionCritical {
     duration: pulumi.Input<number>;
     timeFunction?: pulumi.Input<string>;

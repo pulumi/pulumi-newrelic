@@ -12,6 +12,7 @@ __all__ = [
     'GetPluginResult',
     'AwaitableGetPluginResult',
     'get_plugin',
+    'get_plugin_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,16 @@ def get_plugin(guid: Optional[str] = None,
     return AwaitableGetPluginResult(
         guid=__ret__.guid,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_plugin)
+def get_plugin_output(guid: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPluginResult]:
+    """
+    New Relic Plugins reached end of life Wednesday June 16, 2021.
+
+    **This data source has been removed.**
+
+    For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
+    """
+    ...

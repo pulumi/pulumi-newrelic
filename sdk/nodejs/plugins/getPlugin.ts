@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -29,7 +28,7 @@ export function getPlugin(args: GetPluginArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getPlugin.
  */
 export interface GetPluginArgs {
-    readonly guid: string;
+    guid: string;
 }
 
 /**
@@ -38,4 +37,15 @@ export interface GetPluginArgs {
 export interface GetPluginResult {
     readonly guid: string;
     readonly id: string;
+}
+
+export function getPluginOutput(args: GetPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPluginResult> {
+    return pulumi.output(args).apply(a => getPlugin(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPlugin.
+ */
+export interface GetPluginOutputArgs {
+    guid: pulumi.Input<string>;
 }
