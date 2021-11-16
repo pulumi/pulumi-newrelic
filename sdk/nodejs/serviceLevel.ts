@@ -40,8 +40,6 @@ import * as utilities from "./utilities";
  *     },
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
  *     objectives: [{
- *         description: "A realistic objective.",
- *         name: "Realistic",
  *         target: 99,
  *         timeWindow: {
  *             rolling: {

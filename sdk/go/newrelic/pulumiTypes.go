@@ -818,7 +818,7 @@ func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 }
 
 type AlertMutingRuleConditionCondition struct {
-	// The attribute on a violation.
+	// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 	Attribute string `pulumi:"attribute"`
 	// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 	Operator string `pulumi:"operator"`
@@ -838,7 +838,7 @@ type AlertMutingRuleConditionConditionInput interface {
 }
 
 type AlertMutingRuleConditionConditionArgs struct {
-	// The attribute on a violation.
+	// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 	Attribute pulumi.StringInput `pulumi:"attribute"`
 	// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -897,7 +897,7 @@ func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionCondi
 	return o
 }
 
-// The attribute on a violation.
+// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 func (o AlertMutingRuleConditionConditionOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Attribute }).(pulumi.StringOutput)
 }

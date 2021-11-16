@@ -39,8 +39,7 @@ type MultiLocationAlertCondition struct {
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
-	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-	// 7200, 14400, 28800, 43200, 86400
+	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntOutput `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
 	Warning MultiLocationAlertConditionWarningPtrOutput `pulumi:"warning"`
@@ -99,8 +98,7 @@ type multiLocationAlertConditionState struct {
 	PolicyId *int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-	// 7200, 14400, 28800, 43200, 86400
+	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds *int `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
@@ -119,8 +117,7 @@ type MultiLocationAlertConditionState struct {
 	PolicyId pulumi.IntPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-	// 7200, 14400, 28800, 43200, 86400
+	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntPtrInput
 	// A condition term with the priority set to warning.
 	Warning MultiLocationAlertConditionWarningPtrInput
@@ -143,8 +140,7 @@ type multiLocationAlertConditionArgs struct {
 	PolicyId int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-	// 7200, 14400, 28800, 43200, 86400
+	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds int `pulumi:"violationTimeLimitSeconds"`
 	// A condition term with the priority set to warning.
 	Warning *MultiLocationAlertConditionWarning `pulumi:"warning"`
@@ -164,8 +160,7 @@ type MultiLocationAlertConditionArgs struct {
 	PolicyId pulumi.IntInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-	// 7200, 14400, 28800, 43200, 86400
+	// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
 	ViolationTimeLimitSeconds pulumi.IntInput
 	// A condition term with the priority set to warning.
 	Warning MultiLocationAlertConditionWarningPtrInput

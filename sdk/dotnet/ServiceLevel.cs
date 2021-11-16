@@ -55,8 +55,6 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///                 {
-    ///                     Description = "A realistic objective.",
-    ///                     Name = "Realistic",
     ///                     Target = 99,
     ///                     TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
     ///                     {

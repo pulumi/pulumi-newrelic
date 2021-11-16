@@ -52,9 +52,7 @@ import (
 // 			Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
 // 			Objectives: ServiceLevelObjectiveArray{
 // 				&ServiceLevelObjectiveArgs{
-// 					Description: pulumi.String("A realistic objective."),
-// 					Name:        pulumi.String("Realistic"),
-// 					Target:      pulumi.Float64(99),
+// 					Target: pulumi.Float64(99),
 // 					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
 // 						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
 // 							Count: pulumi.Int(7),
