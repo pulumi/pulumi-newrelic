@@ -28,8 +28,7 @@ class MultiLocationAlertConditionArgs:
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-               7200, 14400, 28800, 43200, 86400
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -88,8 +87,7 @@ class MultiLocationAlertConditionArgs:
     @pulumi.getter(name="violationTimeLimitSeconds")
     def violation_time_limit_seconds(self) -> pulumi.Input[int]:
         """
-        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-        7200, 14400, 28800, 43200, 86400
+        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
@@ -165,8 +163,7 @@ class _MultiLocationAlertConditionState:
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-               7200, 14400, 28800, 43200, 86400
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input['MultiLocationAlertConditionWarningArgs'] warning: A condition term with the priority set to warning.
         """
         if critical is not None:
@@ -262,8 +259,7 @@ class _MultiLocationAlertConditionState:
     @pulumi.getter(name="violationTimeLimitSeconds")
     def violation_time_limit_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-        7200, 14400, 28800, 43200, 86400
+        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 
@@ -321,8 +317,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-               7200, 14400, 28800, 43200, 86400
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
         """
         ...
@@ -428,8 +423,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-               7200, 14400, 28800, 43200, 86400
+        :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionWarningArgs']] warning: A condition term with the priority set to warning.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -498,8 +492,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="violationTimeLimitSeconds")
     def violation_time_limit_seconds(self) -> pulumi.Output[int]:
         """
-        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-        7200, 14400, 28800, 43200, 86400
+        The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         """
         return pulumi.get(self, "violation_time_limit_seconds")
 

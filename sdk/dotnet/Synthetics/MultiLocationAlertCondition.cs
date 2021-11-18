@@ -64,8 +64,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-        /// 7200, 14400, 28800, 43200, 86400
+        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         /// </summary>
         [Output("violationTimeLimitSeconds")]
         public Output<int> ViolationTimeLimitSeconds { get; private set; } = null!;
@@ -165,8 +164,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-        /// 7200, 14400, 28800, 43200, 86400
+        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         /// </summary>
         [Input("violationTimeLimitSeconds", required: true)]
         public Input<int> ViolationTimeLimitSeconds { get; set; } = null!;
@@ -227,8 +225,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-        /// 7200, 14400, 28800, 43200, 86400
+        /// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         /// </summary>
         [Input("violationTimeLimitSeconds")]
         public Input<int>? ViolationTimeLimitSeconds { get; set; }

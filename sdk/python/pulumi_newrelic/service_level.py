@@ -256,8 +256,6 @@ class ServiceLevel(pulumi.CustomResource):
             ),
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             objectives=[newrelic.ServiceLevelObjectiveArgs(
-                description="A realistic objective.",
-                name="Realistic",
                 target=99,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
                     rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
@@ -329,8 +327,6 @@ class ServiceLevel(pulumi.CustomResource):
             ),
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
             objectives=[newrelic.ServiceLevelObjectiveArgs(
-                description="A realistic objective.",
-                name="Realistic",
                 target=99,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
                     rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(

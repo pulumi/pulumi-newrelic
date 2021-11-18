@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class AlertMutingRuleConditionCondition
     {
         /// <summary>
-        /// The attribute on a violation.
+        /// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
         /// </summary>
         public readonly string Attribute;
         /// <summary>

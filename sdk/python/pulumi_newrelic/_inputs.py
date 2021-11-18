@@ -519,7 +519,7 @@ class AlertMutingRuleConditionConditionArgs:
                  operator: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[str] attribute: The attribute on a violation.
+        :param pulumi.Input[str] attribute: The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
         :param pulumi.Input[str] operator: The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
         """
@@ -531,7 +531,7 @@ class AlertMutingRuleConditionConditionArgs:
     @pulumi.getter
     def attribute(self) -> pulumi.Input[str]:
         """
-        The attribute on a violation.
+        The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
         """
         return pulumi.get(self, "attribute")
 

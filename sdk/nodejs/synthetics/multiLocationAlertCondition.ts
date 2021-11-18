@@ -73,8 +73,7 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-     * 7200, 14400, 28800, 43200, 86400
+     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
      */
     public readonly violationTimeLimitSeconds!: pulumi.Output<number>;
     /**
@@ -162,8 +161,7 @@ export interface MultiLocationAlertConditionState {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-     * 7200, 14400, 28800, 43200, 86400
+     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
      */
     violationTimeLimitSeconds?: pulumi.Input<number>;
     /**
@@ -201,8 +199,7 @@ export interface MultiLocationAlertConditionArgs {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600,
-     * 7200, 14400, 28800, 43200, 86400
+     * The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
      */
     violationTimeLimitSeconds: pulumi.Input<number>;
     /**

@@ -114,7 +114,7 @@ export interface AlertMutingRuleCondition {
 
 export interface AlertMutingRuleConditionCondition {
     /**
-     * The attribute on a violation.
+     * The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
      */
     attribute: string;
     /**
