@@ -1162,6 +1162,7 @@ export namespace synthetics {
          * The monitor script location name.
          */
         name: pulumi.Input<string>;
+        vsePassword?: pulumi.Input<string>;
     }
 
     export interface MultiLocationAlertConditionCritical {

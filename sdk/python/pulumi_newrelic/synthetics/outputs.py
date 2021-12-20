@@ -16,9 +16,27 @@ __all__ = [
 
 @pulumi.output_type
 class MonitorScriptLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vsePassword":
+            suggest = "vse_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorScriptLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorScriptLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorScriptLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 hmac: Optional[str] = None):
+                 hmac: Optional[str] = None,
+                 vse_password: Optional[str] = None):
         """
         :param str name: The monitor script location name.
         :param str hmac: The monitor script authentication code for the location.
@@ -26,6 +44,8 @@ class MonitorScriptLocation(dict):
         pulumi.set(__self__, "name", name)
         if hmac is not None:
             pulumi.set(__self__, "hmac", hmac)
+        if vse_password is not None:
+            pulumi.set(__self__, "vse_password", vse_password)
 
     @property
     @pulumi.getter
@@ -42,6 +62,11 @@ class MonitorScriptLocation(dict):
         The monitor script authentication code for the location.
         """
         return pulumi.get(self, "hmac")
+
+    @property
+    @pulumi.getter(name="vsePassword")
+    def vse_password(self) -> Optional[str]:
+        return pulumi.get(self, "vse_password")
 
 
 @pulumi.output_type

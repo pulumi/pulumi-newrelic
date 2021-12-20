@@ -11,8 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **New Relic Service Level Management is in preview**
-// Please contact your account team or fill in this [form](https://forms.gle/v1y3PDJ2P6sSfviC7) if you'd like to enroll your account.
+// > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
 //
 // Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
 //

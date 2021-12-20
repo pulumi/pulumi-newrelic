@@ -222,8 +222,7 @@ class ServiceLevel(pulumi.CustomResource):
                  objectives: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]]] = None,
                  __props__=None):
         """
-        > **New Relic Service Level Management is in preview**
-        Please contact your account team or fill in this [form](https://forms.gle/v1y3PDJ2P6sSfviC7) if you'd like to enroll your account.
+        > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
 
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
 
@@ -293,8 +292,7 @@ class ServiceLevel(pulumi.CustomResource):
                  args: ServiceLevelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **New Relic Service Level Management is in preview**
-        Please contact your account team or fill in this [form](https://forms.gle/v1y3PDJ2P6sSfviC7) if you'd like to enroll your account.
+        > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
 
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
 
