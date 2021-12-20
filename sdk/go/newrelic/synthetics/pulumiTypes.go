@@ -14,7 +14,8 @@ type MonitorScriptLocation struct {
 	// The monitor script authentication code for the location.
 	Hmac *string `pulumi:"hmac"`
 	// The monitor script location name.
-	Name string `pulumi:"name"`
+	Name        string  `pulumi:"name"`
+	VsePassword *string `pulumi:"vsePassword"`
 }
 
 // MonitorScriptLocationInput is an input type that accepts MonitorScriptLocationArgs and MonitorScriptLocationOutput values.
@@ -32,7 +33,8 @@ type MonitorScriptLocationArgs struct {
 	// The monitor script authentication code for the location.
 	Hmac pulumi.StringPtrInput `pulumi:"hmac"`
 	// The monitor script location name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	VsePassword pulumi.StringPtrInput `pulumi:"vsePassword"`
 }
 
 func (MonitorScriptLocationArgs) ElementType() reflect.Type {
@@ -94,6 +96,10 @@ func (o MonitorScriptLocationOutput) Hmac() pulumi.StringPtrOutput {
 // The monitor script location name.
 func (o MonitorScriptLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorScriptLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MonitorScriptLocationOutput) VsePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorScriptLocation) *string { return v.VsePassword }).(pulumi.StringPtrOutput)
 }
 
 type MonitorScriptLocationArrayOutput struct{ *pulumi.OutputState }

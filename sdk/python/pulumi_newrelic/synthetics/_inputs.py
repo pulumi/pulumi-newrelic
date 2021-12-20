@@ -18,7 +18,8 @@ __all__ = [
 class MonitorScriptLocationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 hmac: Optional[pulumi.Input[str]] = None):
+                 hmac: Optional[pulumi.Input[str]] = None,
+                 vse_password: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The monitor script location name.
         :param pulumi.Input[str] hmac: The monitor script authentication code for the location.
@@ -26,6 +27,8 @@ class MonitorScriptLocationArgs:
         pulumi.set(__self__, "name", name)
         if hmac is not None:
             pulumi.set(__self__, "hmac", hmac)
+        if vse_password is not None:
+            pulumi.set(__self__, "vse_password", vse_password)
 
     @property
     @pulumi.getter
@@ -50,6 +53,15 @@ class MonitorScriptLocationArgs:
     @hmac.setter
     def hmac(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hmac", value)
+
+    @property
+    @pulumi.getter(name="vsePassword")
+    def vse_password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vse_password")
+
+    @vse_password.setter
+    def vse_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vse_password", value)
 
 
 @pulumi.input_type

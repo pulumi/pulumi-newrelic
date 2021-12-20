@@ -30,7 +30,7 @@ namespace Pulumi.NewRelic
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// An action type specifying how to apply the NRQL string (either `drop_data` or `drop_attributes`).
+        /// An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// An action type specifying how to apply the NRQL string (either `drop_data` or `drop_attributes`).
+        /// An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// An action type specifying how to apply the NRQL string (either `drop_data` or `drop_attributes`).
+        /// An action type specifying how to apply the NRQL string (either `drop_data`, `drop_attributes`, or ` drop_attributes_from_metric_aggregates`).
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

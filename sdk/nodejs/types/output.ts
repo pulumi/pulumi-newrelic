@@ -1182,6 +1182,7 @@ export namespace synthetics {
          * The monitor script location name.
          */
         name: string;
+        vsePassword?: string;
     }
 
     export interface MultiLocationAlertConditionCritical {

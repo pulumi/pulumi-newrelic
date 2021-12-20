@@ -24,6 +24,9 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("vsePassword")]
+        public Input<string>? VsePassword { get; set; }
+
         public MonitorScriptLocationArgs()
         {
         }

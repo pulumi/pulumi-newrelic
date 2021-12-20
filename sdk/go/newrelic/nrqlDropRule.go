@@ -25,7 +25,7 @@ type NrqlDropRule struct {
 
 	// Account where the drop rule will be put. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
+	// An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
 	Action pulumi.StringOutput `pulumi:"action"`
 	// The description of the drop rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -72,7 +72,7 @@ func GetNrqlDropRule(ctx *pulumi.Context,
 type nrqlDropRuleState struct {
 	// Account where the drop rule will be put. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
-	// An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
+	// An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
 	Action *string `pulumi:"action"`
 	// The description of the drop rule.
 	Description *string `pulumi:"description"`
@@ -85,7 +85,7 @@ type nrqlDropRuleState struct {
 type NrqlDropRuleState struct {
 	// Account where the drop rule will be put. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
-	// An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
+	// An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
 	Action pulumi.StringPtrInput
 	// The description of the drop rule.
 	Description pulumi.StringPtrInput
@@ -102,7 +102,7 @@ func (NrqlDropRuleState) ElementType() reflect.Type {
 type nrqlDropRuleArgs struct {
 	// Account where the drop rule will be put. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
-	// An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
+	// An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
 	Action string `pulumi:"action"`
 	// The description of the drop rule.
 	Description *string `pulumi:"description"`
@@ -114,7 +114,7 @@ type nrqlDropRuleArgs struct {
 type NrqlDropRuleArgs struct {
 	// Account where the drop rule will be put. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
-	// An action type specifying how to apply the NRQL string (either `dropData` or `dropAttributes`).
+	// An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
 	Action pulumi.StringInput
 	// The description of the drop rule.
 	Description pulumi.StringPtrInput

@@ -21,15 +21,19 @@ namespace Pulumi.NewRelic.Synthetics.Outputs
         /// The monitor script location name.
         /// </summary>
         public readonly string Name;
+        public readonly string? VsePassword;
 
         [OutputConstructor]
         private MonitorScriptLocation(
             string? hmac,
 
-            string name)
+            string name,
+
+            string? vsePassword)
         {
             Hmac = hmac;
             Name = name;
+            VsePassword = vsePassword;
         }
     }
 }
