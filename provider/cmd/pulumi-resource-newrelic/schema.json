@@ -3661,7 +3661,7 @@
             "properties": {
                 "hmac": {
                     "type": "string",
-                    "description": "The monitor script authentication code for the location.\n",
+                    "description": "The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3679,6 +3679,7 @@
                 },
                 "vsePassword": {
                     "type": "string",
+                    "description": "The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -5579,7 +5580,7 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.\n"
+                    "description": "The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.\n"
                 },
                 "name": {
                     "type": "string",
@@ -5614,7 +5615,7 @@
                 },
                 "guid": {
                     "type": "string",
-                    "description": "The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.\n"
+                    "description": "The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.\n"
                 },
                 "name": {
                     "type": "string",
@@ -5645,7 +5646,7 @@
                     },
                     "guid": {
                         "type": "string",
-                        "description": "The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.\n"
+                        "description": "The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.\n"
                     },
                     "name": {
                         "type": "string",

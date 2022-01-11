@@ -98,7 +98,7 @@ export class ServiceLevel extends pulumi.CustomResource {
      */
     public readonly events!: pulumi.Output<outputs.ServiceLevelEvents>;
     /**
-     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
      */
     public readonly guid!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface ServiceLevelState {
      */
     events?: pulumi.Input<inputs.ServiceLevelEvents>;
     /**
-     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
      */
     guid?: pulumi.Input<string>;
     /**
@@ -202,7 +202,7 @@ export interface ServiceLevelArgs {
      */
     events: pulumi.Input<inputs.ServiceLevelEvents>;
     /**
-     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+     * The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
      */
     guid: pulumi.Input<string>;
     /**

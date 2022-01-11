@@ -98,7 +98,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.ServiceLevelEvents> Events { get; private set; } = null!;
 
         /// <summary>
-        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.ServiceLevelEventsArgs> Events { get; set; } = null!;
 
         /// <summary>
-        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         /// </summary>
         [Input("guid", required: true)]
         public Input<string> Guid { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.ServiceLevelEventsGetArgs>? Events { get; set; }
 
         /// <summary>
-        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        /// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }
