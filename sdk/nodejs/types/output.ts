@@ -1175,13 +1175,16 @@ export namespace plugins {
 export namespace synthetics {
     export interface MonitorScriptLocation {
         /**
-         * The monitor script authentication code for the location.
+         * The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
          */
         hmac?: string;
         /**
          * The monitor script location name.
          */
         name: string;
+        /**
+         * The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
+         */
         vsePassword?: string;
     }
 

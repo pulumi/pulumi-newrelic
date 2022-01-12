@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
     public sealed class MonitorScriptLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The monitor script authentication code for the location.
+        /// The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
         /// </summary>
         [Input("hmac")]
         public Input<string>? Hmac { get; set; }
@@ -24,6 +24,9 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.
+        /// </summary>
         [Input("vsePassword")]
         public Input<string>? VsePassword { get; set; }
 

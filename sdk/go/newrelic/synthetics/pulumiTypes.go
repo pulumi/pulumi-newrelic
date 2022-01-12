@@ -11,10 +11,11 @@ import (
 )
 
 type MonitorScriptLocation struct {
-	// The monitor script authentication code for the location.
+	// The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
 	Hmac *string `pulumi:"hmac"`
 	// The monitor script location name.
-	Name        string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
 	VsePassword *string `pulumi:"vsePassword"`
 }
 
@@ -30,10 +31,11 @@ type MonitorScriptLocationInput interface {
 }
 
 type MonitorScriptLocationArgs struct {
-	// The monitor script authentication code for the location.
+	// The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
 	Hmac pulumi.StringPtrInput `pulumi:"hmac"`
 	// The monitor script location name.
-	Name        pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
 	VsePassword pulumi.StringPtrInput `pulumi:"vsePassword"`
 }
 
@@ -88,7 +90,7 @@ func (o MonitorScriptLocationOutput) ToMonitorScriptLocationOutputWithContext(ct
 	return o
 }
 
-// The monitor script authentication code for the location.
+// The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
 func (o MonitorScriptLocationOutput) Hmac() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorScriptLocation) *string { return v.Hmac }).(pulumi.StringPtrOutput)
 }
@@ -98,6 +100,7 @@ func (o MonitorScriptLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorScriptLocation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
 func (o MonitorScriptLocationOutput) VsePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorScriptLocation) *string { return v.VsePassword }).(pulumi.StringPtrOutput)
 }

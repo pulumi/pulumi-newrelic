@@ -86,7 +86,7 @@ type ServiceLevel struct {
 	// The events that define the NRDB data for the SLI/SLO calculations.
 	// See Events below for details.
 	Events ServiceLevelEventsOutput `pulumi:"events"`
-	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -137,7 +137,7 @@ type serviceLevelState struct {
 	// The events that define the NRDB data for the SLI/SLO calculations.
 	// See Events below for details.
 	Events *ServiceLevelEvents `pulumi:"events"`
-	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
 	Guid *string `pulumi:"guid"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name *string `pulumi:"name"`
@@ -154,7 +154,7 @@ type ServiceLevelState struct {
 	// The events that define the NRDB data for the SLI/SLO calculations.
 	// See Events below for details.
 	Events ServiceLevelEventsPtrInput
-	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
 	Guid pulumi.StringPtrInput
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringPtrInput
@@ -175,7 +175,7 @@ type serviceLevelArgs struct {
 	// The events that define the NRDB data for the SLI/SLO calculations.
 	// See Events below for details.
 	Events ServiceLevelEvents `pulumi:"events"`
-	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
 	Guid string `pulumi:"guid"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name *string `pulumi:"name"`
@@ -191,7 +191,7 @@ type ServiceLevelArgs struct {
 	// The events that define the NRDB data for the SLI/SLO calculations.
 	// See Events below for details.
 	Events ServiceLevelEventsInput
-	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+	// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
 	Guid pulumi.StringInput
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringPtrInput

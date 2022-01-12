@@ -1155,13 +1155,16 @@ export namespace plugins {
 export namespace synthetics {
     export interface MonitorScriptLocation {
         /**
-         * The monitor script authentication code for the location.
+         * The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
          */
         hmac?: pulumi.Input<string>;
         /**
          * The monitor script location name.
          */
         name: pulumi.Input<string>;
+        /**
+         * The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
+         */
         vsePassword?: pulumi.Input<string>;
     }
 

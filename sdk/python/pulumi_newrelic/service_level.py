@@ -24,7 +24,7 @@ class ServiceLevelArgs:
         The set of arguments for constructing a ServiceLevel resource.
         :param pulumi.Input['ServiceLevelEventsArgs'] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] description: The description of the SLI.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
@@ -56,7 +56,7 @@ class ServiceLevelArgs:
     @pulumi.getter
     def guid(self) -> pulumi.Input[str]:
         """
-        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         """
         return pulumi.get(self, "guid")
 
@@ -116,7 +116,7 @@ class _ServiceLevelState:
         :param pulumi.Input[str] description: The description of the SLI.
         :param pulumi.Input['ServiceLevelEventsArgs'] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
                See Nested objective blocks below for details.
@@ -164,7 +164,7 @@ class _ServiceLevelState:
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
-        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         """
         return pulumi.get(self, "guid")
 
@@ -280,7 +280,7 @@ class ServiceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the SLI.
         :param pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
                See Nested objective blocks below for details.
@@ -413,7 +413,7 @@ class ServiceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the SLI.
         :param pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
-        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
                See Nested objective blocks below for details.
@@ -452,7 +452,7 @@ class ServiceLevel(pulumi.CustomResource):
     @pulumi.getter
     def guid(self) -> pulumi.Output[str]:
         """
-        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to.
+        The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         """
         return pulumi.get(self, "guid")
 

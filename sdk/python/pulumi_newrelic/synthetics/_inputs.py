@@ -22,7 +22,8 @@ class MonitorScriptLocationArgs:
                  vse_password: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The monitor script location name.
-        :param pulumi.Input[str] hmac: The monitor script authentication code for the location.
+        :param pulumi.Input[str] hmac: The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
+        :param pulumi.Input[str] vse_password: The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.
         """
         pulumi.set(__self__, "name", name)
         if hmac is not None:
@@ -46,7 +47,7 @@ class MonitorScriptLocationArgs:
     @pulumi.getter
     def hmac(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor script authentication code for the location.
+        The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
         """
         return pulumi.get(self, "hmac")
 
@@ -57,6 +58,9 @@ class MonitorScriptLocationArgs:
     @property
     @pulumi.getter(name="vsePassword")
     def vse_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.
+        """
         return pulumi.get(self, "vse_password")
 
     @vse_password.setter

@@ -14,13 +14,16 @@ namespace Pulumi.NewRelic.Synthetics.Outputs
     public sealed class MonitorScriptLocation
     {
         /// <summary>
-        /// The monitor script authentication code for the location.
+        /// The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
         /// </summary>
         public readonly string? Hmac;
         /// <summary>
         /// The monitor script location name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.
+        /// </summary>
         public readonly string? VsePassword;
 
         [OutputConstructor]
