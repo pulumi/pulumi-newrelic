@@ -276,37 +276,37 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     constructor(name: string, args: NrqlAlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NrqlAlertConditionArgs | NrqlAlertConditionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NrqlAlertConditionState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["aggregationDelay"] = state ? state.aggregationDelay : undefined;
-            inputs["aggregationMethod"] = state ? state.aggregationMethod : undefined;
-            inputs["aggregationTimer"] = state ? state.aggregationTimer : undefined;
-            inputs["aggregationWindow"] = state ? state.aggregationWindow : undefined;
-            inputs["baselineDirection"] = state ? state.baselineDirection : undefined;
-            inputs["closeViolationsOnExpiration"] = state ? state.closeViolationsOnExpiration : undefined;
-            inputs["critical"] = state ? state.critical : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["expectedGroups"] = state ? state.expectedGroups : undefined;
-            inputs["expirationDuration"] = state ? state.expirationDuration : undefined;
-            inputs["fillOption"] = state ? state.fillOption : undefined;
-            inputs["fillValue"] = state ? state.fillValue : undefined;
-            inputs["ignoreOverlap"] = state ? state.ignoreOverlap : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nrql"] = state ? state.nrql : undefined;
-            inputs["openViolationOnExpiration"] = state ? state.openViolationOnExpiration : undefined;
-            inputs["openViolationOnGroupOverlap"] = state ? state.openViolationOnGroupOverlap : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            inputs["terms"] = state ? state.terms : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["valueFunction"] = state ? state.valueFunction : undefined;
-            inputs["violationTimeLimit"] = state ? state.violationTimeLimit : undefined;
-            inputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
-            inputs["warning"] = state ? state.warning : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["aggregationDelay"] = state ? state.aggregationDelay : undefined;
+            resourceInputs["aggregationMethod"] = state ? state.aggregationMethod : undefined;
+            resourceInputs["aggregationTimer"] = state ? state.aggregationTimer : undefined;
+            resourceInputs["aggregationWindow"] = state ? state.aggregationWindow : undefined;
+            resourceInputs["baselineDirection"] = state ? state.baselineDirection : undefined;
+            resourceInputs["closeViolationsOnExpiration"] = state ? state.closeViolationsOnExpiration : undefined;
+            resourceInputs["critical"] = state ? state.critical : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["expectedGroups"] = state ? state.expectedGroups : undefined;
+            resourceInputs["expirationDuration"] = state ? state.expirationDuration : undefined;
+            resourceInputs["fillOption"] = state ? state.fillOption : undefined;
+            resourceInputs["fillValue"] = state ? state.fillValue : undefined;
+            resourceInputs["ignoreOverlap"] = state ? state.ignoreOverlap : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nrql"] = state ? state.nrql : undefined;
+            resourceInputs["openViolationOnExpiration"] = state ? state.openViolationOnExpiration : undefined;
+            resourceInputs["openViolationOnGroupOverlap"] = state ? state.openViolationOnGroupOverlap : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["valueFunction"] = state ? state.valueFunction : undefined;
+            resourceInputs["violationTimeLimit"] = state ? state.violationTimeLimit : undefined;
+            resourceInputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
+            resourceInputs["warning"] = state ? state.warning : undefined;
         } else {
             const args = argsOrState as NrqlAlertConditionArgs | undefined;
             if ((!args || args.nrql === undefined) && !opts.urn) {
@@ -315,38 +315,36 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["aggregationDelay"] = args ? args.aggregationDelay : undefined;
-            inputs["aggregationMethod"] = args ? args.aggregationMethod : undefined;
-            inputs["aggregationTimer"] = args ? args.aggregationTimer : undefined;
-            inputs["aggregationWindow"] = args ? args.aggregationWindow : undefined;
-            inputs["baselineDirection"] = args ? args.baselineDirection : undefined;
-            inputs["closeViolationsOnExpiration"] = args ? args.closeViolationsOnExpiration : undefined;
-            inputs["critical"] = args ? args.critical : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["expectedGroups"] = args ? args.expectedGroups : undefined;
-            inputs["expirationDuration"] = args ? args.expirationDuration : undefined;
-            inputs["fillOption"] = args ? args.fillOption : undefined;
-            inputs["fillValue"] = args ? args.fillValue : undefined;
-            inputs["ignoreOverlap"] = args ? args.ignoreOverlap : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nrql"] = args ? args.nrql : undefined;
-            inputs["openViolationOnExpiration"] = args ? args.openViolationOnExpiration : undefined;
-            inputs["openViolationOnGroupOverlap"] = args ? args.openViolationOnGroupOverlap : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["valueFunction"] = args ? args.valueFunction : undefined;
-            inputs["violationTimeLimit"] = args ? args.violationTimeLimit : undefined;
-            inputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
-            inputs["warning"] = args ? args.warning : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["aggregationDelay"] = args ? args.aggregationDelay : undefined;
+            resourceInputs["aggregationMethod"] = args ? args.aggregationMethod : undefined;
+            resourceInputs["aggregationTimer"] = args ? args.aggregationTimer : undefined;
+            resourceInputs["aggregationWindow"] = args ? args.aggregationWindow : undefined;
+            resourceInputs["baselineDirection"] = args ? args.baselineDirection : undefined;
+            resourceInputs["closeViolationsOnExpiration"] = args ? args.closeViolationsOnExpiration : undefined;
+            resourceInputs["critical"] = args ? args.critical : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["expectedGroups"] = args ? args.expectedGroups : undefined;
+            resourceInputs["expirationDuration"] = args ? args.expirationDuration : undefined;
+            resourceInputs["fillOption"] = args ? args.fillOption : undefined;
+            resourceInputs["fillValue"] = args ? args.fillValue : undefined;
+            resourceInputs["ignoreOverlap"] = args ? args.ignoreOverlap : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nrql"] = args ? args.nrql : undefined;
+            resourceInputs["openViolationOnExpiration"] = args ? args.openViolationOnExpiration : undefined;
+            resourceInputs["openViolationOnGroupOverlap"] = args ? args.openViolationOnGroupOverlap : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["valueFunction"] = args ? args.valueFunction : undefined;
+            resourceInputs["violationTimeLimit"] = args ? args.violationTimeLimit : undefined;
+            resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
+            resourceInputs["warning"] = args ? args.warning : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NrqlAlertCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NrqlAlertCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

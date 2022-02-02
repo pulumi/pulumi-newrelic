@@ -86,15 +86,15 @@ export class SecureCredential extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecureCredentialArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecureCredentialArgs | SecureCredentialState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecureCredentialState | undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["lastUpdated"] = state ? state.lastUpdated : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["lastUpdated"] = state ? state.lastUpdated : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as SecureCredentialArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -103,16 +103,14 @@ export class SecureCredential extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["createdAt"] = args ? args.createdAt : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["lastUpdated"] = args ? args.lastUpdated : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SecureCredential.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SecureCredential.__pulumiType, name, resourceInputs, opts);
     }
 }
 

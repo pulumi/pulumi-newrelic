@@ -90,14 +90,14 @@ export class ApplicationSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationSettingsArgs | ApplicationSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationSettingsState | undefined;
-            inputs["appApdexThreshold"] = state ? state.appApdexThreshold : undefined;
-            inputs["enableRealUserMonitoring"] = state ? state.enableRealUserMonitoring : undefined;
-            inputs["endUserApdexThreshold"] = state ? state.endUserApdexThreshold : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["appApdexThreshold"] = state ? state.appApdexThreshold : undefined;
+            resourceInputs["enableRealUserMonitoring"] = state ? state.enableRealUserMonitoring : undefined;
+            resourceInputs["endUserApdexThreshold"] = state ? state.endUserApdexThreshold : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApplicationSettingsArgs | undefined;
             if ((!args || args.appApdexThreshold === undefined) && !opts.urn) {
@@ -109,15 +109,13 @@ export class ApplicationSettings extends pulumi.CustomResource {
             if ((!args || args.endUserApdexThreshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endUserApdexThreshold'");
             }
-            inputs["appApdexThreshold"] = args ? args.appApdexThreshold : undefined;
-            inputs["enableRealUserMonitoring"] = args ? args.enableRealUserMonitoring : undefined;
-            inputs["endUserApdexThreshold"] = args ? args.endUserApdexThreshold : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["appApdexThreshold"] = args ? args.appApdexThreshold : undefined;
+            resourceInputs["enableRealUserMonitoring"] = args ? args.enableRealUserMonitoring : undefined;
+            resourceInputs["endUserApdexThreshold"] = args ? args.endUserApdexThreshold : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApplicationSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApplicationSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

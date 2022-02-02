@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Plugins
 {
@@ -20,7 +19,7 @@ namespace Pulumi.NewRelic.Plugins
         /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
         /// </summary>
         public static Task<GetPluginResult> InvokeAsync(GetPluginArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? new GetPluginArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? new GetPluginArgs(), options.WithDefaults());
 
         /// <summary>
         /// New Relic Plugins reached end of life Wednesday June 16, 2021.
@@ -30,7 +29,7 @@ namespace Pulumi.NewRelic.Plugins
         /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
         /// </summary>
         public static Output<GetPluginResult> Invoke(GetPluginInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? new GetPluginInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPluginResult>("newrelic:plugins/getPlugin:getPlugin", args ?? new GetPluginInvokeArgs(), options.WithDefaults());
     }
 
 

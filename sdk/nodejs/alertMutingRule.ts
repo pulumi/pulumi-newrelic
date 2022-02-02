@@ -76,16 +76,16 @@ export class AlertMutingRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertMutingRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertMutingRuleArgs | AlertMutingRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertMutingRuleState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["condition"] = state ? state.condition : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
         } else {
             const args = argsOrState as AlertMutingRuleArgs | undefined;
             if ((!args || args.condition === undefined) && !opts.urn) {
@@ -94,17 +94,15 @@ export class AlertMutingRule extends pulumi.CustomResource {
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertMutingRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertMutingRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

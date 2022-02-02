@@ -178,7 +178,7 @@ type MultiLocationAlertConditionInput interface {
 }
 
 func (*MultiLocationAlertCondition) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiLocationAlertCondition)(nil))
+	return reflect.TypeOf((**MultiLocationAlertCondition)(nil)).Elem()
 }
 
 func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {
@@ -187,35 +187,6 @@ func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutput() Mult
 
 func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutputWithContext(ctx context.Context) MultiLocationAlertConditionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionOutput)
-}
-
-func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionPtrOutput() MultiLocationAlertConditionPtrOutput {
-	return i.ToMultiLocationAlertConditionPtrOutputWithContext(context.Background())
-}
-
-func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionPtrOutput)
-}
-
-type MultiLocationAlertConditionPtrInput interface {
-	pulumi.Input
-
-	ToMultiLocationAlertConditionPtrOutput() MultiLocationAlertConditionPtrOutput
-	ToMultiLocationAlertConditionPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionPtrOutput
-}
-
-type multiLocationAlertConditionPtrType MultiLocationAlertConditionArgs
-
-func (*multiLocationAlertConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultiLocationAlertCondition)(nil))
-}
-
-func (i *multiLocationAlertConditionPtrType) ToMultiLocationAlertConditionPtrOutput() MultiLocationAlertConditionPtrOutput {
-	return i.ToMultiLocationAlertConditionPtrOutputWithContext(context.Background())
-}
-
-func (i *multiLocationAlertConditionPtrType) ToMultiLocationAlertConditionPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiLocationAlertConditionPtrOutput)
 }
 
 // MultiLocationAlertConditionArrayInput is an input type that accepts MultiLocationAlertConditionArray and MultiLocationAlertConditionArrayOutput values.
@@ -271,7 +242,7 @@ func (i MultiLocationAlertConditionMap) ToMultiLocationAlertConditionMapOutputWi
 type MultiLocationAlertConditionOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiLocationAlertCondition)(nil))
+	return reflect.TypeOf((**MultiLocationAlertCondition)(nil)).Elem()
 }
 
 func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutput() MultiLocationAlertConditionOutput {
@@ -282,44 +253,10 @@ func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutputWi
 	return o
 }
 
-func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionPtrOutput() MultiLocationAlertConditionPtrOutput {
-	return o.ToMultiLocationAlertConditionPtrOutputWithContext(context.Background())
-}
-
-func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiLocationAlertCondition) *MultiLocationAlertCondition {
-		return &v
-	}).(MultiLocationAlertConditionPtrOutput)
-}
-
-type MultiLocationAlertConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (MultiLocationAlertConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultiLocationAlertCondition)(nil))
-}
-
-func (o MultiLocationAlertConditionPtrOutput) ToMultiLocationAlertConditionPtrOutput() MultiLocationAlertConditionPtrOutput {
-	return o
-}
-
-func (o MultiLocationAlertConditionPtrOutput) ToMultiLocationAlertConditionPtrOutputWithContext(ctx context.Context) MultiLocationAlertConditionPtrOutput {
-	return o
-}
-
-func (o MultiLocationAlertConditionPtrOutput) Elem() MultiLocationAlertConditionOutput {
-	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertCondition {
-		if v != nil {
-			return *v
-		}
-		var ret MultiLocationAlertCondition
-		return ret
-	}).(MultiLocationAlertConditionOutput)
-}
-
 type MultiLocationAlertConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MultiLocationAlertCondition)(nil))
+	return reflect.TypeOf((*[]*MultiLocationAlertCondition)(nil)).Elem()
 }
 
 func (o MultiLocationAlertConditionArrayOutput) ToMultiLocationAlertConditionArrayOutput() MultiLocationAlertConditionArrayOutput {
@@ -331,15 +268,15 @@ func (o MultiLocationAlertConditionArrayOutput) ToMultiLocationAlertConditionArr
 }
 
 func (o MultiLocationAlertConditionArrayOutput) Index(i pulumi.IntInput) MultiLocationAlertConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiLocationAlertCondition {
-		return vs[0].([]MultiLocationAlertCondition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MultiLocationAlertCondition {
+		return vs[0].([]*MultiLocationAlertCondition)[vs[1].(int)]
 	}).(MultiLocationAlertConditionOutput)
 }
 
 type MultiLocationAlertConditionMapOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MultiLocationAlertCondition)(nil))
+	return reflect.TypeOf((*map[string]*MultiLocationAlertCondition)(nil)).Elem()
 }
 
 func (o MultiLocationAlertConditionMapOutput) ToMultiLocationAlertConditionMapOutput() MultiLocationAlertConditionMapOutput {
@@ -351,18 +288,16 @@ func (o MultiLocationAlertConditionMapOutput) ToMultiLocationAlertConditionMapOu
 }
 
 func (o MultiLocationAlertConditionMapOutput) MapIndex(k pulumi.StringInput) MultiLocationAlertConditionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MultiLocationAlertCondition {
-		return vs[0].(map[string]MultiLocationAlertCondition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MultiLocationAlertCondition {
+		return vs[0].(map[string]*MultiLocationAlertCondition)[vs[1].(string)]
 	}).(MultiLocationAlertConditionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionInput)(nil)).Elem(), &MultiLocationAlertCondition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionPtrInput)(nil)).Elem(), &MultiLocationAlertCondition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionArrayInput)(nil)).Elem(), MultiLocationAlertConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionMapInput)(nil)).Elem(), MultiLocationAlertConditionMap{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionOutput{})
-	pulumi.RegisterOutputType(MultiLocationAlertConditionPtrOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionArrayOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionMapOutput{})
 }

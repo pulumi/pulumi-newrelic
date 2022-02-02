@@ -124,16 +124,16 @@ export class ServiceLevel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceLevelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceLevelArgs | ServiceLevelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceLevelState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["guid"] = state ? state.guid : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["objectives"] = state ? state.objectives : undefined;
-            inputs["sliId"] = state ? state.sliId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["objectives"] = state ? state.objectives : undefined;
+            resourceInputs["sliId"] = state ? state.sliId : undefined;
         } else {
             const args = argsOrState as ServiceLevelArgs | undefined;
             if ((!args || args.events === undefined) && !opts.urn) {
@@ -142,17 +142,15 @@ export class ServiceLevel extends pulumi.CustomResource {
             if ((!args || args.guid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'guid'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["guid"] = args ? args.guid : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["objectives"] = args ? args.objectives : undefined;
-            inputs["sliId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["guid"] = args ? args.guid : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["objectives"] = args ? args.objectives : undefined;
+            resourceInputs["sliId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceLevel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceLevel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

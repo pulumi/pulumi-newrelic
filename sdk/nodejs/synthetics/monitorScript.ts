@@ -89,13 +89,13 @@ export class MonitorScript extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitorScriptArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorScriptArgs | MonitorScriptState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorScriptState | undefined;
-            inputs["locations"] = state ? state.locations : undefined;
-            inputs["monitorId"] = state ? state.monitorId : undefined;
-            inputs["text"] = state ? state.text : undefined;
+            resourceInputs["locations"] = state ? state.locations : undefined;
+            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
+            resourceInputs["text"] = state ? state.text : undefined;
         } else {
             const args = argsOrState as MonitorScriptArgs | undefined;
             if ((!args || args.monitorId === undefined) && !opts.urn) {
@@ -104,14 +104,12 @@ export class MonitorScript extends pulumi.CustomResource {
             if ((!args || args.text === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'text'");
             }
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["monitorId"] = args ? args.monitorId : undefined;
-            inputs["text"] = args ? args.text : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
+            resourceInputs["text"] = args ? args.text : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MonitorScript.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MonitorScript.__pulumiType, name, resourceInputs, opts);
     }
 }
 

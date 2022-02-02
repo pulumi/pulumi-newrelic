@@ -91,21 +91,21 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["entities"] = state ? state.entities : undefined;
-            inputs["metric"] = state ? state.metric : undefined;
-            inputs["metricDescription"] = state ? state.metricDescription : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pluginGuid"] = state ? state.pluginGuid : undefined;
-            inputs["pluginId"] = state ? state.pluginId : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            inputs["terms"] = state ? state.terms : undefined;
-            inputs["valueFunction"] = state ? state.valueFunction : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["entities"] = state ? state.entities : undefined;
+            resourceInputs["metric"] = state ? state.metric : undefined;
+            resourceInputs["metricDescription"] = state ? state.metricDescription : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pluginGuid"] = state ? state.pluginGuid : undefined;
+            resourceInputs["pluginId"] = state ? state.pluginId : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["valueFunction"] = state ? state.valueFunction : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
             if ((!args || args.entities === undefined) && !opts.urn) {
@@ -132,22 +132,20 @@ export class AlertCondition extends pulumi.CustomResource {
             if ((!args || args.valueFunction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'valueFunction'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["entities"] = args ? args.entities : undefined;
-            inputs["metric"] = args ? args.metric : undefined;
-            inputs["metricDescription"] = args ? args.metricDescription : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pluginGuid"] = args ? args.pluginGuid : undefined;
-            inputs["pluginId"] = args ? args.pluginId : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
-            inputs["valueFunction"] = args ? args.valueFunction : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entities"] = args ? args.entities : undefined;
+            resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["metricDescription"] = args ? args.metricDescription : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pluginGuid"] = args ? args.pluginGuid : undefined;
+            resourceInputs["pluginId"] = args ? args.pluginId : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["valueFunction"] = args ? args.valueFunction : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

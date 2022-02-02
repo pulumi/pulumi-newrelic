@@ -26,9 +26,7 @@ export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:index/getAccount:getAccount", {
         "accountId": args.accountId,
         "name": args.name,

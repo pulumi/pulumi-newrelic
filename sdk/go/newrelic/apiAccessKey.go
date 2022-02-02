@@ -192,7 +192,7 @@ type ApiAccessKeyInput interface {
 }
 
 func (*ApiAccessKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAccessKey)(nil))
+	return reflect.TypeOf((**ApiAccessKey)(nil)).Elem()
 }
 
 func (i *ApiAccessKey) ToApiAccessKeyOutput() ApiAccessKeyOutput {
@@ -201,35 +201,6 @@ func (i *ApiAccessKey) ToApiAccessKeyOutput() ApiAccessKeyOutput {
 
 func (i *ApiAccessKey) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiAccessKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyOutput)
-}
-
-func (i *ApiAccessKey) ToApiAccessKeyPtrOutput() ApiAccessKeyPtrOutput {
-	return i.ToApiAccessKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *ApiAccessKey) ToApiAccessKeyPtrOutputWithContext(ctx context.Context) ApiAccessKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyPtrOutput)
-}
-
-type ApiAccessKeyPtrInput interface {
-	pulumi.Input
-
-	ToApiAccessKeyPtrOutput() ApiAccessKeyPtrOutput
-	ToApiAccessKeyPtrOutputWithContext(ctx context.Context) ApiAccessKeyPtrOutput
-}
-
-type apiAccessKeyPtrType ApiAccessKeyArgs
-
-func (*apiAccessKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiAccessKey)(nil))
-}
-
-func (i *apiAccessKeyPtrType) ToApiAccessKeyPtrOutput() ApiAccessKeyPtrOutput {
-	return i.ToApiAccessKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *apiAccessKeyPtrType) ToApiAccessKeyPtrOutputWithContext(ctx context.Context) ApiAccessKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAccessKeyPtrOutput)
 }
 
 // ApiAccessKeyArrayInput is an input type that accepts ApiAccessKeyArray and ApiAccessKeyArrayOutput values.
@@ -285,7 +256,7 @@ func (i ApiAccessKeyMap) ToApiAccessKeyMapOutputWithContext(ctx context.Context)
 type ApiAccessKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiAccessKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAccessKey)(nil))
+	return reflect.TypeOf((**ApiAccessKey)(nil)).Elem()
 }
 
 func (o ApiAccessKeyOutput) ToApiAccessKeyOutput() ApiAccessKeyOutput {
@@ -296,44 +267,10 @@ func (o ApiAccessKeyOutput) ToApiAccessKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ApiAccessKeyOutput) ToApiAccessKeyPtrOutput() ApiAccessKeyPtrOutput {
-	return o.ToApiAccessKeyPtrOutputWithContext(context.Background())
-}
-
-func (o ApiAccessKeyOutput) ToApiAccessKeyPtrOutputWithContext(ctx context.Context) ApiAccessKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiAccessKey) *ApiAccessKey {
-		return &v
-	}).(ApiAccessKeyPtrOutput)
-}
-
-type ApiAccessKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (ApiAccessKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiAccessKey)(nil))
-}
-
-func (o ApiAccessKeyPtrOutput) ToApiAccessKeyPtrOutput() ApiAccessKeyPtrOutput {
-	return o
-}
-
-func (o ApiAccessKeyPtrOutput) ToApiAccessKeyPtrOutputWithContext(ctx context.Context) ApiAccessKeyPtrOutput {
-	return o
-}
-
-func (o ApiAccessKeyPtrOutput) Elem() ApiAccessKeyOutput {
-	return o.ApplyT(func(v *ApiAccessKey) ApiAccessKey {
-		if v != nil {
-			return *v
-		}
-		var ret ApiAccessKey
-		return ret
-	}).(ApiAccessKeyOutput)
-}
-
 type ApiAccessKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiAccessKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAccessKey)(nil))
+	return reflect.TypeOf((*[]*ApiAccessKey)(nil)).Elem()
 }
 
 func (o ApiAccessKeyArrayOutput) ToApiAccessKeyArrayOutput() ApiAccessKeyArrayOutput {
@@ -345,15 +282,15 @@ func (o ApiAccessKeyArrayOutput) ToApiAccessKeyArrayOutputWithContext(ctx contex
 }
 
 func (o ApiAccessKeyArrayOutput) Index(i pulumi.IntInput) ApiAccessKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAccessKey {
-		return vs[0].([]ApiAccessKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiAccessKey {
+		return vs[0].([]*ApiAccessKey)[vs[1].(int)]
 	}).(ApiAccessKeyOutput)
 }
 
 type ApiAccessKeyMapOutput struct{ *pulumi.OutputState }
 
 func (ApiAccessKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiAccessKey)(nil))
+	return reflect.TypeOf((*map[string]*ApiAccessKey)(nil)).Elem()
 }
 
 func (o ApiAccessKeyMapOutput) ToApiAccessKeyMapOutput() ApiAccessKeyMapOutput {
@@ -365,18 +302,16 @@ func (o ApiAccessKeyMapOutput) ToApiAccessKeyMapOutputWithContext(ctx context.Co
 }
 
 func (o ApiAccessKeyMapOutput) MapIndex(k pulumi.StringInput) ApiAccessKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiAccessKey {
-		return vs[0].(map[string]ApiAccessKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ApiAccessKey {
+		return vs[0].(map[string]*ApiAccessKey)[vs[1].(string)]
 	}).(ApiAccessKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAccessKeyInput)(nil)).Elem(), &ApiAccessKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAccessKeyPtrInput)(nil)).Elem(), &ApiAccessKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAccessKeyArrayInput)(nil)).Elem(), ApiAccessKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAccessKeyMapInput)(nil)).Elem(), ApiAccessKeyMap{})
 	pulumi.RegisterOutputType(ApiAccessKeyOutput{})
-	pulumi.RegisterOutputType(ApiAccessKeyPtrOutput{})
 	pulumi.RegisterOutputType(ApiAccessKeyArrayOutput{})
 	pulumi.RegisterOutputType(ApiAccessKeyMapOutput{})
 }

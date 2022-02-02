@@ -91,15 +91,15 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["monitorId"] = state ? state.monitorId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
             if ((!args || args.monitorId === undefined) && !opts.urn) {
@@ -108,16 +108,14 @@ export class AlertCondition extends pulumi.CustomResource {
             if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["monitorId"] = args ? args.monitorId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

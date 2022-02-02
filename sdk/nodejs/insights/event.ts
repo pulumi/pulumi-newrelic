@@ -95,22 +95,20 @@ export class Event extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventArgs | EventState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventState | undefined;
-            inputs["events"] = state ? state.events : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
         } else {
             const args = argsOrState as EventArgs | undefined;
             if ((!args || args.events === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            inputs["events"] = args ? args.events : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Event.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Event.__pulumiType, name, resourceInputs, opts);
     }
 }
 

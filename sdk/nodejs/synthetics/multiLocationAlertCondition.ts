@@ -90,18 +90,18 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     constructor(name: string, args: MultiLocationAlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MultiLocationAlertConditionArgs | MultiLocationAlertConditionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MultiLocationAlertConditionState | undefined;
-            inputs["critical"] = state ? state.critical : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["entities"] = state ? state.entities : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            inputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
-            inputs["warning"] = state ? state.warning : undefined;
+            resourceInputs["critical"] = state ? state.critical : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["entities"] = state ? state.entities : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["violationTimeLimitSeconds"] = state ? state.violationTimeLimitSeconds : undefined;
+            resourceInputs["warning"] = state ? state.warning : undefined;
         } else {
             const args = argsOrState as MultiLocationAlertConditionArgs | undefined;
             if ((!args || args.critical === undefined) && !opts.urn) {
@@ -116,19 +116,17 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
             if ((!args || args.violationTimeLimitSeconds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'violationTimeLimitSeconds'");
             }
-            inputs["critical"] = args ? args.critical : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["entities"] = args ? args.entities : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            inputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
-            inputs["warning"] = args ? args.warning : undefined;
+            resourceInputs["critical"] = args ? args.critical : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entities"] = args ? args.entities : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
+            resourceInputs["warning"] = args ? args.warning : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MultiLocationAlertCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MultiLocationAlertCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -170,7 +170,7 @@ type MonitorScriptInput interface {
 }
 
 func (*MonitorScript) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorScript)(nil))
+	return reflect.TypeOf((**MonitorScript)(nil)).Elem()
 }
 
 func (i *MonitorScript) ToMonitorScriptOutput() MonitorScriptOutput {
@@ -179,35 +179,6 @@ func (i *MonitorScript) ToMonitorScriptOutput() MonitorScriptOutput {
 
 func (i *MonitorScript) ToMonitorScriptOutputWithContext(ctx context.Context) MonitorScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptOutput)
-}
-
-func (i *MonitorScript) ToMonitorScriptPtrOutput() MonitorScriptPtrOutput {
-	return i.ToMonitorScriptPtrOutputWithContext(context.Background())
-}
-
-func (i *MonitorScript) ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptPtrOutput)
-}
-
-type MonitorScriptPtrInput interface {
-	pulumi.Input
-
-	ToMonitorScriptPtrOutput() MonitorScriptPtrOutput
-	ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput
-}
-
-type monitorScriptPtrType MonitorScriptArgs
-
-func (*monitorScriptPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitorScript)(nil))
-}
-
-func (i *monitorScriptPtrType) ToMonitorScriptPtrOutput() MonitorScriptPtrOutput {
-	return i.ToMonitorScriptPtrOutputWithContext(context.Background())
-}
-
-func (i *monitorScriptPtrType) ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptPtrOutput)
 }
 
 // MonitorScriptArrayInput is an input type that accepts MonitorScriptArray and MonitorScriptArrayOutput values.
@@ -263,7 +234,7 @@ func (i MonitorScriptMap) ToMonitorScriptMapOutputWithContext(ctx context.Contex
 type MonitorScriptOutput struct{ *pulumi.OutputState }
 
 func (MonitorScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorScript)(nil))
+	return reflect.TypeOf((**MonitorScript)(nil)).Elem()
 }
 
 func (o MonitorScriptOutput) ToMonitorScriptOutput() MonitorScriptOutput {
@@ -274,44 +245,10 @@ func (o MonitorScriptOutput) ToMonitorScriptOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o MonitorScriptOutput) ToMonitorScriptPtrOutput() MonitorScriptPtrOutput {
-	return o.ToMonitorScriptPtrOutputWithContext(context.Background())
-}
-
-func (o MonitorScriptOutput) ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorScript) *MonitorScript {
-		return &v
-	}).(MonitorScriptPtrOutput)
-}
-
-type MonitorScriptPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitorScriptPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitorScript)(nil))
-}
-
-func (o MonitorScriptPtrOutput) ToMonitorScriptPtrOutput() MonitorScriptPtrOutput {
-	return o
-}
-
-func (o MonitorScriptPtrOutput) ToMonitorScriptPtrOutputWithContext(ctx context.Context) MonitorScriptPtrOutput {
-	return o
-}
-
-func (o MonitorScriptPtrOutput) Elem() MonitorScriptOutput {
-	return o.ApplyT(func(v *MonitorScript) MonitorScript {
-		if v != nil {
-			return *v
-		}
-		var ret MonitorScript
-		return ret
-	}).(MonitorScriptOutput)
-}
-
 type MonitorScriptArrayOutput struct{ *pulumi.OutputState }
 
 func (MonitorScriptArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorScript)(nil))
+	return reflect.TypeOf((*[]*MonitorScript)(nil)).Elem()
 }
 
 func (o MonitorScriptArrayOutput) ToMonitorScriptArrayOutput() MonitorScriptArrayOutput {
@@ -323,15 +260,15 @@ func (o MonitorScriptArrayOutput) ToMonitorScriptArrayOutputWithContext(ctx cont
 }
 
 func (o MonitorScriptArrayOutput) Index(i pulumi.IntInput) MonitorScriptOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorScript {
-		return vs[0].([]MonitorScript)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitorScript {
+		return vs[0].([]*MonitorScript)[vs[1].(int)]
 	}).(MonitorScriptOutput)
 }
 
 type MonitorScriptMapOutput struct{ *pulumi.OutputState }
 
 func (MonitorScriptMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MonitorScript)(nil))
+	return reflect.TypeOf((*map[string]*MonitorScript)(nil)).Elem()
 }
 
 func (o MonitorScriptMapOutput) ToMonitorScriptMapOutput() MonitorScriptMapOutput {
@@ -343,18 +280,16 @@ func (o MonitorScriptMapOutput) ToMonitorScriptMapOutputWithContext(ctx context.
 }
 
 func (o MonitorScriptMapOutput) MapIndex(k pulumi.StringInput) MonitorScriptOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MonitorScript {
-		return vs[0].(map[string]MonitorScript)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MonitorScript {
+		return vs[0].(map[string]*MonitorScript)[vs[1].(string)]
 	}).(MonitorScriptOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptInput)(nil)).Elem(), &MonitorScript{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptPtrInput)(nil)).Elem(), &MonitorScript{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptArrayInput)(nil)).Elem(), MonitorScriptArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptMapInput)(nil)).Elem(), MonitorScriptMap{})
 	pulumi.RegisterOutputType(MonitorScriptOutput{})
-	pulumi.RegisterOutputType(MonitorScriptPtrOutput{})
 	pulumi.RegisterOutputType(MonitorScriptArrayOutput{})
 	pulumi.RegisterOutputType(MonitorScriptMapOutput{})
 }

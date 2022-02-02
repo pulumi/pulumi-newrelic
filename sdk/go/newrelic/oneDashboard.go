@@ -148,7 +148,7 @@ type OneDashboardInput interface {
 }
 
 func (*OneDashboard) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboard)(nil))
+	return reflect.TypeOf((**OneDashboard)(nil)).Elem()
 }
 
 func (i *OneDashboard) ToOneDashboardOutput() OneDashboardOutput {
@@ -157,35 +157,6 @@ func (i *OneDashboard) ToOneDashboardOutput() OneDashboardOutput {
 
 func (i *OneDashboard) ToOneDashboardOutputWithContext(ctx context.Context) OneDashboardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardOutput)
-}
-
-func (i *OneDashboard) ToOneDashboardPtrOutput() OneDashboardPtrOutput {
-	return i.ToOneDashboardPtrOutputWithContext(context.Background())
-}
-
-func (i *OneDashboard) ToOneDashboardPtrOutputWithContext(ctx context.Context) OneDashboardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPtrOutput)
-}
-
-type OneDashboardPtrInput interface {
-	pulumi.Input
-
-	ToOneDashboardPtrOutput() OneDashboardPtrOutput
-	ToOneDashboardPtrOutputWithContext(ctx context.Context) OneDashboardPtrOutput
-}
-
-type oneDashboardPtrType OneDashboardArgs
-
-func (*oneDashboardPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OneDashboard)(nil))
-}
-
-func (i *oneDashboardPtrType) ToOneDashboardPtrOutput() OneDashboardPtrOutput {
-	return i.ToOneDashboardPtrOutputWithContext(context.Background())
-}
-
-func (i *oneDashboardPtrType) ToOneDashboardPtrOutputWithContext(ctx context.Context) OneDashboardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPtrOutput)
 }
 
 // OneDashboardArrayInput is an input type that accepts OneDashboardArray and OneDashboardArrayOutput values.
@@ -241,7 +212,7 @@ func (i OneDashboardMap) ToOneDashboardMapOutputWithContext(ctx context.Context)
 type OneDashboardOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OneDashboard)(nil))
+	return reflect.TypeOf((**OneDashboard)(nil)).Elem()
 }
 
 func (o OneDashboardOutput) ToOneDashboardOutput() OneDashboardOutput {
@@ -252,44 +223,10 @@ func (o OneDashboardOutput) ToOneDashboardOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o OneDashboardOutput) ToOneDashboardPtrOutput() OneDashboardPtrOutput {
-	return o.ToOneDashboardPtrOutputWithContext(context.Background())
-}
-
-func (o OneDashboardOutput) ToOneDashboardPtrOutputWithContext(ctx context.Context) OneDashboardPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboard) *OneDashboard {
-		return &v
-	}).(OneDashboardPtrOutput)
-}
-
-type OneDashboardPtrOutput struct{ *pulumi.OutputState }
-
-func (OneDashboardPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OneDashboard)(nil))
-}
-
-func (o OneDashboardPtrOutput) ToOneDashboardPtrOutput() OneDashboardPtrOutput {
-	return o
-}
-
-func (o OneDashboardPtrOutput) ToOneDashboardPtrOutputWithContext(ctx context.Context) OneDashboardPtrOutput {
-	return o
-}
-
-func (o OneDashboardPtrOutput) Elem() OneDashboardOutput {
-	return o.ApplyT(func(v *OneDashboard) OneDashboard {
-		if v != nil {
-			return *v
-		}
-		var ret OneDashboard
-		return ret
-	}).(OneDashboardOutput)
-}
-
 type OneDashboardArrayOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OneDashboard)(nil))
+	return reflect.TypeOf((*[]*OneDashboard)(nil)).Elem()
 }
 
 func (o OneDashboardArrayOutput) ToOneDashboardArrayOutput() OneDashboardArrayOutput {
@@ -301,15 +238,15 @@ func (o OneDashboardArrayOutput) ToOneDashboardArrayOutputWithContext(ctx contex
 }
 
 func (o OneDashboardArrayOutput) Index(i pulumi.IntInput) OneDashboardOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboard {
-		return vs[0].([]OneDashboard)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OneDashboard {
+		return vs[0].([]*OneDashboard)[vs[1].(int)]
 	}).(OneDashboardOutput)
 }
 
 type OneDashboardMapOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OneDashboard)(nil))
+	return reflect.TypeOf((*map[string]*OneDashboard)(nil)).Elem()
 }
 
 func (o OneDashboardMapOutput) ToOneDashboardMapOutput() OneDashboardMapOutput {
@@ -321,18 +258,16 @@ func (o OneDashboardMapOutput) ToOneDashboardMapOutputWithContext(ctx context.Co
 }
 
 func (o OneDashboardMapOutput) MapIndex(k pulumi.StringInput) OneDashboardOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OneDashboard {
-		return vs[0].(map[string]OneDashboard)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OneDashboard {
+		return vs[0].(map[string]*OneDashboard)[vs[1].(string)]
 	}).(OneDashboardOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardInput)(nil)).Elem(), &OneDashboard{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPtrInput)(nil)).Elem(), &OneDashboard{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardArrayInput)(nil)).Elem(), OneDashboardArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardMapInput)(nil)).Elem(), OneDashboardMap{})
 	pulumi.RegisterOutputType(OneDashboardOutput{})
-	pulumi.RegisterOutputType(OneDashboardPtrOutput{})
 	pulumi.RegisterOutputType(OneDashboardArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardMapOutput{})
 }

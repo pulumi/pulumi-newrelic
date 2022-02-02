@@ -134,7 +134,7 @@ type NrqlDropRuleInput interface {
 }
 
 func (*NrqlDropRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NrqlDropRule)(nil))
+	return reflect.TypeOf((**NrqlDropRule)(nil)).Elem()
 }
 
 func (i *NrqlDropRule) ToNrqlDropRuleOutput() NrqlDropRuleOutput {
@@ -143,35 +143,6 @@ func (i *NrqlDropRule) ToNrqlDropRuleOutput() NrqlDropRuleOutput {
 
 func (i *NrqlDropRule) ToNrqlDropRuleOutputWithContext(ctx context.Context) NrqlDropRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NrqlDropRuleOutput)
-}
-
-func (i *NrqlDropRule) ToNrqlDropRulePtrOutput() NrqlDropRulePtrOutput {
-	return i.ToNrqlDropRulePtrOutputWithContext(context.Background())
-}
-
-func (i *NrqlDropRule) ToNrqlDropRulePtrOutputWithContext(ctx context.Context) NrqlDropRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NrqlDropRulePtrOutput)
-}
-
-type NrqlDropRulePtrInput interface {
-	pulumi.Input
-
-	ToNrqlDropRulePtrOutput() NrqlDropRulePtrOutput
-	ToNrqlDropRulePtrOutputWithContext(ctx context.Context) NrqlDropRulePtrOutput
-}
-
-type nrqlDropRulePtrType NrqlDropRuleArgs
-
-func (*nrqlDropRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NrqlDropRule)(nil))
-}
-
-func (i *nrqlDropRulePtrType) ToNrqlDropRulePtrOutput() NrqlDropRulePtrOutput {
-	return i.ToNrqlDropRulePtrOutputWithContext(context.Background())
-}
-
-func (i *nrqlDropRulePtrType) ToNrqlDropRulePtrOutputWithContext(ctx context.Context) NrqlDropRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NrqlDropRulePtrOutput)
 }
 
 // NrqlDropRuleArrayInput is an input type that accepts NrqlDropRuleArray and NrqlDropRuleArrayOutput values.
@@ -227,7 +198,7 @@ func (i NrqlDropRuleMap) ToNrqlDropRuleMapOutputWithContext(ctx context.Context)
 type NrqlDropRuleOutput struct{ *pulumi.OutputState }
 
 func (NrqlDropRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NrqlDropRule)(nil))
+	return reflect.TypeOf((**NrqlDropRule)(nil)).Elem()
 }
 
 func (o NrqlDropRuleOutput) ToNrqlDropRuleOutput() NrqlDropRuleOutput {
@@ -238,44 +209,10 @@ func (o NrqlDropRuleOutput) ToNrqlDropRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o NrqlDropRuleOutput) ToNrqlDropRulePtrOutput() NrqlDropRulePtrOutput {
-	return o.ToNrqlDropRulePtrOutputWithContext(context.Background())
-}
-
-func (o NrqlDropRuleOutput) ToNrqlDropRulePtrOutputWithContext(ctx context.Context) NrqlDropRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NrqlDropRule) *NrqlDropRule {
-		return &v
-	}).(NrqlDropRulePtrOutput)
-}
-
-type NrqlDropRulePtrOutput struct{ *pulumi.OutputState }
-
-func (NrqlDropRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NrqlDropRule)(nil))
-}
-
-func (o NrqlDropRulePtrOutput) ToNrqlDropRulePtrOutput() NrqlDropRulePtrOutput {
-	return o
-}
-
-func (o NrqlDropRulePtrOutput) ToNrqlDropRulePtrOutputWithContext(ctx context.Context) NrqlDropRulePtrOutput {
-	return o
-}
-
-func (o NrqlDropRulePtrOutput) Elem() NrqlDropRuleOutput {
-	return o.ApplyT(func(v *NrqlDropRule) NrqlDropRule {
-		if v != nil {
-			return *v
-		}
-		var ret NrqlDropRule
-		return ret
-	}).(NrqlDropRuleOutput)
-}
-
 type NrqlDropRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (NrqlDropRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NrqlDropRule)(nil))
+	return reflect.TypeOf((*[]*NrqlDropRule)(nil)).Elem()
 }
 
 func (o NrqlDropRuleArrayOutput) ToNrqlDropRuleArrayOutput() NrqlDropRuleArrayOutput {
@@ -287,15 +224,15 @@ func (o NrqlDropRuleArrayOutput) ToNrqlDropRuleArrayOutputWithContext(ctx contex
 }
 
 func (o NrqlDropRuleArrayOutput) Index(i pulumi.IntInput) NrqlDropRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NrqlDropRule {
-		return vs[0].([]NrqlDropRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NrqlDropRule {
+		return vs[0].([]*NrqlDropRule)[vs[1].(int)]
 	}).(NrqlDropRuleOutput)
 }
 
 type NrqlDropRuleMapOutput struct{ *pulumi.OutputState }
 
 func (NrqlDropRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NrqlDropRule)(nil))
+	return reflect.TypeOf((*map[string]*NrqlDropRule)(nil)).Elem()
 }
 
 func (o NrqlDropRuleMapOutput) ToNrqlDropRuleMapOutput() NrqlDropRuleMapOutput {
@@ -307,18 +244,16 @@ func (o NrqlDropRuleMapOutput) ToNrqlDropRuleMapOutputWithContext(ctx context.Co
 }
 
 func (o NrqlDropRuleMapOutput) MapIndex(k pulumi.StringInput) NrqlDropRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NrqlDropRule {
-		return vs[0].(map[string]NrqlDropRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NrqlDropRule {
+		return vs[0].(map[string]*NrqlDropRule)[vs[1].(string)]
 	}).(NrqlDropRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlDropRuleInput)(nil)).Elem(), &NrqlDropRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NrqlDropRulePtrInput)(nil)).Elem(), &NrqlDropRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlDropRuleArrayInput)(nil)).Elem(), NrqlDropRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlDropRuleMapInput)(nil)).Elem(), NrqlDropRuleMap{})
 	pulumi.RegisterOutputType(NrqlDropRuleOutput{})
-	pulumi.RegisterOutputType(NrqlDropRulePtrOutput{})
 	pulumi.RegisterOutputType(NrqlDropRuleArrayOutput{})
 	pulumi.RegisterOutputType(NrqlDropRuleMapOutput{})
 }

@@ -83,36 +83,34 @@ export class Dashboard extends pulumi.CustomResource {
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
-            inputs["dashboardUrl"] = state ? state.dashboardUrl : undefined;
-            inputs["editable"] = state ? state.editable : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["gridColumnCount"] = state ? state.gridColumnCount : undefined;
-            inputs["icon"] = state ? state.icon : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["visibility"] = state ? state.visibility : undefined;
-            inputs["widgets"] = state ? state.widgets : undefined;
+            resourceInputs["dashboardUrl"] = state ? state.dashboardUrl : undefined;
+            resourceInputs["editable"] = state ? state.editable : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["gridColumnCount"] = state ? state.gridColumnCount : undefined;
+            resourceInputs["icon"] = state ? state.icon : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["widgets"] = state ? state.widgets : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["editable"] = args ? args.editable : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["gridColumnCount"] = args ? args.gridColumnCount : undefined;
-            inputs["icon"] = args ? args.icon : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
-            inputs["widgets"] = args ? args.widgets : undefined;
-            inputs["dashboardUrl"] = undefined /*out*/;
+            resourceInputs["editable"] = args ? args.editable : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["gridColumnCount"] = args ? args.gridColumnCount : undefined;
+            resourceInputs["icon"] = args ? args.icon : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["widgets"] = args ? args.widgets : undefined;
+            resourceInputs["dashboardUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dashboard.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }
 
