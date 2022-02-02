@@ -73,15 +73,15 @@ export class NrqlDropRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: NrqlDropRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NrqlDropRuleArgs | NrqlDropRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NrqlDropRuleState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["nrql"] = state ? state.nrql : undefined;
-            inputs["ruleId"] = state ? state.ruleId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["nrql"] = state ? state.nrql : undefined;
+            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
         } else {
             const args = argsOrState as NrqlDropRuleArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -90,16 +90,14 @@ export class NrqlDropRule extends pulumi.CustomResource {
             if ((!args || args.nrql === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["action"] = args ? args.action : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["nrql"] = args ? args.nrql : undefined;
-            inputs["ruleId"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["nrql"] = args ? args.nrql : undefined;
+            resourceInputs["ruleId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NrqlDropRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NrqlDropRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -195,27 +195,27 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     constructor(name: string, args: InfraAlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InfraAlertConditionArgs | InfraAlertConditionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InfraAlertConditionState | undefined;
-            inputs["comparison"] = state ? state.comparison : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["critical"] = state ? state.critical : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["event"] = state ? state.event : undefined;
-            inputs["integrationProvider"] = state ? state.integrationProvider : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["processWhere"] = state ? state.processWhere : undefined;
-            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            inputs["select"] = state ? state.select : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["updatedAt"] = state ? state.updatedAt : undefined;
-            inputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
-            inputs["warning"] = state ? state.warning : undefined;
-            inputs["where"] = state ? state.where : undefined;
+            resourceInputs["comparison"] = state ? state.comparison : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["critical"] = state ? state.critical : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["event"] = state ? state.event : undefined;
+            resourceInputs["integrationProvider"] = state ? state.integrationProvider : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["processWhere"] = state ? state.processWhere : undefined;
+            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["select"] = state ? state.select : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
+            resourceInputs["warning"] = state ? state.warning : undefined;
+            resourceInputs["where"] = state ? state.where : undefined;
         } else {
             const args = argsOrState as InfraAlertConditionArgs | undefined;
             if ((!args || args.policyId === undefined) && !opts.urn) {
@@ -224,28 +224,26 @@ export class InfraAlertCondition extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["comparison"] = args ? args.comparison : undefined;
-            inputs["critical"] = args ? args.critical : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["event"] = args ? args.event : undefined;
-            inputs["integrationProvider"] = args ? args.integrationProvider : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["processWhere"] = args ? args.processWhere : undefined;
-            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            inputs["select"] = args ? args.select : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
-            inputs["warning"] = args ? args.warning : undefined;
-            inputs["where"] = args ? args.where : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["comparison"] = args ? args.comparison : undefined;
+            resourceInputs["critical"] = args ? args.critical : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["event"] = args ? args.event : undefined;
+            resourceInputs["integrationProvider"] = args ? args.integrationProvider : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["processWhere"] = args ? args.processWhere : undefined;
+            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["select"] = args ? args.select : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
+            resourceInputs["warning"] = args ? args.warning : undefined;
+            resourceInputs["where"] = args ? args.where : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(InfraAlertCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(InfraAlertCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

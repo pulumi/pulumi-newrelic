@@ -306,7 +306,7 @@ type AlertChannelInput interface {
 }
 
 func (*AlertChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertChannel)(nil))
+	return reflect.TypeOf((**AlertChannel)(nil)).Elem()
 }
 
 func (i *AlertChannel) ToAlertChannelOutput() AlertChannelOutput {
@@ -315,35 +315,6 @@ func (i *AlertChannel) ToAlertChannelOutput() AlertChannelOutput {
 
 func (i *AlertChannel) ToAlertChannelOutputWithContext(ctx context.Context) AlertChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelOutput)
-}
-
-func (i *AlertChannel) ToAlertChannelPtrOutput() AlertChannelPtrOutput {
-	return i.ToAlertChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertChannel) ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelPtrOutput)
-}
-
-type AlertChannelPtrInput interface {
-	pulumi.Input
-
-	ToAlertChannelPtrOutput() AlertChannelPtrOutput
-	ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput
-}
-
-type alertChannelPtrType AlertChannelArgs
-
-func (*alertChannelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertChannel)(nil))
-}
-
-func (i *alertChannelPtrType) ToAlertChannelPtrOutput() AlertChannelPtrOutput {
-	return i.ToAlertChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *alertChannelPtrType) ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertChannelPtrOutput)
 }
 
 // AlertChannelArrayInput is an input type that accepts AlertChannelArray and AlertChannelArrayOutput values.
@@ -399,7 +370,7 @@ func (i AlertChannelMap) ToAlertChannelMapOutputWithContext(ctx context.Context)
 type AlertChannelOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertChannel)(nil))
+	return reflect.TypeOf((**AlertChannel)(nil)).Elem()
 }
 
 func (o AlertChannelOutput) ToAlertChannelOutput() AlertChannelOutput {
@@ -410,44 +381,10 @@ func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o AlertChannelOutput) ToAlertChannelPtrOutput() AlertChannelPtrOutput {
-	return o.ToAlertChannelPtrOutputWithContext(context.Background())
-}
-
-func (o AlertChannelOutput) ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertChannel) *AlertChannel {
-		return &v
-	}).(AlertChannelPtrOutput)
-}
-
-type AlertChannelPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertChannelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertChannel)(nil))
-}
-
-func (o AlertChannelPtrOutput) ToAlertChannelPtrOutput() AlertChannelPtrOutput {
-	return o
-}
-
-func (o AlertChannelPtrOutput) ToAlertChannelPtrOutputWithContext(ctx context.Context) AlertChannelPtrOutput {
-	return o
-}
-
-func (o AlertChannelPtrOutput) Elem() AlertChannelOutput {
-	return o.ApplyT(func(v *AlertChannel) AlertChannel {
-		if v != nil {
-			return *v
-		}
-		var ret AlertChannel
-		return ret
-	}).(AlertChannelOutput)
-}
-
 type AlertChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertChannel)(nil))
+	return reflect.TypeOf((*[]*AlertChannel)(nil)).Elem()
 }
 
 func (o AlertChannelArrayOutput) ToAlertChannelArrayOutput() AlertChannelArrayOutput {
@@ -459,15 +396,15 @@ func (o AlertChannelArrayOutput) ToAlertChannelArrayOutputWithContext(ctx contex
 }
 
 func (o AlertChannelArrayOutput) Index(i pulumi.IntInput) AlertChannelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertChannel {
-		return vs[0].([]AlertChannel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertChannel {
+		return vs[0].([]*AlertChannel)[vs[1].(int)]
 	}).(AlertChannelOutput)
 }
 
 type AlertChannelMapOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertChannel)(nil))
+	return reflect.TypeOf((*map[string]*AlertChannel)(nil)).Elem()
 }
 
 func (o AlertChannelMapOutput) ToAlertChannelMapOutput() AlertChannelMapOutput {
@@ -479,18 +416,16 @@ func (o AlertChannelMapOutput) ToAlertChannelMapOutputWithContext(ctx context.Co
 }
 
 func (o AlertChannelMapOutput) MapIndex(k pulumi.StringInput) AlertChannelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertChannel {
-		return vs[0].(map[string]AlertChannel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertChannel {
+		return vs[0].(map[string]*AlertChannel)[vs[1].(string)]
 	}).(AlertChannelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelInput)(nil)).Elem(), &AlertChannel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelPtrInput)(nil)).Elem(), &AlertChannel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelArrayInput)(nil)).Elem(), AlertChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertChannelMapInput)(nil)).Elem(), AlertChannelMap{})
 	pulumi.RegisterOutputType(AlertChannelOutput{})
-	pulumi.RegisterOutputType(AlertChannelPtrOutput{})
 	pulumi.RegisterOutputType(AlertChannelArrayOutput{})
 	pulumi.RegisterOutputType(AlertChannelMapOutput{})
 }

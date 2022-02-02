@@ -101,12 +101,12 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertPolicyChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertPolicyChannelArgs | AlertPolicyChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyChannelState | undefined;
-            inputs["channelIds"] = state ? state.channelIds : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["channelIds"] = state ? state.channelIds : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
         } else {
             const args = argsOrState as AlertPolicyChannelArgs | undefined;
             if ((!args || args.channelIds === undefined) && !opts.urn) {
@@ -115,13 +115,11 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
             if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            inputs["channelIds"] = args ? args.channelIds : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["channelIds"] = args ? args.channelIds : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertPolicyChannel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertPolicyChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

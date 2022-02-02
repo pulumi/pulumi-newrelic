@@ -92,32 +92,30 @@ export class EventsToMetricsRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventsToMetricsRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventsToMetricsRuleArgs | EventsToMetricsRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventsToMetricsRuleState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nrql"] = state ? state.nrql : undefined;
-            inputs["ruleId"] = state ? state.ruleId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nrql"] = state ? state.nrql : undefined;
+            resourceInputs["ruleId"] = state ? state.ruleId : undefined;
         } else {
             const args = argsOrState as EventsToMetricsRuleArgs | undefined;
             if ((!args || args.nrql === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nrql'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nrql"] = args ? args.nrql : undefined;
-            inputs["ruleId"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nrql"] = args ? args.nrql : undefined;
+            resourceInputs["ruleId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventsToMetricsRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventsToMetricsRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -25,9 +25,7 @@ export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", {
         "key": args.key,
     }, opts);

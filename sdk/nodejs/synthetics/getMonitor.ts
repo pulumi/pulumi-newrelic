@@ -28,9 +28,7 @@ export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:synthetics/getMonitor:getMonitor", {
         "name": args.name,
     }, opts);

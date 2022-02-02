@@ -168,7 +168,7 @@ type EventsToMetricsRuleInput interface {
 }
 
 func (*EventsToMetricsRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventsToMetricsRule)(nil))
+	return reflect.TypeOf((**EventsToMetricsRule)(nil)).Elem()
 }
 
 func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {
@@ -177,35 +177,6 @@ func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutput() EventsToMetricsRuleO
 
 func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutputWithContext(ctx context.Context) EventsToMetricsRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRuleOutput)
-}
-
-func (i *EventsToMetricsRule) ToEventsToMetricsRulePtrOutput() EventsToMetricsRulePtrOutput {
-	return i.ToEventsToMetricsRulePtrOutputWithContext(context.Background())
-}
-
-func (i *EventsToMetricsRule) ToEventsToMetricsRulePtrOutputWithContext(ctx context.Context) EventsToMetricsRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRulePtrOutput)
-}
-
-type EventsToMetricsRulePtrInput interface {
-	pulumi.Input
-
-	ToEventsToMetricsRulePtrOutput() EventsToMetricsRulePtrOutput
-	ToEventsToMetricsRulePtrOutputWithContext(ctx context.Context) EventsToMetricsRulePtrOutput
-}
-
-type eventsToMetricsRulePtrType EventsToMetricsRuleArgs
-
-func (*eventsToMetricsRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventsToMetricsRule)(nil))
-}
-
-func (i *eventsToMetricsRulePtrType) ToEventsToMetricsRulePtrOutput() EventsToMetricsRulePtrOutput {
-	return i.ToEventsToMetricsRulePtrOutputWithContext(context.Background())
-}
-
-func (i *eventsToMetricsRulePtrType) ToEventsToMetricsRulePtrOutputWithContext(ctx context.Context) EventsToMetricsRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventsToMetricsRulePtrOutput)
 }
 
 // EventsToMetricsRuleArrayInput is an input type that accepts EventsToMetricsRuleArray and EventsToMetricsRuleArrayOutput values.
@@ -261,7 +232,7 @@ func (i EventsToMetricsRuleMap) ToEventsToMetricsRuleMapOutputWithContext(ctx co
 type EventsToMetricsRuleOutput struct{ *pulumi.OutputState }
 
 func (EventsToMetricsRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventsToMetricsRule)(nil))
+	return reflect.TypeOf((**EventsToMetricsRule)(nil)).Elem()
 }
 
 func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutput() EventsToMetricsRuleOutput {
@@ -272,44 +243,10 @@ func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutputWithContext(ctx co
 	return o
 }
 
-func (o EventsToMetricsRuleOutput) ToEventsToMetricsRulePtrOutput() EventsToMetricsRulePtrOutput {
-	return o.ToEventsToMetricsRulePtrOutputWithContext(context.Background())
-}
-
-func (o EventsToMetricsRuleOutput) ToEventsToMetricsRulePtrOutputWithContext(ctx context.Context) EventsToMetricsRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventsToMetricsRule) *EventsToMetricsRule {
-		return &v
-	}).(EventsToMetricsRulePtrOutput)
-}
-
-type EventsToMetricsRulePtrOutput struct{ *pulumi.OutputState }
-
-func (EventsToMetricsRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventsToMetricsRule)(nil))
-}
-
-func (o EventsToMetricsRulePtrOutput) ToEventsToMetricsRulePtrOutput() EventsToMetricsRulePtrOutput {
-	return o
-}
-
-func (o EventsToMetricsRulePtrOutput) ToEventsToMetricsRulePtrOutputWithContext(ctx context.Context) EventsToMetricsRulePtrOutput {
-	return o
-}
-
-func (o EventsToMetricsRulePtrOutput) Elem() EventsToMetricsRuleOutput {
-	return o.ApplyT(func(v *EventsToMetricsRule) EventsToMetricsRule {
-		if v != nil {
-			return *v
-		}
-		var ret EventsToMetricsRule
-		return ret
-	}).(EventsToMetricsRuleOutput)
-}
-
 type EventsToMetricsRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (EventsToMetricsRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventsToMetricsRule)(nil))
+	return reflect.TypeOf((*[]*EventsToMetricsRule)(nil)).Elem()
 }
 
 func (o EventsToMetricsRuleArrayOutput) ToEventsToMetricsRuleArrayOutput() EventsToMetricsRuleArrayOutput {
@@ -321,15 +258,15 @@ func (o EventsToMetricsRuleArrayOutput) ToEventsToMetricsRuleArrayOutputWithCont
 }
 
 func (o EventsToMetricsRuleArrayOutput) Index(i pulumi.IntInput) EventsToMetricsRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventsToMetricsRule {
-		return vs[0].([]EventsToMetricsRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventsToMetricsRule {
+		return vs[0].([]*EventsToMetricsRule)[vs[1].(int)]
 	}).(EventsToMetricsRuleOutput)
 }
 
 type EventsToMetricsRuleMapOutput struct{ *pulumi.OutputState }
 
 func (EventsToMetricsRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventsToMetricsRule)(nil))
+	return reflect.TypeOf((*map[string]*EventsToMetricsRule)(nil)).Elem()
 }
 
 func (o EventsToMetricsRuleMapOutput) ToEventsToMetricsRuleMapOutput() EventsToMetricsRuleMapOutput {
@@ -341,18 +278,16 @@ func (o EventsToMetricsRuleMapOutput) ToEventsToMetricsRuleMapOutputWithContext(
 }
 
 func (o EventsToMetricsRuleMapOutput) MapIndex(k pulumi.StringInput) EventsToMetricsRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventsToMetricsRule {
-		return vs[0].(map[string]EventsToMetricsRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventsToMetricsRule {
+		return vs[0].(map[string]*EventsToMetricsRule)[vs[1].(string)]
 	}).(EventsToMetricsRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventsToMetricsRuleInput)(nil)).Elem(), &EventsToMetricsRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventsToMetricsRulePtrInput)(nil)).Elem(), &EventsToMetricsRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventsToMetricsRuleArrayInput)(nil)).Elem(), EventsToMetricsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventsToMetricsRuleMapInput)(nil)).Elem(), EventsToMetricsRuleMap{})
 	pulumi.RegisterOutputType(EventsToMetricsRuleOutput{})
-	pulumi.RegisterOutputType(EventsToMetricsRulePtrOutput{})
 	pulumi.RegisterOutputType(EventsToMetricsRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventsToMetricsRuleMapOutput{})
 }

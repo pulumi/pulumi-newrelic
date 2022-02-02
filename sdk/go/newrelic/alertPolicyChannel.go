@@ -165,7 +165,7 @@ type AlertPolicyChannelInput interface {
 }
 
 func (*AlertPolicyChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertPolicyChannel)(nil))
+	return reflect.TypeOf((**AlertPolicyChannel)(nil)).Elem()
 }
 
 func (i *AlertPolicyChannel) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {
@@ -174,35 +174,6 @@ func (i *AlertPolicyChannel) ToAlertPolicyChannelOutput() AlertPolicyChannelOutp
 
 func (i *AlertPolicyChannel) ToAlertPolicyChannelOutputWithContext(ctx context.Context) AlertPolicyChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelOutput)
-}
-
-func (i *AlertPolicyChannel) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
-	return i.ToAlertPolicyChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertPolicyChannel) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelPtrOutput)
-}
-
-type AlertPolicyChannelPtrInput interface {
-	pulumi.Input
-
-	ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput
-	ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput
-}
-
-type alertPolicyChannelPtrType AlertPolicyChannelArgs
-
-func (*alertPolicyChannelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertPolicyChannel)(nil))
-}
-
-func (i *alertPolicyChannelPtrType) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
-	return i.ToAlertPolicyChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *alertPolicyChannelPtrType) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertPolicyChannelPtrOutput)
 }
 
 // AlertPolicyChannelArrayInput is an input type that accepts AlertPolicyChannelArray and AlertPolicyChannelArrayOutput values.
@@ -258,7 +229,7 @@ func (i AlertPolicyChannelMap) ToAlertPolicyChannelMapOutputWithContext(ctx cont
 type AlertPolicyChannelOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertPolicyChannel)(nil))
+	return reflect.TypeOf((**AlertPolicyChannel)(nil)).Elem()
 }
 
 func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutput() AlertPolicyChannelOutput {
@@ -269,44 +240,10 @@ func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutputWithContext(ctx cont
 	return o
 }
 
-func (o AlertPolicyChannelOutput) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
-	return o.ToAlertPolicyChannelPtrOutputWithContext(context.Background())
-}
-
-func (o AlertPolicyChannelOutput) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertPolicyChannel) *AlertPolicyChannel {
-		return &v
-	}).(AlertPolicyChannelPtrOutput)
-}
-
-type AlertPolicyChannelPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertPolicyChannelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertPolicyChannel)(nil))
-}
-
-func (o AlertPolicyChannelPtrOutput) ToAlertPolicyChannelPtrOutput() AlertPolicyChannelPtrOutput {
-	return o
-}
-
-func (o AlertPolicyChannelPtrOutput) ToAlertPolicyChannelPtrOutputWithContext(ctx context.Context) AlertPolicyChannelPtrOutput {
-	return o
-}
-
-func (o AlertPolicyChannelPtrOutput) Elem() AlertPolicyChannelOutput {
-	return o.ApplyT(func(v *AlertPolicyChannel) AlertPolicyChannel {
-		if v != nil {
-			return *v
-		}
-		var ret AlertPolicyChannel
-		return ret
-	}).(AlertPolicyChannelOutput)
-}
-
 type AlertPolicyChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyChannelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertPolicyChannel)(nil))
+	return reflect.TypeOf((*[]*AlertPolicyChannel)(nil)).Elem()
 }
 
 func (o AlertPolicyChannelArrayOutput) ToAlertPolicyChannelArrayOutput() AlertPolicyChannelArrayOutput {
@@ -318,15 +255,15 @@ func (o AlertPolicyChannelArrayOutput) ToAlertPolicyChannelArrayOutputWithContex
 }
 
 func (o AlertPolicyChannelArrayOutput) Index(i pulumi.IntInput) AlertPolicyChannelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPolicyChannel {
-		return vs[0].([]AlertPolicyChannel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertPolicyChannel {
+		return vs[0].([]*AlertPolicyChannel)[vs[1].(int)]
 	}).(AlertPolicyChannelOutput)
 }
 
 type AlertPolicyChannelMapOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyChannelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertPolicyChannel)(nil))
+	return reflect.TypeOf((*map[string]*AlertPolicyChannel)(nil)).Elem()
 }
 
 func (o AlertPolicyChannelMapOutput) ToAlertPolicyChannelMapOutput() AlertPolicyChannelMapOutput {
@@ -338,18 +275,16 @@ func (o AlertPolicyChannelMapOutput) ToAlertPolicyChannelMapOutputWithContext(ct
 }
 
 func (o AlertPolicyChannelMapOutput) MapIndex(k pulumi.StringInput) AlertPolicyChannelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertPolicyChannel {
-		return vs[0].(map[string]AlertPolicyChannel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertPolicyChannel {
+		return vs[0].(map[string]*AlertPolicyChannel)[vs[1].(string)]
 	}).(AlertPolicyChannelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyChannelInput)(nil)).Elem(), &AlertPolicyChannel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyChannelPtrInput)(nil)).Elem(), &AlertPolicyChannel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyChannelArrayInput)(nil)).Elem(), AlertPolicyChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPolicyChannelMapInput)(nil)).Elem(), AlertPolicyChannelMap{})
 	pulumi.RegisterOutputType(AlertPolicyChannelOutput{})
-	pulumi.RegisterOutputType(AlertPolicyChannelPtrOutput{})
 	pulumi.RegisterOutputType(AlertPolicyChannelArrayOutput{})
 	pulumi.RegisterOutputType(AlertPolicyChannelMapOutput{})
 }

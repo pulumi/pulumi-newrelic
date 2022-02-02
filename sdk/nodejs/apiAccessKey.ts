@@ -107,17 +107,17 @@ export class ApiAccessKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiAccessKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiAccessKeyArgs | ApiAccessKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiAccessKeyState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["ingestType"] = state ? state.ingestType : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["keyType"] = state ? state.keyType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["ingestType"] = state ? state.ingestType : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["keyType"] = state ? state.keyType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as ApiAccessKeyArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -126,18 +126,16 @@ export class ApiAccessKey extends pulumi.CustomResource {
             if ((!args || args.keyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["ingestType"] = args ? args.ingestType : undefined;
-            inputs["keyType"] = args ? args.keyType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["key"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["ingestType"] = args ? args.ingestType : undefined;
+            resourceInputs["keyType"] = args ? args.keyType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["key"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiAccessKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiAccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

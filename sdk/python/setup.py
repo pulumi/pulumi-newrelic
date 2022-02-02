@@ -55,6 +55,7 @@ setup(name='pulumi_newrelic',
       package_data={
           'pulumi_newrelic': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

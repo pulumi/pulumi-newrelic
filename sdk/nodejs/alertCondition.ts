@@ -188,23 +188,23 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertConditionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertConditionArgs | AlertConditionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertConditionState | undefined;
-            inputs["conditionScope"] = state ? state.conditionScope : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["entities"] = state ? state.entities : undefined;
-            inputs["gcMetric"] = state ? state.gcMetric : undefined;
-            inputs["metric"] = state ? state.metric : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["runbookUrl"] = state ? state.runbookUrl : undefined;
-            inputs["terms"] = state ? state.terms : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["userDefinedMetric"] = state ? state.userDefinedMetric : undefined;
-            inputs["userDefinedValueFunction"] = state ? state.userDefinedValueFunction : undefined;
-            inputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
+            resourceInputs["conditionScope"] = state ? state.conditionScope : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["entities"] = state ? state.entities : undefined;
+            resourceInputs["gcMetric"] = state ? state.gcMetric : undefined;
+            resourceInputs["metric"] = state ? state.metric : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userDefinedMetric"] = state ? state.userDefinedMetric : undefined;
+            resourceInputs["userDefinedValueFunction"] = state ? state.userDefinedValueFunction : undefined;
+            resourceInputs["violationCloseTimer"] = state ? state.violationCloseTimer : undefined;
         } else {
             const args = argsOrState as AlertConditionArgs | undefined;
             if ((!args || args.entities === undefined) && !opts.urn) {
@@ -222,24 +222,22 @@ export class AlertCondition extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["conditionScope"] = args ? args.conditionScope : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["entities"] = args ? args.entities : undefined;
-            inputs["gcMetric"] = args ? args.gcMetric : undefined;
-            inputs["metric"] = args ? args.metric : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["runbookUrl"] = args ? args.runbookUrl : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["userDefinedMetric"] = args ? args.userDefinedMetric : undefined;
-            inputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
-            inputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
+            resourceInputs["conditionScope"] = args ? args.conditionScope : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entities"] = args ? args.entities : undefined;
+            resourceInputs["gcMetric"] = args ? args.gcMetric : undefined;
+            resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userDefinedMetric"] = args ? args.userDefinedMetric : undefined;
+            resourceInputs["userDefinedValueFunction"] = args ? args.userDefinedValueFunction : undefined;
+            resourceInputs["violationCloseTimer"] = args ? args.violationCloseTimer : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertCondition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertCondition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

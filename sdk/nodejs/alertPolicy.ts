@@ -134,25 +134,23 @@ export class AlertPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertPolicyArgs | AlertPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["channelIds"] = state ? state.channelIds : undefined;
-            inputs["incidentPreference"] = state ? state.incidentPreference : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["channelIds"] = state ? state.channelIds : undefined;
+            resourceInputs["incidentPreference"] = state ? state.incidentPreference : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AlertPolicyArgs | undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["channelIds"] = args ? args.channelIds : undefined;
-            inputs["incidentPreference"] = args ? args.incidentPreference : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["channelIds"] = args ? args.channelIds : undefined;
+            resourceInputs["incidentPreference"] = args ? args.incidentPreference : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlertPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

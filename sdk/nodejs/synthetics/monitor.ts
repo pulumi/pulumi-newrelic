@@ -165,21 +165,21 @@ export class Monitor extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            inputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["locations"] = state ? state.locations : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["slaThreshold"] = state ? state.slaThreshold : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["treatRedirectAsFailure"] = state ? state.treatRedirectAsFailure : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
-            inputs["validationString"] = state ? state.validationString : undefined;
-            inputs["verifySsl"] = state ? state.verifySsl : undefined;
+            resourceInputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["locations"] = state ? state.locations : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["slaThreshold"] = state ? state.slaThreshold : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["treatRedirectAsFailure"] = state ? state.treatRedirectAsFailure : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["validationString"] = state ? state.validationString : undefined;
+            resourceInputs["verifySsl"] = state ? state.verifySsl : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
             if ((!args || args.frequency === undefined) && !opts.urn) {
@@ -194,22 +194,20 @@ export class Monitor extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["bypassHeadRequest"] = args ? args.bypassHeadRequest : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["slaThreshold"] = args ? args.slaThreshold : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["treatRedirectAsFailure"] = args ? args.treatRedirectAsFailure : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
-            inputs["validationString"] = args ? args.validationString : undefined;
-            inputs["verifySsl"] = args ? args.verifySsl : undefined;
+            resourceInputs["bypassHeadRequest"] = args ? args.bypassHeadRequest : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["slaThreshold"] = args ? args.slaThreshold : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["treatRedirectAsFailure"] = args ? args.treatRedirectAsFailure : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["validationString"] = args ? args.validationString : undefined;
+            resourceInputs["verifySsl"] = args ? args.verifySsl : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Monitor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

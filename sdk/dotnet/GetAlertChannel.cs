@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic
 {
@@ -16,13 +15,13 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific alert channel in New Relic that already exists. 
         /// </summary>
         public static Task<GetAlertChannelResult> InvokeAsync(GetAlertChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific alert channel in New Relic that already exists. 
         /// </summary>
         public static Output<GetAlertChannelResult> Invoke(GetAlertChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAlertChannelResult>("newrelic:index/getAlertChannel:getAlertChannel", args ?? new GetAlertChannelInvokeArgs(), options.WithDefaults());
     }
 
 

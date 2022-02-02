@@ -30,9 +30,7 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:index/getAlertPolicy:getAlertPolicy", {
         "accountId": args.accountId,
         "incidentPreference": args.incidentPreference,

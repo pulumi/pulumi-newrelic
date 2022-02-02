@@ -158,7 +158,7 @@ type EntityTagsInput interface {
 }
 
 func (*EntityTags) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityTags)(nil))
+	return reflect.TypeOf((**EntityTags)(nil)).Elem()
 }
 
 func (i *EntityTags) ToEntityTagsOutput() EntityTagsOutput {
@@ -167,35 +167,6 @@ func (i *EntityTags) ToEntityTagsOutput() EntityTagsOutput {
 
 func (i *EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsOutput)
-}
-
-func (i *EntityTags) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
-	return i.ToEntityTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *EntityTags) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsPtrOutput)
-}
-
-type EntityTagsPtrInput interface {
-	pulumi.Input
-
-	ToEntityTagsPtrOutput() EntityTagsPtrOutput
-	ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput
-}
-
-type entityTagsPtrType EntityTagsArgs
-
-func (*entityTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityTags)(nil))
-}
-
-func (i *entityTagsPtrType) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
-	return i.ToEntityTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *entityTagsPtrType) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityTagsPtrOutput)
 }
 
 // EntityTagsArrayInput is an input type that accepts EntityTagsArray and EntityTagsArrayOutput values.
@@ -251,7 +222,7 @@ func (i EntityTagsMap) ToEntityTagsMapOutputWithContext(ctx context.Context) Ent
 type EntityTagsOutput struct{ *pulumi.OutputState }
 
 func (EntityTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityTags)(nil))
+	return reflect.TypeOf((**EntityTags)(nil)).Elem()
 }
 
 func (o EntityTagsOutput) ToEntityTagsOutput() EntityTagsOutput {
@@ -262,44 +233,10 @@ func (o EntityTagsOutput) ToEntityTagsOutputWithContext(ctx context.Context) Ent
 	return o
 }
 
-func (o EntityTagsOutput) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
-	return o.ToEntityTagsPtrOutputWithContext(context.Background())
-}
-
-func (o EntityTagsOutput) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityTags) *EntityTags {
-		return &v
-	}).(EntityTagsPtrOutput)
-}
-
-type EntityTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (EntityTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityTags)(nil))
-}
-
-func (o EntityTagsPtrOutput) ToEntityTagsPtrOutput() EntityTagsPtrOutput {
-	return o
-}
-
-func (o EntityTagsPtrOutput) ToEntityTagsPtrOutputWithContext(ctx context.Context) EntityTagsPtrOutput {
-	return o
-}
-
-func (o EntityTagsPtrOutput) Elem() EntityTagsOutput {
-	return o.ApplyT(func(v *EntityTags) EntityTags {
-		if v != nil {
-			return *v
-		}
-		var ret EntityTags
-		return ret
-	}).(EntityTagsOutput)
-}
-
 type EntityTagsArrayOutput struct{ *pulumi.OutputState }
 
 func (EntityTagsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EntityTags)(nil))
+	return reflect.TypeOf((*[]*EntityTags)(nil)).Elem()
 }
 
 func (o EntityTagsArrayOutput) ToEntityTagsArrayOutput() EntityTagsArrayOutput {
@@ -311,15 +248,15 @@ func (o EntityTagsArrayOutput) ToEntityTagsArrayOutputWithContext(ctx context.Co
 }
 
 func (o EntityTagsArrayOutput) Index(i pulumi.IntInput) EntityTagsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityTags {
-		return vs[0].([]EntityTags)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EntityTags {
+		return vs[0].([]*EntityTags)[vs[1].(int)]
 	}).(EntityTagsOutput)
 }
 
 type EntityTagsMapOutput struct{ *pulumi.OutputState }
 
 func (EntityTagsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EntityTags)(nil))
+	return reflect.TypeOf((*map[string]*EntityTags)(nil)).Elem()
 }
 
 func (o EntityTagsMapOutput) ToEntityTagsMapOutput() EntityTagsMapOutput {
@@ -331,18 +268,16 @@ func (o EntityTagsMapOutput) ToEntityTagsMapOutputWithContext(ctx context.Contex
 }
 
 func (o EntityTagsMapOutput) MapIndex(k pulumi.StringInput) EntityTagsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EntityTags {
-		return vs[0].(map[string]EntityTags)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EntityTags {
+		return vs[0].(map[string]*EntityTags)[vs[1].(string)]
 	}).(EntityTagsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsInput)(nil)).Elem(), &EntityTags{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsPtrInput)(nil)).Elem(), &EntityTags{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsArrayInput)(nil)).Elem(), EntityTagsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsMapInput)(nil)).Elem(), EntityTagsMap{})
 	pulumi.RegisterOutputType(EntityTagsOutput{})
-	pulumi.RegisterOutputType(EntityTagsPtrOutput{})
 	pulumi.RegisterOutputType(EntityTagsArrayOutput{})
 	pulumi.RegisterOutputType(EntityTagsMapOutput{})
 }

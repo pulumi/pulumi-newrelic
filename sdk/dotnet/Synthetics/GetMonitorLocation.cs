@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Synthetics
 {
@@ -53,7 +52,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMonitorLocationResult> InvokeAsync(GetMonitorLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorLocationResult>("newrelic:synthetics/getMonitorLocation:getMonitorLocation", args ?? new GetMonitorLocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorLocationResult>("newrelic:synthetics/getMonitorLocation:getMonitorLocation", args ?? new GetMonitorLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
@@ -96,7 +95,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMonitorLocationResult> Invoke(GetMonitorLocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorLocationResult>("newrelic:synthetics/getMonitorLocation:getMonitorLocation", args ?? new GetMonitorLocationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorLocationResult>("newrelic:synthetics/getMonitorLocation:getMonitorLocation", args ?? new GetMonitorLocationInvokeArgs(), options.WithDefaults());
     }
 
 

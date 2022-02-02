@@ -38,9 +38,7 @@ export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {
         "name": args.name,
     }, opts);

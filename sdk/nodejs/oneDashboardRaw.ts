@@ -146,34 +146,32 @@ export class OneDashboardRaw extends pulumi.CustomResource {
      */
     constructor(name: string, args: OneDashboardRawArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OneDashboardRawArgs | OneDashboardRawState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OneDashboardRawState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["guid"] = state ? state.guid : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pages"] = state ? state.pages : undefined;
-            inputs["permalink"] = state ? state.permalink : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pages"] = state ? state.pages : undefined;
+            resourceInputs["permalink"] = state ? state.permalink : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
         } else {
             const args = argsOrState as OneDashboardRawArgs | undefined;
             if ((!args || args.pages === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pages'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pages"] = args ? args.pages : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["guid"] = undefined /*out*/;
-            inputs["permalink"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pages"] = args ? args.pages : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["permalink"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OneDashboardRaw.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OneDashboardRaw.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -16,9 +16,7 @@ export function getPluginComponent(args: GetPluginComponentArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:plugins/getPluginComponent:getPluginComponent", {
         "name": args.name,
         "pluginId": args.pluginId,

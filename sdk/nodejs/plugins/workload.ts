@@ -112,35 +112,33 @@ export class Workload extends pulumi.CustomResource {
      */
     constructor(name: string, args?: WorkloadArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkloadArgs | WorkloadState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkloadState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["compositeEntitySearchQuery"] = state ? state.compositeEntitySearchQuery : undefined;
-            inputs["entityGuids"] = state ? state.entityGuids : undefined;
-            inputs["entitySearchQueries"] = state ? state.entitySearchQueries : undefined;
-            inputs["guid"] = state ? state.guid : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["permalink"] = state ? state.permalink : undefined;
-            inputs["scopeAccountIds"] = state ? state.scopeAccountIds : undefined;
-            inputs["workloadId"] = state ? state.workloadId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["compositeEntitySearchQuery"] = state ? state.compositeEntitySearchQuery : undefined;
+            resourceInputs["entityGuids"] = state ? state.entityGuids : undefined;
+            resourceInputs["entitySearchQueries"] = state ? state.entitySearchQueries : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["permalink"] = state ? state.permalink : undefined;
+            resourceInputs["scopeAccountIds"] = state ? state.scopeAccountIds : undefined;
+            resourceInputs["workloadId"] = state ? state.workloadId : undefined;
         } else {
             const args = argsOrState as WorkloadArgs | undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["entityGuids"] = args ? args.entityGuids : undefined;
-            inputs["entitySearchQueries"] = args ? args.entitySearchQueries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scopeAccountIds"] = args ? args.scopeAccountIds : undefined;
-            inputs["compositeEntitySearchQuery"] = undefined /*out*/;
-            inputs["guid"] = undefined /*out*/;
-            inputs["permalink"] = undefined /*out*/;
-            inputs["workloadId"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["entityGuids"] = args ? args.entityGuids : undefined;
+            resourceInputs["entitySearchQueries"] = args ? args.entitySearchQueries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scopeAccountIds"] = args ? args.scopeAccountIds : undefined;
+            resourceInputs["compositeEntitySearchQuery"] = undefined /*out*/;
+            resourceInputs["guid"] = undefined /*out*/;
+            resourceInputs["permalink"] = undefined /*out*/;
+            resourceInputs["workloadId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Workload.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Workload.__pulumiType, name, resourceInputs, opts);
     }
 }
 

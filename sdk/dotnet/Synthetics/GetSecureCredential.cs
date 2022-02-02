@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.NewRelic.Synthetics
 {
@@ -41,7 +40,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecureCredentialResult> InvokeAsync(GetSecureCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
@@ -72,7 +71,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecureCredentialResult> Invoke(GetSecureCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithDefaults());
     }
 
 
