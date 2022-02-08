@@ -4211,7 +4211,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
                  count: int,
                  unit: str):
         """
-        :param int count: Valid values are `1`, `7`, `14`, `28` and `30`.
+        :param int count: Valid values are `1`, `7` and `28`.
         :param str unit: The only supported value is `DAY`.
         """
         pulumi.set(__self__, "count", count)
@@ -4221,7 +4221,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        Valid values are `1`, `7`, `14`, `28` and `30`.
+        Valid values are `1`, `7` and `28`.
         """
         return pulumi.get(self, "count")
 

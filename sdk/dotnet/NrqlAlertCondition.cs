@@ -15,6 +15,7 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ### Type: `baseline`
+    /// 
     /// =======
     /// ## NRQL
     /// 
@@ -125,6 +126,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
     /// &gt; &gt; &gt; &gt; &gt; &gt; &gt; v2.30.0
     /// 
     /// ## Import
@@ -277,6 +279,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("runbookUrl")]
         public Output<string?> RunbookUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `value_function`.
+        /// </summary>
+        [Output("slideBy")]
+        public Output<int?> SlideBy { get; private set; } = null!;
 
         /// <summary>
         /// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
@@ -488,6 +496,12 @@ namespace Pulumi.NewRelic
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
 
+        /// <summary>
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `value_function`.
+        /// </summary>
+        [Input("slideBy")]
+        public Input<int>? SlideBy { get; set; }
+
         [Input("terms")]
         private InputList<Inputs.NrqlAlertConditionTermArgs>? _terms;
 
@@ -665,6 +679,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("runbookUrl")]
         public Input<string>? RunbookUrl { get; set; }
+
+        /// <summary>
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `value_function`.
+        /// </summary>
+        [Input("slideBy")]
+        public Input<int>? SlideBy { get; set; }
 
         [Input("terms")]
         private InputList<Inputs.NrqlAlertConditionTermGetArgs>? _terms;

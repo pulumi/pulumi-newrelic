@@ -16,6 +16,7 @@ import (
 // ## Example Usage
 //
 // ### Type: `baseline`
+//
 // =======
 // ## NRQL
 //
@@ -133,6 +134,7 @@ import (
 // 	})
 // }
 // ```
+//
 // > > > > > > > v2.30.0
 //
 // ## Import
@@ -203,6 +205,8 @@ type NrqlAlertCondition struct {
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+	SlideBy pulumi.IntPtrOutput `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -302,6 +306,8 @@ type nrqlAlertConditionState struct {
 	PolicyId *int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+	SlideBy *int `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -367,6 +373,8 @@ type NrqlAlertConditionState struct {
 	PolicyId pulumi.IntPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+	SlideBy pulumi.IntPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -436,6 +444,8 @@ type nrqlAlertConditionArgs struct {
 	PolicyId int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+	SlideBy *int `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
@@ -502,6 +512,8 @@ type NrqlAlertConditionArgs struct {
 	PolicyId pulumi.IntInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+	SlideBy pulumi.IntPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
 	// Deprecated: use `critical` and `warning` attributes instead

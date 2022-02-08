@@ -18,6 +18,7 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// ## Example Usage
     /// 
+    /// Include entities with a certain string on the name.
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -37,7 +38,40 @@ namespace Pulumi.NewRelic.Plugins
     ///             {
     ///                 new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
     ///                 {
-    ///                     Query = "name like 'Example application'",
+    ///                     Query = "name like '%Example application%'",
+    ///                 },
+    ///             },
+    ///             ScopeAccountIds = 
+    ///             {
+    ///                 12345678,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Include entities with a set of tags.
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.Plugins.Workload("foo", new NewRelic.Plugins.WorkloadArgs
+    ///         {
+    ///             AccountId = 12345678,
+    ///             EntityGuids = 
+    ///             {
+    ///                 "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///             },
+    ///             EntitySearchQueries = 
+    ///             {
+    ///                 new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
+    ///                 {
+    ///                     Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
     ///                 },
     ///             },
     ///             ScopeAccountIds = 

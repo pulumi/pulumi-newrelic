@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * Include entities with a certain string on the name.
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -22,7 +23,22 @@ import * as utilities from "../utilities";
  *     accountId: 12345678,
  *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
  *     entitySearchQueries: [{
- *         query: "name like 'Example application'",
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: [12345678],
+ * });
+ * ```
+ *
+ * Include entities with a set of tags.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     accountId: 12345678,
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
  *     }],
  *     scopeAccountIds: [12345678],
  * });

@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class ServiceLevelObjectiveTimeWindowRollingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid values are `1`, `7`, `14`, `28` and `30`.
+        /// Valid values are `1`, `7` and `28`.
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
