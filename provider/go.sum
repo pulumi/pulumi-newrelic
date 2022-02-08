@@ -700,8 +700,8 @@ github.com/newrelic/go-agent/v3 v3.15.2 h1:NEpksu2AhuZncbwkDqUg2IvUJst3JQ/TemYfK
 github.com/newrelic/go-agent/v3 v3.15.2/go.mod h1:1A1dssWBwzB7UemzRU6ZVaGDsI+cEn5/bNxI0wiYlIc=
 github.com/newrelic/go-insights v1.0.3 h1:zSNp1CEZnXktzSIEsbHJk8v6ZihdPFP2WsO/fzau3OQ=
 github.com/newrelic/go-insights v1.0.3/go.mod h1:A20BoT8TNkqPGX2nS/Z2fYmKl3Cqa3iKZd4whzedCY4=
-github.com/newrelic/newrelic-client-go v0.69.0 h1:jGLKIHfSHjY6JgnjQgX/3pA9AUOZMrmlw6Kv/s2Y9wk=
-github.com/newrelic/newrelic-client-go v0.69.0/go.mod h1:VXjhsfui0rvhM9cVwnKwlidF8NbXlHZvh63ZKi6fImA=
+github.com/newrelic/newrelic-client-go v0.72.0 h1:7dv4V+Wq4cKqZ1vq2OkspF9j08Q65D9A19LB6FWn9XM=
+github.com/newrelic/newrelic-client-go v0.72.0/go.mod h1:VXjhsfui0rvhM9cVwnKwlidF8NbXlHZvh63ZKi6fImA=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce h1:RPclfga2SEJmgMmz2k+Mg7cowZ8yv4Trqw9UsJby758=
 github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce/go.mod h1:uFMI8w+ref4v2r9jz+c9i1IfIttS/OkmLfrk1jne5hs=
@@ -779,8 +779,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f h1:YWtQ7xeRQvB9h5Uwtrl9wDKRKkyLTXWBzU7x0c9VOZ4=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f/go.mod h1:grseeRo9g3yNkYW09iFlV8LG78jTa1ssBgouogQg/RU=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20220111215746-aef9c61ca94c h1:RZyZBH9JL62qOdLyaH/z+oXRep6JO9A95olcg7qhdbg=
-github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20220111215746-aef9c61ca94c/go.mod h1:o4PX4KeCyvpQ9NI5emYT9xrL41tc8/a/O7H9NdzogDA=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20220208144337-b4fe2a553790 h1:SJKFqjy/Xk0x/mycM/7rvekqmiETayW4U+/WLgpw8rQ=
+github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20220208144337-b4fe2a553790/go.mod h1:EFQYBRFB/Sk4BFPyvXcQwKUzTClcgCVCaXTIHfJaqTw=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/remyoudompheng/go-misc v0.0.0-20190427085024-2d6ac652a50e/go.mod h1:80FQABjoFzZ2M5uEa6FUaJYEmqU2UOKojlFVak1UAwI=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=

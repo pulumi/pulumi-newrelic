@@ -7878,7 +7878,7 @@ func (o ServiceLevelObjectiveTimeWindowOutput) Rolling() ServiceLevelObjectiveTi
 }
 
 type ServiceLevelObjectiveTimeWindowRolling struct {
-	// Valid values are `1`, `7`, `14`, `28` and `30`.
+	// Valid values are `1`, `7` and `28`.
 	Count int `pulumi:"count"`
 	// The only supported value is `DAY`.
 	Unit string `pulumi:"unit"`
@@ -7896,7 +7896,7 @@ type ServiceLevelObjectiveTimeWindowRollingInput interface {
 }
 
 type ServiceLevelObjectiveTimeWindowRollingArgs struct {
-	// Valid values are `1`, `7`, `14`, `28` and `30`.
+	// Valid values are `1`, `7` and `28`.
 	Count pulumi.IntInput `pulumi:"count"`
 	// The only supported value is `DAY`.
 	Unit pulumi.StringInput `pulumi:"unit"`
@@ -7928,7 +7928,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTim
 	return o
 }
 
-// Valid values are `1`, `7`, `14`, `28` and `30`.
+// Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
 }

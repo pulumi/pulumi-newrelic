@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class ServiceLevelObjectiveTimeWindowRolling
     {
         /// <summary>
-        /// Valid values are `1`, `7`, `14`, `28` and `30`.
+        /// Valid values are `1`, `7` and `28`.
         /// </summary>
         public readonly int Count;
         /// <summary>

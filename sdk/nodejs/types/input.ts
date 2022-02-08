@@ -1113,7 +1113,7 @@ export interface ServiceLevelObjectiveTimeWindow {
 
 export interface ServiceLevelObjectiveTimeWindowRolling {
     /**
-     * Valid values are `1`, `7`, `14`, `28` and `30`.
+     * Valid values are `1`, `7` and `28`.
      */
     count: pulumi.Input<number>;
     /**

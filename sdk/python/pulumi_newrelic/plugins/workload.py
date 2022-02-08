@@ -272,6 +272,7 @@ class Workload(pulumi.CustomResource):
 
         ## Example Usage
 
+        Include entities with a certain string on the name.
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -280,7 +281,21 @@ class Workload(pulumi.CustomResource):
             account_id=12345678,
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
             entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like 'Example application'",
+                query="name like '%Example application%'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+
+        Include entities with a set of tags.
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
             )],
             scope_account_ids=[12345678])
         ```
@@ -318,6 +333,7 @@ class Workload(pulumi.CustomResource):
 
         ## Example Usage
 
+        Include entities with a certain string on the name.
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -326,7 +342,21 @@ class Workload(pulumi.CustomResource):
             account_id=12345678,
             entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
             entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
-                query="name like 'Example application'",
+                query="name like '%Example application%'",
+            )],
+            scope_account_ids=[12345678])
+        ```
+
+        Include entities with a set of tags.
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.plugins.Workload("foo",
+            account_id=12345678,
+            entity_guids=["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+            entity_search_queries=[newrelic.plugins.WorkloadEntitySearchQueryArgs(
+                query="tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
             )],
             scope_account_ids=[12345678])
         ```

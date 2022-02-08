@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Type: `baseline`
+ *
  * =======
  * ## NRQL
  *
@@ -98,6 +99,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ *
  * > > > > > > > v2.30.0
  *
  * ## Import
@@ -237,6 +239,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+     */
+    public readonly slideBy!: pulumi.Output<number | undefined>;
+    /**
      * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
      * @deprecated use `critical` and `warning` attributes instead
@@ -301,6 +307,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["openViolationOnGroupOverlap"] = state ? state.openViolationOnGroupOverlap : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
+            resourceInputs["slideBy"] = state ? state.slideBy : undefined;
             resourceInputs["terms"] = state ? state.terms : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["valueFunction"] = state ? state.valueFunction : undefined;
@@ -336,6 +343,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["openViolationOnGroupOverlap"] = args ? args.openViolationOnGroupOverlap : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
+            resourceInputs["slideBy"] = args ? args.slideBy : undefined;
             resourceInputs["terms"] = args ? args.terms : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["valueFunction"] = args ? args.valueFunction : undefined;
@@ -438,6 +446,10 @@ export interface NrqlAlertConditionState {
      * Runbook URL to display in notifications.
      */
     runbookUrl?: pulumi.Input<string>;
+    /**
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+     */
+    slideBy?: pulumi.Input<number>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *
@@ -560,6 +572,10 @@ export interface NrqlAlertConditionArgs {
      * Runbook URL to display in notifications.
      */
     runbookUrl?: pulumi.Input<string>;
+    /**
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+     */
+    slideBy?: pulumi.Input<number>;
     /**
      * **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
      *

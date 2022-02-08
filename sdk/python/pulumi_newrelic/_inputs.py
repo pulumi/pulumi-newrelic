@@ -4470,7 +4470,7 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
                  count: pulumi.Input[int],
                  unit: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] count: Valid values are `1`, `7`, `14`, `28` and `30`.
+        :param pulumi.Input[int] count: Valid values are `1`, `7` and `28`.
         :param pulumi.Input[str] unit: The only supported value is `DAY`.
         """
         pulumi.set(__self__, "count", count)
@@ -4480,7 +4480,7 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        Valid values are `1`, `7`, `14`, `28` and `30`.
+        Valid values are `1`, `7` and `28`.
         """
         return pulumi.get(self, "count")
 
