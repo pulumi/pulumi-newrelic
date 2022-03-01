@@ -10,6 +10,65 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.AlertMutingRule("foo", new NewRelic.AlertMutingRuleArgs
+    ///         {
+    ///             Condition = new NewRelic.Inputs.AlertMutingRuleConditionArgs
+    ///             {
+    ///                 Conditions = 
+    ///                 {
+    ///                     new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
+    ///                     {
+    ///                         Attribute = "product",
+    ///                         Operator = "EQUALS",
+    ///                         Values = 
+    ///                         {
+    ///                             "APM",
+    ///                         },
+    ///                     },
+    ///                     new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
+    ///                     {
+    ///                         Attribute = "targetId",
+    ///                         Operator = "EQUALS",
+    ///                         Values = 
+    ///                         {
+    ///                             "Muted",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Operator = "AND",
+    ///             },
+    ///             Description = "muting rule test.",
+    ///             Enabled = true,
+    ///             Schedule = new NewRelic.Inputs.AlertMutingRuleScheduleArgs
+    ///             {
+    ///                 EndTime = "2021-01-28T16:30:00",
+    ///                 Repeat = "WEEKLY",
+    ///                 RepeatCount = 42,
+    ///                 StartTime = "2021-01-28T15:30:00",
+    ///                 TimeZone = "America/Los_Angeles",
+    ///                 WeeklyRepeatDays = 
+    ///                 {
+    ///                     "MONDAY",
+    ///                     "WEDNESDAY",
+    ///                     "FRIDAY",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert conditions can be imported using a composite ID of `&lt;account_id&gt;:&lt;muting_rule_id&gt;`, e.g.

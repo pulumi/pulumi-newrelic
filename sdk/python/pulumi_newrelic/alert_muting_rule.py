@@ -231,6 +231,44 @@ class AlertMutingRule(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['AlertMutingRuleScheduleArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertMutingRule("foo",
+            condition=newrelic.AlertMutingRuleConditionArgs(
+                conditions=[
+                    newrelic.AlertMutingRuleConditionConditionArgs(
+                        attribute="product",
+                        operator="EQUALS",
+                        values=["APM"],
+                    ),
+                    newrelic.AlertMutingRuleConditionConditionArgs(
+                        attribute="targetId",
+                        operator="EQUALS",
+                        values=["Muted"],
+                    ),
+                ],
+                operator="AND",
+            ),
+            description="muting rule test.",
+            enabled=True,
+            schedule=newrelic.AlertMutingRuleScheduleArgs(
+                end_time="2021-01-28T16:30:00",
+                repeat="WEEKLY",
+                repeat_count=42,
+                start_time="2021-01-28T15:30:00",
+                time_zone="America/Los_Angeles",
+                weekly_repeat_days=[
+                    "MONDAY",
+                    "WEDNESDAY",
+                    "FRIDAY",
+                ],
+            ))
+        ```
+
         ## Import
 
         Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
@@ -255,6 +293,44 @@ class AlertMutingRule(pulumi.CustomResource):
                  args: AlertMutingRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.AlertMutingRule("foo",
+            condition=newrelic.AlertMutingRuleConditionArgs(
+                conditions=[
+                    newrelic.AlertMutingRuleConditionConditionArgs(
+                        attribute="product",
+                        operator="EQUALS",
+                        values=["APM"],
+                    ),
+                    newrelic.AlertMutingRuleConditionConditionArgs(
+                        attribute="targetId",
+                        operator="EQUALS",
+                        values=["Muted"],
+                    ),
+                ],
+                operator="AND",
+            ),
+            description="muting rule test.",
+            enabled=True,
+            schedule=newrelic.AlertMutingRuleScheduleArgs(
+                end_time="2021-01-28T16:30:00",
+                repeat="WEEKLY",
+                repeat_count=42,
+                start_time="2021-01-28T15:30:00",
+                time_zone="America/Los_Angeles",
+                weekly_repeat_days=[
+                    "MONDAY",
+                    "WEDNESDAY",
+                    "FRIDAY",
+                ],
+            ))
+        ```
+
         ## Import
 
         Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
