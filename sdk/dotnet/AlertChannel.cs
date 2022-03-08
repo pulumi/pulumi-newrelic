@@ -199,6 +199,12 @@ namespace Pulumi.NewRelic
     public partial class AlertChannel : Pulumi.CustomResource
     {
         /// <summary>
+        /// The New Relic account ID where you want to create alert channels.
+        /// </summary>
+        [Output("accountId")]
+        public Output<int> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         /// </summary>
         [Output("config")]
@@ -263,6 +269,12 @@ namespace Pulumi.NewRelic
     public sealed class AlertChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The New Relic account ID where you want to create alert channels.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
         /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         /// </summary>
         [Input("config")]
@@ -287,6 +299,12 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertChannelState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The New Relic account ID where you want to create alert channels.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         /// <summary>
         /// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
         /// </summary>

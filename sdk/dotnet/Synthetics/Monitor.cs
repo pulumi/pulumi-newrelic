@@ -44,6 +44,9 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// 
     /// ##### Type: `BROWSER`
+    /// ## Additional Examples
+    /// 
+    /// Type: `BROWSER`
     /// 
     /// ```csharp
     /// using Pulumi;

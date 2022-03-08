@@ -17,27 +17,26 @@ class ServiceLevelArgs:
     def __init__(__self__, *,
                  events: pulumi.Input['ServiceLevelEventsArgs'],
                  guid: pulumi.Input[str],
+                 objective: pulumi.Input['ServiceLevelObjectiveArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 objectives: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceLevel resource.
         :param pulumi.Input['ServiceLevelEventsArgs'] events: The events that define the NRDB data for the SLI/SLO calculations.
                See Events below for details.
         :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+        :param pulumi.Input['ServiceLevelObjectiveArgs'] objective: The objective of the SLI, only one can be defined.
+               See Objective below for details.
         :param pulumi.Input[str] description: The description of the SLI.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-               See Nested objective blocks below for details.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "guid", guid)
+        pulumi.set(__self__, "objective", objective)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if objectives is not None:
-            pulumi.set(__self__, "objectives", objectives)
 
     @property
     @pulumi.getter
@@ -66,6 +65,19 @@ class ServiceLevelArgs:
 
     @property
     @pulumi.getter
+    def objective(self) -> pulumi.Input['ServiceLevelObjectiveArgs']:
+        """
+        The objective of the SLI, only one can be defined.
+        See Objective below for details.
+        """
+        return pulumi.get(self, "objective")
+
+    @objective.setter
+    def objective(self, value: pulumi.Input['ServiceLevelObjectiveArgs']):
+        pulumi.set(self, "objective", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description of the SLI.
@@ -88,19 +100,6 @@ class ServiceLevelArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter
-    def objectives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]]]:
-        """
-        An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-        See Nested objective blocks below for details.
-        """
-        return pulumi.get(self, "objectives")
-
-    @objectives.setter
-    def objectives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]]]):
-        pulumi.set(self, "objectives", value)
-
 
 @pulumi.input_type
 class _ServiceLevelState:
@@ -109,7 +108,7 @@ class _ServiceLevelState:
                  events: Optional[pulumi.Input['ServiceLevelEventsArgs']] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 objectives: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]]] = None,
+                 objective: Optional[pulumi.Input['ServiceLevelObjectiveArgs']] = None,
                  sli_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceLevel resources.
@@ -118,8 +117,8 @@ class _ServiceLevelState:
                See Events below for details.
         :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-               See Nested objective blocks below for details.
+        :param pulumi.Input['ServiceLevelObjectiveArgs'] objective: The objective of the SLI, only one can be defined.
+               See Objective below for details.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
         if description is not None:
@@ -130,8 +129,8 @@ class _ServiceLevelState:
             pulumi.set(__self__, "guid", guid)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if objectives is not None:
-            pulumi.set(__self__, "objectives", objectives)
+        if objective is not None:
+            pulumi.set(__self__, "objective", objective)
         if sli_id is not None:
             pulumi.set(__self__, "sli_id", sli_id)
 
@@ -186,16 +185,16 @@ class _ServiceLevelState:
 
     @property
     @pulumi.getter
-    def objectives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]]]:
+    def objective(self) -> Optional[pulumi.Input['ServiceLevelObjectiveArgs']]:
         """
-        An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-        See Nested objective blocks below for details.
+        The objective of the SLI, only one can be defined.
+        See Objective below for details.
         """
-        return pulumi.get(self, "objectives")
+        return pulumi.get(self, "objective")
 
-    @objectives.setter
-    def objectives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveArgs']]]]):
-        pulumi.set(self, "objectives", value)
+    @objective.setter
+    def objective(self, value: Optional[pulumi.Input['ServiceLevelObjectiveArgs']]):
+        pulumi.set(self, "objective", value)
 
     @property
     @pulumi.getter(name="sliId")
@@ -219,7 +218,7 @@ class ServiceLevel(pulumi.CustomResource):
                  events: Optional[pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 objectives: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]]] = None,
+                 objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
                  __props__=None):
         """
         > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
@@ -254,7 +253,7 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ),
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            objectives=[newrelic.ServiceLevelObjectiveArgs(
+            objective=newrelic.ServiceLevelObjectiveArgs(
                 target=99,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
                     rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
@@ -262,7 +261,7 @@ class ServiceLevel(pulumi.CustomResource):
                         unit="DAY",
                     ),
                 ),
-            )])
+            ))
         ```
 
         ## Import
@@ -282,8 +281,8 @@ class ServiceLevel(pulumi.CustomResource):
                See Events below for details.
         :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-               See Nested objective blocks below for details.
+        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
+               See Objective below for details.
         """
         ...
     @overload
@@ -324,7 +323,7 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ),
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
-            objectives=[newrelic.ServiceLevelObjectiveArgs(
+            objective=newrelic.ServiceLevelObjectiveArgs(
                 target=99,
                 time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
                     rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
@@ -332,7 +331,7 @@ class ServiceLevel(pulumi.CustomResource):
                         unit="DAY",
                     ),
                 ),
-            )])
+            ))
         ```
 
         ## Import
@@ -364,7 +363,7 @@ class ServiceLevel(pulumi.CustomResource):
                  events: Optional[pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']]] = None,
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 objectives: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]]] = None,
+                 objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -385,7 +384,9 @@ class ServiceLevel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'guid'")
             __props__.__dict__["guid"] = guid
             __props__.__dict__["name"] = name
-            __props__.__dict__["objectives"] = objectives
+            if objective is None and not opts.urn:
+                raise TypeError("Missing required property 'objective'")
+            __props__.__dict__["objective"] = objective
             __props__.__dict__["sli_id"] = None
         super(ServiceLevel, __self__).__init__(
             'newrelic:index/serviceLevel:ServiceLevel',
@@ -401,7 +402,7 @@ class ServiceLevel(pulumi.CustomResource):
             events: Optional[pulumi.Input[pulumi.InputType['ServiceLevelEventsArgs']]] = None,
             guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            objectives: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]]] = None,
+            objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
             sli_id: Optional[pulumi.Input[str]] = None) -> 'ServiceLevel':
         """
         Get an existing ServiceLevel resource's state with the given name, id, and optional extra
@@ -415,8 +416,8 @@ class ServiceLevel(pulumi.CustomResource):
                See Events below for details.
         :param pulumi.Input[str] guid: The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]]] objectives: An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-               See Nested objective blocks below for details.
+        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
+               See Objective below for details.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -427,7 +428,7 @@ class ServiceLevel(pulumi.CustomResource):
         __props__.__dict__["events"] = events
         __props__.__dict__["guid"] = guid
         __props__.__dict__["name"] = name
-        __props__.__dict__["objectives"] = objectives
+        __props__.__dict__["objective"] = objective
         __props__.__dict__["sli_id"] = sli_id
         return ServiceLevel(resource_name, opts=opts, __props__=__props__)
 
@@ -466,12 +467,12 @@ class ServiceLevel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def objectives(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLevelObjective']]]:
+    def objective(self) -> pulumi.Output['outputs.ServiceLevelObjective']:
         """
-        An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-        See Nested objective blocks below for details.
+        The objective of the SLI, only one can be defined.
+        See Objective below for details.
         """
-        return pulumi.get(self, "objectives")
+        return pulumi.get(self, "objective")
 
     @property
     @pulumi.getter(name="sliId")

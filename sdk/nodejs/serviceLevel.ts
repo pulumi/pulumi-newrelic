@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *         },
  *     },
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
- *     objectives: [{
+ *     objective: {
  *         target: 99,
  *         timeWindow: {
  *             rolling: {
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  *                 unit: "DAY",
  *             },
  *         },
- *     }],
+ *     },
  * });
  * ```
  *
@@ -106,10 +106,10 @@ export class ServiceLevel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-     * See Nested objective blocks below for details.
+     * The objective of the SLI, only one can be defined.
+     * See Objective below for details.
      */
-    public readonly objectives!: pulumi.Output<outputs.ServiceLevelObjective[] | undefined>;
+    public readonly objective!: pulumi.Output<outputs.ServiceLevelObjective>;
     /**
      * The unique entity identifier of the Service Level Indicator.
      */
@@ -132,7 +132,7 @@ export class ServiceLevel extends pulumi.CustomResource {
             resourceInputs["events"] = state ? state.events : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["objectives"] = state ? state.objectives : undefined;
+            resourceInputs["objective"] = state ? state.objective : undefined;
             resourceInputs["sliId"] = state ? state.sliId : undefined;
         } else {
             const args = argsOrState as ServiceLevelArgs | undefined;
@@ -142,11 +142,14 @@ export class ServiceLevel extends pulumi.CustomResource {
             if ((!args || args.guid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'guid'");
             }
+            if ((!args || args.objective === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'objective'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["events"] = args ? args.events : undefined;
             resourceInputs["guid"] = args ? args.guid : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectives"] = args ? args.objectives : undefined;
+            resourceInputs["objective"] = args ? args.objective : undefined;
             resourceInputs["sliId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -176,10 +179,10 @@ export interface ServiceLevelState {
      */
     name?: pulumi.Input<string>;
     /**
-     * An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-     * See Nested objective blocks below for details.
+     * The objective of the SLI, only one can be defined.
+     * See Objective below for details.
      */
-    objectives?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjective>[]>;
+    objective?: pulumi.Input<inputs.ServiceLevelObjective>;
     /**
      * The unique entity identifier of the Service Level Indicator.
      */
@@ -208,8 +211,8 @@ export interface ServiceLevelArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-     * See Nested objective blocks below for details.
+     * The objective of the SLI, only one can be defined.
+     * See Objective below for details.
      */
-    objectives?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjective>[]>;
+    objective: pulumi.Input<inputs.ServiceLevelObjective>;
 }

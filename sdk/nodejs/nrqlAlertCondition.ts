@@ -254,6 +254,8 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
     public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Possible values are `singleValue`, `sum` (case insensitive).
+     *
+     * @deprecated 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
      */
     public readonly valueFunction!: pulumi.Output<string | undefined>;
     /**
@@ -462,6 +464,8 @@ export interface NrqlAlertConditionState {
     type?: pulumi.Input<string>;
     /**
      * Possible values are `singleValue`, `sum` (case insensitive).
+     *
+     * @deprecated 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
      */
     valueFunction?: pulumi.Input<string>;
     /**
@@ -588,6 +592,8 @@ export interface NrqlAlertConditionArgs {
     type?: pulumi.Input<string>;
     /**
      * Possible values are `singleValue`, `sum` (case insensitive).
+     *
+     * @deprecated 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
      */
     valueFunction?: pulumi.Input<string>;
     /**

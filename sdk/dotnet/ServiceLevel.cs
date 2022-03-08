@@ -50,18 +50,15 @@ namespace Pulumi.NewRelic
     ///                 },
     ///             },
     ///             Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
-    ///             Objectives = 
+    ///             Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///             {
-    ///                 new NewRelic.Inputs.ServiceLevelObjectiveArgs
+    ///                 Target = 99,
+    ///                 TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
     ///                 {
-    ///                     Target = 99,
-    ///                     TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
+    ///                     Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
     ///                     {
-    ///                         Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
-    ///                         {
-    ///                             Count = 7,
-    ///                             Unit = "DAY",
-    ///                         },
+    ///                         Count = 7,
+    ///                         Unit = "DAY",
     ///                     },
     ///                 },
     ///             },
@@ -110,11 +107,11 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-        /// See Nested objective blocks below for details.
+        /// The objective of the SLI, only one can be defined.
+        /// See Objective below for details.
         /// </summary>
-        [Output("objectives")]
-        public Output<ImmutableArray<Outputs.ServiceLevelObjective>> Objectives { get; private set; } = null!;
+        [Output("objective")]
+        public Output<Outputs.ServiceLevelObjective> Objective { get; private set; } = null!;
 
         /// <summary>
         /// The unique entity identifier of the Service Level Indicator.
@@ -193,18 +190,12 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("objectives")]
-        private InputList<Inputs.ServiceLevelObjectiveArgs>? _objectives;
-
         /// <summary>
-        /// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-        /// See Nested objective blocks below for details.
+        /// The objective of the SLI, only one can be defined.
+        /// See Objective below for details.
         /// </summary>
-        public InputList<Inputs.ServiceLevelObjectiveArgs> Objectives
-        {
-            get => _objectives ?? (_objectives = new InputList<Inputs.ServiceLevelObjectiveArgs>());
-            set => _objectives = value;
-        }
+        [Input("objective", required: true)]
+        public Input<Inputs.ServiceLevelObjectiveArgs> Objective { get; set; } = null!;
 
         public ServiceLevelArgs()
         {
@@ -238,18 +229,12 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("objectives")]
-        private InputList<Inputs.ServiceLevelObjectiveGetArgs>? _objectives;
-
         /// <summary>
-        /// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-        /// See Nested objective blocks below for details.
+        /// The objective of the SLI, only one can be defined.
+        /// See Objective below for details.
         /// </summary>
-        public InputList<Inputs.ServiceLevelObjectiveGetArgs> Objectives
-        {
-            get => _objectives ?? (_objectives = new InputList<Inputs.ServiceLevelObjectiveGetArgs>());
-            set => _objectives = value;
-        }
+        [Input("objective")]
+        public Input<Inputs.ServiceLevelObjectiveGetArgs>? Objective { get; set; }
 
         /// <summary>
         /// The unique entity identifier of the Service Level Indicator.

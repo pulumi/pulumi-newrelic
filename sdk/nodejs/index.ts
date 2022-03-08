@@ -18,6 +18,7 @@ export * from "./getAccount";
 export * from "./getAlertChannel";
 export * from "./getAlertPolicy";
 export * from "./getApplication";
+export * from "./getCloudAccount";
 export * from "./getEntity";
 export * from "./getKeyTransaction";
 export * from "./infraAlertCondition";

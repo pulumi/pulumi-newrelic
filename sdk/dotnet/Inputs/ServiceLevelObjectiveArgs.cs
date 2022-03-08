@@ -25,13 +25,13 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+        /// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
         /// </summary>
         [Input("target", required: true)]
         public Input<double> Target { get; set; } = null!;
 
         /// <summary>
-        /// Time window is the period for the SLO.
+        /// Time window is the period of the objective.
         /// </summary>
         [Input("timeWindow", required: true)]
         public Input<Inputs.ServiceLevelObjectiveTimeWindowArgs> TimeWindow { get; set; } = null!;

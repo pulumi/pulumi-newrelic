@@ -29,6 +29,9 @@ import * as utilities from "../utilities";
  * ```
  *
  * ##### Type: `BROWSER`
+ * ## Additional Examples
+ *
+ * Type: `BROWSER`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -80,6 +80,8 @@ import (
 type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
+	// The New Relic account ID where you want to link the channel to.
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
 	// The ID of the policy.
@@ -121,6 +123,8 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicyChannel resources.
 type alertPolicyChannelState struct {
+	// The New Relic account ID where you want to link the channel to.
+	AccountId *int `pulumi:"accountId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The ID of the policy.
@@ -128,6 +132,8 @@ type alertPolicyChannelState struct {
 }
 
 type AlertPolicyChannelState struct {
+	// The New Relic account ID where you want to link the channel to.
+	AccountId pulumi.IntPtrInput
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayInput
 	// The ID of the policy.
@@ -139,6 +145,8 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 }
 
 type alertPolicyChannelArgs struct {
+	// The New Relic account ID where you want to link the channel to.
+	AccountId *int `pulumi:"accountId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds []int `pulumi:"channelIds"`
 	// The ID of the policy.
@@ -147,6 +155,8 @@ type alertPolicyChannelArgs struct {
 
 // The set of arguments for constructing a AlertPolicyChannel resource.
 type AlertPolicyChannelArgs struct {
+	// The New Relic account ID where you want to link the channel to.
+	AccountId pulumi.IntPtrInput
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayInput
 	// The ID of the policy.

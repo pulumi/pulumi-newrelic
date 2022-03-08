@@ -4142,8 +4142,8 @@ class ServiceLevelObjective(dict):
                  description: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param float target: The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
-        :param 'ServiceLevelObjectiveTimeWindowArgs' time_window: Time window is the period for the SLO.
+        :param float target: The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+        :param 'ServiceLevelObjectiveTimeWindowArgs' time_window: Time window is the period of the objective.
         :param str description: The description of the SLI.
         :param str name: A short name for the SLI that will help anyone understand what it is about.
         """
@@ -4158,7 +4158,7 @@ class ServiceLevelObjective(dict):
     @pulumi.getter
     def target(self) -> float:
         """
-        The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+        The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
         """
         return pulumi.get(self, "target")
 
@@ -4166,7 +4166,7 @@ class ServiceLevelObjective(dict):
     @pulumi.getter(name="timeWindow")
     def time_window(self) -> 'outputs.ServiceLevelObjectiveTimeWindow':
         """
-        Time window is the period for the SLO.
+        Time window is the period of the objective.
         """
         return pulumi.get(self, "time_window")
 

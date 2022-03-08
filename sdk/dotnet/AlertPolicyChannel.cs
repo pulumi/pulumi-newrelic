@@ -78,6 +78,12 @@ namespace Pulumi.NewRelic
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
         /// <summary>
+        /// The New Relic account ID where you want to link the channel to.
+        /// </summary>
+        [Output("accountId")]
+        public Output<int> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
         /// </summary>
         [Output("channelIds")]
@@ -135,6 +141,12 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The New Relic account ID where you want to link the channel to.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         [Input("channelIds", required: true)]
         private InputList<int>? _channelIds;
 
@@ -160,6 +172,12 @@ namespace Pulumi.NewRelic
 
     public sealed class AlertPolicyChannelState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The New Relic account ID where you want to link the channel to.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         [Input("channelIds")]
         private InputList<int>? _channelIds;
 

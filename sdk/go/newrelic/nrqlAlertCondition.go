@@ -214,6 +214,8 @@ type NrqlAlertCondition struct {
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Possible values are `singleValue`, `sum` (case insensitive).
+	//
+	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -315,6 +317,8 @@ type nrqlAlertConditionState struct {
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type *string `pulumi:"type"`
 	// Possible values are `singleValue`, `sum` (case insensitive).
+	//
+	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction *string `pulumi:"valueFunction"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -382,6 +386,8 @@ type NrqlAlertConditionState struct {
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type pulumi.StringPtrInput
 	// Possible values are `singleValue`, `sum` (case insensitive).
+	//
+	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -453,6 +459,8 @@ type nrqlAlertConditionArgs struct {
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type *string `pulumi:"type"`
 	// Possible values are `singleValue`, `sum` (case insensitive).
+	//
+	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction *string `pulumi:"valueFunction"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
@@ -521,6 +529,8 @@ type NrqlAlertConditionArgs struct {
 	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
 	Type pulumi.StringPtrInput
 	// Possible values are `singleValue`, `sum` (case insensitive).
+	//
+	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>

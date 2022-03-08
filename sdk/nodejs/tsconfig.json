@@ -28,6 +28,7 @@
         "getAlertChannel.ts",
         "getAlertPolicy.ts",
         "getApplication.ts",
+        "getCloudAccount.ts",
         "getEntity.ts",
         "getKeyTransaction.ts",
         "index.ts",

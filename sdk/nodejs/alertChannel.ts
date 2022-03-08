@@ -154,6 +154,10 @@ export class AlertChannel extends pulumi.CustomResource {
     }
 
     /**
+     * The New Relic account ID where you want to create alert channels.
+     */
+    public readonly accountId!: pulumi.Output<number>;
+    /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
     public readonly config!: pulumi.Output<outputs.AlertChannelConfig | undefined>;
@@ -179,6 +183,7 @@ export class AlertChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertChannelState | undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -187,6 +192,7 @@ export class AlertChannel extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["config"] = args ? args.config : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -200,6 +206,10 @@ export class AlertChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertChannel resources.
  */
 export interface AlertChannelState {
+    /**
+     * The New Relic account ID where you want to create alert channels.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
@@ -218,6 +228,10 @@ export interface AlertChannelState {
  * The set of arguments for constructing a AlertChannel resource.
  */
 export interface AlertChannelArgs {
+    /**
+     * The New Relic account ID where you want to create alert channels.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
      */
