@@ -129,6 +129,9 @@ class NrqlAlertConditionArgs:
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value_function is not None:
+            warnings.warn("""'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""", DeprecationWarning)
+            pulumi.log.warn("""value_function is deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""")
+        if value_function is not None:
             pulumi.set(__self__, "value_function", value_function)
         if violation_time_limit is not None:
             warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
@@ -597,6 +600,9 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "terms", terms)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if value_function is not None:
+            warnings.warn("""'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""", DeprecationWarning)
+            pulumi.log.warn("""value_function is deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""")
         if value_function is not None:
             pulumi.set(__self__, "value_function", value_function)
         if violation_time_limit is not None:
@@ -1344,6 +1350,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
             __props__.__dict__["terms"] = terms
             __props__.__dict__["type"] = type
+            if value_function is not None and not opts.urn:
+                warnings.warn("""'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""", DeprecationWarning)
+                pulumi.log.warn("""value_function is deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""")
             __props__.__dict__["value_function"] = value_function
             if violation_time_limit is not None and not opts.urn:
                 warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)

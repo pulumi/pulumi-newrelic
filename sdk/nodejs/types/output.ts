@@ -1112,11 +1112,11 @@ export interface ServiceLevelObjective {
      */
     name?: string;
     /**
-     * The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+     * The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
      */
     target: number;
     /**
-     * Time window is the period for the SLO.
+     * Time window is the period of the objective.
      */
     timeWindow: outputs.ServiceLevelObjectiveTimeWindow;
 }

@@ -416,6 +416,9 @@ class Monitor(pulumi.CustomResource):
         ```
 
         ##### Type: `BROWSER`
+        ## Additional Examples
+
+        Type: `BROWSER`
 
         ```python
         import pulumi
@@ -513,6 +516,9 @@ class Monitor(pulumi.CustomResource):
         ```
 
         ##### Type: `BROWSER`
+        ## Additional Examples
+
+        Type: `BROWSER`
 
         ```python
         import pulumi

@@ -84,6 +84,10 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     }
 
     /**
+     * The New Relic account ID where you want to link the channel to.
+     */
+    public readonly accountId!: pulumi.Output<number>;
+    /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
     public readonly channelIds!: pulumi.Output<number[]>;
@@ -105,6 +109,7 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPolicyChannelState | undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["channelIds"] = state ? state.channelIds : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
         } else {
@@ -115,6 +120,7 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
             if ((!args || args.policyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["channelIds"] = args ? args.channelIds : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
         }
@@ -127,6 +133,10 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertPolicyChannel resources.
  */
 export interface AlertPolicyChannelState {
+    /**
+     * The New Relic account ID where you want to link the channel to.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */
@@ -141,6 +151,10 @@ export interface AlertPolicyChannelState {
  * The set of arguments for constructing a AlertPolicyChannel resource.
  */
 export interface AlertPolicyChannelArgs {
+    /**
+     * The New Relic account ID where you want to link the channel to.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
      */

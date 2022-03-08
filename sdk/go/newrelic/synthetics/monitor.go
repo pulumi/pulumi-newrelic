@@ -47,6 +47,9 @@ import (
 // ```
 //
 // ##### Type: `BROWSER`
+// ## Additional Examples
+//
+// Type: `BROWSER`
 //
 // ```go
 // package main

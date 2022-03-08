@@ -49,14 +49,12 @@ import (
 // 				},
 // 			},
 // 			Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
-// 			Objectives: ServiceLevelObjectiveArray{
-// 				&ServiceLevelObjectiveArgs{
-// 					Target: pulumi.Float64(99),
-// 					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
-// 						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
-// 							Count: pulumi.Int(7),
-// 							Unit:  pulumi.String("DAY"),
-// 						},
+// 			Objective: &ServiceLevelObjectiveArgs{
+// 				Target: pulumi.Float64(99),
+// 				TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
+// 					Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
+// 						Count: pulumi.Int(7),
+// 						Unit:  pulumi.String("DAY"),
 // 					},
 // 				},
 // 			},
@@ -90,9 +88,9 @@ type ServiceLevel struct {
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-	// See Nested objective blocks below for details.
-	Objectives ServiceLevelObjectiveArrayOutput `pulumi:"objectives"`
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjectiveOutput `pulumi:"objective"`
 	// The unique entity identifier of the Service Level Indicator.
 	SliId pulumi.StringOutput `pulumi:"sliId"`
 }
@@ -109,6 +107,9 @@ func NewServiceLevel(ctx *pulumi.Context,
 	}
 	if args.Guid == nil {
 		return nil, errors.New("invalid value for required argument 'Guid'")
+	}
+	if args.Objective == nil {
+		return nil, errors.New("invalid value for required argument 'Objective'")
 	}
 	var resource ServiceLevel
 	err := ctx.RegisterResource("newrelic:index/serviceLevel:ServiceLevel", name, args, &resource, opts...)
@@ -141,9 +142,9 @@ type serviceLevelState struct {
 	Guid *string `pulumi:"guid"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name *string `pulumi:"name"`
-	// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-	// See Nested objective blocks below for details.
-	Objectives []ServiceLevelObjective `pulumi:"objectives"`
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective *ServiceLevelObjective `pulumi:"objective"`
 	// The unique entity identifier of the Service Level Indicator.
 	SliId *string `pulumi:"sliId"`
 }
@@ -158,9 +159,9 @@ type ServiceLevelState struct {
 	Guid pulumi.StringPtrInput
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringPtrInput
-	// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-	// See Nested objective blocks below for details.
-	Objectives ServiceLevelObjectiveArrayInput
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjectivePtrInput
 	// The unique entity identifier of the Service Level Indicator.
 	SliId pulumi.StringPtrInput
 }
@@ -179,9 +180,9 @@ type serviceLevelArgs struct {
 	Guid string `pulumi:"guid"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name *string `pulumi:"name"`
-	// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-	// See Nested objective blocks below for details.
-	Objectives []ServiceLevelObjective `pulumi:"objectives"`
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjective `pulumi:"objective"`
 }
 
 // The set of arguments for constructing a ServiceLevel resource.
@@ -195,9 +196,9 @@ type ServiceLevelArgs struct {
 	Guid pulumi.StringInput
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringPtrInput
-	// An objective for the SLI. Multiple objective blocks can be defined for an SLI.
-	// See Nested objective blocks below for details.
-	Objectives ServiceLevelObjectiveArrayInput
+	// The objective of the SLI, only one can be defined.
+	// See Objective below for details.
+	Objective ServiceLevelObjectiveInput
 }
 
 func (ServiceLevelArgs) ElementType() reflect.Type {

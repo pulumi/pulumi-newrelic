@@ -11,6 +11,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := newrelic.NewAlertMutingRule(ctx, "foo", &newrelic.AlertMutingRuleArgs{
+// 			Condition: &AlertMutingRuleConditionArgs{
+// 				Conditions: AlertMutingRuleConditionConditionArray{
+// 					&AlertMutingRuleConditionConditionArgs{
+// 						Attribute: pulumi.String("product"),
+// 						Operator:  pulumi.String("EQUALS"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("APM"),
+// 						},
+// 					},
+// 					&AlertMutingRuleConditionConditionArgs{
+// 						Attribute: pulumi.String("targetId"),
+// 						Operator:  pulumi.String("EQUALS"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("Muted"),
+// 						},
+// 					},
+// 				},
+// 				Operator: pulumi.String("AND"),
+// 			},
+// 			Description: pulumi.String("muting rule test."),
+// 			Enabled:     pulumi.Bool(true),
+// 			Schedule: &AlertMutingRuleScheduleArgs{
+// 				EndTime:     pulumi.String("2021-01-28T16:30:00"),
+// 				Repeat:      pulumi.String("WEEKLY"),
+// 				RepeatCount: pulumi.Int(42),
+// 				StartTime:   pulumi.String("2021-01-28T15:30:00"),
+// 				TimeZone:    pulumi.String("America/Los_Angeles"),
+// 				WeeklyRepeatDays: pulumi.StringArray{
+// 					pulumi.String("MONDAY"),
+// 					pulumi.String("WEDNESDAY"),
+// 					pulumi.String("FRIDAY"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.

@@ -10,6 +10,42 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new NewRelic.NrqlDropRule("foo", new NewRelic.NrqlDropRuleArgs
+    ///         {
+    ///             AccountId = 12345,
+    ///             Action = "drop_data",
+    ///             Description = "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
+    ///             Nrql = "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
+    ///         });
+    ///         var bar = new NewRelic.NrqlDropRule("bar", new NewRelic.NrqlDropRuleArgs
+    ///         {
+    ///             AccountId = 12345,
+    ///             Action = "drop_attributes",
+    ///             Description = "Removes the user name and email fields from MyCustomEvent",
+    ///             Nrql = "SELECT userEmail, userName FROM MyCustomEvent",
+    ///         });
+    ///         var baz = new NewRelic.NrqlDropRule("baz", new NewRelic.NrqlDropRuleArgs
+    ///         {
+    ///             AccountId = 12345,
+    ///             Action = "drop_attributes_from_metric_aggregates",
+    ///             Description = "Removes containerId from metric aggregates to reduce metric cardinality.",
+    ///             Nrql = "SELECT containerId FROM Metric",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic NRQL drop rules can be imported using a concatenated string of the format

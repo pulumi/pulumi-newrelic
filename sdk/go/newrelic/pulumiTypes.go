@@ -7706,9 +7706,9 @@ type ServiceLevelObjective struct {
 	Description *string `pulumi:"description"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name *string `pulumi:"name"`
-	// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+	// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
 	Target float64 `pulumi:"target"`
-	// Time window is the period for the SLO.
+	// Time window is the period of the objective.
 	TimeWindow ServiceLevelObjectiveTimeWindow `pulumi:"timeWindow"`
 }
 
@@ -7728,9 +7728,9 @@ type ServiceLevelObjectiveArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A short name for the SLI that will help anyone understand what it is about.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+	// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
 	Target pulumi.Float64Input `pulumi:"target"`
-	// Time window is the period for the SLO.
+	// Time window is the period of the objective.
 	TimeWindow ServiceLevelObjectiveTimeWindowInput `pulumi:"timeWindow"`
 }
 
@@ -7746,29 +7746,45 @@ func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectiveOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
 }
 
-// ServiceLevelObjectiveArrayInput is an input type that accepts ServiceLevelObjectiveArray and ServiceLevelObjectiveArrayOutput values.
-// You can construct a concrete instance of `ServiceLevelObjectiveArrayInput` via:
+func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return i.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveArgs) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput).ToServiceLevelObjectivePtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectivePtrInput is an input type that accepts ServiceLevelObjectiveArgs, ServiceLevelObjectivePtr and ServiceLevelObjectivePtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectivePtrInput` via:
 //
-//          ServiceLevelObjectiveArray{ ServiceLevelObjectiveArgs{...} }
-type ServiceLevelObjectiveArrayInput interface {
+//          ServiceLevelObjectiveArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelObjectivePtrInput interface {
 	pulumi.Input
 
-	ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput
-	ToServiceLevelObjectiveArrayOutputWithContext(context.Context) ServiceLevelObjectiveArrayOutput
+	ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput
+	ToServiceLevelObjectivePtrOutputWithContext(context.Context) ServiceLevelObjectivePtrOutput
 }
 
-type ServiceLevelObjectiveArray []ServiceLevelObjectiveInput
+type serviceLevelObjectivePtrType ServiceLevelObjectiveArgs
 
-func (ServiceLevelObjectiveArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceLevelObjective)(nil)).Elem()
+func ServiceLevelObjectivePtr(v *ServiceLevelObjectiveArgs) ServiceLevelObjectivePtrInput {
+	return (*serviceLevelObjectivePtrType)(v)
 }
 
-func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
-	return i.ToServiceLevelObjectiveArrayOutputWithContext(context.Background())
+func (*serviceLevelObjectivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjective)(nil)).Elem()
 }
 
-func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveArrayOutput)
+func (i *serviceLevelObjectivePtrType) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return i.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectivePtrType) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectivePtrOutput)
 }
 
 type ServiceLevelObjectiveOutput struct{ *pulumi.OutputState }
@@ -7785,6 +7801,16 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutputWithContext(ct
 	return o
 }
 
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return o.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjective) *ServiceLevelObjective {
+		return &v
+	}).(ServiceLevelObjectivePtrOutput)
+}
+
 // The description of the SLI.
 func (o ServiceLevelObjectiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjective) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -7795,34 +7821,78 @@ func (o ServiceLevelObjectiveOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLevelObjective) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
 func (o ServiceLevelObjectiveOutput) Target() pulumi.Float64Output {
 	return o.ApplyT(func(v ServiceLevelObjective) float64 { return v.Target }).(pulumi.Float64Output)
 }
 
-// Time window is the period for the SLO.
+// Time window is the period of the objective.
 func (o ServiceLevelObjectiveOutput) TimeWindow() ServiceLevelObjectiveTimeWindowOutput {
 	return o.ApplyT(func(v ServiceLevelObjective) ServiceLevelObjectiveTimeWindow { return v.TimeWindow }).(ServiceLevelObjectiveTimeWindowOutput)
 }
 
-type ServiceLevelObjectiveArrayOutput struct{ *pulumi.OutputState }
+type ServiceLevelObjectivePtrOutput struct{ *pulumi.OutputState }
 
-func (ServiceLevelObjectiveArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceLevelObjective)(nil)).Elem()
+func (ServiceLevelObjectivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjective)(nil)).Elem()
 }
 
-func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
+func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
 	return o
 }
 
-func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
+func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
 	return o
 }
 
-func (o ServiceLevelObjectiveArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjective {
-		return vs[0].([]ServiceLevelObjective)[vs[1].(int)]
+func (o ServiceLevelObjectivePtrOutput) Elem() ServiceLevelObjectiveOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjective {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjective
+		return ret
 	}).(ServiceLevelObjectiveOutput)
+}
+
+// The description of the SLI.
+func (o ServiceLevelObjectivePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A short name for the SLI that will help anyone understand what it is about.
+func (o ServiceLevelObjectivePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
+func (o ServiceLevelObjectivePtrOutput) Target() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Time window is the period of the objective.
+func (o ServiceLevelObjectivePtrOutput) TimeWindow() ServiceLevelObjectiveTimeWindowPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) *ServiceLevelObjectiveTimeWindow {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeWindow
+	}).(ServiceLevelObjectiveTimeWindowPtrOutput)
 }
 
 type ServiceLevelObjectiveTimeWindow struct {
@@ -7858,6 +7928,47 @@ func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowOutput)
 }
 
+func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowPtrOutput() ServiceLevelObjectiveTimeWindowPtrOutput {
+	return i.ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveTimeWindowArgs) ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowOutput).ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveTimeWindowPtrInput is an input type that accepts ServiceLevelObjectiveTimeWindowArgs, ServiceLevelObjectiveTimeWindowPtr and ServiceLevelObjectiveTimeWindowPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveTimeWindowPtrInput` via:
+//
+//          ServiceLevelObjectiveTimeWindowArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelObjectiveTimeWindowPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveTimeWindowPtrOutput() ServiceLevelObjectiveTimeWindowPtrOutput
+	ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(context.Context) ServiceLevelObjectiveTimeWindowPtrOutput
+}
+
+type serviceLevelObjectiveTimeWindowPtrType ServiceLevelObjectiveTimeWindowArgs
+
+func ServiceLevelObjectiveTimeWindowPtr(v *ServiceLevelObjectiveTimeWindowArgs) ServiceLevelObjectiveTimeWindowPtrInput {
+	return (*serviceLevelObjectiveTimeWindowPtrType)(v)
+}
+
+func (*serviceLevelObjectiveTimeWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveTimeWindow)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveTimeWindowPtrType) ToServiceLevelObjectiveTimeWindowPtrOutput() ServiceLevelObjectiveTimeWindowPtrOutput {
+	return i.ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveTimeWindowPtrType) ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowPtrOutput)
+}
+
 type ServiceLevelObjectiveTimeWindowOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveTimeWindowOutput) ElementType() reflect.Type {
@@ -7872,9 +7983,53 @@ func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindow
 	return o
 }
 
+func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindowPtrOutput() ServiceLevelObjectiveTimeWindowPtrOutput {
+	return o.ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveTimeWindowOutput) ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveTimeWindow) *ServiceLevelObjectiveTimeWindow {
+		return &v
+	}).(ServiceLevelObjectiveTimeWindowPtrOutput)
+}
+
 // Rolling window.
 func (o ServiceLevelObjectiveTimeWindowOutput) Rolling() ServiceLevelObjectiveTimeWindowRollingOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindow) ServiceLevelObjectiveTimeWindowRolling { return v.Rolling }).(ServiceLevelObjectiveTimeWindowRollingOutput)
+}
+
+type ServiceLevelObjectiveTimeWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveTimeWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveTimeWindow)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveTimeWindowPtrOutput) ToServiceLevelObjectiveTimeWindowPtrOutput() ServiceLevelObjectiveTimeWindowPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowPtrOutput) ToServiceLevelObjectiveTimeWindowPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowPtrOutput) Elem() ServiceLevelObjectiveTimeWindowOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindow) ServiceLevelObjectiveTimeWindow {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveTimeWindow
+		return ret
+	}).(ServiceLevelObjectiveTimeWindowOutput)
+}
+
+// Rolling window.
+func (o ServiceLevelObjectiveTimeWindowPtrOutput) Rolling() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindow) *ServiceLevelObjectiveTimeWindowRolling {
+		if v == nil {
+			return nil
+		}
+		return &v.Rolling
+	}).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
 }
 
 type ServiceLevelObjectiveTimeWindowRolling struct {
@@ -7914,6 +8069,47 @@ func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowRollingOutput)
 }
 
+func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeWindowRollingPtrOutput() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return i.ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveTimeWindowRollingArgs) ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowRollingOutput).ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveTimeWindowRollingPtrInput is an input type that accepts ServiceLevelObjectiveTimeWindowRollingArgs, ServiceLevelObjectiveTimeWindowRollingPtr and ServiceLevelObjectiveTimeWindowRollingPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveTimeWindowRollingPtrInput` via:
+//
+//          ServiceLevelObjectiveTimeWindowRollingArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceLevelObjectiveTimeWindowRollingPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveTimeWindowRollingPtrOutput() ServiceLevelObjectiveTimeWindowRollingPtrOutput
+	ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(context.Context) ServiceLevelObjectiveTimeWindowRollingPtrOutput
+}
+
+type serviceLevelObjectiveTimeWindowRollingPtrType ServiceLevelObjectiveTimeWindowRollingArgs
+
+func ServiceLevelObjectiveTimeWindowRollingPtr(v *ServiceLevelObjectiveTimeWindowRollingArgs) ServiceLevelObjectiveTimeWindowRollingPtrInput {
+	return (*serviceLevelObjectiveTimeWindowRollingPtrType)(v)
+}
+
+func (*serviceLevelObjectiveTimeWindowRollingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveTimeWindowRolling)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveTimeWindowRollingPtrType) ToServiceLevelObjectiveTimeWindowRollingPtrOutput() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return i.ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveTimeWindowRollingPtrType) ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
+}
+
 type ServiceLevelObjectiveTimeWindowRollingOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveTimeWindowRollingOutput) ElementType() reflect.Type {
@@ -7928,6 +8124,16 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTim
 	return o
 }
 
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTimeWindowRollingPtrOutput() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return o.ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveTimeWindowRolling) *ServiceLevelObjectiveTimeWindowRolling {
+		return &v
+	}).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
+}
+
 // Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
@@ -7936,6 +8142,50 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 // The only supported value is `DAY`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveTimeWindowRollingPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveTimeWindowRollingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveTimeWindowRolling)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) ToServiceLevelObjectiveTimeWindowRollingPtrOutput() ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) ToServiceLevelObjectiveTimeWindowRollingPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveTimeWindowRollingPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Elem() ServiceLevelObjectiveTimeWindowRollingOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) ServiceLevelObjectiveTimeWindowRolling {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveTimeWindowRolling
+		return ret
+	}).(ServiceLevelObjectiveTimeWindowRollingOutput)
+}
+
+// Valid values are `1`, `7` and `28`.
+func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The only supported value is `DAY`.
+func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetAlertChannelConfig struct {
@@ -8342,9 +8592,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsInput)(nil)).Elem(), ServiceLevelEventsValidEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsPtrInput)(nil)).Elem(), ServiceLevelEventsValidEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveInput)(nil)).Elem(), ServiceLevelObjectiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveArrayInput)(nil)).Elem(), ServiceLevelObjectiveArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectivePtrInput)(nil)).Elem(), ServiceLevelObjectiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertChannelConfigInput)(nil)).Elem(), GetAlertChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagInput)(nil)).Elem(), GetEntityTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagPtrInput)(nil)).Elem(), GetEntityTagArgs{})
@@ -8446,9 +8698,11 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveOutput{})
-	pulumi.RegisterOutputType(ServiceLevelObjectiveArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectivePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingPtrOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 	pulumi.RegisterOutputType(GetEntityTagPtrOutput{})

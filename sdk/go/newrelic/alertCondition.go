@@ -27,12 +27,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "APPLICATION"
-// 		opt1 := "APM"
 // 		app, err := newrelic.GetEntity(ctx, &GetEntityArgs{
 // 			Name:   "my-app",
-// 			Type:   &opt0,
-// 			Domain: &opt1,
+// 			Type:   pulumi.StringRef("APPLICATION"),
+// 			Domain: pulumi.StringRef("APM"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

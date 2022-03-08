@@ -22,11 +22,11 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The target for your SLO, valid values between `0` and `100`. Up to 5 decimals accepted.
+        /// The target of the objective, valid values between `0` and `100`. Up to 5 decimals accepted.
         /// </summary>
         public readonly double Target;
         /// <summary>
-        /// Time window is the period for the SLO.
+        /// Time window is the period of the objective.
         /// </summary>
         public readonly Outputs.ServiceLevelObjectiveTimeWindow TimeWindow;
 
