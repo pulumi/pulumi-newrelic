@@ -3911,7 +3911,7 @@ type OneDashboardPageWidgetBillboard struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
 	// (Optional) Threshold above which the displayed value will be styled with a red color.
-	Critical *float64 `pulumi:"critical"`
+	Critical *string `pulumi:"critical"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
@@ -3925,7 +3925,7 @@ type OneDashboardPageWidgetBillboard struct {
 	Title string `pulumi:"title"`
 	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
 	// * `widgetBullet`
-	Warning *float64 `pulumi:"warning"`
+	Warning *string `pulumi:"warning"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
 }
@@ -3945,7 +3945,7 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
 	// (Optional) Threshold above which the displayed value will be styled with a red color.
-	Critical pulumi.Float64PtrInput `pulumi:"critical"`
+	Critical pulumi.StringPtrInput `pulumi:"critical"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
@@ -3959,7 +3959,7 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
 	// * `widgetBullet`
-	Warning pulumi.Float64PtrInput `pulumi:"warning"`
+	Warning pulumi.StringPtrInput `pulumi:"warning"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
 }
@@ -4021,8 +4021,8 @@ func (o OneDashboardPageWidgetBillboardOutput) Column() pulumi.IntOutput {
 }
 
 // (Optional) Threshold above which the displayed value will be styled with a red color.
-func (o OneDashboardPageWidgetBillboardOutput) Critical() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *float64 { return v.Critical }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetBillboardOutput) Critical() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Critical }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4055,8 +4055,8 @@ func (o OneDashboardPageWidgetBillboardOutput) Title() pulumi.StringOutput {
 
 // (Optional) Threshold above which the displayed value will be styled with a yellow color.
 // * `widgetBullet`
-func (o OneDashboardPageWidgetBillboardOutput) Warning() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *float64 { return v.Warning }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetBillboardOutput) Warning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Warning }).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -8033,7 +8033,7 @@ func (o ServiceLevelObjectiveTimeWindowPtrOutput) Rolling() ServiceLevelObjectiv
 }
 
 type ServiceLevelObjectiveTimeWindowRolling struct {
-	// Valid values are `1`, `7` and `28`.
+	// Valid values are `1`, `7`, `14` and `28`.
 	Count int `pulumi:"count"`
 	// The only supported value is `DAY`.
 	Unit string `pulumi:"unit"`
@@ -8051,7 +8051,7 @@ type ServiceLevelObjectiveTimeWindowRollingInput interface {
 }
 
 type ServiceLevelObjectiveTimeWindowRollingArgs struct {
-	// Valid values are `1`, `7` and `28`.
+	// Valid values are `1`, `7`, `14` and `28`.
 	Count pulumi.IntInput `pulumi:"count"`
 	// The only supported value is `DAY`.
 	Unit pulumi.StringInput `pulumi:"unit"`
@@ -8134,7 +8134,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTim
 	}).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
 }
 
-// Valid values are `1`, `7` and `28`.
+// Valid values are `1`, `7`, `14` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -8168,7 +8168,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Elem() ServiceLevelObje
 	}).(ServiceLevelObjectiveTimeWindowRollingOutput)
 }
 
-// Valid values are `1`, `7` and `28`.
+// Valid values are `1`, `7`, `14` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) *int {
 		if v == nil {

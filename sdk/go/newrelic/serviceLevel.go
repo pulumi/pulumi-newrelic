@@ -36,16 +36,16 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
-// 			Description: pulumi.String("SLI that measures the availability of the service."),
+// 			Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
 // 			Events: &ServiceLevelEventsArgs{
 // 				AccountId: pulumi.Int(12345678),
-// 				BadEvents: &ServiceLevelEventsBadEventsArgs{
-// 					From:  pulumi.String("TransactionError"),
-// 					Where: pulumi.String("appName = 'Example application' AND error.expected is false"),
+// 				GoodEvents: &ServiceLevelEventsGoodEventsArgs{
+// 					From:  pulumi.String("Transaction"),
+// 					Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
 // 				},
 // 				ValidEvents: &ServiceLevelEventsValidEventsArgs{
 // 					From:  pulumi.String("Transaction"),
-// 					Where: pulumi.String("appName = 'Example application'"),
+// 					Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
 // 				},
 // 			},
 // 			Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
@@ -91,6 +91,8 @@ type ServiceLevel struct {
 	// The objective of the SLI, only one can be defined.
 	// See Objective below for details.
 	Objective ServiceLevelObjectiveOutput `pulumi:"objective"`
+	// The unique entity identifier of the Service Level Indicator in New Relic.
+	SliGuid pulumi.StringOutput `pulumi:"sliGuid"`
 	// The unique entity identifier of the Service Level Indicator.
 	SliId pulumi.StringOutput `pulumi:"sliId"`
 }
@@ -145,6 +147,8 @@ type serviceLevelState struct {
 	// The objective of the SLI, only one can be defined.
 	// See Objective below for details.
 	Objective *ServiceLevelObjective `pulumi:"objective"`
+	// The unique entity identifier of the Service Level Indicator in New Relic.
+	SliGuid *string `pulumi:"sliGuid"`
 	// The unique entity identifier of the Service Level Indicator.
 	SliId *string `pulumi:"sliId"`
 }
@@ -162,6 +166,8 @@ type ServiceLevelState struct {
 	// The objective of the SLI, only one can be defined.
 	// See Objective below for details.
 	Objective ServiceLevelObjectivePtrInput
+	// The unique entity identifier of the Service Level Indicator in New Relic.
+	SliGuid pulumi.StringPtrInput
 	// The unique entity identifier of the Service Level Indicator.
 	SliId pulumi.StringPtrInput
 }

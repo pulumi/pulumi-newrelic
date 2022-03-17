@@ -35,6 +35,7 @@ const (
 	mainPkg = "newrelic"
 	// modules:
 	mainMod       = "index"
+	cloudMod      = "Cloud"
 	syntheticsMod = "Synthetics"
 	insightsMod   = "Insights"
 	pluginsMod    = "Plugins"
@@ -124,6 +125,11 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_alert_muting_rule":      {Tok: makeResource(mainMod, "AlertMutingRule")},
 			"newrelic_api_access_key":         {Tok: makeResource(mainMod, "ApiAccessKey")},
 			"newrelic_service_level":          {Tok: makeResource(mainMod, "ServiceLevel")},
+
+			"newrelic_cloud_aws_govcloud_link_account": {Tok: makeResource(cloudMod, "AwsGovcloudLinkAccount")},
+			"newrelic_cloud_aws_link_account":          {Tok: makeResource(cloudMod, "AwsLinkAccount")},
+			"newrelic_cloud_azure_link_account":        {Tok: makeResource(cloudMod, "AzureLinkAccount")},
+			"newrelic_cloud_gcp_link_account":          {Tok: makeResource(cloudMod, "GcpLinkAccount")},
 
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},

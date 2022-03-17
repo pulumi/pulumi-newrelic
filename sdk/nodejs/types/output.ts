@@ -539,7 +539,7 @@ export interface OneDashboardPageWidgetBillboard {
     /**
      * (Optional) Threshold above which the displayed value will be styled with a red color.
      */
-    critical?: number;
+    critical?: string;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -563,7 +563,7 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
      * * `widgetBullet`
      */
-    warning?: number;
+    warning?: string;
     /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
@@ -1130,7 +1130,7 @@ export interface ServiceLevelObjectiveTimeWindow {
 
 export interface ServiceLevelObjectiveTimeWindowRolling {
     /**
-     * Valid values are `1`, `7` and `28`.
+     * Valid values are `1`, `7`, `14` and `28`.
      */
     count: number;
     /**

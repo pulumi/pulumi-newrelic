@@ -25,16 +25,16 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.ServiceLevel("foo", {
- *     description: "SLI that measures the availability of the service.",
+ *     description: "Proportion of requests that are served faster than a threshold.",
  *     events: {
  *         accountId: 12345678,
- *         badEvents: {
- *             from: "TransactionError",
- *             where: "appName = 'Example application' AND error.expected is false",
+ *         goodEvents: {
+ *             from: "Transaction",
+ *             where: "appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
  *         },
  *         validEvents: {
  *             from: "Transaction",
- *             where: "appName = 'Example application'",
+ *             where: "appName = 'Example application' AND (transactionType='Web')",
  *         },
  *     },
  *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
@@ -111,6 +111,10 @@ export class ServiceLevel extends pulumi.CustomResource {
      */
     public readonly objective!: pulumi.Output<outputs.ServiceLevelObjective>;
     /**
+     * The unique entity identifier of the Service Level Indicator in New Relic.
+     */
+    public /*out*/ readonly sliGuid!: pulumi.Output<string>;
+    /**
      * The unique entity identifier of the Service Level Indicator.
      */
     public /*out*/ readonly sliId!: pulumi.Output<string>;
@@ -133,6 +137,7 @@ export class ServiceLevel extends pulumi.CustomResource {
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["objective"] = state ? state.objective : undefined;
+            resourceInputs["sliGuid"] = state ? state.sliGuid : undefined;
             resourceInputs["sliId"] = state ? state.sliId : undefined;
         } else {
             const args = argsOrState as ServiceLevelArgs | undefined;
@@ -150,6 +155,7 @@ export class ServiceLevel extends pulumi.CustomResource {
             resourceInputs["guid"] = args ? args.guid : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["objective"] = args ? args.objective : undefined;
+            resourceInputs["sliGuid"] = undefined /*out*/;
             resourceInputs["sliId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -183,6 +189,10 @@ export interface ServiceLevelState {
      * See Objective below for details.
      */
     objective?: pulumi.Input<inputs.ServiceLevelObjective>;
+    /**
+     * The unique entity identifier of the Service Level Indicator in New Relic.
+     */
+    sliGuid?: pulumi.Input<string>;
     /**
      * The unique entity identifier of the Service Level Indicator.
      */

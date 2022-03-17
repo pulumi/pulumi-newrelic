@@ -13,10 +13,6 @@ namespace Pulumi.NewRelic
     /// Use this resource to create and manage NRQL alert conditions in New Relic.
     /// 
     /// ## Example Usage
-    /// 
-    /// ### Type: `baseline`
-    /// 
-    /// =======
     /// ## NRQL
     /// 
     /// The `nrql` block supports the following arguments:
@@ -149,7 +145,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
     /// ```
     /// 
-    ///  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt; ======= &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
+    ///  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt; ======= &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt; ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; v2.41.0-beta.2
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]
     public partial class NrqlAlertCondition : Pulumi.CustomResource
