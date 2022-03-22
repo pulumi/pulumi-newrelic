@@ -22,7 +22,9 @@ import * as utilities from "./utilities";
  *     type: "email",
  * });
  * ```
- * ### Slack
+ * ## Additional Examples
+ *
+ * ##### Slack
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -35,6 +37,7 @@ import * as utilities from "./utilities";
  *     type: "slack",
  * });
  * ```
+ *
  * ### OpsGenie
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,6 +53,7 @@ import * as utilities from "./utilities";
  *     type: "opsgenie",
  * });
  * ```
+ *
  * ### PagerDuty
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -62,6 +66,7 @@ import * as utilities from "./utilities";
  *     type: "pagerduty",
  * });
  * ```
+ *
  * ### VictorOps
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -75,6 +80,7 @@ import * as utilities from "./utilities";
  *     type: "victorops",
  * });
  * ```
+ *
  * ### Webhook
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -96,6 +102,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ *
  * ### Webhook with complex payload
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -154,7 +161,7 @@ export class AlertChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID where you want to create alert channels.
+     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
@@ -207,7 +214,7 @@ export class AlertChannel extends pulumi.CustomResource {
  */
 export interface AlertChannelState {
     /**
-     * The New Relic account ID where you want to create alert channels.
+     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<number>;
     /**
@@ -229,7 +236,7 @@ export interface AlertChannelState {
  */
 export interface AlertChannelArgs {
     /**
-     * The New Relic account ID where you want to create alert channels.
+     * Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<number>;
     /**

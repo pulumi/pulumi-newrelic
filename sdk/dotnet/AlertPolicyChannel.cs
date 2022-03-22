@@ -78,7 +78,7 @@ namespace Pulumi.NewRelic
     public partial class AlertPolicyChannel : Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID where you want to link the channel to.
+        /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.NewRelic
     public sealed class AlertPolicyChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to link the channel to.
+        /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.NewRelic
     public sealed class AlertPolicyChannelState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to link the channel to.
+        /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }

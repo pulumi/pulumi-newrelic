@@ -2055,10 +2055,10 @@ class OneDashboardPageWidgetBillboard(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery'],
                  row: int,
                  title: str,
-                 critical: Optional[float] = None,
+                 critical: Optional[str] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
-                 warning: Optional[float] = None,
+                 warning: Optional[str] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
@@ -2067,9 +2067,9 @@ class OneDashboardPageWidgetBillboard(dict):
                * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
-        :param float critical: (Optional) Threshold above which the displayed value will be styled with a red color.
+        :param str critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-        :param float warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
+        :param str warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
                * `widget_bullet`
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
@@ -2124,7 +2124,7 @@ class OneDashboardPageWidgetBillboard(dict):
 
     @property
     @pulumi.getter
-    def critical(self) -> Optional[float]:
+    def critical(self) -> Optional[str]:
         """
         (Optional) Threshold above which the displayed value will be styled with a red color.
         """
@@ -2145,7 +2145,7 @@ class OneDashboardPageWidgetBillboard(dict):
 
     @property
     @pulumi.getter
-    def warning(self) -> Optional[float]:
+    def warning(self) -> Optional[str]:
         """
         (Optional) Threshold above which the displayed value will be styled with a yellow color.
         * `widget_bullet`
@@ -4211,7 +4211,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
                  count: int,
                  unit: str):
         """
-        :param int count: Valid values are `1`, `7` and `28`.
+        :param int count: Valid values are `1`, `7`, `14` and `28`.
         :param str unit: The only supported value is `DAY`.
         """
         pulumi.set(__self__, "count", count)
@@ -4221,7 +4221,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        Valid values are `1`, `7` and `28`.
+        Valid values are `1`, `7`, `14` and `28`.
         """
         return pulumi.get(self, "count")
 

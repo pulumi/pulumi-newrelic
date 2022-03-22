@@ -30,6 +30,7 @@ export * from "./provider";
 export * from "./serviceLevel";
 
 // Export sub-modules:
+import * as cloud from "./cloud";
 import * as config from "./config";
 import * as insights from "./insights";
 import * as plugins from "./plugins";
@@ -37,6 +38,7 @@ import * as synthetics from "./synthetics";
 import * as types from "./types";
 
 export {
+    cloud,
     config,
     insights,
     plugins,

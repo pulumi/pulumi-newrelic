@@ -35,7 +35,9 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
-    /// ### Slack
+    /// ## Additional Examples
+    /// 
+    /// ##### Slack
     /// ```csharp
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
@@ -57,6 +59,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
     /// ### OpsGenie
     /// ```csharp
     /// using Pulumi;
@@ -81,6 +84,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
     /// ### PagerDuty
     /// ```csharp
     /// using Pulumi;
@@ -102,6 +106,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
     /// ### VictorOps
     /// ```csharp
     /// using Pulumi;
@@ -124,6 +129,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
     /// ### Webhook
     /// ```csharp
     /// using Pulumi;
@@ -156,6 +162,7 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// 
     /// ### Webhook with complex payload
     /// ```csharp
     /// using Pulumi;
@@ -199,7 +206,7 @@ namespace Pulumi.NewRelic
     public partial class AlertChannel : Pulumi.CustomResource
     {
         /// <summary>
-        /// The New Relic account ID where you want to create alert channels.
+        /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
@@ -269,7 +276,7 @@ namespace Pulumi.NewRelic
     public sealed class AlertChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to create alert channels.
+        /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -300,7 +307,7 @@ namespace Pulumi.NewRelic
     public sealed class AlertChannelState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The New Relic account ID where you want to create alert channels.
+        /// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }

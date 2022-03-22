@@ -80,7 +80,7 @@ import (
 type AlertPolicyChannel struct {
 	pulumi.CustomResourceState
 
-	// The New Relic account ID where you want to link the channel to.
+	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayOutput `pulumi:"channelIds"`
@@ -123,7 +123,7 @@ func GetAlertPolicyChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPolicyChannel resources.
 type alertPolicyChannelState struct {
-	// The New Relic account ID where you want to link the channel to.
+	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds []int `pulumi:"channelIds"`
@@ -132,7 +132,7 @@ type alertPolicyChannelState struct {
 }
 
 type AlertPolicyChannelState struct {
-	// The New Relic account ID where you want to link the channel to.
+	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayInput
@@ -145,7 +145,7 @@ func (AlertPolicyChannelState) ElementType() reflect.Type {
 }
 
 type alertPolicyChannelArgs struct {
-	// The New Relic account ID where you want to link the channel to.
+	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds []int `pulumi:"channelIds"`
@@ -155,7 +155,7 @@ type alertPolicyChannelArgs struct {
 
 // The set of arguments for constructing a AlertPolicyChannel resource.
 type AlertPolicyChannelArgs struct {
-	// The New Relic account ID where you want to link the channel to.
+	// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
 	// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
 	ChannelIds pulumi.IntArrayInput

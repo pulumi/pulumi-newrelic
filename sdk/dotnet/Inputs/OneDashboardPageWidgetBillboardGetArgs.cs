@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Inputs
         /// (Optional) Threshold above which the displayed value will be styled with a red color.
         /// </summary>
         [Input("critical")]
-        public Input<double>? Critical { get; set; }
+        public Input<string>? Critical { get; set; }
 
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -64,7 +64,7 @@ namespace Pulumi.NewRelic.Inputs
         /// * `widget_bullet`
         /// </summary>
         [Input("warning")]
-        public Input<double>? Warning { get; set; }
+        public Input<string>? Warning { get; set; }
 
         /// <summary>
         /// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.

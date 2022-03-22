@@ -84,7 +84,7 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The New Relic account ID where you want to link the channel to.
+     * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
@@ -134,7 +134,7 @@ export class AlertPolicyChannel extends pulumi.CustomResource {
  */
 export interface AlertPolicyChannelState {
     /**
-     * The New Relic account ID where you want to link the channel to.
+     * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<number>;
     /**
@@ -152,7 +152,7 @@ export interface AlertPolicyChannelState {
  */
 export interface AlertPolicyChannelArgs {
     /**
-     * The New Relic account ID where you want to link the channel to.
+     * Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
      */
     accountId?: pulumi.Input<number>;
     /**

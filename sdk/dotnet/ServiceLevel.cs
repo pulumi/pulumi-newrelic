@@ -34,19 +34,19 @@ namespace Pulumi.NewRelic
     ///     {
     ///         var foo = new NewRelic.ServiceLevel("foo", new NewRelic.ServiceLevelArgs
     ///         {
-    ///             Description = "SLI that measures the availability of the service.",
+    ///             Description = "Proportion of requests that are served faster than a threshold.",
     ///             Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///             {
     ///                 AccountId = 12345678,
-    ///                 BadEvents = new NewRelic.Inputs.ServiceLevelEventsBadEventsArgs
+    ///                 GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
     ///                 {
-    ///                     From = "TransactionError",
-    ///                     Where = "appName = 'Example application' AND error.expected is false",
+    ///                     From = "Transaction",
+    ///                     Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
     ///                 },
     ///                 ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
     ///                 {
     ///                     From = "Transaction",
-    ///                     Where = "appName = 'Example application'",
+    ///                     Where = "appName = 'Example application' AND (transactionType='Web')",
     ///                 },
     ///             },
     ///             Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
@@ -112,6 +112,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("objective")]
         public Output<Outputs.ServiceLevelObjective> Objective { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique entity identifier of the Service Level Indicator in New Relic.
+        /// </summary>
+        [Output("sliGuid")]
+        public Output<string> SliGuid { get; private set; } = null!;
 
         /// <summary>
         /// The unique entity identifier of the Service Level Indicator.
@@ -235,6 +241,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("objective")]
         public Input<Inputs.ServiceLevelObjectiveGetArgs>? Objective { get; set; }
+
+        /// <summary>
+        /// The unique entity identifier of the Service Level Indicator in New Relic.
+        /// </summary>
+        [Input("sliGuid")]
+        public Input<string>? SliGuid { get; set; }
 
         /// <summary>
         /// The unique entity identifier of the Service Level Indicator.

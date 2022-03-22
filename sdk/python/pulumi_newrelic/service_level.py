@@ -109,6 +109,7 @@ class _ServiceLevelState:
                  guid: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  objective: Optional[pulumi.Input['ServiceLevelObjectiveArgs']] = None,
+                 sli_guid: Optional[pulumi.Input[str]] = None,
                  sli_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceLevel resources.
@@ -119,6 +120,7 @@ class _ServiceLevelState:
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         :param pulumi.Input['ServiceLevelObjectiveArgs'] objective: The objective of the SLI, only one can be defined.
                See Objective below for details.
+        :param pulumi.Input[str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
         if description is not None:
@@ -131,6 +133,8 @@ class _ServiceLevelState:
             pulumi.set(__self__, "name", name)
         if objective is not None:
             pulumi.set(__self__, "objective", objective)
+        if sli_guid is not None:
+            pulumi.set(__self__, "sli_guid", sli_guid)
         if sli_id is not None:
             pulumi.set(__self__, "sli_id", sli_id)
 
@@ -197,6 +201,18 @@ class _ServiceLevelState:
         pulumi.set(self, "objective", value)
 
     @property
+    @pulumi.getter(name="sliGuid")
+    def sli_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique entity identifier of the Service Level Indicator in New Relic.
+        """
+        return pulumi.get(self, "sli_guid")
+
+    @sli_guid.setter
+    def sli_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sli_guid", value)
+
+    @property
     @pulumi.getter(name="sliId")
     def sli_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -240,16 +256,16 @@ class ServiceLevel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.ServiceLevel("foo",
-            description="SLI that measures the availability of the service.",
+            description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
                 account_id=12345678,
-                bad_events=newrelic.ServiceLevelEventsBadEventsArgs(
-                    from_="TransactionError",
-                    where="appName = 'Example application' AND error.expected is false",
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
                 ),
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Transaction",
-                    where="appName = 'Example application'",
+                    where="appName = 'Example application' AND (transactionType='Web')",
                 ),
             ),
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
@@ -310,16 +326,16 @@ class ServiceLevel(pulumi.CustomResource):
         import pulumi_newrelic as newrelic
 
         foo = newrelic.ServiceLevel("foo",
-            description="SLI that measures the availability of the service.",
+            description="Proportion of requests that are served faster than a threshold.",
             events=newrelic.ServiceLevelEventsArgs(
                 account_id=12345678,
-                bad_events=newrelic.ServiceLevelEventsBadEventsArgs(
-                    from_="TransactionError",
-                    where="appName = 'Example application' AND error.expected is false",
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="Transaction",
+                    where="appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1",
                 ),
                 valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
                     from_="Transaction",
-                    where="appName = 'Example application'",
+                    where="appName = 'Example application' AND (transactionType='Web')",
                 ),
             ),
             guid="MXxBUE18QVBQTElDQVRJT058MQ",
@@ -387,6 +403,7 @@ class ServiceLevel(pulumi.CustomResource):
             if objective is None and not opts.urn:
                 raise TypeError("Missing required property 'objective'")
             __props__.__dict__["objective"] = objective
+            __props__.__dict__["sli_guid"] = None
             __props__.__dict__["sli_id"] = None
         super(ServiceLevel, __self__).__init__(
             'newrelic:index/serviceLevel:ServiceLevel',
@@ -403,6 +420,7 @@ class ServiceLevel(pulumi.CustomResource):
             guid: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
+            sli_guid: Optional[pulumi.Input[str]] = None,
             sli_id: Optional[pulumi.Input[str]] = None) -> 'ServiceLevel':
         """
         Get an existing ServiceLevel resource's state with the given name, id, and optional extra
@@ -418,6 +436,7 @@ class ServiceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] name: A short name for the SLI that will help anyone understand what it is about.
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']] objective: The objective of the SLI, only one can be defined.
                See Objective below for details.
+        :param pulumi.Input[str] sli_guid: The unique entity identifier of the Service Level Indicator in New Relic.
         :param pulumi.Input[str] sli_id: The unique entity identifier of the Service Level Indicator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -429,6 +448,7 @@ class ServiceLevel(pulumi.CustomResource):
         __props__.__dict__["guid"] = guid
         __props__.__dict__["name"] = name
         __props__.__dict__["objective"] = objective
+        __props__.__dict__["sli_guid"] = sli_guid
         __props__.__dict__["sli_id"] = sli_id
         return ServiceLevel(resource_name, opts=opts, __props__=__props__)
 
@@ -473,6 +493,14 @@ class ServiceLevel(pulumi.CustomResource):
         See Objective below for details.
         """
         return pulumi.get(self, "objective")
+
+    @property
+    @pulumi.getter(name="sliGuid")
+    def sli_guid(self) -> pulumi.Output[str]:
+        """
+        The unique entity identifier of the Service Level Indicator in New Relic.
+        """
+        return pulumi.get(self, "sli_guid")
 
     @property
     @pulumi.getter(name="sliId")

@@ -33,6 +33,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_newrelic.cloud as __cloud
+    cloud = __cloud
     import pulumi_newrelic.config as __config
     config = __config
     import pulumi_newrelic.insights as __insights
@@ -42,6 +44,7 @@ if typing.TYPE_CHECKING:
     import pulumi_newrelic.synthetics as __synthetics
     synthetics = __synthetics
 else:
+    cloud = _utilities.lazy_import('pulumi_newrelic.cloud')
     config = _utilities.lazy_import('pulumi_newrelic.config')
     insights = _utilities.lazy_import('pulumi_newrelic.insights')
     plugins = _utilities.lazy_import('pulumi_newrelic.plugins')
@@ -50,6 +53,38 @@ else:
 _utilities.register(
     resource_modules="""
 [
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/awsGovcloudLinkAccount",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount": "AwsGovcloudLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/awsLinkAccount",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/awsLinkAccount:AwsLinkAccount": "AwsLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/azureLinkAccount",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/azureLinkAccount:AzureLinkAccount": "AzureLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/gcpLinkAccount",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/gcpLinkAccount:GcpLinkAccount": "GcpLinkAccount"
+  }
+ },
  {
   "pkg": "newrelic",
   "mod": "index/alertChannel",

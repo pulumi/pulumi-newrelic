@@ -14,10 +14,6 @@ import (
 // Use this resource to create and manage NRQL alert conditions in New Relic.
 //
 // ## Example Usage
-//
-// ### Type: `baseline`
-//
-// =======
 // ## NRQL
 //
 // The `nrql` block supports the following arguments:
@@ -157,7 +153,7 @@ import (
 //  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
 // ```
 //
-//  The actual values for `policy_id` and `condition_id` can be retrieved from the following New Relic URL when viewing the NRQL alert condition you want to import<<<<<<< HEAD <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small> ======= <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
+//  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. <<<<<<< HEAD <<<<<<< HEAD <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small> ======= <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small> ======= >>>>>>> v2.41.0-beta.2
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 

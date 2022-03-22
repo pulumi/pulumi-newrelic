@@ -20,7 +20,7 @@ namespace Pulumi.NewRelic.Outputs
         /// <summary>
         /// (Optional) Threshold above which the displayed value will be styled with a red color.
         /// </summary>
-        public readonly double? Critical;
+        public readonly string? Critical;
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) Threshold above which the displayed value will be styled with a yellow color.
         /// * `widget_bullet`
         /// </summary>
-        public readonly double? Warning;
+        public readonly string? Warning;
         /// <summary>
         /// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic.Outputs
         private OneDashboardPageWidgetBillboard(
             int column,
 
-            double? critical,
+            string? critical,
 
             int? height,
 
@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic.Outputs
 
             string title,
 
-            double? warning,
+            string? warning,
 
             int? width)
         {
