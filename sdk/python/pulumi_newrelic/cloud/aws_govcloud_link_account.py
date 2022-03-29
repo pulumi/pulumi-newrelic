@@ -385,7 +385,7 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[Optional[int]]:
+    def account_id(self) -> pulumi.Output[int]:
         """
         The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """

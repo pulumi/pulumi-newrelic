@@ -51,7 +51,7 @@ type AwsGovcloudLinkAccount struct {
 	// The access key of the AwsGovCloud.
 	AccessKeyId pulumi.StringOutput `pulumi:"accessKeyId"`
 	// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The AwsGovCloud account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.

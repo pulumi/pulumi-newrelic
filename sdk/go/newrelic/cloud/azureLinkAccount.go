@@ -27,8 +27,6 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/cloud"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -37,10 +35,10 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloud.NewAzureLinkAccount(ctx, "foo", &cloud.AzureLinkAccountArgs{
 // 			AccountId:      pulumi.Int("The New Relic account ID where you want to link the Azure account"),
-// 			ApplicationId:  pulumi.String("id of the application"),
-// 			ClientSecretId: pulumi.String("secret value of clients Azure account"),
-// 			SubscriptionId: pulumi.String(fmt.Sprintf("%v%v", "%", "Subscription Id of Azure")),
-// 			TenantId:       pulumi.String("tenant id of the Azure"),
+// 			ApplicationId:  pulumi.String("ID of the application"),
+// 			ClientSecret:   pulumi.String("Secret value of client's Azure account"),
+// 			SubscriptionId: pulumi.String("Subscription ID of Azure"),
+// 			TenantId:       pulumi.String("Tenant ID of the Azure"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -60,17 +58,17 @@ import (
 type AzureLinkAccount struct {
 	pulumi.CustomResourceState
 
-	// - Account Id of the New Relic.
+	// - Account ID of the New Relic.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// - Application Id of the App.
+	// - Application ID of the App.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// - Secret Value of the client.
-	ClientSecretId pulumi.StringOutput `pulumi:"clientSecretId"`
+	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// - The name of the application in New Relic APM.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// - Subscription Id of the Azure cloud account.
+	// - Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// - Tenant Id of the Azure cloud account.
+	// - Tenant ID of the Azure cloud account.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -84,8 +82,8 @@ func NewAzureLinkAccount(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
-	if args.ClientSecretId == nil {
-		return nil, errors.New("invalid value for required argument 'ClientSecretId'")
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
 	}
 	if args.SubscriptionId == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionId'")
@@ -115,32 +113,32 @@ func GetAzureLinkAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AzureLinkAccount resources.
 type azureLinkAccountState struct {
-	// - Account Id of the New Relic.
+	// - Account ID of the New Relic.
 	AccountId *int `pulumi:"accountId"`
-	// - Application Id of the App.
+	// - Application ID of the App.
 	ApplicationId *string `pulumi:"applicationId"`
 	// - Secret Value of the client.
-	ClientSecretId *string `pulumi:"clientSecretId"`
+	ClientSecret *string `pulumi:"clientSecret"`
 	// - The name of the application in New Relic APM.
 	Name *string `pulumi:"name"`
-	// - Subscription Id of the Azure cloud account.
+	// - Subscription ID of the Azure cloud account.
 	SubscriptionId *string `pulumi:"subscriptionId"`
-	// - Tenant Id of the Azure cloud account.
+	// - Tenant ID of the Azure cloud account.
 	TenantId *string `pulumi:"tenantId"`
 }
 
 type AzureLinkAccountState struct {
-	// - Account Id of the New Relic.
+	// - Account ID of the New Relic.
 	AccountId pulumi.IntPtrInput
-	// - Application Id of the App.
+	// - Application ID of the App.
 	ApplicationId pulumi.StringPtrInput
 	// - Secret Value of the client.
-	ClientSecretId pulumi.StringPtrInput
+	ClientSecret pulumi.StringPtrInput
 	// - The name of the application in New Relic APM.
 	Name pulumi.StringPtrInput
-	// - Subscription Id of the Azure cloud account.
+	// - Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringPtrInput
-	// - Tenant Id of the Azure cloud account.
+	// - Tenant ID of the Azure cloud account.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -149,33 +147,33 @@ func (AzureLinkAccountState) ElementType() reflect.Type {
 }
 
 type azureLinkAccountArgs struct {
-	// - Account Id of the New Relic.
+	// - Account ID of the New Relic.
 	AccountId *int `pulumi:"accountId"`
-	// - Application Id of the App.
+	// - Application ID of the App.
 	ApplicationId string `pulumi:"applicationId"`
 	// - Secret Value of the client.
-	ClientSecretId string `pulumi:"clientSecretId"`
+	ClientSecret string `pulumi:"clientSecret"`
 	// - The name of the application in New Relic APM.
 	Name *string `pulumi:"name"`
-	// - Subscription Id of the Azure cloud account.
+	// - Subscription ID of the Azure cloud account.
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// - Tenant Id of the Azure cloud account.
+	// - Tenant ID of the Azure cloud account.
 	TenantId string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a AzureLinkAccount resource.
 type AzureLinkAccountArgs struct {
-	// - Account Id of the New Relic.
+	// - Account ID of the New Relic.
 	AccountId pulumi.IntPtrInput
-	// - Application Id of the App.
+	// - Application ID of the App.
 	ApplicationId pulumi.StringInput
 	// - Secret Value of the client.
-	ClientSecretId pulumi.StringInput
+	ClientSecret pulumi.StringInput
 	// - The name of the application in New Relic APM.
 	Name pulumi.StringPtrInput
-	// - Subscription Id of the Azure cloud account.
+	// - Subscription ID of the Azure cloud account.
 	SubscriptionId pulumi.StringInput
-	// - Tenant Id of the Azure cloud account.
+	// - Tenant ID of the Azure cloud account.
 	TenantId pulumi.StringInput
 }
 

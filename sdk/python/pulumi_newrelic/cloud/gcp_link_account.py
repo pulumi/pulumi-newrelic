@@ -13,31 +13,20 @@ __all__ = ['GcpLinkAccountArgs', 'GcpLinkAccount']
 @pulumi.input_type
 class GcpLinkAccountArgs:
     def __init__(__self__, *,
-                 account_id: pulumi.Input[int],
                  project_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GcpLinkAccount resource.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic account.
         :param pulumi.Input[str] project_id: - Project ID of the GCP account.
+        :param pulumi.Input[int] account_id: - Account ID of the New Relic account.
         :param pulumi.Input[str] name: - The name of the GCP account in New Relic.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "project_id", project_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Input[int]:
-        """
-        - Account ID of the New Relic account.
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: pulumi.Input[int]):
-        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -50,6 +39,18 @@ class GcpLinkAccountArgs:
     @project_id.setter
     def project_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        - Account ID of the New Relic account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -239,8 +240,6 @@ class GcpLinkAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GcpLinkAccountArgs.__new__(GcpLinkAccountArgs)
 
-            if account_id is None and not opts.urn:
-                raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["name"] = name
             if project_id is None and not opts.urn:

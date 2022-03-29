@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release.
+ * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
  *
  * Use this data source to get information about a specific application in New Relic that already exists.
  *

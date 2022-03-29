@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  *
  * const foo = new newrelic.cloud.AzureLinkAccount("foo", {
  *     accountId: Number.parseFloat("The New Relic account ID where you want to link the Azure account"),
- *     applicationId: "id of the application",
- *     clientSecretId: "secret value of clients Azure account",
- *     subscriptionId: "%Subscription Id of Azure",
- *     tenantId: "tenant id of the Azure",
+ *     applicationId: "ID of the application",
+ *     clientSecret: "Secret value of client's Azure account",
+ *     subscriptionId: "Subscription ID of Azure",
+ *     tenantId: "Tenant ID of the Azure",
  * });
  * ```
  *
@@ -67,27 +67,27 @@ export class AzureLinkAccount extends pulumi.CustomResource {
     }
 
     /**
-     * - Account Id of the New Relic.
+     * - Account ID of the New Relic.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * - Application Id of the App.
+     * - Application ID of the App.
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
      * - Secret Value of the client.
      */
-    public readonly clientSecretId!: pulumi.Output<string>;
+    public readonly clientSecret!: pulumi.Output<string>;
     /**
      * - The name of the application in New Relic APM.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * - Subscription Id of the Azure cloud account.
+     * - Subscription ID of the Azure cloud account.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
-     * - Tenant Id of the Azure cloud account.
+     * - Tenant ID of the Azure cloud account.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -106,7 +106,7 @@ export class AzureLinkAccount extends pulumi.CustomResource {
             const state = argsOrState as AzureLinkAccountState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["clientSecretId"] = state ? state.clientSecretId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
@@ -115,8 +115,8 @@ export class AzureLinkAccount extends pulumi.CustomResource {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.clientSecretId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clientSecretId'");
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'clientSecret'");
             }
             if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
@@ -126,7 +126,7 @@ export class AzureLinkAccount extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["clientSecretId"] = args ? args.clientSecretId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
@@ -141,27 +141,27 @@ export class AzureLinkAccount extends pulumi.CustomResource {
  */
 export interface AzureLinkAccountState {
     /**
-     * - Account Id of the New Relic.
+     * - Account ID of the New Relic.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * - Application Id of the App.
+     * - Application ID of the App.
      */
     applicationId?: pulumi.Input<string>;
     /**
      * - Secret Value of the client.
      */
-    clientSecretId?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * - The name of the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
     /**
-     * - Subscription Id of the Azure cloud account.
+     * - Subscription ID of the Azure cloud account.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
-     * - Tenant Id of the Azure cloud account.
+     * - Tenant ID of the Azure cloud account.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -171,27 +171,27 @@ export interface AzureLinkAccountState {
  */
 export interface AzureLinkAccountArgs {
     /**
-     * - Account Id of the New Relic.
+     * - Account ID of the New Relic.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * - Application Id of the App.
+     * - Application ID of the App.
      */
     applicationId: pulumi.Input<string>;
     /**
      * - Secret Value of the client.
      */
-    clientSecretId: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * - The name of the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
     /**
-     * - Subscription Id of the Azure cloud account.
+     * - Subscription ID of the Azure cloud account.
      */
     subscriptionId: pulumi.Input<string>;
     /**
-     * - Tenant Id of the Azure cloud account.
+     * - Tenant ID of the Azure cloud account.
      */
     tenantId: pulumi.Input<string>;
 }
