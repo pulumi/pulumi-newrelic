@@ -122,8 +122,8 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// - Account ID of the New Relic account.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<int> AccountId { get; set; } = null!;
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
 
         /// <summary>
         /// - The name of the GCP account in New Relic.

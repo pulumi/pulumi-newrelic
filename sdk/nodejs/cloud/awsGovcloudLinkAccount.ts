@@ -63,7 +63,7 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
     /**
      * The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
-    public readonly accountId!: pulumi.Output<number | undefined>;
+    public readonly accountId!: pulumi.Output<number>;
     /**
      * The AwsGovCloud account ID.
      */

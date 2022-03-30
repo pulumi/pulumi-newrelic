@@ -74,9 +74,6 @@ func NewGcpLinkAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountId == nil {
-		return nil, errors.New("invalid value for required argument 'AccountId'")
-	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
@@ -125,7 +122,7 @@ func (GcpLinkAccountState) ElementType() reflect.Type {
 
 type gcpLinkAccountArgs struct {
 	// - Account ID of the New Relic account.
-	AccountId int `pulumi:"accountId"`
+	AccountId *int `pulumi:"accountId"`
 	// - The name of the GCP account in New Relic.
 	Name *string `pulumi:"name"`
 	// - Project ID of the GCP account.
@@ -135,7 +132,7 @@ type gcpLinkAccountArgs struct {
 // The set of arguments for constructing a GcpLinkAccount resource.
 type GcpLinkAccountArgs struct {
 	// - Account ID of the New Relic account.
-	AccountId pulumi.IntInput
+	AccountId pulumi.IntPtrInput
 	// - The name of the GCP account in New Relic.
 	Name pulumi.StringPtrInput
 	// - Project ID of the GCP account.

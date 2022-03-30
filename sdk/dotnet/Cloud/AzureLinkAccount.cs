@@ -33,10 +33,10 @@ namespace Pulumi.NewRelic.Cloud
     ///         var foo = new NewRelic.Cloud.AzureLinkAccount("foo", new NewRelic.Cloud.AzureLinkAccountArgs
     ///         {
     ///             AccountId = "The New Relic account ID where you want to link the Azure account",
-    ///             ApplicationId = "id of the application",
-    ///             ClientSecretId = "secret value of clients Azure account",
-    ///             SubscriptionId = "%Subscription Id of Azure",
-    ///             TenantId = "tenant id of the Azure",
+    ///             ApplicationId = "ID of the application",
+    ///             ClientSecret = "Secret value of client's Azure account",
+    ///             SubscriptionId = "Subscription ID of Azure",
+    ///             TenantId = "Tenant ID of the Azure",
     ///         });
     ///     }
     /// 
@@ -55,13 +55,13 @@ namespace Pulumi.NewRelic.Cloud
     public partial class AzureLinkAccount : Pulumi.CustomResource
     {
         /// <summary>
-        /// - Account Id of the New Relic.
+        /// - Account ID of the New Relic.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// - Application Id of the App.
+        /// - Application ID of the App.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -69,8 +69,8 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// - Secret Value of the client.
         /// </summary>
-        [Output("clientSecretId")]
-        public Output<string> ClientSecretId { get; private set; } = null!;
+        [Output("clientSecret")]
+        public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
         /// - The name of the application in New Relic APM.
@@ -79,13 +79,13 @@ namespace Pulumi.NewRelic.Cloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// - Subscription Id of the Azure cloud account.
+        /// - Subscription ID of the Azure cloud account.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
 
         /// <summary>
-        /// - Tenant Id of the Azure cloud account.
+        /// - Tenant ID of the Azure cloud account.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AzureLinkAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Account Id of the New Relic.
+        /// - Account ID of the New Relic.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// - Application Id of the App.
+        /// - Application ID of the App.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -151,8 +151,8 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// - Secret Value of the client.
         /// </summary>
-        [Input("clientSecretId", required: true)]
-        public Input<string> ClientSecretId { get; set; } = null!;
+        [Input("clientSecret", required: true)]
+        public Input<string> ClientSecret { get; set; } = null!;
 
         /// <summary>
         /// - The name of the application in New Relic APM.
@@ -161,13 +161,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// - Subscription Id of the Azure cloud account.
+        /// - Subscription ID of the Azure cloud account.
         /// </summary>
         [Input("subscriptionId", required: true)]
         public Input<string> SubscriptionId { get; set; } = null!;
 
         /// <summary>
-        /// - Tenant Id of the Azure cloud account.
+        /// - Tenant ID of the Azure cloud account.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
@@ -180,13 +180,13 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class AzureLinkAccountState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Account Id of the New Relic.
+        /// - Account ID of the New Relic.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// - Application Id of the App.
+        /// - Application ID of the App.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -194,8 +194,8 @@ namespace Pulumi.NewRelic.Cloud
         /// <summary>
         /// - Secret Value of the client.
         /// </summary>
-        [Input("clientSecretId")]
-        public Input<string>? ClientSecretId { get; set; }
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
         /// - The name of the application in New Relic APM.
@@ -204,13 +204,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// - Subscription Id of the Azure cloud account.
+        /// - Subscription ID of the Azure cloud account.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
 
         /// <summary>
-        /// - Tenant Id of the Azure cloud account.
+        /// - Tenant ID of the Azure cloud account.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

@@ -98,9 +98,6 @@ export class GcpLinkAccount extends pulumi.CustomResource {
             resourceInputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as GcpLinkAccountArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accountId'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
@@ -138,7 +135,7 @@ export interface GcpLinkAccountArgs {
     /**
      * - Account ID of the New Relic account.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * - The name of the GCP account in New Relic.
      */

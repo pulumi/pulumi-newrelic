@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic.Cloud
         /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         /// </summary>
         [Output("accountId")]
-        public Output<int?> AccountId { get; private set; } = null!;
+        public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The AwsGovCloud account ID.
