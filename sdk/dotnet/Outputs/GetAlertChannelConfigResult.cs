@@ -23,6 +23,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string? IncludeJsonAttachment;
         public readonly string? Key;
         public readonly ImmutableDictionary<string, string>? Payload;
+        public readonly string? PayloadString;
         public readonly string? PayloadType;
         public readonly string? Recipients;
         public readonly string? Region;
@@ -55,6 +56,8 @@ namespace Pulumi.NewRelic.Outputs
 
             ImmutableDictionary<string, string>? payload,
 
+            string? payloadString,
+
             string? payloadType,
 
             string? recipients,
@@ -83,6 +86,7 @@ namespace Pulumi.NewRelic.Outputs
             IncludeJsonAttachment = includeJsonAttachment;
             Key = key;
             Payload = payload;
+            PayloadString = payloadString;
             PayloadType = payloadType;
             Recipients = recipients;
             Region = region;

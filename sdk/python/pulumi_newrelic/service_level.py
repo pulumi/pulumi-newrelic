@@ -237,8 +237,6 @@ class ServiceLevel(pulumi.CustomResource):
                  objective: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveArgs']]] = None,
                  __props__=None):
         """
-        > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
-
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
 
         A New Relic User API key is required to provision this resource.  Set the `api_key`
@@ -279,6 +277,55 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
+        ## Additional Example
+
+        Service level with tags:
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            description="Proportion of successful synthetic checks.",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=12345678,
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+                ),
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+                ),
+            ),
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=99,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
+            guid=my_synthetic_monitor_service_level.sli_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="user_journey",
+                    values=[
+                        "authentication",
+                        "sso",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="owner",
+                    values=["identityTeam"],
+                ),
+            ])
+        ```
+
+        For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import
 
@@ -307,8 +354,6 @@ class ServiceLevel(pulumi.CustomResource):
                  args: ServiceLevelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
-
         Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
 
         A New Relic User API key is required to provision this resource.  Set the `api_key`
@@ -349,6 +394,55 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ))
         ```
+        ## Additional Example
+
+        Service level with tags:
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        my_synthetic_monitor_service_level = newrelic.ServiceLevel("mySyntheticMonitorServiceLevel",
+            guid="MXxBUE18QVBQTElDQVRJT058MQ",
+            description="Proportion of successful synthetic checks.",
+            events=newrelic.ServiceLevelEventsArgs(
+                account_id=12345678,
+                valid_events=newrelic.ServiceLevelEventsValidEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+                ),
+                good_events=newrelic.ServiceLevelEventsGoodEventsArgs(
+                    from_="SyntheticCheck",
+                    where="entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+                ),
+            ),
+            objective=newrelic.ServiceLevelObjectiveArgs(
+                target=99,
+                time_window=newrelic.ServiceLevelObjectiveTimeWindowArgs(
+                    rolling=newrelic.ServiceLevelObjectiveTimeWindowRollingArgs(
+                        count=7,
+                        unit="DAY",
+                    ),
+                ),
+            ))
+        my_synthetic_monitor_service_level_tags = newrelic.EntityTags("mySyntheticMonitorServiceLevelTags",
+            guid=my_synthetic_monitor_service_level.sli_guid,
+            tags=[
+                newrelic.EntityTagsTagArgs(
+                    key="user_journey",
+                    values=[
+                        "authentication",
+                        "sso",
+                    ],
+                ),
+                newrelic.EntityTagsTagArgs(
+                    key="owner",
+                    values=["identityTeam"],
+                ),
+            ])
+        ```
+
+        For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import
 

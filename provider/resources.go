@@ -130,6 +130,10 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_cloud_aws_link_account":          {Tok: makeResource(cloudMod, "AwsLinkAccount")},
 			"newrelic_cloud_azure_link_account":        {Tok: makeResource(cloudMod, "AzureLinkAccount")},
 			"newrelic_cloud_gcp_link_account":          {Tok: makeResource(cloudMod, "GcpLinkAccount")},
+			"newrelic_cloud_aws_govcloud_integrations": {Tok: makeResource(cloudMod, "AwsGovcloudIntegrations")},
+			"newrelic_cloud_aws_integrations":          {Tok: makeResource(cloudMod, "AwsIntegrations")},
+			"newrelic_cloud_azure_integrations":        {Tok: makeResource(cloudMod, "AzureIntegrations")},
+			"newrelic_cloud_gcp_integrations":          {Tok: makeResource(cloudMod, "GcpIntegrations")},
 
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},

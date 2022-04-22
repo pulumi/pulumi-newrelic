@@ -55,10 +55,26 @@ _utilities.register(
 [
  {
   "pkg": "newrelic",
+  "mod": "cloud/awsGovcloudIntegrations",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations": "AwsGovcloudIntegrations"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "cloud/awsGovcloudLinkAccount",
   "fqn": "pulumi_newrelic.cloud",
   "classes": {
    "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount": "AwsGovcloudLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/awsIntegrations",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/awsIntegrations:AwsIntegrations": "AwsIntegrations"
   }
  },
  {
@@ -71,10 +87,26 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "cloud/azureIntegrations",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/azureIntegrations:AzureIntegrations": "AzureIntegrations"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "cloud/azureLinkAccount",
   "fqn": "pulumi_newrelic.cloud",
   "classes": {
    "newrelic:cloud/azureLinkAccount:AzureLinkAccount": "AzureLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "cloud/gcpIntegrations",
+  "fqn": "pulumi_newrelic.cloud",
+  "classes": {
+   "newrelic:cloud/gcpIntegrations:GcpIntegrations": "GcpIntegrations"
   }
  },
  {

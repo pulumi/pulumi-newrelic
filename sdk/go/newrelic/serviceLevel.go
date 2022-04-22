@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
-//
 // Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
 //
 // A New Relic User API key is required to provision this resource.  Set the `apiKey`
@@ -66,6 +64,74 @@ import (
 // 	})
 // }
 // ```
+// ## Additional Example
+//
+// Service level with tags:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorServiceLevel", &newrelic.ServiceLevelArgs{
+// 			Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+// 			Description: pulumi.String("Proportion of successful synthetic checks."),
+// 			Events: &ServiceLevelEventsArgs{
+// 				AccountId: pulumi.Int(12345678),
+// 				ValidEvents: &ServiceLevelEventsValidEventsArgs{
+// 					From:  pulumi.String("SyntheticCheck"),
+// 					Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
+// 				},
+// 				GoodEvents: &ServiceLevelEventsGoodEventsArgs{
+// 					From:  pulumi.String("SyntheticCheck"),
+// 					Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'"),
+// 				},
+// 			},
+// 			Objective: &ServiceLevelObjectiveArgs{
+// 				Target: pulumi.Float64(99),
+// 				TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
+// 					Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
+// 						Count: pulumi.Int(7),
+// 						Unit:  pulumi.String("DAY"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = newrelic.NewEntityTags(ctx, "mySyntheticMonitorServiceLevelTags", &newrelic.EntityTagsArgs{
+// 			Guid: mySyntheticMonitorServiceLevel.SliGuid,
+// 			Tags: EntityTagsTagArray{
+// 				&EntityTagsTagArgs{
+// 					Key: pulumi.String("user_journey"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("authentication"),
+// 						pulumi.String("sso"),
+// 					},
+// 				},
+// 				&EntityTagsTagArgs{
+// 					Key: pulumi.String("owner"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("identityTeam"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// For up-to-date documentation about the tagging resource, please check EntityTags
 //
 // ## Import
 //

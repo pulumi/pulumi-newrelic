@@ -2516,14 +2516,14 @@ type NrqlAlertConditionNrql struct {
 	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 	//
-	// Deprecated: use `signal.aggregation_method` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset *int `pulumi:"evaluationOffset"`
 	// The NRQL query to execute for the condition.
 	Query string `pulumi:"query"`
 	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 	//
-	// Deprecated: use `signal.aggregation_method` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue *string `pulumi:"sinceValue"`
 }
 
@@ -2542,14 +2542,14 @@ type NrqlAlertConditionNrqlArgs struct {
 	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 	//
-	// Deprecated: use `signal.aggregation_method` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
 	// The NRQL query to execute for the condition.
 	Query pulumi.StringInput `pulumi:"query"`
 	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 	//
-	// Deprecated: use `signal.aggregation_method` attribute instead
+	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
 
@@ -2633,7 +2633,7 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 // Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 //
-// Deprecated: use `signal.aggregation_method` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
 }
@@ -2646,7 +2646,7 @@ func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 // **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 //
-// Deprecated: use `signal.aggregation_method` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
 }
@@ -2678,7 +2678,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 // Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 //
-// Deprecated: use `signal.aggregation_method` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
 		if v == nil {
@@ -2701,7 +2701,7 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 // **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
 // <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
 //
-// Deprecated: use `signal.aggregation_method` attribute instead
+// Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
@@ -4196,9 +4196,9 @@ type OneDashboardPageWidgetBullet struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) Visualization limit for the widget.
+	// (Required) Visualization limit for the widget.
 	// * `widgetFunnel`
-	Limit *float64 `pulumi:"limit"`
+	Limit float64 `pulumi:"limit"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -4228,9 +4228,9 @@ type OneDashboardPageWidgetBulletArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) Visualization limit for the widget.
+	// (Required) Visualization limit for the widget.
 	// * `widgetFunnel`
-	Limit pulumi.Float64PtrInput `pulumi:"limit"`
+	Limit pulumi.Float64Input `pulumi:"limit"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -4308,10 +4308,10 @@ func (o OneDashboardPageWidgetBulletOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Visualization limit for the widget.
+// (Required) Visualization limit for the widget.
 // * `widgetFunnel`
-func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *float64 { return v.Limit }).(pulumi.Float64PtrOutput)
+func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64Output {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) float64 { return v.Limit }).(pulumi.Float64Output)
 }
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -8033,7 +8033,7 @@ func (o ServiceLevelObjectiveTimeWindowPtrOutput) Rolling() ServiceLevelObjectiv
 }
 
 type ServiceLevelObjectiveTimeWindowRolling struct {
-	// Valid values are `1`, `7`, `14` and `28`.
+	// Valid values are `1`, `7` and `28`.
 	Count int `pulumi:"count"`
 	// The only supported value is `DAY`.
 	Unit string `pulumi:"unit"`
@@ -8051,7 +8051,7 @@ type ServiceLevelObjectiveTimeWindowRollingInput interface {
 }
 
 type ServiceLevelObjectiveTimeWindowRollingArgs struct {
-	// Valid values are `1`, `7`, `14` and `28`.
+	// Valid values are `1`, `7` and `28`.
 	Count pulumi.IntInput `pulumi:"count"`
 	// The only supported value is `DAY`.
 	Unit pulumi.StringInput `pulumi:"unit"`
@@ -8134,7 +8134,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingOutput) ToServiceLevelObjectiveTim
 	}).(ServiceLevelObjectiveTimeWindowRollingPtrOutput)
 }
 
-// Valid values are `1`, `7`, `14` and `28`.
+// Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveTimeWindowRolling) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -8168,7 +8168,7 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Elem() ServiceLevelObje
 	}).(ServiceLevelObjectiveTimeWindowRollingOutput)
 }
 
-// Valid values are `1`, `7`, `14` and `28`.
+// Valid values are `1`, `7` and `28`.
 func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveTimeWindowRolling) *int {
 		if v == nil {
@@ -8199,6 +8199,7 @@ type GetAlertChannelConfig struct {
 	IncludeJsonAttachment *string           `pulumi:"includeJsonAttachment"`
 	Key                   *string           `pulumi:"key"`
 	Payload               map[string]string `pulumi:"payload"`
+	PayloadString         *string           `pulumi:"payloadString"`
 	PayloadType           *string           `pulumi:"payloadType"`
 	Recipients            *string           `pulumi:"recipients"`
 	Region                *string           `pulumi:"region"`
@@ -8232,6 +8233,7 @@ type GetAlertChannelConfigArgs struct {
 	IncludeJsonAttachment pulumi.StringPtrInput `pulumi:"includeJsonAttachment"`
 	Key                   pulumi.StringPtrInput `pulumi:"key"`
 	Payload               pulumi.StringMapInput `pulumi:"payload"`
+	PayloadString         pulumi.StringPtrInput `pulumi:"payloadString"`
 	PayloadType           pulumi.StringPtrInput `pulumi:"payloadType"`
 	Recipients            pulumi.StringPtrInput `pulumi:"recipients"`
 	Region                pulumi.StringPtrInput `pulumi:"region"`
@@ -8307,6 +8309,10 @@ func (o GetAlertChannelConfigOutput) Key() pulumi.StringPtrOutput {
 
 func (o GetAlertChannelConfigOutput) Payload() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetAlertChannelConfig) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+}
+
+func (o GetAlertChannelConfigOutput) PayloadString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAlertChannelConfig) *string { return v.PayloadString }).(pulumi.StringPtrOutput)
 }
 
 func (o GetAlertChannelConfigOutput) PayloadType() pulumi.StringPtrOutput {

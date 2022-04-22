@@ -2229,26 +2229,27 @@ class OneDashboardPageWidgetBullet(dict):
 
     def __init__(__self__, *,
                  column: int,
+                 limit: float,
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery'],
                  row: int,
                  title: str,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
-                 limit: Optional[float] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
+        :param float limit: (Required) Visualization limit for the widget.
+               * `widget_funnel`
         :param Sequence['OneDashboardPageWidgetBulletNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
                * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Required) A title for the widget.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-        :param float limit: (Optional) Visualization limit for the widget.
-               * `widget_funnel`
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
@@ -2256,8 +2257,6 @@ class OneDashboardPageWidgetBullet(dict):
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2268,6 +2267,15 @@ class OneDashboardPageWidgetBullet(dict):
         (Required) Column position of widget from top left, starting at `1`.
         """
         return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> float:
+        """
+        (Required) Visualization limit for the widget.
+        * `widget_funnel`
+        """
+        return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="nrqlQueries")
@@ -2307,15 +2315,6 @@ class OneDashboardPageWidgetBullet(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[float]:
-        """
-        (Optional) Visualization limit for the widget.
-        * `widget_funnel`
-        """
-        return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter
@@ -4211,7 +4210,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
                  count: int,
                  unit: str):
         """
-        :param int count: Valid values are `1`, `7`, `14` and `28`.
+        :param int count: Valid values are `1`, `7` and `28`.
         :param str unit: The only supported value is `DAY`.
         """
         pulumi.set(__self__, "count", count)
@@ -4221,7 +4220,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        Valid values are `1`, `7`, `14` and `28`.
+        Valid values are `1`, `7` and `28`.
         """
         return pulumi.get(self, "count")
 
@@ -4247,6 +4246,7 @@ class GetAlertChannelConfigResult(dict):
                  include_json_attachment: Optional[str] = None,
                  key: Optional[str] = None,
                  payload: Optional[Mapping[str, str]] = None,
+                 payload_string: Optional[str] = None,
                  payload_type: Optional[str] = None,
                  recipients: Optional[str] = None,
                  region: Optional[str] = None,
@@ -4276,6 +4276,8 @@ class GetAlertChannelConfigResult(dict):
             pulumi.set(__self__, "key", key)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
+        if payload_string is not None:
+            pulumi.set(__self__, "payload_string", payload_string)
         if payload_type is not None:
             pulumi.set(__self__, "payload_type", payload_type)
         if recipients is not None:
@@ -4344,6 +4346,11 @@ class GetAlertChannelConfigResult(dict):
     @pulumi.getter
     def payload(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter(name="payloadString")
+    def payload_string(self) -> Optional[str]:
+        return pulumi.get(self, "payload_string")
 
     @property
     @pulumi.getter(name="payloadType")
