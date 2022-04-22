@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  *     fillValue: 1,
  *     aggregationWindow: 60,
  *     aggregationMethod: "event_flow",
- *     aggregationDelay: 120,
+ *     aggregationDelay: "120",
  *     expirationDuration: 120,
  *     openViolationOnExpiration: true,
  *     closeViolationsOnExpiration: true,
@@ -103,7 +103,7 @@ import * as utilities from "./utilities";
  *     runbookUrl: "https://www.example.com",
  *     violationTimeLimitSeconds: 3600,
  *     aggregationMethod: "event_flow",
- *     aggregationDelay: 120,
+ *     aggregationDelay: "120",
  *     expectedGroups: 2,
  *     openViolationOnGroupOverlap: true,
  *     nrql: {
