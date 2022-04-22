@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *         duration: 5,
  *         operator: "below",
  *         priority: "critical",
- *         threshold: "0.75",
+ *         threshold: 0.75,
  *         timeFunction: "all",
  *     }],
  * });

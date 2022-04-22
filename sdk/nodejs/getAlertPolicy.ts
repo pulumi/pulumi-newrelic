@@ -6,24 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific alert policy in New Relic that already exists.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertChannel = newrelic.getAlertChannel({
- *     name: "foo@example.com",
- * });
- * const fooAlertPolicy = newrelic.getAlertPolicy({
- *     name: "foo policy",
- * });
- * const fooAlertPolicyChannel = new newrelic.AlertPolicyChannel("fooAlertPolicyChannel", {
- *     policyId: fooAlertPolicy.then(fooAlertPolicy => fooAlertPolicy.id),
- *     channelId: fooAlertChannel.then(fooAlertChannel => fooAlertChannel.id),
- * });
- * ```
  */
 export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertPolicyResult> {
     if (!opts) {
