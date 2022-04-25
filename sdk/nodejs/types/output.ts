@@ -225,6 +225,7 @@ export interface GetAlertChannelConfig {
     includeJsonAttachment?: string;
     key?: string;
     payload?: {[key: string]: string};
+    payloadString?: string;
     payloadType?: string;
     recipients?: string;
     region?: string;
@@ -292,7 +293,7 @@ export interface NrqlAlertConditionNrql {
      * Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
      * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
      *
-     * @deprecated use `signal.aggregation_method` attribute instead
+     * @deprecated use `aggregation_method` attribute instead
      */
     evaluationOffset?: number;
     /**
@@ -303,7 +304,7 @@ export interface NrqlAlertConditionNrql {
      * **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
      * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
      *
-     * @deprecated use `signal.aggregation_method` attribute instead
+     * @deprecated use `aggregation_method` attribute instead
      */
     sinceValue?: string;
 }
@@ -592,10 +593,10 @@ export interface OneDashboardPageWidgetBullet {
     height?: number;
     id: string;
     /**
-     * (Optional) Visualization limit for the widget.
+     * (Required) Visualization limit for the widget.
      * * `widgetFunnel`
      */
-    limit?: number;
+    limit: number;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -1130,13 +1131,1244 @@ export interface ServiceLevelObjectiveTimeWindow {
 
 export interface ServiceLevelObjectiveTimeWindowRolling {
     /**
-     * Valid values are `1`, `7`, `14` and `28`.
+     * Valid values are `1`, `7` and `28`.
      */
     count: number;
     /**
      * The only supported value is `DAY`.
      */
     unit: string;
+}
+
+export namespace cloud {
+    export interface AwsGovcloudIntegrationsAlb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
+         */
+        loadBalancerPrefixes?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsApiGateway {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
+         */
+        stagePrefixes?: string[];
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsAutoScaling {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsAwsDirectConnect {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsAwsStates {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsCloudtrail {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsDynamoDb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsEbs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsEc2 {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Specify if IP addresses of ec2 instance should be collected
+         */
+        fetchIpAddresses?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsElasticSearch {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
+         */
+        fetchNodes?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsElb {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsEmr {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsIam {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsLambda {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsRds {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsRedShift {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsRoute53 {
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsS3 {
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsGovcloudIntegrationsSns {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsGovcloudIntegrationsSqs {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `direct connect`
+         * * `aws states`
+         * * `cloudtrail`
+         * * `dynamoDB`
+         */
+        awsRegions?: string[];
+        /**
+         * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `s3`
+         * * `sqs`
+         */
+        fetchExtendedInventory?: boolean;
+        /**
+         * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         * * `emr`
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
+         */
+        queuePrefixes?: string[];
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `api Gateway`
+         * * `auto scaling`
+         * * `ebs`
+         * * `ec2`
+         * * `elastic search`
+         * * `elb`
+         * * `iam`
+         * * `lambda`
+         * * `rds`
+         * * `redshift`
+         * * `route53`
+         * * `sns`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsIntegrationsBilling {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsIntegrationsCloudtrail {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `vpc`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsIntegrationsHealth {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsIntegrationsTrustedAdvisor {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsIntegrationsVpc {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `vpc`
+         */
+        awsRegions?: string[];
+        /**
+         * Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchNatGateway?: boolean;
+        /**
+         * Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchVpn?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKey?: string;
+        /**
+         * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
+         * * `xRay`
+         */
+        tagValue?: string;
+    }
+
+    export interface AwsIntegrationsXRay {
+        /**
+         * Specify each AWS region that includes the resources that you want to monitor.
+         * * `vpc`
+         */
+        awsRegions?: string[];
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AzureIntegrationsApiManagement {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsAppGateway {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsAppService {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsContainers {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsCosmosDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsCostManagement {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
+         */
+        tagKeys?: string[];
+    }
+
+    export interface AzureIntegrationsDataFactory {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsEventHub {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsExpressRoute {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsFirewalls {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsFrontDoor {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsFunctions {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsKeyVault {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsLoadBalancer {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsLogicApps {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsMachineLearning {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsMariaDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsMysql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsPostgresql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsPowerBiDedicated {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsRedisCache {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsServiceBus {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsSql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsSqlManaged {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsStorage {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsVirtualMachine {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsVirtualNetworks {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsVms {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsVpnGateway {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface GcpIntegrationsAppEngine {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsBigQuery {
+        /**
+         * Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsBigTable {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsComposer {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsDataFlow {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsDataProc {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsDataStore {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsFireBaseDatabase {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsFireBaseHosting {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsFireBaseStorage {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsFireStore {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsFunctions {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsInterconnect {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsKubernetes {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsLoadBalancing {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsMemCache {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsPubSub {
+        /**
+         * Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsRedis {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsRouter {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsRun {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsSpanner {
+        /**
+         * Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsSql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsStorage {
+        /**
+         * Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
+         */
+        fetchTags?: boolean;
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsVirtualMachines {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface GcpIntegrationsVpcAccess {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
 }
 
 export namespace insights {

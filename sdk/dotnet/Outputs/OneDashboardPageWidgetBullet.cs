@@ -23,10 +23,10 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
-        /// (Optional) Visualization limit for the widget.
+        /// (Required) Visualization limit for the widget.
         /// * `widget_funnel`
         /// </summary>
-        public readonly double? Limit;
+        public readonly double Limit;
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
-            double? limit,
+            double limit,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetBulletNrqlQuery> nrqlQueries,
 

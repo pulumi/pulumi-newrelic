@@ -28,11 +28,11 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// (Optional) Visualization limit for the widget.
+        /// (Required) Visualization limit for the widget.
         /// * `widget_funnel`
         /// </summary>
-        [Input("limit")]
-        public Input<double>? Limit { get; set; }
+        [Input("limit", required: true)]
+        public Input<double> Limit { get; set; } = null!;
 
         [Input("nrqlQueries", required: true)]
         private InputList<Inputs.OneDashboardPageWidgetBulletNrqlQueryArgs>? _nrqlQueries;

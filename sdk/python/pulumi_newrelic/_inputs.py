@@ -1335,13 +1335,13 @@ class NrqlAlertConditionNrqlArgs:
         """
         pulumi.set(__self__, "query", query)
         if evaluation_offset is not None:
-            warnings.warn("""use `signal.aggregation_method` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""evaluation_offset is deprecated: use `signal.aggregation_method` attribute instead""")
+            warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""evaluation_offset is deprecated: use `aggregation_method` attribute instead""")
         if evaluation_offset is not None:
             pulumi.set(__self__, "evaluation_offset", evaluation_offset)
         if since_value is not None:
-            warnings.warn("""use `signal.aggregation_method` attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""since_value is deprecated: use `signal.aggregation_method` attribute instead""")
+            warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""since_value is deprecated: use `aggregation_method` attribute instead""")
         if since_value is not None:
             pulumi.set(__self__, "since_value", since_value)
 
@@ -2411,26 +2411,27 @@ class OneDashboardPageWidgetBillboardNrqlQueryArgs:
 class OneDashboardPageWidgetBulletArgs:
     def __init__(__self__, *,
                  column: pulumi.Input[int],
+                 limit: pulumi.Input[float],
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[float]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
+        :param pulumi.Input[float] limit: (Required) Visualization limit for the widget.
+               * `widget_funnel`
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
                * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
                * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
-        :param pulumi.Input[float] limit: (Optional) Visualization limit for the widget.
-               * `widget_funnel`
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
@@ -2438,8 +2439,6 @@ class OneDashboardPageWidgetBulletArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2454,6 +2453,19 @@ class OneDashboardPageWidgetBulletArgs:
     @column.setter
     def column(self, value: pulumi.Input[int]):
         pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> pulumi.Input[float]:
+        """
+        (Required) Visualization limit for the widget.
+        * `widget_funnel`
+        """
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: pulumi.Input[float]):
+        pulumi.set(self, "limit", value)
 
     @property
     @pulumi.getter(name="nrqlQueries")
@@ -2513,19 +2525,6 @@ class OneDashboardPageWidgetBulletArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[float]]:
-        """
-        (Optional) Visualization limit for the widget.
-        * `widget_funnel`
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "limit", value)
 
     @property
     @pulumi.getter
@@ -4470,7 +4469,7 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
                  count: pulumi.Input[int],
                  unit: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] count: Valid values are `1`, `7`, `14` and `28`.
+        :param pulumi.Input[int] count: Valid values are `1`, `7` and `28`.
         :param pulumi.Input[str] unit: The only supported value is `DAY`.
         """
         pulumi.set(__self__, "count", count)
@@ -4480,7 +4479,7 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        Valid values are `1`, `7`, `14` and `28`.
+        Valid values are `1`, `7` and `28`.
         """
         return pulumi.get(self, "count")
 

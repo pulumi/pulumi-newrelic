@@ -5,27 +5,43 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./awsGovcloudIntegrations";
 export * from "./awsGovcloudLinkAccount";
+export * from "./awsIntegrations";
 export * from "./awsLinkAccount";
+export * from "./azureIntegrations";
 export * from "./azureLinkAccount";
+export * from "./gcpIntegrations";
 export * from "./gcpLinkAccount";
 
 // Import resources to register:
+import { AwsGovcloudIntegrations } from "./awsGovcloudIntegrations";
 import { AwsGovcloudLinkAccount } from "./awsGovcloudLinkAccount";
+import { AwsIntegrations } from "./awsIntegrations";
 import { AwsLinkAccount } from "./awsLinkAccount";
+import { AzureIntegrations } from "./azureIntegrations";
 import { AzureLinkAccount } from "./azureLinkAccount";
+import { GcpIntegrations } from "./gcpIntegrations";
 import { GcpLinkAccount } from "./gcpLinkAccount";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations":
+                return new AwsGovcloudIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount":
                 return new AwsGovcloudLinkAccount(name, <any>undefined, { urn })
+            case "newrelic:cloud/awsIntegrations:AwsIntegrations":
+                return new AwsIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/awsLinkAccount:AwsLinkAccount":
                 return new AwsLinkAccount(name, <any>undefined, { urn })
+            case "newrelic:cloud/azureIntegrations:AzureIntegrations":
+                return new AzureIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/azureLinkAccount:AzureLinkAccount":
                 return new AzureLinkAccount(name, <any>undefined, { urn })
+            case "newrelic:cloud/gcpIntegrations:GcpIntegrations":
+                return new GcpIntegrations(name, <any>undefined, { urn })
             case "newrelic:cloud/gcpLinkAccount:GcpLinkAccount":
                 return new GcpLinkAccount(name, <any>undefined, { urn })
             default:
@@ -33,7 +49,11 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("newrelic", "cloud/awsGovcloudIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/awsGovcloudLinkAccount", _module)
+pulumi.runtime.registerResourceModule("newrelic", "cloud/awsIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/awsLinkAccount", _module)
+pulumi.runtime.registerResourceModule("newrelic", "cloud/azureIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/azureLinkAccount", _module)
+pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpIntegrations", _module)
 pulumi.runtime.registerResourceModule("newrelic", "cloud/gcpLinkAccount", _module)

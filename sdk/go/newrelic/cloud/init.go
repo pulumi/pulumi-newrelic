@@ -21,12 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations":
+		r = &AwsGovcloudIntegrations{}
 	case "newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount":
 		r = &AwsGovcloudLinkAccount{}
+	case "newrelic:cloud/awsIntegrations:AwsIntegrations":
+		r = &AwsIntegrations{}
 	case "newrelic:cloud/awsLinkAccount:AwsLinkAccount":
 		r = &AwsLinkAccount{}
+	case "newrelic:cloud/azureIntegrations:AzureIntegrations":
+		r = &AzureIntegrations{}
 	case "newrelic:cloud/azureLinkAccount:AzureLinkAccount":
 		r = &AzureLinkAccount{}
+	case "newrelic:cloud/gcpIntegrations:GcpIntegrations":
+		r = &GcpIntegrations{}
 	case "newrelic:cloud/gcpLinkAccount:GcpLinkAccount":
 		r = &GcpLinkAccount{}
 	default:
@@ -44,7 +52,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"cloud/awsGovcloudIntegrations",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"cloud/awsGovcloudLinkAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"cloud/awsIntegrations",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -54,7 +72,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"cloud/azureIntegrations",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"cloud/azureLinkAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"cloud/gcpIntegrations",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

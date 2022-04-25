@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// &gt; **New Relic Service Level Management is in preview. [Read more](https://docs.newrelic.com/docs/service-level-management/intro-slm)**
-    /// 
     /// Use this resource to create, update, and delete New Relic Service Level Indicators and Objectives.
     /// 
     /// A New Relic User API key is required to provision this resource.  Set the `api_key`
@@ -67,6 +65,79 @@ namespace Pulumi.NewRelic
     /// 
     /// }
     /// ```
+    /// ## Additional Example
+    /// 
+    /// Service level with tags:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mySyntheticMonitorServiceLevel = new NewRelic.ServiceLevel("mySyntheticMonitorServiceLevel", new NewRelic.ServiceLevelArgs
+    ///         {
+    ///             Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///             Description = "Proportion of successful synthetic checks.",
+    ///             Events = new NewRelic.Inputs.ServiceLevelEventsArgs
+    ///             {
+    ///                 AccountId = 12345678,
+    ///                 ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
+    ///                 {
+    ///                     From = "SyntheticCheck",
+    ///                     Where = "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
+    ///                 },
+    ///                 GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
+    ///                 {
+    ///                     From = "SyntheticCheck",
+    ///                     Where = "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
+    ///                 },
+    ///             },
+    ///             Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
+    ///             {
+    ///                 Target = 99,
+    ///                 TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
+    ///                 {
+    ///                     Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
+    ///                     {
+    ///                         Count = 7,
+    ///                         Unit = "DAY",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var mySyntheticMonitorServiceLevelTags = new NewRelic.EntityTags("mySyntheticMonitorServiceLevelTags", new NewRelic.EntityTagsArgs
+    ///         {
+    ///             Guid = mySyntheticMonitorServiceLevel.SliGuid,
+    ///             Tags = 
+    ///             {
+    ///                 new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 {
+    ///                     Key = "user_journey",
+    ///                     Values = 
+    ///                     {
+    ///                         "authentication",
+    ///                         "sso",
+    ///                     },
+    ///                 },
+    ///                 new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 {
+    ///                     Key = "owner",
+    ///                     Values = 
+    ///                     {
+    ///                         "identityTeam",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
     /// ## Import
     /// 
