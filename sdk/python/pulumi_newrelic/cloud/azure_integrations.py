@@ -1110,16 +1110,10 @@ class AzureIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=1200,
                 resource_groups=["resource_groups"],
             ),
-            event_hub=[
-                {
-                    "metricsPollingInterval": 1200,
-                    "resourceGroups": ["resource_groups"],
-                },
-                {
-                    "metricsPollingInterval": 1200,
-                    "resourceGroups": ["resource_groups"],
-                },
-            ],
+            event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
             express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
                 metrics_polling_interval=1200,
                 resource_groups=["resource_groups"],
@@ -1308,16 +1302,10 @@ class AzureIntegrations(pulumi.CustomResource):
                 metrics_polling_interval=1200,
                 resource_groups=["resource_groups"],
             ),
-            event_hub=[
-                {
-                    "metricsPollingInterval": 1200,
-                    "resourceGroups": ["resource_groups"],
-                },
-                {
-                    "metricsPollingInterval": 1200,
-                    "resourceGroups": ["resource_groups"],
-                },
-            ],
+            event_hub=newrelic.cloud.AzureIntegrationsEventHubArgs(
+                metrics_polling_interval=1200,
+                resource_groups=["resource_groups"],
+            ),
             express_route=newrelic.cloud.AzureIntegrationsExpressRouteArgs(
                 metrics_polling_interval=1200,
                 resource_groups=["resource_groups"],

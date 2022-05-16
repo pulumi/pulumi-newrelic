@@ -250,6 +250,21 @@ func (o AlertPolicyChannelOutput) ToAlertPolicyChannelOutputWithContext(ctx cont
 	return o
 }
 
+// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
+func (o AlertPolicyChannelOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertPolicyChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Array of channel IDs to apply to the specified policy. We recommended sorting channel IDs in ascending order to avoid drift in your state.
+func (o AlertPolicyChannelOutput) ChannelIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AlertPolicyChannel) pulumi.IntArrayOutput { return v.ChannelIds }).(pulumi.IntArrayOutput)
+}
+
+// The ID of the policy.
+func (o AlertPolicyChannelOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertPolicyChannel) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
 type AlertPolicyChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyChannelArrayOutput) ElementType() reflect.Type {

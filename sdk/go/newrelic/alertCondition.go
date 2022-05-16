@@ -574,6 +574,113 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
+func (o AlertConditionOutput) ConditionScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.ConditionScope }).(pulumi.StringPtrOutput)
+}
+
+// Whether the condition is enabled or not. Defaults to true.
+func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The instance IDs associated with this condition.
+func (o AlertConditionOutput) Entities() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.IntArrayOutput { return v.Entities }).(pulumi.IntArrayOutput)
+}
+
+// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
+func (o AlertConditionOutput) GcMetric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.GcMetric }).(pulumi.StringPtrOutput)
+}
+
+// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
+// * `apmAppMetric`
+// * `apdex`
+// * `errorPercentage`
+// * `responseTimeBackground`
+// * `responseTimeWeb`
+// * `throughputBackground`
+// * `throughputWeb`
+// * `userDefined`
+// * `apmJvmMetric`
+// * `cpuUtilizationTime`
+// * `deadlockedThreads`
+// * `gcCpuTime`
+// * `heapMemoryUsage`
+// * `apmKtMetric`
+// * `apdex`
+// * `errorCount`
+// * `errorPercentage`
+// * `responseTime`
+// * `throughput`
+// * `browserMetric`
+// * `ajaxResponseTime`
+// * `ajaxThroughput`
+// * `domProcessing`
+// * `endUserApdex`
+// * `network`
+// * `pageRendering`
+// * `pageViewThroughput`
+// * `pageViewsWithJsErrors`
+// * `requestQueuing`
+// * `totalPageLoad`
+// * `userDefined`
+// * `webApplication`
+// * `mobileMetric`
+// * `database`
+// * `images`
+// * `json`
+// * `mobileCrashRate`
+// * `networkErrorPercentage`
+// * `network`
+// * `statusErrorPercentage`
+// * `userDefined`
+// * `viewLoading`
+func (o AlertConditionOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Metric }).(pulumi.StringOutput)
+}
+
+// The title of the condition. Must be between 1 and 64 characters, inclusive.
+func (o AlertConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the policy where this condition should be used.
+func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
+// Runbook URL to display in notifications.
+func (o AlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
+// A list of terms for this condition. See Terms below for details.
+func (o AlertConditionOutput) Terms() AlertConditionTermArrayOutput {
+	return o.ApplyT(func(v *AlertCondition) AlertConditionTermArrayOutput { return v.Terms }).(AlertConditionTermArrayOutput)
+}
+
+// The type of condition. One of: `apmAppMetric`, `apmJvmMetric`, `apmKtMetric`, `browserMetric`, `mobileMetric`
+func (o AlertConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A custom metric to be evaluated.
+func (o AlertConditionOutput) UserDefinedMetric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedMetric }).(pulumi.StringPtrOutput)
+}
+
+// One of: `average`, `min`, `max`, `total`, or `sampleSize`.
+func (o AlertConditionOutput) UserDefinedValueFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.UserDefinedValueFunction }).(pulumi.StringPtrOutput)
+}
+
+// Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+func (o AlertConditionOutput) ViolationCloseTimer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.IntPtrOutput { return v.ViolationCloseTimer }).(pulumi.IntPtrOutput)
+}
+
 type AlertConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionArrayOutput) ElementType() reflect.Type {

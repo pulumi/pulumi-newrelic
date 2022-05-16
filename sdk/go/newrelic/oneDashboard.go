@@ -223,6 +223,41 @@ func (o OneDashboardOutput) ToOneDashboardOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Brief text describing the dashboard.
+func (o OneDashboardOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The unique entity identifier of the dashboard page in New Relic.
+func (o OneDashboardOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A nested block that describes a page. See Nested page blocks below for details.
+func (o OneDashboardOutput) Pages() OneDashboardPageArrayOutput {
+	return o.ApplyT(func(v *OneDashboard) OneDashboardPageArrayOutput { return v.Pages }).(OneDashboardPageArrayOutput)
+}
+
+// The URL for viewing the dashboard.
+func (o OneDashboardOutput) Permalink() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringOutput { return v.Permalink }).(pulumi.StringOutput)
+}
+
+// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
+func (o OneDashboardOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboard) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
 type OneDashboardArrayOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardArrayOutput) ElementType() reflect.Type {

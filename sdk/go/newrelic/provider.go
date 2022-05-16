@@ -136,6 +136,55 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+func (o ProviderOutput) AdminApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AdminApiKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+func (o ProviderOutput) ApiUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderOutput) CacertFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CacertFile }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+func (o ProviderOutput) InfrastructureApiUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.InfrastructureApiUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderOutput) InsightsInsertKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.InsightsInsertKey }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderOutput) InsightsInsertUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.InsightsInsertUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderOutput) InsightsQueryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.InsightsQueryUrl }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+func (o ProviderOutput) NerdgraphApiUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.NerdgraphApiUrl }).(pulumi.StringPtrOutput)
+}
+
+// The data center for which your New Relic account is configured. Only one region per provider block is permitted.
+func (o ProviderOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
+func (o ProviderOutput) SyntheticsApiUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SyntheticsApiUrl }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})

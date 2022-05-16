@@ -398,6 +398,26 @@ func (o AlertChannelOutput) ToAlertChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Determines the New Relic account where the alert channel will be created. Defaults to the account associated with the API key used.
+func (o AlertChannelOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// A nested block that describes an alert channel configuration.  Only one config block is permitted per alert channel definition.  See Nested config blocks below for details.
+func (o AlertChannelOutput) Config() AlertChannelConfigPtrOutput {
+	return o.ApplyT(func(v *AlertChannel) AlertChannelConfigPtrOutput { return v.Config }).(AlertChannelConfigPtrOutput)
+}
+
+// The name of the channel.
+func (o AlertChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of channel.  One of: `email`, `slack`, `opsgenie`, `pagerduty`, `victorops`, or `webhook`.
+func (o AlertChannelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 type AlertChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertChannelArrayOutput) ElementType() reflect.Type {

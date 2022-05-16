@@ -253,6 +253,46 @@ func (o MultiLocationAlertConditionOutput) ToMultiLocationAlertConditionOutputWi
 	return o
 }
 
+// A condition term with the priority set to critical.
+func (o MultiLocationAlertConditionOutput) Critical() MultiLocationAlertConditionCriticalOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertConditionCriticalOutput { return v.Critical }).(MultiLocationAlertConditionCriticalOutput)
+}
+
+// Set whether to enable the alert condition.  Defaults to true.
+func (o MultiLocationAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The GUIDs of the Synthetics monitors to alert on.
+func (o MultiLocationAlertConditionOutput) Entities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringArrayOutput { return v.Entities }).(pulumi.StringArrayOutput)
+}
+
+// The title of the condition.
+func (o MultiLocationAlertConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the policy where this condition will be used.
+func (o MultiLocationAlertConditionOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
+// Runbook URL to display in notifications.
+func (o MultiLocationAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
+func (o MultiLocationAlertConditionOutput) ViolationTimeLimitSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.IntOutput { return v.ViolationTimeLimitSeconds }).(pulumi.IntOutput)
+}
+
+// A condition term with the priority set to warning.
+func (o MultiLocationAlertConditionOutput) Warning() MultiLocationAlertConditionWarningPtrOutput {
+	return o.ApplyT(func(v *MultiLocationAlertCondition) MultiLocationAlertConditionWarningPtrOutput { return v.Warning }).(MultiLocationAlertConditionWarningPtrOutput)
+}
+
 type MultiLocationAlertConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (MultiLocationAlertConditionArrayOutput) ElementType() reflect.Type {

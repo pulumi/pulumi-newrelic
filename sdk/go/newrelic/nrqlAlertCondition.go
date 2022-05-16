@@ -30,9 +30,9 @@ import (
 //
 // The `term` block supports the following arguments:
 //
-// - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+// - `operator` - (Optional) Valid values are `above`, `aboveOrEquals`, `below`, `belowOrEquals`, `equals`, or `notEquals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
 // - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+// - `threshold` - (Required) The value which will trigger a violation.
 // <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
 // - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
 // <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
@@ -252,7 +252,7 @@ import (
 //
 // ## Import
 //
-// Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+// NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
 //
 // ```sh
 //  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
@@ -270,7 +270,7 @@ import (
 //  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
 // ```
 //
-//  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
+//  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -294,6 +294,8 @@ type NrqlAlertCondition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The unique entity identifier of the NRQL Condition in New Relic.
+	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrOutput `pulumi:"expectedGroups"`
 	// The amount of time (in seconds) to wait before considering the signal expired.
@@ -397,6 +399,8 @@ type nrqlAlertConditionState struct {
 	Description *string `pulumi:"description"`
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The unique entity identifier of the NRQL Condition in New Relic.
+	EntityGuid *string `pulumi:"entityGuid"`
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups *int `pulumi:"expectedGroups"`
 	// The amount of time (in seconds) to wait before considering the signal expired.
@@ -466,6 +470,8 @@ type NrqlAlertConditionState struct {
 	Description pulumi.StringPtrInput
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The unique entity identifier of the NRQL Condition in New Relic.
+	EntityGuid pulumi.StringPtrInput
 	// Number of expected groups when using `outlier` detection.
 	ExpectedGroups pulumi.IntPtrInput
 	// The amount of time (in seconds) to wait before considering the signal expired.
@@ -742,6 +748,161 @@ func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutput() NrqlAlertConditio
 
 func (o NrqlAlertConditionOutput) ToNrqlAlertConditionOutputWithContext(ctx context.Context) NrqlAlertConditionOutput {
 	return o
+}
+
+// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o NrqlAlertConditionOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregationDelay` with the `eventFlow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `eventFlow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregationDelay` cannot be set with `nrql.evaluation_offset`.
+func (o NrqlAlertConditionOutput) AggregationDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.AggregationDelay }).(pulumi.StringPtrOutput)
+}
+
+// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `eventFlow` or `eventTimer`. Default is `eventFlow`. `aggregationMethod` cannot be set with `nrql.evaluation_offset`.
+func (o NrqlAlertConditionOutput) AggregationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.AggregationMethod }).(pulumi.StringPtrOutput)
+}
+
+// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
+func (o NrqlAlertConditionOutput) AggregationTimer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.AggregationTimer }).(pulumi.StringPtrOutput)
+}
+
+// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+func (o NrqlAlertConditionOutput) AggregationWindow() pulumi.IntOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.AggregationWindow }).(pulumi.IntOutput)
+}
+
+// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
+func (o NrqlAlertConditionOutput) BaselineDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.BaselineDirection }).(pulumi.StringPtrOutput)
+}
+
+// Whether to close all open violations when the signal expires.
+func (o NrqlAlertConditionOutput) CloseViolationsOnExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.CloseViolationsOnExpiration }).(pulumi.BoolPtrOutput)
+}
+
+// A list containing the `critical` threshold values. See Terms below for details.
+func (o NrqlAlertConditionOutput) Critical() NrqlAlertConditionCriticalPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionCriticalPtrOutput { return v.Critical }).(NrqlAlertConditionCriticalPtrOutput)
+}
+
+// The description of the NRQL alert condition.
+func (o NrqlAlertConditionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+func (o NrqlAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The unique entity identifier of the NRQL Condition in New Relic.
+func (o NrqlAlertConditionOutput) EntityGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
+}
+
+// Number of expected groups when using `outlier` detection.
+func (o NrqlAlertConditionOutput) ExpectedGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.ExpectedGroups }).(pulumi.IntPtrOutput)
+}
+
+// The amount of time (in seconds) to wait before considering the signal expired.
+func (o NrqlAlertConditionOutput) ExpirationDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.ExpirationDuration }).(pulumi.IntPtrOutput)
+}
+
+// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
+func (o NrqlAlertConditionOutput) FillOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.FillOption }).(pulumi.StringPtrOutput)
+}
+
+// This value will be used for filling gaps in the signal.
+func (o NrqlAlertConditionOutput) FillValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.Float64PtrOutput { return v.FillValue }).(pulumi.Float64PtrOutput)
+}
+
+// **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
+//
+// Deprecated: use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
+func (o NrqlAlertConditionOutput) IgnoreOverlap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.IgnoreOverlap }).(pulumi.BoolPtrOutput)
+}
+
+// The title of the condition.
+func (o NrqlAlertConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A NRQL query. See NRQL below for details.
+func (o NrqlAlertConditionOutput) Nrql() NrqlAlertConditionNrqlOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionNrqlOutput { return v.Nrql }).(NrqlAlertConditionNrqlOutput)
+}
+
+// Whether to create a new violation to capture that the signal expired.
+func (o NrqlAlertConditionOutput) OpenViolationOnExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.OpenViolationOnExpiration }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
+func (o NrqlAlertConditionOutput) OpenViolationOnGroupOverlap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.BoolPtrOutput { return v.OpenViolationOnGroupOverlap }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the policy where this condition should be used.
+func (o NrqlAlertConditionOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
+// Runbook URL to display in notifications.
+func (o NrqlAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
+// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+func (o NrqlAlertConditionOutput) SlideBy() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.SlideBy }).(pulumi.IntPtrOutput)
+}
+
+// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
+//
+// Deprecated: use `critical` and `warning` attributes instead
+func (o NrqlAlertConditionOutput) Terms() NrqlAlertConditionTermArrayOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionTermArrayOutput { return v.Terms }).(NrqlAlertConditionTermArrayOutput)
+}
+
+// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+func (o NrqlAlertConditionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `singleValue`, `sum` (case insensitive).
+//
+// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
+func (o NrqlAlertConditionOutput) ValueFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.ValueFunction }).(pulumi.StringPtrOutput)
+}
+
+// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
+// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+//
+// Deprecated: use `violation_time_limit_seconds` attribute instead
+func (o NrqlAlertConditionOutput) ViolationTimeLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.ViolationTimeLimit }).(pulumi.StringOutput)
+}
+
+// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
+// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
+func (o NrqlAlertConditionOutput) ViolationTimeLimitSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.ViolationTimeLimitSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A list containing the `warning` threshold values. See Terms below for details.
+func (o NrqlAlertConditionOutput) Warning() NrqlAlertConditionWarningPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionWarningPtrOutput { return v.Warning }).(NrqlAlertConditionWarningPtrOutput)
 }
 
 type NrqlAlertConditionArrayOutput struct{ *pulumi.OutputState }

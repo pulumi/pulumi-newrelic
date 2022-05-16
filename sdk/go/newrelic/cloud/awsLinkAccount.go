@@ -232,6 +232,26 @@ func (o AwsLinkAccountOutput) ToAwsLinkAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o AwsLinkAccountOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AwsLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role.
+func (o AwsLinkAccountOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
+func (o AwsLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringPtrOutput { return v.MetricCollectionMode }).(pulumi.StringPtrOutput)
+}
+
+// - The linked account name
+func (o AwsLinkAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type AwsLinkAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (AwsLinkAccountArrayOutput) ElementType() reflect.Type {

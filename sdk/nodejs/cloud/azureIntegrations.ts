@@ -60,16 +60,10 @@ import * as utilities from "../utilities";
  *         metricsPollingInterval: 1200,
  *         resourceGroups: ["resource_groups"],
  *     },
- *     eventHub: [
- *         {
- *             metricsPollingInterval: 1200,
- *             resourceGroups: ["resource_groups"],
- *         },
- *         {
- *             metricsPollingInterval: 1200,
- *             resourceGroups: ["resource_groups"],
- *         },
- *     ],
+ *     eventHub: {
+ *         metricsPollingInterval: 1200,
+ *         resourceGroups: ["resource_groups"],
+ *     },
  *     expressRoute: {
  *         metricsPollingInterval: 1200,
  *         resourceGroups: ["resource_groups"],

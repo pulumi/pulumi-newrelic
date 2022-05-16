@@ -378,6 +378,118 @@ func (o AwsGovcloudIntegrationsOutput) ToAwsGovcloudIntegrationsOutputWithContex
 	return o
 }
 
+// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o AwsGovcloudIntegrationsOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Application load balancer AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Alb() AwsGovcloudIntegrationsAlbPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsAlbPtrOutput { return v.Alb }).(AwsGovcloudIntegrationsAlbPtrOutput)
+}
+
+// Api Gateway AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) ApiGateway() AwsGovcloudIntegrationsApiGatewayPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsApiGatewayPtrOutput { return v.ApiGateway }).(AwsGovcloudIntegrationsApiGatewayPtrOutput)
+}
+
+// Autoscaling AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) AutoScaling() AwsGovcloudIntegrationsAutoScalingPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsAutoScalingPtrOutput { return v.AutoScaling }).(AwsGovcloudIntegrationsAutoScalingPtrOutput)
+}
+
+// Aws Direct Connect AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) AwsDirectConnect() AwsGovcloudIntegrationsAwsDirectConnectPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsAwsDirectConnectPtrOutput {
+		return v.AwsDirectConnect
+	}).(AwsGovcloudIntegrationsAwsDirectConnectPtrOutput)
+}
+
+// Aws States AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) AwsStates() AwsGovcloudIntegrationsAwsStatesPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsAwsStatesPtrOutput { return v.AwsStates }).(AwsGovcloudIntegrationsAwsStatesPtrOutput)
+}
+
+// Cloudtrail AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Cloudtrail() AwsGovcloudIntegrationsCloudtrailPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsCloudtrailPtrOutput { return v.Cloudtrail }).(AwsGovcloudIntegrationsCloudtrailPtrOutput)
+}
+
+// Dynamo DB AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) DynamoDb() AwsGovcloudIntegrationsDynamoDbPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsDynamoDbPtrOutput { return v.DynamoDb }).(AwsGovcloudIntegrationsDynamoDbPtrOutput)
+}
+
+// Elastic Beanstalk AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Ebs() AwsGovcloudIntegrationsEbsPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsEbsPtrOutput { return v.Ebs }).(AwsGovcloudIntegrationsEbsPtrOutput)
+}
+
+// EC2 AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Ec2() AwsGovcloudIntegrationsEc2PtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsEc2PtrOutput { return v.Ec2 }).(AwsGovcloudIntegrationsEc2PtrOutput)
+}
+
+// Elastic search AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) ElasticSearch() AwsGovcloudIntegrationsElasticSearchPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsElasticSearchPtrOutput { return v.ElasticSearch }).(AwsGovcloudIntegrationsElasticSearchPtrOutput)
+}
+
+// Elb AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Elb() AwsGovcloudIntegrationsElbPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsElbPtrOutput { return v.Elb }).(AwsGovcloudIntegrationsElbPtrOutput)
+}
+
+// Emr AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Emr() AwsGovcloudIntegrationsEmrPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsEmrPtrOutput { return v.Emr }).(AwsGovcloudIntegrationsEmrPtrOutput)
+}
+
+// IAM AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Iam() AwsGovcloudIntegrationsIamPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsIamPtrOutput { return v.Iam }).(AwsGovcloudIntegrationsIamPtrOutput)
+}
+
+// Lambda AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Lambda() AwsGovcloudIntegrationsLambdaPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsLambdaPtrOutput { return v.Lambda }).(AwsGovcloudIntegrationsLambdaPtrOutput)
+}
+
+// The access key of the AwsGovCloud.
+func (o AwsGovcloudIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+}
+
+// RDS AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Rds() AwsGovcloudIntegrationsRdsPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsRdsPtrOutput { return v.Rds }).(AwsGovcloudIntegrationsRdsPtrOutput)
+}
+
+// Redshift AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) RedShift() AwsGovcloudIntegrationsRedShiftPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsRedShiftPtrOutput { return v.RedShift }).(AwsGovcloudIntegrationsRedShiftPtrOutput)
+}
+
+// Route53 AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Route53() AwsGovcloudIntegrationsRoute53PtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsRoute53PtrOutput { return v.Route53 }).(AwsGovcloudIntegrationsRoute53PtrOutput)
+}
+
+// The s3 integration
+func (o AwsGovcloudIntegrationsOutput) S3() AwsGovcloudIntegrationsS3PtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsS3PtrOutput { return v.S3 }).(AwsGovcloudIntegrationsS3PtrOutput)
+}
+
+// SNS AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Sns() AwsGovcloudIntegrationsSnsPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsSnsPtrOutput { return v.Sns }).(AwsGovcloudIntegrationsSnsPtrOutput)
+}
+
+// SQS AwsGovCloud integration.See Integration blocks below for details.
+func (o AwsGovcloudIntegrationsOutput) Sqs() AwsGovcloudIntegrationsSqsPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudIntegrations) AwsGovcloudIntegrationsSqsPtrOutput { return v.Sqs }).(AwsGovcloudIntegrationsSqsPtrOutput)
+}
+
 type AwsGovcloudIntegrationsArrayOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudIntegrationsArrayOutput) ElementType() reflect.Type {

@@ -243,6 +243,36 @@ func (o EventsToMetricsRuleOutput) ToEventsToMetricsRuleOutputWithContext(ctx co
 	return o
 }
 
+// Account with the event and where the metrics will be put.
+func (o EventsToMetricsRuleOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Provides additional information about the rule.
+func (o EventsToMetricsRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// True means this rule is enabled. False means the rule is currently not creating metrics.
+func (o EventsToMetricsRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the rule. This must be unique within an account.
+func (o EventsToMetricsRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Explains how to create metrics from events.
+func (o EventsToMetricsRuleOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.StringOutput { return v.Nrql }).(pulumi.StringOutput)
+}
+
+// The id, uniquely identifying the rule.
+func (o EventsToMetricsRuleOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventsToMetricsRule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
+}
+
 type EventsToMetricsRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (EventsToMetricsRuleArrayOutput) ElementType() reflect.Type {

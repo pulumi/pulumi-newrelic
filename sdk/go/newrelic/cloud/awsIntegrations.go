@@ -312,6 +312,46 @@ func (o AwsIntegrationsOutput) ToAwsIntegrationsOutputWithContext(ctx context.Co
 	return o
 }
 
+// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o AwsIntegrationsOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Billing integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Billing() AwsIntegrationsBillingPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsBillingPtrOutput { return v.Billing }).(AwsIntegrationsBillingPtrOutput)
+}
+
+// Cloudtrail integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Cloudtrail() AwsIntegrationsCloudtrailPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsCloudtrailPtrOutput { return v.Cloudtrail }).(AwsIntegrationsCloudtrailPtrOutput)
+}
+
+// Health integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Health() AwsIntegrationsHealthPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsHealthPtrOutput { return v.Health }).(AwsIntegrationsHealthPtrOutput)
+}
+
+// The ID of the linked AWS account in New Relic.
+func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+}
+
+// Trusted Advisor integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) TrustedAdvisor() AwsIntegrationsTrustedAdvisorPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsTrustedAdvisorPtrOutput { return v.TrustedAdvisor }).(AwsIntegrationsTrustedAdvisorPtrOutput)
+}
+
+// VPC integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) Vpc() AwsIntegrationsVpcPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsVpcPtrOutput { return v.Vpc }).(AwsIntegrationsVpcPtrOutput)
+}
+
+// X-Ray integration. See Integration blocks below for details.
+func (o AwsIntegrationsOutput) XRay() AwsIntegrationsXRayPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsXRayPtrOutput { return v.XRay }).(AwsIntegrationsXRayPtrOutput)
+}
+
 type AwsIntegrationsArrayOutput struct{ *pulumi.OutputState }
 
 func (AwsIntegrationsArrayOutput) ElementType() reflect.Type {

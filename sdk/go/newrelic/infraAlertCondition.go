@@ -424,6 +424,91 @@ func (o InfraAlertConditionOutput) ToInfraAlertConditionOutputWithContext(ctx co
 	return o
 }
 
+// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
+func (o InfraAlertConditionOutput) Comparison() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Comparison }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp the alert condition was created.
+func (o InfraAlertConditionOutput) CreatedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.CreatedAt }).(pulumi.IntOutput)
+}
+
+// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+func (o InfraAlertConditionOutput) Critical() InfraAlertConditionCriticalPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionCriticalPtrOutput { return v.Critical }).(InfraAlertConditionCriticalPtrOutput)
+}
+
+// The description of the Infrastructure alert condition.
+func (o InfraAlertConditionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the condition is turned on or off.  Valid values are `true` and `false`.  Defaults to `true`.
+func (o InfraAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The metric event; for example, `SystemSample` or `StorageSample`.  Supported by the `infraMetric` condition type.
+func (o InfraAlertConditionOutput) Event() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.Event }).(pulumi.StringOutput)
+}
+
+// For alerts on integrations, use this instead of `event`.  Supported by the `infraMetric` condition type.
+func (o InfraAlertConditionOutput) IntegrationProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.IntegrationProvider }).(pulumi.StringPtrOutput)
+}
+
+// The Infrastructure alert condition's name.
+func (o InfraAlertConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the alert policy where this condition should be used.
+func (o InfraAlertConditionOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
+// Any filters applied to processes; for example: `commandName = 'java'`.  Required by the `infraProcessRunning` condition type.
+func (o InfraAlertConditionOutput) ProcessWhere() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.ProcessWhere }).(pulumi.StringPtrOutput)
+}
+
+// Runbook URL to display in notifications.
+func (o InfraAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
+// The attribute name to identify the metric being targeted; for example, `cpuPercent`, `diskFreePercent`, or `memoryResidentSizeBytes`.  The underlying API will automatically populate this value for Infrastructure integrations (for example `diskFreePercent`), so make sure to explicitly include this value to avoid diff issues.  Supported by the `infraMetric` condition type.
+func (o InfraAlertConditionOutput) Select() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Select }).(pulumi.StringPtrOutput)
+}
+
+// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
+func (o InfraAlertConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The timestamp the alert condition was last updated.
+func (o InfraAlertConditionOutput) UpdatedAt() pulumi.IntOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.UpdatedAt }).(pulumi.IntOutput)
+}
+
+// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+func (o InfraAlertConditionOutput) ViolationCloseTimer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntPtrOutput { return v.ViolationCloseTimer }).(pulumi.IntPtrOutput)
+}
+
+// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+func (o InfraAlertConditionOutput) Warning() InfraAlertConditionWarningPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionWarningPtrOutput { return v.Warning }).(InfraAlertConditionWarningPtrOutput)
+}
+
+// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
+func (o InfraAlertConditionOutput) Where() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfraAlertCondition) pulumi.StringPtrOutput { return v.Where }).(pulumi.StringPtrOutput)
+}
+
 type InfraAlertConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (InfraAlertConditionArrayOutput) ElementType() reflect.Type {

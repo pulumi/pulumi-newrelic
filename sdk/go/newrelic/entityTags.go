@@ -231,6 +231,16 @@ func (o EntityTagsOutput) ToEntityTagsOutputWithContext(ctx context.Context) Ent
 	return o
 }
 
+// The guid of the entity to tag.
+func (o EntityTagsOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityTags) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// A nested block that describes an entity tag. See Nested tag blocks below for details.
+func (o EntityTagsOutput) Tags() EntityTagsTagArrayOutput {
+	return o.ApplyT(func(v *EntityTags) EntityTagsTagArrayOutput { return v.Tags }).(EntityTagsTagArrayOutput)
+}
+
 type EntityTagsArrayOutput struct{ *pulumi.OutputState }
 
 func (EntityTagsArrayOutput) ElementType() reflect.Type {

@@ -253,6 +253,31 @@ func (o NrqlDropRuleOutput) ToNrqlDropRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Account where the drop rule will be put. Defaults to the account associated with the API key used.
+func (o NrqlDropRuleOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// An action type specifying how to apply the NRQL string (either `dropData`, `dropAttributes`, or `  dropAttributesFromMetricAggregates `).
+func (o NrqlDropRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+// The description of the drop rule.
+func (o NrqlDropRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A NRQL string that specifies what data types to drop.
+func (o NrqlDropRuleOutput) Nrql() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringOutput { return v.Nrql }).(pulumi.StringOutput)
+}
+
+// The id, uniquely identifying the rule.
+func (o NrqlDropRuleOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrqlDropRule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
+}
+
 type NrqlDropRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (NrqlDropRuleArrayOutput) ElementType() reflect.Type {

@@ -239,6 +239,26 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx co
 	return o
 }
 
+// The appex threshold for the New Relic application.
+func (o ApplicationSettingsOutput) AppApdexThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64Output { return v.AppApdexThreshold }).(pulumi.Float64Output)
+}
+
+// Enable or disable real user monitoring for the New Relic application.
+func (o ApplicationSettingsOutput) EnableRealUserMonitoring() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.BoolOutput { return v.EnableRealUserMonitoring }).(pulumi.BoolOutput)
+}
+
+// The user's apdex threshold for the New Relic application.
+func (o ApplicationSettingsOutput) EndUserApdexThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.Float64Output { return v.EndUserApdexThreshold }).(pulumi.Float64Output)
+}
+
+// The name of the application in New Relic APM.
+func (o ApplicationSettingsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type ApplicationSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsArrayOutput) ElementType() reflect.Type {
