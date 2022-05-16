@@ -276,6 +276,36 @@ func (o AlertMutingRuleOutput) ToAlertMutingRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// The account id of the MutingRule.
+func (o AlertMutingRuleOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertMutingRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// The condition that defines which violations to target. See Nested condition blocks below for details.
+func (o AlertMutingRuleOutput) Condition() AlertMutingRuleConditionOutput {
+	return o.ApplyT(func(v *AlertMutingRule) AlertMutingRuleConditionOutput { return v.Condition }).(AlertMutingRuleConditionOutput)
+}
+
+// The description of the MutingRule.
+func (o AlertMutingRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMutingRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the MutingRule is enabled.
+func (o AlertMutingRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AlertMutingRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The name of the MutingRule.
+func (o AlertMutingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertMutingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specify a schedule for enabling the MutingRule. See Schedule below for details
+func (o AlertMutingRuleOutput) Schedule() AlertMutingRuleSchedulePtrOutput {
+	return o.ApplyT(func(v *AlertMutingRule) AlertMutingRuleSchedulePtrOutput { return v.Schedule }).(AlertMutingRuleSchedulePtrOutput)
+}
+
 type AlertMutingRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertMutingRuleArrayOutput) ElementType() reflect.Type {

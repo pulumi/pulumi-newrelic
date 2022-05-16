@@ -88,18 +88,10 @@ import (
 // 					pulumi.String("resource_groups"),
 // 				},
 // 			},
-// 			EventHub: cloud.AzureIntegrationsEventHubArgs{
-// 				map[string]interface{}{
-// 					"metricsPollingInterval": 1200,
-// 					"resourceGroups": []string{
-// 						"resource_groups",
-// 					},
-// 				},
-// 				map[string]interface{}{
-// 					"metricsPollingInterval": 1200,
-// 					"resourceGroups": []string{
-// 						"resource_groups",
-// 					},
+// 			EventHub: &cloud.AzureIntegrationsEventHubArgs{
+// 				MetricsPollingInterval: pulumi.Int(1200),
+// 				ResourceGroups: pulumi.StringArray{
+// 					pulumi.String("resource_groups"),
 // 				},
 // 			},
 // 			ExpressRoute: &cloud.AzureIntegrationsExpressRouteArgs{
@@ -692,6 +684,161 @@ func (o AzureIntegrationsOutput) ToAzureIntegrationsOutput() AzureIntegrationsOu
 
 func (o AzureIntegrationsOutput) ToAzureIntegrationsOutputWithContext(ctx context.Context) AzureIntegrationsOutput {
 	return o
+}
+
+// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o AzureIntegrationsOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Azure API Management. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) ApiManagement() AzureIntegrationsApiManagementPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsApiManagementPtrOutput { return v.ApiManagement }).(AzureIntegrationsApiManagementPtrOutput)
+}
+
+// Azure App Gateway. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) AppGateway() AzureIntegrationsAppGatewayPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsAppGatewayPtrOutput { return v.AppGateway }).(AzureIntegrationsAppGatewayPtrOutput)
+}
+
+// Azure App Service. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) AppService() AzureIntegrationsAppServicePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsAppServicePtrOutput { return v.AppService }).(AzureIntegrationsAppServicePtrOutput)
+}
+
+// Azure Containers. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Containers() AzureIntegrationsContainersPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsContainersPtrOutput { return v.Containers }).(AzureIntegrationsContainersPtrOutput)
+}
+
+// Azure CosmosDB. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) CosmosDb() AzureIntegrationsCosmosDbPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsCosmosDbPtrOutput { return v.CosmosDb }).(AzureIntegrationsCosmosDbPtrOutput)
+}
+
+// Azure Cost Management. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) CostManagement() AzureIntegrationsCostManagementPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsCostManagementPtrOutput { return v.CostManagement }).(AzureIntegrationsCostManagementPtrOutput)
+}
+
+// for Azure Data Factory. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) DataFactory() AzureIntegrationsDataFactoryPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsDataFactoryPtrOutput { return v.DataFactory }).(AzureIntegrationsDataFactoryPtrOutput)
+}
+
+// for Azure Event Hub. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) EventHub() AzureIntegrationsEventHubPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsEventHubPtrOutput { return v.EventHub }).(AzureIntegrationsEventHubPtrOutput)
+}
+
+// for Azure Express Route. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) ExpressRoute() AzureIntegrationsExpressRoutePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsExpressRoutePtrOutput { return v.ExpressRoute }).(AzureIntegrationsExpressRoutePtrOutput)
+}
+
+// for Azure Firewalls. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Firewalls() AzureIntegrationsFirewallsPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsFirewallsPtrOutput { return v.Firewalls }).(AzureIntegrationsFirewallsPtrOutput)
+}
+
+// for Azure Front Door. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) FrontDoor() AzureIntegrationsFrontDoorPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsFrontDoorPtrOutput { return v.FrontDoor }).(AzureIntegrationsFrontDoorPtrOutput)
+}
+
+// for Azure Functions. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Functions() AzureIntegrationsFunctionsPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsFunctionsPtrOutput { return v.Functions }).(AzureIntegrationsFunctionsPtrOutput)
+}
+
+// for Azure Key Vault. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) KeyVault() AzureIntegrationsKeyVaultPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsKeyVaultPtrOutput { return v.KeyVault }).(AzureIntegrationsKeyVaultPtrOutput)
+}
+
+// The ID of the linked Azure account in New Relic.
+func (o AzureIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+}
+
+// for Azure Load Balancer. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) LoadBalancer() AzureIntegrationsLoadBalancerPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsLoadBalancerPtrOutput { return v.LoadBalancer }).(AzureIntegrationsLoadBalancerPtrOutput)
+}
+
+// for Azure Logic Apps. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) LogicApps() AzureIntegrationsLogicAppsPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsLogicAppsPtrOutput { return v.LogicApps }).(AzureIntegrationsLogicAppsPtrOutput)
+}
+
+// for Azure Machine Learning. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) MachineLearning() AzureIntegrationsMachineLearningPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMachineLearningPtrOutput { return v.MachineLearning }).(AzureIntegrationsMachineLearningPtrOutput)
+}
+
+// for Azure MariaDB. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) MariaDb() AzureIntegrationsMariaDbPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMariaDbPtrOutput { return v.MariaDb }).(AzureIntegrationsMariaDbPtrOutput)
+}
+
+// for Azure MySQL. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Mysql() AzureIntegrationsMysqlPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMysqlPtrOutput { return v.Mysql }).(AzureIntegrationsMysqlPtrOutput)
+}
+
+// for Azure PostgreSQL. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Postgresql() AzureIntegrationsPostgresqlPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsPostgresqlPtrOutput { return v.Postgresql }).(AzureIntegrationsPostgresqlPtrOutput)
+}
+
+// for Azure Power BI Dedicated. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) PowerBiDedicated() AzureIntegrationsPowerBiDedicatedPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsPowerBiDedicatedPtrOutput { return v.PowerBiDedicated }).(AzureIntegrationsPowerBiDedicatedPtrOutput)
+}
+
+// for Azure Redis Cache. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) RedisCache() AzureIntegrationsRedisCachePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsRedisCachePtrOutput { return v.RedisCache }).(AzureIntegrationsRedisCachePtrOutput)
+}
+
+// for Azure Service Bus. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) ServiceBus() AzureIntegrationsServiceBusPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsServiceBusPtrOutput { return v.ServiceBus }).(AzureIntegrationsServiceBusPtrOutput)
+}
+
+// for Azure SQL. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Sql() AzureIntegrationsSqlPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsSqlPtrOutput { return v.Sql }).(AzureIntegrationsSqlPtrOutput)
+}
+
+// for SQL Managed. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) SqlManaged() AzureIntegrationsSqlManagedPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsSqlManagedPtrOutput { return v.SqlManaged }).(AzureIntegrationsSqlManagedPtrOutput)
+}
+
+// for Azure Storage. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Storage() AzureIntegrationsStoragePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsStoragePtrOutput { return v.Storage }).(AzureIntegrationsStoragePtrOutput)
+}
+
+// for Azure Virtual machine. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) VirtualMachine() AzureIntegrationsVirtualMachinePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualMachinePtrOutput { return v.VirtualMachine }).(AzureIntegrationsVirtualMachinePtrOutput)
+}
+
+// The Azure virtual networks
+func (o AzureIntegrationsOutput) VirtualNetworks() AzureIntegrationsVirtualNetworksPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualNetworksPtrOutput { return v.VirtualNetworks }).(AzureIntegrationsVirtualNetworksPtrOutput)
+}
+
+// for Azure VMs. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) Vms() AzureIntegrationsVmsPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVmsPtrOutput { return v.Vms }).(AzureIntegrationsVmsPtrOutput)
+}
+
+// for Azure VPN Gateway. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) VpnGateway() AzureIntegrationsVpnGatewayPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVpnGatewayPtrOutput { return v.VpnGateway }).(AzureIntegrationsVpnGatewayPtrOutput)
 }
 
 type AzureIntegrationsArrayOutput struct{ *pulumi.OutputState }

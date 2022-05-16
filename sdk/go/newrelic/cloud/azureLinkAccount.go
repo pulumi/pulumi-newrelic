@@ -264,6 +264,36 @@ func (o AzureLinkAccountOutput) ToAzureLinkAccountOutputWithContext(ctx context.
 	return o
 }
 
+// - Account ID of the New Relic.
+func (o AzureLinkAccountOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// - Application ID of the App.
+func (o AzureLinkAccountOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// - Secret Value of the client.
+func (o AzureLinkAccountOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// - The name of the application in New Relic APM.
+func (o AzureLinkAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// - Subscription ID of the Azure cloud account.
+func (o AzureLinkAccountOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// - Tenant ID of the Azure cloud account.
+func (o AzureLinkAccountOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureLinkAccount) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
 type AzureLinkAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (AzureLinkAccountArrayOutput) ElementType() reflect.Type {

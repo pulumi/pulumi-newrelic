@@ -305,6 +305,26 @@ func (o AlertPolicyOutput) ToAlertPolicyOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o AlertPolicyOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+func (o AlertPolicyOutput) ChannelIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.IntArrayOutput { return v.ChannelIds }).(pulumi.IntArrayOutput)
+}
+
+// The rollup strategy for the policy.  Options include: `PER_POLICY`, `PER_CONDITION`, or `PER_CONDITION_AND_TARGET`.  The default is `PER_POLICY`.
+func (o AlertPolicyOutput) IncidentPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringPtrOutput { return v.IncidentPreference }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy.
+func (o AlertPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type AlertPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertPolicyArrayOutput) ElementType() reflect.Type {

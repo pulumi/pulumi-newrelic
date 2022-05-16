@@ -238,6 +238,31 @@ func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.
 	return o
 }
 
+// The time the secure credential was created.
+func (o SecureCredentialOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The secure credential's description.
+func (o SecureCredentialOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
+func (o SecureCredentialOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// The time the secure credential was last updated.
+func (o SecureCredentialOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+// The secure credential's value.
+func (o SecureCredentialOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 type SecureCredentialArrayOutput struct{ *pulumi.OutputState }
 
 func (SecureCredentialArrayOutput) ElementType() reflect.Type {

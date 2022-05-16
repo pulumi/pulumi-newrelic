@@ -226,6 +226,21 @@ func (o GcpLinkAccountOutput) ToGcpLinkAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
+// - Account ID of the New Relic account.
+func (o GcpLinkAccountOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *GcpLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// - The name of the GCP account in New Relic.
+func (o GcpLinkAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// - Project ID of the GCP account.
+func (o GcpLinkAccountOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
 type GcpLinkAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (GcpLinkAccountArrayOutput) ElementType() reflect.Type {

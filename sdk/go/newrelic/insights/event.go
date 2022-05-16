@@ -221,6 +221,11 @@ func (o EventOutput) ToEventOutputWithContext(ctx context.Context) EventOutput {
 	return o
 }
 
+// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
+func (o EventOutput) Events() EventEventArrayOutput {
+	return o.ApplyT(func(v *Event) EventEventArrayOutput { return v.Events }).(EventEventArrayOutput)
+}
+
 type EventArrayOutput struct{ *pulumi.OutputState }
 
 func (EventArrayOutput) ElementType() reflect.Type {

@@ -290,6 +290,41 @@ func (o OneDashboardRawOutput) ToOneDashboardRawOutputWithContext(ctx context.Co
 	return o
 }
 
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardRawOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Brief text describing the dashboard.
+func (o OneDashboardRawOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The unique entity identifier of the dashboard page in New Relic.
+func (o OneDashboardRawOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardRawOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A nested block that describes a page. See Nested page blocks below for details.
+func (o OneDashboardRawOutput) Pages() OneDashboardRawPageArrayOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) OneDashboardRawPageArrayOutput { return v.Pages }).(OneDashboardRawPageArrayOutput)
+}
+
+// The URL for viewing the dashboard.
+func (o OneDashboardRawOutput) Permalink() pulumi.StringOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) pulumi.StringOutput { return v.Permalink }).(pulumi.StringOutput)
+}
+
+// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`. Defaults to `publicReadOnly`.
+func (o OneDashboardRawOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardRaw) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
 type OneDashboardRawArrayOutput struct{ *pulumi.OutputState }
 
 func (OneDashboardRawArrayOutput) ElementType() reflect.Type {

@@ -245,6 +245,21 @@ func (o MonitorScriptOutput) ToMonitorScriptOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A nested block that describes a monitor script location. See Nested location blocks below for details
+func (o MonitorScriptOutput) Locations() MonitorScriptLocationArrayOutput {
+	return o.ApplyT(func(v *MonitorScript) MonitorScriptLocationArrayOutput { return v.Locations }).(MonitorScriptLocationArrayOutput)
+}
+
+// The ID of the monitor to attach the script to.
+func (o MonitorScriptOutput) MonitorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorScript) pulumi.StringOutput { return v.MonitorId }).(pulumi.StringOutput)
+}
+
+// The plaintext representing the monitor script.
+func (o MonitorScriptOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorScript) pulumi.StringOutput { return v.Text }).(pulumi.StringOutput)
+}
+
 type MonitorScriptArrayOutput struct{ *pulumi.OutputState }
 
 func (MonitorScriptArrayOutput) ElementType() reflect.Type {

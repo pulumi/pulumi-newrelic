@@ -360,6 +360,43 @@ func (o ServiceLevelOutput) ToServiceLevelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The description of the SLI.
+func (o ServiceLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The events that define the NRDB data for the SLI/SLO calculations.
+// See Events below for details.
+func (o ServiceLevelOutput) Events() ServiceLevelEventsOutput {
+	return o.ApplyT(func(v *ServiceLevel) ServiceLevelEventsOutput { return v.Events }).(ServiceLevelEventsOutput)
+}
+
+// The GUID of the entity (e.g, APM Service, Browser application, Workload, etc.) that you want to relate this SLI to. Note that changing the GUID will force a new resource.
+func (o ServiceLevelOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceLevel) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// A short name for the SLI that will help anyone understand what it is about.
+func (o ServiceLevelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceLevel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The objective of the SLI, only one can be defined.
+// See Objective below for details.
+func (o ServiceLevelOutput) Objective() ServiceLevelObjectiveOutput {
+	return o.ApplyT(func(v *ServiceLevel) ServiceLevelObjectiveOutput { return v.Objective }).(ServiceLevelObjectiveOutput)
+}
+
+// The unique entity identifier of the Service Level Indicator in New Relic.
+func (o ServiceLevelOutput) SliGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceLevel) pulumi.StringOutput { return v.SliGuid }).(pulumi.StringOutput)
+}
+
+// The unique entity identifier of the Service Level Indicator.
+func (o ServiceLevelOutput) SliId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceLevel) pulumi.StringOutput { return v.SliId }).(pulumi.StringOutput)
+}
+
 type ServiceLevelArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelArrayOutput) ElementType() reflect.Type {

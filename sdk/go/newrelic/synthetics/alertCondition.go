@@ -246,6 +246,31 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Set whether to enable the alert condition. Defaults to `true`.
+func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Synthetics monitor to be referenced in the alert condition.
+func (o AlertConditionOutput) MonitorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.MonitorId }).(pulumi.StringOutput)
+}
+
+// The title of this condition.
+func (o AlertConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the policy where this condition should be used.
+func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
+// Runbook URL to display in notifications.
+func (o AlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
 type AlertConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionArrayOutput) ElementType() reflect.Type {

@@ -251,6 +251,36 @@ func (o AwsGovcloudLinkAccountOutput) ToAwsGovcloudLinkAccountOutputWithContext(
 	return o
 }
 
+// The access key of the AwsGovCloud.
+func (o AwsGovcloudLinkAccountOutput) AccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.AccessKeyId }).(pulumi.StringOutput)
+}
+
+// The New Relic account ID to operate on. This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o AwsGovcloudLinkAccountOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// The AwsGovCloud account ID.
+func (o AwsGovcloudLinkAccountOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
+func (o AwsGovcloudLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringPtrOutput { return v.MetricCollectionMode }).(pulumi.StringPtrOutput)
+}
+
+// - The linked account name
+func (o AwsGovcloudLinkAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The secret key of the AwsGovCloud.
+func (o AwsGovcloudLinkAccountOutput) SecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
+}
+
 type AwsGovcloudLinkAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (AwsGovcloudLinkAccountArrayOutput) ElementType() reflect.Type {

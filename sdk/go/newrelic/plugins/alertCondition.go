@@ -282,6 +282,60 @@ func (o AlertConditionOutput) ToAlertConditionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Whether or not this condition is enabled.
+func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The plugin component IDs to target.
+func (o AlertConditionOutput) Entities() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.IntArrayOutput { return v.Entities }).(pulumi.IntArrayOutput)
+}
+
+// The plugin metric to evaluate.
+func (o AlertConditionOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Metric }).(pulumi.StringOutput)
+}
+
+// The metric description.
+func (o AlertConditionOutput) MetricDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.MetricDescription }).(pulumi.StringOutput)
+}
+
+// The title of the condition. Must be between 1 and 64 characters, inclusive.
+func (o AlertConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The GUID of the plugin which produces the metric.
+func (o AlertConditionOutput) PluginGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.PluginGuid }).(pulumi.StringOutput)
+}
+
+// The ID of the installed plugin instance which produces the metric.
+func (o AlertConditionOutput) PluginId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.PluginId }).(pulumi.StringOutput)
+}
+
+// The ID of the policy where this condition should be used.
+func (o AlertConditionOutput) PolicyId() pulumi.IntOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.IntOutput { return v.PolicyId }).(pulumi.IntOutput)
+}
+
+// Runbook URL to display in notifications.
+func (o AlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertConditionOutput) Terms() AlertConditionTermArrayOutput {
+	return o.ApplyT(func(v *AlertCondition) AlertConditionTermArrayOutput { return v.Terms }).(AlertConditionTermArrayOutput)
+}
+
+// The value function to apply to the metric data. One of `min`, `max`, `average`, `sample_size`, `total`, or `percent`.
+func (o AlertConditionOutput) ValueFunction() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.ValueFunction }).(pulumi.StringOutput)
+}
+
 type AlertConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertConditionArrayOutput) ElementType() reflect.Type {

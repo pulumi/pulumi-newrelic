@@ -306,6 +306,51 @@ func (o WorkloadOutput) ToWorkloadOutputWithContext(ctx context.Context) Workloa
 	return o
 }
 
+// The New Relic account ID where you want to create the workload.
+func (o WorkloadOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Workload) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// The composite query used to compose a dynamic workload.
+func (o WorkloadOutput) CompositeEntitySearchQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.CompositeEntitySearchQuery }).(pulumi.StringOutput)
+}
+
+// A list of entity GUIDs manually assigned to this workload.
+func (o WorkloadOutput) EntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringArrayOutput { return v.EntityGuids }).(pulumi.StringArrayOutput)
+}
+
+// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+func (o WorkloadOutput) EntitySearchQueries() WorkloadEntitySearchQueryArrayOutput {
+	return o.ApplyT(func(v *Workload) WorkloadEntitySearchQueryArrayOutput { return v.EntitySearchQueries }).(WorkloadEntitySearchQueryArrayOutput)
+}
+
+// The unique entity identifier of the workload in New Relic.
+func (o WorkloadOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
+}
+
+// The workload's name.
+func (o WorkloadOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URL of the workload.
+func (o WorkloadOutput) Permalink() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.Permalink }).(pulumi.StringOutput)
+}
+
+// A list of account IDs that will be used to get entities from.
+func (o WorkloadOutput) ScopeAccountIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *Workload) pulumi.IntArrayOutput { return v.ScopeAccountIds }).(pulumi.IntArrayOutput)
+}
+
+// The unique entity identifier of the workload.
+func (o WorkloadOutput) WorkloadId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Workload) pulumi.IntOutput { return v.WorkloadId }).(pulumi.IntOutput)
+}
+
 type WorkloadArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkloadArrayOutput) ElementType() reflect.Type {

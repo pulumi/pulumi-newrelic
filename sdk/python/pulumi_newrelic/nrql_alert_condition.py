@@ -495,6 +495,7 @@ class _NrqlAlertConditionState:
                  critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 entity_guid: Optional[pulumi.Input[str]] = None,
                  expected_groups: Optional[pulumi.Input[int]] = None,
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
@@ -525,6 +526,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
         :param pulumi.Input[int] expected_groups: Number of expected groups when using `outlier` detection.
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
@@ -566,6 +568,8 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if entity_guid is not None:
+            pulumi.set(__self__, "entity_guid", entity_guid)
         if expected_groups is not None:
             pulumi.set(__self__, "expected_groups", expected_groups)
         if expiration_duration is not None:
@@ -734,6 +738,18 @@ class _NrqlAlertConditionState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique entity identifier of the NRQL Condition in New Relic.
+        """
+        return pulumi.get(self, "entity_guid")
+
+    @entity_guid.setter
+    def entity_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_guid", value)
 
     @property
     @pulumi.getter(name="expectedGroups")
@@ -1008,9 +1024,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         The `term` block supports the following arguments:
 
-        - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
         - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-        - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+        - `threshold` - (Required) The value which will trigger a violation.
         <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
         <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
@@ -1163,7 +1179,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         ## Import
 
-        Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+        NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
 
         ```sh
          $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
@@ -1181,7 +1197,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
          $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
         ```
 
-         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
+         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1242,9 +1258,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         The `term` block supports the following arguments:
 
-        - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+        - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
         - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-        - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+        - `threshold` - (Required) The value which will trigger a violation.
         <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
         <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
@@ -1397,7 +1413,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
 
         ## Import
 
-        Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+        NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
 
         ```sh
          $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
@@ -1415,7 +1431,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
          $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
         ```
 
-         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. <small>alerts.newrelic.com/accounts/**\<account_id\>**/policies/**\<policy_id\>**/conditions/**\<condition_id\>**/edit</small>
+         Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
         :param str resource_name: The name of the resource.
         :param NrqlAlertConditionArgs args: The arguments to use to populate this resource's properties.
@@ -1516,6 +1532,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["violation_time_limit"] = violation_time_limit
             __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
             __props__.__dict__["warning"] = warning
+            __props__.__dict__["entity_guid"] = None
         super(NrqlAlertCondition, __self__).__init__(
             'newrelic:index/nrqlAlertCondition:NrqlAlertCondition',
             resource_name,
@@ -1536,6 +1553,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             critical: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            entity_guid: Optional[pulumi.Input[str]] = None,
             expected_groups: Optional[pulumi.Input[int]] = None,
             expiration_duration: Optional[pulumi.Input[int]] = None,
             fill_option: Optional[pulumi.Input[str]] = None,
@@ -1571,6 +1589,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
         :param pulumi.Input[int] expected_groups: Number of expected groups when using `outlier` detection.
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
@@ -1606,6 +1625,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["critical"] = critical
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["entity_guid"] = entity_guid
         __props__.__dict__["expected_groups"] = expected_groups
         __props__.__dict__["expiration_duration"] = expiration_duration
         __props__.__dict__["fill_option"] = fill_option
@@ -1705,6 +1725,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="entityGuid")
+    def entity_guid(self) -> pulumi.Output[str]:
+        """
+        The unique entity identifier of the NRQL Condition in New Relic.
+        """
+        return pulumi.get(self, "entity_guid")
 
     @property
     @pulumi.getter(name="expectedGroups")

@@ -546,6 +546,141 @@ func (o GcpIntegrationsOutput) ToGcpIntegrationsOutputWithContext(ctx context.Co
 	return o
 }
 
+// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+func (o GcpIntegrationsOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// App Engine integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) AppEngine() GcpIntegrationsAppEnginePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsAppEnginePtrOutput { return v.AppEngine }).(GcpIntegrationsAppEnginePtrOutput)
+}
+
+// Biq Query integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) BigQuery() GcpIntegrationsBigQueryPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsBigQueryPtrOutput { return v.BigQuery }).(GcpIntegrationsBigQueryPtrOutput)
+}
+
+// Big Table. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) BigTable() GcpIntegrationsBigTablePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsBigTablePtrOutput { return v.BigTable }).(GcpIntegrationsBigTablePtrOutput)
+}
+
+// Composer integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Composer() GcpIntegrationsComposerPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsComposerPtrOutput { return v.Composer }).(GcpIntegrationsComposerPtrOutput)
+}
+
+// Data Flow integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) DataFlow() GcpIntegrationsDataFlowPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsDataFlowPtrOutput { return v.DataFlow }).(GcpIntegrationsDataFlowPtrOutput)
+}
+
+// Data Proc integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) DataProc() GcpIntegrationsDataProcPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsDataProcPtrOutput { return v.DataProc }).(GcpIntegrationsDataProcPtrOutput)
+}
+
+// Data Store integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) DataStore() GcpIntegrationsDataStorePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsDataStorePtrOutput { return v.DataStore }).(GcpIntegrationsDataStorePtrOutput)
+}
+
+// Fire Base Database integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) FireBaseDatabase() GcpIntegrationsFireBaseDatabasePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsFireBaseDatabasePtrOutput { return v.FireBaseDatabase }).(GcpIntegrationsFireBaseDatabasePtrOutput)
+}
+
+// Fire Base Hosting integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) FireBaseHosting() GcpIntegrationsFireBaseHostingPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsFireBaseHostingPtrOutput { return v.FireBaseHosting }).(GcpIntegrationsFireBaseHostingPtrOutput)
+}
+
+// Fire Base Storage integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) FireBaseStorage() GcpIntegrationsFireBaseStoragePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsFireBaseStoragePtrOutput { return v.FireBaseStorage }).(GcpIntegrationsFireBaseStoragePtrOutput)
+}
+
+// Fire Store integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) FireStore() GcpIntegrationsFireStorePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsFireStorePtrOutput { return v.FireStore }).(GcpIntegrationsFireStorePtrOutput)
+}
+
+// Functions integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Functions() GcpIntegrationsFunctionsPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsFunctionsPtrOutput { return v.Functions }).(GcpIntegrationsFunctionsPtrOutput)
+}
+
+// Interconnect integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Interconnect() GcpIntegrationsInterconnectPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsInterconnectPtrOutput { return v.Interconnect }).(GcpIntegrationsInterconnectPtrOutput)
+}
+
+// Kubernetes integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Kubernetes() GcpIntegrationsKubernetesPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsKubernetesPtrOutput { return v.Kubernetes }).(GcpIntegrationsKubernetesPtrOutput)
+}
+
+// The ID of the linked GCP account in New Relic.
+func (o GcpIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+}
+
+// GCP big table service
+func (o GcpIntegrationsOutput) LoadBalancing() GcpIntegrationsLoadBalancingPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsLoadBalancingPtrOutput { return v.LoadBalancing }).(GcpIntegrationsLoadBalancingPtrOutput)
+}
+
+// Mem cache integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) MemCache() GcpIntegrationsMemCachePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsMemCachePtrOutput { return v.MemCache }).(GcpIntegrationsMemCachePtrOutput)
+}
+
+// Pub/Sub integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) PubSub() GcpIntegrationsPubSubPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsPubSubPtrOutput { return v.PubSub }).(GcpIntegrationsPubSubPtrOutput)
+}
+
+// Redis integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Redis() GcpIntegrationsRedisPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsRedisPtrOutput { return v.Redis }).(GcpIntegrationsRedisPtrOutput)
+}
+
+// Router integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Router() GcpIntegrationsRouterPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsRouterPtrOutput { return v.Router }).(GcpIntegrationsRouterPtrOutput)
+}
+
+// Run integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Run() GcpIntegrationsRunPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsRunPtrOutput { return v.Run }).(GcpIntegrationsRunPtrOutput)
+}
+
+// Spanner integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Spanner() GcpIntegrationsSpannerPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsSpannerPtrOutput { return v.Spanner }).(GcpIntegrationsSpannerPtrOutput)
+}
+
+// SQL integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Sql() GcpIntegrationsSqlPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsSqlPtrOutput { return v.Sql }).(GcpIntegrationsSqlPtrOutput)
+}
+
+// Storage integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) Storage() GcpIntegrationsStoragePtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsStoragePtrOutput { return v.Storage }).(GcpIntegrationsStoragePtrOutput)
+}
+
+// Virtual machines integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) VirtualMachines() GcpIntegrationsVirtualMachinesPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsVirtualMachinesPtrOutput { return v.VirtualMachines }).(GcpIntegrationsVirtualMachinesPtrOutput)
+}
+
+// VPC Access integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) VpcAccess() GcpIntegrationsVpcAccessPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsVpcAccessPtrOutput { return v.VpcAccess }).(GcpIntegrationsVpcAccessPtrOutput)
+}
+
 type GcpIntegrationsArrayOutput struct{ *pulumi.OutputState }
 
 func (GcpIntegrationsArrayOutput) ElementType() reflect.Type {

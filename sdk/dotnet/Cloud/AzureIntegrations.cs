@@ -98,23 +98,12 @@ namespace Pulumi.NewRelic.Cloud
     ///                     "resource_groups",
     ///                 },
     ///             },
-    ///             EventHub = 
+    ///             EventHub = new NewRelic.Cloud.Inputs.AzureIntegrationsEventHubArgs
     ///             {
-    ///                 
+    ///                 MetricsPollingInterval = 1200,
+    ///                 ResourceGroups = 
     ///                 {
-    ///                     { "metricsPollingInterval", 1200 },
-    ///                     { "resourceGroups", 
-    ///                     {
-    ///                         "resource_groups",
-    ///                     } },
-    ///                 },
-    ///                 
-    ///                 {
-    ///                     { "metricsPollingInterval", 1200 },
-    ///                     { "resourceGroups", 
-    ///                     {
-    ///                         "resource_groups",
-    ///                     } },
+    ///                     "resource_groups",
     ///                 },
     ///             },
     ///             ExpressRoute = new NewRelic.Cloud.Inputs.AzureIntegrationsExpressRouteArgs

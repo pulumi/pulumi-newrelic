@@ -29,9 +29,9 @@ namespace Pulumi.NewRelic
     /// 
     /// The `term` block supports the following arguments:
     /// 
-    /// - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+    /// - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
     /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-    /// - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+    /// - `threshold` - (Required) The value which will trigger a violation.
     /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
     /// - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
     /// &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
@@ -239,7 +239,7 @@ namespace Pulumi.NewRelic
     /// 
     /// ## Import
     /// 
-    /// Alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;:&lt;conditionType&gt;`, e.g. // For `baseline` conditions
+    /// NRQL alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;:&lt;conditionType&gt;`, e.g. // For `baseline` conditions
     /// 
     /// ```sh
     ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
@@ -257,7 +257,7 @@ namespace Pulumi.NewRelic
     ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
     /// ```
     /// 
-    ///  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. &lt;small&gt;alerts.newrelic.com/accounts/**\&lt;account_id\&gt;**/policies/**\&lt;policy_id\&gt;**/conditions/**\&lt;condition_id\&gt;**/edit&lt;/small&gt;
+    ///  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]
     public partial class NrqlAlertCondition : Pulumi.CustomResource
@@ -321,6 +321,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique entity identifier of the NRQL Condition in New Relic.
+        /// </summary>
+        [Output("entityGuid")]
+        public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
         /// Number of expected groups when using `outlier` detection.
@@ -721,6 +727,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The unique entity identifier of the NRQL Condition in New Relic.
+        /// </summary>
+        [Input("entityGuid")]
+        public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
         /// Number of expected groups when using `outlier` detection.

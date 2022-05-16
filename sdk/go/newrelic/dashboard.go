@@ -237,6 +237,47 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+// The URL for viewing the dashboard.
+func (o DashboardOutput) DashboardUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardUrl }).(pulumi.StringOutput)
+}
+
+// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
+// read_only. Defaults to editable_by_all.
+func (o DashboardOutput) Editable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Editable }).(pulumi.StringPtrOutput)
+}
+
+// A nested block that describes a dashboard filter. Exactly one nested filter block is allowed.
+func (o DashboardOutput) Filter() DashboardFilterPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardFilterPtrOutput { return v.Filter }).(DashboardFilterPtrOutput)
+}
+
+// New Relic One supports a 3 column grid or a 12 column grid. New Relic Insights supports a 3 column grid.
+func (o DashboardOutput) GridColumnCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.IntPtrOutput { return v.GridColumnCount }).(pulumi.IntPtrOutput)
+}
+
+// The icon for the dashboard.
+func (o DashboardOutput) Icon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Icon }).(pulumi.StringPtrOutput)
+}
+
+// The title of the dashboard.
+func (o DashboardOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// Determines who can see the dashboard in an account. Valid values are all or owner. Defaults to all.
+func (o DashboardOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
+// A nested block that describes a visualization. Up to 300 widget blocks are allowed in a dashboard definition.
+func (o DashboardOutput) Widgets() DashboardWidgetArrayOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardWidgetArrayOutput { return v.Widgets }).(DashboardWidgetArrayOutput)
+}
+
 type DashboardArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardArrayOutput) ElementType() reflect.Type {

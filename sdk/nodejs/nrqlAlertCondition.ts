@@ -25,9 +25,9 @@ import * as utilities from "./utilities";
  *
  * The `term` block supports the following arguments:
  *
- * - `operator` - (Optional) Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+ * - `operator` - (Optional) Valid values are `above`, `aboveOrEquals`, `below`, `belowOrEquals`, `equals`, or `notEquals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
  * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
- * - `threshold` - (Required) The value which will trigger a violation. Must be `0` or greater.
+ * - `threshold` - (Required) The value which will trigger a violation.
  * <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
  * - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
  * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
@@ -184,7 +184,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
+ * NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
  *
  * ```sh
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
@@ -202,7 +202,7 @@ import * as utilities from "./utilities";
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
  * ```
  *
- *  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition. <small>alerts.newrelic.com/accounts/**\<account_id\>**&#47;policies/**\<policy_id\>**&#47;conditions/**\<condition_id\>**&#47;edit</small>
+ *  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
@@ -272,6 +272,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The unique entity identifier of the NRQL Condition in New Relic.
+     */
+    public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
      * Number of expected groups when using `outlier` detection.
      */
@@ -378,6 +382,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["critical"] = state ? state.critical : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
             resourceInputs["expectedGroups"] = state ? state.expectedGroups : undefined;
             resourceInputs["expirationDuration"] = state ? state.expirationDuration : undefined;
             resourceInputs["fillOption"] = state ? state.fillOption : undefined;
@@ -432,6 +437,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["violationTimeLimit"] = args ? args.violationTimeLimit : undefined;
             resourceInputs["violationTimeLimitSeconds"] = args ? args.violationTimeLimitSeconds : undefined;
             resourceInputs["warning"] = args ? args.warning : undefined;
+            resourceInputs["entityGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NrqlAlertCondition.__pulumiType, name, resourceInputs, opts);
@@ -482,6 +488,10 @@ export interface NrqlAlertConditionState {
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The unique entity identifier of the NRQL Condition in New Relic.
+     */
+    entityGuid?: pulumi.Input<string>;
     /**
      * Number of expected groups when using `outlier` detection.
      */

@@ -404,6 +404,61 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 	return o
 }
 
+// Bypass HEAD request.
+func (o MonitorOutput) BypassHeadRequest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.BypassHeadRequest }).(pulumi.BoolPtrOutput)
+}
+
+// The interval (in minutes) at which this monitor should run.
+func (o MonitorOutput) Frequency() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.Frequency }).(pulumi.IntOutput)
+}
+
+// The locations in which this monitor should be run.
+func (o MonitorOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// The title of this monitor.
+func (o MonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The base threshold for the SLA report.
+func (o MonitorOutput) SlaThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.Float64PtrOutput { return v.SlaThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+func (o MonitorOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Fail the monitor check if redirected.
+func (o MonitorOutput) TreatRedirectAsFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.TreatRedirectAsFailure }).(pulumi.BoolPtrOutput)
+}
+
+// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+func (o MonitorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI for the monitor to hit.
+func (o MonitorOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// The string to validate against in the response.
+func (o MonitorOutput) ValidationString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ValidationString }).(pulumi.StringPtrOutput)
+}
+
+// Verify SSL.
+func (o MonitorOutput) VerifySsl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.VerifySsl }).(pulumi.BoolPtrOutput)
+}
+
 type MonitorArrayOutput struct{ *pulumi.OutputState }
 
 func (MonitorArrayOutput) ElementType() reflect.Type {

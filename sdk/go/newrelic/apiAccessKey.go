@@ -267,6 +267,41 @@ func (o ApiAccessKeyOutput) ToApiAccessKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The New Relic account ID of the account you wish to create the API access key.
+func (o ApiAccessKeyOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Required if `keyType = INGEST`. Valid options are `BROWSER` or `LICENSE`, case-sensitive.
+func (o ApiAccessKeyOutput) IngestType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.IngestType }).(pulumi.StringOutput)
+}
+
+// The actual API key. This attribute is masked and not be visible in your terminal, CI, etc.
+func (o ApiAccessKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// What type of API key to create. Valid options are `INGEST` or `USER`, case-sensitive.
+func (o ApiAccessKeyOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
+}
+
+// The name of the key.
+func (o ApiAccessKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Any notes about this ingest key.
+func (o ApiAccessKeyOutput) Notes() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
+}
+
+// Required if `keyType = USER`. The New Relic user ID yous wish to create the API access key for in an account.
+func (o ApiAccessKeyOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v *ApiAccessKey) pulumi.IntOutput { return v.UserId }).(pulumi.IntOutput)
+}
+
 type ApiAccessKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ApiAccessKeyArrayOutput) ElementType() reflect.Type {
