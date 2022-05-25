@@ -6,65 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to integrate AWS services with New Relic.
- *
- * ## Prerequisite
- *
- * Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
- *
- * New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
- *
- * Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
- *
- * ## Example Usage
- *
- * Leave an integration block empty to use its default configuration.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.cloud.AwsLinkAccount("foo", {
- *     arn: aws_iam_role.newrelic_aws_role.arn,
- *     metricCollectionMode: "PULL",
- * });
- * const bar = new newrelic.cloud.AwsIntegrations("bar", {
- *     linkedAccountId: foo.id,
- *     billing: {},
- *     cloudtrail: {
- *         metricsPollingInterval: 6000,
- *         awsRegions: [
- *             "region-1",
- *             "region-2",
- *         ],
- *     },
- *     health: {
- *         metricsPollingInterval: 6000,
- *     },
- *     trustedAdvisor: {
- *         metricsPollingInterval: 6000,
- *     },
- *     vpc: {
- *         metricsPollingInterval: 6000,
- *         awsRegions: [
- *             "region-1",
- *             "region-2",
- *         ],
- *         fetchNatGateway: true,
- *         fetchVpn: false,
- *         tagKey: "tag key",
- *         tagValue: "tag value",
- *     },
- *     xRay: {
- *         metricsPollingInterval: 6000,
- *         awsRegions: [
- *             "region-1",
- *             "region-2",
- *         ],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Linked AWS account integrations can be imported using the `id`, e.g. bash

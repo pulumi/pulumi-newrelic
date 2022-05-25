@@ -164,27 +164,6 @@ class AwsLinkAccount(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Use this resource to link an AWS account to New Relic.
-
-        ## Prerequisite
-
-        Setup is required in AWS for this resource to work properly. The New Relic AWS integration can be set up to pull metrics from AWS services or AWS can push metrics to New Relic using CloudWatch Metric Streams.
-
-        Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream.
-
-        To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn="arn:aws:service:region:account-id:resource-id",
-            metric_collection_mode="PUSH")
-        ```
-
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g. bash
@@ -207,27 +186,6 @@ class AwsLinkAccount(pulumi.CustomResource):
                  args: AwsLinkAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to link an AWS account to New Relic.
-
-        ## Prerequisite
-
-        Setup is required in AWS for this resource to work properly. The New Relic AWS integration can be set up to pull metrics from AWS services or AWS can push metrics to New Relic using CloudWatch Metric Streams.
-
-        Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream.
-
-        To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn="arn:aws:service:region:account-id:resource-id",
-            metric_collection_mode="PUSH")
-        ```
-
         ## Import
 
         Linked AWS accounts can be imported using the `id`, e.g. bash

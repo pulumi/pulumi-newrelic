@@ -25,12 +25,12 @@ import * as utilities from "./utilities";
  *
  * The `term` block supports the following arguments:
  *
- * - `operator` - (Optional) Valid values are `above`, `aboveOrEquals`, `below`, `belowOrEquals`, `equals`, or `notEquals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
+ * - `operator` - (Optional) Valid values are `above`, `aboveOrEquals`, `below`, `belowOrEquals`, `equals`, or `notEquals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
  * - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
  * - `threshold` - (Required) The value which will trigger a violation.
  * <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
  * - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
- * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
+ * <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
  * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
  * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
  *
@@ -85,45 +85,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### Type: `outlier`
- *
- * In software development and operations, it is common to have a group consisting of members you expect to behave approximately the same. [Outlier detection](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/outlier-detection-nrql-alert) facilitates alerting when the behavior of one or more common members falls outside a specified range expectation.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooNrqlAlertCondition = new newrelic.NrqlAlertCondition("fooNrqlAlertCondition", {
- *     type: "outlier",
- *     accountId: "your_account_id",
- *     policyId: fooAlertPolicy.id,
- *     description: "Alert when outlier conditions occur",
- *     enabled: true,
- *     runbookUrl: "https://www.example.com",
- *     violationTimeLimitSeconds: 3600,
- *     aggregationMethod: "event_flow",
- *     aggregationDelay: "120",
- *     expectedGroups: 2,
- *     openViolationOnGroupOverlap: true,
- *     nrql: {
- *         query: "SELECT percentile(duration, 95) FROM Transaction WHERE appName = 'ExampleAppName' FACET host",
- *     },
- *     critical: {
- *         operator: "above",
- *         threshold: 0.002,
- *         thresholdDuration: 600,
- *         thresholdOccurrences: "all",
- *     },
- *     warning: {
- *         operator: "above",
- *         threshold: 0.0015,
- *         thresholdDuration: 600,
- *         thresholdOccurrences: "all",
- *     },
- * });
- * ```
- *
+ * <<<<<<< HEAD
  * ## Upgrade from 1.x to 2.x
  *
  * There have been several deprecations in the `newrelic.NrqlAlertCondition`
@@ -196,13 +158,7 @@ import * as utilities from "./utilities";
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
  *
- *  // For `outlier` conditions
- *
- * ```sh
- *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:outlier
- * ```
- *
- *  Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
+ *  <<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
@@ -277,10 +233,6 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * Number of expected groups when using `outlier` detection.
-     */
-    public readonly expectedGroups!: pulumi.Output<number | undefined>;
-    /**
      * The amount of time (in seconds) to wait before considering the signal expired.
      */
     public readonly expirationDuration!: pulumi.Output<number | undefined>;
@@ -292,12 +244,6 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      * This value will be used for filling gaps in the signal.
      */
     public readonly fillValue!: pulumi.Output<number | undefined>;
-    /**
-     * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
-     *
-     * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
-     */
-    public readonly ignoreOverlap!: pulumi.Output<boolean | undefined>;
     /**
      * The title of the condition.
      */
@@ -311,10 +257,6 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly openViolationOnExpiration!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
-     */
-    public readonly openViolationOnGroupOverlap!: pulumi.Output<boolean | undefined>;
-    /**
      * The ID of the policy where this condition should be used.
      */
     public readonly policyId!: pulumi.Output<number>;
@@ -323,7 +265,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly runbookUrl!: pulumi.Output<string | undefined>;
     /**
-     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
      */
     public readonly slideBy!: pulumi.Output<number | undefined>;
     /**
@@ -383,15 +325,12 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
-            resourceInputs["expectedGroups"] = state ? state.expectedGroups : undefined;
             resourceInputs["expirationDuration"] = state ? state.expirationDuration : undefined;
             resourceInputs["fillOption"] = state ? state.fillOption : undefined;
             resourceInputs["fillValue"] = state ? state.fillValue : undefined;
-            resourceInputs["ignoreOverlap"] = state ? state.ignoreOverlap : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nrql"] = state ? state.nrql : undefined;
             resourceInputs["openViolationOnExpiration"] = state ? state.openViolationOnExpiration : undefined;
-            resourceInputs["openViolationOnGroupOverlap"] = state ? state.openViolationOnGroupOverlap : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["runbookUrl"] = state ? state.runbookUrl : undefined;
             resourceInputs["slideBy"] = state ? state.slideBy : undefined;
@@ -419,15 +358,12 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["critical"] = args ? args.critical : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expectedGroups"] = args ? args.expectedGroups : undefined;
             resourceInputs["expirationDuration"] = args ? args.expirationDuration : undefined;
             resourceInputs["fillOption"] = args ? args.fillOption : undefined;
             resourceInputs["fillValue"] = args ? args.fillValue : undefined;
-            resourceInputs["ignoreOverlap"] = args ? args.ignoreOverlap : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nrql"] = args ? args.nrql : undefined;
             resourceInputs["openViolationOnExpiration"] = args ? args.openViolationOnExpiration : undefined;
-            resourceInputs["openViolationOnGroupOverlap"] = args ? args.openViolationOnGroupOverlap : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["runbookUrl"] = args ? args.runbookUrl : undefined;
             resourceInputs["slideBy"] = args ? args.slideBy : undefined;
@@ -493,10 +429,6 @@ export interface NrqlAlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * Number of expected groups when using `outlier` detection.
-     */
-    expectedGroups?: pulumi.Input<number>;
-    /**
      * The amount of time (in seconds) to wait before considering the signal expired.
      */
     expirationDuration?: pulumi.Input<number>;
@@ -508,12 +440,6 @@ export interface NrqlAlertConditionState {
      * This value will be used for filling gaps in the signal.
      */
     fillValue?: pulumi.Input<number>;
-    /**
-     * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
-     *
-     * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
-     */
-    ignoreOverlap?: pulumi.Input<boolean>;
     /**
      * The title of the condition.
      */
@@ -527,10 +453,6 @@ export interface NrqlAlertConditionState {
      */
     openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
-     * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
-     */
-    openViolationOnGroupOverlap?: pulumi.Input<boolean>;
-    /**
      * The ID of the policy where this condition should be used.
      */
     policyId?: pulumi.Input<number>;
@@ -539,7 +461,7 @@ export interface NrqlAlertConditionState {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
      */
     slideBy?: pulumi.Input<number>;
     /**
@@ -621,10 +543,6 @@ export interface NrqlAlertConditionArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Number of expected groups when using `outlier` detection.
-     */
-    expectedGroups?: pulumi.Input<number>;
-    /**
      * The amount of time (in seconds) to wait before considering the signal expired.
      */
     expirationDuration?: pulumi.Input<number>;
@@ -636,12 +554,6 @@ export interface NrqlAlertConditionArgs {
      * This value will be used for filling gaps in the signal.
      */
     fillValue?: pulumi.Input<number>;
-    /**
-     * **DEPRECATED:** Use `openViolationOnGroupOverlap` instead, but use the inverse value of your boolean - e.g. if `ignoreOverlap = false`, use `openViolationOnGroupOverlap = true`. This argument sets whether to trigger a violation when groups overlap. If set to `true` overlapping groups will not trigger a violation. This argument is only applicable in `outlier` conditions.
-     *
-     * @deprecated use `open_violation_on_group_overlap` attribute instead, but use the inverse of your boolean - e.g. if ignore_overlap = false, use open_violation_on_group_overlap = true
-     */
-    ignoreOverlap?: pulumi.Input<boolean>;
     /**
      * The title of the condition.
      */
@@ -655,10 +567,6 @@ export interface NrqlAlertConditionArgs {
      */
     openViolationOnExpiration?: pulumi.Input<boolean>;
     /**
-     * Whether or not to trigger a violation when groups overlap. Set to `true` if you want to trigger a violation when groups overlap. This argument is only applicable in `outlier` conditions.
-     */
-    openViolationOnGroupOverlap?: pulumi.Input<boolean>;
-    /**
      * The ID of the policy where this condition should be used.
      */
     policyId: pulumi.Input<number>;
@@ -667,7 +575,7 @@ export interface NrqlAlertConditionArgs {
      */
     runbookUrl?: pulumi.Input<string>;
     /**
-     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `outlier` NRQL conditions or `static` NRQL conditions using the `sum` `valueFunction`.
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
      */
     slideBy?: pulumi.Input<number>;
     /**
