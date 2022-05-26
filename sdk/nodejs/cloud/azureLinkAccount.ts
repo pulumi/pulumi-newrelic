@@ -5,31 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to link an Azure account to New Relic.
- *
- * ## Prerequisite
- *
- * Some configuration is required in Azure for the New Relic Azure cloud integrations to be able to pull data.
- *
- * To start receiving Azure data with New Relic Azure integrations, connect your Azure account to New Relic infrastructure monitoring. If you don't have one already, create a New Relic account. It's free, forever.
- *
- * Setup is required in Azure for this resource to work properly. You can find instructions on how to set up Azure on [our documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/activate-azure-integrations/).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.cloud.AzureLinkAccount("foo", {
- *     accountId: Number.parseFloat("The New Relic account ID where you want to link the Azure account"),
- *     applicationId: "ID of the application",
- *     clientSecret: "Secret value of client's Azure account",
- *     subscriptionId: "Subscription ID of Azure",
- *     tenantId: "Tenant ID of the Azure",
- * });
- * ```
- *
  * ## Import
  *
  * Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash

@@ -10,36 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud
 {
     /// <summary>
-    /// Use this resource to link an AWS account to New Relic.
-    /// 
-    /// ## Prerequisite
-    /// 
-    /// Setup is required in AWS for this resource to work properly. The New Relic AWS integration can be set up to pull metrics from AWS services or AWS can push metrics to New Relic using CloudWatch Metric Streams.
-    /// 
-    /// Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream.
-    /// 
-    /// To pull data from AWS instead, complete the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/get-started/connect-aws-new-relic-infrastructure-monitoring#connect).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo = new NewRelic.Cloud.AwsLinkAccount("foo", new NewRelic.Cloud.AwsLinkAccountArgs
-    ///         {
-    ///             Arn = "arn:aws:service:region:account-id:resource-id",
-    ///             MetricCollectionMode = "PUSH",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Linked AWS accounts can be imported using the `id`, e.g. bash

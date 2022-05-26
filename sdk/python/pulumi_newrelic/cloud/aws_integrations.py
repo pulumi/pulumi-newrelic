@@ -298,63 +298,6 @@ class AwsIntegrations(pulumi.CustomResource):
                  x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
                  __props__=None):
         """
-        Use this resource to integrate AWS services with New Relic.
-
-        ## Prerequisite
-
-        Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
-
-        New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
-
-        Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
-
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn=aws_iam_role["newrelic_aws_role"]["arn"],
-            metric_collection_mode="PULL")
-        bar = newrelic.cloud.AwsIntegrations("bar",
-            linked_account_id=foo.id,
-            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
-            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "region-1",
-                    "region-2",
-                ],
-            ),
-            health=newrelic.cloud.AwsIntegrationsHealthArgs(
-                metrics_polling_interval=6000,
-            ),
-            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
-                metrics_polling_interval=6000,
-            ),
-            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "region-1",
-                    "region-2",
-                ],
-                fetch_nat_gateway=True,
-                fetch_vpn=False,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "region-1",
-                    "region-2",
-                ],
-            ))
-        ```
-
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
@@ -381,63 +324,6 @@ class AwsIntegrations(pulumi.CustomResource):
                  args: AwsIntegrationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to integrate AWS services with New Relic.
-
-        ## Prerequisite
-
-        Setup is required for this resource to work properly. This resource assumes you have linked an AWS account to New Relic and configured it to push metrics using CloudWatch Metric Streams.
-
-        New Relic doesn't automatically receive metrics from AWS for some services so this resource can be used to configure integrations to those services.
-
-        Using a metric stream to New Relic is the preferred way to integrate with AWS. Follow the [steps outlined here](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-metric-stream/#set-up-metric-stream) to set up a metric stream. This resource supports any integration that's not available through AWS metric stream.
-
-        ## Example Usage
-
-        Leave an integration block empty to use its default configuration.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.cloud.AwsLinkAccount("foo",
-            arn=aws_iam_role["newrelic_aws_role"]["arn"],
-            metric_collection_mode="PULL")
-        bar = newrelic.cloud.AwsIntegrations("bar",
-            linked_account_id=foo.id,
-            billing=newrelic.cloud.AwsIntegrationsBillingArgs(),
-            cloudtrail=newrelic.cloud.AwsIntegrationsCloudtrailArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "region-1",
-                    "region-2",
-                ],
-            ),
-            health=newrelic.cloud.AwsIntegrationsHealthArgs(
-                metrics_polling_interval=6000,
-            ),
-            trusted_advisor=newrelic.cloud.AwsIntegrationsTrustedAdvisorArgs(
-                metrics_polling_interval=6000,
-            ),
-            vpc=newrelic.cloud.AwsIntegrationsVpcArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "region-1",
-                    "region-2",
-                ],
-                fetch_nat_gateway=True,
-                fetch_vpn=False,
-                tag_key="tag key",
-                tag_value="tag value",
-            ),
-            x_ray=newrelic.cloud.AwsIntegrationsXRayArgs(
-                metrics_polling_interval=6000,
-                aws_regions=[
-                    "region-1",
-                    "region-2",
-                ],
-            ))
-        ```
-
         ## Import
 
         Linked AWS account integrations can be imported using the `id`, e.g. bash
