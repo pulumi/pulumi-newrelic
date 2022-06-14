@@ -23,6 +23,10 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
+        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        /// </summary>
+        public readonly bool? IgnoreTimeRange;
+        /// <summary>
         /// (Required) Visualization limit for the widget.
         /// * `widget_funnel`
         /// </summary>
@@ -54,6 +58,8 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
+            bool? ignoreTimeRange,
+
             double limit,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetBulletNrqlQuery> nrqlQueries,
@@ -67,6 +73,7 @@ namespace Pulumi.NewRelic.Outputs
             Column = column;
             Height = height;
             Id = id;
+            IgnoreTimeRange = ignoreTimeRange;
             Limit = limit;
             NrqlQueries = nrqlQueries;
             Row = row;
