@@ -441,6 +441,10 @@ export interface OneDashboardPageWidgetArea {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -482,6 +486,10 @@ export interface OneDashboardPageWidgetBar {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -529,6 +537,10 @@ export interface OneDashboardPageWidgetBillboard {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -574,6 +586,10 @@ export interface OneDashboardPageWidgetBullet {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
     /**
      * (Required) Visualization limit for the widget.
      * * `widgetFunnel`
@@ -621,6 +637,10 @@ export interface OneDashboardPageWidgetFunnel {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -661,6 +681,10 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -703,6 +727,10 @@ export interface OneDashboardPageWidgetHistogram {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -743,6 +771,10 @@ export interface OneDashboardPageWidgetJson {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -785,6 +817,10 @@ export interface OneDashboardPageWidgetLine {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -826,6 +862,10 @@ export interface OneDashboardPageWidgetMarkdown {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
     row: pulumi.Input<number>;
@@ -855,6 +895,10 @@ export interface OneDashboardPageWidgetPy {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -898,6 +942,10 @@ export interface OneDashboardPageWidgetStackedBar {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -939,6 +987,10 @@ export interface OneDashboardPageWidgetTable {
      */
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.

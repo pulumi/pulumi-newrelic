@@ -30,6 +30,12 @@ namespace Pulumi.NewRelic.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        /// </summary>
+        [Input("ignoreTimeRange")]
+        public Input<bool>? IgnoreTimeRange { get; set; }
+
         [Input("linkedEntityGuids")]
         private InputList<string>? _linkedEntityGuids;
         public InputList<string> LinkedEntityGuids

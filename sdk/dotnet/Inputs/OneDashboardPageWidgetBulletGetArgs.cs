@@ -28,6 +28,12 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        /// </summary>
+        [Input("ignoreTimeRange")]
+        public Input<bool>? IgnoreTimeRange { get; set; }
+
+        /// <summary>
         /// (Required) Visualization limit for the widget.
         /// * `widget_funnel`
         /// </summary>

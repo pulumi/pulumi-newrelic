@@ -23,6 +23,10 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
+        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        /// </summary>
+        public readonly bool? IgnoreTimeRange;
+        /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>
         public readonly int Row;
@@ -48,6 +52,8 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
+            bool? ignoreTimeRange,
+
             int row,
 
             string? text,
@@ -59,6 +65,7 @@ namespace Pulumi.NewRelic.Outputs
             Column = column;
             Height = height;
             Id = id;
+            IgnoreTimeRange = ignoreTimeRange;
             Row = row;
             Text = text;
             Title = title;

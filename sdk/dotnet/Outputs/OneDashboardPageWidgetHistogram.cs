@@ -23,6 +23,10 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
+        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        /// </summary>
+        public readonly bool? IgnoreTimeRange;
+        /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
@@ -49,6 +53,8 @@ namespace Pulumi.NewRelic.Outputs
 
             string? id,
 
+            bool? ignoreTimeRange,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetHistogramNrqlQuery> nrqlQueries,
 
             int row,
@@ -60,6 +66,7 @@ namespace Pulumi.NewRelic.Outputs
             Column = column;
             Height = height;
             Id = id;
+            IgnoreTimeRange = ignoreTimeRange;
             NrqlQueries = nrqlQueries;
             Row = row;
             Title = title;

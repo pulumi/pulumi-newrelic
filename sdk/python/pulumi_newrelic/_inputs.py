@@ -1899,6 +1899,7 @@ class OneDashboardPageWidgetAreaArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -1908,6 +1909,7 @@ class OneDashboardPageWidgetAreaArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -1918,6 +1920,8 @@ class OneDashboardPageWidgetAreaArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -1993,6 +1997,18 @@ class OneDashboardPageWidgetAreaArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2053,6 +2069,7 @@ class OneDashboardPageWidgetBarArgs:
                  filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
@@ -2063,6 +2080,7 @@ class OneDashboardPageWidgetBarArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2075,6 +2093,8 @@ class OneDashboardPageWidgetBarArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
@@ -2161,6 +2181,18 @@ class OneDashboardPageWidgetBarArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "linked_entity_guids")
@@ -2230,6 +2262,7 @@ class OneDashboardPageWidgetBillboardArgs:
                  critical: Optional[pulumi.Input[str]] = None,
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  warning: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
@@ -2241,6 +2274,7 @@ class OneDashboardPageWidgetBillboardArgs:
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[str] critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[str] warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
                * `widget_bullet`
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2255,6 +2289,8 @@ class OneDashboardPageWidgetBillboardArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if warning is not None:
             pulumi.set(__self__, "warning", warning)
         if width is not None:
@@ -2344,6 +2380,18 @@ class OneDashboardPageWidgetBillboardArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2417,6 +2465,7 @@ class OneDashboardPageWidgetBulletArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2428,6 +2477,7 @@ class OneDashboardPageWidgetBulletArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2439,6 +2489,8 @@ class OneDashboardPageWidgetBulletArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2527,6 +2579,18 @@ class OneDashboardPageWidgetBulletArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2586,6 +2650,7 @@ class OneDashboardPageWidgetFunnelArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2595,6 +2660,7 @@ class OneDashboardPageWidgetFunnelArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2605,6 +2671,8 @@ class OneDashboardPageWidgetFunnelArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2680,6 +2748,18 @@ class OneDashboardPageWidgetFunnelArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2739,6 +2819,7 @@ class OneDashboardPageWidgetHeatmapArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2748,6 +2829,7 @@ class OneDashboardPageWidgetHeatmapArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2758,6 +2840,8 @@ class OneDashboardPageWidgetHeatmapArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2833,6 +2917,18 @@ class OneDashboardPageWidgetHeatmapArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2892,6 +2988,7 @@ class OneDashboardPageWidgetHistogramArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2901,6 +2998,7 @@ class OneDashboardPageWidgetHistogramArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2911,6 +3009,8 @@ class OneDashboardPageWidgetHistogramArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2986,6 +3086,18 @@ class OneDashboardPageWidgetHistogramArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -3045,6 +3157,7 @@ class OneDashboardPageWidgetJsonArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -3054,6 +3167,7 @@ class OneDashboardPageWidgetJsonArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3064,6 +3178,8 @@ class OneDashboardPageWidgetJsonArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -3139,6 +3255,18 @@ class OneDashboardPageWidgetJsonArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -3198,6 +3326,7 @@ class OneDashboardPageWidgetLineArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -3207,6 +3336,7 @@ class OneDashboardPageWidgetLineArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3217,6 +3347,8 @@ class OneDashboardPageWidgetLineArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -3292,6 +3424,18 @@ class OneDashboardPageWidgetLineArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -3350,6 +3494,7 @@ class OneDashboardPageWidgetMarkdownArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
@@ -3357,6 +3502,7 @@ class OneDashboardPageWidgetMarkdownArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[str] text: (Required) The markdown source to be rendered in the widget.
                * `widget_stacked_bar`
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -3368,6 +3514,8 @@ class OneDashboardPageWidgetMarkdownArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if text is not None:
             pulumi.set(__self__, "text", text)
         if width is not None:
@@ -3431,6 +3579,18 @@ class OneDashboardPageWidgetMarkdownArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3466,6 +3626,7 @@ class OneDashboardPageWidgetPyArgs:
                  filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
@@ -3476,6 +3637,7 @@ class OneDashboardPageWidgetPyArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3488,6 +3650,8 @@ class OneDashboardPageWidgetPyArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
@@ -3574,6 +3738,18 @@ class OneDashboardPageWidgetPyArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "linked_entity_guids")
@@ -3642,6 +3818,7 @@ class OneDashboardPageWidgetStackedBarArgs:
                  title: pulumi.Input[str],
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -3651,6 +3828,7 @@ class OneDashboardPageWidgetStackedBarArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3661,6 +3839,8 @@ class OneDashboardPageWidgetStackedBarArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -3736,6 +3916,18 @@ class OneDashboardPageWidgetStackedBarArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
@@ -3796,6 +3988,7 @@ class OneDashboardPageWidgetTableArgs:
                  filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ignore_time_range: Optional[pulumi.Input[bool]] = None,
                  linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
@@ -3806,6 +3999,7 @@ class OneDashboardPageWidgetTableArgs:
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Required) A title for the widget.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+        :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3818,6 +4012,8 @@ class OneDashboardPageWidgetTableArgs:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ignore_time_range is not None:
+            pulumi.set(__self__, "ignore_time_range", ignore_time_range)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
@@ -3902,6 +4098,18 @@ class OneDashboardPageWidgetTableArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ignoreTimeRange")
+    def ignore_time_range(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        """
+        return pulumi.get(self, "ignore_time_range")
+
+    @ignore_time_range.setter
+    def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_time_range", value)
 
     @property
     @pulumi.getter(name="linkedEntityGuids")

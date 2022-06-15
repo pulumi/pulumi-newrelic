@@ -459,6 +459,10 @@ export interface OneDashboardPageWidgetArea {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -500,6 +504,10 @@ export interface OneDashboardPageWidgetBar {
      */
     height?: number;
     id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -547,6 +555,10 @@ export interface OneDashboardPageWidgetBillboard {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -592,6 +604,10 @@ export interface OneDashboardPageWidgetBullet {
      */
     height?: number;
     id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
     /**
      * (Required) Visualization limit for the widget.
      * * `widgetFunnel`
@@ -639,6 +655,10 @@ export interface OneDashboardPageWidgetFunnel {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -679,6 +699,10 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     height?: number;
     id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -721,6 +745,10 @@ export interface OneDashboardPageWidgetHistogram {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -761,6 +789,10 @@ export interface OneDashboardPageWidgetJson {
      */
     height?: number;
     id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -803,6 +835,10 @@ export interface OneDashboardPageWidgetLine {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -844,6 +880,10 @@ export interface OneDashboardPageWidgetMarkdown {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
     row: number;
@@ -873,6 +913,10 @@ export interface OneDashboardPageWidgetPy {
      */
     height?: number;
     id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -916,6 +960,10 @@ export interface OneDashboardPageWidgetStackedBar {
     height?: number;
     id: string;
     /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
+    /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -957,6 +1005,10 @@ export interface OneDashboardPageWidgetTable {
      */
     height?: number;
     id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     */
+    ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.

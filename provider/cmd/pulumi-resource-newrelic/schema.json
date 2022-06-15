@@ -3575,6 +3575,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "nrqlQueries": {
                     "type": "array",
                     "items": {
@@ -3698,6 +3707,15 @@
                 },
                 "id": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3846,6 +3864,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "nrqlQueries": {
                     "type": "array",
                     "items": {
@@ -3970,6 +3997,15 @@
                 },
                 "id": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4108,6 +4144,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "nrqlQueries": {
                     "type": "array",
                     "items": {
@@ -4223,6 +4268,15 @@
                 },
                 "id": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4350,6 +4404,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "nrqlQueries": {
                     "type": "array",
                     "items": {
@@ -4465,6 +4528,15 @@
                 },
                 "id": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4592,6 +4664,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "nrqlQueries": {
                     "type": "array",
                     "items": {
@@ -4713,6 +4794,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "row": {
                     "type": "integer",
                     "description": "(Required) Row position of widget from top left, starting at `1`.\n",
@@ -4797,6 +4887,15 @@
                 },
                 "id": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4936,6 +5035,15 @@
                         }
                     }
                 },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "nrqlQueries": {
                     "type": "array",
                     "items": {
@@ -5059,6 +5167,15 @@
                 },
                 "id": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
                     "language": {
                         "python": {
                             "mapCase": false
