@@ -6,27 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const bar = newrelic.synthetics.getMonitorLocation({
- *     label: "My private location",
- * });
- * const foo = new newrelic.synthetics.Monitor("foo", {
- *     type: "SIMPLE",
- *     frequency: 5,
- *     status: "ENABLED",
- *     locations: [bar.then(bar => bar.name)],
- *     uri: "https://example.com",
- *     validationString: "add example validation check here",
- *     verifySsl: true,
- * });
- * // Optional for type "SIMPLE" and "BROWSER"
- * ```
  */
 export function getMonitorLocation(args: GetMonitorLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorLocationResult> {
     if (!opts) {

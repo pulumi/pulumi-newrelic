@@ -35,12 +35,12 @@ import (
 // 		}
 // 		_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
 // 			PolicyId:    foo.ID(),
-// 			Description: pulumi.String(fmt.Sprintf("%v%v%v%v", "Warning if disk usage goes above 80", "%", " and critical alert if goes above 90", "%")),
+// 			Description: pulumi.String(fmt.Sprintf("Warning if disk usage goes above 80%v and critical alert if goes above 90%v", "%", "%")),
 // 			Type:        pulumi.String("infra_metric"),
 // 			Event:       pulumi.String("StorageSample"),
 // 			Select:      pulumi.String("diskUsedPercent"),
 // 			Comparison:  pulumi.String("above"),
-// 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
+// 			Where:       pulumi.String(fmt.Sprintf("(hostname LIKE '%vfrontend%v')", "%", "%")),
 // 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
 // 				Value:        pulumi.Float64(90),
@@ -62,7 +62,7 @@ import (
 // 			Event:               pulumi.String("DatastoreSample"),
 // 			Select:              pulumi.String("provider.databaseConnections.Average"),
 // 			Comparison:          pulumi.String("above"),
-// 			Where:               pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "db", "%", "')")),
+// 			Where:               pulumi.String(fmt.Sprintf("(hostname LIKE '%vdb%v')", "%", "%")),
 // 			IntegrationProvider: pulumi.String("RdsDbInstance"),
 // 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration:     pulumi.Int(25),
@@ -92,7 +92,7 @@ import (
 // 			PolicyId:    foo.ID(),
 // 			Description: pulumi.String("Critical alert when the host is not reporting"),
 // 			Type:        pulumi.String("infra_host_not_reporting"),
-// 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
+// 			Where:       pulumi.String(fmt.Sprintf("(hostname LIKE '%vfrontend%v')", "%", "%")),
 // 			Critical: &InfraAlertConditionCriticalArgs{
 // 				Duration: pulumi.Int(5),
 // 			},

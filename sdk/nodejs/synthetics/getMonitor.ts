@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const bar = newrelic.synthetics.getMonitor({
- *     name: "bar",
- * });
- * const baz = new newrelic.synthetics.AlertCondition("baz", {
- *     policyId: newrelic_alert_policy.foo.id,
- *     monitorId: bar.then(bar => bar.id),
- *     runbookUrl: "https://www.example.com",
- * });
- * ```
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     if (!opts) {

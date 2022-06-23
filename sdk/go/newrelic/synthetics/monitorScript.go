@@ -49,7 +49,7 @@ import (
 // 		}
 // 		_, err = synthetics.NewMonitorScript(ctx, "fooScript", &synthetics.MonitorScriptArgs{
 // 			MonitorId: foo.ID(),
-// 			Text:      readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/foo_script.js")),
+// 			Text:      readFileOrPanic(fmt.Sprintf("%v/foo_script.js", path.Module)),
 // 			Locations: synthetics.MonitorScriptLocationArray{
 // 				&synthetics.MonitorScriptLocationArgs{
 // 					Name: pulumi.String("YWJjZAo="),

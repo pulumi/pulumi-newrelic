@@ -38,7 +38,7 @@ import (
 // 			},
 // 			EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
 // 				&plugins.WorkloadEntitySearchQueryArgs{
-// 					Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "name like '", "%", "Example application", "%", "'")),
+// 					Query: pulumi.String(fmt.Sprintf("name like '%vExample application%v'", "%", "%")),
 // 				},
 // 			},
 // 			ScopeAccountIds: pulumi.IntArray{

@@ -54,7 +54,7 @@ import (
 // 							Width:           pulumi.Int(1),
 // 							Height:          pulumi.Int(1),
 // 							VisualizationId: pulumi.String("viz.custom"),
-// 							Configuration:   pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "      {\n", "        \"legend\": {\n", "          \"enabled\": false\n", "        },\n", "        \"nrqlQueries\": [\n", "          {\n", "            \"accountId\": ` + accountID + `,\n", "            \"query\": \"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\"\n", "          }\n", "        ],\n", "        \"yAxisLeft\": {\n", "          \"max\": 100,\n", "          \"min\": 50,\n", "          \"zero\": false\n", "        }\n", "      }\n")),
+// 							Configuration:   pulumi.String(fmt.Sprintf("      {\n        \"legend\": {\n          \"enabled\": false\n        },\n        \"nrqlQueries\": [\n          {\n            \"accountId\": ` + accountID + `,\n            \"query\": \"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\"\n          }\n        ],\n        \"yAxisLeft\": {\n          \"max\": 100,\n          \"min\": 50,\n          \"zero\": false\n        }\n      }\n")),
 // 						},
 // 						&OneDashboardRawPageWidgetArgs{
 // 							Title:           pulumi.String("Server CPU"),
@@ -63,7 +63,7 @@ import (
 // 							Width:           pulumi.Int(1),
 // 							Height:          pulumi.Int(1),
 // 							VisualizationId: pulumi.String("viz.testing"),
-// 							Configuration:   pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "      {\n", "        \"nrqlQueries\": [\n", "          {\n", "            \"accountId\": ` + accountID + `,\n", "            \"query\": \"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\"\n", "          }\n", "        ]\n", "      }\n")),
+// 							Configuration:   pulumi.String(fmt.Sprintf("      {\n        \"nrqlQueries\": [\n          {\n            \"accountId\": ` + accountID + `,\n            \"query\": \"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\"\n          }\n        ]\n      }\n")),
 // 						},
 // 						&OneDashboardRawPageWidgetArgs{
 // 							Title:           pulumi.String("Docker Server CPU"),

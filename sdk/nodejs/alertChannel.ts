@@ -81,28 +81,6 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### Webhook
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.AlertChannel("foo", {
- *     type: "webhook",
- *     config: {
- *         baseUrl: "http://www.test.com",
- *         payloadType: "application/json",
- *         payload: {
- *             condition_name: `$CONDITION_NAME`,
- *             policy_name: `$POLICY_NAME`,
- *         },
- *         headers: {
- *             header1: value1,
- *             header2: value2,
- *         },
- *     },
- * });
- * ```
- *
  * ### Webhook with complex payload
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

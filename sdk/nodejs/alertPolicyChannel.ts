@@ -7,44 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this resource to map alert policies to alert channels in New Relic.
  *
- * ## Example Usage
- *
- * The example below will apply multiple alert channels to an existing New Relic alert policy.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const examplePolicy = newrelic.getAlertPolicy({
- *     name: "my-alert-policy",
- * });
- * // Creates an email alert channel.
- * const emailChannel = new newrelic.AlertChannel("emailChannel", {
- *     type: "email",
- *     config: {
- *         recipients: "foo@example.com",
- *         includeJsonAttachment: "1",
- *     },
- * });
- * // Creates a Slack alert channel.
- * const slackChannel = new newrelic.AlertChannel("slackChannel", {
- *     type: "slack",
- *     config: {
- *         channel: "#example-channel",
- *         url: "http://example-org.slack.com",
- *     },
- * });
- * // Applies the created channels above to the alert policy
- * // referenced at the top of the config.
- * const foo = new newrelic.AlertPolicyChannel("foo", {
- *     policyId: newrelic_alert_policy.example_policy.id,
- *     channelIds: [
- *         emailChannel.id,
- *         slackChannel.id,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Alert policy channels can be imported using the following notation`<policyID>:<channelID>:<channelID>`, e.g.

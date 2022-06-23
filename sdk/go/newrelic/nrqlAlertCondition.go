@@ -143,7 +143,7 @@ import (
 // 				ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
 // 			},
 // 			Nrql: &NrqlAlertConditionNrqlArgs{
-// 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
+// 				Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
 // 			},
 // 		})
 // 		if err != nil {
@@ -186,7 +186,7 @@ import (
 // 				},
 // 			},
 // 			Nrql: &NrqlAlertConditionNrqlArgs{
-// 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
+// 				Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
 // 			},
 // 		})
 // 		if err != nil {

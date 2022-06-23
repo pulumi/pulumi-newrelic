@@ -47,57 +47,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * ## Additional Example
- *
- * Service level with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const mySyntheticMonitorServiceLevel = new newrelic.ServiceLevel("mySyntheticMonitorServiceLevel", {
- *     guid: "MXxBUE18QVBQTElDQVRJT058MQ",
- *     description: "Proportion of successful synthetic checks.",
- *     events: {
- *         accountId: 12345678,
- *         validEvents: {
- *             from: "SyntheticCheck",
- *             where: "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
- *         },
- *         goodEvents: {
- *             from: "SyntheticCheck",
- *             where: "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
- *         },
- *     },
- *     objective: {
- *         target: 99,
- *         timeWindow: {
- *             rolling: {
- *                 count: 7,
- *                 unit: "DAY",
- *             },
- *         },
- *     },
- * });
- * const mySyntheticMonitorServiceLevelTags = new newrelic.EntityTags("mySyntheticMonitorServiceLevelTags", {
- *     guid: mySyntheticMonitorServiceLevel.sliGuid,
- *     tags: [
- *         {
- *             key: "user_journey",
- *             values: [
- *                 "authentication",
- *                 "sso",
- *             ],
- *         },
- *         {
- *             key: "owner",
- *             values: ["identityTeam"],
- *         },
- *     ],
- * });
- * ```
- *
- * For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
  *
  * ## Import
  *

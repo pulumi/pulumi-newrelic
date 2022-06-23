@@ -10,34 +10,6 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const app = newrelic.getEntity({
- *     name: "my-app",
- *     type: "APPLICATION",
- *     domain: "APM",
- * });
- * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
- * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
- *     policyId: fooAlertPolicy.id,
- *     type: "apm_app_metric",
- *     entities: [app.then(app => app.applicationId)],
- *     metric: "apdex",
- *     runbookUrl: "https://www.example.com",
- *     conditionScope: "application",
- *     terms: [{
- *         duration: 5,
- *         operator: "below",
- *         priority: "critical",
- *         threshold: 0.75,
- *         timeFunction: "all",
- *     }],
- * });
- * ```
  * ## Terms
  *
  * The `term` mapping supports the following arguments:
