@@ -3168,6 +3168,8 @@ type OneDashboardPage struct {
 	WidgetJsons []OneDashboardPageWidgetJson `pulumi:"widgetJsons"`
 	// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
 	WidgetLines []OneDashboardPageWidgetLine `pulumi:"widgetLines"`
+	// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+	WidgetLogTables []OneDashboardPageWidgetLogTable `pulumi:"widgetLogTables"`
 	// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
 	WidgetMarkdowns []OneDashboardPageWidgetMarkdown `pulumi:"widgetMarkdowns"`
 	// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
@@ -3214,6 +3216,8 @@ type OneDashboardPageArgs struct {
 	WidgetJsons OneDashboardPageWidgetJsonArrayInput `pulumi:"widgetJsons"`
 	// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
 	WidgetLines OneDashboardPageWidgetLineArrayInput `pulumi:"widgetLines"`
+	// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+	WidgetLogTables OneDashboardPageWidgetLogTableArrayInput `pulumi:"widgetLogTables"`
 	// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
 	WidgetMarkdowns OneDashboardPageWidgetMarkdownArrayInput `pulumi:"widgetMarkdowns"`
 	// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
@@ -3335,6 +3339,11 @@ func (o OneDashboardPageOutput) WidgetLines() OneDashboardPageWidgetLineArrayOut
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetLine { return v.WidgetLines }).(OneDashboardPageWidgetLineArrayOutput)
 }
 
+// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+func (o OneDashboardPageOutput) WidgetLogTables() OneDashboardPageWidgetLogTableArrayOutput {
+	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetLogTable { return v.WidgetLogTables }).(OneDashboardPageWidgetLogTableArrayOutput)
+}
+
 // (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
 func (o OneDashboardPageOutput) WidgetMarkdowns() OneDashboardPageWidgetMarkdownArrayOutput {
 	return o.ApplyT(func(v OneDashboardPage) []OneDashboardPageWidgetMarkdown { return v.WidgetMarkdowns }).(OneDashboardPageWidgetMarkdownArrayOutput)
@@ -3381,7 +3390,7 @@ type OneDashboardPageWidgetArea struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -3412,7 +3421,7 @@ type OneDashboardPageWidgetAreaArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -3491,7 +3500,7 @@ func (o OneDashboardPageWidgetAreaOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetAreaOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -3651,7 +3660,7 @@ type OneDashboardPageWidgetBar struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -3684,7 +3693,7 @@ type OneDashboardPageWidgetBarArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -3768,7 +3777,7 @@ func (o OneDashboardPageWidgetBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetBarOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -3933,7 +3942,7 @@ type OneDashboardPageWidgetBillboard struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -3969,7 +3978,7 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -4056,7 +4065,7 @@ func (o OneDashboardPageWidgetBillboardOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetBillboardOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -4223,7 +4232,7 @@ type OneDashboardPageWidgetBullet struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) Visualization limit for the widget.
 	// * `widgetFunnel`
@@ -4257,7 +4266,7 @@ type OneDashboardPageWidgetBulletArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) Visualization limit for the widget.
 	// * `widgetFunnel`
@@ -4339,7 +4348,7 @@ func (o OneDashboardPageWidgetBulletOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetBulletOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -4504,7 +4513,7 @@ type OneDashboardPageWidgetFunnel struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -4535,7 +4544,7 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -4614,7 +4623,7 @@ func (o OneDashboardPageWidgetFunnelOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetFunnelOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -4773,7 +4782,7 @@ type OneDashboardPageWidgetHeatmap struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -4804,7 +4813,7 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -4883,7 +4892,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetHeatmapOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -5042,7 +5051,7 @@ type OneDashboardPageWidgetHistogram struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5073,7 +5082,7 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5152,7 +5161,7 @@ func (o OneDashboardPageWidgetHistogramOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetHistogramOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -5313,7 +5322,7 @@ type OneDashboardPageWidgetJson struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5344,7 +5353,7 @@ type OneDashboardPageWidgetJsonArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5423,7 +5432,7 @@ func (o OneDashboardPageWidgetJsonOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetJsonOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -5582,7 +5591,7 @@ type OneDashboardPageWidgetLine struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5613,7 +5622,7 @@ type OneDashboardPageWidgetLineArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -5692,7 +5701,7 @@ func (o OneDashboardPageWidgetLineOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -5845,13 +5854,282 @@ func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) Index(i pulumi.IntInput)
 	}).(OneDashboardPageWidgetLineNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetLogTable struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column int `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height *int    `pulumi:"height"`
+	Id     *string `pulumi:"id"`
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	NrqlQueries []OneDashboardPageWidgetLogTableNrqlQuery `pulumi:"nrqlQueries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row int `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title string `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width *int `pulumi:"width"`
+}
+
+// OneDashboardPageWidgetLogTableInput is an input type that accepts OneDashboardPageWidgetLogTableArgs and OneDashboardPageWidgetLogTableOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableInput` via:
+//
+//          OneDashboardPageWidgetLogTableArgs{...}
+type OneDashboardPageWidgetLogTableInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableOutput() OneDashboardPageWidgetLogTableOutput
+	ToOneDashboardPageWidgetLogTableOutputWithContext(context.Context) OneDashboardPageWidgetLogTableOutput
+}
+
+type OneDashboardPageWidgetLogTableArgs struct {
+	// (Required) Column position of widget from top left, starting at `1`.
+	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+	Height pulumi.IntPtrInput    `pulumi:"height"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	NrqlQueries OneDashboardPageWidgetLogTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Required) Row position of widget from top left, starting at `1`.
+	Row pulumi.IntInput `pulumi:"row"`
+	// (Required) A title for the widget.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (OneDashboardPageWidgetLogTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTable)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableArgs) ToOneDashboardPageWidgetLogTableOutput() OneDashboardPageWidgetLogTableOutput {
+	return i.ToOneDashboardPageWidgetLogTableOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableArgs) ToOneDashboardPageWidgetLogTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableOutput)
+}
+
+// OneDashboardPageWidgetLogTableArrayInput is an input type that accepts OneDashboardPageWidgetLogTableArray and OneDashboardPageWidgetLogTableArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableArrayInput` via:
+//
+//          OneDashboardPageWidgetLogTableArray{ OneDashboardPageWidgetLogTableArgs{...} }
+type OneDashboardPageWidgetLogTableArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableArrayOutput() OneDashboardPageWidgetLogTableArrayOutput
+	ToOneDashboardPageWidgetLogTableArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableArray []OneDashboardPageWidgetLogTableInput
+
+func (OneDashboardPageWidgetLogTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTable)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableArray) ToOneDashboardPageWidgetLogTableArrayOutput() OneDashboardPageWidgetLogTableArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableArray) ToOneDashboardPageWidgetLogTableArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTable)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOutput() OneDashboardPageWidgetLogTableOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableOutput {
+	return o
+}
+
+// (Required) Column position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetLogTableOutput) Column() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+func (o OneDashboardPageWidgetLogTableOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLogTableOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+func (o OneDashboardPageWidgetLogTableOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
+}
+
+// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+func (o OneDashboardPageWidgetLogTableOutput) NrqlQueries() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput)
+}
+
+// (Required) Row position of widget from top left, starting at `1`.
+func (o OneDashboardPageWidgetLogTableOutput) Row() pulumi.IntOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) int { return v.Row }).(pulumi.IntOutput)
+}
+
+// (Required) A title for the widget.
+func (o OneDashboardPageWidgetLogTableOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+func (o OneDashboardPageWidgetLogTableOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTable)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableArrayOutput) ToOneDashboardPageWidgetLogTableArrayOutput() OneDashboardPageWidgetLogTableArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableArrayOutput) ToOneDashboardPageWidgetLogTableArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTable {
+		return vs[0].([]OneDashboardPageWidgetLogTable)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableOutput)
+}
+
+type OneDashboardPageWidgetLogTableNrqlQuery struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Query string `pulumi:"query"`
+}
+
+// OneDashboardPageWidgetLogTableNrqlQueryInput is an input type that accepts OneDashboardPageWidgetLogTableNrqlQueryArgs and OneDashboardPageWidgetLogTableNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableNrqlQueryInput` via:
+//
+//          OneDashboardPageWidgetLogTableNrqlQueryArgs{...}
+type OneDashboardPageWidgetLogTableNrqlQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableNrqlQueryOutput() OneDashboardPageWidgetLogTableNrqlQueryOutput
+	ToOneDashboardPageWidgetLogTableNrqlQueryOutputWithContext(context.Context) OneDashboardPageWidgetLogTableNrqlQueryOutput
+}
+
+type OneDashboardPageWidgetLogTableNrqlQueryArgs struct {
+	// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (OneDashboardPageWidgetLogTableNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableNrqlQueryArgs) ToOneDashboardPageWidgetLogTableNrqlQueryOutput() OneDashboardPageWidgetLogTableNrqlQueryOutput {
+	return i.ToOneDashboardPageWidgetLogTableNrqlQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableNrqlQueryArgs) ToOneDashboardPageWidgetLogTableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNrqlQueryOutput)
+}
+
+// OneDashboardPageWidgetLogTableNrqlQueryArrayInput is an input type that accepts OneDashboardPageWidgetLogTableNrqlQueryArray and OneDashboardPageWidgetLogTableNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableNrqlQueryArrayInput` via:
+//
+//          OneDashboardPageWidgetLogTableNrqlQueryArray{ OneDashboardPageWidgetLogTableNrqlQueryArgs{...} }
+type OneDashboardPageWidgetLogTableNrqlQueryArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutput() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput
+	ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableNrqlQueryArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableNrqlQueryArray []OneDashboardPageWidgetLogTableNrqlQueryInput
+
+func (OneDashboardPageWidgetLogTableNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableNrqlQuery)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableNrqlQueryArray) ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutput() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableNrqlQueryArray) ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableNrqlQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetLogTableNrqlQueryOutput() OneDashboardPageWidgetLogTableNrqlQueryOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) ToOneDashboardPageWidgetLogTableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNrqlQueryOutput {
+	return o
+}
+
+// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardPageWidgetLogTableNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type OneDashboardPageWidgetLogTableNrqlQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableNrqlQuery)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutput() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) ToOneDashboardPageWidgetLogTableNrqlQueryArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableNrqlQuery {
+		return vs[0].([]OneDashboardPageWidgetLogTableNrqlQuery)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableNrqlQueryOutput)
+}
+
 type OneDashboardPageWidgetMarkdown struct {
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
@@ -5881,7 +6159,7 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
@@ -5959,7 +6237,7 @@ func (o OneDashboardPageWidgetMarkdownOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetMarkdownOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -6012,7 +6290,7 @@ type OneDashboardPageWidgetPy struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -6045,7 +6323,7 @@ type OneDashboardPageWidgetPyArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -6129,7 +6407,7 @@ func (o OneDashboardPageWidgetPyOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetPyOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -6292,7 +6570,7 @@ type OneDashboardPageWidgetStackedBar struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -6323,7 +6601,7 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -6402,7 +6680,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetStackedBarOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -6564,7 +6842,7 @@ type OneDashboardPageWidgetTable struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -6597,7 +6875,7 @@ type OneDashboardPageWidgetTableArgs struct {
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
-	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -6681,7 +6959,7 @@ func (o OneDashboardPageWidgetTableOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetTableOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
@@ -8688,6 +8966,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInput)(nil)).Elem(), OneDashboardPageWidgetPyArgs{})
@@ -8794,6 +9076,10 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyOutput{})

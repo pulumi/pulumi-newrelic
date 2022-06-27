@@ -62,6 +62,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLine> WidgetLines;
         /// <summary>
+        /// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLogTable> WidgetLogTables;
+        /// <summary>
         /// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> WidgetMarkdowns;
@@ -104,6 +108,8 @@ namespace Pulumi.NewRelic.Outputs
 
             ImmutableArray<Outputs.OneDashboardPageWidgetLine> widgetLines,
 
+            ImmutableArray<Outputs.OneDashboardPageWidgetLogTable> widgetLogTables,
+
             ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> widgetMarkdowns,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetPy> widgetPies,
@@ -124,6 +130,7 @@ namespace Pulumi.NewRelic.Outputs
             WidgetHistograms = widgetHistograms;
             WidgetJsons = widgetJsons;
             WidgetLines = widgetLines;
+            WidgetLogTables = widgetLogTables;
             WidgetMarkdowns = widgetMarkdowns;
             WidgetPies = widgetPies;
             WidgetStackedBars = widgetStackedBars;

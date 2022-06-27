@@ -138,6 +138,18 @@ namespace Pulumi.NewRelic.Inputs
             set => _widgetLines = value;
         }
 
+        [Input("widgetLogTables")]
+        private InputList<Inputs.OneDashboardPageWidgetLogTableArgs>? _widgetLogTables;
+
+        /// <summary>
+        /// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardPageWidgetLogTableArgs> WidgetLogTables
+        {
+            get => _widgetLogTables ?? (_widgetLogTables = new InputList<Inputs.OneDashboardPageWidgetLogTableArgs>());
+            set => _widgetLogTables = value;
+        }
+
         [Input("widgetMarkdowns")]
         private InputList<Inputs.OneDashboardPageWidgetMarkdownArgs>? _widgetMarkdowns;
 

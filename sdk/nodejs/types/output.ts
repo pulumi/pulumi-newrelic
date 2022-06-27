@@ -431,6 +431,10 @@ export interface OneDashboardPage {
      */
     widgetLines?: outputs.OneDashboardPageWidgetLine[];
     /**
+     * (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+     */
+    widgetLogTables?: outputs.OneDashboardPageWidgetLogTable[];
+    /**
      * (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
      */
     widgetMarkdowns?: outputs.OneDashboardPageWidgetMarkdown[];
@@ -459,7 +463,7 @@ export interface OneDashboardPageWidgetArea {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -505,7 +509,7 @@ export interface OneDashboardPageWidgetBar {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
@@ -555,7 +559,7 @@ export interface OneDashboardPageWidgetBillboard {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -605,7 +609,7 @@ export interface OneDashboardPageWidgetBullet {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -655,7 +659,7 @@ export interface OneDashboardPageWidgetFunnel {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -700,7 +704,7 @@ export interface OneDashboardPageWidgetHeatmap {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -745,7 +749,7 @@ export interface OneDashboardPageWidgetHistogram {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -790,7 +794,7 @@ export interface OneDashboardPageWidgetJson {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -835,7 +839,7 @@ export interface OneDashboardPageWidgetLine {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -869,6 +873,51 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetLogTable {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: number;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: number;
+    id: string;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     */
+    ignoreTimeRange?: boolean;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     */
+    nrqlQueries: outputs.OneDashboardPageWidgetLogTableNrqlQuery[];
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: number;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: string;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: number;
+}
+
+export interface OneDashboardPageWidgetLogTableNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: string;
+}
+
 export interface OneDashboardPageWidgetMarkdown {
     /**
      * (Required) Column position of widget from top left, starting at `1`.
@@ -880,7 +929,7 @@ export interface OneDashboardPageWidgetMarkdown {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -914,7 +963,7 @@ export interface OneDashboardPageWidgetPy {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
@@ -960,7 +1009,7 @@ export interface OneDashboardPageWidgetStackedBar {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     /**
@@ -1006,7 +1055,7 @@ export interface OneDashboardPageWidgetTable {
     height?: number;
     id: string;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];

@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly int? Height;
         public readonly string? Id;
         /// <summary>
-        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+        /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         /// </summary>
         public readonly bool? IgnoreTimeRange;
         public readonly ImmutableArray<string> LinkedEntityGuids;
