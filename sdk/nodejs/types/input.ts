@@ -214,14 +214,14 @@ export interface EntityTagsTag {
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface GetEntityTag {
-    key: string;
-    value: string;
-}
-
 export interface GetEntityTagArgs {
     key: pulumi.Input<string>;
     value: pulumi.Input<string>;
+}
+
+export interface GetEntityTag {
+    key: string;
+    value: string;
 }
 
 export interface InfraAlertConditionCritical {
@@ -413,6 +413,10 @@ export interface OneDashboardPage {
      */
     widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[]>;
     /**
+     * (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
+     */
+    widgetLogTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTable>[]>;
+    /**
      * (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
      */
     widgetMarkdowns?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdown>[]>;
@@ -441,7 +445,7 @@ export interface OneDashboardPageWidgetArea {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -487,7 +491,7 @@ export interface OneDashboardPageWidgetBar {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -537,7 +541,7 @@ export interface OneDashboardPageWidgetBillboard {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -587,7 +591,7 @@ export interface OneDashboardPageWidgetBullet {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -637,7 +641,7 @@ export interface OneDashboardPageWidgetFunnel {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -682,7 +686,7 @@ export interface OneDashboardPageWidgetHeatmap {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -727,7 +731,7 @@ export interface OneDashboardPageWidgetHistogram {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -772,7 +776,7 @@ export interface OneDashboardPageWidgetJson {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -817,7 +821,7 @@ export interface OneDashboardPageWidgetLine {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -851,6 +855,51 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetLogTable {
+    /**
+     * (Required) Column position of widget from top left, starting at `1`.
+     */
+    column: pulumi.Input<number>;
+    /**
+     * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
+     */
+    height?: pulumi.Input<number>;
+    id?: pulumi.Input<string>;
+    /**
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+     */
+    ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
+     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     */
+    nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNrqlQuery>[]>;
+    /**
+     * (Required) Row position of widget from top left, starting at `1`.
+     */
+    row: pulumi.Input<number>;
+    /**
+     * (Required) A title for the widget.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+     */
+    width?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetLogTableNrqlQuery {
+    /**
+     * Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetMarkdown {
     /**
      * (Required) Column position of widget from top left, starting at `1`.
@@ -862,7 +911,7 @@ export interface OneDashboardPageWidgetMarkdown {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -896,7 +945,7 @@ export interface OneDashboardPageWidgetPy {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -942,7 +991,7 @@ export interface OneDashboardPageWidgetStackedBar {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
@@ -988,7 +1037,7 @@ export interface OneDashboardPageWidgetTable {
     height?: pulumi.Input<number>;
     id?: pulumi.Input<string>;
     /**
-     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.
+     * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;

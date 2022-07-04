@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageWidgetHeatmapArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageWidgetLogTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Column position of widget from top left, starting at `1`.
@@ -34,16 +34,16 @@ namespace Pulumi.NewRelic.Inputs
         public Input<bool>? IgnoreTimeRange { get; set; }
 
         [Input("nrqlQueries", required: true)]
-        private InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs>? _nrqlQueries;
+        private InputList<Inputs.OneDashboardPageWidgetLogTableNrqlQueryArgs>? _nrqlQueries;
 
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         /// </summary>
-        public InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs> NrqlQueries
+        public InputList<Inputs.OneDashboardPageWidgetLogTableNrqlQueryArgs> NrqlQueries
         {
-            get => _nrqlQueries ?? (_nrqlQueries = new InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs>());
+            get => _nrqlQueries ?? (_nrqlQueries = new InputList<Inputs.OneDashboardPageWidgetLogTableNrqlQueryArgs>());
             set => _nrqlQueries = value;
         }
 
@@ -65,7 +65,7 @@ namespace Pulumi.NewRelic.Inputs
         [Input("width")]
         public Input<int>? Width { get; set; }
 
-        public OneDashboardPageWidgetHeatmapArgs()
+        public OneDashboardPageWidgetLogTableArgs()
         {
         }
     }

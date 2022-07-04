@@ -3485,6 +3485,18 @@
                         }
                     }
                 },
+                "widgetLogTables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLogTable:OneDashboardPageWidgetLogTable"
+                    },
+                    "description": "(Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "widgetMarkdowns": {
                     "type": "array",
                     "items": {
@@ -3577,7 +3589,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3715,7 +3727,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -3866,7 +3878,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4005,7 +4017,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4146,7 +4158,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4276,7 +4288,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4406,7 +4418,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4536,7 +4548,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4666,7 +4678,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4766,6 +4778,136 @@
                 }
             }
         },
+        "newrelic:index/OneDashboardPageWidgetLogTable:OneDashboardPageWidgetLogTable": {
+            "properties": {
+                "column": {
+                    "type": "integer",
+                    "description": "(Required) Column position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "description": "(Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTimeRange": {
+                    "type": "boolean",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nrqlQueries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/newrelic:index/OneDashboardPageWidgetLogTableNrqlQuery:OneDashboardPageWidgetLogTableNrqlQuery"
+                    },
+                    "description": "(Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.\n* `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.\n* `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "row": {
+                    "type": "integer",
+                    "description": "(Required) Row position of widget from top left, starting at `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "description": "(Required) A title for the widget.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "description": "(Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "nrqlQueries",
+                "row",
+                "title"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "column",
+                        "id",
+                        "nrqlQueries",
+                        "row",
+                        "title"
+                    ]
+                }
+            }
+        },
+        "newrelic:index/OneDashboardPageWidgetLogTableNrqlQuery:OneDashboardPageWidgetLogTableNrqlQuery": {
+            "properties": {
+                "accountId": {
+                    "type": "integer",
+                    "description": "Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "description": "(Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountId",
+                        "query"
+                    ]
+                }
+            }
+        },
         "newrelic:index/OneDashboardPageWidgetMarkdown:OneDashboardPageWidgetMarkdown": {
             "properties": {
                 "column": {
@@ -4796,7 +4938,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4895,7 +5037,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -5037,7 +5179,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -5175,7 +5317,7 @@
                 },
                 "ignoreTimeRange": {
                     "type": "boolean",
-                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages.\n",
+                    "description": "(Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false

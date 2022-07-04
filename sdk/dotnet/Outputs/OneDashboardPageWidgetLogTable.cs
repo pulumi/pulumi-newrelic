@@ -7,66 +7,70 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.NewRelic.Inputs
+namespace Pulumi.NewRelic.Outputs
 {
 
-    public sealed class OneDashboardPageWidgetHeatmapArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class OneDashboardPageWidgetLogTable
     {
         /// <summary>
         /// (Required) Column position of widget from top left, starting at `1`.
         /// </summary>
-        [Input("column", required: true)]
-        public Input<int> Column { get; set; } = null!;
-
+        public readonly int Column;
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         /// </summary>
-        [Input("height")]
-        public Input<int>? Height { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
+        public readonly int? Height;
+        public readonly string? Id;
         /// <summary>
         /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         /// </summary>
-        [Input("ignoreTimeRange")]
-        public Input<bool>? IgnoreTimeRange { get; set; }
-
-        [Input("nrqlQueries", required: true)]
-        private InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs>? _nrqlQueries;
-
+        public readonly bool? IgnoreTimeRange;
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         /// * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
         /// </summary>
-        public InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs> NrqlQueries
-        {
-            get => _nrqlQueries ?? (_nrqlQueries = new InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryArgs>());
-            set => _nrqlQueries = value;
-        }
-
+        public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLogTableNrqlQuery> NrqlQueries;
         /// <summary>
         /// (Required) Row position of widget from top left, starting at `1`.
         /// </summary>
-        [Input("row", required: true)]
-        public Input<int> Row { get; set; } = null!;
-
+        public readonly int Row;
         /// <summary>
         /// (Required) A title for the widget.
         /// </summary>
-        [Input("title", required: true)]
-        public Input<string> Title { get; set; } = null!;
-
+        public readonly string Title;
         /// <summary>
         /// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         /// </summary>
-        [Input("width")]
-        public Input<int>? Width { get; set; }
+        public readonly int? Width;
 
-        public OneDashboardPageWidgetHeatmapArgs()
+        [OutputConstructor]
+        private OneDashboardPageWidgetLogTable(
+            int column,
+
+            int? height,
+
+            string? id,
+
+            bool? ignoreTimeRange,
+
+            ImmutableArray<Outputs.OneDashboardPageWidgetLogTableNrqlQuery> nrqlQueries,
+
+            int row,
+
+            string title,
+
+            int? width)
         {
+            Column = column;
+            Height = height;
+            Id = id;
+            IgnoreTimeRange = ignoreTimeRange;
+            NrqlQueries = nrqlQueries;
+            Row = row;
+            Title = title;
+            Width = width;
         }
     }
 }
