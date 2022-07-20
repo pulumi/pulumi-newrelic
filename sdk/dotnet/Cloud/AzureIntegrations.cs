@@ -190,7 +190,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsVirtualMachine?> VirtualMachine { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure virtual networks
+        /// for Azure Virtual networks. See Integration blocks below for details.
         /// </summary>
         [Output("virtualNetworks")]
         public Output<Outputs.AzureIntegrationsVirtualNetworks?> VirtualNetworks { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsVirtualMachineArgs>? VirtualMachine { get; set; }
 
         /// <summary>
-        /// The Azure virtual networks
+        /// for Azure Virtual networks. See Integration blocks below for details.
         /// </summary>
         [Input("virtualNetworks")]
         public Input<Inputs.AzureIntegrationsVirtualNetworksArgs>? VirtualNetworks { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsVirtualMachineGetArgs>? VirtualMachine { get; set; }
 
         /// <summary>
-        /// The Azure virtual networks
+        /// for Azure Virtual networks. See Integration blocks below for details.
         /// </summary>
         [Input("virtualNetworks")]
         public Input<Inputs.AzureIntegrationsVirtualNetworksGetArgs>? VirtualNetworks { get; set; }

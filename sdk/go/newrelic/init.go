@@ -40,6 +40,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventsToMetricsRule{}
 	case "newrelic:index/infraAlertCondition:InfraAlertCondition":
 		r = &InfraAlertCondition{}
+	case "newrelic:index/notificationChannel:NotificationChannel":
+		r = &NotificationChannel{}
+	case "newrelic:index/notificationDestination:NotificationDestination":
+		r = &NotificationDestination{}
 	case "newrelic:index/nrqlAlertCondition:NrqlAlertCondition":
 		r = &NrqlAlertCondition{}
 	case "newrelic:index/nrqlDropRule:NrqlDropRule":
@@ -126,6 +130,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/infraAlertCondition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/notificationChannel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/notificationDestination",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

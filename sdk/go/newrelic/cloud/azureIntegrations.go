@@ -77,7 +77,7 @@ type AzureIntegrations struct {
 	Storage AzureIntegrationsStoragePtrOutput `pulumi:"storage"`
 	// for Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrOutput `pulumi:"virtualMachine"`
-	// The Azure virtual networks
+	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrOutput `pulumi:"virtualNetworks"`
 	// for Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrOutput `pulumi:"vms"`
@@ -173,7 +173,7 @@ type azureIntegrationsState struct {
 	Storage *AzureIntegrationsStorage `pulumi:"storage"`
 	// for Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
-	// The Azure virtual networks
+	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
 	// for Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
@@ -238,7 +238,7 @@ type AzureIntegrationsState struct {
 	Storage AzureIntegrationsStoragePtrInput
 	// for Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
-	// The Azure virtual networks
+	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
 	// for Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
@@ -307,7 +307,7 @@ type azureIntegrationsArgs struct {
 	Storage *AzureIntegrationsStorage `pulumi:"storage"`
 	// for Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
-	// The Azure virtual networks
+	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
 	// for Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
@@ -373,7 +373,7 @@ type AzureIntegrationsArgs struct {
 	Storage AzureIntegrationsStoragePtrInput
 	// for Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
-	// The Azure virtual networks
+	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
 	// for Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
@@ -608,7 +608,7 @@ func (o AzureIntegrationsOutput) VirtualMachine() AzureIntegrationsVirtualMachin
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualMachinePtrOutput { return v.VirtualMachine }).(AzureIntegrationsVirtualMachinePtrOutput)
 }
 
-// The Azure virtual networks
+// for Azure Virtual networks. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) VirtualNetworks() AzureIntegrationsVirtualNetworksPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualNetworksPtrOutput { return v.VirtualNetworks }).(AzureIntegrationsVirtualNetworksPtrOutput)
 }

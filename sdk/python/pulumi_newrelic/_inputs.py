@@ -22,6 +22,8 @@ __all__ = [
     'EntityTagsTagArgs',
     'InfraAlertConditionCriticalArgs',
     'InfraAlertConditionWarningArgs',
+    'NotificationChannelPropertyArgs',
+    'NotificationDestinationPropertyArgs',
     'NrqlAlertConditionCriticalArgs',
     'NrqlAlertConditionNrqlArgs',
     'NrqlAlertConditionTermArgs',
@@ -1206,6 +1208,108 @@ class InfraAlertConditionWarningArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NotificationChannelPropertyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 display_value: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if display_value is not None:
+            pulumi.set(__self__, "display_value", display_value)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="displayValue")
+    def display_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "display_value")
+
+    @display_value.setter
+    def display_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_value", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+
+@pulumi.input_type
+class NotificationDestinationPropertyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 display_value: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if display_value is not None:
+            pulumi.set(__self__, "display_value", display_value)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="displayValue")
+    def display_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "display_value")
+
+    @display_value.setter
+    def display_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_value", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
 
 
 @pulumi.input_type
@@ -4579,7 +4683,7 @@ class ServiceLevelEventsArgs:
                  good_events: Optional[pulumi.Input['ServiceLevelEventsGoodEventsArgs']] = None):
         """
         :param pulumi.Input[int] account_id: The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-               and that contains the NRDB data for the SLI/SLO calculations.
+               and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         :param pulumi.Input['ServiceLevelEventsValidEventsArgs'] valid_events: The definition of valid requests.
         :param pulumi.Input['ServiceLevelEventsBadEventsArgs'] bad_events: The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
         :param pulumi.Input['ServiceLevelEventsGoodEventsArgs'] good_events: The definition of good responses. If you define an SLI from valid and good events, you must leave the bad events argument empty.
@@ -4596,7 +4700,7 @@ class ServiceLevelEventsArgs:
     def account_id(self) -> pulumi.Input[int]:
         """
         The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-        and that contains the NRDB data for the SLI/SLO calculations.
+        and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         """
         return pulumi.get(self, "account_id")
 

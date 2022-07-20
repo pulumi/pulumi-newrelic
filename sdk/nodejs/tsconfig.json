@@ -44,6 +44,8 @@
         "infraAlertCondition.ts",
         "insights/event.ts",
         "insights/index.ts",
+        "notificationChannel.ts",
+        "notificationDestination.ts",
         "nrqlAlertCondition.ts",
         "nrqlDropRule.ts",
         "oneDashboard.ts",

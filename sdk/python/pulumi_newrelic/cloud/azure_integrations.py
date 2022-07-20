@@ -76,7 +76,7 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: for SQL Managed. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsStorageArgs'] storage: for Azure Storage. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: The Azure virtual networks
+        :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: for Azure VMs. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
         """
@@ -482,7 +482,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="virtualNetworks")
     def virtual_networks(self) -> Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']]:
         """
-        The Azure virtual networks
+        for Azure Virtual networks. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_networks")
 
@@ -579,7 +579,7 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: for SQL Managed. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsStorageArgs'] storage: for Azure Storage. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: The Azure virtual networks
+        :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: for Azure VMs. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
         """
@@ -986,7 +986,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="virtualNetworks")
     def virtual_networks(self) -> Optional[pulumi.Input['AzureIntegrationsVirtualNetworksArgs']]:
         """
-        The Azure virtual networks
+        for Azure Virtual networks. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_networks")
 
@@ -1095,7 +1095,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: for SQL Managed. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsStorageArgs']] storage: for Azure Storage. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: The Azure virtual networks
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: for Azure VMs. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
         """
@@ -1281,7 +1281,7 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: for SQL Managed. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsStorageArgs']] storage: for Azure Storage. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: The Azure virtual networks
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: for Azure VMs. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
         """
@@ -1550,7 +1550,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworks")
     def virtual_networks(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsVirtualNetworks']]:
         """
-        The Azure virtual networks
+        for Azure Virtual networks. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_networks")
 

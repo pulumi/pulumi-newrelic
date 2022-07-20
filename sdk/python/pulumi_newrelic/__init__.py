@@ -22,6 +22,8 @@ from .get_cloud_account import *
 from .get_entity import *
 from .get_key_transaction import *
 from .infra_alert_condition import *
+from .notification_channel import *
+from .notification_destination import *
 from .nrql_alert_condition import *
 from .nrql_drop_rule import *
 from .one_dashboard import *
@@ -195,6 +197,22 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/infraAlertCondition:InfraAlertCondition": "InfraAlertCondition"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/notificationChannel",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/notificationChannel:NotificationChannel": "NotificationChannel"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/notificationDestination",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/notificationDestination:NotificationDestination": "NotificationDestination"
   }
  },
  {
