@@ -2252,6 +2252,230 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type NotificationChannelProperty struct {
+	DisplayValue *string `pulumi:"displayValue"`
+	Key          string  `pulumi:"key"`
+	Label        *string `pulumi:"label"`
+	Value        string  `pulumi:"value"`
+}
+
+// NotificationChannelPropertyInput is an input type that accepts NotificationChannelPropertyArgs and NotificationChannelPropertyOutput values.
+// You can construct a concrete instance of `NotificationChannelPropertyInput` via:
+//
+//          NotificationChannelPropertyArgs{...}
+type NotificationChannelPropertyInput interface {
+	pulumi.Input
+
+	ToNotificationChannelPropertyOutput() NotificationChannelPropertyOutput
+	ToNotificationChannelPropertyOutputWithContext(context.Context) NotificationChannelPropertyOutput
+}
+
+type NotificationChannelPropertyArgs struct {
+	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
+	Key          pulumi.StringInput    `pulumi:"key"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	Value        pulumi.StringInput    `pulumi:"value"`
+}
+
+func (NotificationChannelPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelProperty)(nil)).Elem()
+}
+
+func (i NotificationChannelPropertyArgs) ToNotificationChannelPropertyOutput() NotificationChannelPropertyOutput {
+	return i.ToNotificationChannelPropertyOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelPropertyArgs) ToNotificationChannelPropertyOutputWithContext(ctx context.Context) NotificationChannelPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertyOutput)
+}
+
+// NotificationChannelPropertyArrayInput is an input type that accepts NotificationChannelPropertyArray and NotificationChannelPropertyArrayOutput values.
+// You can construct a concrete instance of `NotificationChannelPropertyArrayInput` via:
+//
+//          NotificationChannelPropertyArray{ NotificationChannelPropertyArgs{...} }
+type NotificationChannelPropertyArrayInput interface {
+	pulumi.Input
+
+	ToNotificationChannelPropertyArrayOutput() NotificationChannelPropertyArrayOutput
+	ToNotificationChannelPropertyArrayOutputWithContext(context.Context) NotificationChannelPropertyArrayOutput
+}
+
+type NotificationChannelPropertyArray []NotificationChannelPropertyInput
+
+func (NotificationChannelPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationChannelProperty)(nil)).Elem()
+}
+
+func (i NotificationChannelPropertyArray) ToNotificationChannelPropertyArrayOutput() NotificationChannelPropertyArrayOutput {
+	return i.ToNotificationChannelPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelPropertyArray) ToNotificationChannelPropertyArrayOutputWithContext(ctx context.Context) NotificationChannelPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertyArrayOutput)
+}
+
+type NotificationChannelPropertyOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelProperty)(nil)).Elem()
+}
+
+func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutput() NotificationChannelPropertyOutput {
+	return o
+}
+
+func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutputWithContext(ctx context.Context) NotificationChannelPropertyOutput {
+	return o
+}
+
+func (o NotificationChannelPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationChannelPropertyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationChannelProperty) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NotificationChannelPropertyOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationChannelPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationChannelProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NotificationChannelPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationChannelProperty)(nil)).Elem()
+}
+
+func (o NotificationChannelPropertyArrayOutput) ToNotificationChannelPropertyArrayOutput() NotificationChannelPropertyArrayOutput {
+	return o
+}
+
+func (o NotificationChannelPropertyArrayOutput) ToNotificationChannelPropertyArrayOutputWithContext(ctx context.Context) NotificationChannelPropertyArrayOutput {
+	return o
+}
+
+func (o NotificationChannelPropertyArrayOutput) Index(i pulumi.IntInput) NotificationChannelPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationChannelProperty {
+		return vs[0].([]NotificationChannelProperty)[vs[1].(int)]
+	}).(NotificationChannelPropertyOutput)
+}
+
+type NotificationDestinationProperty struct {
+	DisplayValue *string `pulumi:"displayValue"`
+	Key          string  `pulumi:"key"`
+	Label        *string `pulumi:"label"`
+	Value        string  `pulumi:"value"`
+}
+
+// NotificationDestinationPropertyInput is an input type that accepts NotificationDestinationPropertyArgs and NotificationDestinationPropertyOutput values.
+// You can construct a concrete instance of `NotificationDestinationPropertyInput` via:
+//
+//          NotificationDestinationPropertyArgs{...}
+type NotificationDestinationPropertyInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationPropertyOutput() NotificationDestinationPropertyOutput
+	ToNotificationDestinationPropertyOutputWithContext(context.Context) NotificationDestinationPropertyOutput
+}
+
+type NotificationDestinationPropertyArgs struct {
+	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
+	Key          pulumi.StringInput    `pulumi:"key"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	Value        pulumi.StringInput    `pulumi:"value"`
+}
+
+func (NotificationDestinationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationProperty)(nil)).Elem()
+}
+
+func (i NotificationDestinationPropertyArgs) ToNotificationDestinationPropertyOutput() NotificationDestinationPropertyOutput {
+	return i.ToNotificationDestinationPropertyOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationPropertyArgs) ToNotificationDestinationPropertyOutputWithContext(ctx context.Context) NotificationDestinationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationPropertyOutput)
+}
+
+// NotificationDestinationPropertyArrayInput is an input type that accepts NotificationDestinationPropertyArray and NotificationDestinationPropertyArrayOutput values.
+// You can construct a concrete instance of `NotificationDestinationPropertyArrayInput` via:
+//
+//          NotificationDestinationPropertyArray{ NotificationDestinationPropertyArgs{...} }
+type NotificationDestinationPropertyArrayInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationPropertyArrayOutput() NotificationDestinationPropertyArrayOutput
+	ToNotificationDestinationPropertyArrayOutputWithContext(context.Context) NotificationDestinationPropertyArrayOutput
+}
+
+type NotificationDestinationPropertyArray []NotificationDestinationPropertyInput
+
+func (NotificationDestinationPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationDestinationProperty)(nil)).Elem()
+}
+
+func (i NotificationDestinationPropertyArray) ToNotificationDestinationPropertyArrayOutput() NotificationDestinationPropertyArrayOutput {
+	return i.ToNotificationDestinationPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationPropertyArray) ToNotificationDestinationPropertyArrayOutputWithContext(ctx context.Context) NotificationDestinationPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationPropertyArrayOutput)
+}
+
+type NotificationDestinationPropertyOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationProperty)(nil)).Elem()
+}
+
+func (o NotificationDestinationPropertyOutput) ToNotificationDestinationPropertyOutput() NotificationDestinationPropertyOutput {
+	return o
+}
+
+func (o NotificationDestinationPropertyOutput) ToNotificationDestinationPropertyOutputWithContext(ctx context.Context) NotificationDestinationPropertyOutput {
+	return o
+}
+
+func (o NotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationDestinationPropertyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationProperty) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NotificationDestinationPropertyOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationDestinationPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationDestinationProperty)(nil)).Elem()
+}
+
+func (o NotificationDestinationPropertyArrayOutput) ToNotificationDestinationPropertyArrayOutput() NotificationDestinationPropertyArrayOutput {
+	return o
+}
+
+func (o NotificationDestinationPropertyArrayOutput) ToNotificationDestinationPropertyArrayOutputWithContext(ctx context.Context) NotificationDestinationPropertyArrayOutput {
+	return o
+}
+
+func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) NotificationDestinationPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationDestinationProperty {
+		return vs[0].([]NotificationDestinationProperty)[vs[1].(int)]
+	}).(NotificationDestinationPropertyOutput)
+}
+
 type NrqlAlertConditionCritical struct {
 	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
 	//
@@ -7408,7 +7632,7 @@ func (o OneDashboardRawPageWidgetArrayOutput) Index(i pulumi.IntInput) OneDashbo
 
 type ServiceLevelEvents struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-	// and that contains the NRDB data for the SLI/SLO calculations.
+	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
 	AccountId int `pulumi:"accountId"`
 	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 	BadEvents *ServiceLevelEventsBadEvents `pulumi:"badEvents"`
@@ -7431,7 +7655,7 @@ type ServiceLevelEventsInput interface {
 
 type ServiceLevelEventsArgs struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-	// and that contains the NRDB data for the SLI/SLO calculations.
+	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
 	AccountId pulumi.IntInput `pulumi:"accountId"`
 	// The definition of the bad responses. If you define an SLI from valid and bad events, you must leave the good events argument empty.
 	BadEvents ServiceLevelEventsBadEventsPtrInput `pulumi:"badEvents"`
@@ -7519,7 +7743,7 @@ func (o ServiceLevelEventsOutput) ToServiceLevelEventsPtrOutputWithContext(ctx c
 }
 
 // The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-// and that contains the NRDB data for the SLI/SLO calculations.
+// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
 func (o ServiceLevelEventsOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLevelEvents) int { return v.AccountId }).(pulumi.IntOutput)
 }
@@ -7564,7 +7788,7 @@ func (o ServiceLevelEventsPtrOutput) Elem() ServiceLevelEventsOutput {
 }
 
 // The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-// and that contains the NRDB data for the SLI/SLO calculations.
+// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
 func (o ServiceLevelEventsPtrOutput) AccountId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEvents) *int {
 		if v == nil {
@@ -8920,6 +9144,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalPtrInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningPtrInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelPropertyInput)(nil)).Elem(), NotificationChannelPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelPropertyArrayInput)(nil)).Elem(), NotificationChannelPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyInput)(nil)).Elem(), NotificationDestinationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyArrayInput)(nil)).Elem(), NotificationDestinationPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalPtrInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionNrqlInput)(nil)).Elem(), NrqlAlertConditionNrqlArgs{})
@@ -9030,6 +9258,10 @@ func init() {
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(NotificationChannelPropertyOutput{})
+	pulumi.RegisterOutputType(NotificationChannelPropertyArrayOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationPropertyOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationPropertyArrayOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionNrqlOutput{})

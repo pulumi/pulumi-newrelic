@@ -155,7 +155,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly virtualMachine!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
     /**
-     * The Azure virtual networks
+     * for Azure Virtual networks. See Integration blocks below for details.
      */
     public readonly virtualNetworks!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
     /**
@@ -370,7 +370,7 @@ export interface AzureIntegrationsState {
      */
     virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
     /**
-     * The Azure virtual networks
+     * for Azure Virtual networks. See Integration blocks below for details.
      */
     virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
     /**
@@ -500,7 +500,7 @@ export interface AzureIntegrationsArgs {
      */
     virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
     /**
-     * The Azure virtual networks
+     * for Azure Virtual networks. See Integration blocks below for details.
      */
     virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
     /**

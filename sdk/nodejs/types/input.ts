@@ -236,6 +236,20 @@ export interface InfraAlertConditionWarning {
     value?: pulumi.Input<number>;
 }
 
+export interface NotificationChannelProperty {
+    displayValue?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface NotificationDestinationProperty {
+    displayValue?: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
 export interface NrqlAlertConditionCritical {
     /**
      * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
@@ -1130,7 +1144,7 @@ export interface OneDashboardRawPageWidget {
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-     * and that contains the NRDB data for the SLI/SLO calculations.
+     * and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
      */
     accountId: pulumi.Input<number>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.NewRelic.Inputs
     {
         /// <summary>
         /// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
-        /// and that contains the NRDB data for the SLI/SLO calculations.
+        /// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<int> AccountId { get; set; } = null!;
