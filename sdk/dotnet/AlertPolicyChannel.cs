@@ -17,51 +17,52 @@ namespace Pulumi.NewRelic
     /// The example below will apply multiple alert channels to an existing New Relic alert policy.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePolicy = NewRelic.GetAlertPolicy.Invoke(new()
     ///     {
-    ///         var examplePolicy = Output.Create(NewRelic.GetAlertPolicy.InvokeAsync(new NewRelic.GetAlertPolicyArgs
-    ///         {
-    ///             Name = "my-alert-policy",
-    ///         }));
-    ///         // Creates an email alert channel.
-    ///         var emailChannel = new NewRelic.AlertChannel("emailChannel", new NewRelic.AlertChannelArgs
-    ///         {
-    ///             Type = "email",
-    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
-    ///             {
-    ///                 Recipients = "foo@example.com",
-    ///                 IncludeJsonAttachment = "1",
-    ///             },
-    ///         });
-    ///         // Creates a Slack alert channel.
-    ///         var slackChannel = new NewRelic.AlertChannel("slackChannel", new NewRelic.AlertChannelArgs
-    ///         {
-    ///             Type = "slack",
-    ///             Config = new NewRelic.Inputs.AlertChannelConfigArgs
-    ///             {
-    ///                 Channel = "#example-channel",
-    ///                 Url = "http://example-org.slack.com",
-    ///             },
-    ///         });
-    ///         // Applies the created channels above to the alert policy
-    ///         // referenced at the top of the config.
-    ///         var foo = new NewRelic.AlertPolicyChannel("foo", new NewRelic.AlertPolicyChannelArgs
-    ///         {
-    ///             PolicyId = newrelic_alert_policy.Example_policy.Id,
-    ///             ChannelIds = 
-    ///             {
-    ///                 emailChannel.Id,
-    ///                 slackChannel.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "my-alert-policy",
+    ///     });
     /// 
-    /// }
+    ///     // Creates an email alert channel.
+    ///     var emailChannel = new NewRelic.AlertChannel("emailChannel", new()
+    ///     {
+    ///         Type = "email",
+    ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///         {
+    ///             Recipients = "foo@example.com",
+    ///             IncludeJsonAttachment = "1",
+    ///         },
+    ///     });
+    /// 
+    ///     // Creates a Slack alert channel.
+    ///     var slackChannel = new NewRelic.AlertChannel("slackChannel", new()
+    ///     {
+    ///         Type = "slack",
+    ///         Config = new NewRelic.Inputs.AlertChannelConfigArgs
+    ///         {
+    ///             Channel = "#example-channel",
+    ///             Url = "http://example-org.slack.com",
+    ///         },
+    ///     });
+    /// 
+    ///     // Applies the created channels above to the alert policy
+    ///     // referenced at the top of the config.
+    ///     var foo = new NewRelic.AlertPolicyChannel("foo", new()
+    ///     {
+    ///         PolicyId = newrelic_alert_policy.Example_policy.Id,
+    ///         ChannelIds = new[]
+    ///         {
+    ///             emailChannel.Id,
+    ///             slackChannel.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +76,7 @@ namespace Pulumi.NewRelic
     ///  When importing `newrelic_alert_policy_channel` resource, the attribute `channel_ids`\* will be set in your Terraform state. You can import multiple channels as long as those channel IDs are included as part of the import ID hash.
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertPolicyChannel:AlertPolicyChannel")]
-    public partial class AlertPolicyChannel : Pulumi.CustomResource
+    public partial class AlertPolicyChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
@@ -139,7 +140,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class AlertPolicyChannelArgs : Pulumi.ResourceArgs
+    public sealed class AlertPolicyChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
@@ -168,9 +169,10 @@ namespace Pulumi.NewRelic
         public AlertPolicyChannelArgs()
         {
         }
+        public static new AlertPolicyChannelArgs Empty => new AlertPolicyChannelArgs();
     }
 
-    public sealed class AlertPolicyChannelState : Pulumi.ResourceArgs
+    public sealed class AlertPolicyChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the alert policy channel will be created. Defaults to the account associated with the API key used.
@@ -199,5 +201,6 @@ namespace Pulumi.NewRelic
         public AlertPolicyChannelState()
         {
         }
+        public static new AlertPolicyChannelState Empty => new AlertPolicyChannelState();
     }
 }

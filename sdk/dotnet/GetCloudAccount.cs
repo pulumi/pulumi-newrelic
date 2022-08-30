@@ -20,22 +20,20 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
         ///     {
-        ///         var account = Output.Create(NewRelic.GetCloudAccount.InvokeAsync(new NewRelic.GetCloudAccountArgs
-        ///         {
-        ///             AccountId = 12345,
-        ///             CloudProvider = "aws",
-        ///             Name = "my aws account",
-        ///         }));
-        ///     }
+        ///         AccountId = 12345,
+        ///         CloudProvider = "aws",
+        ///         Name = "my aws account",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,22 +50,20 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var account = NewRelic.GetCloudAccount.Invoke(new()
         ///     {
-        ///         var account = Output.Create(NewRelic.GetCloudAccount.InvokeAsync(new NewRelic.GetCloudAccountArgs
-        ///         {
-        ///             AccountId = 12345,
-        ///             CloudProvider = "aws",
-        ///             Name = "my aws account",
-        ///         }));
-        ///     }
+        ///         AccountId = 12345,
+        ///         CloudProvider = "aws",
+        ///         Name = "my aws account",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetCloudAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The account ID in New Relic.
@@ -100,9 +96,10 @@ namespace Pulumi.NewRelic
         public GetCloudAccountArgs()
         {
         }
+        public static new GetCloudAccountArgs Empty => new GetCloudAccountArgs();
     }
 
-    public sealed class GetCloudAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCloudAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The account ID in New Relic.
@@ -125,6 +122,7 @@ namespace Pulumi.NewRelic
         public GetCloudAccountInvokeArgs()
         {
         }
+        public static new GetCloudAccountInvokeArgs Empty => new GetCloudAccountInvokeArgs();
     }
 
 

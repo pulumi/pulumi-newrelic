@@ -27,42 +27,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
-// 			Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
-// 			Events: &ServiceLevelEventsArgs{
-// 				AccountId: pulumi.Int(12345678),
-// 				GoodEvents: &ServiceLevelEventsGoodEventsArgs{
-// 					From:  pulumi.String("Transaction"),
-// 					Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
-// 				},
-// 				ValidEvents: &ServiceLevelEventsValidEventsArgs{
-// 					From:  pulumi.String("Transaction"),
-// 					Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
-// 				},
-// 			},
-// 			Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
-// 			Objective: &ServiceLevelObjectiveArgs{
-// 				Target: pulumi.Float64(99),
-// 				TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
-// 					Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
-// 						Count: pulumi.Int(7),
-// 						Unit:  pulumi.String("DAY"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
+//				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
+//				Events: &ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(12345678),
+//					GoodEvents: &ServiceLevelEventsGoodEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
+//					},
+//					ValidEvents: &ServiceLevelEventsValidEventsArgs{
+//						From:  pulumi.String("Transaction"),
+//						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
+//					},
+//				},
+//				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Objective: &ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(99),
+//					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Int(7),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Additional Example
 //
@@ -72,75 +75,80 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorServiceLevel", &newrelic.ServiceLevelArgs{
-// 			Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
-// 			Description: pulumi.String("Proportion of successful synthetic checks."),
-// 			Events: &ServiceLevelEventsArgs{
-// 				AccountId: pulumi.Int(12345678),
-// 				ValidEvents: &ServiceLevelEventsValidEventsArgs{
-// 					From:  pulumi.String("SyntheticCheck"),
-// 					Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
-// 				},
-// 				GoodEvents: &ServiceLevelEventsGoodEventsArgs{
-// 					From:  pulumi.String("SyntheticCheck"),
-// 					Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'"),
-// 				},
-// 			},
-// 			Objective: &ServiceLevelObjectiveArgs{
-// 				Target: pulumi.Float64(99),
-// 				TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
-// 					Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
-// 						Count: pulumi.Int(7),
-// 						Unit:  pulumi.String("DAY"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewEntityTags(ctx, "mySyntheticMonitorServiceLevelTags", &newrelic.EntityTagsArgs{
-// 			Guid: mySyntheticMonitorServiceLevel.SliGuid,
-// 			Tags: EntityTagsTagArray{
-// 				&EntityTagsTagArgs{
-// 					Key: pulumi.String("user_journey"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("authentication"),
-// 						pulumi.String("sso"),
-// 					},
-// 				},
-// 				&EntityTagsTagArgs{
-// 					Key: pulumi.String("owner"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("identityTeam"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorServiceLevel", &newrelic.ServiceLevelArgs{
+//				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
+//				Description: pulumi.String("Proportion of successful synthetic checks."),
+//				Events: &ServiceLevelEventsArgs{
+//					AccountId: pulumi.Int(12345678),
+//					ValidEvents: &ServiceLevelEventsValidEventsArgs{
+//						From:  pulumi.String("SyntheticCheck"),
+//						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
+//					},
+//					GoodEvents: &ServiceLevelEventsGoodEventsArgs{
+//						From:  pulumi.String("SyntheticCheck"),
+//						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'"),
+//					},
+//				},
+//				Objective: &ServiceLevelObjectiveArgs{
+//					Target: pulumi.Float64(99),
+//					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
+//							Count: pulumi.Int(7),
+//							Unit:  pulumi.String("DAY"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "mySyntheticMonitorServiceLevelTags", &newrelic.EntityTagsArgs{
+//				Guid: mySyntheticMonitorServiceLevel.SliGuid,
+//				Tags: EntityTagsTagArray{
+//					&EntityTagsTagArgs{
+//						Key: pulumi.String("user_journey"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("authentication"),
+//							pulumi.String("sso"),
+//						},
+//					},
+//					&EntityTagsTagArgs{
+//						Key: pulumi.String("owner"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("identityTeam"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
-// For up-to-date documentation about the tagging resource, please check EntityTags
+// # For up-to-date documentation about the tagging resource, please check EntityTags
 //
 // ## Import
 //
-// New Relic Service Levels can be imported using a concatenated string of the format
+// # New Relic Service Levels can be imported using a concatenated string of the format
 //
 // `<account_id>:<sli_id>:<guid>`, where the `guid` is the entity the SLI relates to. Examplebash
 //
 // ```sh
-//  $ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
+//
+//	$ pulumi import newrelic:index/serviceLevel:ServiceLevel foo 12345678:4321:MXxBUE18QVBQTElDQVRJT058MQ
+//
 // ```
 type ServiceLevel struct {
 	pulumi.CustomResourceState
@@ -299,7 +307,7 @@ func (i *ServiceLevel) ToServiceLevelOutputWithContext(ctx context.Context) Serv
 // ServiceLevelArrayInput is an input type that accepts ServiceLevelArray and ServiceLevelArrayOutput values.
 // You can construct a concrete instance of `ServiceLevelArrayInput` via:
 //
-//          ServiceLevelArray{ ServiceLevelArgs{...} }
+//	ServiceLevelArray{ ServiceLevelArgs{...} }
 type ServiceLevelArrayInput interface {
 	pulumi.Input
 
@@ -324,7 +332,7 @@ func (i ServiceLevelArray) ToServiceLevelArrayOutputWithContext(ctx context.Cont
 // ServiceLevelMapInput is an input type that accepts ServiceLevelMap and ServiceLevelMapOutput values.
 // You can construct a concrete instance of `ServiceLevelMapInput` via:
 //
-//          ServiceLevelMap{ "key": ServiceLevelArgs{...} }
+//	ServiceLevelMap{ "key": ServiceLevelArgs{...} }
 type ServiceLevelMapInput interface {
 	pulumi.Input
 

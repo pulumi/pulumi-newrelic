@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/gcpIntegrations:GcpIntegrations")]
-    public partial class GcpIntegrations : Pulumi.CustomResource
+    public partial class GcpIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -227,7 +227,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class GcpIntegrationsArgs : Pulumi.ResourceArgs
+    public sealed class GcpIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -394,9 +394,10 @@ namespace Pulumi.NewRelic.Cloud
         public GcpIntegrationsArgs()
         {
         }
+        public static new GcpIntegrationsArgs Empty => new GcpIntegrationsArgs();
     }
 
-    public sealed class GcpIntegrationsState : Pulumi.ResourceArgs
+    public sealed class GcpIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -563,5 +564,6 @@ namespace Pulumi.NewRelic.Cloud
         public GcpIntegrationsState()
         {
         }
+        public static new GcpIntegrationsState Empty => new GcpIntegrationsState();
     }
 }

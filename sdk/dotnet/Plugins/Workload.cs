@@ -20,68 +20,64 @@ namespace Pulumi.NewRelic.Plugins
     /// 
     /// Include entities with a certain string on the name.
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Plugins.Workload("foo", new NewRelic.Plugins.WorkloadArgs
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
     ///         {
-    ///             AccountId = 12345678,
-    ///             EntityGuids = 
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
     ///             {
-    ///                 "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///                 Query = "name like '%Example application%'",
     ///             },
-    ///             EntitySearchQueries = 
-    ///             {
-    ///                 new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
-    ///                 {
-    ///                     Query = "name like '%Example application%'",
-    ///                 },
-    ///             },
-    ///             ScopeAccountIds = 
-    ///             {
-    ///                 12345678,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Include entities with a set of tags.
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Plugins.Workload("foo", new NewRelic.Plugins.WorkloadArgs
+    ///         AccountId = 12345678,
+    ///         EntityGuids = new[]
     ///         {
-    ///             AccountId = 12345678,
-    ///             EntityGuids = 
+    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///         },
+    ///         EntitySearchQueries = new[]
+    ///         {
+    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
     ///             {
-    ///                 "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
+    ///                 Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
     ///             },
-    ///             EntitySearchQueries = 
-    ///             {
-    ///                 new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
-    ///                 {
-    ///                     Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
-    ///                 },
-    ///             },
-    ///             ScopeAccountIds = 
-    ///             {
-    ///                 12345678,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         ScopeAccountIds = new[]
+    ///         {
+    ///             12345678,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -95,7 +91,7 @@ namespace Pulumi.NewRelic.Plugins
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/workload:Workload")]
-    public partial class Workload : Pulumi.CustomResource
+    public partial class Workload : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID where you want to create the workload.
@@ -195,7 +191,7 @@ namespace Pulumi.NewRelic.Plugins
         }
     }
 
-    public sealed class WorkloadArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID where you want to create the workload.
@@ -248,9 +244,10 @@ namespace Pulumi.NewRelic.Plugins
         public WorkloadArgs()
         {
         }
+        public static new WorkloadArgs Empty => new WorkloadArgs();
     }
 
-    public sealed class WorkloadState : Pulumi.ResourceArgs
+    public sealed class WorkloadState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID where you want to create the workload.
@@ -327,5 +324,6 @@ namespace Pulumi.NewRelic.Plugins
         public WorkloadState()
         {
         }
+        public static new WorkloadState Empty => new WorkloadState();
     }
 }

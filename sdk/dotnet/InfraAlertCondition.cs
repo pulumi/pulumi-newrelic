@@ -17,83 +17,83 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo = new NewRelic.AlertPolicy("foo", new NewRelic.AlertPolicyArgs
-    ///         {
-    ///         });
-    ///         var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new NewRelic.InfraAlertConditionArgs
-    ///         {
-    ///             PolicyId = foo.Id,
-    ///             Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
-    ///             Type = "infra_metric",
-    ///             Event = "StorageSample",
-    ///             Select = "diskUsedPercent",
-    ///             Comparison = "above",
-    ///             Where = "(hostname LIKE '%frontend%')",
-    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///             {
-    ///                 Duration = 25,
-    ///                 Value = 90,
-    ///                 TimeFunction = "all",
-    ///             },
-    ///             Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
-    ///             {
-    ///                 Duration = 10,
-    ///                 Value = 80,
-    ///                 TimeFunction = "all",
-    ///             },
-    ///         });
-    ///         var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new NewRelic.InfraAlertConditionArgs
-    ///         {
-    ///             PolicyId = foo.Id,
-    ///             Description = "Critical alert when the number of database connections goes above 90",
-    ///             Type = "infra_metric",
-    ///             Event = "DatastoreSample",
-    ///             Select = "provider.databaseConnections.Average",
-    ///             Comparison = "above",
-    ///             Where = "(hostname LIKE '%db%')",
-    ///             IntegrationProvider = "RdsDbInstance",
-    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///             {
-    ///                 Duration = 25,
-    ///                 Value = 90,
-    ///                 TimeFunction = "all",
-    ///             },
-    ///         });
-    ///         var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new NewRelic.InfraAlertConditionArgs
-    ///         {
-    ///             PolicyId = foo.Id,
-    ///             Description = "Critical alert when ruby isn't running",
-    ///             Type = "infra_process_running",
-    ///             Comparison = "equal",
-    ///             Where = "hostname = 'web01'",
-    ///             ProcessWhere = "commandName = '/usr/bin/ruby'",
-    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///             {
-    ///                 Duration = 5,
-    ///                 Value = 0,
-    ///             },
-    ///         });
-    ///         var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new NewRelic.InfraAlertConditionArgs
-    ///         {
-    ///             PolicyId = foo.Id,
-    ///             Description = "Critical alert when the host is not reporting",
-    ///             Type = "infra_host_not_reporting",
-    ///             Where = "(hostname LIKE '%frontend%')",
-    ///             Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
-    ///             {
-    ///                 Duration = 5,
-    ///             },
-    ///         });
-    ///     }
+    ///     var foo = new NewRelic.AlertPolicy("foo");
     /// 
-    /// }
+    ///     var highDiskUsage = new NewRelic.InfraAlertCondition("highDiskUsage", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Description = "Warning if disk usage goes above 80% and critical alert if goes above 90%",
+    ///         Type = "infra_metric",
+    ///         Event = "StorageSample",
+    ///         Select = "diskUsedPercent",
+    ///         Comparison = "above",
+    ///         Where = "(hostname LIKE '%frontend%')",
+    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///         {
+    ///             Duration = 25,
+    ///             Value = 90,
+    ///             TimeFunction = "all",
+    ///         },
+    ///         Warning = new NewRelic.Inputs.InfraAlertConditionWarningArgs
+    ///         {
+    ///             Duration = 10,
+    ///             Value = 80,
+    ///             TimeFunction = "all",
+    ///         },
+    ///     });
+    /// 
+    ///     var highDbConnCount = new NewRelic.InfraAlertCondition("highDbConnCount", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Description = "Critical alert when the number of database connections goes above 90",
+    ///         Type = "infra_metric",
+    ///         Event = "DatastoreSample",
+    ///         Select = "provider.databaseConnections.Average",
+    ///         Comparison = "above",
+    ///         Where = "(hostname LIKE '%db%')",
+    ///         IntegrationProvider = "RdsDbInstance",
+    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///         {
+    ///             Duration = 25,
+    ///             Value = 90,
+    ///             TimeFunction = "all",
+    ///         },
+    ///     });
+    /// 
+    ///     var processNotRunning = new NewRelic.InfraAlertCondition("processNotRunning", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Description = "Critical alert when ruby isn't running",
+    ///         Type = "infra_process_running",
+    ///         Comparison = "equal",
+    ///         Where = "hostname = 'web01'",
+    ///         ProcessWhere = "commandName = '/usr/bin/ruby'",
+    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///         {
+    ///             Duration = 5,
+    ///             Value = 0,
+    ///         },
+    ///     });
+    /// 
+    ///     var hostNotReporting = new NewRelic.InfraAlertCondition("hostNotReporting", new()
+    ///     {
+    ///         PolicyId = foo.Id,
+    ///         Description = "Critical alert when the host is not reporting",
+    ///         Type = "infra_host_not_reporting",
+    ///         Where = "(hostname LIKE '%frontend%')",
+    ///         Critical = new NewRelic.Inputs.InfraAlertConditionCriticalArgs
+    ///         {
+    ///             Duration = 5,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Thresholds
     /// 
@@ -112,7 +112,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/infraAlertCondition:InfraAlertCondition")]
-    public partial class InfraAlertCondition : Pulumi.CustomResource
+    public partial class InfraAlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
@@ -260,7 +260,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class InfraAlertConditionArgs : Pulumi.ResourceArgs
+    public sealed class InfraAlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
@@ -355,9 +355,10 @@ namespace Pulumi.NewRelic
         public InfraAlertConditionArgs()
         {
         }
+        public static new InfraAlertConditionArgs Empty => new InfraAlertConditionArgs();
     }
 
-    public sealed class InfraAlertConditionState : Pulumi.ResourceArgs
+    public sealed class InfraAlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infra_metric` and `infra_process_running` condition types.
@@ -464,5 +465,6 @@ namespace Pulumi.NewRelic
         public InfraAlertConditionState()
         {
         }
+        public static new InfraAlertConditionState Empty => new InfraAlertConditionState();
     }
 }

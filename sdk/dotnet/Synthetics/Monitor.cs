@@ -16,31 +16,29 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SIMPLE`
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         Frequency = 5,
+    ///         Locations = new[]
     ///         {
-    ///             Frequency = 5,
-    ///             Locations = 
-    ///             {
-    ///                 "AWS_US_EAST_1",
-    ///                 "AWS_US_EAST_2",
-    ///             },
-    ///             Status = "ENABLED",
-    ///             Type = "SIMPLE",
-    ///             Uri = "https://example.com",
-    ///             ValidationString = "add example validation check here",
-    ///             VerifySsl = true,
-    ///         });
-    ///         // Optional for type "SIMPLE" and "BROWSER"
-    ///     }
+    ///             "AWS_US_EAST_1",
+    ///             "AWS_US_EAST_2",
+    ///         },
+    ///         Status = "ENABLED",
+    ///         Type = "SIMPLE",
+    ///         Uri = "https://example.com",
+    ///         ValidationString = "add example validation check here",
+    ///         VerifySsl = true,
+    ///     });
     /// 
-    /// }
+    ///     // Optional for type "SIMPLE" and "BROWSER"
+    /// });
     /// ```
     /// 
     /// ##### Type: `BROWSER`
@@ -49,82 +47,76 @@ namespace Pulumi.NewRelic.Synthetics
     /// Type: `BROWSER`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         BypassHeadRequest = true,
+    ///         Frequency = 5,
+    ///         Locations = new[]
     ///         {
-    ///             BypassHeadRequest = true,
-    ///             Frequency = 5,
-    ///             Locations = 
-    ///             {
-    ///                 "AWS_US_EAST_1",
-    ///             },
-    ///             Status = "ENABLED",
-    ///             TreatRedirectAsFailure = true,
-    ///             Type = "BROWSER",
-    ///             Uri = "https://example.com",
-    ///             ValidationString = "add example validation check here",
-    ///             VerifySsl = true,
-    ///         });
-    ///         // optional for type "SIMPLE" and "BROWSER"
-    ///     }
+    ///             "AWS_US_EAST_1",
+    ///         },
+    ///         Status = "ENABLED",
+    ///         TreatRedirectAsFailure = true,
+    ///         Type = "BROWSER",
+    ///         Uri = "https://example.com",
+    ///         ValidationString = "add example validation check here",
+    ///         VerifySsl = true,
+    ///     });
     /// 
-    /// }
+    ///     // optional for type "SIMPLE" and "BROWSER"
+    /// });
     /// ```
     /// 
     /// ##### Type: `SCRIPT_BROWSER`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         Frequency = 5,
+    ///         Locations = new[]
     ///         {
-    ///             Frequency = 5,
-    ///             Locations = 
-    ///             {
-    ///                 "AWS_US_EAST_1",
-    ///             },
-    ///             Status = "ENABLED",
-    ///             Type = "SCRIPT_BROWSER",
-    ///         });
-    ///     }
+    ///             "AWS_US_EAST_1",
+    ///         },
+    ///         Status = "ENABLED",
+    ///         Type = "SCRIPT_BROWSER",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         Frequency = 5,
+    ///         Locations = new[]
     ///         {
-    ///             Frequency = 5,
-    ///             Locations = 
-    ///             {
-    ///                 "AWS_US_EAST_1",
-    ///             },
-    ///             Status = "ENABLED",
-    ///             Type = "SCRIPT_API",
-    ///         });
-    ///     }
+    ///             "AWS_US_EAST_1",
+    ///         },
+    ///         Status = "ENABLED",
+    ///         Type = "SCRIPT_API",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -136,7 +128,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/monitor:Monitor")]
-    public partial class Monitor : Pulumi.CustomResource
+    public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Bypass HEAD request.
@@ -248,7 +240,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
-    public sealed class MonitorArgs : Pulumi.ResourceArgs
+    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bypass HEAD request.
@@ -325,9 +317,10 @@ namespace Pulumi.NewRelic.Synthetics
         public MonitorArgs()
         {
         }
+        public static new MonitorArgs Empty => new MonitorArgs();
     }
 
-    public sealed class MonitorState : Pulumi.ResourceArgs
+    public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bypass HEAD request.
@@ -404,5 +397,6 @@ namespace Pulumi.NewRelic.Synthetics
         public MonitorState()
         {
         }
+        public static new MonitorState Empty => new MonitorState();
     }
 }

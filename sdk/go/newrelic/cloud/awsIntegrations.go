@@ -16,7 +16,9 @@ import (
 // Linked AWS account integrations can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>
+//
+//	$ pulumi import newrelic:cloud/awsIntegrations:AwsIntegrations foo <id>
+//
 // ```
 type AwsIntegrations struct {
 	pulumi.CustomResourceState
@@ -177,7 +179,7 @@ func (i *AwsIntegrations) ToAwsIntegrationsOutputWithContext(ctx context.Context
 // AwsIntegrationsArrayInput is an input type that accepts AwsIntegrationsArray and AwsIntegrationsArrayOutput values.
 // You can construct a concrete instance of `AwsIntegrationsArrayInput` via:
 //
-//          AwsIntegrationsArray{ AwsIntegrationsArgs{...} }
+//	AwsIntegrationsArray{ AwsIntegrationsArgs{...} }
 type AwsIntegrationsArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +204,7 @@ func (i AwsIntegrationsArray) ToAwsIntegrationsArrayOutputWithContext(ctx contex
 // AwsIntegrationsMapInput is an input type that accepts AwsIntegrationsMap and AwsIntegrationsMapOutput values.
 // You can construct a concrete instance of `AwsIntegrationsMapInput` via:
 //
-//          AwsIntegrationsMap{ "key": AwsIntegrationsArgs{...} }
+//	AwsIntegrationsMap{ "key": AwsIntegrationsArgs{...} }
 type AwsIntegrationsMapInput interface {
 	pulumi.Input
 

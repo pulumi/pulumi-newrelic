@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class AlertMutingRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class AlertMutingRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions", required: true)]
         private InputList<Inputs.AlertMutingRuleConditionConditionArgs>? _conditions;
@@ -33,5 +33,6 @@ namespace Pulumi.NewRelic.Inputs
         public AlertMutingRuleConditionArgs()
         {
         }
+        public static new AlertMutingRuleConditionArgs Empty => new AlertMutingRuleConditionArgs();
     }
 }

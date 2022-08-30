@@ -18,35 +18,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bar, err := synthetics.GetMonitorLocation(ctx, &synthetics.GetMonitorLocationArgs{
-// 			Label: "My private location",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-// 			Type:      pulumi.String("SIMPLE"),
-// 			Frequency: pulumi.Int(5),
-// 			Status:    pulumi.String("ENABLED"),
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String(bar.Name),
-// 			},
-// 			Uri:              pulumi.String("https://example.com"),
-// 			ValidationString: pulumi.String("add example validation check here"),
-// 			VerifySsl:        pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bar, err := synthetics.GetMonitorLocation(ctx, &synthetics.GetMonitorLocationArgs{
+//				Label: "My private location",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				Type:      pulumi.String("SIMPLE"),
+//				Frequency: pulumi.Int(5),
+//				Status:    pulumi.String("ENABLED"),
+//				Locations: pulumi.StringArray{
+//					pulumi.String(bar.Name),
+//				},
+//				Uri:              pulumi.String("https://example.com"),
+//				ValidationString: pulumi.String("add example validation check here"),
+//				VerifySsl:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetMonitorLocation(ctx *pulumi.Context, args *GetMonitorLocationArgs, opts ...pulumi.InvokeOption) (*GetMonitorLocationResult, error) {
 	var rv GetMonitorLocationResult

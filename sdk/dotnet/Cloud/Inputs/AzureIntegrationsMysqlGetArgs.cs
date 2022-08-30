@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class AzureIntegrationsMysqlGetArgs : Pulumi.ResourceArgs
+    public sealed class AzureIntegrationsMysqlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data polling interval in seconds.
@@ -33,5 +33,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public AzureIntegrationsMysqlGetArgs()
         {
         }
+        public static new AzureIntegrationsMysqlGetArgs Empty => new AzureIntegrationsMysqlGetArgs();
     }
 }

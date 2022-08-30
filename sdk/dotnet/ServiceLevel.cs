@@ -23,118 +23,115 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.ServiceLevel("foo", new()
     ///     {
-    ///         var foo = new NewRelic.ServiceLevel("foo", new NewRelic.ServiceLevelArgs
+    ///         Description = "Proportion of requests that are served faster than a threshold.",
+    ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
-    ///             Description = "Proportion of requests that are served faster than a threshold.",
-    ///             Events = new NewRelic.Inputs.ServiceLevelEventsArgs
+    ///             AccountId = 12345678,
+    ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
     ///             {
-    ///                 AccountId = 12345678,
-    ///                 GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
+    ///                 From = "Transaction",
+    ///                 Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
+    ///             },
+    ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
+    ///             {
+    ///                 From = "Transaction",
+    ///                 Where = "appName = 'Example application' AND (transactionType='Web')",
+    ///             },
+    ///         },
+    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
+    ///         {
+    ///             Target = 99,
+    ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
+    ///             {
+    ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
     ///                 {
-    ///                     From = "Transaction",
-    ///                     Where = "appName = 'Example application' AND (transactionType= 'Web') AND duration &lt; 0.1",
-    ///                 },
-    ///                 ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
-    ///                 {
-    ///                     From = "Transaction",
-    ///                     Where = "appName = 'Example application' AND (transactionType='Web')",
+    ///                     Count = 7,
+    ///                     Unit = "DAY",
     ///                 },
     ///             },
-    ///             Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
-    ///             Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
-    ///             {
-    ///                 Target = 99,
-    ///                 TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
-    ///                 {
-    ///                     Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
-    ///                     {
-    ///                         Count = 7,
-    ///                         Unit = "DAY",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Additional Example
     /// 
     /// Service level with tags:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mySyntheticMonitorServiceLevel = new NewRelic.ServiceLevel("mySyntheticMonitorServiceLevel", new()
     ///     {
-    ///         var mySyntheticMonitorServiceLevel = new NewRelic.ServiceLevel("mySyntheticMonitorServiceLevel", new NewRelic.ServiceLevelArgs
+    ///         Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
+    ///         Description = "Proportion of successful synthetic checks.",
+    ///         Events = new NewRelic.Inputs.ServiceLevelEventsArgs
     ///         {
-    ///             Guid = "MXxBUE18QVBQTElDQVRJT058MQ",
-    ///             Description = "Proportion of successful synthetic checks.",
-    ///             Events = new NewRelic.Inputs.ServiceLevelEventsArgs
+    ///             AccountId = 12345678,
+    ///             ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
     ///             {
-    ///                 AccountId = 12345678,
-    ///                 ValidEvents = new NewRelic.Inputs.ServiceLevelEventsValidEventsArgs
-    ///                 {
-    ///                     From = "SyntheticCheck",
-    ///                     Where = "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
-    ///                 },
-    ///                 GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
-    ///                 {
-    ///                     From = "SyntheticCheck",
-    ///                     Where = "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
-    ///                 },
+    ///                 From = "SyntheticCheck",
+    ///                 Where = "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'",
     ///             },
-    ///             Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
+    ///             GoodEvents = new NewRelic.Inputs.ServiceLevelEventsGoodEventsArgs
     ///             {
-    ///                 Target = 99,
-    ///                 TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
-    ///                 {
-    ///                     Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
-    ///                     {
-    ///                         Count = 7,
-    ///                         Unit = "DAY",
-    ///                     },
-    ///                 },
+    ///                 From = "SyntheticCheck",
+    ///                 Where = "entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'",
     ///             },
-    ///         });
-    ///         var mySyntheticMonitorServiceLevelTags = new NewRelic.EntityTags("mySyntheticMonitorServiceLevelTags", new NewRelic.EntityTagsArgs
+    ///         },
+    ///         Objective = new NewRelic.Inputs.ServiceLevelObjectiveArgs
     ///         {
-    ///             Guid = mySyntheticMonitorServiceLevel.SliGuid,
-    ///             Tags = 
+    ///             Target = 99,
+    ///             TimeWindow = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowArgs
     ///             {
-    ///                 new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 Rolling = new NewRelic.Inputs.ServiceLevelObjectiveTimeWindowRollingArgs
     ///                 {
-    ///                     Key = "user_journey",
-    ///                     Values = 
-    ///                     {
-    ///                         "authentication",
-    ///                         "sso",
-    ///                     },
-    ///                 },
-    ///                 new NewRelic.Inputs.EntityTagsTagArgs
-    ///                 {
-    ///                     Key = "owner",
-    ///                     Values = 
-    ///                     {
-    ///                         "identityTeam",
-    ///                     },
+    ///                     Count = 7,
+    ///                     Unit = "DAY",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var mySyntheticMonitorServiceLevelTags = new NewRelic.EntityTags("mySyntheticMonitorServiceLevelTags", new()
+    ///     {
+    ///         Guid = mySyntheticMonitorServiceLevel.SliGuid,
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "user_journey",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "authentication",
+    ///                     "sso",
+    ///                 },
+    ///             },
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "owner",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "identityTeam",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
@@ -150,7 +147,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/serviceLevel:ServiceLevel")]
-    public partial class ServiceLevel : Pulumi.CustomResource
+    public partial class ServiceLevel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the SLI.
@@ -240,7 +237,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class ServiceLevelArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the SLI.
@@ -277,9 +274,10 @@ namespace Pulumi.NewRelic
         public ServiceLevelArgs()
         {
         }
+        public static new ServiceLevelArgs Empty => new ServiceLevelArgs();
     }
 
-    public sealed class ServiceLevelState : Pulumi.ResourceArgs
+    public sealed class ServiceLevelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the SLI.
@@ -328,5 +326,6 @@ namespace Pulumi.NewRelic
         public ServiceLevelState()
         {
         }
+        public static new ServiceLevelState Empty => new ServiceLevelState();
     }
 }

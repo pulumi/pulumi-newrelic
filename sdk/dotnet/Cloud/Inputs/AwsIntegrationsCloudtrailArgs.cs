@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class AwsIntegrationsCloudtrailArgs : Pulumi.ResourceArgs
+    public sealed class AwsIntegrationsCloudtrailArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsRegions")]
         private InputList<string>? _awsRegions;
@@ -34,5 +34,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public AwsIntegrationsCloudtrailArgs()
         {
         }
+        public static new AwsIntegrationsCloudtrailArgs Empty => new AwsIntegrationsCloudtrailArgs();
     }
 }

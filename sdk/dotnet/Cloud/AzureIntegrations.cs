@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/azureIntegrations:AzureIntegrations")]
-    public partial class AzureIntegrations : Pulumi.CustomResource
+    public partial class AzureIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -251,7 +251,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class AzureIntegrationsArgs : Pulumi.ResourceArgs
+    public sealed class AzureIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -442,9 +442,10 @@ namespace Pulumi.NewRelic.Cloud
         public AzureIntegrationsArgs()
         {
         }
+        public static new AzureIntegrationsArgs Empty => new AzureIntegrationsArgs();
     }
 
-    public sealed class AzureIntegrationsState : Pulumi.ResourceArgs
+    public sealed class AzureIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -635,5 +636,6 @@ namespace Pulumi.NewRelic.Cloud
         public AzureIntegrationsState()
         {
         }
+        public static new AzureIntegrationsState Empty => new AzureIntegrationsState();
     }
 }

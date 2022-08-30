@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
-// 			IncidentPreference: pulumi.String("PER_POLICY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertPolicy(ctx, "foo", &newrelic.AlertPolicyArgs{
+//				IncidentPreference: pulumi.String("PER_POLICY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Provision multiple notification channels and add those channels to a policy
 //
@@ -41,82 +44,88 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
-// 			Type: pulumi.String("slack"),
-// 			Config: &AlertChannelConfigArgs{
-// 				Url:     pulumi.String("https://hooks.slack.com/services/xxxxxxx/yyyyyyyy"),
-// 				Channel: pulumi.String("example-alerts-channel"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
-// 			Type: pulumi.String("email"),
-// 			Config: &AlertChannelConfigArgs{
-// 				Recipients:            pulumi.String("example@testing.com"),
-// 				IncludeJsonAttachment: pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
-// 			IncidentPreference: pulumi.String("PER_CONDITION"),
-// 			ChannelIds: pulumi.IntArray{
-// 				slackChannel.ID(),
-// 				emailChannel.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
+//				Type: pulumi.String("slack"),
+//				Config: &AlertChannelConfigArgs{
+//					Url:     pulumi.String("https://hooks.slack.com/services/xxxxxxx/yyyyyyyy"),
+//					Channel: pulumi.String("example-alerts-channel"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
+//				Type: pulumi.String("email"),
+//				Config: &AlertChannelConfigArgs{
+//					Recipients:            pulumi.String("example@testing.com"),
+//					IncludeJsonAttachment: pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
+//				IncidentPreference: pulumi.String("PER_CONDITION"),
+//				ChannelIds: pulumi.IntArray{
+//					slackChannel.ID(),
+//					emailChannel.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Reference existing notification channels and add those channel to a policy
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		slackChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
-// 			Name: "slack-channel-notification",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		emailChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
-// 			Name: "test@example.com",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
-// 			IncidentPreference: pulumi.String("PER_CONDITION"),
-// 			ChannelIds: pulumi.IntArray{
-// 				pulumi.String(slackChannel.Id),
-// 				pulumi.String(emailChannel.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			slackChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
+//				Name: "slack-channel-notification",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			emailChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
+//				Name: "test@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
+//				IncidentPreference: pulumi.String("PER_CONDITION"),
+//				ChannelIds: pulumi.IntArray{
+//					pulumi.String(slackChannel.Id),
+//					pulumi.String(emailChannel.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -124,10 +133,12 @@ import (
 // Alert policies can be imported using a composite ID of `<id>:<account_id>`, where `account_id` is the account number scoped to the alert policy resource. Example import
 //
 // ```sh
-//  $ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
+//
+//	$ pulumi import newrelic:index/alertPolicy:AlertPolicy foo 23423556:4593020
+//
 // ```
 //
-//  Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `terraform apply`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
+//	Please note that channel IDs (`channel_ids`) _cannot_ be imported due channels being a separate resource. However, to add channels to an imported alert policy, you can import the policy, add the `channel_ids` attribute with the associated channel IDs, then run `terraform apply`. This will result in the original alert policy being destroyed and a new alert policy being created along with the channels being added to the policy.
 type AlertPolicy struct {
 	pulumi.CustomResourceState
 
@@ -244,7 +255,7 @@ func (i *AlertPolicy) ToAlertPolicyOutputWithContext(ctx context.Context) AlertP
 // AlertPolicyArrayInput is an input type that accepts AlertPolicyArray and AlertPolicyArrayOutput values.
 // You can construct a concrete instance of `AlertPolicyArrayInput` via:
 //
-//          AlertPolicyArray{ AlertPolicyArgs{...} }
+//	AlertPolicyArray{ AlertPolicyArgs{...} }
 type AlertPolicyArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +280,7 @@ func (i AlertPolicyArray) ToAlertPolicyArrayOutputWithContext(ctx context.Contex
 // AlertPolicyMapInput is an input type that accepts AlertPolicyMap and AlertPolicyMapOutput values.
 // You can construct a concrete instance of `AlertPolicyMapInput` via:
 //
-//          AlertPolicyMap{ "key": AlertPolicyArgs{...} }
+//	AlertPolicyMap{ "key": AlertPolicyArgs{...} }
 type AlertPolicyMapInput interface {
 	pulumi.Input
 

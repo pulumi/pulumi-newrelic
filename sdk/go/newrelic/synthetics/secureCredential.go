@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synthetics.NewSecureCredential(ctx, "foo", &synthetics.SecureCredentialArgs{
-// 			Description: pulumi.String("My description"),
-// 			Key:         pulumi.String("MY_KEY"),
-// 			Value:       pulumi.String("My value"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewSecureCredential(ctx, "foo", &synthetics.SecureCredentialArgs{
+//				Description: pulumi.String("My description"),
+//				Key:         pulumi.String("MY_KEY"),
+//				Value:       pulumi.String("My value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // A Synthetics secure credential can be imported using its `key`
 //
 // ```sh
-//  $ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+//
+//	$ pulumi import newrelic:synthetics/secureCredential:SecureCredential foo MY_KEY
+//
 // ```
 type SecureCredential struct {
 	pulumi.CustomResourceState
@@ -177,7 +182,7 @@ func (i *SecureCredential) ToSecureCredentialOutputWithContext(ctx context.Conte
 // SecureCredentialArrayInput is an input type that accepts SecureCredentialArray and SecureCredentialArrayOutput values.
 // You can construct a concrete instance of `SecureCredentialArrayInput` via:
 //
-//          SecureCredentialArray{ SecureCredentialArgs{...} }
+//	SecureCredentialArray{ SecureCredentialArgs{...} }
 type SecureCredentialArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +207,7 @@ func (i SecureCredentialArray) ToSecureCredentialArrayOutputWithContext(ctx cont
 // SecureCredentialMapInput is an input type that accepts SecureCredentialMap and SecureCredentialMapOutput values.
 // You can construct a concrete instance of `SecureCredentialMapInput` via:
 //
-//          SecureCredentialMap{ "key": SecureCredentialArgs{...} }
+//	SecureCredentialMap{ "key": SecureCredentialArgs{...} }
 type SecureCredentialMapInput interface {
 	pulumi.Input
 

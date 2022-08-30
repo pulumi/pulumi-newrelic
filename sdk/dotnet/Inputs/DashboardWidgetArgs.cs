@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class DashboardWidgetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -99,5 +99,6 @@ namespace Pulumi.NewRelic.Inputs
         public DashboardWidgetArgs()
         {
         }
+        public static new DashboardWidgetArgs Empty => new DashboardWidgetArgs();
     }
 }

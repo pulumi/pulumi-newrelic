@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class NotificationDestinationPropertyGetArgs : Pulumi.ResourceArgs
+    public sealed class NotificationDestinationPropertyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("displayValue")]
         public Input<string>? DisplayValue { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.NewRelic.Inputs
         public NotificationDestinationPropertyGetArgs()
         {
         }
+        public static new NotificationDestinationPropertyGetArgs Empty => new NotificationDestinationPropertyGetArgs();
     }
 }

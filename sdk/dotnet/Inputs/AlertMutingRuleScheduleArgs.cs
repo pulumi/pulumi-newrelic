@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class AlertMutingRuleScheduleArgs : Pulumi.ResourceArgs
+    public sealed class AlertMutingRuleScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The datetime stamp when the muting rule schedule stops repeating. This is in local ISO 8601 format without an offset. Example: '2020-07-10T15:00:00'. Conflicts with `repeat_count`
@@ -60,5 +60,6 @@ namespace Pulumi.NewRelic.Inputs
         public AlertMutingRuleScheduleArgs()
         {
         }
+        public static new AlertMutingRuleScheduleArgs Empty => new AlertMutingRuleScheduleArgs();
     }
 }

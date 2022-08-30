@@ -1254,6 +1254,7 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
      */
     unit: string;
 }
+
 export namespace cloud {
     export interface AwsGovcloudIntegrationsAlb {
         /**

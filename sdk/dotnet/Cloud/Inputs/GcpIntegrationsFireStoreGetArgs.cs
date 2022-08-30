@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class GcpIntegrationsFireStoreGetArgs : Pulumi.ResourceArgs
+    public sealed class GcpIntegrationsFireStoreGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data polling interval in seconds.
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public GcpIntegrationsFireStoreGetArgs()
         {
         }
+        public static new GcpIntegrationsFireStoreGetArgs Empty => new GcpIntegrationsFireStoreGetArgs();
     }
 }

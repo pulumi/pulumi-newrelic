@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic
     ///  In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboard:OneDashboard")]
-    public partial class OneDashboard : Pulumi.CustomResource
+    public partial class OneDashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -112,7 +112,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class OneDashboardArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -153,9 +153,10 @@ namespace Pulumi.NewRelic
         public OneDashboardArgs()
         {
         }
+        public static new OneDashboardArgs Empty => new OneDashboardArgs();
     }
 
-    public sealed class OneDashboardState : Pulumi.ResourceArgs
+    public sealed class OneDashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -208,5 +209,6 @@ namespace Pulumi.NewRelic
         public OneDashboardState()
         {
         }
+        public static new OneDashboardState Empty => new OneDashboardState();
     }
 }

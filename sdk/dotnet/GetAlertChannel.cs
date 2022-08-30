@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetAlertChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alert channel in New Relic.
@@ -36,9 +36,10 @@ namespace Pulumi.NewRelic
         public GetAlertChannelArgs()
         {
         }
+        public static new GetAlertChannelArgs Empty => new GetAlertChannelArgs();
     }
 
-    public sealed class GetAlertChannelInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the alert channel in New Relic.
@@ -49,6 +50,7 @@ namespace Pulumi.NewRelic
         public GetAlertChannelInvokeArgs()
         {
         }
+        public static new GetAlertChannelInvokeArgs Empty => new GetAlertChannelInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics.Inputs
 {
 
-    public sealed class MultiLocationAlertConditionCriticalArgs : Pulumi.ResourceArgs
+    public sealed class MultiLocationAlertConditionCriticalArgs : global::Pulumi.ResourceArgs
     {
         [Input("threshold", required: true)]
         public Input<int> Threshold { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         public MultiLocationAlertConditionCriticalArgs()
         {
         }
+        public static new MultiLocationAlertConditionCriticalArgs Empty => new MultiLocationAlertConditionCriticalArgs();
     }
 }

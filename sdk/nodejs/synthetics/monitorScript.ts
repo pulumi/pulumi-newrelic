@@ -12,8 +12,8 @@ import * as utilities from "../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as fs from "fs";
  * import * as newrelic from "@pulumi/newrelic";
- * import * from "fs";
  *
  * const foo = new newrelic.synthetics.Monitor("foo", {
  *     type: "SCRIPT_BROWSER",

@@ -20,30 +20,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-// 			Frequency: pulumi.Int(5),
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("AWS_US_EAST_1"),
-// 				pulumi.String("AWS_US_EAST_2"),
-// 			},
-// 			Status:           pulumi.String("ENABLED"),
-// 			Type:             pulumi.String("SIMPLE"),
-// 			Uri:              pulumi.String("https://example.com"),
-// 			ValidationString: pulumi.String("add example validation check here"),
-// 			VerifySsl:        pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				Frequency: pulumi.Int(5),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("AWS_US_EAST_1"),
+//					pulumi.String("AWS_US_EAST_2"),
+//				},
+//				Status:           pulumi.String("ENABLED"),
+//				Type:             pulumi.String("SIMPLE"),
+//				Uri:              pulumi.String("https://example.com"),
+//				ValidationString: pulumi.String("add example validation check here"),
+//				VerifySsl:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ##### Type: `BROWSER`
@@ -55,31 +58,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-// 			BypassHeadRequest: pulumi.Bool(true),
-// 			Frequency:         pulumi.Int(5),
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("AWS_US_EAST_1"),
-// 			},
-// 			Status:                 pulumi.String("ENABLED"),
-// 			TreatRedirectAsFailure: pulumi.Bool(true),
-// 			Type:                   pulumi.String("BROWSER"),
-// 			Uri:                    pulumi.String("https://example.com"),
-// 			ValidationString:       pulumi.String("add example validation check here"),
-// 			VerifySsl:              pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				BypassHeadRequest: pulumi.Bool(true),
+//				Frequency:         pulumi.Int(5),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("AWS_US_EAST_1"),
+//				},
+//				Status:                 pulumi.String("ENABLED"),
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				Type:                   pulumi.String("BROWSER"),
+//				Uri:                    pulumi.String("https://example.com"),
+//				ValidationString:       pulumi.String("add example validation check here"),
+//				VerifySsl:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ##### Type: `SCRIPT_BROWSER`
@@ -88,26 +94,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-// 			Frequency: pulumi.Int(5),
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("AWS_US_EAST_1"),
-// 			},
-// 			Status: pulumi.String("ENABLED"),
-// 			Type:   pulumi.String("SCRIPT_BROWSER"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				Frequency: pulumi.Int(5),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("AWS_US_EAST_1"),
+//				},
+//				Status: pulumi.String("ENABLED"),
+//				Type:   pulumi.String("SCRIPT_BROWSER"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ##### Type: `SCRIPT_API`
@@ -116,26 +125,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-// 			Frequency: pulumi.Int(5),
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("AWS_US_EAST_1"),
-// 			},
-// 			Status: pulumi.String("ENABLED"),
-// 			Type:   pulumi.String("SCRIPT_API"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				Frequency: pulumi.Int(5),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("AWS_US_EAST_1"),
+//				},
+//				Status: pulumi.String("ENABLED"),
+//				Type:   pulumi.String("SCRIPT_API"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -143,7 +155,9 @@ import (
 // Synthetics monitors can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+//
+//	$ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+//
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState
@@ -343,7 +357,7 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 // MonitorArrayInput is an input type that accepts MonitorArray and MonitorArrayOutput values.
 // You can construct a concrete instance of `MonitorArrayInput` via:
 //
-//          MonitorArray{ MonitorArgs{...} }
+//	MonitorArray{ MonitorArgs{...} }
 type MonitorArrayInput interface {
 	pulumi.Input
 
@@ -368,7 +382,7 @@ func (i MonitorArray) ToMonitorArrayOutputWithContext(ctx context.Context) Monit
 // MonitorMapInput is an input type that accepts MonitorMap and MonitorMapOutput values.
 // You can construct a concrete instance of `MonitorMapInput` via:
 //
-//          MonitorMap{ "key": MonitorArgs{...} }
+//	MonitorMap{ "key": MonitorArgs{...} }
 type MonitorMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class AwsGovcloudIntegrationsRoute53Args : Pulumi.ResourceArgs
+    public sealed class AwsGovcloudIntegrationsRoute53Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -29,5 +29,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public AwsGovcloudIntegrationsRoute53Args()
         {
         }
+        public static new AwsGovcloudIntegrationsRoute53Args Empty => new AwsGovcloudIntegrationsRoute53Args();
     }
 }

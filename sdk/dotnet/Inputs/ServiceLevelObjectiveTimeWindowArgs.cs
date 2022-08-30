@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class ServiceLevelObjectiveTimeWindowArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelObjectiveTimeWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Rolling window.
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Inputs
         public ServiceLevelObjectiveTimeWindowArgs()
         {
         }
+        public static new ServiceLevelObjectiveTimeWindowArgs Empty => new ServiceLevelObjectiveTimeWindowArgs();
     }
 }

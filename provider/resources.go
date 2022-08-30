@@ -46,7 +46,7 @@ var namespaceMap = map[string]string{
 }
 
 // makeMember manufactures a type token for the package and the given module and type.  It automatically
-//// uses the NewRelic package and names the file by simply lower casing the resource's first character.
+// uses the NewRelic package and names the file by simply lower casing the resource's first character.
 // first character.
 func makeMember(moduleTitle string, mem string) tokens.ModuleMember {
 	moduleName := strings.ToLower(moduleTitle)

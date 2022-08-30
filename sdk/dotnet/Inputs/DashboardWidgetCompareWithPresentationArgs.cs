@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class DashboardWidgetCompareWithPresentationArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetCompareWithPresentationArgs : global::Pulumi.ResourceArgs
     {
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Inputs
         public DashboardWidgetCompareWithPresentationArgs()
         {
         }
+        public static new DashboardWidgetCompareWithPresentationArgs Empty => new DashboardWidgetCompareWithPresentationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageWidgetStackedBarNrqlQueryArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageWidgetStackedBarNrqlQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -27,5 +27,6 @@ namespace Pulumi.NewRelic.Inputs
         public OneDashboardPageWidgetStackedBarNrqlQueryArgs()
         {
         }
+        public static new OneDashboardPageWidgetStackedBarNrqlQueryArgs Empty => new OneDashboardPageWidgetStackedBarNrqlQueryArgs();
     }
 }

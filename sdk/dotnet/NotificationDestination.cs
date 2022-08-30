@@ -9,30 +9,186 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
+    /// <summary>
+    /// Use this resource to create and manage New Relic notification destinations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ##### Webhook
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         Auth = 
+    ///         {
+    ///             { "password", "1234" },
+    ///             { "type", "BASIC" },
+    ///             { "user", "user" },
+    ///         },
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "url",
+    ///                 Value = "https://webhook.site/",
+    ///             },
+    ///         },
+    ///         Type = "WEBHOOK",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
+    /// ## Additional Examples
+    /// 
+    /// ##### ServiceNow
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         Auth = 
+    ///         {
+    ///             { "password", "pass" },
+    ///             { "type", "BASIC" },
+    ///             { "user", "user" },
+    ///         },
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "url",
+    ///                 Value = "https://service-now.com/",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "two_way_integration",
+    ///                 Value = "true",
+    ///             },
+    ///         },
+    ///         Type = "SERVICE_NOW",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### Email
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         Auth = 
+    ///         {
+    ///             { "prefix", "prefix" },
+    ///             { "token", "bearer" },
+    ///             { "type", "TOKEN" },
+    ///         },
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "email",
+    ///                 Value = "email@email.com,email2@email.com",
+    ///             },
+    ///         },
+    ///         Type = "EMAIL",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### PagerDuty with service integration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         Auth = 
+    ///         {
+    ///             { "prefix", "prefix" },
+    ///             { "token", "bearer" },
+    ///             { "type", "TOKEN" },
+    ///         },
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "two_way_integration",
+    ///                 Value = "true",
+    ///             },
+    ///         },
+    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### PagerDuty with account integration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationDestination("foo", new()
+    ///     {
+    ///         Auth = 
+    ///         {
+    ///             { "prefix", "prefix" },
+    ///             { "token", "bearer" },
+    ///             { "type", "TOKEN" },
+    ///         },
+    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** Sensitive data such as destination API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+    /// </summary>
     [NewRelicResourceType("newrelic:index/notificationDestination:NotificationDestination")]
-    public partial class NotificationDestination : Pulumi.CustomResource
+    public partial class NotificationDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A set of key-value pairs to represent a Notification destination auth.
+        /// A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
         /// </summary>
         [Output("auth")]
         public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The name of the destination.
+        /// The name of the destination.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of notification destination property types.
+        /// A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
         /// </summary>
         [Output("properties")]
         public Output<ImmutableArray<Outputs.NotificationDestinationProperty>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION).
+        /// The type of the auth.  One of: `TOKEN` or `BASIC`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -81,13 +237,13 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class NotificationDestinationArgs : Pulumi.ResourceArgs
+    public sealed class NotificationDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputMap<string>? _auth;
 
         /// <summary>
-        /// A set of key-value pairs to represent a Notification destination auth.
+        /// A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
         /// </summary>
         public InputMap<string> Auth
         {
@@ -96,7 +252,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// (Required) The name of the destination.
+        /// The name of the destination.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -105,7 +261,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationPropertyArgs>? _properties;
 
         /// <summary>
-        /// List of notification destination property types.
+        /// A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationPropertyArgs> Properties
         {
@@ -114,8 +270,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION).
+        /// The type of the auth.  One of: `TOKEN` or `BASIC`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -123,15 +278,16 @@ namespace Pulumi.NewRelic
         public NotificationDestinationArgs()
         {
         }
+        public static new NotificationDestinationArgs Empty => new NotificationDestinationArgs();
     }
 
-    public sealed class NotificationDestinationState : Pulumi.ResourceArgs
+    public sealed class NotificationDestinationState : global::Pulumi.ResourceArgs
     {
         [Input("auth")]
         private InputMap<string>? _auth;
 
         /// <summary>
-        /// A set of key-value pairs to represent a Notification destination auth.
+        /// A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
         /// </summary>
         public InputMap<string> Auth
         {
@@ -140,7 +296,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// (Required) The name of the destination.
+        /// The name of the destination.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -149,7 +305,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationDestinationPropertyGetArgs>? _properties;
 
         /// <summary>
-        /// List of notification destination property types.
+        /// A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationDestinationPropertyGetArgs> Properties
         {
@@ -158,8 +314,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION).
+        /// The type of the auth.  One of: `TOKEN` or `BASIC`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -167,5 +322,6 @@ namespace Pulumi.NewRelic
         public NotificationDestinationState()
         {
         }
+        public static new NotificationDestinationState Empty => new NotificationDestinationState();
     }
 }

@@ -17,53 +17,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertMutingRule(ctx, "foo", &newrelic.AlertMutingRuleArgs{
-// 			Condition: &AlertMutingRuleConditionArgs{
-// 				Conditions: AlertMutingRuleConditionConditionArray{
-// 					&AlertMutingRuleConditionConditionArgs{
-// 						Attribute: pulumi.String("product"),
-// 						Operator:  pulumi.String("EQUALS"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("APM"),
-// 						},
-// 					},
-// 					&AlertMutingRuleConditionConditionArgs{
-// 						Attribute: pulumi.String("targetId"),
-// 						Operator:  pulumi.String("EQUALS"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("Muted"),
-// 						},
-// 					},
-// 				},
-// 				Operator: pulumi.String("AND"),
-// 			},
-// 			Description: pulumi.String("muting rule test."),
-// 			Enabled:     pulumi.Bool(true),
-// 			Schedule: &AlertMutingRuleScheduleArgs{
-// 				EndTime:     pulumi.String("2021-01-28T16:30:00"),
-// 				Repeat:      pulumi.String("WEEKLY"),
-// 				RepeatCount: pulumi.Int(42),
-// 				StartTime:   pulumi.String("2021-01-28T15:30:00"),
-// 				TimeZone:    pulumi.String("America/Los_Angeles"),
-// 				WeeklyRepeatDays: pulumi.StringArray{
-// 					pulumi.String("MONDAY"),
-// 					pulumi.String("WEDNESDAY"),
-// 					pulumi.String("FRIDAY"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertMutingRule(ctx, "foo", &newrelic.AlertMutingRuleArgs{
+//				Condition: &AlertMutingRuleConditionArgs{
+//					Conditions: AlertMutingRuleConditionConditionArray{
+//						&AlertMutingRuleConditionConditionArgs{
+//							Attribute: pulumi.String("product"),
+//							Operator:  pulumi.String("EQUALS"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("APM"),
+//							},
+//						},
+//						&AlertMutingRuleConditionConditionArgs{
+//							Attribute: pulumi.String("targetId"),
+//							Operator:  pulumi.String("EQUALS"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("Muted"),
+//							},
+//						},
+//					},
+//					Operator: pulumi.String("AND"),
+//				},
+//				Description: pulumi.String("muting rule test."),
+//				Enabled:     pulumi.Bool(true),
+//				Schedule: &AlertMutingRuleScheduleArgs{
+//					EndTime:     pulumi.String("2021-01-28T16:30:00"),
+//					Repeat:      pulumi.String("WEEKLY"),
+//					RepeatCount: pulumi.Int(42),
+//					StartTime:   pulumi.String("2021-01-28T15:30:00"),
+//					TimeZone:    pulumi.String("America/Los_Angeles"),
+//					WeeklyRepeatDays: pulumi.StringArray{
+//						pulumi.String("MONDAY"),
+//						pulumi.String("WEDNESDAY"),
+//						pulumi.String("FRIDAY"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // Alert conditions can be imported using a composite ID of `<account_id>:<muting_rule_id>`, e.g.
 //
 // ```sh
-//  $ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+//
+//	$ pulumi import newrelic:index/alertMutingRule:AlertMutingRule foo 538291:6789035
+//
 // ```
 type AlertMutingRule struct {
 	pulumi.CustomResourceState
@@ -215,7 +220,7 @@ func (i *AlertMutingRule) ToAlertMutingRuleOutputWithContext(ctx context.Context
 // AlertMutingRuleArrayInput is an input type that accepts AlertMutingRuleArray and AlertMutingRuleArrayOutput values.
 // You can construct a concrete instance of `AlertMutingRuleArrayInput` via:
 //
-//          AlertMutingRuleArray{ AlertMutingRuleArgs{...} }
+//	AlertMutingRuleArray{ AlertMutingRuleArgs{...} }
 type AlertMutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +245,7 @@ func (i AlertMutingRuleArray) ToAlertMutingRuleArrayOutputWithContext(ctx contex
 // AlertMutingRuleMapInput is an input type that accepts AlertMutingRuleMap and AlertMutingRuleMapOutput values.
 // You can construct a concrete instance of `AlertMutingRuleMapInput` via:
 //
-//          AlertMutingRuleMap{ "key": AlertMutingRuleArgs{...} }
+//	AlertMutingRuleMap{ "key": AlertMutingRuleArgs{...} }
 type AlertMutingRuleMapInput interface {
 	pulumi.Input
 

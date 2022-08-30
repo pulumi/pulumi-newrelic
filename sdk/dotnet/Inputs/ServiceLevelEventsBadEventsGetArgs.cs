@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class ServiceLevelEventsBadEventsGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelEventsBadEventsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The event type where NRDB data will be fetched from.
@@ -29,5 +29,6 @@ namespace Pulumi.NewRelic.Inputs
         public ServiceLevelEventsBadEventsGetArgs()
         {
         }
+        public static new ServiceLevelEventsBadEventsGetArgs Empty => new ServiceLevelEventsBadEventsGetArgs();
     }
 }

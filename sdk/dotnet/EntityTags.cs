@@ -15,46 +15,45 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooEntity = NewRelic.GetEntity.Invoke(new()
     ///     {
-    ///         var fooEntity = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
+    ///         Name = "Example application",
+    ///         Type = "APPLICATION",
+    ///         Domain = "APM",
+    ///     });
+    /// 
+    ///     var fooEntityTags = new NewRelic.EntityTags("fooEntityTags", new()
+    ///     {
+    ///         Guid = fooEntity.Apply(getEntityResult =&gt; getEntityResult.Guid),
+    ///         Tags = new[]
     ///         {
-    ///             Name = "Example application",
-    ///             Type = "APPLICATION",
-    ///             Domain = "APM",
-    ///         }));
-    ///         var fooEntityTags = new NewRelic.EntityTags("fooEntityTags", new NewRelic.EntityTagsArgs
-    ///         {
-    ///             Guid = fooEntity.Apply(fooEntity =&gt; fooEntity.Guid),
-    ///             Tags = 
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
     ///             {
-    ///                 new NewRelic.Inputs.EntityTagsTagArgs
+    ///                 Key = "my-key",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "my-key",
-    ///                     Values = 
-    ///                     {
-    ///                         "my-value",
-    ///                         "my-other-value",
-    ///                     },
-    ///                 },
-    ///                 new NewRelic.Inputs.EntityTagsTagArgs
-    ///                 {
-    ///                     Key = "my-key-2",
-    ///                     Values = 
-    ///                     {
-    ///                         "my-value-2",
-    ///                     },
+    ///                     "my-value",
+    ///                     "my-other-value",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new NewRelic.Inputs.EntityTagsTagArgs
+    ///             {
+    ///                 Key = "my-key-2",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "my-value-2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +67,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/entityTags:EntityTags")]
-    public partial class EntityTags : Pulumi.CustomResource
+    public partial class EntityTags : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The guid of the entity to tag.
@@ -126,7 +125,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class EntityTagsArgs : Pulumi.ResourceArgs
+    public sealed class EntityTagsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The guid of the entity to tag.
@@ -149,9 +148,10 @@ namespace Pulumi.NewRelic
         public EntityTagsArgs()
         {
         }
+        public static new EntityTagsArgs Empty => new EntityTagsArgs();
     }
 
-    public sealed class EntityTagsState : Pulumi.ResourceArgs
+    public sealed class EntityTagsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The guid of the entity to tag.
@@ -174,5 +174,6 @@ namespace Pulumi.NewRelic
         public EntityTagsState()
         {
         }
+        public static new EntityTagsState Empty => new EntityTagsState();
     }
 }

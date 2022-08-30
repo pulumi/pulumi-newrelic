@@ -5,6 +5,113 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * Use this resource to create and manage New Relic notification destinations.
+ *
+ * ## Example Usage
+ *
+ * ##### Webhook
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationDestination("foo", {
+ *     auth: {
+ *         password: "1234",
+ *         type: "BASIC",
+ *         user: "user",
+ *     },
+ *     properties: [{
+ *         key: "url",
+ *         value: "https://webhook.site/",
+ *     }],
+ *     type: "WEBHOOK",
+ * });
+ * ```
+ * See additional examples.
+ * ## Additional Examples
+ *
+ * ##### ServiceNow
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationDestination("foo", {
+ *     auth: {
+ *         password: "pass",
+ *         type: "BASIC",
+ *         user: "user",
+ *     },
+ *     properties: [
+ *         {
+ *             key: "url",
+ *             value: "https://service-now.com/",
+ *         },
+ *         {
+ *             key: "two_way_integration",
+ *             value: "true",
+ *         },
+ *     ],
+ *     type: "SERVICE_NOW",
+ * });
+ * ```
+ *
+ * ##### Email
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationDestination("foo", {
+ *     auth: {
+ *         prefix: "prefix",
+ *         token: "bearer",
+ *         type: "TOKEN",
+ *     },
+ *     properties: [{
+ *         key: "email",
+ *         value: "email@email.com,email2@email.com",
+ *     }],
+ *     type: "EMAIL",
+ * });
+ * ```
+ *
+ * ##### PagerDuty with service integration
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationDestination("foo", {
+ *     auth: {
+ *         prefix: "prefix",
+ *         token: "bearer",
+ *         type: "TOKEN",
+ *     },
+ *     properties: [{
+ *         key: "two_way_integration",
+ *         value: "true",
+ *     }],
+ *     type: "PAGERDUTY_SERVICE_INTEGRATION",
+ * });
+ * ```
+ *
+ * ##### PagerDuty with account integration
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationDestination("foo", {
+ *     auth: {
+ *         prefix: "prefix",
+ *         token: "bearer",
+ *         type: "TOKEN",
+ *     },
+ *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
+ * });
+ * ```
+ *
+ * > **NOTE:** Sensitive data such as destination API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+ */
 export class NotificationDestination extends pulumi.CustomResource {
     /**
      * Get an existing NotificationDestination resource's state with the given name, ID, and optional extra
@@ -34,20 +141,19 @@ export class NotificationDestination extends pulumi.CustomResource {
     }
 
     /**
-     * A set of key-value pairs to represent a Notification destination auth.
+     * A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
      */
     public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * (Required) The name of the destination.
+     * The name of the destination.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of notification destination property types.
+     * A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
      */
     public readonly properties!: pulumi.Output<outputs.NotificationDestinationProperty[] | undefined>;
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION).
+     * The type of the auth.  One of: `TOKEN` or `BASIC`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -88,20 +194,19 @@ export class NotificationDestination extends pulumi.CustomResource {
  */
 export interface NotificationDestinationState {
     /**
-     * A set of key-value pairs to represent a Notification destination auth.
+     * A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
      */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * (Required) The name of the destination.
+     * The name of the destination.
      */
     name?: pulumi.Input<string>;
     /**
-     * List of notification destination property types.
+     * A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION).
+     * The type of the auth.  One of: `TOKEN` or `BASIC`.
      */
     type?: pulumi.Input<string>;
 }
@@ -111,20 +216,19 @@ export interface NotificationDestinationState {
  */
 export interface NotificationDestinationArgs {
     /**
-     * A set of key-value pairs to represent a Notification destination auth.
+     * A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
      */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * (Required) The name of the destination.
+     * The name of the destination.
      */
     name?: pulumi.Input<string>;
     /**
-     * List of notification destination property types.
+     * A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
     /**
-     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION).
+     * The type of the auth.  One of: `TOKEN` or `BASIC`.
      */
     type: pulumi.Input<string>;
 }

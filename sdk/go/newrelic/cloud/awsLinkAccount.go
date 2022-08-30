@@ -16,7 +16,9 @@ import (
 // Linked AWS accounts can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
+//
+//	$ pulumi import newrelic:cloud/awsLinkAccount:AwsLinkAccount foo <id>
+//
 // ```
 type AwsLinkAccount struct {
 	pulumi.CustomResourceState
@@ -137,7 +139,7 @@ func (i *AwsLinkAccount) ToAwsLinkAccountOutputWithContext(ctx context.Context) 
 // AwsLinkAccountArrayInput is an input type that accepts AwsLinkAccountArray and AwsLinkAccountArrayOutput values.
 // You can construct a concrete instance of `AwsLinkAccountArrayInput` via:
 //
-//          AwsLinkAccountArray{ AwsLinkAccountArgs{...} }
+//	AwsLinkAccountArray{ AwsLinkAccountArgs{...} }
 type AwsLinkAccountArrayInput interface {
 	pulumi.Input
 
@@ -162,7 +164,7 @@ func (i AwsLinkAccountArray) ToAwsLinkAccountArrayOutputWithContext(ctx context.
 // AwsLinkAccountMapInput is an input type that accepts AwsLinkAccountMap and AwsLinkAccountMapOutput values.
 // You can construct a concrete instance of `AwsLinkAccountMapInput` via:
 //
-//          AwsLinkAccountMap{ "key": AwsLinkAccountArgs{...} }
+//	AwsLinkAccountMap{ "key": AwsLinkAccountArgs{...} }
 type AwsLinkAccountMapInput interface {
 	pulumi.Input
 

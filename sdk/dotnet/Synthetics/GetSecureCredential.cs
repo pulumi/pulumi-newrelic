@@ -21,20 +21,18 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = NewRelic.Synthetics.GetSecureCredential.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(NewRelic.Synthetics.GetSecureCredential.InvokeAsync(new NewRelic.Synthetics.GetSecureCredentialArgs
-        ///         {
-        ///             Key = "MY_KEY",
-        ///         }));
-        ///     }
+        ///         Key = "MY_KEY",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = NewRelic.Synthetics.GetSecureCredential.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(NewRelic.Synthetics.GetSecureCredential.InvokeAsync(new NewRelic.Synthetics.GetSecureCredentialArgs
-        ///         {
-        ///             Key = "MY_KEY",
-        ///         }));
-        ///     }
+        ///         Key = "MY_KEY",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.NewRelic.Synthetics
     }
 
 
-    public sealed class GetSecureCredentialArgs : Pulumi.InvokeArgs
+    public sealed class GetSecureCredentialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -86,9 +82,10 @@ namespace Pulumi.NewRelic.Synthetics
         public GetSecureCredentialArgs()
         {
         }
+        public static new GetSecureCredentialArgs Empty => new GetSecureCredentialArgs();
     }
 
-    public sealed class GetSecureCredentialInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecureCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -99,6 +96,7 @@ namespace Pulumi.NewRelic.Synthetics
         public GetSecureCredentialInvokeArgs()
         {
         }
+        public static new GetSecureCredentialInvokeArgs Empty => new GetSecureCredentialInvokeArgs();
     }
 
 

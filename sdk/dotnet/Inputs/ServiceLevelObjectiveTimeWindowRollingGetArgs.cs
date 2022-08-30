@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class ServiceLevelObjectiveTimeWindowRollingGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelObjectiveTimeWindowRollingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid values are `1`, `7` and `28`.
@@ -27,5 +27,6 @@ namespace Pulumi.NewRelic.Inputs
         public ServiceLevelObjectiveTimeWindowRollingGetArgs()
         {
         }
+        public static new ServiceLevelObjectiveTimeWindowRollingGetArgs Empty => new ServiceLevelObjectiveTimeWindowRollingGetArgs();
     }
 }

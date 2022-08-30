@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class NrqlAlertConditionNrqlArgs : Pulumi.ResourceArgs
+    public sealed class NrqlAlertConditionNrqlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.&lt;br&gt;
@@ -35,5 +35,6 @@ namespace Pulumi.NewRelic.Inputs
         public NrqlAlertConditionNrqlArgs()
         {
         }
+        public static new NrqlAlertConditionNrqlArgs Empty => new NrqlAlertConditionNrqlArgs();
     }
 }

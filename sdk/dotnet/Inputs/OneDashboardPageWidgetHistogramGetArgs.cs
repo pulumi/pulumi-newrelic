@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageWidgetHistogramGetArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageWidgetHistogramGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Column position of widget from top left, starting at `1`.
@@ -68,5 +68,6 @@ namespace Pulumi.NewRelic.Inputs
         public OneDashboardPageWidgetHistogramGetArgs()
         {
         }
+        public static new OneDashboardPageWidgetHistogramGetArgs Empty => new OneDashboardPageWidgetHistogramGetArgs();
     }
 }

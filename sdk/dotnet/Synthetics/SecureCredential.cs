@@ -15,22 +15,20 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Synthetics.SecureCredential("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Synthetics.SecureCredential("foo", new NewRelic.Synthetics.SecureCredentialArgs
-    ///         {
-    ///             Description = "My description",
-    ///             Key = "MY_KEY",
-    ///             Value = "My value",
-    ///         });
-    ///     }
+    ///         Description = "My description",
+    ///         Key = "MY_KEY",
+    ///         Value = "My value",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/secureCredential:SecureCredential")]
-    public partial class SecureCredential : Pulumi.CustomResource
+    public partial class SecureCredential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -118,7 +116,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
-    public sealed class SecureCredentialArgs : Pulumi.ResourceArgs
+    public sealed class SecureCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -153,9 +151,10 @@ namespace Pulumi.NewRelic.Synthetics
         public SecureCredentialArgs()
         {
         }
+        public static new SecureCredentialArgs Empty => new SecureCredentialArgs();
     }
 
-    public sealed class SecureCredentialState : Pulumi.ResourceArgs
+    public sealed class SecureCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time the secure credential was created.
@@ -190,5 +189,6 @@ namespace Pulumi.NewRelic.Synthetics
         public SecureCredentialState()
         {
         }
+        public static new SecureCredentialState Empty => new SecureCredentialState();
     }
 }

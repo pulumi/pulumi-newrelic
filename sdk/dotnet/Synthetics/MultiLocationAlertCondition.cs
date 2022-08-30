@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition")]
-    public partial class MultiLocationAlertCondition : Pulumi.CustomResource
+    public partial class MultiLocationAlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A condition term with the priority set to critical.
@@ -119,7 +119,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
-    public sealed class MultiLocationAlertConditionArgs : Pulumi.ResourceArgs
+    public sealed class MultiLocationAlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A condition term with the priority set to critical.
@@ -178,9 +178,10 @@ namespace Pulumi.NewRelic.Synthetics
         public MultiLocationAlertConditionArgs()
         {
         }
+        public static new MultiLocationAlertConditionArgs Empty => new MultiLocationAlertConditionArgs();
     }
 
-    public sealed class MultiLocationAlertConditionState : Pulumi.ResourceArgs
+    public sealed class MultiLocationAlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A condition term with the priority set to critical.
@@ -239,5 +240,6 @@ namespace Pulumi.NewRelic.Synthetics
         public MultiLocationAlertConditionState()
         {
         }
+        public static new MultiLocationAlertConditionState Empty => new MultiLocationAlertConditionState();
     }
 }

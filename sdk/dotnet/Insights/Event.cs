@@ -15,47 +15,45 @@ namespace Pulumi.NewRelic.Insights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Insights.Event("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Insights.Event("foo", new NewRelic.Insights.EventArgs
+    ///         Events = new[]
     ///         {
-    ///             Events = 
+    ///             new NewRelic.Insights.Inputs.EventEventArgs
     ///             {
-    ///                 new NewRelic.Insights.Inputs.EventEventArgs
+    ///                 Attributes = new[]
     ///                 {
-    ///                     Attributes = 
+    ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
     ///                     {
-    ///                         new NewRelic.Insights.Inputs.EventEventAttributeArgs
-    ///                         {
-    ///                             Key = "a_string_attribute",
-    ///                             Value = "a string",
-    ///                         },
-    ///                         new NewRelic.Insights.Inputs.EventEventAttributeArgs
-    ///                         {
-    ///                             Key = "an_integer_attribute",
-    ///                             Type = "int",
-    ///                             Value = "42",
-    ///                         },
-    ///                         new NewRelic.Insights.Inputs.EventEventAttributeArgs
-    ///                         {
-    ///                             Key = "a_float_attribute",
-    ///                             Type = "float",
-    ///                             Value = "101.1",
-    ///                         },
+    ///                         Key = "a_string_attribute",
+    ///                         Value = "a string",
     ///                     },
-    ///                     Timestamp = 1232471100,
-    ///                     Type = "MyEvent",
+    ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
+    ///                     {
+    ///                         Key = "an_integer_attribute",
+    ///                         Type = "int",
+    ///                         Value = "42",
+    ///                     },
+    ///                     new NewRelic.Insights.Inputs.EventEventAttributeArgs
+    ///                     {
+    ///                         Key = "a_float_attribute",
+    ///                         Type = "float",
+    ///                         Value = "101.1",
+    ///                     },
     ///                 },
+    ///                 Timestamp = 1232471100,
+    ///                 Type = "MyEvent",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Events
     /// 
@@ -74,7 +72,7 @@ namespace Pulumi.NewRelic.Insights
     ///   * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
     /// </summary>
     [NewRelicResourceType("newrelic:insights/event:Event")]
-    public partial class Event : Pulumi.CustomResource
+    public partial class Event : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An event to insert into Insights. Multiple event blocks can be defined. See Events below for details.
@@ -126,7 +124,7 @@ namespace Pulumi.NewRelic.Insights
         }
     }
 
-    public sealed class EventArgs : Pulumi.ResourceArgs
+    public sealed class EventArgs : global::Pulumi.ResourceArgs
     {
         [Input("events", required: true)]
         private InputList<Inputs.EventEventArgs>? _events;
@@ -143,9 +141,10 @@ namespace Pulumi.NewRelic.Insights
         public EventArgs()
         {
         }
+        public static new EventArgs Empty => new EventArgs();
     }
 
-    public sealed class EventState : Pulumi.ResourceArgs
+    public sealed class EventState : global::Pulumi.ResourceArgs
     {
         [Input("events")]
         private InputList<Inputs.EventEventGetArgs>? _events;
@@ -162,5 +161,6 @@ namespace Pulumi.NewRelic.Insights
         public EventState()
         {
         }
+        public static new EventState Empty => new EventState();
     }
 }

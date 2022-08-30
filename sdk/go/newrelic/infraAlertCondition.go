@@ -21,103 +21,108 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := newrelic.NewAlertPolicy(ctx, "foo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
-// 			PolicyId:    foo.ID(),
-// 			Description: pulumi.String(fmt.Sprintf("%v%v%v%v", "Warning if disk usage goes above 80", "%", " and critical alert if goes above 90", "%")),
-// 			Type:        pulumi.String("infra_metric"),
-// 			Event:       pulumi.String("StorageSample"),
-// 			Select:      pulumi.String("diskUsedPercent"),
-// 			Comparison:  pulumi.String("above"),
-// 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
-// 			Critical: &InfraAlertConditionCriticalArgs{
-// 				Duration:     pulumi.Int(25),
-// 				Value:        pulumi.Float64(90),
-// 				TimeFunction: pulumi.String("all"),
-// 			},
-// 			Warning: &InfraAlertConditionWarningArgs{
-// 				Duration:     pulumi.Int(10),
-// 				Value:        pulumi.Float64(80),
-// 				TimeFunction: pulumi.String("all"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewInfraAlertCondition(ctx, "highDbConnCount", &newrelic.InfraAlertConditionArgs{
-// 			PolicyId:            foo.ID(),
-// 			Description:         pulumi.String("Critical alert when the number of database connections goes above 90"),
-// 			Type:                pulumi.String("infra_metric"),
-// 			Event:               pulumi.String("DatastoreSample"),
-// 			Select:              pulumi.String("provider.databaseConnections.Average"),
-// 			Comparison:          pulumi.String("above"),
-// 			Where:               pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "db", "%", "')")),
-// 			IntegrationProvider: pulumi.String("RdsDbInstance"),
-// 			Critical: &InfraAlertConditionCriticalArgs{
-// 				Duration:     pulumi.Int(25),
-// 				Value:        pulumi.Float64(90),
-// 				TimeFunction: pulumi.String("all"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewInfraAlertCondition(ctx, "processNotRunning", &newrelic.InfraAlertConditionArgs{
-// 			PolicyId:     foo.ID(),
-// 			Description:  pulumi.String("Critical alert when ruby isn't running"),
-// 			Type:         pulumi.String("infra_process_running"),
-// 			Comparison:   pulumi.String("equal"),
-// 			Where:        pulumi.String("hostname = 'web01'"),
-// 			ProcessWhere: pulumi.String("commandName = '/usr/bin/ruby'"),
-// 			Critical: &InfraAlertConditionCriticalArgs{
-// 				Duration: pulumi.Int(5),
-// 				Value:    pulumi.Float64(0),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewInfraAlertCondition(ctx, "hostNotReporting", &newrelic.InfraAlertConditionArgs{
-// 			PolicyId:    foo.ID(),
-// 			Description: pulumi.String("Critical alert when the host is not reporting"),
-// 			Type:        pulumi.String("infra_host_not_reporting"),
-// 			Where:       pulumi.String(fmt.Sprintf("%v%v%v%v%v", "(hostname LIKE '", "%", "frontend", "%", "')")),
-// 			Critical: &InfraAlertConditionCriticalArgs{
-// 				Duration: pulumi.Int(5),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := newrelic.NewAlertPolicy(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:    foo.ID(),
+//				Description: pulumi.String(fmt.Sprintf("Warning if disk usage goes above 80%v and critical alert if goes above 90%v", "%", "%")),
+//				Type:        pulumi.String("infra_metric"),
+//				Event:       pulumi.String("StorageSample"),
+//				Select:      pulumi.String("diskUsedPercent"),
+//				Comparison:  pulumi.String("above"),
+//				Where:       pulumi.String(fmt.Sprintf("(hostname LIKE '%vfrontend%v')", "%", "%")),
+//				Critical: &InfraAlertConditionCriticalArgs{
+//					Duration:     pulumi.Int(25),
+//					Value:        pulumi.Float64(90),
+//					TimeFunction: pulumi.String("all"),
+//				},
+//				Warning: &InfraAlertConditionWarningArgs{
+//					Duration:     pulumi.Int(10),
+//					Value:        pulumi.Float64(80),
+//					TimeFunction: pulumi.String("all"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "highDbConnCount", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:            foo.ID(),
+//				Description:         pulumi.String("Critical alert when the number of database connections goes above 90"),
+//				Type:                pulumi.String("infra_metric"),
+//				Event:               pulumi.String("DatastoreSample"),
+//				Select:              pulumi.String("provider.databaseConnections.Average"),
+//				Comparison:          pulumi.String("above"),
+//				Where:               pulumi.String(fmt.Sprintf("(hostname LIKE '%vdb%v')", "%", "%")),
+//				IntegrationProvider: pulumi.String("RdsDbInstance"),
+//				Critical: &InfraAlertConditionCriticalArgs{
+//					Duration:     pulumi.Int(25),
+//					Value:        pulumi.Float64(90),
+//					TimeFunction: pulumi.String("all"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "processNotRunning", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:     foo.ID(),
+//				Description:  pulumi.String("Critical alert when ruby isn't running"),
+//				Type:         pulumi.String("infra_process_running"),
+//				Comparison:   pulumi.String("equal"),
+//				Where:        pulumi.String("hostname = 'web01'"),
+//				ProcessWhere: pulumi.String("commandName = '/usr/bin/ruby'"),
+//				Critical: &InfraAlertConditionCriticalArgs{
+//					Duration: pulumi.Int(5),
+//					Value:    pulumi.Float64(0),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewInfraAlertCondition(ctx, "hostNotReporting", &newrelic.InfraAlertConditionArgs{
+//				PolicyId:    foo.ID(),
+//				Description: pulumi.String("Critical alert when the host is not reporting"),
+//				Type:        pulumi.String("infra_host_not_reporting"),
+//				Where:       pulumi.String(fmt.Sprintf("(hostname LIKE '%vfrontend%v')", "%", "%")),
+//				Critical: &InfraAlertConditionCriticalArgs{
+//					Duration: pulumi.Int(5),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Thresholds
 //
 // The `critical` and `warning` threshold mapping supports the following arguments:
 //
-//   * `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
-//   * `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
-//   * `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
+//   - `duration` - (Required) Identifies the number of minutes the threshold must be passed or met for the alert to trigger. Threshold durations must be between 1 and 60 minutes (inclusive).
+//   - `value` - (Optional) Threshold value, computed against the `comparison` operator. Supported by `infraMetric` and `infraProcessRunning` alert condition types.
+//   - `timeFunction` - (Optional) Indicates if the condition needs to be sustained or to just break the threshold once; `all` or `any`. Supported by the `infraMetric` alert condition type.
 //
 // ## Import
 //
 // Infrastructure alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
 //
 // ```sh
-//  $ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+//
+//	$ pulumi import newrelic:index/infraAlertCondition:InfraAlertCondition main 12345:67890
+//
 // ```
 type InfraAlertCondition struct {
 	pulumi.CustomResourceState
@@ -363,7 +368,7 @@ func (i *InfraAlertCondition) ToInfraAlertConditionOutputWithContext(ctx context
 // InfraAlertConditionArrayInput is an input type that accepts InfraAlertConditionArray and InfraAlertConditionArrayOutput values.
 // You can construct a concrete instance of `InfraAlertConditionArrayInput` via:
 //
-//          InfraAlertConditionArray{ InfraAlertConditionArgs{...} }
+//	InfraAlertConditionArray{ InfraAlertConditionArgs{...} }
 type InfraAlertConditionArrayInput interface {
 	pulumi.Input
 
@@ -388,7 +393,7 @@ func (i InfraAlertConditionArray) ToInfraAlertConditionArrayOutputWithContext(ct
 // InfraAlertConditionMapInput is an input type that accepts InfraAlertConditionMap and InfraAlertConditionMapOutput values.
 // You can construct a concrete instance of `InfraAlertConditionMapInput` via:
 //
-//          InfraAlertConditionMap{ "key": InfraAlertConditionArgs{...} }
+//	InfraAlertConditionMap{ "key": InfraAlertConditionArgs{...} }
 type InfraAlertConditionMapInput interface {
 	pulumi.Input
 

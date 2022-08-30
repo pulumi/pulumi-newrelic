@@ -17,26 +17,25 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooMonitor = NewRelic.Synthetics.GetMonitor.Invoke(new()
     ///     {
-    ///         var fooMonitor = Output.Create(NewRelic.Synthetics.GetMonitor.InvokeAsync(new NewRelic.Synthetics.GetMonitorArgs
-    ///         {
-    ///             Name = "foo",
-    ///         }));
-    ///         var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new NewRelic.Synthetics.AlertConditionArgs
-    ///         {
-    ///             PolicyId = newrelic_alert_policy.Foo.Id,
-    ///             MonitorId = fooMonitor.Apply(fooMonitor =&gt; fooMonitor.Id),
-    ///             RunbookUrl = "https://www.example.com",
-    ///         });
-    ///     }
+    ///         Name = "foo",
+    ///     });
     /// 
-    /// }
+    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
+    ///     {
+    ///         PolicyId = newrelic_alert_policy.Foo.Id,
+    ///         MonitorId = fooMonitor.Apply(getMonitorResult =&gt; getMonitorResult.Id),
+    ///         RunbookUrl = "https://www.example.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +47,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/alertCondition:AlertCondition")]
-    public partial class AlertCondition : Pulumi.CustomResource
+    public partial class AlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
@@ -124,7 +123,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
-    public sealed class AlertConditionArgs : Pulumi.ResourceArgs
+    public sealed class AlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
@@ -159,9 +158,10 @@ namespace Pulumi.NewRelic.Synthetics
         public AlertConditionArgs()
         {
         }
+        public static new AlertConditionArgs Empty => new AlertConditionArgs();
     }
 
-    public sealed class AlertConditionState : Pulumi.ResourceArgs
+    public sealed class AlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set whether to enable the alert condition. Defaults to `true`.
@@ -196,5 +196,6 @@ namespace Pulumi.NewRelic.Synthetics
         public AlertConditionState()
         {
         }
+        public static new AlertConditionState Empty => new AlertConditionState();
     }
 }

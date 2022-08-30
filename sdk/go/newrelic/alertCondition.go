@@ -21,66 +21,71 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := newrelic.GetEntity(ctx, &GetEntityArgs{
-// 			Name:   "my-app",
-// 			Type:   pulumi.StringRef("APPLICATION"),
-// 			Domain: pulumi.StringRef("APM"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
-// 			PolicyId: fooAlertPolicy.ID(),
-// 			Type:     pulumi.String("apm_app_metric"),
-// 			Entities: pulumi.IntArray{
-// 				pulumi.Int(app.ApplicationId),
-// 			},
-// 			Metric:         pulumi.String("apdex"),
-// 			RunbookUrl:     pulumi.String("https://www.example.com"),
-// 			ConditionScope: pulumi.String("application"),
-// 			Terms: AlertConditionTermArray{
-// 				&AlertConditionTermArgs{
-// 					Duration:     pulumi.Int(5),
-// 					Operator:     pulumi.String("below"),
-// 					Priority:     pulumi.String("critical"),
-// 					Threshold:    pulumi.Float64(0.75),
-// 					TimeFunction: pulumi.String("all"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := newrelic.GetEntity(ctx, &GetEntityArgs{
+//				Name:   "my-app",
+//				Type:   pulumi.StringRef("APPLICATION"),
+//				Domain: pulumi.StringRef("APM"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewAlertCondition(ctx, "fooAlertCondition", &newrelic.AlertConditionArgs{
+//				PolicyId: fooAlertPolicy.ID(),
+//				Type:     pulumi.String("apm_app_metric"),
+//				Entities: pulumi.IntArray{
+//					pulumi.Int(app.ApplicationId),
+//				},
+//				Metric:         pulumi.String("apdex"),
+//				RunbookUrl:     pulumi.String("https://www.example.com"),
+//				ConditionScope: pulumi.String("application"),
+//				Terms: AlertConditionTermArray{
+//					&AlertConditionTermArgs{
+//						Duration:     pulumi.Int(5),
+//						Operator:     pulumi.String("below"),
+//						Priority:     pulumi.String("critical"),
+//						Threshold:    pulumi.Float64(0.75),
+//						TimeFunction: pulumi.String("all"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Terms
 //
 // The `term` mapping supports the following arguments:
 //
-//   * `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
-//   * `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
-//   * `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
-//   * `threshold` - (Required) Must be 0 or greater.
-//   * `timeFunction` - (Required) `all` or `any`.
+//   - `duration` - (Required) In minutes, must be in the range of `5` to `120`, inclusive.
+//   - `operator` - (Optional) `above`, `below`, or `equal`.  Defaults to `equal`.
+//   - `priority` - (Optional) `critical` or `warning`.  Defaults to `critical`. Terms must include at least one `critical` priority term
+//   - `threshold` - (Required) Must be 0 or greater.
+//   - `timeFunction` - (Required) `all` or `any`.
 //
 // ## Import
 //
 // Alert conditions can be imported using notation `alert_policy_id:alert_condition_id`, e.g.
 //
 // ```sh
-//  $ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+//
+//	$ pulumi import newrelic:index/alertCondition:AlertCondition main 123456:6789012345
+//
 // ```
 type AlertCondition struct {
 	pulumi.CustomResourceState
@@ -513,7 +518,7 @@ func (i *AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) 
 // AlertConditionArrayInput is an input type that accepts AlertConditionArray and AlertConditionArrayOutput values.
 // You can construct a concrete instance of `AlertConditionArrayInput` via:
 //
-//          AlertConditionArray{ AlertConditionArgs{...} }
+//	AlertConditionArray{ AlertConditionArgs{...} }
 type AlertConditionArrayInput interface {
 	pulumi.Input
 
@@ -538,7 +543,7 @@ func (i AlertConditionArray) ToAlertConditionArrayOutputWithContext(ctx context.
 // AlertConditionMapInput is an input type that accepts AlertConditionMap and AlertConditionMapOutput values.
 // You can construct a concrete instance of `AlertConditionMapInput` via:
 //
-//          AlertConditionMap{ "key": AlertConditionArgs{...} }
+//	AlertConditionMap{ "key": AlertConditionArgs{...} }
 type AlertConditionMapInput interface {
 	pulumi.Input
 

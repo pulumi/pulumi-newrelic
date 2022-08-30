@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &AlertChannelConfigArgs{
-// 				IncludeJsonAttachment: pulumi.String("true"),
-// 				Recipients:            pulumi.String("foo@example.com"),
-// 			},
-// 			Type: pulumi.String("email"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Config: &AlertChannelConfigArgs{
+//					IncludeJsonAttachment: pulumi.String("true"),
+//					Recipients:            pulumi.String("foo@example.com"),
+//				},
+//				Type: pulumi.String("email"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Additional Examples
 //
@@ -46,25 +49,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &AlertChannelConfigArgs{
-// 				Channel: pulumi.String("example-alerts-channel"),
-// 				Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
-// 			},
-// 			Type: pulumi.String("slack"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Config: &AlertChannelConfigArgs{
+//					Channel: pulumi.String("example-alerts-channel"),
+//					Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
+//				},
+//				Type: pulumi.String("slack"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### OpsGenie
@@ -72,27 +78,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &AlertChannelConfigArgs{
-// 				ApiKey:     pulumi.String("abc123"),
-// 				Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
-// 				Tags:       pulumi.String("tag1, tag2"),
-// 				Teams:      pulumi.String("team1, team2"),
-// 			},
-// 			Type: pulumi.String("opsgenie"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Config: &AlertChannelConfigArgs{
+//					ApiKey:     pulumi.String("abc123"),
+//					Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
+//					Tags:       pulumi.String("tag1, tag2"),
+//					Teams:      pulumi.String("team1, team2"),
+//				},
+//				Type: pulumi.String("opsgenie"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### PagerDuty
@@ -100,24 +109,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &AlertChannelConfigArgs{
-// 				ServiceKey: pulumi.String("abc123"),
-// 			},
-// 			Type: pulumi.String("pagerduty"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Config: &AlertChannelConfigArgs{
+//					ServiceKey: pulumi.String("abc123"),
+//				},
+//				Type: pulumi.String("pagerduty"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### VictorOps
@@ -125,25 +137,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &AlertChannelConfigArgs{
-// 				Key:      pulumi.String("abc123"),
-// 				RouteKey: pulumi.String("/example"),
-// 			},
-// 			Type: pulumi.String("victorops"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Config: &AlertChannelConfigArgs{
+//					Key:      pulumi.String("abc123"),
+//					RouteKey: pulumi.String("/example"),
+//				},
+//				Type: pulumi.String("victorops"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Webhook
@@ -151,35 +166,38 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Type: pulumi.String("webhook"),
-// 			Config: &AlertChannelConfigArgs{
-// 				BaseUrl:     pulumi.String("http://www.test.com"),
-// 				PayloadType: pulumi.String("application/json"),
-// 				Payload: pulumi.StringMap{
-// 					"condition_name": pulumi.String(fmt.Sprintf("%v%v", "$", "CONDITION_NAME")),
-// 					"policy_name":    pulumi.String(fmt.Sprintf("%v%v", "$", "POLICY_NAME")),
-// 				},
-// 				Headers: pulumi.StringMap{
-// 					"header1": pulumi.Any(value1),
-// 					"header2": pulumi.Any(value2),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Type: pulumi.String("webhook"),
+//				Config: &AlertChannelConfigArgs{
+//					BaseUrl:     pulumi.String("http://www.test.com"),
+//					PayloadType: pulumi.String("application/json"),
+//					Payload: pulumi.StringMap{
+//						"condition_name": pulumi.String(fmt.Sprintf("$CONDITION_NAME")),
+//						"policy_name":    pulumi.String(fmt.Sprintf("$POLICY_NAME")),
+//					},
+//					Headers: pulumi.StringMap{
+//						"header1": pulumi.Any(value1),
+//						"header2": pulumi.Any(value2),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Webhook with complex payload
@@ -187,28 +205,39 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-// 			Config: &AlertChannelConfigArgs{
-// 				BaseUrl:       pulumi.String("http://www.test.com"),
-// 				PayloadString: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"my_custom_values\": {\n", "    \"condition_name\": \"", "$", "CONDITION_NAME\",\n", "    \"policy_name\": \"", "$", "POLICY_NAME\"\n", "  }\n", "}\n", "\n")),
-// 				PayloadType:   pulumi.String("application/json"),
-// 			},
-// 			Type: pulumi.String("webhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
+//				Config: &AlertChannelConfigArgs{
+//					BaseUrl: pulumi.String("http://www.test.com"),
+//					PayloadString: pulumi.String(fmt.Sprintf(`{
+//	  "my_custom_values": {
+//	    "condition_name": "$CONDITION_NAME",
+//	    "policy_name": "$POLICY_NAME"
+//	  }
+//	}
+//
+// `)),
+//
+//					PayloadType: pulumi.String("application/json"),
+//				},
+//				Type: pulumi.String("webhook"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -216,7 +245,9 @@ import (
 // Alert channels can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
+//
+//	$ pulumi import newrelic:index/alertChannel:AlertChannel main <id>
+//
 // ```
 type AlertChannel struct {
 	pulumi.CustomResourceState
@@ -337,7 +368,7 @@ func (i *AlertChannel) ToAlertChannelOutputWithContext(ctx context.Context) Aler
 // AlertChannelArrayInput is an input type that accepts AlertChannelArray and AlertChannelArrayOutput values.
 // You can construct a concrete instance of `AlertChannelArrayInput` via:
 //
-//          AlertChannelArray{ AlertChannelArgs{...} }
+//	AlertChannelArray{ AlertChannelArgs{...} }
 type AlertChannelArrayInput interface {
 	pulumi.Input
 
@@ -362,7 +393,7 @@ func (i AlertChannelArray) ToAlertChannelArrayOutputWithContext(ctx context.Cont
 // AlertChannelMapInput is an input type that accepts AlertChannelMap and AlertChannelMapOutput values.
 // You can construct a concrete instance of `AlertChannelMapInput` via:
 //
-//          AlertChannelMap{ "key": AlertChannelArgs{...} }
+//	AlertChannelMap{ "key": AlertChannelArgs{...} }
 type AlertChannelMapInput interface {
 	pulumi.Input
 

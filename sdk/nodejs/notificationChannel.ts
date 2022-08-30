@@ -5,6 +5,110 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * Use this resource to create and manage New Relic notification channels.
+ *
+ * ## Example Usage
+ *
+ * ##### Webhook
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     destinationId: "1234",
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         label: "Payload Template",
+ *         value: `{
+ * 	"name": "foo"
+ * }`,
+ *     }],
+ *     type: "WEBHOOK",
+ * });
+ * ```
+ * See additional examples.
+ * ## Additional Examples
+ *
+ * ##### ServiceNow
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     destinationId: "1234",
+ *     product: "PD",
+ *     properties: [
+ *         {
+ *             key: "description",
+ *             value: "General description",
+ *         },
+ *         {
+ *             key: "short_description",
+ *             value: "Short description",
+ *         },
+ *     ],
+ *     type: "SERVICENOW_INCIDENTS",
+ * });
+ * ```
+ *
+ * ##### Email
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     destinationId: "1234",
+ *     product: "ERROR_TRACKING",
+ *     type: "EMAIL",
+ * });
+ * ```
+ *
+ * ##### PagerDuty with account integration
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     destinationId: "1234",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "summary",
+ *             value: "General summary",
+ *         },
+ *         {
+ *             key: "service",
+ *             value: "1234",
+ *         },
+ *         {
+ *             key: "email",
+ *             value: "test@test.com",
+ *         },
+ *     ],
+ *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
+ * });
+ * ```
+ *
+ * ##### PagerDuty with service integration
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     destinationId: "1234",
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "summary",
+ *         value: "General summary",
+ *     }],
+ *     type: "PAGERDUTY_SERVICE_INTEGRATION",
+ * });
+ * ```
+ *
+ * > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+ */
 export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannel resource's state with the given name, ID, and optional extra
@@ -34,24 +138,23 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /**
-     * (Required) The id of the destination.
+     * The id of the destination.
      */
     public readonly destinationId!: pulumi.Output<string>;
     /**
-     * (Required) The name of the channel.
+     * The name of the channel.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (Required) The type of the channel product. One of: (ALERTS, DISCUSSIONS, ERROR_TRACKING, NTFC, SHARING, PD, IINT).
+     * The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
      */
     public readonly product!: pulumi.Output<string>;
     /**
-     * List of notification channel property types.
+     * A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
      */
     public readonly properties!: pulumi.Output<outputs.NotificationChannelProperty[] | undefined>;
     /**
-     * (Required) The type of the channel. One of: (WEBHOOK, EMAIL, SERVICENOW_INCIDENTS, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION).
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -100,24 +203,23 @@ export class NotificationChannel extends pulumi.CustomResource {
  */
 export interface NotificationChannelState {
     /**
-     * (Required) The id of the destination.
+     * The id of the destination.
      */
     destinationId?: pulumi.Input<string>;
     /**
-     * (Required) The name of the channel.
+     * The name of the channel.
      */
     name?: pulumi.Input<string>;
     /**
-     * (Required) The type of the channel product. One of: (ALERTS, DISCUSSIONS, ERROR_TRACKING, NTFC, SHARING, PD, IINT).
+     * The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
      */
     product?: pulumi.Input<string>;
     /**
-     * List of notification channel property types.
+     * A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationChannelProperty>[]>;
     /**
-     * (Required) The type of the channel. One of: (WEBHOOK, EMAIL, SERVICENOW_INCIDENTS, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION).
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      */
     type?: pulumi.Input<string>;
 }
@@ -127,24 +229,23 @@ export interface NotificationChannelState {
  */
 export interface NotificationChannelArgs {
     /**
-     * (Required) The id of the destination.
+     * The id of the destination.
      */
     destinationId: pulumi.Input<string>;
     /**
-     * (Required) The name of the channel.
+     * The name of the channel.
      */
     name?: pulumi.Input<string>;
     /**
-     * (Required) The type of the channel product. One of: (ALERTS, DISCUSSIONS, ERROR_TRACKING, NTFC, SHARING, PD, IINT).
+     * The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
      */
     product: pulumi.Input<string>;
     /**
-     * List of notification channel property types.
+     * A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
      */
     properties?: pulumi.Input<pulumi.Input<inputs.NotificationChannelProperty>[]>;
     /**
-     * (Required) The type of the channel. One of: (WEBHOOK, EMAIL, SERVICENOW_INCIDENTS, PAGERDUTY_ACCOUNT_INTEGRATION,
-     * PAGERDUTY_SERVICE_INTEGRATION).
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      */
     type: pulumi.Input<string>;
 }
