@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class ServiceLevelObjectiveArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelObjectiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the SLI.
@@ -39,5 +39,6 @@ namespace Pulumi.NewRelic.Inputs
         public ServiceLevelObjectiveArgs()
         {
         }
+        public static new ServiceLevelObjectiveArgs Empty => new ServiceLevelObjectiveArgs();
     }
 }

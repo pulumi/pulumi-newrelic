@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class InfraAlertConditionCriticalGetArgs : Pulumi.ResourceArgs
+    public sealed class InfraAlertConditionCriticalGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
@@ -24,5 +24,6 @@ namespace Pulumi.NewRelic.Inputs
         public InfraAlertConditionCriticalGetArgs()
         {
         }
+        public static new InfraAlertConditionCriticalGetArgs Empty => new InfraAlertConditionCriticalGetArgs();
     }
 }

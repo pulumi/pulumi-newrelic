@@ -33,7 +33,7 @@ namespace Pulumi.NewRelic.Plugins
     }
 
 
-    public sealed class GetPluginArgs : Pulumi.InvokeArgs
+    public sealed class GetPluginArgs : global::Pulumi.InvokeArgs
     {
         [Input("guid", required: true)]
         public string Guid { get; set; } = null!;
@@ -41,9 +41,10 @@ namespace Pulumi.NewRelic.Plugins
         public GetPluginArgs()
         {
         }
+        public static new GetPluginArgs Empty => new GetPluginArgs();
     }
 
-    public sealed class GetPluginInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPluginInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("guid", required: true)]
         public Input<string> Guid { get; set; } = null!;
@@ -51,6 +52,7 @@ namespace Pulumi.NewRelic.Plugins
         public GetPluginInvokeArgs()
         {
         }
+        public static new GetPluginInvokeArgs Empty => new GetPluginInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class AzureIntegrationsAppGatewayGetArgs : Pulumi.ResourceArgs
+    public sealed class AzureIntegrationsAppGatewayGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data polling interval in seconds.
@@ -33,5 +33,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public AzureIntegrationsAppGatewayGetArgs()
         {
         }
+        public static new AzureIntegrationsAppGatewayGetArgs Empty => new AzureIntegrationsAppGatewayGetArgs();
     }
 }

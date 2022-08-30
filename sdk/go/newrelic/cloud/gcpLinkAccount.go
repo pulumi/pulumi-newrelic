@@ -16,7 +16,9 @@ import (
 // Linked GCP accounts can be imported using `id`, you can find the `id` of an existing GCP linked accounts in GCP dashboard under Infrastructure in Newrelic Console. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
+//
+//	$ pulumi import newrelic:cloud/gcpLinkAccount:GcpLinkAccount newrelic_cloud_gcp_link_account.foo <id>
+//
 // ```
 type GcpLinkAccount struct {
 	pulumi.CustomResourceState
@@ -127,7 +129,7 @@ func (i *GcpLinkAccount) ToGcpLinkAccountOutputWithContext(ctx context.Context) 
 // GcpLinkAccountArrayInput is an input type that accepts GcpLinkAccountArray and GcpLinkAccountArrayOutput values.
 // You can construct a concrete instance of `GcpLinkAccountArrayInput` via:
 //
-//          GcpLinkAccountArray{ GcpLinkAccountArgs{...} }
+//	GcpLinkAccountArray{ GcpLinkAccountArgs{...} }
 type GcpLinkAccountArrayInput interface {
 	pulumi.Input
 
@@ -152,7 +154,7 @@ func (i GcpLinkAccountArray) ToGcpLinkAccountArrayOutputWithContext(ctx context.
 // GcpLinkAccountMapInput is an input type that accepts GcpLinkAccountMap and GcpLinkAccountMapOutput values.
 // You can construct a concrete instance of `GcpLinkAccountMapInput` via:
 //
-//          GcpLinkAccountMap{ "key": GcpLinkAccountArgs{...} }
+//	GcpLinkAccountMap{ "key": GcpLinkAccountArgs{...} }
 type GcpLinkAccountMapInput interface {
 	pulumi.Input
 

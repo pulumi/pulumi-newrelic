@@ -19,22 +19,20 @@ namespace Pulumi.NewRelic.Plugins
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var app = new NewRelic.Plugins.ApplicationSettings("app", new()
     ///     {
-    ///         var app = new NewRelic.Plugins.ApplicationSettings("app", new NewRelic.Plugins.ApplicationSettingsArgs
-    ///         {
-    ///             AppApdexThreshold = 0.7,
-    ///             EnableRealUserMonitoring = false,
-    ///             EndUserApdexThreshold = 0.8,
-    ///         });
-    ///     }
+    ///         AppApdexThreshold = 0.7,
+    ///         EnableRealUserMonitoring = false,
+    ///         EndUserApdexThreshold = 0.8,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Notes
     /// 
@@ -50,7 +48,7 @@ namespace Pulumi.NewRelic.Plugins
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/applicationSettings:ApplicationSettings")]
-    public partial class ApplicationSettings : Pulumi.CustomResource
+    public partial class ApplicationSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The appex threshold for the New Relic application.
@@ -120,7 +118,7 @@ namespace Pulumi.NewRelic.Plugins
         }
     }
 
-    public sealed class ApplicationSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The appex threshold for the New Relic application.
@@ -149,9 +147,10 @@ namespace Pulumi.NewRelic.Plugins
         public ApplicationSettingsArgs()
         {
         }
+        public static new ApplicationSettingsArgs Empty => new ApplicationSettingsArgs();
     }
 
-    public sealed class ApplicationSettingsState : Pulumi.ResourceArgs
+    public sealed class ApplicationSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The appex threshold for the New Relic application.
@@ -180,5 +179,6 @@ namespace Pulumi.NewRelic.Plugins
         public ApplicationSettingsState()
         {
         }
+        public static new ApplicationSettingsState Empty => new ApplicationSettingsState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class DashboardWidgetMetricGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetMetricGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -32,5 +32,6 @@ namespace Pulumi.NewRelic.Inputs
         public DashboardWidgetMetricGetArgs()
         {
         }
+        public static new DashboardWidgetMetricGetArgs Empty => new DashboardWidgetMetricGetArgs();
     }
 }

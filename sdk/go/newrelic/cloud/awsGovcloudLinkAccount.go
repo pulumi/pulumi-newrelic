@@ -17,25 +17,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/cloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/cloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloud.NewAwsGovcloudLinkAccount(ctx, "foo", &cloud.AwsGovcloudLinkAccountArgs{
-// 			AccessKeyId:          pulumi.String("access-key-id of aws govcloud account"),
-// 			AccountId:            pulumi.Int("The New Relic account ID where you want to link the AWS GovCloud account"),
-// 			AwsAccountId:         pulumi.String("aws govcloud account id"),
-// 			MetricCollectionMode: pulumi.String("PULL"),
-// 			SecretAccessKey:      pulumi.String("secret access key of the aws govcloud account"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloud.NewAwsGovcloudLinkAccount(ctx, "foo", &cloud.AwsGovcloudLinkAccountArgs{
+//				AccessKeyId:          pulumi.String("access-key-id of aws govcloud account"),
+//				AccountId:            pulumi.Int("The New Relic account ID where you want to link the AWS GovCloud account"),
+//				AwsAccountId:         pulumi.String("aws govcloud account id"),
+//				MetricCollectionMode: pulumi.String("PULL"),
+//				SecretAccessKey:      pulumi.String("secret access key of the aws govcloud account"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Linked AWSGovCloud accounts can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+//
+//	$ pulumi import newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount foo <id>
+//
 // ```
 type AwsGovcloudLinkAccount struct {
 	pulumi.CustomResourceState
@@ -190,7 +195,7 @@ func (i *AwsGovcloudLinkAccount) ToAwsGovcloudLinkAccountOutputWithContext(ctx c
 // AwsGovcloudLinkAccountArrayInput is an input type that accepts AwsGovcloudLinkAccountArray and AwsGovcloudLinkAccountArrayOutput values.
 // You can construct a concrete instance of `AwsGovcloudLinkAccountArrayInput` via:
 //
-//          AwsGovcloudLinkAccountArray{ AwsGovcloudLinkAccountArgs{...} }
+//	AwsGovcloudLinkAccountArray{ AwsGovcloudLinkAccountArgs{...} }
 type AwsGovcloudLinkAccountArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +220,7 @@ func (i AwsGovcloudLinkAccountArray) ToAwsGovcloudLinkAccountArrayOutputWithCont
 // AwsGovcloudLinkAccountMapInput is an input type that accepts AwsGovcloudLinkAccountMap and AwsGovcloudLinkAccountMapOutput values.
 // You can construct a concrete instance of `AwsGovcloudLinkAccountMapInput` via:
 //
-//          AwsGovcloudLinkAccountMap{ "key": AwsGovcloudLinkAccountArgs{...} }
+//	AwsGovcloudLinkAccountMap{ "key": AwsGovcloudLinkAccountArgs{...} }
 type AwsGovcloudLinkAccountMapInput interface {
 	pulumi.Input
 

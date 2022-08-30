@@ -19,28 +19,26 @@ namespace Pulumi.NewRelic
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampledash = new NewRelic.OneDashboardRaw("exampledash", new()
     ///     {
-    ///         var exampledash = new NewRelic.OneDashboardRaw("exampledash", new NewRelic.OneDashboardRawArgs
+    ///         Pages = new[]
     ///         {
-    ///             Pages = 
+    ///             new NewRelic.Inputs.OneDashboardRawPageArgs
     ///             {
-    ///                 new NewRelic.Inputs.OneDashboardRawPageArgs
+    ///                 Name = "Page Name",
+    ///                 Widgets = new[]
     ///                 {
-    ///                     Name = "Page Name",
-    ///                     Widgets = 
+    ///                     new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
     ///                     {
-    ///                         new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
-    ///                         {
-    ///                             Title = "Custom widget",
-    ///                             Row = 1,
-    ///                             Column = 1,
-    ///                             Width = 1,
-    ///                             Height = 1,
-    ///                             VisualizationId = "viz.custom",
-    ///                             Configuration = @"      {
+    ///                         Title = "Custom widget",
+    ///                         Row = 1,
+    ///                         Column = 1,
+    ///                         Width = 1,
+    ///                         Height = 1,
+    ///                         VisualizationId = "viz.custom",
+    ///                         Configuration = @"      {
     ///         ""legend"": {
     ///           ""enabled"": false
     ///         },
@@ -57,16 +55,16 @@ namespace Pulumi.NewRelic
     ///         }
     ///       }
     /// ",
-    ///                         },
-    ///                         new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
-    ///                         {
-    ///                             Title = "Server CPU",
-    ///                             Row = 1,
-    ///                             Column = 2,
-    ///                             Width = 1,
-    ///                             Height = 1,
-    ///                             VisualizationId = "viz.testing",
-    ///                             Configuration = @"      {
+    ///                     },
+    ///                     new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
+    ///                     {
+    ///                         Title = "Server CPU",
+    ///                         Row = 1,
+    ///                         Column = 2,
+    ///                         Width = 1,
+    ///                         Height = 1,
+    ///                         VisualizationId = "viz.testing",
+    ///                         Configuration = @"      {
     ///         ""nrqlQueries"": [
     ///           {
     ///             ""accountId"": ` + accountID + `,
@@ -75,47 +73,45 @@ namespace Pulumi.NewRelic
     ///         ]
     ///       }
     /// ",
-    ///                         },
-    ///                         new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
+    ///                     },
+    ///                     new NewRelic.Inputs.OneDashboardRawPageWidgetArgs
+    ///                     {
+    ///                         Title = "Docker Server CPU",
+    ///                         Row = 1,
+    ///                         Column = 3,
+    ///                         Height = 1,
+    ///                         Width = 1,
+    ///                         VisualizationId = "viz.bar",
+    ///                         Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             Title = "Docker Server CPU",
-    ///                             Row = 1,
-    ///                             Column = 3,
-    ///                             Height = 1,
-    ///                             Width = 1,
-    ///                             VisualizationId = "viz.bar",
-    ///                             Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                             ["facet"] = new Dictionary&lt;string, object?&gt;
     ///                             {
-    ///                                 { "facet", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "showOtherSeries", false },
-    ///                                 } },
-    ///                                 { "nrqlQueries", new[]
-    ///                                     {
-    ///                                         new Dictionary&lt;string, object?&gt;
-    ///                                         {
-    ///                                             { "accountId", local.AccountID },
-    ///                                             { "query", "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400" },
-    ///                                         },
-    ///                                     }
-    ///                                  },
-    ///                             }),
-    ///                             LinkedEntityGuids = 
-    ///                             {
-    ///                                 "MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc",
+    ///                                 ["showOtherSeries"] = false,
     ///                             },
+    ///                             ["nrqlQueries"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["accountId"] = local.AccountID,
+    ///                                     ["query"] = "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400",
+    ///                                 },
+    ///                             },
+    ///                         }),
+    ///                         LinkedEntityGuids = new[]
+    ///                         {
+    ///                             "MzI5ODAxNnxWSVp8REFTSEJPQVJEfDI2MTcxNDc",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardRaw:OneDashboardRaw")]
-    public partial class OneDashboardRaw : Pulumi.CustomResource
+    public partial class OneDashboardRaw : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -203,7 +199,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class OneDashboardRawArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardRawArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -244,9 +240,10 @@ namespace Pulumi.NewRelic
         public OneDashboardRawArgs()
         {
         }
+        public static new OneDashboardRawArgs Empty => new OneDashboardRawArgs();
     }
 
-    public sealed class OneDashboardRawState : Pulumi.ResourceArgs
+    public sealed class OneDashboardRawState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -299,5 +296,6 @@ namespace Pulumi.NewRelic
         public OneDashboardRawState()
         {
         }
+        public static new OneDashboardRawState Empty => new OneDashboardRawState();
     }
 }

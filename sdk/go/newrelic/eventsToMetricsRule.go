@@ -19,33 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewEventsToMetricsRule(ctx, "foo", &newrelic.EventsToMetricsRuleArgs{
-// 			AccountId:   pulumi.Int(12345),
-// 			Description: pulumi.String("Example description"),
-// 			Nrql:        pulumi.String("SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewEventsToMetricsRule(ctx, "foo", &newrelic.EventsToMetricsRuleArgs{
+//				AccountId:   pulumi.Int(12345),
+//				Description: pulumi.String("Example description"),
+//				Nrql:        pulumi.String("SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// New Relic Events to Metrics rules can be imported using a concatenated string of the format
+// # New Relic Events to Metrics rules can be imported using a concatenated string of the format
 //
 // `<account_id>:<rule_id>`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+//
+//	$ pulumi import newrelic:index/eventsToMetricsRule:EventsToMetricsRule foo 12345:34567
+//
 // ```
 type EventsToMetricsRule struct {
 	pulumi.CustomResourceState
@@ -182,7 +187,7 @@ func (i *EventsToMetricsRule) ToEventsToMetricsRuleOutputWithContext(ctx context
 // EventsToMetricsRuleArrayInput is an input type that accepts EventsToMetricsRuleArray and EventsToMetricsRuleArrayOutput values.
 // You can construct a concrete instance of `EventsToMetricsRuleArrayInput` via:
 //
-//          EventsToMetricsRuleArray{ EventsToMetricsRuleArgs{...} }
+//	EventsToMetricsRuleArray{ EventsToMetricsRuleArgs{...} }
 type EventsToMetricsRuleArrayInput interface {
 	pulumi.Input
 
@@ -207,7 +212,7 @@ func (i EventsToMetricsRuleArray) ToEventsToMetricsRuleArrayOutputWithContext(ct
 // EventsToMetricsRuleMapInput is an input type that accepts EventsToMetricsRuleMap and EventsToMetricsRuleMapOutput values.
 // You can construct a concrete instance of `EventsToMetricsRuleMapInput` via:
 //
-//          EventsToMetricsRuleMap{ "key": EventsToMetricsRuleArgs{...} }
+//	EventsToMetricsRuleMap{ "key": EventsToMetricsRuleArgs{...} }
 type EventsToMetricsRuleMapInput interface {
 	pulumi.Input
 

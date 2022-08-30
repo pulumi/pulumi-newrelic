@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageWidgetBarGetArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageWidgetBarGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Column position of widget from top left, starting at `1`.
@@ -79,5 +79,6 @@ namespace Pulumi.NewRelic.Inputs
         public OneDashboardPageWidgetBarGetArgs()
         {
         }
+        public static new OneDashboardPageWidgetBarGetArgs Empty => new OneDashboardPageWidgetBarGetArgs();
     }
 }

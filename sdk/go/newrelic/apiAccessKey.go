@@ -14,8 +14,8 @@ import (
 // Use this resource to programmatically create and manage the following types of keys:
 // - [User API keys](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#user-api-key)
 // - License (or ingest) keys, including:
-//     - General [license key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM
-//     - [Browser license key](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)
+//   - General [license key](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) used for APM
+//   - [Browser license key](https://docs.newrelic.com/docs/browser/new-relic-browser/configuration/copy-browser-monitoring-license-key-app-id)
 //
 // Please visit the New Relic article ['Use NerdGraph to manage license keys and User API keys'](https://docs.newrelic.com/docs/apis/nerdgraph/examples/use-nerdgraph-manage-license-keys-user-keys)
 // for more information.
@@ -31,24 +31,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewApiAccessKey(ctx, "foobar", &newrelic.ApiAccessKeyArgs{
-// 			AccountId:  pulumi.Int(1234567),
-// 			IngestType: pulumi.String("LICENSE"),
-// 			KeyType:    pulumi.String("INGEST"),
-// 			Notes:      pulumi.String("To be used with service X"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewApiAccessKey(ctx, "foobar", &newrelic.ApiAccessKeyArgs{
+//				AccountId:  pulumi.Int(1234567),
+//				IngestType: pulumi.String("LICENSE"),
+//				KeyType:    pulumi.String("INGEST"),
+//				Notes:      pulumi.String("To be used with service X"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Existing API access keys can be imported using a composite ID of `<api_access_key_id>:<key_type>`. `<key_type>` will be either `INGEST` or `USER`. For example
 //
 // ```sh
-//  $ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
+//
+//	$ pulumi import newrelic:index/apiAccessKey:ApiAccessKey foobar "1234567:INGEST"
+//
 // ```
 type ApiAccessKey struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *ApiAccessKey) ToApiAccessKeyOutputWithContext(ctx context.Context) ApiA
 // ApiAccessKeyArrayInput is an input type that accepts ApiAccessKeyArray and ApiAccessKeyArrayOutput values.
 // You can construct a concrete instance of `ApiAccessKeyArrayInput` via:
 //
-//          ApiAccessKeyArray{ ApiAccessKeyArgs{...} }
+//	ApiAccessKeyArray{ ApiAccessKeyArgs{...} }
 type ApiAccessKeyArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i ApiAccessKeyArray) ToApiAccessKeyArrayOutputWithContext(ctx context.Cont
 // ApiAccessKeyMapInput is an input type that accepts ApiAccessKeyMap and ApiAccessKeyMapOutput values.
 // You can construct a concrete instance of `ApiAccessKeyMapInput` via:
 //
-//          ApiAccessKeyMap{ "key": ApiAccessKeyArgs{...} }
+//	ApiAccessKeyMap{ "key": ApiAccessKeyArgs{...} }
 type ApiAccessKeyMapInput interface {
 	pulumi.Input
 

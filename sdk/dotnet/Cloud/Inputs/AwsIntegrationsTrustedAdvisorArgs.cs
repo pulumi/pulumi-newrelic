@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class AwsIntegrationsTrustedAdvisorArgs : Pulumi.ResourceArgs
+    public sealed class AwsIntegrationsTrustedAdvisorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data polling interval in seconds.
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public AwsIntegrationsTrustedAdvisorArgs()
         {
         }
+        public static new AwsIntegrationsTrustedAdvisorArgs Empty => new AwsIntegrationsTrustedAdvisorArgs();
     }
 }

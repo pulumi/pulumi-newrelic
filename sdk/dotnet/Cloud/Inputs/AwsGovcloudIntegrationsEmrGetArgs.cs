@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class AwsGovcloudIntegrationsEmrGetArgs : Pulumi.ResourceArgs
+    public sealed class AwsGovcloudIntegrationsEmrGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
@@ -62,5 +62,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public AwsGovcloudIntegrationsEmrGetArgs()
         {
         }
+        public static new AwsGovcloudIntegrationsEmrGetArgs Empty => new AwsGovcloudIntegrationsEmrGetArgs();
     }
 }

@@ -17,7 +17,7 @@ namespace Pulumi.NewRelic.Plugins
     /// For more information, [click here](https://discuss.newrelic.com/t/new-relic-plugin-eol-wednesday-june-16th-2021/127267)
     /// </summary>
     [NewRelicResourceType("newrelic:plugins/alertCondition:AlertCondition")]
-    public partial class AlertCondition : Pulumi.CustomResource
+    public partial class AlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether or not this condition is enabled.
@@ -126,7 +126,7 @@ namespace Pulumi.NewRelic.Plugins
         }
     }
 
-    public sealed class AlertConditionArgs : Pulumi.ResourceArgs
+    public sealed class AlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not this condition is enabled.
@@ -205,9 +205,10 @@ namespace Pulumi.NewRelic.Plugins
         public AlertConditionArgs()
         {
         }
+        public static new AlertConditionArgs Empty => new AlertConditionArgs();
     }
 
-    public sealed class AlertConditionState : Pulumi.ResourceArgs
+    public sealed class AlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not this condition is enabled.
@@ -286,5 +287,6 @@ namespace Pulumi.NewRelic.Plugins
         public AlertConditionState()
         {
         }
+        public static new AlertConditionState Empty => new AlertConditionState();
     }
 }

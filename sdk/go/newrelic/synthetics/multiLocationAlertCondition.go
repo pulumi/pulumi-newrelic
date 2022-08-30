@@ -17,12 +17,14 @@ import (
 //
 // ## Import
 //
-// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
+// # New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
 //
 // `<policy_id>:<condition_id>`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+//
+//	$ pulumi import newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition example 12345678:1456
+//
 // ```
 type MultiLocationAlertCondition struct {
 	pulumi.CustomResourceState
@@ -192,7 +194,7 @@ func (i *MultiLocationAlertCondition) ToMultiLocationAlertConditionOutputWithCon
 // MultiLocationAlertConditionArrayInput is an input type that accepts MultiLocationAlertConditionArray and MultiLocationAlertConditionArrayOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionArrayInput` via:
 //
-//          MultiLocationAlertConditionArray{ MultiLocationAlertConditionArgs{...} }
+//	MultiLocationAlertConditionArray{ MultiLocationAlertConditionArgs{...} }
 type MultiLocationAlertConditionArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +219,7 @@ func (i MultiLocationAlertConditionArray) ToMultiLocationAlertConditionArrayOutp
 // MultiLocationAlertConditionMapInput is an input type that accepts MultiLocationAlertConditionMap and MultiLocationAlertConditionMapOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionMapInput` via:
 //
-//          MultiLocationAlertConditionMap{ "key": MultiLocationAlertConditionArgs{...} }
+//	MultiLocationAlertConditionMap{ "key": MultiLocationAlertConditionArgs{...} }
 type MultiLocationAlertConditionMapInput interface {
 	pulumi.Input
 

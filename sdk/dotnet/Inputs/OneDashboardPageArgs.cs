@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Brief text describing the dashboard.
@@ -201,5 +201,6 @@ namespace Pulumi.NewRelic.Inputs
         public OneDashboardPageArgs()
         {
         }
+        public static new OneDashboardPageArgs Empty => new OneDashboardPageArgs();
     }
 }

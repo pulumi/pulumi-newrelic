@@ -13,60 +13,58 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.AlertMutingRule("foo", new()
     ///     {
-    ///         var foo = new NewRelic.AlertMutingRule("foo", new NewRelic.AlertMutingRuleArgs
+    ///         Condition = new NewRelic.Inputs.AlertMutingRuleConditionArgs
     ///         {
-    ///             Condition = new NewRelic.Inputs.AlertMutingRuleConditionArgs
+    ///             Conditions = new[]
     ///             {
-    ///                 Conditions = 
+    ///                 new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
     ///                 {
-    ///                     new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
+    ///                     Attribute = "product",
+    ///                     Operator = "EQUALS",
+    ///                     Values = new[]
     ///                     {
-    ///                         Attribute = "product",
-    ///                         Operator = "EQUALS",
-    ///                         Values = 
-    ///                         {
-    ///                             "APM",
-    ///                         },
-    ///                     },
-    ///                     new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
-    ///                     {
-    ///                         Attribute = "targetId",
-    ///                         Operator = "EQUALS",
-    ///                         Values = 
-    ///                         {
-    ///                             "Muted",
-    ///                         },
+    ///                         "APM",
     ///                     },
     ///                 },
-    ///                 Operator = "AND",
-    ///             },
-    ///             Description = "muting rule test.",
-    ///             Enabled = true,
-    ///             Schedule = new NewRelic.Inputs.AlertMutingRuleScheduleArgs
-    ///             {
-    ///                 EndTime = "2021-01-28T16:30:00",
-    ///                 Repeat = "WEEKLY",
-    ///                 RepeatCount = 42,
-    ///                 StartTime = "2021-01-28T15:30:00",
-    ///                 TimeZone = "America/Los_Angeles",
-    ///                 WeeklyRepeatDays = 
+    ///                 new NewRelic.Inputs.AlertMutingRuleConditionConditionArgs
     ///                 {
-    ///                     "MONDAY",
-    ///                     "WEDNESDAY",
-    ///                     "FRIDAY",
+    ///                     Attribute = "targetId",
+    ///                     Operator = "EQUALS",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "Muted",
+    ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             Operator = "AND",
+    ///         },
+    ///         Description = "muting rule test.",
+    ///         Enabled = true,
+    ///         Schedule = new NewRelic.Inputs.AlertMutingRuleScheduleArgs
+    ///         {
+    ///             EndTime = "2021-01-28T16:30:00",
+    ///             Repeat = "WEEKLY",
+    ///             RepeatCount = 42,
+    ///             StartTime = "2021-01-28T15:30:00",
+    ///             TimeZone = "America/Los_Angeles",
+    ///             WeeklyRepeatDays = new[]
+    ///             {
+    ///                 "MONDAY",
+    ///                 "WEDNESDAY",
+    ///                 "FRIDAY",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +76,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertMutingRule:AlertMutingRule")]
-    public partial class AlertMutingRule : Pulumi.CustomResource
+    public partial class AlertMutingRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account id of the MutingRule.
@@ -160,7 +158,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class AlertMutingRuleArgs : Pulumi.ResourceArgs
+    public sealed class AlertMutingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account id of the MutingRule.
@@ -201,9 +199,10 @@ namespace Pulumi.NewRelic
         public AlertMutingRuleArgs()
         {
         }
+        public static new AlertMutingRuleArgs Empty => new AlertMutingRuleArgs();
     }
 
-    public sealed class AlertMutingRuleState : Pulumi.ResourceArgs
+    public sealed class AlertMutingRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account id of the MutingRule.
@@ -244,5 +243,6 @@ namespace Pulumi.NewRelic
         public AlertMutingRuleState()
         {
         }
+        public static new AlertMutingRuleState Empty => new AlertMutingRuleState();
     }
 }

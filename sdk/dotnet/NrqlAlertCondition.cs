@@ -49,59 +49,55 @@ namespace Pulumi.NewRelic
     /// [Baseline NRQL alert conditions](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions) are dynamic in nature and adjust to the behavior of your data. The example below demonstrates a baseline NRQL alert condition for alerting when transaction durations are above a specified threshold and dynamically adjusts based on data trends.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-    ///         {
-    ///         });
-    ///         var fooIndex_alertPolicyAlertPolicy = new NewRelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy", new NewRelic.AlertPolicyArgs
-    ///         {
-    ///         });
-    ///         var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new NewRelic.NrqlAlertConditionArgs
-    ///         {
-    ///             AccountId = "your_account_id",
-    ///             PolicyId = fooAlertPolicy.Id,
-    ///             Type = "static",
-    ///             Description = "Alert when transactions are taking too long",
-    ///             RunbookUrl = "https://www.example.com",
-    ///             Enabled = true,
-    ///             ViolationTimeLimitSeconds = 3600,
-    ///             FillOption = "static",
-    ///             FillValue = 1,
-    ///             AggregationWindow = 60,
-    ///             AggregationMethod = "event_flow",
-    ///             AggregationDelay = "120",
-    ///             ExpirationDuration = 120,
-    ///             OpenViolationOnExpiration = true,
-    ///             CloseViolationsOnExpiration = true,
-    ///             SlideBy = 30,
-    ///             Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-    ///             {
-    ///                 Query = "SELECT average(duration) FROM Transaction where appName = 'Your App'",
-    ///             },
-    ///             Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
-    ///             {
-    ///                 Operator = "above",
-    ///                 Threshold = 5.5,
-    ///                 ThresholdDuration = 300,
-    ///                 ThresholdOccurrences = "ALL",
-    ///             },
-    ///             Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs
-    ///             {
-    ///                 Operator = "above",
-    ///                 Threshold = 3.5,
-    ///                 ThresholdDuration = 600,
-    ///                 ThresholdOccurrences = "ALL",
-    ///             },
-    ///         });
-    ///     }
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
     /// 
-    /// }
+    ///     var fooIndex_alertPolicyAlertPolicy = new NewRelic.AlertPolicy("fooIndex/alertPolicyAlertPolicy");
+    /// 
+    ///     var fooNrqlAlertCondition = new NewRelic.NrqlAlertCondition("fooNrqlAlertCondition", new()
+    ///     {
+    ///         AccountId = "your_account_id",
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Type = "static",
+    ///         Description = "Alert when transactions are taking too long",
+    ///         RunbookUrl = "https://www.example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         FillOption = "static",
+    ///         FillValue = 1,
+    ///         AggregationWindow = 60,
+    ///         AggregationMethod = "event_flow",
+    ///         AggregationDelay = "120",
+    ///         ExpirationDuration = 120,
+    ///         OpenViolationOnExpiration = true,
+    ///         CloseViolationsOnExpiration = true,
+    ///         SlideBy = 30,
+    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+    ///         {
+    ///             Query = "SELECT average(duration) FROM Transaction where appName = 'Your App'",
+    ///         },
+    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 5.5,
+    ///             ThresholdDuration = 300,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///         Warning = new NewRelic.Inputs.NrqlAlertConditionWarningArgs
+    ///         {
+    ///             Operator = "above",
+    ///             Threshold = 3.5,
+    ///             ThresholdDuration = 600,
+    ///             ThresholdOccurrences = "ALL",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
@@ -114,76 +110,72 @@ namespace Pulumi.NewRelic
     /// An example resource from 1.x might look like the following.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
     ///     {
-    ///         var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new NewRelic.NrqlAlertConditionArgs
+    ///         PolicyId = newrelic_alert_policy.Z.Id,
+    ///         Type = "static",
+    ///         RunbookUrl = "https://localhost",
+    ///         Enabled = true,
+    ///         ValueFunction = "sum",
+    ///         ViolationTimeLimit = "TWENTY_FOUR_HOURS",
+    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
     ///         {
-    ///             PolicyId = newrelic_alert_policy.Z.Id,
-    ///             Type = "static",
-    ///             RunbookUrl = "https://localhost",
-    ///             Enabled = true,
-    ///             ValueFunction = "sum",
-    ///             ViolationTimeLimit = "TWENTY_FOUR_HOURS",
-    ///             Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
-    ///             {
-    ///                 Operator = "above",
-    ///                 ThresholdDuration = 120,
-    ///                 Threshold = 3,
-    ///                 ThresholdOccurrences = "AT_LEAST_ONCE",
-    ///             },
-    ///             Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-    ///             {
-    ///                 Query = "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-    ///             },
-    ///         });
-    ///     }
+    ///             Operator = "above",
+    ///             ThresholdDuration = 120,
+    ///             Threshold = 3,
+    ///             ThresholdOccurrences = "AT_LEAST_ONCE",
+    ///         },
+    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+    ///         {
+    ///             Query = "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// After making the appropriate adjustments mentioned in the deprecation warnings,
     /// the resource now looks like the following.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
     ///     {
-    ///         var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new NewRelic.NrqlAlertConditionArgs
+    ///         PolicyId = newrelic_alert_policy.Z.Id,
+    ///         Type = "static",
+    ///         RunbookUrl = "https://localhost",
+    ///         Enabled = true,
+    ///         ValueFunction = "sum",
+    ///         ViolationTimeLimitSeconds = 86400,
+    ///         Terms = new[]
     ///         {
-    ///             PolicyId = newrelic_alert_policy.Z.Id,
-    ///             Type = "static",
-    ///             RunbookUrl = "https://localhost",
-    ///             Enabled = true,
-    ///             ValueFunction = "sum",
-    ///             ViolationTimeLimitSeconds = 86400,
-    ///             Terms = 
+    ///             new NewRelic.Inputs.NrqlAlertConditionTermArgs
     ///             {
-    ///                 new NewRelic.Inputs.NrqlAlertConditionTermArgs
-    ///                 {
-    ///                     Priority = "critical",
-    ///                     Operator = "above",
-    ///                     Threshold = 3,
-    ///                     Duration = 5,
-    ///                     TimeFunction = "any",
-    ///                 },
+    ///                 Priority = "critical",
+    ///                 Operator = "above",
+    ///                 Threshold = 3,
+    ///                 Duration = 5,
+    ///                 TimeFunction = "any",
     ///             },
-    ///             Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-    ///             {
-    ///                 Query = "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
+    ///         {
+    ///             Query = "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -203,7 +195,7 @@ namespace Pulumi.NewRelic
     ///  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]
-    public partial class NrqlAlertCondition : Pulumi.CustomResource
+    public partial class NrqlAlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -407,7 +399,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class NrqlAlertConditionArgs : Pulumi.ResourceArgs
+    public sealed class NrqlAlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -571,9 +563,10 @@ namespace Pulumi.NewRelic
         public NrqlAlertConditionArgs()
         {
         }
+        public static new NrqlAlertConditionArgs Empty => new NrqlAlertConditionArgs();
     }
 
-    public sealed class NrqlAlertConditionState : Pulumi.ResourceArgs
+    public sealed class NrqlAlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -743,5 +736,6 @@ namespace Pulumi.NewRelic
         public NrqlAlertConditionState()
         {
         }
+        public static new NrqlAlertConditionState Empty => new NrqlAlertConditionState();
     }
 }

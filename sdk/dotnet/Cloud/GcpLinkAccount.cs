@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/gcpLinkAccount:GcpLinkAccount")]
-    public partial class GcpLinkAccount : Pulumi.CustomResource
+    public partial class GcpLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// - Account ID of the New Relic account.
@@ -83,7 +83,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class GcpLinkAccountArgs : Pulumi.ResourceArgs
+    public sealed class GcpLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Account ID of the New Relic account.
@@ -106,9 +106,10 @@ namespace Pulumi.NewRelic.Cloud
         public GcpLinkAccountArgs()
         {
         }
+        public static new GcpLinkAccountArgs Empty => new GcpLinkAccountArgs();
     }
 
-    public sealed class GcpLinkAccountState : Pulumi.ResourceArgs
+    public sealed class GcpLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Account ID of the New Relic account.
@@ -131,5 +132,6 @@ namespace Pulumi.NewRelic.Cloud
         public GcpLinkAccountState()
         {
         }
+        public static new GcpLinkAccountState Empty => new GcpLinkAccountState();
     }
 }

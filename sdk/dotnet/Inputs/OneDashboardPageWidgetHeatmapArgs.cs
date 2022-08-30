@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class OneDashboardPageWidgetHeatmapArgs : Pulumi.ResourceArgs
+    public sealed class OneDashboardPageWidgetHeatmapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Column position of widget from top left, starting at `1`.
@@ -68,5 +68,6 @@ namespace Pulumi.NewRelic.Inputs
         public OneDashboardPageWidgetHeatmapArgs()
         {
         }
+        public static new OneDashboardPageWidgetHeatmapArgs Empty => new OneDashboardPageWidgetHeatmapArgs();
     }
 }

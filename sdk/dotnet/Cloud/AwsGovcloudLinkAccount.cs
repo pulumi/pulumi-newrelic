@@ -13,24 +13,22 @@ namespace Pulumi.NewRelic.Cloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Cloud.AwsGovcloudLinkAccount("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Cloud.AwsGovcloudLinkAccount("foo", new NewRelic.Cloud.AwsGovcloudLinkAccountArgs
-    ///         {
-    ///             AccessKeyId = "access-key-id of aws govcloud account",
-    ///             AccountId = "The New Relic account ID where you want to link the AWS GovCloud account",
-    ///             AwsAccountId = "aws govcloud account id",
-    ///             MetricCollectionMode = "PULL",
-    ///             SecretAccessKey = "secret access key of the aws govcloud account",
-    ///         });
-    ///     }
+    ///         AccessKeyId = "access-key-id of aws govcloud account",
+    ///         AccountId = "The New Relic account ID where you want to link the AWS GovCloud account",
+    ///         AwsAccountId = "aws govcloud account id",
+    ///         MetricCollectionMode = "PULL",
+    ///         SecretAccessKey = "secret access key of the aws govcloud account",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount")]
-    public partial class AwsGovcloudLinkAccount : Pulumi.CustomResource
+    public partial class AwsGovcloudLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access key of the AwsGovCloud.
@@ -124,7 +122,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class AwsGovcloudLinkAccountArgs : Pulumi.ResourceArgs
+    public sealed class AwsGovcloudLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key of the AwsGovCloud.
@@ -165,9 +163,10 @@ namespace Pulumi.NewRelic.Cloud
         public AwsGovcloudLinkAccountArgs()
         {
         }
+        public static new AwsGovcloudLinkAccountArgs Empty => new AwsGovcloudLinkAccountArgs();
     }
 
-    public sealed class AwsGovcloudLinkAccountState : Pulumi.ResourceArgs
+    public sealed class AwsGovcloudLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key of the AwsGovCloud.
@@ -208,5 +207,6 @@ namespace Pulumi.NewRelic.Cloud
         public AwsGovcloudLinkAccountState()
         {
         }
+        public static new AwsGovcloudLinkAccountState Empty => new AwsGovcloudLinkAccountState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class NrqlAlertConditionCriticalGetArgs : Pulumi.ResourceArgs
+    public sealed class NrqlAlertConditionCriticalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
@@ -54,5 +54,6 @@ namespace Pulumi.NewRelic.Inputs
         public NrqlAlertConditionCriticalGetArgs()
         {
         }
+        public static new NrqlAlertConditionCriticalGetArgs Empty => new NrqlAlertConditionCriticalGetArgs();
     }
 }

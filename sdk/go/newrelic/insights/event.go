@@ -19,58 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/insights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/insights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewEvent(ctx, "foo", &insights.EventArgs{
-// 			Events: insights.EventEventArray{
-// 				&insights.EventEventArgs{
-// 					Attributes: insights.EventEventAttributeArray{
-// 						&insights.EventEventAttributeArgs{
-// 							Key:   pulumi.String("a_string_attribute"),
-// 							Value: pulumi.String("a string"),
-// 						},
-// 						&insights.EventEventAttributeArgs{
-// 							Key:   pulumi.String("an_integer_attribute"),
-// 							Type:  pulumi.String("int"),
-// 							Value: pulumi.String("42"),
-// 						},
-// 						&insights.EventEventAttributeArgs{
-// 							Key:   pulumi.String("a_float_attribute"),
-// 							Type:  pulumi.String("float"),
-// 							Value: pulumi.String("101.1"),
-// 						},
-// 					},
-// 					Timestamp: pulumi.Int(1232471100),
-// 					Type:      pulumi.String("MyEvent"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := insights.NewEvent(ctx, "foo", &insights.EventArgs{
+//				Events: insights.EventEventArray{
+//					&insights.EventEventArgs{
+//						Attributes: insights.EventEventAttributeArray{
+//							&insights.EventEventAttributeArgs{
+//								Key:   pulumi.String("a_string_attribute"),
+//								Value: pulumi.String("a string"),
+//							},
+//							&insights.EventEventAttributeArgs{
+//								Key:   pulumi.String("an_integer_attribute"),
+//								Type:  pulumi.String("int"),
+//								Value: pulumi.String("42"),
+//							},
+//							&insights.EventEventAttributeArgs{
+//								Key:   pulumi.String("a_float_attribute"),
+//								Type:  pulumi.String("float"),
+//								Value: pulumi.String("101.1"),
+//							},
+//						},
+//						Timestamp: pulumi.Int(1232471100),
+//						Type:      pulumi.String("MyEvent"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Events
 //
 // The `event` mapping supports the following arguments:
 //
-//   * `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
-//   * `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
-//   * `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
+//   - `type` - (Required) The event's name. Can be a combination of alphanumeric characters, underscores, and colons.
+//   - `timestamp` - (Optional) Must be a Unix epoch timestamp. You can define timestamps either in seconds or in milliseconds.
+//   - `attribute` - (Required) An attribute to include in your event payload. Multiple attribute blocks can be defined for an event. See Attributes below for details.
 //
 // ### Attributes
 //
 // The `attribute` mapping supports the following arguments:
 //
-//   * `key` - (Required) The name of the attribute.
-//   * `value` - (Required) The value of the attribute.
-//   * `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
+//   - `key` - (Required) The name of the attribute.
+//   - `value` - (Required) The value of the attribute.
+//   - `type` - (Optional) Specify the type for the attribute value. This is useful when passing integer or float values to Insights. Allowed values are `string`, `int`, or `float`. Defaults to `string`.
 type Event struct {
 	pulumi.CustomResourceState
 
@@ -160,7 +163,7 @@ func (i *Event) ToEventOutputWithContext(ctx context.Context) EventOutput {
 // EventArrayInput is an input type that accepts EventArray and EventArrayOutput values.
 // You can construct a concrete instance of `EventArrayInput` via:
 //
-//          EventArray{ EventArgs{...} }
+//	EventArray{ EventArgs{...} }
 type EventArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +188,7 @@ func (i EventArray) ToEventArrayOutputWithContext(ctx context.Context) EventArra
 // EventMapInput is an input type that accepts EventMap and EventMapOutput values.
 // You can construct a concrete instance of `EventMapInput` via:
 //
-//          EventMap{ "key": EventArgs{...} }
+//	EventMap{ "key": EventArgs{...} }
 type EventMapInput interface {
 	pulumi.Input
 

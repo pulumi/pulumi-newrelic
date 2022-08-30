@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-// 			Type:      pulumi.String("SCRIPT_BROWSER"),
-// 			Frequency: pulumi.Int(5),
-// 			Status:    pulumi.String("ENABLED"),
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("AWS_US_EAST_1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synthetics.NewMonitorScript(ctx, "fooScript", &synthetics.MonitorScriptArgs{
-// 			MonitorId: foo.ID(),
-// 			Text:      readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/foo_script.js")),
-// 			Locations: synthetics.MonitorScriptLocationArray{
-// 				&synthetics.MonitorScriptLocationArgs{
-// 					Name: pulumi.String("YWJjZAo="),
-// 					Hmac: pulumi.String("ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ=="),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				Type:      pulumi.String("SCRIPT_BROWSER"),
+//				Frequency: pulumi.Int(5),
+//				Status:    pulumi.String("ENABLED"),
+//				Locations: pulumi.StringArray{
+//					pulumi.String("AWS_US_EAST_1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitorScript(ctx, "fooScript", &synthetics.MonitorScriptArgs{
+//				MonitorId: foo.ID(),
+//				Text:      readFileOrPanic(fmt.Sprintf("%v/foo_script.js", path.Module)),
+//				Locations: synthetics.MonitorScriptLocationArray{
+//					&synthetics.MonitorScriptLocationArgs{
+//						Name: pulumi.String("YWJjZAo="),
+//						Hmac: pulumi.String("ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ=="),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Synthetics monitor scripts can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:synthetics/monitorScript:MonitorScript main <id>
+//
+//	$ pulumi import newrelic:synthetics/monitorScript:MonitorScript main <id>
+//
 // ```
 type MonitorScript struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *MonitorScript) ToMonitorScriptOutputWithContext(ctx context.Context) Mo
 // MonitorScriptArrayInput is an input type that accepts MonitorScriptArray and MonitorScriptArrayOutput values.
 // You can construct a concrete instance of `MonitorScriptArrayInput` via:
 //
-//          MonitorScriptArray{ MonitorScriptArgs{...} }
+//	MonitorScriptArray{ MonitorScriptArgs{...} }
 type MonitorScriptArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i MonitorScriptArray) ToMonitorScriptArrayOutputWithContext(ctx context.Co
 // MonitorScriptMapInput is an input type that accepts MonitorScriptMap and MonitorScriptMapOutput values.
 // You can construct a concrete instance of `MonitorScriptMapInput` via:
 //
-//          MonitorScriptMap{ "key": MonitorScriptArgs{...} }
+//	MonitorScriptMap{ "key": MonitorScriptArgs{...} }
 type MonitorScriptMapInput interface {
 	pulumi.Input
 

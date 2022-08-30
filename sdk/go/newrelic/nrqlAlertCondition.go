@@ -53,59 +53,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewAlertPolicy(ctx, "fooIndex/alertPolicyAlertPolicy", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-// 			AccountId:                   pulumi.Int("your_account_id"),
-// 			PolicyId:                    fooAlertPolicy.ID(),
-// 			Type:                        pulumi.String("static"),
-// 			Description:                 pulumi.String("Alert when transactions are taking too long"),
-// 			RunbookUrl:                  pulumi.String("https://www.example.com"),
-// 			Enabled:                     pulumi.Bool(true),
-// 			ViolationTimeLimitSeconds:   pulumi.Int(3600),
-// 			FillOption:                  pulumi.String("static"),
-// 			FillValue:                   pulumi.Float64(1),
-// 			AggregationWindow:           pulumi.Int(60),
-// 			AggregationMethod:           pulumi.String("event_flow"),
-// 			AggregationDelay:            pulumi.String("120"),
-// 			ExpirationDuration:          pulumi.Int(120),
-// 			OpenViolationOnExpiration:   pulumi.Bool(true),
-// 			CloseViolationsOnExpiration: pulumi.Bool(true),
-// 			SlideBy:                     pulumi.Int(30),
-// 			Nrql: &NrqlAlertConditionNrqlArgs{
-// 				Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
-// 			},
-// 			Critical: &NrqlAlertConditionCriticalArgs{
-// 				Operator:             pulumi.String("above"),
-// 				Threshold:            pulumi.Float64(5.5),
-// 				ThresholdDuration:    pulumi.Int(300),
-// 				ThresholdOccurrences: pulumi.String("ALL"),
-// 			},
-// 			Warning: &NrqlAlertConditionWarningArgs{
-// 				Operator:             pulumi.String("above"),
-// 				Threshold:            pulumi.Float64(3.5),
-// 				ThresholdDuration:    pulumi.Int(600),
-// 				ThresholdOccurrences: pulumi.String("ALL"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooAlertPolicy, err := newrelic.NewAlertPolicy(ctx, "fooAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewAlertPolicy(ctx, "fooIndex/alertPolicyAlertPolicy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlAlertCondition(ctx, "fooNrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				AccountId:                   pulumi.Int("your_account_id"),
+//				PolicyId:                    fooAlertPolicy.ID(),
+//				Type:                        pulumi.String("static"),
+//				Description:                 pulumi.String("Alert when transactions are taking too long"),
+//				RunbookUrl:                  pulumi.String("https://www.example.com"),
+//				Enabled:                     pulumi.Bool(true),
+//				ViolationTimeLimitSeconds:   pulumi.Int(3600),
+//				FillOption:                  pulumi.String("static"),
+//				FillValue:                   pulumi.Float64(1),
+//				AggregationWindow:           pulumi.Int(60),
+//				AggregationMethod:           pulumi.String("event_flow"),
+//				AggregationDelay:            pulumi.String("120"),
+//				ExpirationDuration:          pulumi.Int(120),
+//				OpenViolationOnExpiration:   pulumi.Bool(true),
+//				CloseViolationsOnExpiration: pulumi.Bool(true),
+//				SlideBy:                     pulumi.Int(30),
+//				Nrql: &NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
+//				},
+//				Critical: &NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(5.5),
+//					ThresholdDuration:    pulumi.Int(300),
+//					ThresholdOccurrences: pulumi.String("ALL"),
+//				},
+//				Warning: &NrqlAlertConditionWarningArgs{
+//					Operator:             pulumi.String("above"),
+//					Threshold:            pulumi.Float64(3.5),
+//					ThresholdDuration:    pulumi.Int(600),
+//					ThresholdOccurrences: pulumi.String("ALL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // <<<<<<< HEAD
@@ -121,37 +124,40 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-// 			PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
-// 			Type:               pulumi.String("static"),
-// 			RunbookUrl:         pulumi.String("https://localhost"),
-// 			Enabled:            pulumi.Bool(true),
-// 			ValueFunction:      pulumi.String("sum"),
-// 			ViolationTimeLimit: pulumi.String("TWENTY_FOUR_HOURS"),
-// 			Critical: &NrqlAlertConditionCriticalArgs{
-// 				Operator:             pulumi.String("above"),
-// 				ThresholdDuration:    pulumi.Int(120),
-// 				Threshold:            pulumi.Float64(3),
-// 				ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
-// 			},
-// 			Nrql: &NrqlAlertConditionNrqlArgs{
-// 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
+//				Type:               pulumi.String("static"),
+//				RunbookUrl:         pulumi.String("https://localhost"),
+//				Enabled:            pulumi.Bool(true),
+//				ValueFunction:      pulumi.String("sum"),
+//				ViolationTimeLimit: pulumi.String("TWENTY_FOUR_HOURS"),
+//				Critical: &NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above"),
+//					ThresholdDuration:    pulumi.Int(120),
+//					Threshold:            pulumi.Float64(3),
+//					ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
+//				},
+//				Nrql: &NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // After making the appropriate adjustments mentioned in the deprecation warnings,
@@ -161,40 +167,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-// 			PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
-// 			Type:                      pulumi.String("static"),
-// 			RunbookUrl:                pulumi.String("https://localhost"),
-// 			Enabled:                   pulumi.Bool(true),
-// 			ValueFunction:             pulumi.String("sum"),
-// 			ViolationTimeLimitSeconds: pulumi.Int(86400),
-// 			Terms: NrqlAlertConditionTermArray{
-// 				&NrqlAlertConditionTermArgs{
-// 					Priority:     pulumi.String("critical"),
-// 					Operator:     pulumi.String("above"),
-// 					Threshold:    pulumi.Float64(3),
-// 					Duration:     pulumi.Int(5),
-// 					TimeFunction: pulumi.String("any"),
-// 				},
-// 			},
-// 			Nrql: &NrqlAlertConditionNrqlArgs{
-// 				Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SELECT count(*) FROM TransactionError WHERE appName like '", "%", "Dummy App", "%", "' FACET appName")),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
+//				Type:                      pulumi.String("static"),
+//				RunbookUrl:                pulumi.String("https://localhost"),
+//				Enabled:                   pulumi.Bool(true),
+//				ValueFunction:             pulumi.String("sum"),
+//				ViolationTimeLimitSeconds: pulumi.Int(86400),
+//				Terms: NrqlAlertConditionTermArray{
+//					&NrqlAlertConditionTermArgs{
+//						Priority:     pulumi.String("critical"),
+//						Operator:     pulumi.String("above"),
+//						Threshold:    pulumi.Float64(3),
+//						Duration:     pulumi.Int(5),
+//						TimeFunction: pulumi.String("any"),
+//					},
+//				},
+//				Nrql: &NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -202,16 +211,20 @@ import (
 // NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
 //
 // ```sh
-//  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+//
+//	$ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:baseline
+//
 // ```
 //
-//  // For `static` conditions
+//	// For `static` conditions
 //
 // ```sh
-//  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+//
+//	$ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
+//
 // ```
 //
-//  <<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
+//	<<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -590,7 +603,7 @@ func (i *NrqlAlertCondition) ToNrqlAlertConditionOutputWithContext(ctx context.C
 // NrqlAlertConditionArrayInput is an input type that accepts NrqlAlertConditionArray and NrqlAlertConditionArrayOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionArrayInput` via:
 //
-//          NrqlAlertConditionArray{ NrqlAlertConditionArgs{...} }
+//	NrqlAlertConditionArray{ NrqlAlertConditionArgs{...} }
 type NrqlAlertConditionArrayInput interface {
 	pulumi.Input
 
@@ -615,7 +628,7 @@ func (i NrqlAlertConditionArray) ToNrqlAlertConditionArrayOutputWithContext(ctx 
 // NrqlAlertConditionMapInput is an input type that accepts NrqlAlertConditionMap and NrqlAlertConditionMapOutput values.
 // You can construct a concrete instance of `NrqlAlertConditionMapInput` via:
 //
-//          NrqlAlertConditionMap{ "key": NrqlAlertConditionArgs{...} }
+//	NrqlAlertConditionMap{ "key": NrqlAlertConditionArgs{...} }
 type NrqlAlertConditionMapInput interface {
 	pulumi.Input
 

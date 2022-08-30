@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class ServiceLevelEventsGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLevelEventsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -40,5 +40,6 @@ namespace Pulumi.NewRelic.Inputs
         public ServiceLevelEventsGetArgs()
         {
         }
+        public static new ServiceLevelEventsGetArgs Empty => new ServiceLevelEventsGetArgs();
     }
 }

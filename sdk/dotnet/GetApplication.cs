@@ -21,45 +21,43 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var app = NewRelic.GetApplication.Invoke(new()
         ///     {
-        ///         var app = Output.Create(NewRelic.GetApplication.InvokeAsync(new NewRelic.GetApplicationArgs
-        ///         {
-        ///             Name = "my-app",
-        ///         }));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Type = "apm_app_metric",
-        ///             Entities = 
-        ///             {
-        ///                 app.Apply(app =&gt; app.Id),
-        ///             },
-        ///             Metric = "apdex",
-        ///             RunbookUrl = "https://www.example.com",
-        ///             Terms = 
-        ///             {
-        ///                 new NewRelic.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "my-app",
+        ///     });
         /// 
-        /// }
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Type = "apm_app_metric",
+        ///         Entities = new[]
+        ///         {
+        ///             app.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///         },
+        ///         Metric = "apdex",
+        ///         RunbookUrl = "https://www.example.com",
+        ///         Terms = new[]
+        ///         {
+        ///             new NewRelic.Inputs.AlertConditionTermArgs
+        ///             {
+        ///                 Duration = 5,
+        ///                 Operator = "below",
+        ///                 Priority = "critical",
+        ///                 Threshold = 0.75,
+        ///                 TimeFunction = "all",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,45 +75,43 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var app = NewRelic.GetApplication.Invoke(new()
         ///     {
-        ///         var app = Output.Create(NewRelic.GetApplication.InvokeAsync(new NewRelic.GetApplicationArgs
-        ///         {
-        ///             Name = "my-app",
-        ///         }));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Type = "apm_app_metric",
-        ///             Entities = 
-        ///             {
-        ///                 app.Apply(app =&gt; app.Id),
-        ///             },
-        ///             Metric = "apdex",
-        ///             RunbookUrl = "https://www.example.com",
-        ///             Terms = 
-        ///             {
-        ///                 new NewRelic.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "my-app",
+        ///     });
         /// 
-        /// }
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Type = "apm_app_metric",
+        ///         Entities = new[]
+        ///         {
+        ///             app.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///         },
+        ///         Metric = "apdex",
+        ///         RunbookUrl = "https://www.example.com",
+        ///         Terms = new[]
+        ///         {
+        ///             new NewRelic.Inputs.AlertConditionTermArgs
+        ///             {
+        ///                 Duration = 5,
+        ///                 Operator = "below",
+        ///                 Priority = "critical",
+        ///                 Threshold = 0.75,
+        ///                 TimeFunction = "all",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -125,7 +121,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetApplicationArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application in New Relic.
@@ -136,9 +132,10 @@ namespace Pulumi.NewRelic
         public GetApplicationArgs()
         {
         }
+        public static new GetApplicationArgs Empty => new GetApplicationArgs();
     }
 
-    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application in New Relic.
@@ -149,6 +146,7 @@ namespace Pulumi.NewRelic
         public GetApplicationInvokeArgs()
         {
         }
+        public static new GetApplicationInvokeArgs Empty => new GetApplicationInvokeArgs();
     }
 
 

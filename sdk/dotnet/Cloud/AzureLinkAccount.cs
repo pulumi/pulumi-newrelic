@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/azureLinkAccount:AzureLinkAccount")]
-    public partial class AzureLinkAccount : Pulumi.CustomResource
+    public partial class AzureLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// - Account ID of the New Relic.
@@ -101,7 +101,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class AzureLinkAccountArgs : Pulumi.ResourceArgs
+    public sealed class AzureLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Account ID of the New Relic.
@@ -142,9 +142,10 @@ namespace Pulumi.NewRelic.Cloud
         public AzureLinkAccountArgs()
         {
         }
+        public static new AzureLinkAccountArgs Empty => new AzureLinkAccountArgs();
     }
 
-    public sealed class AzureLinkAccountState : Pulumi.ResourceArgs
+    public sealed class AzureLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - Account ID of the New Relic.
@@ -185,5 +186,6 @@ namespace Pulumi.NewRelic.Cloud
         public AzureLinkAccountState()
         {
         }
+        public static new AzureLinkAccountState Empty => new AzureLinkAccountState();
     }
 }

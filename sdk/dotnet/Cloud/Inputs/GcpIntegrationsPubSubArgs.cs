@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Cloud.Inputs
 {
 
-    public sealed class GcpIntegrationsPubSubArgs : Pulumi.ResourceArgs
+    public sealed class GcpIntegrationsPubSubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify if labels and the extended inventory should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
@@ -27,5 +27,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         public GcpIntegrationsPubSubArgs()
         {
         }
+        public static new GcpIntegrationsPubSubArgs Empty => new GcpIntegrationsPubSubArgs();
     }
 }

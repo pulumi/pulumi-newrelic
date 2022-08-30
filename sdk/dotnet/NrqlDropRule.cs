@@ -13,37 +13,37 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.NrqlDropRule("foo", new()
     ///     {
-    ///         var foo = new NewRelic.NrqlDropRule("foo", new NewRelic.NrqlDropRuleArgs
-    ///         {
-    ///             AccountId = 12345,
-    ///             Action = "drop_data",
-    ///             Description = "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
-    ///             Nrql = "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
-    ///         });
-    ///         var bar = new NewRelic.NrqlDropRule("bar", new NewRelic.NrqlDropRuleArgs
-    ///         {
-    ///             AccountId = 12345,
-    ///             Action = "drop_attributes",
-    ///             Description = "Removes the user name and email fields from MyCustomEvent",
-    ///             Nrql = "SELECT userEmail, userName FROM MyCustomEvent",
-    ///         });
-    ///         var baz = new NewRelic.NrqlDropRule("baz", new NewRelic.NrqlDropRuleArgs
-    ///         {
-    ///             AccountId = 12345,
-    ///             Action = "drop_attributes_from_metric_aggregates",
-    ///             Description = "Removes containerId from metric aggregates to reduce metric cardinality.",
-    ///             Nrql = "SELECT containerId FROM Metric",
-    ///         });
-    ///     }
+    ///         AccountId = 12345,
+    ///         Action = "drop_data",
+    ///         Description = "Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it.",
+    ///         Nrql = "SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'",
+    ///     });
     /// 
-    /// }
+    ///     var bar = new NewRelic.NrqlDropRule("bar", new()
+    ///     {
+    ///         AccountId = 12345,
+    ///         Action = "drop_attributes",
+    ///         Description = "Removes the user name and email fields from MyCustomEvent",
+    ///         Nrql = "SELECT userEmail, userName FROM MyCustomEvent",
+    ///     });
+    /// 
+    ///     var baz = new NewRelic.NrqlDropRule("baz", new()
+    ///     {
+    ///         AccountId = 12345,
+    ///         Action = "drop_attributes_from_metric_aggregates",
+    ///         Description = "Removes containerId from metric aggregates to reduce metric cardinality.",
+    ///         Nrql = "SELECT containerId FROM Metric",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlDropRule:NrqlDropRule")]
-    public partial class NrqlDropRule : Pulumi.CustomResource
+    public partial class NrqlDropRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Account where the drop rule will be put. Defaults to the account associated with the API key used.
@@ -133,7 +133,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class NrqlDropRuleArgs : Pulumi.ResourceArgs
+    public sealed class NrqlDropRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account where the drop rule will be put. Defaults to the account associated with the API key used.
@@ -162,9 +162,10 @@ namespace Pulumi.NewRelic
         public NrqlDropRuleArgs()
         {
         }
+        public static new NrqlDropRuleArgs Empty => new NrqlDropRuleArgs();
     }
 
-    public sealed class NrqlDropRuleState : Pulumi.ResourceArgs
+    public sealed class NrqlDropRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account where the drop rule will be put. Defaults to the account associated with the API key used.
@@ -199,5 +200,6 @@ namespace Pulumi.NewRelic
         public NrqlDropRuleState()
         {
         }
+        public static new NrqlDropRuleState Empty => new NrqlDropRuleState();
     }
 }

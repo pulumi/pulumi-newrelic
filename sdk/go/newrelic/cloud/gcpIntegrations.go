@@ -16,7 +16,9 @@ import (
 // Linked GCP account integrations can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
+//
+//	$ pulumi import newrelic:cloud/gcpIntegrations:GcpIntegrations foo <id>
+//
 // ```
 type GcpIntegrations struct {
 	pulumi.CustomResourceState
@@ -367,7 +369,7 @@ func (i *GcpIntegrations) ToGcpIntegrationsOutputWithContext(ctx context.Context
 // GcpIntegrationsArrayInput is an input type that accepts GcpIntegrationsArray and GcpIntegrationsArrayOutput values.
 // You can construct a concrete instance of `GcpIntegrationsArrayInput` via:
 //
-//          GcpIntegrationsArray{ GcpIntegrationsArgs{...} }
+//	GcpIntegrationsArray{ GcpIntegrationsArgs{...} }
 type GcpIntegrationsArrayInput interface {
 	pulumi.Input
 
@@ -392,7 +394,7 @@ func (i GcpIntegrationsArray) ToGcpIntegrationsArrayOutputWithContext(ctx contex
 // GcpIntegrationsMapInput is an input type that accepts GcpIntegrationsMap and GcpIntegrationsMapOutput values.
 // You can construct a concrete instance of `GcpIntegrationsMapInput` via:
 //
-//          GcpIntegrationsMap{ "key": GcpIntegrationsArgs{...} }
+//	GcpIntegrationsMap{ "key": GcpIntegrationsArgs{...} }
 type GcpIntegrationsMapInput interface {
 	pulumi.Input
 

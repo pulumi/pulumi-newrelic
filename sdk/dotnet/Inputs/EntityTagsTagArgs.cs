@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class EntityTagsTagArgs : Pulumi.ResourceArgs
+    public sealed class EntityTagsTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tag key.
@@ -33,5 +33,6 @@ namespace Pulumi.NewRelic.Inputs
         public EntityTagsTagArgs()
         {
         }
+        public static new EntityTagsTagArgs Empty => new EntityTagsTagArgs();
     }
 }

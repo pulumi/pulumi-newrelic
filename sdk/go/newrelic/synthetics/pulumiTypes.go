@@ -22,7 +22,7 @@ type MonitorScriptLocation struct {
 // MonitorScriptLocationInput is an input type that accepts MonitorScriptLocationArgs and MonitorScriptLocationOutput values.
 // You can construct a concrete instance of `MonitorScriptLocationInput` via:
 //
-//          MonitorScriptLocationArgs{...}
+//	MonitorScriptLocationArgs{...}
 type MonitorScriptLocationInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i MonitorScriptLocationArgs) ToMonitorScriptLocationOutputWithContext(ctx 
 // MonitorScriptLocationArrayInput is an input type that accepts MonitorScriptLocationArray and MonitorScriptLocationArrayOutput values.
 // You can construct a concrete instance of `MonitorScriptLocationArrayInput` via:
 //
-//          MonitorScriptLocationArray{ MonitorScriptLocationArgs{...} }
+//	MonitorScriptLocationArray{ MonitorScriptLocationArgs{...} }
 type MonitorScriptLocationArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type MultiLocationAlertConditionCritical struct {
 // MultiLocationAlertConditionCriticalInput is an input type that accepts MultiLocationAlertConditionCriticalArgs and MultiLocationAlertConditionCriticalOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionCriticalInput` via:
 //
-//          MultiLocationAlertConditionCriticalArgs{...}
+//	MultiLocationAlertConditionCriticalArgs{...}
 type MultiLocationAlertConditionCriticalInput interface {
 	pulumi.Input
 
@@ -167,11 +167,11 @@ func (i MultiLocationAlertConditionCriticalArgs) ToMultiLocationAlertConditionCr
 // MultiLocationAlertConditionCriticalPtrInput is an input type that accepts MultiLocationAlertConditionCriticalArgs, MultiLocationAlertConditionCriticalPtr and MultiLocationAlertConditionCriticalPtrOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionCriticalPtrInput` via:
 //
-//          MultiLocationAlertConditionCriticalArgs{...}
+//	        MultiLocationAlertConditionCriticalArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MultiLocationAlertConditionCriticalPtrInput interface {
 	pulumi.Input
 
@@ -265,7 +265,7 @@ type MultiLocationAlertConditionWarning struct {
 // MultiLocationAlertConditionWarningInput is an input type that accepts MultiLocationAlertConditionWarningArgs and MultiLocationAlertConditionWarningOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionWarningInput` via:
 //
-//          MultiLocationAlertConditionWarningArgs{...}
+//	MultiLocationAlertConditionWarningArgs{...}
 type MultiLocationAlertConditionWarningInput interface {
 	pulumi.Input
 
@@ -300,11 +300,11 @@ func (i MultiLocationAlertConditionWarningArgs) ToMultiLocationAlertConditionWar
 // MultiLocationAlertConditionWarningPtrInput is an input type that accepts MultiLocationAlertConditionWarningArgs, MultiLocationAlertConditionWarningPtr and MultiLocationAlertConditionWarningPtrOutput values.
 // You can construct a concrete instance of `MultiLocationAlertConditionWarningPtrInput` via:
 //
-//          MultiLocationAlertConditionWarningArgs{...}
+//	        MultiLocationAlertConditionWarningArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MultiLocationAlertConditionWarningPtrInput interface {
 	pulumi.Input
 

@@ -16,7 +16,9 @@ import (
 // Integrate AWSGovCloud accounts can be imported using the `id`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
+//
+//	$ pulumi import newrelic:cloud/awsGovcloudIntegrations:AwsGovcloudIntegrations foo <id>
+//
 // ```
 type AwsGovcloudIntegrations struct {
 	pulumi.CustomResourceState
@@ -317,7 +319,7 @@ func (i *AwsGovcloudIntegrations) ToAwsGovcloudIntegrationsOutputWithContext(ctx
 // AwsGovcloudIntegrationsArrayInput is an input type that accepts AwsGovcloudIntegrationsArray and AwsGovcloudIntegrationsArrayOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsArrayInput` via:
 //
-//          AwsGovcloudIntegrationsArray{ AwsGovcloudIntegrationsArgs{...} }
+//	AwsGovcloudIntegrationsArray{ AwsGovcloudIntegrationsArgs{...} }
 type AwsGovcloudIntegrationsArrayInput interface {
 	pulumi.Input
 
@@ -342,7 +344,7 @@ func (i AwsGovcloudIntegrationsArray) ToAwsGovcloudIntegrationsArrayOutputWithCo
 // AwsGovcloudIntegrationsMapInput is an input type that accepts AwsGovcloudIntegrationsMap and AwsGovcloudIntegrationsMapOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsMapInput` via:
 //
-//          AwsGovcloudIntegrationsMap{ "key": AwsGovcloudIntegrationsArgs{...} }
+//	AwsGovcloudIntegrationsMap{ "key": AwsGovcloudIntegrationsArgs{...} }
 type AwsGovcloudIntegrationsMapInput interface {
 	pulumi.Input
 

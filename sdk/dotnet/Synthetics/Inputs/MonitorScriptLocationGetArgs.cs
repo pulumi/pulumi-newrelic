@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics.Inputs
 {
 
-    public sealed class MonitorScriptLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class MonitorScriptLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
@@ -33,5 +33,6 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         public MonitorScriptLocationGetArgs()
         {
         }
+        public static new MonitorScriptLocationGetArgs Empty => new MonitorScriptLocationGetArgs();
     }
 }

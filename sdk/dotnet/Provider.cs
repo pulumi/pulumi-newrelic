@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [NewRelicResourceType("pulumi:providers:newrelic")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         [Output("adminApiKey")]
         public Output<string?> AdminApiKey { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId", json: true)]
         public Input<int>? AccountId { get; set; }
@@ -129,5 +129,6 @@ namespace Pulumi.NewRelic
             AccountId = Utilities.GetEnvInt32("NEW_RELIC_ACCOUNT_ID");
             Region = Utilities.GetEnv("NEW_RELIC_REGION") ?? "US";
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

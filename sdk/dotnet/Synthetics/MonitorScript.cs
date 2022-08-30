@@ -15,40 +15,39 @@ namespace Pulumi.NewRelic.Synthetics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
     ///     {
-    ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
+    ///         Type = "SCRIPT_BROWSER",
+    ///         Frequency = 5,
+    ///         Status = "ENABLED",
+    ///         Locations = new[]
     ///         {
-    ///             Type = "SCRIPT_BROWSER",
-    ///             Frequency = 5,
-    ///             Status = "ENABLED",
-    ///             Locations = 
-    ///             {
-    ///                 "AWS_US_EAST_1",
-    ///             },
-    ///         });
-    ///         var fooScript = new NewRelic.Synthetics.MonitorScript("fooScript", new NewRelic.Synthetics.MonitorScriptArgs
-    ///         {
-    ///             MonitorId = foo.Id,
-    ///             Text = File.ReadAllText($"{path.Module}/foo_script.js"),
-    ///             Locations = 
-    ///             {
-    ///                 new NewRelic.Synthetics.Inputs.MonitorScriptLocationArgs
-    ///                 {
-    ///                     Name = "YWJjZAo=",
-    ///                     Hmac = "ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ==",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             "AWS_US_EAST_1",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var fooScript = new NewRelic.Synthetics.MonitorScript("fooScript", new()
+    ///     {
+    ///         MonitorId = foo.Id,
+    ///         Text = File.ReadAllText($"{path.Module}/foo_script.js"),
+    ///         Locations = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorScriptLocationArgs
+    ///             {
+    ///                 Name = "YWJjZAo=",
+    ///                 Hmac = "ZmFrZWxvY2F0aW9uc2NyaXB0ZmFrZQ==",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +59,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/monitorScript:MonitorScript")]
-    public partial class MonitorScript : Pulumi.CustomResource
+    public partial class MonitorScript : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A nested block that describes a monitor script location. See Nested location blocks below for details
@@ -124,7 +123,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
     }
 
-    public sealed class MonitorScriptArgs : Pulumi.ResourceArgs
+    public sealed class MonitorScriptArgs : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<Inputs.MonitorScriptLocationArgs>? _locations;
@@ -153,9 +152,10 @@ namespace Pulumi.NewRelic.Synthetics
         public MonitorScriptArgs()
         {
         }
+        public static new MonitorScriptArgs Empty => new MonitorScriptArgs();
     }
 
-    public sealed class MonitorScriptState : Pulumi.ResourceArgs
+    public sealed class MonitorScriptState : global::Pulumi.ResourceArgs
     {
         [Input("locations")]
         private InputList<Inputs.MonitorScriptLocationGetArgs>? _locations;
@@ -184,5 +184,6 @@ namespace Pulumi.NewRelic.Synthetics
         public MonitorScriptState()
         {
         }
+        public static new MonitorScriptState Empty => new MonitorScriptState();
     }
 }

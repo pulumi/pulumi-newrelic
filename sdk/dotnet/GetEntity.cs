@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetEntityArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
@@ -57,9 +57,10 @@ namespace Pulumi.NewRelic
         public GetEntityArgs()
         {
         }
+        public static new GetEntityArgs Empty => new GetEntityArgs();
     }
 
-    public sealed class GetEntityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
@@ -91,6 +92,7 @@ namespace Pulumi.NewRelic
         public GetEntityInvokeArgs()
         {
         }
+        public static new GetEntityInvokeArgs Empty => new GetEntityInvokeArgs();
     }
 
 

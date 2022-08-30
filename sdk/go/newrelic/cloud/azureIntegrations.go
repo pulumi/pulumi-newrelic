@@ -16,7 +16,9 @@ import (
 // Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic. bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/azureIntegrations:AzureIntegrations foo <id>
+//
+//	$ pulumi import newrelic:cloud/azureIntegrations:AzureIntegrations foo <id>
+//
 // ```
 type AzureIntegrations struct {
 	pulumi.CustomResourceState
@@ -407,7 +409,7 @@ func (i *AzureIntegrations) ToAzureIntegrationsOutputWithContext(ctx context.Con
 // AzureIntegrationsArrayInput is an input type that accepts AzureIntegrationsArray and AzureIntegrationsArrayOutput values.
 // You can construct a concrete instance of `AzureIntegrationsArrayInput` via:
 //
-//          AzureIntegrationsArray{ AzureIntegrationsArgs{...} }
+//	AzureIntegrationsArray{ AzureIntegrationsArgs{...} }
 type AzureIntegrationsArrayInput interface {
 	pulumi.Input
 
@@ -432,7 +434,7 @@ func (i AzureIntegrationsArray) ToAzureIntegrationsArrayOutputWithContext(ctx co
 // AzureIntegrationsMapInput is an input type that accepts AzureIntegrationsMap and AzureIntegrationsMapOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMapInput` via:
 //
-//          AzureIntegrationsMap{ "key": AzureIntegrationsArgs{...} }
+//	AzureIntegrationsMap{ "key": AzureIntegrationsArgs{...} }
 type AzureIntegrationsMapInput interface {
 	pulumi.Input
 

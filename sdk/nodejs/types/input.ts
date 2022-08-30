@@ -214,14 +214,14 @@ export interface EntityTagsTag {
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface GetEntityTagArgs {
-    key: pulumi.Input<string>;
-    value: pulumi.Input<string>;
-}
-
 export interface GetEntityTag {
     key: string;
     value: string;
+}
+
+export interface GetEntityTagArgs {
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }
 
 export interface InfraAlertConditionCritical {
@@ -2464,7 +2464,6 @@ export namespace cloud {
          */
         metricsPollingInterval?: pulumi.Input<number>;
     }
-
 }
 
 export namespace insights {

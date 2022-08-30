@@ -13,10 +13,12 @@ import (
 
 // ## Import
 //
-// Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash
+// # Linked Azure accounts can be imported using `id`, you can find the `id` of existing Azure linked accounts in Azure dashboard under Infrastructure in NewRelic bash
 //
 // ```sh
-//  $ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
+//
+//	$ pulumi import newrelic:cloud/azureLinkAccount:AzureLinkAccount foo <id>
+//
 // ```
 type AzureLinkAccount struct {
 	pulumi.CustomResourceState
@@ -166,7 +168,7 @@ func (i *AzureLinkAccount) ToAzureLinkAccountOutputWithContext(ctx context.Conte
 // AzureLinkAccountArrayInput is an input type that accepts AzureLinkAccountArray and AzureLinkAccountArrayOutput values.
 // You can construct a concrete instance of `AzureLinkAccountArrayInput` via:
 //
-//          AzureLinkAccountArray{ AzureLinkAccountArgs{...} }
+//	AzureLinkAccountArray{ AzureLinkAccountArgs{...} }
 type AzureLinkAccountArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +193,7 @@ func (i AzureLinkAccountArray) ToAzureLinkAccountArrayOutputWithContext(ctx cont
 // AzureLinkAccountMapInput is an input type that accepts AzureLinkAccountMap and AzureLinkAccountMapOutput values.
 // You can construct a concrete instance of `AzureLinkAccountMapInput` via:
 //
-//          AzureLinkAccountMap{ "key": AzureLinkAccountArgs{...} }
+//	AzureLinkAccountMap{ "key": AzureLinkAccountArgs{...} }
 type AzureLinkAccountMapInput interface {
 	pulumi.Input
 

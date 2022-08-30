@@ -49,7 +49,7 @@ type AwsGovcloudIntegrationsAlb struct {
 // AwsGovcloudIntegrationsAlbInput is an input type that accepts AwsGovcloudIntegrationsAlbArgs and AwsGovcloudIntegrationsAlbOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAlbInput` via:
 //
-//          AwsGovcloudIntegrationsAlbArgs{...}
+//	AwsGovcloudIntegrationsAlbArgs{...}
 type AwsGovcloudIntegrationsAlbInput interface {
 	pulumi.Input
 
@@ -116,11 +116,11 @@ func (i AwsGovcloudIntegrationsAlbArgs) ToAwsGovcloudIntegrationsAlbPtrOutputWit
 // AwsGovcloudIntegrationsAlbPtrInput is an input type that accepts AwsGovcloudIntegrationsAlbArgs, AwsGovcloudIntegrationsAlbPtr and AwsGovcloudIntegrationsAlbPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAlbPtrInput` via:
 //
-//          AwsGovcloudIntegrationsAlbArgs{...}
+//	        AwsGovcloudIntegrationsAlbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsAlbPtrInput interface {
 	pulumi.Input
 
@@ -369,7 +369,7 @@ type AwsGovcloudIntegrationsApiGateway struct {
 // AwsGovcloudIntegrationsApiGatewayInput is an input type that accepts AwsGovcloudIntegrationsApiGatewayArgs and AwsGovcloudIntegrationsApiGatewayOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsApiGatewayInput` via:
 //
-//          AwsGovcloudIntegrationsApiGatewayArgs{...}
+//	AwsGovcloudIntegrationsApiGatewayArgs{...}
 type AwsGovcloudIntegrationsApiGatewayInput interface {
 	pulumi.Input
 
@@ -429,11 +429,11 @@ func (i AwsGovcloudIntegrationsApiGatewayArgs) ToAwsGovcloudIntegrationsApiGatew
 // AwsGovcloudIntegrationsApiGatewayPtrInput is an input type that accepts AwsGovcloudIntegrationsApiGatewayArgs, AwsGovcloudIntegrationsApiGatewayPtr and AwsGovcloudIntegrationsApiGatewayPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsApiGatewayPtrInput` via:
 //
-//          AwsGovcloudIntegrationsApiGatewayArgs{...}
+//	        AwsGovcloudIntegrationsApiGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsApiGatewayPtrInput interface {
 	pulumi.Input
 
@@ -628,7 +628,7 @@ type AwsGovcloudIntegrationsAutoScaling struct {
 // AwsGovcloudIntegrationsAutoScalingInput is an input type that accepts AwsGovcloudIntegrationsAutoScalingArgs and AwsGovcloudIntegrationsAutoScalingOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAutoScalingInput` via:
 //
-//          AwsGovcloudIntegrationsAutoScalingArgs{...}
+//	AwsGovcloudIntegrationsAutoScalingArgs{...}
 type AwsGovcloudIntegrationsAutoScalingInput interface {
 	pulumi.Input
 
@@ -670,11 +670,11 @@ func (i AwsGovcloudIntegrationsAutoScalingArgs) ToAwsGovcloudIntegrationsAutoSca
 // AwsGovcloudIntegrationsAutoScalingPtrInput is an input type that accepts AwsGovcloudIntegrationsAutoScalingArgs, AwsGovcloudIntegrationsAutoScalingPtr and AwsGovcloudIntegrationsAutoScalingPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAutoScalingPtrInput` via:
 //
-//          AwsGovcloudIntegrationsAutoScalingArgs{...}
+//	        AwsGovcloudIntegrationsAutoScalingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsAutoScalingPtrInput interface {
 	pulumi.Input
 
@@ -800,7 +800,7 @@ type AwsGovcloudIntegrationsAwsDirectConnect struct {
 // AwsGovcloudIntegrationsAwsDirectConnectInput is an input type that accepts AwsGovcloudIntegrationsAwsDirectConnectArgs and AwsGovcloudIntegrationsAwsDirectConnectOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAwsDirectConnectInput` via:
 //
-//          AwsGovcloudIntegrationsAwsDirectConnectArgs{...}
+//	AwsGovcloudIntegrationsAwsDirectConnectArgs{...}
 type AwsGovcloudIntegrationsAwsDirectConnectInput interface {
 	pulumi.Input
 
@@ -842,11 +842,11 @@ func (i AwsGovcloudIntegrationsAwsDirectConnectArgs) ToAwsGovcloudIntegrationsAw
 // AwsGovcloudIntegrationsAwsDirectConnectPtrInput is an input type that accepts AwsGovcloudIntegrationsAwsDirectConnectArgs, AwsGovcloudIntegrationsAwsDirectConnectPtr and AwsGovcloudIntegrationsAwsDirectConnectPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAwsDirectConnectPtrInput` via:
 //
-//          AwsGovcloudIntegrationsAwsDirectConnectArgs{...}
+//	        AwsGovcloudIntegrationsAwsDirectConnectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsAwsDirectConnectPtrInput interface {
 	pulumi.Input
 
@@ -972,7 +972,7 @@ type AwsGovcloudIntegrationsAwsStates struct {
 // AwsGovcloudIntegrationsAwsStatesInput is an input type that accepts AwsGovcloudIntegrationsAwsStatesArgs and AwsGovcloudIntegrationsAwsStatesOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAwsStatesInput` via:
 //
-//          AwsGovcloudIntegrationsAwsStatesArgs{...}
+//	AwsGovcloudIntegrationsAwsStatesArgs{...}
 type AwsGovcloudIntegrationsAwsStatesInput interface {
 	pulumi.Input
 
@@ -1014,11 +1014,11 @@ func (i AwsGovcloudIntegrationsAwsStatesArgs) ToAwsGovcloudIntegrationsAwsStates
 // AwsGovcloudIntegrationsAwsStatesPtrInput is an input type that accepts AwsGovcloudIntegrationsAwsStatesArgs, AwsGovcloudIntegrationsAwsStatesPtr and AwsGovcloudIntegrationsAwsStatesPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsAwsStatesPtrInput` via:
 //
-//          AwsGovcloudIntegrationsAwsStatesArgs{...}
+//	        AwsGovcloudIntegrationsAwsStatesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsAwsStatesPtrInput interface {
 	pulumi.Input
 
@@ -1144,7 +1144,7 @@ type AwsGovcloudIntegrationsCloudtrail struct {
 // AwsGovcloudIntegrationsCloudtrailInput is an input type that accepts AwsGovcloudIntegrationsCloudtrailArgs and AwsGovcloudIntegrationsCloudtrailOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsCloudtrailInput` via:
 //
-//          AwsGovcloudIntegrationsCloudtrailArgs{...}
+//	AwsGovcloudIntegrationsCloudtrailArgs{...}
 type AwsGovcloudIntegrationsCloudtrailInput interface {
 	pulumi.Input
 
@@ -1186,11 +1186,11 @@ func (i AwsGovcloudIntegrationsCloudtrailArgs) ToAwsGovcloudIntegrationsCloudtra
 // AwsGovcloudIntegrationsCloudtrailPtrInput is an input type that accepts AwsGovcloudIntegrationsCloudtrailArgs, AwsGovcloudIntegrationsCloudtrailPtr and AwsGovcloudIntegrationsCloudtrailPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsCloudtrailPtrInput` via:
 //
-//          AwsGovcloudIntegrationsCloudtrailArgs{...}
+//	        AwsGovcloudIntegrationsCloudtrailArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsCloudtrailPtrInput interface {
 	pulumi.Input
 
@@ -1339,7 +1339,7 @@ type AwsGovcloudIntegrationsDynamoDb struct {
 // AwsGovcloudIntegrationsDynamoDbInput is an input type that accepts AwsGovcloudIntegrationsDynamoDbArgs and AwsGovcloudIntegrationsDynamoDbOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsDynamoDbInput` via:
 //
-//          AwsGovcloudIntegrationsDynamoDbArgs{...}
+//	AwsGovcloudIntegrationsDynamoDbArgs{...}
 type AwsGovcloudIntegrationsDynamoDbInput interface {
 	pulumi.Input
 
@@ -1404,11 +1404,11 @@ func (i AwsGovcloudIntegrationsDynamoDbArgs) ToAwsGovcloudIntegrationsDynamoDbPt
 // AwsGovcloudIntegrationsDynamoDbPtrInput is an input type that accepts AwsGovcloudIntegrationsDynamoDbArgs, AwsGovcloudIntegrationsDynamoDbPtr and AwsGovcloudIntegrationsDynamoDbPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsDynamoDbPtrInput` via:
 //
-//          AwsGovcloudIntegrationsDynamoDbArgs{...}
+//	        AwsGovcloudIntegrationsDynamoDbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsDynamoDbPtrInput interface {
 	pulumi.Input
 
@@ -1644,7 +1644,7 @@ type AwsGovcloudIntegrationsEbs struct {
 // AwsGovcloudIntegrationsEbsInput is an input type that accepts AwsGovcloudIntegrationsEbsArgs and AwsGovcloudIntegrationsEbsOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsEbsInput` via:
 //
-//          AwsGovcloudIntegrationsEbsArgs{...}
+//	AwsGovcloudIntegrationsEbsArgs{...}
 type AwsGovcloudIntegrationsEbsInput interface {
 	pulumi.Input
 
@@ -1706,11 +1706,11 @@ func (i AwsGovcloudIntegrationsEbsArgs) ToAwsGovcloudIntegrationsEbsPtrOutputWit
 // AwsGovcloudIntegrationsEbsPtrInput is an input type that accepts AwsGovcloudIntegrationsEbsArgs, AwsGovcloudIntegrationsEbsPtr and AwsGovcloudIntegrationsEbsPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsEbsPtrInput` via:
 //
-//          AwsGovcloudIntegrationsEbsArgs{...}
+//	        AwsGovcloudIntegrationsEbsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsEbsPtrInput interface {
 	pulumi.Input
 
@@ -1927,7 +1927,7 @@ type AwsGovcloudIntegrationsEc2 struct {
 // AwsGovcloudIntegrationsEc2Input is an input type that accepts AwsGovcloudIntegrationsEc2Args and AwsGovcloudIntegrationsEc2Output values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsEc2Input` via:
 //
-//          AwsGovcloudIntegrationsEc2Args{...}
+//	AwsGovcloudIntegrationsEc2Args{...}
 type AwsGovcloudIntegrationsEc2Input interface {
 	pulumi.Input
 
@@ -1987,11 +1987,11 @@ func (i AwsGovcloudIntegrationsEc2Args) ToAwsGovcloudIntegrationsEc2PtrOutputWit
 // AwsGovcloudIntegrationsEc2PtrInput is an input type that accepts AwsGovcloudIntegrationsEc2Args, AwsGovcloudIntegrationsEc2Ptr and AwsGovcloudIntegrationsEc2PtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsEc2PtrInput` via:
 //
-//          AwsGovcloudIntegrationsEc2Args{...}
+//	        AwsGovcloudIntegrationsEc2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsEc2PtrInput interface {
 	pulumi.Input
 
@@ -2204,7 +2204,7 @@ type AwsGovcloudIntegrationsElasticSearch struct {
 // AwsGovcloudIntegrationsElasticSearchInput is an input type that accepts AwsGovcloudIntegrationsElasticSearchArgs and AwsGovcloudIntegrationsElasticSearchOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsElasticSearchInput` via:
 //
-//          AwsGovcloudIntegrationsElasticSearchArgs{...}
+//	AwsGovcloudIntegrationsElasticSearchArgs{...}
 type AwsGovcloudIntegrationsElasticSearchInput interface {
 	pulumi.Input
 
@@ -2264,11 +2264,11 @@ func (i AwsGovcloudIntegrationsElasticSearchArgs) ToAwsGovcloudIntegrationsElast
 // AwsGovcloudIntegrationsElasticSearchPtrInput is an input type that accepts AwsGovcloudIntegrationsElasticSearchArgs, AwsGovcloudIntegrationsElasticSearchPtr and AwsGovcloudIntegrationsElasticSearchPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsElasticSearchPtrInput` via:
 //
-//          AwsGovcloudIntegrationsElasticSearchArgs{...}
+//	        AwsGovcloudIntegrationsElasticSearchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsElasticSearchPtrInput interface {
 	pulumi.Input
 
@@ -2470,7 +2470,7 @@ type AwsGovcloudIntegrationsElb struct {
 // AwsGovcloudIntegrationsElbInput is an input type that accepts AwsGovcloudIntegrationsElbArgs and AwsGovcloudIntegrationsElbOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsElbInput` via:
 //
-//          AwsGovcloudIntegrationsElbArgs{...}
+//	AwsGovcloudIntegrationsElbArgs{...}
 type AwsGovcloudIntegrationsElbInput interface {
 	pulumi.Input
 
@@ -2519,11 +2519,11 @@ func (i AwsGovcloudIntegrationsElbArgs) ToAwsGovcloudIntegrationsElbPtrOutputWit
 // AwsGovcloudIntegrationsElbPtrInput is an input type that accepts AwsGovcloudIntegrationsElbArgs, AwsGovcloudIntegrationsElbPtr and AwsGovcloudIntegrationsElbPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsElbPtrInput` via:
 //
-//          AwsGovcloudIntegrationsElbArgs{...}
+//	        AwsGovcloudIntegrationsElbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsElbPtrInput interface {
 	pulumi.Input
 
@@ -2704,7 +2704,7 @@ type AwsGovcloudIntegrationsEmr struct {
 // AwsGovcloudIntegrationsEmrInput is an input type that accepts AwsGovcloudIntegrationsEmrArgs and AwsGovcloudIntegrationsEmrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsEmrInput` via:
 //
-//          AwsGovcloudIntegrationsEmrArgs{...}
+//	AwsGovcloudIntegrationsEmrArgs{...}
 type AwsGovcloudIntegrationsEmrInput interface {
 	pulumi.Input
 
@@ -2765,11 +2765,11 @@ func (i AwsGovcloudIntegrationsEmrArgs) ToAwsGovcloudIntegrationsEmrPtrOutputWit
 // AwsGovcloudIntegrationsEmrPtrInput is an input type that accepts AwsGovcloudIntegrationsEmrArgs, AwsGovcloudIntegrationsEmrPtr and AwsGovcloudIntegrationsEmrPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsEmrPtrInput` via:
 //
-//          AwsGovcloudIntegrationsEmrArgs{...}
+//	        AwsGovcloudIntegrationsEmrArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsEmrPtrInput interface {
 	pulumi.Input
 
@@ -2976,7 +2976,7 @@ type AwsGovcloudIntegrationsIam struct {
 // AwsGovcloudIntegrationsIamInput is an input type that accepts AwsGovcloudIntegrationsIamArgs and AwsGovcloudIntegrationsIamOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsIamInput` via:
 //
-//          AwsGovcloudIntegrationsIamArgs{...}
+//	AwsGovcloudIntegrationsIamArgs{...}
 type AwsGovcloudIntegrationsIamInput interface {
 	pulumi.Input
 
@@ -3028,11 +3028,11 @@ func (i AwsGovcloudIntegrationsIamArgs) ToAwsGovcloudIntegrationsIamPtrOutputWit
 // AwsGovcloudIntegrationsIamPtrInput is an input type that accepts AwsGovcloudIntegrationsIamArgs, AwsGovcloudIntegrationsIamPtr and AwsGovcloudIntegrationsIamPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsIamPtrInput` via:
 //
-//          AwsGovcloudIntegrationsIamArgs{...}
+//	        AwsGovcloudIntegrationsIamArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsIamPtrInput interface {
 	pulumi.Input
 
@@ -3208,7 +3208,7 @@ type AwsGovcloudIntegrationsLambda struct {
 // AwsGovcloudIntegrationsLambdaInput is an input type that accepts AwsGovcloudIntegrationsLambdaArgs and AwsGovcloudIntegrationsLambdaOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsLambdaInput` via:
 //
-//          AwsGovcloudIntegrationsLambdaArgs{...}
+//	AwsGovcloudIntegrationsLambdaArgs{...}
 type AwsGovcloudIntegrationsLambdaInput interface {
 	pulumi.Input
 
@@ -3269,11 +3269,11 @@ func (i AwsGovcloudIntegrationsLambdaArgs) ToAwsGovcloudIntegrationsLambdaPtrOut
 // AwsGovcloudIntegrationsLambdaPtrInput is an input type that accepts AwsGovcloudIntegrationsLambdaArgs, AwsGovcloudIntegrationsLambdaPtr and AwsGovcloudIntegrationsLambdaPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsLambdaPtrInput` via:
 //
-//          AwsGovcloudIntegrationsLambdaArgs{...}
+//	        AwsGovcloudIntegrationsLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsLambdaPtrInput interface {
 	pulumi.Input
 
@@ -3489,7 +3489,7 @@ type AwsGovcloudIntegrationsRds struct {
 // AwsGovcloudIntegrationsRdsInput is an input type that accepts AwsGovcloudIntegrationsRdsArgs and AwsGovcloudIntegrationsRdsOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsRdsInput` via:
 //
-//          AwsGovcloudIntegrationsRdsArgs{...}
+//	AwsGovcloudIntegrationsRdsArgs{...}
 type AwsGovcloudIntegrationsRdsInput interface {
 	pulumi.Input
 
@@ -3550,11 +3550,11 @@ func (i AwsGovcloudIntegrationsRdsArgs) ToAwsGovcloudIntegrationsRdsPtrOutputWit
 // AwsGovcloudIntegrationsRdsPtrInput is an input type that accepts AwsGovcloudIntegrationsRdsArgs, AwsGovcloudIntegrationsRdsPtr and AwsGovcloudIntegrationsRdsPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsRdsPtrInput` via:
 //
-//          AwsGovcloudIntegrationsRdsArgs{...}
+//	        AwsGovcloudIntegrationsRdsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsRdsPtrInput interface {
 	pulumi.Input
 
@@ -3767,7 +3767,7 @@ type AwsGovcloudIntegrationsRedShift struct {
 // AwsGovcloudIntegrationsRedShiftInput is an input type that accepts AwsGovcloudIntegrationsRedShiftArgs and AwsGovcloudIntegrationsRedShiftOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsRedShiftInput` via:
 //
-//          AwsGovcloudIntegrationsRedShiftArgs{...}
+//	AwsGovcloudIntegrationsRedShiftArgs{...}
 type AwsGovcloudIntegrationsRedShiftInput interface {
 	pulumi.Input
 
@@ -3825,11 +3825,11 @@ func (i AwsGovcloudIntegrationsRedShiftArgs) ToAwsGovcloudIntegrationsRedShiftPt
 // AwsGovcloudIntegrationsRedShiftPtrInput is an input type that accepts AwsGovcloudIntegrationsRedShiftArgs, AwsGovcloudIntegrationsRedShiftPtr and AwsGovcloudIntegrationsRedShiftPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsRedShiftPtrInput` via:
 //
-//          AwsGovcloudIntegrationsRedShiftArgs{...}
+//	        AwsGovcloudIntegrationsRedShiftArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsRedShiftPtrInput interface {
 	pulumi.Input
 
@@ -4007,7 +4007,7 @@ type AwsGovcloudIntegrationsRoute53 struct {
 // AwsGovcloudIntegrationsRoute53Input is an input type that accepts AwsGovcloudIntegrationsRoute53Args and AwsGovcloudIntegrationsRoute53Output values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsRoute53Input` via:
 //
-//          AwsGovcloudIntegrationsRoute53Args{...}
+//	AwsGovcloudIntegrationsRoute53Args{...}
 type AwsGovcloudIntegrationsRoute53Input interface {
 	pulumi.Input
 
@@ -4047,11 +4047,11 @@ func (i AwsGovcloudIntegrationsRoute53Args) ToAwsGovcloudIntegrationsRoute53PtrO
 // AwsGovcloudIntegrationsRoute53PtrInput is an input type that accepts AwsGovcloudIntegrationsRoute53Args, AwsGovcloudIntegrationsRoute53Ptr and AwsGovcloudIntegrationsRoute53PtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsRoute53PtrInput` via:
 //
-//          AwsGovcloudIntegrationsRoute53Args{...}
+//	        AwsGovcloudIntegrationsRoute53Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsRoute53PtrInput interface {
 	pulumi.Input
 
@@ -4190,7 +4190,7 @@ type AwsGovcloudIntegrationsS3 struct {
 // AwsGovcloudIntegrationsS3Input is an input type that accepts AwsGovcloudIntegrationsS3Args and AwsGovcloudIntegrationsS3Output values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsS3Input` via:
 //
-//          AwsGovcloudIntegrationsS3Args{...}
+//	AwsGovcloudIntegrationsS3Args{...}
 type AwsGovcloudIntegrationsS3Input interface {
 	pulumi.Input
 
@@ -4249,11 +4249,11 @@ func (i AwsGovcloudIntegrationsS3Args) ToAwsGovcloudIntegrationsS3PtrOutputWithC
 // AwsGovcloudIntegrationsS3PtrInput is an input type that accepts AwsGovcloudIntegrationsS3Args, AwsGovcloudIntegrationsS3Ptr and AwsGovcloudIntegrationsS3PtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsS3PtrInput` via:
 //
-//          AwsGovcloudIntegrationsS3Args{...}
+//	        AwsGovcloudIntegrationsS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsS3PtrInput interface {
 	pulumi.Input
 
@@ -4450,7 +4450,7 @@ type AwsGovcloudIntegrationsSns struct {
 // AwsGovcloudIntegrationsSnsInput is an input type that accepts AwsGovcloudIntegrationsSnsArgs and AwsGovcloudIntegrationsSnsOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsSnsInput` via:
 //
-//          AwsGovcloudIntegrationsSnsArgs{...}
+//	AwsGovcloudIntegrationsSnsArgs{...}
 type AwsGovcloudIntegrationsSnsInput interface {
 	pulumi.Input
 
@@ -4496,11 +4496,11 @@ func (i AwsGovcloudIntegrationsSnsArgs) ToAwsGovcloudIntegrationsSnsPtrOutputWit
 // AwsGovcloudIntegrationsSnsPtrInput is an input type that accepts AwsGovcloudIntegrationsSnsArgs, AwsGovcloudIntegrationsSnsPtr and AwsGovcloudIntegrationsSnsPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsSnsPtrInput` via:
 //
-//          AwsGovcloudIntegrationsSnsArgs{...}
+//	        AwsGovcloudIntegrationsSnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsSnsPtrInput interface {
 	pulumi.Input
 
@@ -4670,7 +4670,7 @@ type AwsGovcloudIntegrationsSqs struct {
 // AwsGovcloudIntegrationsSqsInput is an input type that accepts AwsGovcloudIntegrationsSqsArgs and AwsGovcloudIntegrationsSqsOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsSqsInput` via:
 //
-//          AwsGovcloudIntegrationsSqsArgs{...}
+//	AwsGovcloudIntegrationsSqsArgs{...}
 type AwsGovcloudIntegrationsSqsInput interface {
 	pulumi.Input
 
@@ -4737,11 +4737,11 @@ func (i AwsGovcloudIntegrationsSqsArgs) ToAwsGovcloudIntegrationsSqsPtrOutputWit
 // AwsGovcloudIntegrationsSqsPtrInput is an input type that accepts AwsGovcloudIntegrationsSqsArgs, AwsGovcloudIntegrationsSqsPtr and AwsGovcloudIntegrationsSqsPtrOutput values.
 // You can construct a concrete instance of `AwsGovcloudIntegrationsSqsPtrInput` via:
 //
-//          AwsGovcloudIntegrationsSqsArgs{...}
+//	        AwsGovcloudIntegrationsSqsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsGovcloudIntegrationsSqsPtrInput interface {
 	pulumi.Input
 
@@ -4966,7 +4966,7 @@ type AwsIntegrationsBilling struct {
 // AwsIntegrationsBillingInput is an input type that accepts AwsIntegrationsBillingArgs and AwsIntegrationsBillingOutput values.
 // You can construct a concrete instance of `AwsIntegrationsBillingInput` via:
 //
-//          AwsIntegrationsBillingArgs{...}
+//	AwsIntegrationsBillingArgs{...}
 type AwsIntegrationsBillingInput interface {
 	pulumi.Input
 
@@ -5002,11 +5002,11 @@ func (i AwsIntegrationsBillingArgs) ToAwsIntegrationsBillingPtrOutputWithContext
 // AwsIntegrationsBillingPtrInput is an input type that accepts AwsIntegrationsBillingArgs, AwsIntegrationsBillingPtr and AwsIntegrationsBillingPtrOutput values.
 // You can construct a concrete instance of `AwsIntegrationsBillingPtrInput` via:
 //
-//          AwsIntegrationsBillingArgs{...}
+//	        AwsIntegrationsBillingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsIntegrationsBillingPtrInput interface {
 	pulumi.Input
 
@@ -5106,7 +5106,7 @@ type AwsIntegrationsCloudtrail struct {
 // AwsIntegrationsCloudtrailInput is an input type that accepts AwsIntegrationsCloudtrailArgs and AwsIntegrationsCloudtrailOutput values.
 // You can construct a concrete instance of `AwsIntegrationsCloudtrailInput` via:
 //
-//          AwsIntegrationsCloudtrailArgs{...}
+//	AwsIntegrationsCloudtrailArgs{...}
 type AwsIntegrationsCloudtrailInput interface {
 	pulumi.Input
 
@@ -5145,11 +5145,11 @@ func (i AwsIntegrationsCloudtrailArgs) ToAwsIntegrationsCloudtrailPtrOutputWithC
 // AwsIntegrationsCloudtrailPtrInput is an input type that accepts AwsIntegrationsCloudtrailArgs, AwsIntegrationsCloudtrailPtr and AwsIntegrationsCloudtrailPtrOutput values.
 // You can construct a concrete instance of `AwsIntegrationsCloudtrailPtrInput` via:
 //
-//          AwsIntegrationsCloudtrailArgs{...}
+//	        AwsIntegrationsCloudtrailArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsIntegrationsCloudtrailPtrInput interface {
 	pulumi.Input
 
@@ -5263,7 +5263,7 @@ type AwsIntegrationsHealth struct {
 // AwsIntegrationsHealthInput is an input type that accepts AwsIntegrationsHealthArgs and AwsIntegrationsHealthOutput values.
 // You can construct a concrete instance of `AwsIntegrationsHealthInput` via:
 //
-//          AwsIntegrationsHealthArgs{...}
+//	AwsIntegrationsHealthArgs{...}
 type AwsIntegrationsHealthInput interface {
 	pulumi.Input
 
@@ -5299,11 +5299,11 @@ func (i AwsIntegrationsHealthArgs) ToAwsIntegrationsHealthPtrOutputWithContext(c
 // AwsIntegrationsHealthPtrInput is an input type that accepts AwsIntegrationsHealthArgs, AwsIntegrationsHealthPtr and AwsIntegrationsHealthPtrOutput values.
 // You can construct a concrete instance of `AwsIntegrationsHealthPtrInput` via:
 //
-//          AwsIntegrationsHealthArgs{...}
+//	        AwsIntegrationsHealthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsIntegrationsHealthPtrInput interface {
 	pulumi.Input
 
@@ -5400,7 +5400,7 @@ type AwsIntegrationsTrustedAdvisor struct {
 // AwsIntegrationsTrustedAdvisorInput is an input type that accepts AwsIntegrationsTrustedAdvisorArgs and AwsIntegrationsTrustedAdvisorOutput values.
 // You can construct a concrete instance of `AwsIntegrationsTrustedAdvisorInput` via:
 //
-//          AwsIntegrationsTrustedAdvisorArgs{...}
+//	AwsIntegrationsTrustedAdvisorArgs{...}
 type AwsIntegrationsTrustedAdvisorInput interface {
 	pulumi.Input
 
@@ -5436,11 +5436,11 @@ func (i AwsIntegrationsTrustedAdvisorArgs) ToAwsIntegrationsTrustedAdvisorPtrOut
 // AwsIntegrationsTrustedAdvisorPtrInput is an input type that accepts AwsIntegrationsTrustedAdvisorArgs, AwsIntegrationsTrustedAdvisorPtr and AwsIntegrationsTrustedAdvisorPtrOutput values.
 // You can construct a concrete instance of `AwsIntegrationsTrustedAdvisorPtrInput` via:
 //
-//          AwsIntegrationsTrustedAdvisorArgs{...}
+//	        AwsIntegrationsTrustedAdvisorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsIntegrationsTrustedAdvisorPtrInput interface {
 	pulumi.Input
 
@@ -5549,7 +5549,7 @@ type AwsIntegrationsVpc struct {
 // AwsIntegrationsVpcInput is an input type that accepts AwsIntegrationsVpcArgs and AwsIntegrationsVpcOutput values.
 // You can construct a concrete instance of `AwsIntegrationsVpcInput` via:
 //
-//          AwsIntegrationsVpcArgs{...}
+//	AwsIntegrationsVpcArgs{...}
 type AwsIntegrationsVpcInput interface {
 	pulumi.Input
 
@@ -5597,11 +5597,11 @@ func (i AwsIntegrationsVpcArgs) ToAwsIntegrationsVpcPtrOutputWithContext(ctx con
 // AwsIntegrationsVpcPtrInput is an input type that accepts AwsIntegrationsVpcArgs, AwsIntegrationsVpcPtr and AwsIntegrationsVpcPtrOutput values.
 // You can construct a concrete instance of `AwsIntegrationsVpcPtrInput` via:
 //
-//          AwsIntegrationsVpcArgs{...}
+//	        AwsIntegrationsVpcArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsIntegrationsVpcPtrInput interface {
 	pulumi.Input
 
@@ -5780,7 +5780,7 @@ type AwsIntegrationsXRay struct {
 // AwsIntegrationsXRayInput is an input type that accepts AwsIntegrationsXRayArgs and AwsIntegrationsXRayOutput values.
 // You can construct a concrete instance of `AwsIntegrationsXRayInput` via:
 //
-//          AwsIntegrationsXRayArgs{...}
+//	AwsIntegrationsXRayArgs{...}
 type AwsIntegrationsXRayInput interface {
 	pulumi.Input
 
@@ -5819,11 +5819,11 @@ func (i AwsIntegrationsXRayArgs) ToAwsIntegrationsXRayPtrOutputWithContext(ctx c
 // AwsIntegrationsXRayPtrInput is an input type that accepts AwsIntegrationsXRayArgs, AwsIntegrationsXRayPtr and AwsIntegrationsXRayPtrOutput values.
 // You can construct a concrete instance of `AwsIntegrationsXRayPtrInput` via:
 //
-//          AwsIntegrationsXRayArgs{...}
+//	        AwsIntegrationsXRayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AwsIntegrationsXRayPtrInput interface {
 	pulumi.Input
 
@@ -5939,7 +5939,7 @@ type AzureIntegrationsApiManagement struct {
 // AzureIntegrationsApiManagementInput is an input type that accepts AzureIntegrationsApiManagementArgs and AzureIntegrationsApiManagementOutput values.
 // You can construct a concrete instance of `AzureIntegrationsApiManagementInput` via:
 //
-//          AzureIntegrationsApiManagementArgs{...}
+//	AzureIntegrationsApiManagementArgs{...}
 type AzureIntegrationsApiManagementInput interface {
 	pulumi.Input
 
@@ -5977,11 +5977,11 @@ func (i AzureIntegrationsApiManagementArgs) ToAzureIntegrationsApiManagementPtrO
 // AzureIntegrationsApiManagementPtrInput is an input type that accepts AzureIntegrationsApiManagementArgs, AzureIntegrationsApiManagementPtr and AzureIntegrationsApiManagementPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsApiManagementPtrInput` via:
 //
-//          AzureIntegrationsApiManagementArgs{...}
+//	        AzureIntegrationsApiManagementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsApiManagementPtrInput interface {
 	pulumi.Input
 
@@ -6095,7 +6095,7 @@ type AzureIntegrationsAppGateway struct {
 // AzureIntegrationsAppGatewayInput is an input type that accepts AzureIntegrationsAppGatewayArgs and AzureIntegrationsAppGatewayOutput values.
 // You can construct a concrete instance of `AzureIntegrationsAppGatewayInput` via:
 //
-//          AzureIntegrationsAppGatewayArgs{...}
+//	AzureIntegrationsAppGatewayArgs{...}
 type AzureIntegrationsAppGatewayInput interface {
 	pulumi.Input
 
@@ -6133,11 +6133,11 @@ func (i AzureIntegrationsAppGatewayArgs) ToAzureIntegrationsAppGatewayPtrOutputW
 // AzureIntegrationsAppGatewayPtrInput is an input type that accepts AzureIntegrationsAppGatewayArgs, AzureIntegrationsAppGatewayPtr and AzureIntegrationsAppGatewayPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsAppGatewayPtrInput` via:
 //
-//          AzureIntegrationsAppGatewayArgs{...}
+//	        AzureIntegrationsAppGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsAppGatewayPtrInput interface {
 	pulumi.Input
 
@@ -6251,7 +6251,7 @@ type AzureIntegrationsAppService struct {
 // AzureIntegrationsAppServiceInput is an input type that accepts AzureIntegrationsAppServiceArgs and AzureIntegrationsAppServiceOutput values.
 // You can construct a concrete instance of `AzureIntegrationsAppServiceInput` via:
 //
-//          AzureIntegrationsAppServiceArgs{...}
+//	AzureIntegrationsAppServiceArgs{...}
 type AzureIntegrationsAppServiceInput interface {
 	pulumi.Input
 
@@ -6289,11 +6289,11 @@ func (i AzureIntegrationsAppServiceArgs) ToAzureIntegrationsAppServicePtrOutputW
 // AzureIntegrationsAppServicePtrInput is an input type that accepts AzureIntegrationsAppServiceArgs, AzureIntegrationsAppServicePtr and AzureIntegrationsAppServicePtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsAppServicePtrInput` via:
 //
-//          AzureIntegrationsAppServiceArgs{...}
+//	        AzureIntegrationsAppServiceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsAppServicePtrInput interface {
 	pulumi.Input
 
@@ -6407,7 +6407,7 @@ type AzureIntegrationsContainers struct {
 // AzureIntegrationsContainersInput is an input type that accepts AzureIntegrationsContainersArgs and AzureIntegrationsContainersOutput values.
 // You can construct a concrete instance of `AzureIntegrationsContainersInput` via:
 //
-//          AzureIntegrationsContainersArgs{...}
+//	AzureIntegrationsContainersArgs{...}
 type AzureIntegrationsContainersInput interface {
 	pulumi.Input
 
@@ -6445,11 +6445,11 @@ func (i AzureIntegrationsContainersArgs) ToAzureIntegrationsContainersPtrOutputW
 // AzureIntegrationsContainersPtrInput is an input type that accepts AzureIntegrationsContainersArgs, AzureIntegrationsContainersPtr and AzureIntegrationsContainersPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsContainersPtrInput` via:
 //
-//          AzureIntegrationsContainersArgs{...}
+//	        AzureIntegrationsContainersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsContainersPtrInput interface {
 	pulumi.Input
 
@@ -6563,7 +6563,7 @@ type AzureIntegrationsCosmosDb struct {
 // AzureIntegrationsCosmosDbInput is an input type that accepts AzureIntegrationsCosmosDbArgs and AzureIntegrationsCosmosDbOutput values.
 // You can construct a concrete instance of `AzureIntegrationsCosmosDbInput` via:
 //
-//          AzureIntegrationsCosmosDbArgs{...}
+//	AzureIntegrationsCosmosDbArgs{...}
 type AzureIntegrationsCosmosDbInput interface {
 	pulumi.Input
 
@@ -6601,11 +6601,11 @@ func (i AzureIntegrationsCosmosDbArgs) ToAzureIntegrationsCosmosDbPtrOutputWithC
 // AzureIntegrationsCosmosDbPtrInput is an input type that accepts AzureIntegrationsCosmosDbArgs, AzureIntegrationsCosmosDbPtr and AzureIntegrationsCosmosDbPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsCosmosDbPtrInput` via:
 //
-//          AzureIntegrationsCosmosDbArgs{...}
+//	        AzureIntegrationsCosmosDbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsCosmosDbPtrInput interface {
 	pulumi.Input
 
@@ -6719,7 +6719,7 @@ type AzureIntegrationsCostManagement struct {
 // AzureIntegrationsCostManagementInput is an input type that accepts AzureIntegrationsCostManagementArgs and AzureIntegrationsCostManagementOutput values.
 // You can construct a concrete instance of `AzureIntegrationsCostManagementInput` via:
 //
-//          AzureIntegrationsCostManagementArgs{...}
+//	AzureIntegrationsCostManagementArgs{...}
 type AzureIntegrationsCostManagementInput interface {
 	pulumi.Input
 
@@ -6757,11 +6757,11 @@ func (i AzureIntegrationsCostManagementArgs) ToAzureIntegrationsCostManagementPt
 // AzureIntegrationsCostManagementPtrInput is an input type that accepts AzureIntegrationsCostManagementArgs, AzureIntegrationsCostManagementPtr and AzureIntegrationsCostManagementPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsCostManagementPtrInput` via:
 //
-//          AzureIntegrationsCostManagementArgs{...}
+//	        AzureIntegrationsCostManagementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsCostManagementPtrInput interface {
 	pulumi.Input
 
@@ -6875,7 +6875,7 @@ type AzureIntegrationsDataFactory struct {
 // AzureIntegrationsDataFactoryInput is an input type that accepts AzureIntegrationsDataFactoryArgs and AzureIntegrationsDataFactoryOutput values.
 // You can construct a concrete instance of `AzureIntegrationsDataFactoryInput` via:
 //
-//          AzureIntegrationsDataFactoryArgs{...}
+//	AzureIntegrationsDataFactoryArgs{...}
 type AzureIntegrationsDataFactoryInput interface {
 	pulumi.Input
 
@@ -6913,11 +6913,11 @@ func (i AzureIntegrationsDataFactoryArgs) ToAzureIntegrationsDataFactoryPtrOutpu
 // AzureIntegrationsDataFactoryPtrInput is an input type that accepts AzureIntegrationsDataFactoryArgs, AzureIntegrationsDataFactoryPtr and AzureIntegrationsDataFactoryPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsDataFactoryPtrInput` via:
 //
-//          AzureIntegrationsDataFactoryArgs{...}
+//	        AzureIntegrationsDataFactoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsDataFactoryPtrInput interface {
 	pulumi.Input
 
@@ -7031,7 +7031,7 @@ type AzureIntegrationsEventHub struct {
 // AzureIntegrationsEventHubInput is an input type that accepts AzureIntegrationsEventHubArgs and AzureIntegrationsEventHubOutput values.
 // You can construct a concrete instance of `AzureIntegrationsEventHubInput` via:
 //
-//          AzureIntegrationsEventHubArgs{...}
+//	AzureIntegrationsEventHubArgs{...}
 type AzureIntegrationsEventHubInput interface {
 	pulumi.Input
 
@@ -7069,11 +7069,11 @@ func (i AzureIntegrationsEventHubArgs) ToAzureIntegrationsEventHubPtrOutputWithC
 // AzureIntegrationsEventHubPtrInput is an input type that accepts AzureIntegrationsEventHubArgs, AzureIntegrationsEventHubPtr and AzureIntegrationsEventHubPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsEventHubPtrInput` via:
 //
-//          AzureIntegrationsEventHubArgs{...}
+//	        AzureIntegrationsEventHubArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsEventHubPtrInput interface {
 	pulumi.Input
 
@@ -7187,7 +7187,7 @@ type AzureIntegrationsExpressRoute struct {
 // AzureIntegrationsExpressRouteInput is an input type that accepts AzureIntegrationsExpressRouteArgs and AzureIntegrationsExpressRouteOutput values.
 // You can construct a concrete instance of `AzureIntegrationsExpressRouteInput` via:
 //
-//          AzureIntegrationsExpressRouteArgs{...}
+//	AzureIntegrationsExpressRouteArgs{...}
 type AzureIntegrationsExpressRouteInput interface {
 	pulumi.Input
 
@@ -7225,11 +7225,11 @@ func (i AzureIntegrationsExpressRouteArgs) ToAzureIntegrationsExpressRoutePtrOut
 // AzureIntegrationsExpressRoutePtrInput is an input type that accepts AzureIntegrationsExpressRouteArgs, AzureIntegrationsExpressRoutePtr and AzureIntegrationsExpressRoutePtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsExpressRoutePtrInput` via:
 //
-//          AzureIntegrationsExpressRouteArgs{...}
+//	        AzureIntegrationsExpressRouteArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsExpressRoutePtrInput interface {
 	pulumi.Input
 
@@ -7343,7 +7343,7 @@ type AzureIntegrationsFirewalls struct {
 // AzureIntegrationsFirewallsInput is an input type that accepts AzureIntegrationsFirewallsArgs and AzureIntegrationsFirewallsOutput values.
 // You can construct a concrete instance of `AzureIntegrationsFirewallsInput` via:
 //
-//          AzureIntegrationsFirewallsArgs{...}
+//	AzureIntegrationsFirewallsArgs{...}
 type AzureIntegrationsFirewallsInput interface {
 	pulumi.Input
 
@@ -7381,11 +7381,11 @@ func (i AzureIntegrationsFirewallsArgs) ToAzureIntegrationsFirewallsPtrOutputWit
 // AzureIntegrationsFirewallsPtrInput is an input type that accepts AzureIntegrationsFirewallsArgs, AzureIntegrationsFirewallsPtr and AzureIntegrationsFirewallsPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsFirewallsPtrInput` via:
 //
-//          AzureIntegrationsFirewallsArgs{...}
+//	        AzureIntegrationsFirewallsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsFirewallsPtrInput interface {
 	pulumi.Input
 
@@ -7499,7 +7499,7 @@ type AzureIntegrationsFrontDoor struct {
 // AzureIntegrationsFrontDoorInput is an input type that accepts AzureIntegrationsFrontDoorArgs and AzureIntegrationsFrontDoorOutput values.
 // You can construct a concrete instance of `AzureIntegrationsFrontDoorInput` via:
 //
-//          AzureIntegrationsFrontDoorArgs{...}
+//	AzureIntegrationsFrontDoorArgs{...}
 type AzureIntegrationsFrontDoorInput interface {
 	pulumi.Input
 
@@ -7537,11 +7537,11 @@ func (i AzureIntegrationsFrontDoorArgs) ToAzureIntegrationsFrontDoorPtrOutputWit
 // AzureIntegrationsFrontDoorPtrInput is an input type that accepts AzureIntegrationsFrontDoorArgs, AzureIntegrationsFrontDoorPtr and AzureIntegrationsFrontDoorPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsFrontDoorPtrInput` via:
 //
-//          AzureIntegrationsFrontDoorArgs{...}
+//	        AzureIntegrationsFrontDoorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsFrontDoorPtrInput interface {
 	pulumi.Input
 
@@ -7655,7 +7655,7 @@ type AzureIntegrationsFunctions struct {
 // AzureIntegrationsFunctionsInput is an input type that accepts AzureIntegrationsFunctionsArgs and AzureIntegrationsFunctionsOutput values.
 // You can construct a concrete instance of `AzureIntegrationsFunctionsInput` via:
 //
-//          AzureIntegrationsFunctionsArgs{...}
+//	AzureIntegrationsFunctionsArgs{...}
 type AzureIntegrationsFunctionsInput interface {
 	pulumi.Input
 
@@ -7693,11 +7693,11 @@ func (i AzureIntegrationsFunctionsArgs) ToAzureIntegrationsFunctionsPtrOutputWit
 // AzureIntegrationsFunctionsPtrInput is an input type that accepts AzureIntegrationsFunctionsArgs, AzureIntegrationsFunctionsPtr and AzureIntegrationsFunctionsPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsFunctionsPtrInput` via:
 //
-//          AzureIntegrationsFunctionsArgs{...}
+//	        AzureIntegrationsFunctionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsFunctionsPtrInput interface {
 	pulumi.Input
 
@@ -7811,7 +7811,7 @@ type AzureIntegrationsKeyVault struct {
 // AzureIntegrationsKeyVaultInput is an input type that accepts AzureIntegrationsKeyVaultArgs and AzureIntegrationsKeyVaultOutput values.
 // You can construct a concrete instance of `AzureIntegrationsKeyVaultInput` via:
 //
-//          AzureIntegrationsKeyVaultArgs{...}
+//	AzureIntegrationsKeyVaultArgs{...}
 type AzureIntegrationsKeyVaultInput interface {
 	pulumi.Input
 
@@ -7849,11 +7849,11 @@ func (i AzureIntegrationsKeyVaultArgs) ToAzureIntegrationsKeyVaultPtrOutputWithC
 // AzureIntegrationsKeyVaultPtrInput is an input type that accepts AzureIntegrationsKeyVaultArgs, AzureIntegrationsKeyVaultPtr and AzureIntegrationsKeyVaultPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsKeyVaultPtrInput` via:
 //
-//          AzureIntegrationsKeyVaultArgs{...}
+//	        AzureIntegrationsKeyVaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -7967,7 +7967,7 @@ type AzureIntegrationsLoadBalancer struct {
 // AzureIntegrationsLoadBalancerInput is an input type that accepts AzureIntegrationsLoadBalancerArgs and AzureIntegrationsLoadBalancerOutput values.
 // You can construct a concrete instance of `AzureIntegrationsLoadBalancerInput` via:
 //
-//          AzureIntegrationsLoadBalancerArgs{...}
+//	AzureIntegrationsLoadBalancerArgs{...}
 type AzureIntegrationsLoadBalancerInput interface {
 	pulumi.Input
 
@@ -8005,11 +8005,11 @@ func (i AzureIntegrationsLoadBalancerArgs) ToAzureIntegrationsLoadBalancerPtrOut
 // AzureIntegrationsLoadBalancerPtrInput is an input type that accepts AzureIntegrationsLoadBalancerArgs, AzureIntegrationsLoadBalancerPtr and AzureIntegrationsLoadBalancerPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsLoadBalancerPtrInput` via:
 //
-//          AzureIntegrationsLoadBalancerArgs{...}
+//	        AzureIntegrationsLoadBalancerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsLoadBalancerPtrInput interface {
 	pulumi.Input
 
@@ -8123,7 +8123,7 @@ type AzureIntegrationsLogicApps struct {
 // AzureIntegrationsLogicAppsInput is an input type that accepts AzureIntegrationsLogicAppsArgs and AzureIntegrationsLogicAppsOutput values.
 // You can construct a concrete instance of `AzureIntegrationsLogicAppsInput` via:
 //
-//          AzureIntegrationsLogicAppsArgs{...}
+//	AzureIntegrationsLogicAppsArgs{...}
 type AzureIntegrationsLogicAppsInput interface {
 	pulumi.Input
 
@@ -8161,11 +8161,11 @@ func (i AzureIntegrationsLogicAppsArgs) ToAzureIntegrationsLogicAppsPtrOutputWit
 // AzureIntegrationsLogicAppsPtrInput is an input type that accepts AzureIntegrationsLogicAppsArgs, AzureIntegrationsLogicAppsPtr and AzureIntegrationsLogicAppsPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsLogicAppsPtrInput` via:
 //
-//          AzureIntegrationsLogicAppsArgs{...}
+//	        AzureIntegrationsLogicAppsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsLogicAppsPtrInput interface {
 	pulumi.Input
 
@@ -8279,7 +8279,7 @@ type AzureIntegrationsMachineLearning struct {
 // AzureIntegrationsMachineLearningInput is an input type that accepts AzureIntegrationsMachineLearningArgs and AzureIntegrationsMachineLearningOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMachineLearningInput` via:
 //
-//          AzureIntegrationsMachineLearningArgs{...}
+//	AzureIntegrationsMachineLearningArgs{...}
 type AzureIntegrationsMachineLearningInput interface {
 	pulumi.Input
 
@@ -8317,11 +8317,11 @@ func (i AzureIntegrationsMachineLearningArgs) ToAzureIntegrationsMachineLearning
 // AzureIntegrationsMachineLearningPtrInput is an input type that accepts AzureIntegrationsMachineLearningArgs, AzureIntegrationsMachineLearningPtr and AzureIntegrationsMachineLearningPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMachineLearningPtrInput` via:
 //
-//          AzureIntegrationsMachineLearningArgs{...}
+//	        AzureIntegrationsMachineLearningArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsMachineLearningPtrInput interface {
 	pulumi.Input
 
@@ -8435,7 +8435,7 @@ type AzureIntegrationsMariaDb struct {
 // AzureIntegrationsMariaDbInput is an input type that accepts AzureIntegrationsMariaDbArgs and AzureIntegrationsMariaDbOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMariaDbInput` via:
 //
-//          AzureIntegrationsMariaDbArgs{...}
+//	AzureIntegrationsMariaDbArgs{...}
 type AzureIntegrationsMariaDbInput interface {
 	pulumi.Input
 
@@ -8473,11 +8473,11 @@ func (i AzureIntegrationsMariaDbArgs) ToAzureIntegrationsMariaDbPtrOutputWithCon
 // AzureIntegrationsMariaDbPtrInput is an input type that accepts AzureIntegrationsMariaDbArgs, AzureIntegrationsMariaDbPtr and AzureIntegrationsMariaDbPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMariaDbPtrInput` via:
 //
-//          AzureIntegrationsMariaDbArgs{...}
+//	        AzureIntegrationsMariaDbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsMariaDbPtrInput interface {
 	pulumi.Input
 
@@ -8591,7 +8591,7 @@ type AzureIntegrationsMysql struct {
 // AzureIntegrationsMysqlInput is an input type that accepts AzureIntegrationsMysqlArgs and AzureIntegrationsMysqlOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMysqlInput` via:
 //
-//          AzureIntegrationsMysqlArgs{...}
+//	AzureIntegrationsMysqlArgs{...}
 type AzureIntegrationsMysqlInput interface {
 	pulumi.Input
 
@@ -8629,11 +8629,11 @@ func (i AzureIntegrationsMysqlArgs) ToAzureIntegrationsMysqlPtrOutputWithContext
 // AzureIntegrationsMysqlPtrInput is an input type that accepts AzureIntegrationsMysqlArgs, AzureIntegrationsMysqlPtr and AzureIntegrationsMysqlPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsMysqlPtrInput` via:
 //
-//          AzureIntegrationsMysqlArgs{...}
+//	        AzureIntegrationsMysqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsMysqlPtrInput interface {
 	pulumi.Input
 
@@ -8747,7 +8747,7 @@ type AzureIntegrationsPostgresql struct {
 // AzureIntegrationsPostgresqlInput is an input type that accepts AzureIntegrationsPostgresqlArgs and AzureIntegrationsPostgresqlOutput values.
 // You can construct a concrete instance of `AzureIntegrationsPostgresqlInput` via:
 //
-//          AzureIntegrationsPostgresqlArgs{...}
+//	AzureIntegrationsPostgresqlArgs{...}
 type AzureIntegrationsPostgresqlInput interface {
 	pulumi.Input
 
@@ -8785,11 +8785,11 @@ func (i AzureIntegrationsPostgresqlArgs) ToAzureIntegrationsPostgresqlPtrOutputW
 // AzureIntegrationsPostgresqlPtrInput is an input type that accepts AzureIntegrationsPostgresqlArgs, AzureIntegrationsPostgresqlPtr and AzureIntegrationsPostgresqlPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsPostgresqlPtrInput` via:
 //
-//          AzureIntegrationsPostgresqlArgs{...}
+//	        AzureIntegrationsPostgresqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsPostgresqlPtrInput interface {
 	pulumi.Input
 
@@ -8903,7 +8903,7 @@ type AzureIntegrationsPowerBiDedicated struct {
 // AzureIntegrationsPowerBiDedicatedInput is an input type that accepts AzureIntegrationsPowerBiDedicatedArgs and AzureIntegrationsPowerBiDedicatedOutput values.
 // You can construct a concrete instance of `AzureIntegrationsPowerBiDedicatedInput` via:
 //
-//          AzureIntegrationsPowerBiDedicatedArgs{...}
+//	AzureIntegrationsPowerBiDedicatedArgs{...}
 type AzureIntegrationsPowerBiDedicatedInput interface {
 	pulumi.Input
 
@@ -8941,11 +8941,11 @@ func (i AzureIntegrationsPowerBiDedicatedArgs) ToAzureIntegrationsPowerBiDedicat
 // AzureIntegrationsPowerBiDedicatedPtrInput is an input type that accepts AzureIntegrationsPowerBiDedicatedArgs, AzureIntegrationsPowerBiDedicatedPtr and AzureIntegrationsPowerBiDedicatedPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsPowerBiDedicatedPtrInput` via:
 //
-//          AzureIntegrationsPowerBiDedicatedArgs{...}
+//	        AzureIntegrationsPowerBiDedicatedArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsPowerBiDedicatedPtrInput interface {
 	pulumi.Input
 
@@ -9059,7 +9059,7 @@ type AzureIntegrationsRedisCache struct {
 // AzureIntegrationsRedisCacheInput is an input type that accepts AzureIntegrationsRedisCacheArgs and AzureIntegrationsRedisCacheOutput values.
 // You can construct a concrete instance of `AzureIntegrationsRedisCacheInput` via:
 //
-//          AzureIntegrationsRedisCacheArgs{...}
+//	AzureIntegrationsRedisCacheArgs{...}
 type AzureIntegrationsRedisCacheInput interface {
 	pulumi.Input
 
@@ -9097,11 +9097,11 @@ func (i AzureIntegrationsRedisCacheArgs) ToAzureIntegrationsRedisCachePtrOutputW
 // AzureIntegrationsRedisCachePtrInput is an input type that accepts AzureIntegrationsRedisCacheArgs, AzureIntegrationsRedisCachePtr and AzureIntegrationsRedisCachePtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsRedisCachePtrInput` via:
 //
-//          AzureIntegrationsRedisCacheArgs{...}
+//	        AzureIntegrationsRedisCacheArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsRedisCachePtrInput interface {
 	pulumi.Input
 
@@ -9215,7 +9215,7 @@ type AzureIntegrationsServiceBus struct {
 // AzureIntegrationsServiceBusInput is an input type that accepts AzureIntegrationsServiceBusArgs and AzureIntegrationsServiceBusOutput values.
 // You can construct a concrete instance of `AzureIntegrationsServiceBusInput` via:
 //
-//          AzureIntegrationsServiceBusArgs{...}
+//	AzureIntegrationsServiceBusArgs{...}
 type AzureIntegrationsServiceBusInput interface {
 	pulumi.Input
 
@@ -9253,11 +9253,11 @@ func (i AzureIntegrationsServiceBusArgs) ToAzureIntegrationsServiceBusPtrOutputW
 // AzureIntegrationsServiceBusPtrInput is an input type that accepts AzureIntegrationsServiceBusArgs, AzureIntegrationsServiceBusPtr and AzureIntegrationsServiceBusPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsServiceBusPtrInput` via:
 //
-//          AzureIntegrationsServiceBusArgs{...}
+//	        AzureIntegrationsServiceBusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsServiceBusPtrInput interface {
 	pulumi.Input
 
@@ -9371,7 +9371,7 @@ type AzureIntegrationsSql struct {
 // AzureIntegrationsSqlInput is an input type that accepts AzureIntegrationsSqlArgs and AzureIntegrationsSqlOutput values.
 // You can construct a concrete instance of `AzureIntegrationsSqlInput` via:
 //
-//          AzureIntegrationsSqlArgs{...}
+//	AzureIntegrationsSqlArgs{...}
 type AzureIntegrationsSqlInput interface {
 	pulumi.Input
 
@@ -9409,11 +9409,11 @@ func (i AzureIntegrationsSqlArgs) ToAzureIntegrationsSqlPtrOutputWithContext(ctx
 // AzureIntegrationsSqlPtrInput is an input type that accepts AzureIntegrationsSqlArgs, AzureIntegrationsSqlPtr and AzureIntegrationsSqlPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsSqlPtrInput` via:
 //
-//          AzureIntegrationsSqlArgs{...}
+//	        AzureIntegrationsSqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsSqlPtrInput interface {
 	pulumi.Input
 
@@ -9527,7 +9527,7 @@ type AzureIntegrationsSqlManaged struct {
 // AzureIntegrationsSqlManagedInput is an input type that accepts AzureIntegrationsSqlManagedArgs and AzureIntegrationsSqlManagedOutput values.
 // You can construct a concrete instance of `AzureIntegrationsSqlManagedInput` via:
 //
-//          AzureIntegrationsSqlManagedArgs{...}
+//	AzureIntegrationsSqlManagedArgs{...}
 type AzureIntegrationsSqlManagedInput interface {
 	pulumi.Input
 
@@ -9565,11 +9565,11 @@ func (i AzureIntegrationsSqlManagedArgs) ToAzureIntegrationsSqlManagedPtrOutputW
 // AzureIntegrationsSqlManagedPtrInput is an input type that accepts AzureIntegrationsSqlManagedArgs, AzureIntegrationsSqlManagedPtr and AzureIntegrationsSqlManagedPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsSqlManagedPtrInput` via:
 //
-//          AzureIntegrationsSqlManagedArgs{...}
+//	        AzureIntegrationsSqlManagedArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsSqlManagedPtrInput interface {
 	pulumi.Input
 
@@ -9683,7 +9683,7 @@ type AzureIntegrationsStorage struct {
 // AzureIntegrationsStorageInput is an input type that accepts AzureIntegrationsStorageArgs and AzureIntegrationsStorageOutput values.
 // You can construct a concrete instance of `AzureIntegrationsStorageInput` via:
 //
-//          AzureIntegrationsStorageArgs{...}
+//	AzureIntegrationsStorageArgs{...}
 type AzureIntegrationsStorageInput interface {
 	pulumi.Input
 
@@ -9721,11 +9721,11 @@ func (i AzureIntegrationsStorageArgs) ToAzureIntegrationsStoragePtrOutputWithCon
 // AzureIntegrationsStoragePtrInput is an input type that accepts AzureIntegrationsStorageArgs, AzureIntegrationsStoragePtr and AzureIntegrationsStoragePtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsStoragePtrInput` via:
 //
-//          AzureIntegrationsStorageArgs{...}
+//	        AzureIntegrationsStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsStoragePtrInput interface {
 	pulumi.Input
 
@@ -9839,7 +9839,7 @@ type AzureIntegrationsVirtualMachine struct {
 // AzureIntegrationsVirtualMachineInput is an input type that accepts AzureIntegrationsVirtualMachineArgs and AzureIntegrationsVirtualMachineOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVirtualMachineInput` via:
 //
-//          AzureIntegrationsVirtualMachineArgs{...}
+//	AzureIntegrationsVirtualMachineArgs{...}
 type AzureIntegrationsVirtualMachineInput interface {
 	pulumi.Input
 
@@ -9877,11 +9877,11 @@ func (i AzureIntegrationsVirtualMachineArgs) ToAzureIntegrationsVirtualMachinePt
 // AzureIntegrationsVirtualMachinePtrInput is an input type that accepts AzureIntegrationsVirtualMachineArgs, AzureIntegrationsVirtualMachinePtr and AzureIntegrationsVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVirtualMachinePtrInput` via:
 //
-//          AzureIntegrationsVirtualMachineArgs{...}
+//	        AzureIntegrationsVirtualMachineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -9995,7 +9995,7 @@ type AzureIntegrationsVirtualNetworks struct {
 // AzureIntegrationsVirtualNetworksInput is an input type that accepts AzureIntegrationsVirtualNetworksArgs and AzureIntegrationsVirtualNetworksOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVirtualNetworksInput` via:
 //
-//          AzureIntegrationsVirtualNetworksArgs{...}
+//	AzureIntegrationsVirtualNetworksArgs{...}
 type AzureIntegrationsVirtualNetworksInput interface {
 	pulumi.Input
 
@@ -10033,11 +10033,11 @@ func (i AzureIntegrationsVirtualNetworksArgs) ToAzureIntegrationsVirtualNetworks
 // AzureIntegrationsVirtualNetworksPtrInput is an input type that accepts AzureIntegrationsVirtualNetworksArgs, AzureIntegrationsVirtualNetworksPtr and AzureIntegrationsVirtualNetworksPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVirtualNetworksPtrInput` via:
 //
-//          AzureIntegrationsVirtualNetworksArgs{...}
+//	        AzureIntegrationsVirtualNetworksArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsVirtualNetworksPtrInput interface {
 	pulumi.Input
 
@@ -10151,7 +10151,7 @@ type AzureIntegrationsVms struct {
 // AzureIntegrationsVmsInput is an input type that accepts AzureIntegrationsVmsArgs and AzureIntegrationsVmsOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVmsInput` via:
 //
-//          AzureIntegrationsVmsArgs{...}
+//	AzureIntegrationsVmsArgs{...}
 type AzureIntegrationsVmsInput interface {
 	pulumi.Input
 
@@ -10189,11 +10189,11 @@ func (i AzureIntegrationsVmsArgs) ToAzureIntegrationsVmsPtrOutputWithContext(ctx
 // AzureIntegrationsVmsPtrInput is an input type that accepts AzureIntegrationsVmsArgs, AzureIntegrationsVmsPtr and AzureIntegrationsVmsPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVmsPtrInput` via:
 //
-//          AzureIntegrationsVmsArgs{...}
+//	        AzureIntegrationsVmsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsVmsPtrInput interface {
 	pulumi.Input
 
@@ -10307,7 +10307,7 @@ type AzureIntegrationsVpnGateway struct {
 // AzureIntegrationsVpnGatewayInput is an input type that accepts AzureIntegrationsVpnGatewayArgs and AzureIntegrationsVpnGatewayOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVpnGatewayInput` via:
 //
-//          AzureIntegrationsVpnGatewayArgs{...}
+//	AzureIntegrationsVpnGatewayArgs{...}
 type AzureIntegrationsVpnGatewayInput interface {
 	pulumi.Input
 
@@ -10345,11 +10345,11 @@ func (i AzureIntegrationsVpnGatewayArgs) ToAzureIntegrationsVpnGatewayPtrOutputW
 // AzureIntegrationsVpnGatewayPtrInput is an input type that accepts AzureIntegrationsVpnGatewayArgs, AzureIntegrationsVpnGatewayPtr and AzureIntegrationsVpnGatewayPtrOutput values.
 // You can construct a concrete instance of `AzureIntegrationsVpnGatewayPtrInput` via:
 //
-//          AzureIntegrationsVpnGatewayArgs{...}
+//	        AzureIntegrationsVpnGatewayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureIntegrationsVpnGatewayPtrInput interface {
 	pulumi.Input
 
@@ -10461,7 +10461,7 @@ type GcpIntegrationsAppEngine struct {
 // GcpIntegrationsAppEngineInput is an input type that accepts GcpIntegrationsAppEngineArgs and GcpIntegrationsAppEngineOutput values.
 // You can construct a concrete instance of `GcpIntegrationsAppEngineInput` via:
 //
-//          GcpIntegrationsAppEngineArgs{...}
+//	GcpIntegrationsAppEngineArgs{...}
 type GcpIntegrationsAppEngineInput interface {
 	pulumi.Input
 
@@ -10497,11 +10497,11 @@ func (i GcpIntegrationsAppEngineArgs) ToGcpIntegrationsAppEnginePtrOutputWithCon
 // GcpIntegrationsAppEnginePtrInput is an input type that accepts GcpIntegrationsAppEngineArgs, GcpIntegrationsAppEnginePtr and GcpIntegrationsAppEnginePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsAppEnginePtrInput` via:
 //
-//          GcpIntegrationsAppEngineArgs{...}
+//	        GcpIntegrationsAppEngineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsAppEnginePtrInput interface {
 	pulumi.Input
 
@@ -10600,7 +10600,7 @@ type GcpIntegrationsBigQuery struct {
 // GcpIntegrationsBigQueryInput is an input type that accepts GcpIntegrationsBigQueryArgs and GcpIntegrationsBigQueryOutput values.
 // You can construct a concrete instance of `GcpIntegrationsBigQueryInput` via:
 //
-//          GcpIntegrationsBigQueryArgs{...}
+//	GcpIntegrationsBigQueryArgs{...}
 type GcpIntegrationsBigQueryInput interface {
 	pulumi.Input
 
@@ -10638,11 +10638,11 @@ func (i GcpIntegrationsBigQueryArgs) ToGcpIntegrationsBigQueryPtrOutputWithConte
 // GcpIntegrationsBigQueryPtrInput is an input type that accepts GcpIntegrationsBigQueryArgs, GcpIntegrationsBigQueryPtr and GcpIntegrationsBigQueryPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsBigQueryPtrInput` via:
 //
-//          GcpIntegrationsBigQueryArgs{...}
+//	        GcpIntegrationsBigQueryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsBigQueryPtrInput interface {
 	pulumi.Input
 
@@ -10754,7 +10754,7 @@ type GcpIntegrationsBigTable struct {
 // GcpIntegrationsBigTableInput is an input type that accepts GcpIntegrationsBigTableArgs and GcpIntegrationsBigTableOutput values.
 // You can construct a concrete instance of `GcpIntegrationsBigTableInput` via:
 //
-//          GcpIntegrationsBigTableArgs{...}
+//	GcpIntegrationsBigTableArgs{...}
 type GcpIntegrationsBigTableInput interface {
 	pulumi.Input
 
@@ -10790,11 +10790,11 @@ func (i GcpIntegrationsBigTableArgs) ToGcpIntegrationsBigTablePtrOutputWithConte
 // GcpIntegrationsBigTablePtrInput is an input type that accepts GcpIntegrationsBigTableArgs, GcpIntegrationsBigTablePtr and GcpIntegrationsBigTablePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsBigTablePtrInput` via:
 //
-//          GcpIntegrationsBigTableArgs{...}
+//	        GcpIntegrationsBigTableArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsBigTablePtrInput interface {
 	pulumi.Input
 
@@ -10891,7 +10891,7 @@ type GcpIntegrationsComposer struct {
 // GcpIntegrationsComposerInput is an input type that accepts GcpIntegrationsComposerArgs and GcpIntegrationsComposerOutput values.
 // You can construct a concrete instance of `GcpIntegrationsComposerInput` via:
 //
-//          GcpIntegrationsComposerArgs{...}
+//	GcpIntegrationsComposerArgs{...}
 type GcpIntegrationsComposerInput interface {
 	pulumi.Input
 
@@ -10927,11 +10927,11 @@ func (i GcpIntegrationsComposerArgs) ToGcpIntegrationsComposerPtrOutputWithConte
 // GcpIntegrationsComposerPtrInput is an input type that accepts GcpIntegrationsComposerArgs, GcpIntegrationsComposerPtr and GcpIntegrationsComposerPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsComposerPtrInput` via:
 //
-//          GcpIntegrationsComposerArgs{...}
+//	        GcpIntegrationsComposerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsComposerPtrInput interface {
 	pulumi.Input
 
@@ -11028,7 +11028,7 @@ type GcpIntegrationsDataFlow struct {
 // GcpIntegrationsDataFlowInput is an input type that accepts GcpIntegrationsDataFlowArgs and GcpIntegrationsDataFlowOutput values.
 // You can construct a concrete instance of `GcpIntegrationsDataFlowInput` via:
 //
-//          GcpIntegrationsDataFlowArgs{...}
+//	GcpIntegrationsDataFlowArgs{...}
 type GcpIntegrationsDataFlowInput interface {
 	pulumi.Input
 
@@ -11064,11 +11064,11 @@ func (i GcpIntegrationsDataFlowArgs) ToGcpIntegrationsDataFlowPtrOutputWithConte
 // GcpIntegrationsDataFlowPtrInput is an input type that accepts GcpIntegrationsDataFlowArgs, GcpIntegrationsDataFlowPtr and GcpIntegrationsDataFlowPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsDataFlowPtrInput` via:
 //
-//          GcpIntegrationsDataFlowArgs{...}
+//	        GcpIntegrationsDataFlowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsDataFlowPtrInput interface {
 	pulumi.Input
 
@@ -11165,7 +11165,7 @@ type GcpIntegrationsDataProc struct {
 // GcpIntegrationsDataProcInput is an input type that accepts GcpIntegrationsDataProcArgs and GcpIntegrationsDataProcOutput values.
 // You can construct a concrete instance of `GcpIntegrationsDataProcInput` via:
 //
-//          GcpIntegrationsDataProcArgs{...}
+//	GcpIntegrationsDataProcArgs{...}
 type GcpIntegrationsDataProcInput interface {
 	pulumi.Input
 
@@ -11201,11 +11201,11 @@ func (i GcpIntegrationsDataProcArgs) ToGcpIntegrationsDataProcPtrOutputWithConte
 // GcpIntegrationsDataProcPtrInput is an input type that accepts GcpIntegrationsDataProcArgs, GcpIntegrationsDataProcPtr and GcpIntegrationsDataProcPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsDataProcPtrInput` via:
 //
-//          GcpIntegrationsDataProcArgs{...}
+//	        GcpIntegrationsDataProcArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsDataProcPtrInput interface {
 	pulumi.Input
 
@@ -11302,7 +11302,7 @@ type GcpIntegrationsDataStore struct {
 // GcpIntegrationsDataStoreInput is an input type that accepts GcpIntegrationsDataStoreArgs and GcpIntegrationsDataStoreOutput values.
 // You can construct a concrete instance of `GcpIntegrationsDataStoreInput` via:
 //
-//          GcpIntegrationsDataStoreArgs{...}
+//	GcpIntegrationsDataStoreArgs{...}
 type GcpIntegrationsDataStoreInput interface {
 	pulumi.Input
 
@@ -11338,11 +11338,11 @@ func (i GcpIntegrationsDataStoreArgs) ToGcpIntegrationsDataStorePtrOutputWithCon
 // GcpIntegrationsDataStorePtrInput is an input type that accepts GcpIntegrationsDataStoreArgs, GcpIntegrationsDataStorePtr and GcpIntegrationsDataStorePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsDataStorePtrInput` via:
 //
-//          GcpIntegrationsDataStoreArgs{...}
+//	        GcpIntegrationsDataStoreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsDataStorePtrInput interface {
 	pulumi.Input
 
@@ -11439,7 +11439,7 @@ type GcpIntegrationsFireBaseDatabase struct {
 // GcpIntegrationsFireBaseDatabaseInput is an input type that accepts GcpIntegrationsFireBaseDatabaseArgs and GcpIntegrationsFireBaseDatabaseOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireBaseDatabaseInput` via:
 //
-//          GcpIntegrationsFireBaseDatabaseArgs{...}
+//	GcpIntegrationsFireBaseDatabaseArgs{...}
 type GcpIntegrationsFireBaseDatabaseInput interface {
 	pulumi.Input
 
@@ -11475,11 +11475,11 @@ func (i GcpIntegrationsFireBaseDatabaseArgs) ToGcpIntegrationsFireBaseDatabasePt
 // GcpIntegrationsFireBaseDatabasePtrInput is an input type that accepts GcpIntegrationsFireBaseDatabaseArgs, GcpIntegrationsFireBaseDatabasePtr and GcpIntegrationsFireBaseDatabasePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireBaseDatabasePtrInput` via:
 //
-//          GcpIntegrationsFireBaseDatabaseArgs{...}
+//	        GcpIntegrationsFireBaseDatabaseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsFireBaseDatabasePtrInput interface {
 	pulumi.Input
 
@@ -11576,7 +11576,7 @@ type GcpIntegrationsFireBaseHosting struct {
 // GcpIntegrationsFireBaseHostingInput is an input type that accepts GcpIntegrationsFireBaseHostingArgs and GcpIntegrationsFireBaseHostingOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireBaseHostingInput` via:
 //
-//          GcpIntegrationsFireBaseHostingArgs{...}
+//	GcpIntegrationsFireBaseHostingArgs{...}
 type GcpIntegrationsFireBaseHostingInput interface {
 	pulumi.Input
 
@@ -11612,11 +11612,11 @@ func (i GcpIntegrationsFireBaseHostingArgs) ToGcpIntegrationsFireBaseHostingPtrO
 // GcpIntegrationsFireBaseHostingPtrInput is an input type that accepts GcpIntegrationsFireBaseHostingArgs, GcpIntegrationsFireBaseHostingPtr and GcpIntegrationsFireBaseHostingPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireBaseHostingPtrInput` via:
 //
-//          GcpIntegrationsFireBaseHostingArgs{...}
+//	        GcpIntegrationsFireBaseHostingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsFireBaseHostingPtrInput interface {
 	pulumi.Input
 
@@ -11713,7 +11713,7 @@ type GcpIntegrationsFireBaseStorage struct {
 // GcpIntegrationsFireBaseStorageInput is an input type that accepts GcpIntegrationsFireBaseStorageArgs and GcpIntegrationsFireBaseStorageOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireBaseStorageInput` via:
 //
-//          GcpIntegrationsFireBaseStorageArgs{...}
+//	GcpIntegrationsFireBaseStorageArgs{...}
 type GcpIntegrationsFireBaseStorageInput interface {
 	pulumi.Input
 
@@ -11749,11 +11749,11 @@ func (i GcpIntegrationsFireBaseStorageArgs) ToGcpIntegrationsFireBaseStoragePtrO
 // GcpIntegrationsFireBaseStoragePtrInput is an input type that accepts GcpIntegrationsFireBaseStorageArgs, GcpIntegrationsFireBaseStoragePtr and GcpIntegrationsFireBaseStoragePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireBaseStoragePtrInput` via:
 //
-//          GcpIntegrationsFireBaseStorageArgs{...}
+//	        GcpIntegrationsFireBaseStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsFireBaseStoragePtrInput interface {
 	pulumi.Input
 
@@ -11850,7 +11850,7 @@ type GcpIntegrationsFireStore struct {
 // GcpIntegrationsFireStoreInput is an input type that accepts GcpIntegrationsFireStoreArgs and GcpIntegrationsFireStoreOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireStoreInput` via:
 //
-//          GcpIntegrationsFireStoreArgs{...}
+//	GcpIntegrationsFireStoreArgs{...}
 type GcpIntegrationsFireStoreInput interface {
 	pulumi.Input
 
@@ -11886,11 +11886,11 @@ func (i GcpIntegrationsFireStoreArgs) ToGcpIntegrationsFireStorePtrOutputWithCon
 // GcpIntegrationsFireStorePtrInput is an input type that accepts GcpIntegrationsFireStoreArgs, GcpIntegrationsFireStorePtr and GcpIntegrationsFireStorePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFireStorePtrInput` via:
 //
-//          GcpIntegrationsFireStoreArgs{...}
+//	        GcpIntegrationsFireStoreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsFireStorePtrInput interface {
 	pulumi.Input
 
@@ -11987,7 +11987,7 @@ type GcpIntegrationsFunctions struct {
 // GcpIntegrationsFunctionsInput is an input type that accepts GcpIntegrationsFunctionsArgs and GcpIntegrationsFunctionsOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFunctionsInput` via:
 //
-//          GcpIntegrationsFunctionsArgs{...}
+//	GcpIntegrationsFunctionsArgs{...}
 type GcpIntegrationsFunctionsInput interface {
 	pulumi.Input
 
@@ -12023,11 +12023,11 @@ func (i GcpIntegrationsFunctionsArgs) ToGcpIntegrationsFunctionsPtrOutputWithCon
 // GcpIntegrationsFunctionsPtrInput is an input type that accepts GcpIntegrationsFunctionsArgs, GcpIntegrationsFunctionsPtr and GcpIntegrationsFunctionsPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsFunctionsPtrInput` via:
 //
-//          GcpIntegrationsFunctionsArgs{...}
+//	        GcpIntegrationsFunctionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsFunctionsPtrInput interface {
 	pulumi.Input
 
@@ -12124,7 +12124,7 @@ type GcpIntegrationsInterconnect struct {
 // GcpIntegrationsInterconnectInput is an input type that accepts GcpIntegrationsInterconnectArgs and GcpIntegrationsInterconnectOutput values.
 // You can construct a concrete instance of `GcpIntegrationsInterconnectInput` via:
 //
-//          GcpIntegrationsInterconnectArgs{...}
+//	GcpIntegrationsInterconnectArgs{...}
 type GcpIntegrationsInterconnectInput interface {
 	pulumi.Input
 
@@ -12160,11 +12160,11 @@ func (i GcpIntegrationsInterconnectArgs) ToGcpIntegrationsInterconnectPtrOutputW
 // GcpIntegrationsInterconnectPtrInput is an input type that accepts GcpIntegrationsInterconnectArgs, GcpIntegrationsInterconnectPtr and GcpIntegrationsInterconnectPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsInterconnectPtrInput` via:
 //
-//          GcpIntegrationsInterconnectArgs{...}
+//	        GcpIntegrationsInterconnectArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsInterconnectPtrInput interface {
 	pulumi.Input
 
@@ -12261,7 +12261,7 @@ type GcpIntegrationsKubernetes struct {
 // GcpIntegrationsKubernetesInput is an input type that accepts GcpIntegrationsKubernetesArgs and GcpIntegrationsKubernetesOutput values.
 // You can construct a concrete instance of `GcpIntegrationsKubernetesInput` via:
 //
-//          GcpIntegrationsKubernetesArgs{...}
+//	GcpIntegrationsKubernetesArgs{...}
 type GcpIntegrationsKubernetesInput interface {
 	pulumi.Input
 
@@ -12297,11 +12297,11 @@ func (i GcpIntegrationsKubernetesArgs) ToGcpIntegrationsKubernetesPtrOutputWithC
 // GcpIntegrationsKubernetesPtrInput is an input type that accepts GcpIntegrationsKubernetesArgs, GcpIntegrationsKubernetesPtr and GcpIntegrationsKubernetesPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsKubernetesPtrInput` via:
 //
-//          GcpIntegrationsKubernetesArgs{...}
+//	        GcpIntegrationsKubernetesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsKubernetesPtrInput interface {
 	pulumi.Input
 
@@ -12398,7 +12398,7 @@ type GcpIntegrationsLoadBalancing struct {
 // GcpIntegrationsLoadBalancingInput is an input type that accepts GcpIntegrationsLoadBalancingArgs and GcpIntegrationsLoadBalancingOutput values.
 // You can construct a concrete instance of `GcpIntegrationsLoadBalancingInput` via:
 //
-//          GcpIntegrationsLoadBalancingArgs{...}
+//	GcpIntegrationsLoadBalancingArgs{...}
 type GcpIntegrationsLoadBalancingInput interface {
 	pulumi.Input
 
@@ -12434,11 +12434,11 @@ func (i GcpIntegrationsLoadBalancingArgs) ToGcpIntegrationsLoadBalancingPtrOutpu
 // GcpIntegrationsLoadBalancingPtrInput is an input type that accepts GcpIntegrationsLoadBalancingArgs, GcpIntegrationsLoadBalancingPtr and GcpIntegrationsLoadBalancingPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsLoadBalancingPtrInput` via:
 //
-//          GcpIntegrationsLoadBalancingArgs{...}
+//	        GcpIntegrationsLoadBalancingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsLoadBalancingPtrInput interface {
 	pulumi.Input
 
@@ -12535,7 +12535,7 @@ type GcpIntegrationsMemCache struct {
 // GcpIntegrationsMemCacheInput is an input type that accepts GcpIntegrationsMemCacheArgs and GcpIntegrationsMemCacheOutput values.
 // You can construct a concrete instance of `GcpIntegrationsMemCacheInput` via:
 //
-//          GcpIntegrationsMemCacheArgs{...}
+//	GcpIntegrationsMemCacheArgs{...}
 type GcpIntegrationsMemCacheInput interface {
 	pulumi.Input
 
@@ -12571,11 +12571,11 @@ func (i GcpIntegrationsMemCacheArgs) ToGcpIntegrationsMemCachePtrOutputWithConte
 // GcpIntegrationsMemCachePtrInput is an input type that accepts GcpIntegrationsMemCacheArgs, GcpIntegrationsMemCachePtr and GcpIntegrationsMemCachePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsMemCachePtrInput` via:
 //
-//          GcpIntegrationsMemCacheArgs{...}
+//	        GcpIntegrationsMemCacheArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsMemCachePtrInput interface {
 	pulumi.Input
 
@@ -12674,7 +12674,7 @@ type GcpIntegrationsPubSub struct {
 // GcpIntegrationsPubSubInput is an input type that accepts GcpIntegrationsPubSubArgs and GcpIntegrationsPubSubOutput values.
 // You can construct a concrete instance of `GcpIntegrationsPubSubInput` via:
 //
-//          GcpIntegrationsPubSubArgs{...}
+//	GcpIntegrationsPubSubArgs{...}
 type GcpIntegrationsPubSubInput interface {
 	pulumi.Input
 
@@ -12712,11 +12712,11 @@ func (i GcpIntegrationsPubSubArgs) ToGcpIntegrationsPubSubPtrOutputWithContext(c
 // GcpIntegrationsPubSubPtrInput is an input type that accepts GcpIntegrationsPubSubArgs, GcpIntegrationsPubSubPtr and GcpIntegrationsPubSubPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsPubSubPtrInput` via:
 //
-//          GcpIntegrationsPubSubArgs{...}
+//	        GcpIntegrationsPubSubArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsPubSubPtrInput interface {
 	pulumi.Input
 
@@ -12828,7 +12828,7 @@ type GcpIntegrationsRedis struct {
 // GcpIntegrationsRedisInput is an input type that accepts GcpIntegrationsRedisArgs and GcpIntegrationsRedisOutput values.
 // You can construct a concrete instance of `GcpIntegrationsRedisInput` via:
 //
-//          GcpIntegrationsRedisArgs{...}
+//	GcpIntegrationsRedisArgs{...}
 type GcpIntegrationsRedisInput interface {
 	pulumi.Input
 
@@ -12864,11 +12864,11 @@ func (i GcpIntegrationsRedisArgs) ToGcpIntegrationsRedisPtrOutputWithContext(ctx
 // GcpIntegrationsRedisPtrInput is an input type that accepts GcpIntegrationsRedisArgs, GcpIntegrationsRedisPtr and GcpIntegrationsRedisPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsRedisPtrInput` via:
 //
-//          GcpIntegrationsRedisArgs{...}
+//	        GcpIntegrationsRedisArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsRedisPtrInput interface {
 	pulumi.Input
 
@@ -12965,7 +12965,7 @@ type GcpIntegrationsRouter struct {
 // GcpIntegrationsRouterInput is an input type that accepts GcpIntegrationsRouterArgs and GcpIntegrationsRouterOutput values.
 // You can construct a concrete instance of `GcpIntegrationsRouterInput` via:
 //
-//          GcpIntegrationsRouterArgs{...}
+//	GcpIntegrationsRouterArgs{...}
 type GcpIntegrationsRouterInput interface {
 	pulumi.Input
 
@@ -13001,11 +13001,11 @@ func (i GcpIntegrationsRouterArgs) ToGcpIntegrationsRouterPtrOutputWithContext(c
 // GcpIntegrationsRouterPtrInput is an input type that accepts GcpIntegrationsRouterArgs, GcpIntegrationsRouterPtr and GcpIntegrationsRouterPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsRouterPtrInput` via:
 //
-//          GcpIntegrationsRouterArgs{...}
+//	        GcpIntegrationsRouterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsRouterPtrInput interface {
 	pulumi.Input
 
@@ -13102,7 +13102,7 @@ type GcpIntegrationsRun struct {
 // GcpIntegrationsRunInput is an input type that accepts GcpIntegrationsRunArgs and GcpIntegrationsRunOutput values.
 // You can construct a concrete instance of `GcpIntegrationsRunInput` via:
 //
-//          GcpIntegrationsRunArgs{...}
+//	GcpIntegrationsRunArgs{...}
 type GcpIntegrationsRunInput interface {
 	pulumi.Input
 
@@ -13138,11 +13138,11 @@ func (i GcpIntegrationsRunArgs) ToGcpIntegrationsRunPtrOutputWithContext(ctx con
 // GcpIntegrationsRunPtrInput is an input type that accepts GcpIntegrationsRunArgs, GcpIntegrationsRunPtr and GcpIntegrationsRunPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsRunPtrInput` via:
 //
-//          GcpIntegrationsRunArgs{...}
+//	        GcpIntegrationsRunArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsRunPtrInput interface {
 	pulumi.Input
 
@@ -13241,7 +13241,7 @@ type GcpIntegrationsSpanner struct {
 // GcpIntegrationsSpannerInput is an input type that accepts GcpIntegrationsSpannerArgs and GcpIntegrationsSpannerOutput values.
 // You can construct a concrete instance of `GcpIntegrationsSpannerInput` via:
 //
-//          GcpIntegrationsSpannerArgs{...}
+//	GcpIntegrationsSpannerArgs{...}
 type GcpIntegrationsSpannerInput interface {
 	pulumi.Input
 
@@ -13279,11 +13279,11 @@ func (i GcpIntegrationsSpannerArgs) ToGcpIntegrationsSpannerPtrOutputWithContext
 // GcpIntegrationsSpannerPtrInput is an input type that accepts GcpIntegrationsSpannerArgs, GcpIntegrationsSpannerPtr and GcpIntegrationsSpannerPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsSpannerPtrInput` via:
 //
-//          GcpIntegrationsSpannerArgs{...}
+//	        GcpIntegrationsSpannerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsSpannerPtrInput interface {
 	pulumi.Input
 
@@ -13395,7 +13395,7 @@ type GcpIntegrationsSql struct {
 // GcpIntegrationsSqlInput is an input type that accepts GcpIntegrationsSqlArgs and GcpIntegrationsSqlOutput values.
 // You can construct a concrete instance of `GcpIntegrationsSqlInput` via:
 //
-//          GcpIntegrationsSqlArgs{...}
+//	GcpIntegrationsSqlArgs{...}
 type GcpIntegrationsSqlInput interface {
 	pulumi.Input
 
@@ -13431,11 +13431,11 @@ func (i GcpIntegrationsSqlArgs) ToGcpIntegrationsSqlPtrOutputWithContext(ctx con
 // GcpIntegrationsSqlPtrInput is an input type that accepts GcpIntegrationsSqlArgs, GcpIntegrationsSqlPtr and GcpIntegrationsSqlPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsSqlPtrInput` via:
 //
-//          GcpIntegrationsSqlArgs{...}
+//	        GcpIntegrationsSqlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsSqlPtrInput interface {
 	pulumi.Input
 
@@ -13534,7 +13534,7 @@ type GcpIntegrationsStorage struct {
 // GcpIntegrationsStorageInput is an input type that accepts GcpIntegrationsStorageArgs and GcpIntegrationsStorageOutput values.
 // You can construct a concrete instance of `GcpIntegrationsStorageInput` via:
 //
-//          GcpIntegrationsStorageArgs{...}
+//	GcpIntegrationsStorageArgs{...}
 type GcpIntegrationsStorageInput interface {
 	pulumi.Input
 
@@ -13572,11 +13572,11 @@ func (i GcpIntegrationsStorageArgs) ToGcpIntegrationsStoragePtrOutputWithContext
 // GcpIntegrationsStoragePtrInput is an input type that accepts GcpIntegrationsStorageArgs, GcpIntegrationsStoragePtr and GcpIntegrationsStoragePtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsStoragePtrInput` via:
 //
-//          GcpIntegrationsStorageArgs{...}
+//	        GcpIntegrationsStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsStoragePtrInput interface {
 	pulumi.Input
 
@@ -13688,7 +13688,7 @@ type GcpIntegrationsVirtualMachines struct {
 // GcpIntegrationsVirtualMachinesInput is an input type that accepts GcpIntegrationsVirtualMachinesArgs and GcpIntegrationsVirtualMachinesOutput values.
 // You can construct a concrete instance of `GcpIntegrationsVirtualMachinesInput` via:
 //
-//          GcpIntegrationsVirtualMachinesArgs{...}
+//	GcpIntegrationsVirtualMachinesArgs{...}
 type GcpIntegrationsVirtualMachinesInput interface {
 	pulumi.Input
 
@@ -13724,11 +13724,11 @@ func (i GcpIntegrationsVirtualMachinesArgs) ToGcpIntegrationsVirtualMachinesPtrO
 // GcpIntegrationsVirtualMachinesPtrInput is an input type that accepts GcpIntegrationsVirtualMachinesArgs, GcpIntegrationsVirtualMachinesPtr and GcpIntegrationsVirtualMachinesPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsVirtualMachinesPtrInput` via:
 //
-//          GcpIntegrationsVirtualMachinesArgs{...}
+//	        GcpIntegrationsVirtualMachinesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsVirtualMachinesPtrInput interface {
 	pulumi.Input
 
@@ -13825,7 +13825,7 @@ type GcpIntegrationsVpcAccess struct {
 // GcpIntegrationsVpcAccessInput is an input type that accepts GcpIntegrationsVpcAccessArgs and GcpIntegrationsVpcAccessOutput values.
 // You can construct a concrete instance of `GcpIntegrationsVpcAccessInput` via:
 //
-//          GcpIntegrationsVpcAccessArgs{...}
+//	GcpIntegrationsVpcAccessArgs{...}
 type GcpIntegrationsVpcAccessInput interface {
 	pulumi.Input
 
@@ -13861,11 +13861,11 @@ func (i GcpIntegrationsVpcAccessArgs) ToGcpIntegrationsVpcAccessPtrOutputWithCon
 // GcpIntegrationsVpcAccessPtrInput is an input type that accepts GcpIntegrationsVpcAccessArgs, GcpIntegrationsVpcAccessPtr and GcpIntegrationsVpcAccessPtrOutput values.
 // You can construct a concrete instance of `GcpIntegrationsVpcAccessPtrInput` via:
 //
-//          GcpIntegrationsVpcAccessArgs{...}
+//	        GcpIntegrationsVpcAccessArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GcpIntegrationsVpcAccessPtrInput interface {
 	pulumi.Input
 

@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsIntegrations:AwsIntegrations")]
-    public partial class AwsIntegrations : Pulumi.CustomResource
+    public partial class AwsIntegrations : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -113,7 +113,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class AwsIntegrationsArgs : Pulumi.ResourceArgs
+    public sealed class AwsIntegrationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -166,9 +166,10 @@ namespace Pulumi.NewRelic.Cloud
         public AwsIntegrationsArgs()
         {
         }
+        public static new AwsIntegrationsArgs Empty => new AwsIntegrationsArgs();
     }
 
-    public sealed class AwsIntegrationsState : Pulumi.ResourceArgs
+    public sealed class AwsIntegrationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -221,5 +222,6 @@ namespace Pulumi.NewRelic.Cloud
         public AwsIntegrationsState()
         {
         }
+        public static new AwsIntegrationsState Empty => new AwsIntegrationsState();
     }
 }

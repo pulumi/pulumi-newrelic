@@ -19,54 +19,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooEntity, err := newrelic.GetEntity(ctx, &GetEntityArgs{
-// 			Name:   "Example application",
-// 			Type:   pulumi.StringRef("APPLICATION"),
-// 			Domain: pulumi.StringRef("APM"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewEntityTags(ctx, "fooEntityTags", &newrelic.EntityTagsArgs{
-// 			Guid: pulumi.String(fooEntity.Guid),
-// 			Tags: EntityTagsTagArray{
-// 				&EntityTagsTagArgs{
-// 					Key: pulumi.String("my-key"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("my-value"),
-// 						pulumi.String("my-other-value"),
-// 					},
-// 				},
-// 				&EntityTagsTagArgs{
-// 					Key: pulumi.String("my-key-2"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("my-value-2"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooEntity, err := newrelic.GetEntity(ctx, &GetEntityArgs{
+//				Name:   "Example application",
+//				Type:   pulumi.StringRef("APPLICATION"),
+//				Domain: pulumi.StringRef("APM"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewEntityTags(ctx, "fooEntityTags", &newrelic.EntityTagsArgs{
+//				Guid: pulumi.String(fooEntity.Guid),
+//				Tags: EntityTagsTagArray{
+//					&EntityTagsTagArgs{
+//						Key: pulumi.String("my-key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value"),
+//							pulumi.String("my-other-value"),
+//						},
+//					},
+//					&EntityTagsTagArgs{
+//						Key: pulumi.String("my-key-2"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("my-value-2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// New Relic One entity tags can be imported using a concatenated string of the format
+// # New Relic One entity tags can be imported using a concatenated string of the format
 //
 // `<guid>`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+//
+//	$ pulumi import newrelic:index/entityTags:EntityTags foo MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+//
 // ```
 type EntityTags struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *EntityTags) ToEntityTagsOutputWithContext(ctx context.Context) EntityTa
 // EntityTagsArrayInput is an input type that accepts EntityTagsArray and EntityTagsArrayOutput values.
 // You can construct a concrete instance of `EntityTagsArrayInput` via:
 //
-//          EntityTagsArray{ EntityTagsArgs{...} }
+//	EntityTagsArray{ EntityTagsArgs{...} }
 type EntityTagsArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i EntityTagsArray) ToEntityTagsArrayOutputWithContext(ctx context.Context)
 // EntityTagsMapInput is an input type that accepts EntityTagsMap and EntityTagsMapOutput values.
 // You can construct a concrete instance of `EntityTagsMapInput` via:
 //
-//          EntityTagsMap{ "key": EntityTagsArgs{...} }
+//	EntityTagsMap{ "key": EntityTagsArgs{...} }
 type EntityTagsMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Insights.Inputs
 {
 
-    public sealed class EventEventGetArgs : Pulumi.ResourceArgs
+    public sealed class EventEventGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
         private InputList<Inputs.EventEventAttributeGetArgs>? _attributes;
@@ -29,5 +29,6 @@ namespace Pulumi.NewRelic.Insights.Inputs
         public EventEventGetArgs()
         {
         }
+        public static new EventEventGetArgs Empty => new EventEventGetArgs();
     }
 }

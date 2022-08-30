@@ -27,23 +27,21 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobar = new NewRelic.ApiAccessKey("foobar", new()
     ///     {
-    ///         var foobar = new NewRelic.ApiAccessKey("foobar", new NewRelic.ApiAccessKeyArgs
-    ///         {
-    ///             AccountId = 1234567,
-    ///             IngestType = "LICENSE",
-    ///             KeyType = "INGEST",
-    ///             Notes = "To be used with service X",
-    ///         });
-    ///     }
+    ///         AccountId = 1234567,
+    ///         IngestType = "LICENSE",
+    ///         KeyType = "INGEST",
+    ///         Notes = "To be used with service X",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/apiAccessKey:ApiAccessKey")]
-    public partial class ApiAccessKey : Pulumi.CustomResource
+    public partial class ApiAccessKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID of the account you wish to create the API access key.
@@ -143,7 +141,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class ApiAccessKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiAccessKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID of the account you wish to create the API access key.
@@ -184,9 +182,10 @@ namespace Pulumi.NewRelic
         public ApiAccessKeyArgs()
         {
         }
+        public static new ApiAccessKeyArgs Empty => new ApiAccessKeyArgs();
     }
 
-    public sealed class ApiAccessKeyState : Pulumi.ResourceArgs
+    public sealed class ApiAccessKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID of the account you wish to create the API access key.
@@ -233,5 +232,6 @@ namespace Pulumi.NewRelic
         public ApiAccessKeyState()
         {
         }
+        public static new ApiAccessKeyState Empty => new ApiAccessKeyState();
     }
 }

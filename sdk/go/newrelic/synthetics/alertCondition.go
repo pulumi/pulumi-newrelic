@@ -21,29 +21,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooMonitor, err := synthetics.LookupMonitor(ctx, &synthetics.LookupMonitorArgs{
-// 			Name: "foo",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
-// 			PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
-// 			MonitorId:  pulumi.String(fooMonitor.Id),
-// 			RunbookUrl: pulumi.String("https://www.example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooMonitor, err := synthetics.LookupMonitor(ctx, &synthetics.LookupMonitorArgs{
+//				Name: "foo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
+//				PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
+//				MonitorId:  pulumi.String(fooMonitor.Id),
+//				RunbookUrl: pulumi.String("https://www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
 //
 // ```sh
-//  $ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+//
+//	$ pulumi import newrelic:synthetics/alertCondition:AlertCondition main 12345:67890
+//
 // ```
 type AlertCondition struct {
 	pulumi.CustomResourceState
@@ -185,7 +190,7 @@ func (i *AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) 
 // AlertConditionArrayInput is an input type that accepts AlertConditionArray and AlertConditionArrayOutput values.
 // You can construct a concrete instance of `AlertConditionArrayInput` via:
 //
-//          AlertConditionArray{ AlertConditionArgs{...} }
+//	AlertConditionArray{ AlertConditionArgs{...} }
 type AlertConditionArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +215,7 @@ func (i AlertConditionArray) ToAlertConditionArrayOutputWithContext(ctx context.
 // AlertConditionMapInput is an input type that accepts AlertConditionMap and AlertConditionMapOutput values.
 // You can construct a concrete instance of `AlertConditionMapInput` via:
 //
-//          AlertConditionMap{ "key": AlertConditionArgs{...} }
+//	AlertConditionMap{ "key": AlertConditionArgs{...} }
 type AlertConditionMapInput interface {
 	pulumi.Input
 

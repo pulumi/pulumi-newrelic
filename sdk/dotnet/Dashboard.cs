@@ -17,7 +17,7 @@ namespace Pulumi.NewRelic
     /// For more information, [click here](https://discuss.newrelic.com/t/important-insights-dashboard-api-end-of-life/149357)
     /// </summary>
     [NewRelicResourceType("newrelic:index/dashboard:Dashboard")]
-    public partial class Dashboard : Pulumi.CustomResource
+    public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL for viewing the dashboard.
@@ -112,7 +112,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class DashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines who can edit the dashboard in an account. Valid values are all, editable_by_all, editable_by_owner, or
@@ -166,9 +166,10 @@ namespace Pulumi.NewRelic
         public DashboardArgs()
         {
         }
+        public static new DashboardArgs Empty => new DashboardArgs();
     }
 
-    public sealed class DashboardState : Pulumi.ResourceArgs
+    public sealed class DashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL for viewing the dashboard.
@@ -228,5 +229,6 @@ namespace Pulumi.NewRelic
         public DashboardState()
         {
         }
+        public static new DashboardState Empty => new DashboardState();
     }
 }

@@ -74,7 +74,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    internal sealed class NewRelicResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class NewRelicResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public NewRelicResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

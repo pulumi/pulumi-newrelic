@@ -19,26 +19,25 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = NewRelic.Synthetics.GetMonitor.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitor.InvokeAsync(new NewRelic.Synthetics.GetMonitorArgs
-        ///         {
-        ///             Name = "bar",
-        ///         }));
-        ///         var baz = new NewRelic.Synthetics.AlertCondition("baz", new NewRelic.Synthetics.AlertConditionArgs
-        ///         {
-        ///             PolicyId = newrelic_alert_policy.Foo.Id,
-        ///             MonitorId = bar.Apply(bar =&gt; bar.Id),
-        ///             RunbookUrl = "https://www.example.com",
-        ///         });
-        ///     }
+        ///         Name = "bar",
+        ///     });
         /// 
-        /// }
+        ///     var baz = new NewRelic.Synthetics.AlertCondition("baz", new()
+        ///     {
+        ///         PolicyId = newrelic_alert_policy.Foo.Id,
+        ///         MonitorId = bar.Apply(getMonitorResult =&gt; getMonitorResult.Id),
+        ///         RunbookUrl = "https://www.example.com",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = NewRelic.Synthetics.GetMonitor.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitor.InvokeAsync(new NewRelic.Synthetics.GetMonitorArgs
-        ///         {
-        ///             Name = "bar",
-        ///         }));
-        ///         var baz = new NewRelic.Synthetics.AlertCondition("baz", new NewRelic.Synthetics.AlertConditionArgs
-        ///         {
-        ///             PolicyId = newrelic_alert_policy.Foo.Id,
-        ///             MonitorId = bar.Apply(bar =&gt; bar.Id),
-        ///             RunbookUrl = "https://www.example.com",
-        ///         });
-        ///     }
+        ///         Name = "bar",
+        ///     });
         /// 
-        /// }
+        ///     var baz = new NewRelic.Synthetics.AlertCondition("baz", new()
+        ///     {
+        ///         PolicyId = newrelic_alert_policy.Foo.Id,
+        ///         MonitorId = bar.Apply(getMonitorResult =&gt; getMonitorResult.Id),
+        ///         RunbookUrl = "https://www.example.com",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.NewRelic.Synthetics
     }
 
 
-    public sealed class GetMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the synthetics monitor in New Relic.
@@ -94,9 +92,10 @@ namespace Pulumi.NewRelic.Synthetics
         public GetMonitorArgs()
         {
         }
+        public static new GetMonitorArgs Empty => new GetMonitorArgs();
     }
 
-    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the synthetics monitor in New Relic.
@@ -107,6 +106,7 @@ namespace Pulumi.NewRelic.Synthetics
         public GetMonitorInvokeArgs()
         {
         }
+        public static new GetMonitorInvokeArgs Empty => new GetMonitorInvokeArgs();
     }
 
 

@@ -19,45 +19,43 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var txn = NewRelic.GetKeyTransaction.Invoke(new()
         ///     {
-        ///         var txn = Output.Create(NewRelic.GetKeyTransaction.InvokeAsync(new NewRelic.GetKeyTransactionArgs
-        ///         {
-        ///             Name = "txn",
-        ///         }));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Type = "apm_kt_metric",
-        ///             Entities = 
-        ///             {
-        ///                 txn.Apply(txn =&gt; txn.Id),
-        ///             },
-        ///             Metric = "error_percentage",
-        ///             RunbookUrl = "https://www.example.com",
-        ///             Terms = 
-        ///             {
-        ///                 new NewRelic.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "txn",
+        ///     });
         /// 
-        /// }
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Type = "apm_kt_metric",
+        ///         Entities = new[]
+        ///         {
+        ///             txn.Apply(getKeyTransactionResult =&gt; getKeyTransactionResult.Id),
+        ///         },
+        ///         Metric = "error_percentage",
+        ///         RunbookUrl = "https://www.example.com",
+        ///         Terms = new[]
+        ///         {
+        ///             new NewRelic.Inputs.AlertConditionTermArgs
+        ///             {
+        ///                 Duration = 5,
+        ///                 Operator = "below",
+        ///                 Priority = "critical",
+        ///                 Threshold = 0.75,
+        ///                 TimeFunction = "all",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,45 +71,43 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var txn = NewRelic.GetKeyTransaction.Invoke(new()
         ///     {
-        ///         var txn = Output.Create(NewRelic.GetKeyTransaction.InvokeAsync(new NewRelic.GetKeyTransactionArgs
-        ///         {
-        ///             Name = "txn",
-        ///         }));
-        ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-        ///         {
-        ///         });
-        ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
-        ///         {
-        ///             PolicyId = fooAlertPolicy.Id,
-        ///             Type = "apm_kt_metric",
-        ///             Entities = 
-        ///             {
-        ///                 txn.Apply(txn =&gt; txn.Id),
-        ///             },
-        ///             Metric = "error_percentage",
-        ///             RunbookUrl = "https://www.example.com",
-        ///             Terms = 
-        ///             {
-        ///                 new NewRelic.Inputs.AlertConditionTermArgs
-        ///                 {
-        ///                     Duration = 5,
-        ///                     Operator = "below",
-        ///                     Priority = "critical",
-        ///                     Threshold = 0.75,
-        ///                     TimeFunction = "all",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "txn",
+        ///     });
         /// 
-        /// }
+        ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+        /// 
+        ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+        ///     {
+        ///         PolicyId = fooAlertPolicy.Id,
+        ///         Type = "apm_kt_metric",
+        ///         Entities = new[]
+        ///         {
+        ///             txn.Apply(getKeyTransactionResult =&gt; getKeyTransactionResult.Id),
+        ///         },
+        ///         Metric = "error_percentage",
+        ///         RunbookUrl = "https://www.example.com",
+        ///         Terms = new[]
+        ///         {
+        ///             new NewRelic.Inputs.AlertConditionTermArgs
+        ///             {
+        ///                 Duration = 5,
+        ///                 Operator = "below",
+        ///                 Priority = "critical",
+        ///                 Threshold = 0.75,
+        ///                 TimeFunction = "all",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -121,7 +117,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetKeyTransactionArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyTransactionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the key transaction in New Relic.
@@ -132,9 +128,10 @@ namespace Pulumi.NewRelic
         public GetKeyTransactionArgs()
         {
         }
+        public static new GetKeyTransactionArgs Empty => new GetKeyTransactionArgs();
     }
 
-    public sealed class GetKeyTransactionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyTransactionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the key transaction in New Relic.
@@ -145,6 +142,7 @@ namespace Pulumi.NewRelic
         public GetKeyTransactionInvokeArgs()
         {
         }
+        public static new GetKeyTransactionInvokeArgs Empty => new GetKeyTransactionInvokeArgs();
     }
 
 

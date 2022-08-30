@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class AlertConditionTermArgs : Pulumi.ResourceArgs
+    public sealed class AlertConditionTermArgs : global::Pulumi.ResourceArgs
     {
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.NewRelic.Inputs
         public AlertConditionTermArgs()
         {
         }
+        public static new AlertConditionTermArgs Empty => new AlertConditionTermArgs();
     }
 }

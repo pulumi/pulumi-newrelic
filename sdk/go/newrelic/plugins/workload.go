@@ -23,34 +23,37 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
-// 			AccountId: pulumi.Int(12345678),
-// 			EntityGuids: pulumi.StringArray{
-// 				pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
-// 			},
-// 			EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
-// 				&plugins.WorkloadEntitySearchQueryArgs{
-// 					Query: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "name like '", "%", "Example application", "%", "'")),
-// 				},
-// 			},
-// 			ScopeAccountIds: pulumi.IntArray{
-// 				pulumi.Int(12345678),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String(fmt.Sprintf("name like '%vExample application%v'", "%", "%")),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Include entities with a set of tags.
@@ -58,42 +61,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
-// 			AccountId: pulumi.Int(12345678),
-// 			EntityGuids: pulumi.StringArray{
-// 				pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
-// 			},
-// 			EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
-// 				&plugins.WorkloadEntitySearchQueryArgs{
-// 					Query: pulumi.String("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'"),
-// 				},
-// 			},
-// 			ScopeAccountIds: pulumi.IntArray{
-// 				pulumi.Int(12345678),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewWorkload(ctx, "foo", &plugins.WorkloadArgs{
+//				AccountId: pulumi.Int(12345678),
+//				EntityGuids: pulumi.StringArray{
+//					pulumi.String("MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"),
+//				},
+//				EntitySearchQueries: plugins.WorkloadEntitySearchQueryArray{
+//					&plugins.WorkloadEntitySearchQueryArgs{
+//						Query: pulumi.String("tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'"),
+//					},
+//				},
+//				ScopeAccountIds: pulumi.IntArray{
+//					pulumi.Int(12345678),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// New Relic One workloads can be imported using a concatenated string of the format
+// # New Relic One workloads can be imported using a concatenated string of the format
 //
 // `<account_id>:<workload_id>:<guid>`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+//
+//	$ pulumi import newrelic:plugins/workload:Workload foo 12345678:1456:MjUyMDUyOHxBUE18QVBRTElDQVRJT058MjE1MDM3Nzk1
+//
 // ```
 type Workload struct {
 	pulumi.CustomResourceState
@@ -245,7 +253,7 @@ func (i *Workload) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutp
 // WorkloadArrayInput is an input type that accepts WorkloadArray and WorkloadArrayOutput values.
 // You can construct a concrete instance of `WorkloadArrayInput` via:
 //
-//          WorkloadArray{ WorkloadArgs{...} }
+//	WorkloadArray{ WorkloadArgs{...} }
 type WorkloadArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +278,7 @@ func (i WorkloadArray) ToWorkloadArrayOutputWithContext(ctx context.Context) Wor
 // WorkloadMapInput is an input type that accepts WorkloadMap and WorkloadMapOutput values.
 // You can construct a concrete instance of `WorkloadMapInput` via:
 //
-//          WorkloadMap{ "key": WorkloadArgs{...} }
+//	WorkloadMap{ "key": WorkloadArgs{...} }
 type WorkloadMapInput interface {
 	pulumi.Input
 

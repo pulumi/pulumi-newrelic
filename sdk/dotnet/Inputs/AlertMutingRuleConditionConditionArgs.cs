@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class AlertMutingRuleConditionConditionArgs : Pulumi.ResourceArgs
+    public sealed class AlertMutingRuleConditionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
@@ -39,5 +39,6 @@ namespace Pulumi.NewRelic.Inputs
         public AlertMutingRuleConditionConditionArgs()
         {
         }
+        public static new AlertMutingRuleConditionConditionArgs Empty => new AlertMutingRuleConditionConditionArgs();
     }
 }

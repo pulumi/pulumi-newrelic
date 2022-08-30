@@ -19,34 +19,33 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = NewRelic.Synthetics.GetMonitorLocation.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitorLocation.InvokeAsync(new NewRelic.Synthetics.GetMonitorLocationArgs
-        ///         {
-        ///             Label = "My private location",
-        ///         }));
-        ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
-        ///         {
-        ///             Type = "SIMPLE",
-        ///             Frequency = 5,
-        ///             Status = "ENABLED",
-        ///             Locations = 
-        ///             {
-        ///                 bar.Apply(bar =&gt; bar.Name),
-        ///             },
-        ///             Uri = "https://example.com",
-        ///             ValidationString = "add example validation check here",
-        ///             VerifySsl = true,
-        ///         });
-        ///         // Optional for type "SIMPLE" and "BROWSER"
-        ///     }
+        ///         Label = "My private location",
+        ///     });
         /// 
-        /// }
+        ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+        ///     {
+        ///         Type = "SIMPLE",
+        ///         Frequency = 5,
+        ///         Status = "ENABLED",
+        ///         Locations = new[]
+        ///         {
+        ///             bar.Apply(getMonitorLocationResult =&gt; getMonitorLocationResult.Name),
+        ///         },
+        ///         Uri = "https://example.com",
+        ///         ValidationString = "add example validation check here",
+        ///         VerifySsl = true,
+        ///     });
+        /// 
+        ///     // Optional for type "SIMPLE" and "BROWSER"
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -62,34 +61,33 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = NewRelic.Synthetics.GetMonitorLocation.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(NewRelic.Synthetics.GetMonitorLocation.InvokeAsync(new NewRelic.Synthetics.GetMonitorLocationArgs
-        ///         {
-        ///             Label = "My private location",
-        ///         }));
-        ///         var foo = new NewRelic.Synthetics.Monitor("foo", new NewRelic.Synthetics.MonitorArgs
-        ///         {
-        ///             Type = "SIMPLE",
-        ///             Frequency = 5,
-        ///             Status = "ENABLED",
-        ///             Locations = 
-        ///             {
-        ///                 bar.Apply(bar =&gt; bar.Name),
-        ///             },
-        ///             Uri = "https://example.com",
-        ///             ValidationString = "add example validation check here",
-        ///             VerifySsl = true,
-        ///         });
-        ///         // Optional for type "SIMPLE" and "BROWSER"
-        ///     }
+        ///         Label = "My private location",
+        ///     });
         /// 
-        /// }
+        ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+        ///     {
+        ///         Type = "SIMPLE",
+        ///         Frequency = 5,
+        ///         Status = "ENABLED",
+        ///         Locations = new[]
+        ///         {
+        ///             bar.Apply(getMonitorLocationResult =&gt; getMonitorLocationResult.Name),
+        ///         },
+        ///         Uri = "https://example.com",
+        ///         ValidationString = "add example validation check here",
+        ///         VerifySsl = true,
+        ///     });
+        /// 
+        ///     // Optional for type "SIMPLE" and "BROWSER"
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -99,7 +97,7 @@ namespace Pulumi.NewRelic.Synthetics
     }
 
 
-    public sealed class GetMonitorLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The label of the Synthetics monitor location.
@@ -110,9 +108,10 @@ namespace Pulumi.NewRelic.Synthetics
         public GetMonitorLocationArgs()
         {
         }
+        public static new GetMonitorLocationArgs Empty => new GetMonitorLocationArgs();
     }
 
-    public sealed class GetMonitorLocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The label of the Synthetics monitor location.
@@ -123,6 +122,7 @@ namespace Pulumi.NewRelic.Synthetics
         public GetMonitorLocationInvokeArgs()
         {
         }
+        public static new GetMonitorLocationInvokeArgs Empty => new GetMonitorLocationInvokeArgs();
     }
 
 

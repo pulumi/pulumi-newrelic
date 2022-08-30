@@ -9,36 +9,185 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
+    /// <summary>
+    /// Use this resource to create and manage New Relic notification channels.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ##### Webhook
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationChannel("foo", new()
+    ///     {
+    ///         DestinationId = "1234",
+    ///         Product = "IINT",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "payload",
+    ///                 Label = "Payload Template",
+    ///                 Value = @"{
+    /// 	""name"": ""foo""
+    /// }
+    /// ",
+    ///             },
+    ///         },
+    ///         Type = "WEBHOOK",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// See additional examples.
+    /// ## Additional Examples
+    /// 
+    /// ##### ServiceNow
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationChannel("foo", new()
+    ///     {
+    ///         DestinationId = "1234",
+    ///         Product = "PD",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "description",
+    ///                 Value = "General description",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "short_description",
+    ///                 Value = "Short description",
+    ///             },
+    ///         },
+    ///         Type = "SERVICENOW_INCIDENTS",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### Email
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationChannel("foo", new()
+    ///     {
+    ///         DestinationId = "1234",
+    ///         Product = "ERROR_TRACKING",
+    ///         Type = "EMAIL",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### PagerDuty with account integration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationChannel("foo", new()
+    ///     {
+    ///         DestinationId = "1234",
+    ///         Product = "IINT",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "summary",
+    ///                 Value = "General summary",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "service",
+    ///                 Value = "1234",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "email",
+    ///                 Value = "test@test.com",
+    ///             },
+    ///         },
+    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### PagerDuty with service integration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationChannel("foo", new()
+    ///     {
+    ///         DestinationId = "1234",
+    ///         Product = "IINT",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "summary",
+    ///                 Value = "General summary",
+    ///             },
+    ///         },
+    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+    /// </summary>
     [NewRelicResourceType("newrelic:index/notificationChannel:NotificationChannel")]
-    public partial class NotificationChannel : Pulumi.CustomResource
+    public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Required) The id of the destination.
+        /// The id of the destination.
         /// </summary>
         [Output("destinationId")]
         public Output<string> DestinationId { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The name of the channel.
+        /// The name of the channel.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The type of the channel product. One of: (ALERTS, DISCUSSIONS, ERROR_TRACKING, NTFC, SHARING, PD, IINT).
+        /// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
         /// </summary>
         [Output("product")]
         public Output<string> Product { get; private set; } = null!;
 
         /// <summary>
-        /// List of notification channel property types.
+        /// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
         /// </summary>
         [Output("properties")]
         public Output<ImmutableArray<Outputs.NotificationChannelProperty>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) The type of the channel. One of: (WEBHOOK, EMAIL, SERVICENOW_INCIDENTS, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION).
+        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -87,22 +236,22 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
+    public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) The id of the destination.
+        /// The id of the destination.
         /// </summary>
         [Input("destinationId", required: true)]
         public Input<string> DestinationId { get; set; } = null!;
 
         /// <summary>
-        /// (Required) The name of the channel.
+        /// The name of the channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Required) The type of the channel product. One of: (ALERTS, DISCUSSIONS, ERROR_TRACKING, NTFC, SHARING, PD, IINT).
+        /// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
         /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
@@ -111,7 +260,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationChannelPropertyArgs>? _properties;
 
         /// <summary>
-        /// List of notification channel property types.
+        /// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationChannelPropertyArgs> Properties
         {
@@ -120,8 +269,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// (Required) The type of the channel. One of: (WEBHOOK, EMAIL, SERVICENOW_INCIDENTS, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION).
+        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -129,24 +277,25 @@ namespace Pulumi.NewRelic
         public NotificationChannelArgs()
         {
         }
+        public static new NotificationChannelArgs Empty => new NotificationChannelArgs();
     }
 
-    public sealed class NotificationChannelState : Pulumi.ResourceArgs
+    public sealed class NotificationChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) The id of the destination.
+        /// The id of the destination.
         /// </summary>
         [Input("destinationId")]
         public Input<string>? DestinationId { get; set; }
 
         /// <summary>
-        /// (Required) The name of the channel.
+        /// The name of the channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Required) The type of the channel product. One of: (ALERTS, DISCUSSIONS, ERROR_TRACKING, NTFC, SHARING, PD, IINT).
+        /// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
         /// </summary>
         [Input("product")]
         public Input<string>? Product { get; set; }
@@ -155,7 +304,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationChannelPropertyGetArgs>? _properties;
 
         /// <summary>
-        /// List of notification channel property types.
+        /// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationChannelPropertyGetArgs> Properties
         {
@@ -164,8 +313,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// (Required) The type of the channel. One of: (WEBHOOK, EMAIL, SERVICENOW_INCIDENTS, PAGERDUTY_ACCOUNT_INTEGRATION,
-        /// PAGERDUTY_SERVICE_INTEGRATION).
+        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -173,5 +321,6 @@ namespace Pulumi.NewRelic
         public NotificationChannelState()
         {
         }
+        public static new NotificationChannelState Empty => new NotificationChannelState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class DashboardFilterArgs : Pulumi.ResourceArgs
+    public sealed class DashboardFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<string>? _attributes;
@@ -31,5 +31,6 @@ namespace Pulumi.NewRelic.Inputs
         public DashboardFilterArgs()
         {
         }
+        public static new DashboardFilterArgs Empty => new DashboardFilterArgs();
     }
 }

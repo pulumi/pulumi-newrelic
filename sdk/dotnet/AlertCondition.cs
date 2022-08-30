@@ -17,48 +17,46 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var app = NewRelic.GetEntity.Invoke(new()
     ///     {
-    ///         var app = Output.Create(NewRelic.GetEntity.InvokeAsync(new NewRelic.GetEntityArgs
-    ///         {
-    ///             Name = "my-app",
-    ///             Type = "APPLICATION",
-    ///             Domain = "APM",
-    ///         }));
-    ///         var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy", new NewRelic.AlertPolicyArgs
-    ///         {
-    ///         });
-    ///         var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new NewRelic.AlertConditionArgs
-    ///         {
-    ///             PolicyId = fooAlertPolicy.Id,
-    ///             Type = "apm_app_metric",
-    ///             Entities = 
-    ///             {
-    ///                 app.Apply(app =&gt; app.ApplicationId),
-    ///             },
-    ///             Metric = "apdex",
-    ///             RunbookUrl = "https://www.example.com",
-    ///             ConditionScope = "application",
-    ///             Terms = 
-    ///             {
-    ///                 new NewRelic.Inputs.AlertConditionTermArgs
-    ///                 {
-    ///                     Duration = 5,
-    ///                     Operator = "below",
-    ///                     Priority = "critical",
-    ///                     Threshold = 0.75,
-    ///                     TimeFunction = "all",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "my-app",
+    ///         Type = "APPLICATION",
+    ///         Domain = "APM",
+    ///     });
     /// 
-    /// }
+    ///     var fooAlertPolicy = new NewRelic.AlertPolicy("fooAlertPolicy");
+    /// 
+    ///     var fooAlertCondition = new NewRelic.AlertCondition("fooAlertCondition", new()
+    ///     {
+    ///         PolicyId = fooAlertPolicy.Id,
+    ///         Type = "apm_app_metric",
+    ///         Entities = new[]
+    ///         {
+    ///             app.Apply(getEntityResult =&gt; getEntityResult.ApplicationId),
+    ///         },
+    ///         Metric = "apdex",
+    ///         RunbookUrl = "https://www.example.com",
+    ///         ConditionScope = "application",
+    ///         Terms = new[]
+    ///         {
+    ///             new NewRelic.Inputs.AlertConditionTermArgs
+    ///             {
+    ///                 Duration = 5,
+    ///                 Operator = "below",
+    ///                 Priority = "critical",
+    ///                 Threshold = 0.75,
+    ///                 TimeFunction = "all",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Terms
     /// 
@@ -79,7 +77,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/alertCondition:AlertCondition")]
-    public partial class AlertCondition : Pulumi.CustomResource
+    public partial class AlertCondition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
@@ -245,7 +243,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class AlertConditionArgs : Pulumi.ResourceArgs
+    public sealed class AlertConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
@@ -382,9 +380,10 @@ namespace Pulumi.NewRelic
         public AlertConditionArgs()
         {
         }
+        public static new AlertConditionArgs Empty => new AlertConditionArgs();
     }
 
-    public sealed class AlertConditionState : Pulumi.ResourceArgs
+    public sealed class AlertConditionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// `application` or `instance`.  Choose `application` for most scenarios.  If you are using the JVM plugin in New Relic, the `instance` setting allows your condition to trigger [for specific app instances](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/scope-alert-thresholds-specific-instances).
@@ -521,5 +520,6 @@ namespace Pulumi.NewRelic
         public AlertConditionState()
         {
         }
+        public static new AlertConditionState Empty => new AlertConditionState();
     }
 }

@@ -21,20 +21,18 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var acc = NewRelic.GetAccount.Invoke(new()
         ///     {
-        ///         var acc = Output.Create(NewRelic.GetAccount.InvokeAsync(new NewRelic.GetAccountArgs
-        ///         {
-        ///             Scope = "global",
-        ///         }));
-        ///     }
+        ///         Scope = "global",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.NewRelic
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using NewRelic = Pulumi.NewRelic;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var acc = NewRelic.GetAccount.Invoke(new()
         ///     {
-        ///         var acc = Output.Create(NewRelic.GetAccount.InvokeAsync(new NewRelic.GetAccountArgs
-        ///         {
-        ///             Scope = "global",
-        ///         }));
-        ///     }
+        ///         Scope = "global",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The account ID in New Relic.
@@ -98,9 +94,10 @@ namespace Pulumi.NewRelic
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The account ID in New Relic.
@@ -123,6 +120,7 @@ namespace Pulumi.NewRelic
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.NewRelic
     }
 
 
-    public sealed class GetAlertPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId")]
         public int? AccountId { get; set; }
@@ -45,9 +45,10 @@ namespace Pulumi.NewRelic
         public GetAlertPolicyArgs()
         {
         }
+        public static new GetAlertPolicyArgs Empty => new GetAlertPolicyArgs();
     }
 
-    public sealed class GetAlertPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -67,6 +68,7 @@ namespace Pulumi.NewRelic
         public GetAlertPolicyInvokeArgs()
         {
         }
+        public static new GetAlertPolicyInvokeArgs Empty => new GetAlertPolicyInvokeArgs();
     }
 
 

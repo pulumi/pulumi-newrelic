@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Plugins.Inputs
 {
 
-    public sealed class WorkloadEntitySearchQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkloadEntitySearchQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The query.
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Plugins.Inputs
         public WorkloadEntitySearchQueryGetArgs()
         {
         }
+        public static new WorkloadEntitySearchQueryGetArgs Empty => new WorkloadEntitySearchQueryGetArgs();
     }
 }

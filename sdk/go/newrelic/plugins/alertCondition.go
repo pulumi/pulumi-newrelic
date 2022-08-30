@@ -221,7 +221,7 @@ func (i *AlertCondition) ToAlertConditionOutputWithContext(ctx context.Context) 
 // AlertConditionArrayInput is an input type that accepts AlertConditionArray and AlertConditionArrayOutput values.
 // You can construct a concrete instance of `AlertConditionArrayInput` via:
 //
-//          AlertConditionArray{ AlertConditionArgs{...} }
+//	AlertConditionArray{ AlertConditionArgs{...} }
 type AlertConditionArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i AlertConditionArray) ToAlertConditionArrayOutputWithContext(ctx context.
 // AlertConditionMapInput is an input type that accepts AlertConditionMap and AlertConditionMapOutput values.
 // You can construct a concrete instance of `AlertConditionMapInput` via:
 //
-//          AlertConditionMap{ "key": AlertConditionArgs{...} }
+//	AlertConditionMap{ "key": AlertConditionArgs{...} }
 type AlertConditionMapInput interface {
 	pulumi.Input
 

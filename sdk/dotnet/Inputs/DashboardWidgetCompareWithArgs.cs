@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class DashboardWidgetCompareWithArgs : Pulumi.ResourceArgs
+    public sealed class DashboardWidgetCompareWithArgs : global::Pulumi.ResourceArgs
     {
         [Input("offsetDuration", required: true)]
         public Input<string> OffsetDuration { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Inputs
         public DashboardWidgetCompareWithArgs()
         {
         }
+        public static new DashboardWidgetCompareWithArgs Empty => new DashboardWidgetCompareWithArgs();
     }
 }

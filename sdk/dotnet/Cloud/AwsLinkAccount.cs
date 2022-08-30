@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Cloud
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:cloud/awsLinkAccount:AwsLinkAccount")]
-    public partial class AwsLinkAccount : Pulumi.CustomResource
+    public partial class AwsLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -89,7 +89,7 @@ namespace Pulumi.NewRelic.Cloud
         }
     }
 
-    public sealed class AwsLinkAccountArgs : Pulumi.ResourceArgs
+    public sealed class AwsLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -118,9 +118,10 @@ namespace Pulumi.NewRelic.Cloud
         public AwsLinkAccountArgs()
         {
         }
+        public static new AwsLinkAccountArgs Empty => new AwsLinkAccountArgs();
     }
 
-    public sealed class AwsLinkAccountState : Pulumi.ResourceArgs
+    public sealed class AwsLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -149,5 +150,6 @@ namespace Pulumi.NewRelic.Cloud
         public AwsLinkAccountState()
         {
         }
+        public static new AwsLinkAccountState Empty => new AwsLinkAccountState();
     }
 }

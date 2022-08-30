@@ -17,52 +17,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := newrelic.NewNrqlDropRule(ctx, "foo", &newrelic.NrqlDropRuleArgs{
-// 			AccountId:   pulumi.Int(12345),
-// 			Action:      pulumi.String("drop_data"),
-// 			Description: pulumi.String("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it."),
-// 			Nrql:        pulumi.String("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewNrqlDropRule(ctx, "bar", &newrelic.NrqlDropRuleArgs{
-// 			AccountId:   pulumi.Int(12345),
-// 			Action:      pulumi.String("drop_attributes"),
-// 			Description: pulumi.String("Removes the user name and email fields from MyCustomEvent"),
-// 			Nrql:        pulumi.String("SELECT userEmail, userName FROM MyCustomEvent"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = newrelic.NewNrqlDropRule(ctx, "baz", &newrelic.NrqlDropRuleArgs{
-// 			AccountId:   pulumi.Int(12345),
-// 			Action:      pulumi.String("drop_attributes_from_metric_aggregates"),
-// 			Description: pulumi.String("Removes containerId from metric aggregates to reduce metric cardinality."),
-// 			Nrql:        pulumi.String("SELECT containerId FROM Metric"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNrqlDropRule(ctx, "foo", &newrelic.NrqlDropRuleArgs{
+//				AccountId:   pulumi.Int(12345),
+//				Action:      pulumi.String("drop_data"),
+//				Description: pulumi.String("Drops all data for MyCustomEvent that comes from the LoadGeneratingApp in the dev environment, because there is too much and we don’t look at it."),
+//				Nrql:        pulumi.String("SELECT * FROM MyCustomEvent WHERE appName='LoadGeneratingApp' AND environment='development'"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlDropRule(ctx, "bar", &newrelic.NrqlDropRuleArgs{
+//				AccountId:   pulumi.Int(12345),
+//				Action:      pulumi.String("drop_attributes"),
+//				Description: pulumi.String("Removes the user name and email fields from MyCustomEvent"),
+//				Nrql:        pulumi.String("SELECT userEmail, userName FROM MyCustomEvent"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNrqlDropRule(ctx, "baz", &newrelic.NrqlDropRuleArgs{
+//				AccountId:   pulumi.Int(12345),
+//				Action:      pulumi.String("drop_attributes_from_metric_aggregates"),
+//				Description: pulumi.String("Removes containerId from metric aggregates to reduce metric cardinality."),
+//				Nrql:        pulumi.String("SELECT containerId FROM Metric"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// New Relic NRQL drop rules can be imported using a concatenated string of the format
+// # New Relic NRQL drop rules can be imported using a concatenated string of the format
 //
 // `<account_id>:<rule_id>`, e.g. bash
 //
 // ```sh
-//  $ pulumi import newrelic:index/nrqlDropRule:NrqlDropRule foo 12345:34567
+//
+//	$ pulumi import newrelic:index/nrqlDropRule:NrqlDropRule foo 12345:34567
+//
 // ```
 type NrqlDropRule struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *NrqlDropRule) ToNrqlDropRuleOutputWithContext(ctx context.Context) Nrql
 // NrqlDropRuleArrayInput is an input type that accepts NrqlDropRuleArray and NrqlDropRuleArrayOutput values.
 // You can construct a concrete instance of `NrqlDropRuleArrayInput` via:
 //
-//          NrqlDropRuleArray{ NrqlDropRuleArgs{...} }
+//	NrqlDropRuleArray{ NrqlDropRuleArgs{...} }
 type NrqlDropRuleArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i NrqlDropRuleArray) ToNrqlDropRuleArrayOutputWithContext(ctx context.Cont
 // NrqlDropRuleMapInput is an input type that accepts NrqlDropRuleMap and NrqlDropRuleMapOutput values.
 // You can construct a concrete instance of `NrqlDropRuleMapInput` via:
 //
-//          NrqlDropRuleMap{ "key": NrqlDropRuleArgs{...} }
+//	NrqlDropRuleMap{ "key": NrqlDropRuleArgs{...} }
 type NrqlDropRuleMapInput interface {
 	pulumi.Input
 

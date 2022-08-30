@@ -23,23 +23,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/plugins"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := plugins.NewApplicationSettings(ctx, "app", &plugins.ApplicationSettingsArgs{
-// 			AppApdexThreshold:        pulumi.Float64(0.7),
-// 			EnableRealUserMonitoring: pulumi.Bool(false),
-// 			EndUserApdexThreshold:    pulumi.Float64(0.8),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := plugins.NewApplicationSettings(ctx, "app", &plugins.ApplicationSettingsArgs{
+//				AppApdexThreshold:        pulumi.Float64(0.7),
+//				EnableRealUserMonitoring: pulumi.Bool(false),
+//				EndUserApdexThreshold:    pulumi.Float64(0.8),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Notes
 //
@@ -51,7 +54,9 @@ import (
 // Applications can be imported using notation `application_id`, e.g.
 //
 // ```sh
-//  $ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+//
+//	$ pulumi import newrelic:plugins/applicationSettings:ApplicationSettings main 6789012345
+//
 // ```
 type ApplicationSettings struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context
 // ApplicationSettingsArrayInput is an input type that accepts ApplicationSettingsArray and ApplicationSettingsArrayOutput values.
 // You can construct a concrete instance of `ApplicationSettingsArrayInput` via:
 //
-//          ApplicationSettingsArray{ ApplicationSettingsArgs{...} }
+//	ApplicationSettingsArray{ ApplicationSettingsArgs{...} }
 type ApplicationSettingsArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i ApplicationSettingsArray) ToApplicationSettingsArrayOutputWithContext(ct
 // ApplicationSettingsMapInput is an input type that accepts ApplicationSettingsMap and ApplicationSettingsMapOutput values.
 // You can construct a concrete instance of `ApplicationSettingsMapInput` via:
 //
-//          ApplicationSettingsMap{ "key": ApplicationSettingsArgs{...} }
+//	ApplicationSettingsMap{ "key": ApplicationSettingsArgs{...} }
 type ApplicationSettingsMapInput interface {
 	pulumi.Input
 

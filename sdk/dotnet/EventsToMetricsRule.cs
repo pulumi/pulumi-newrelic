@@ -15,22 +15,20 @@ namespace Pulumi.NewRelic
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using NewRelic = Pulumi.NewRelic;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new NewRelic.EventsToMetricsRule("foo", new()
     ///     {
-    ///         var foo = new NewRelic.EventsToMetricsRule("foo", new NewRelic.EventsToMetricsRuleArgs
-    ///         {
-    ///             AccountId = 12345,
-    ///             Description = "Example description",
-    ///             Nrql = "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
-    ///         });
-    ///     }
+    ///         AccountId = 12345,
+    ///         Description = "Example description",
+    ///         Nrql = "SELECT uniqueCount(account_id) AS ``Transaction.account_id`` FROM Transaction FACET appName, name",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.NewRelic
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:index/eventsToMetricsRule:EventsToMetricsRule")]
-    public partial class EventsToMetricsRule : Pulumi.CustomResource
+    public partial class EventsToMetricsRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Account with the event and where the metrics will be put.
@@ -126,7 +124,7 @@ namespace Pulumi.NewRelic
         }
     }
 
-    public sealed class EventsToMetricsRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventsToMetricsRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account with the event and where the metrics will be put.
@@ -161,9 +159,10 @@ namespace Pulumi.NewRelic
         public EventsToMetricsRuleArgs()
         {
         }
+        public static new EventsToMetricsRuleArgs Empty => new EventsToMetricsRuleArgs();
     }
 
-    public sealed class EventsToMetricsRuleState : Pulumi.ResourceArgs
+    public sealed class EventsToMetricsRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Account with the event and where the metrics will be put.
@@ -204,5 +203,6 @@ namespace Pulumi.NewRelic
         public EventsToMetricsRuleState()
         {
         }
+        public static new EventsToMetricsRuleState Empty => new EventsToMetricsRuleState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class GetEntityTagInputArgs : Pulumi.ResourceArgs
+    public sealed class GetEntityTagInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.NewRelic.Inputs
         public GetEntityTagInputArgs()
         {
         }
+        public static new GetEntityTagInputArgs Empty => new GetEntityTagInputArgs();
     }
 }

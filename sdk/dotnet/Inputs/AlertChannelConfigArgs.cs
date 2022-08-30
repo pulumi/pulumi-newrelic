@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class AlertChannelConfigArgs : Pulumi.ResourceArgs
+    public sealed class AlertChannelConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API key for integrating with OpsGenie.
@@ -155,5 +155,6 @@ namespace Pulumi.NewRelic.Inputs
         public AlertChannelConfigArgs()
         {
         }
+        public static new AlertChannelConfigArgs Empty => new AlertChannelConfigArgs();
     }
 }
