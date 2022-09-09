@@ -20,7 +20,7 @@ import (
 	_ "embed"
 
 	newrelic "github.com/pulumi/pulumi-newrelic/provider/v4"
-	"github.com/pulumi/pulumi-newrelic/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
