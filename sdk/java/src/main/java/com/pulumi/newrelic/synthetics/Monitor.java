@@ -10,8 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.MonitorArgs;
 import com.pulumi.newrelic.synthetics.inputs.MonitorState;
+import com.pulumi.newrelic.synthetics.outputs.MonitorCustomHeader;
+import com.pulumi.newrelic.synthetics.outputs.MonitorTag;
 import java.lang.Boolean;
-import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,9 +20,114 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete a synthetics monitor in New Relic.
+ * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.synthetics.Monitor;
+ * import com.pulumi.newrelic.synthetics.MonitorArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
+ *             .bypassHeadRequest(true)
+ *             .customHeaders(MonitorCustomHeaderArgs.builder()
+ *                 .name(&#34;Name&#34;)
+ *                 .value(&#34;simpleMonitor&#34;)
+ *                 .build())
+ *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
+ *             .status(&#34;ENABLED&#34;)
+ *             .tags(MonitorTagArgs.builder()
+ *                 .key(&#34;some_key&#34;)
+ *                 .values(&#34;some_value&#34;)
+ *                 .build())
+ *             .treatRedirectAsFailure(true)
+ *             .type(&#34;SIMPLE&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .validationString(&#34;success&#34;)
+ *             .verifySsl(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ##### Type: `SIMPLE BROWSER`
+ * 
+ * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.synthetics.Monitor;
+ * import com.pulumi.newrelic.synthetics.MonitorArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new Monitor(&#34;bar&#34;, MonitorArgs.builder()        
+ *             .customHeaders(MonitorCustomHeaderArgs.builder()
+ *                 .name(&#34;name&#34;)
+ *                 .value(&#34;simple_browser&#34;)
+ *                 .build())
+ *             .enableScreenshotOnFailureAndScript(true)
+ *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
+ *             .runtimeType(&#34;CHROME_BROWSER&#34;)
+ *             .runtimeTypeVersion(&#34;100&#34;)
+ *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
+ *             .status(&#34;ENABLED&#34;)
+ *             .tags(MonitorTagArgs.builder()
+ *                 .key(&#34;name&#34;)
+ *                 .values(&#34;SimpleBrowserMonitor&#34;)
+ *                 .build())
+ *             .type(&#34;BROWSER&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .validationString(&#34;success&#34;)
+ *             .verifySsl(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * See additional examples.
+ * ## Additional Examples
+ * 
+ * ### Create a monitor with a private location
+ * 
+ * The below example shows how you can define a private location and attach it to a monitor.
+ * 
+ * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
  * 
  * ##### Type: `SIMPLE`
  * ```java
@@ -30,8 +136,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.synthetics.PrivateLocation;
+ * import com.pulumi.newrelic.synthetics.PrivateLocationArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,72 +155,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
- *             .frequency(5)
- *             .locations(            
- *                 &#34;AWS_US_EAST_1&#34;,
- *                 &#34;AWS_US_EAST_2&#34;)
- *             .status(&#34;ENABLED&#34;)
- *             .type(&#34;SIMPLE&#34;)
- *             .uri(&#34;https://example.com&#34;)
- *             .validationString(&#34;add example validation check here&#34;)
- *             .verifySsl(true)
+ *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
+ *             .description(&#34;Test Description&#34;)
+ *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *     }
- * }
- * ```
- * 
- * ##### Type: `BROWSER`
- * ## Additional Examples
- * 
- * Type: `BROWSER`
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.synthetics.Monitor;
- * import com.pulumi.newrelic.synthetics.MonitorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
+ *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .bypassHeadRequest(true)
- *             .frequency(5)
- *             .locations(&#34;AWS_US_EAST_1&#34;)
+ *             .customHeaders(MonitorCustomHeaderArgs.builder()
+ *                 .name(&#34;name&#34;)
+ *                 .value(&#34;simple_browser&#34;)
+ *                 .build())
+ *             .locationPrivate(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
  *             .status(&#34;ENABLED&#34;)
+ *             .tags(MonitorTagArgs.builder()
+ *                 .key(&#34;some_key&#34;)
+ *                 .values(&#34;some_value&#34;)
+ *                 .build())
  *             .treatRedirectAsFailure(true)
- *             .type(&#34;BROWSER&#34;)
- *             .uri(&#34;https://example.com&#34;)
- *             .validationString(&#34;add example validation check here&#34;)
+ *             .type(&#34;SIMPLE&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .validationString(&#34;success&#34;)
  *             .verifySsl(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * ##### Type: `BROWSER`
  * 
- * ##### Type: `SCRIPT_BROWSER`
+ * &gt; **NOTE:** Currently, it&#39;s only possible to use a private location with a monitor running on a legacy runtime. Leave `runtime_type_version`, `runtime_type` &amp; `script_language` empty to use legacy runtime. See example below.
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.synthetics.PrivateLocation;
+ * import com.pulumi.newrelic.synthetics.PrivateLocationArgs;
  * import com.pulumi.newrelic.synthetics.Monitor;
  * import com.pulumi.newrelic.synthetics.MonitorArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorCustomHeaderArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MonitorTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -124,44 +211,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
- *             .frequency(5)
- *             .locations(&#34;AWS_US_EAST_1&#34;)
- *             .status(&#34;ENABLED&#34;)
- *             .type(&#34;SCRIPT_BROWSER&#34;)
+ *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
+ *             .description(&#34;Test Description&#34;)
+ *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *     }
- * }
- * ```
- * 
- * ##### Type: `SCRIPT_API`
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.synthetics.Monitor;
- * import com.pulumi.newrelic.synthetics.MonitorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
- *             .frequency(5)
- *             .locations(&#34;AWS_US_EAST_1&#34;)
+ *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
+ *             .customHeaders(MonitorCustomHeaderArgs.builder()
+ *                 .name(&#34;name&#34;)
+ *                 .value(&#34;simple_browser&#34;)
+ *                 .build())
+ *             .enableScreenshotOnFailureAndScript(true)
+ *             .locationPrivate(&#34;newrelic_synthetics_private_location.bar1&#34;)
+ *             .period(&#34;EVERY_MINUTE&#34;)
+ *             .runtimeType(&#34;&#34;)
+ *             .runtimeTypeVersion(&#34;&#34;)
+ *             .scriptLanguage(&#34;&#34;)
  *             .status(&#34;ENABLED&#34;)
- *             .type(&#34;SCRIPT_API&#34;)
+ *             .tags(MonitorTagArgs.builder()
+ *                 .key(&#34;some_key&#34;)
+ *                 .values(&#34;some_value&#34;)
+ *                 .build())
+ *             .type(&#34;BROWSER&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .validationString(&#34;success&#34;)
+ *             .verifySsl(true)
  *             .build());
  * 
  *     }
@@ -170,164 +244,262 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Synthetics monitors can be imported using the `id`, e.g. bash
+ * Synthetics monitor can be imported using the `guid`, e.g. bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/monitor:Monitor main &lt;id&gt;
+ *  $ pulumi import newrelic:synthetics/monitor:Monitor bar &lt;guid&gt;
  * ```
  * 
  */
 @ResourceType(type="newrelic:synthetics/monitor:Monitor")
 public class Monitor extends com.pulumi.resources.CustomResource {
     /**
-     * Bypass HEAD request.
+     * The account in which the Synthetics monitor will be created.
+     * 
+     */
+    @Export(name="accountId", type=Integer.class, parameters={})
+    private Output<Integer> accountId;
+
+    /**
+     * @return The account in which the Synthetics monitor will be created.
+     * 
+     */
+    public Output<Integer> accountId() {
+        return this.accountId;
+    }
+    /**
+     * Monitor should skip default HEAD request and instead use GET verb in check.
      * 
      */
     @Export(name="bypassHeadRequest", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> bypassHeadRequest;
 
     /**
-     * @return Bypass HEAD request.
+     * @return Monitor should skip default HEAD request and instead use GET verb in check.
      * 
      */
     public Output<Optional<Boolean>> bypassHeadRequest() {
         return Codegen.optional(this.bypassHeadRequest);
     }
     /**
-     * The interval (in minutes) at which this monitor should run.
+     * Custom headers to use in monitor job. See Nested customer_header blocks below for details.
      * 
      */
-    @Export(name="frequency", type=Integer.class, parameters={})
-    private Output<Integer> frequency;
+    @Export(name="customHeaders", type=List.class, parameters={MonitorCustomHeader.class})
+    private Output</* @Nullable */ List<MonitorCustomHeader>> customHeaders;
 
     /**
-     * @return The interval (in minutes) at which this monitor should run.
+     * @return Custom headers to use in monitor job. See Nested customer_header blocks below for details.
      * 
      */
-    public Output<Integer> frequency() {
-        return this.frequency;
+    public Output<Optional<List<MonitorCustomHeader>>> customHeaders() {
+        return Codegen.optional(this.customHeaders);
     }
     /**
-     * The locations in which this monitor should be run.
+     * Capture a screenshot during job execution.
      * 
      */
-    @Export(name="locations", type=List.class, parameters={String.class})
-    private Output<List<String>> locations;
+    @Export(name="enableScreenshotOnFailureAndScript", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> enableScreenshotOnFailureAndScript;
 
     /**
-     * @return The locations in which this monitor should be run.
+     * @return Capture a screenshot during job execution.
      * 
      */
-    public Output<List<String>> locations() {
-        return this.locations;
+    public Output<Optional<Boolean>> enableScreenshotOnFailureAndScript() {
+        return Codegen.optional(this.enableScreenshotOnFailureAndScript);
     }
     /**
-     * The title of this monitor.
+     * The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * 
+     */
+    @Export(name="locationsPrivates", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> locationsPrivates;
+
+    /**
+     * @return The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * 
+     */
+    public Output<Optional<List<String>>> locationsPrivates() {
+        return Codegen.optional(this.locationsPrivates);
+    }
+    /**
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * 
+     */
+    @Export(name="locationsPublics", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> locationsPublics;
+
+    /**
+     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * 
+     */
+    public Output<Optional<List<String>>> locationsPublics() {
+        return Codegen.optional(this.locationsPublics);
+    }
+    /**
+     * The human-readable identifier for the monitor.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The title of this monitor.
+     * @return The human-readable identifier for the monitor.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The base threshold for the SLA report.
+     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      * 
      */
-    @Export(name="slaThreshold", type=Double.class, parameters={})
-    private Output</* @Nullable */ Double> slaThreshold;
+    @Export(name="period", type=String.class, parameters={})
+    private Output<String> period;
 
     /**
-     * @return The base threshold for the SLA report.
+     * @return The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      * 
      */
-    public Output<Optional<Double>> slaThreshold() {
-        return Codegen.optional(this.slaThreshold);
+    public Output<String> period() {
+        return this.period;
     }
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+     * The runtime type that the monitor will run.
+     * 
+     */
+    @Export(name="runtimeType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> runtimeType;
+
+    /**
+     * @return The runtime type that the monitor will run.
+     * 
+     */
+    public Output<Optional<String>> runtimeType() {
+        return Codegen.optional(this.runtimeType);
+    }
+    /**
+     * The runtime type that the monitor will run.
+     * 
+     */
+    @Export(name="runtimeTypeVersion", type=String.class, parameters={})
+    private Output</* @Nullable */ String> runtimeTypeVersion;
+
+    /**
+     * @return The runtime type that the monitor will run.
+     * 
+     */
+    public Output<Optional<String>> runtimeTypeVersion() {
+        return Codegen.optional(this.runtimeTypeVersion);
+    }
+    /**
+     * The programing language that should execute the script.
+     * 
+     */
+    @Export(name="scriptLanguage", type=String.class, parameters={})
+    private Output</* @Nullable */ String> scriptLanguage;
+
+    /**
+     * @return The programing language that should execute the script.
+     * 
+     */
+    public Output<Optional<String>> scriptLanguage() {
+        return Codegen.optional(this.scriptLanguage);
+    }
+    /**
+     * The run state of the monitor.
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+     * @return The run state of the monitor.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Fail the monitor check if redirected.
+     * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     * 
+     */
+    @Export(name="tags", type=List.class, parameters={MonitorTag.class})
+    private Output</* @Nullable */ List<MonitorTag>> tags;
+
+    /**
+     * @return The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     * 
+     */
+    public Output<Optional<List<MonitorTag>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Categorize redirects during a monitor job as a failure.
      * 
      */
     @Export(name="treatRedirectAsFailure", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> treatRedirectAsFailure;
 
     /**
-     * @return Fail the monitor check if redirected.
+     * @return Categorize redirects during a monitor job as a failure.
      * 
      */
     public Output<Optional<Boolean>> treatRedirectAsFailure() {
         return Codegen.optional(this.treatRedirectAsFailure);
     }
     /**
-     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+     * @return THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * The URI for the monitor to hit.
+     * The uri the monitor runs against.
      * 
      */
     @Export(name="uri", type=String.class, parameters={})
     private Output</* @Nullable */ String> uri;
 
     /**
-     * @return The URI for the monitor to hit.
+     * @return The uri the monitor runs against.
      * 
      */
     public Output<Optional<String>> uri() {
         return Codegen.optional(this.uri);
     }
     /**
-     * The string to validate against in the response.
+     * Validation text for monitor to search for at given URI.
      * 
      */
     @Export(name="validationString", type=String.class, parameters={})
     private Output</* @Nullable */ String> validationString;
 
     /**
-     * @return The string to validate against in the response.
+     * @return Validation text for monitor to search for at given URI.
      * 
      */
     public Output<Optional<String>> validationString() {
         return Codegen.optional(this.validationString);
     }
     /**
-     * Verify SSL.
+     * Monitor should validate SSL certificate chain.
      * 
      */
     @Export(name="verifySsl", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> verifySsl;
 
     /**
-     * @return Verify SSL.
+     * @return Monitor should validate SSL certificate chain.
      * 
      */
     public Output<Optional<Boolean>> verifySsl() {

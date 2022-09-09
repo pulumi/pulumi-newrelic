@@ -49,13 +49,13 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
-        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open violations when the signal expires.
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
+        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
         :param pulumi.Input[str] name: The title of the condition.
@@ -63,8 +63,8 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -205,7 +205,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="aggregationWindow")
     def aggregation_window(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         """
         return pulumi.get(self, "aggregation_window")
 
@@ -277,7 +277,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="expirationDuration")
     def expiration_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of time (in seconds) to wait before considering the signal expired.
+        The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         """
         return pulumi.get(self, "expiration_duration")
 
@@ -373,7 +373,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         """
         return pulumi.get(self, "type")
 
@@ -385,7 +385,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="valueFunction")
     def value_function(self) -> Optional[pulumi.Input[str]]:
         """
-        Possible values are `single_value`, `sum` (case insensitive).
+        **DEPRECATED** Use `signal.slide_by` instead.
         """
         return pulumi.get(self, "value_function")
 
@@ -467,14 +467,14 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
-        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open violations when the signal expires.
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
-        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
+        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
         :param pulumi.Input[str] name: The title of the condition.
@@ -484,8 +484,8 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -606,7 +606,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="aggregationWindow")
     def aggregation_window(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         """
         return pulumi.get(self, "aggregation_window")
 
@@ -690,7 +690,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="expirationDuration")
     def expiration_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of time (in seconds) to wait before considering the signal expired.
+        The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         """
         return pulumi.get(self, "expiration_duration")
 
@@ -810,7 +810,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         """
         return pulumi.get(self, "type")
 
@@ -822,7 +822,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="valueFunction")
     def value_function(self) -> Optional[pulumi.Input[str]]:
         """
-        Possible values are `single_value`, `sum` (case insensitive).
+        **DEPRECATED** Use `signal.slide_by` instead.
         """
         return pulumi.get(self, "value_function")
 
@@ -979,7 +979,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             ))
         ```
 
-        <<<<<<< HEAD
         ## Upgrade from 1.x to 2.x
 
         There have been several deprecations in the `NrqlAlertCondition`
@@ -1050,21 +1049,19 @@ class NrqlAlertCondition(pulumi.CustomResource):
          $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
         ```
 
-         <<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID of the account you wish to create the condition. Defaults to the account ID set in your environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
-        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open violations when the signal expires.
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
+        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
         :param pulumi.Input[str] name: The title of the condition.
@@ -1074,8 +1071,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -1167,7 +1164,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             ))
         ```
 
-        <<<<<<< HEAD
         ## Upgrade from 1.x to 2.x
 
         There have been several deprecations in the `NrqlAlertCondition`
@@ -1237,8 +1233,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
         ```sh
          $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
         ```
-
-         <<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 
         :param str resource_name: The name of the resource.
         :param NrqlAlertConditionArgs args: The arguments to use to populate this resource's properties.
@@ -1375,14 +1369,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] aggregation_delay: How long we wait for data that belongs in each aggregation window. Depending on your data, a longer delay may increase accuracy but delay notifications. Use `aggregation_delay` with the `event_flow` and `cadence` methods. The maximum delay is 1200 seconds (20 minutes) when using `event_flow` and 3600 seconds (60 minutes) when using `cadence`. In both cases, the minimum delay is 0 seconds and the default is 120 seconds. `aggregation_delay` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_method: Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         :param pulumi.Input[str] aggregation_timer: How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregation_timer` with the `event_timer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregation_timer` cannot be set with `nrql.evaluation_offset`.
-        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        :param pulumi.Input[int] aggregation_window: The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         :param pulumi.Input[str] baseline_direction: The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lower_only`, `upper_and_lower`, `upper_only` (case insensitive).
         :param pulumi.Input[bool] close_violations_on_expiration: Whether to close all open violations when the signal expires.
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
-        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired.
+        :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
         :param pulumi.Input[str] name: The title of the condition.
@@ -1392,8 +1386,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
         :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
-        :param pulumi.Input[str] type: The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: Possible values are `single_value`, `sum` (case insensitive).
+        :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
+        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -1468,7 +1462,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="aggregationWindow")
     def aggregation_window(self) -> pulumi.Output[int]:
         """
-        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         """
         return pulumi.get(self, "aggregation_window")
 
@@ -1524,7 +1518,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="expirationDuration")
     def expiration_duration(self) -> pulumi.Output[Optional[int]]:
         """
-        The amount of time (in seconds) to wait before considering the signal expired.
+        The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         """
         return pulumi.get(self, "expiration_duration")
 
@@ -1604,7 +1598,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         """
         return pulumi.get(self, "type")
 
@@ -1612,7 +1606,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="valueFunction")
     def value_function(self) -> pulumi.Output[Optional[str]]:
         """
-        Possible values are `single_value`, `sum` (case insensitive).
+        **DEPRECATED** Use `signal.slide_by` instead.
         """
         return pulumi.get(self, "value_function")
 

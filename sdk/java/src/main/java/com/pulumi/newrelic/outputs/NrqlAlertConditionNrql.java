@@ -13,24 +13,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionNrql {
     /**
-     * @return Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It&#39;s recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.&lt;/small&gt;
-     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
      */
     @Deprecated /* use `aggregation_method` attribute instead */
     private @Nullable Integer evaluationOffset;
-    /**
-     * @return The NRQL query to execute for the condition.
-     * 
-     */
     private String query;
     /**
-     * @return **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.&lt;/small&gt;
-     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -40,9 +30,6 @@ public final class NrqlAlertConditionNrql {
 
     private NrqlAlertConditionNrql() {}
     /**
-     * @return Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It&#39;s recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.&lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.&lt;/small&gt;
-     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 
@@ -51,17 +38,10 @@ public final class NrqlAlertConditionNrql {
     public Optional<Integer> evaluationOffset() {
         return Optional.ofNullable(this.evaluationOffset);
     }
-    /**
-     * @return The NRQL query to execute for the condition.
-     * 
-     */
     public String query() {
         return this.query;
     }
     /**
-     * @return **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
-     * &lt;small&gt;\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.&lt;/small&gt;
-     * 
      * @deprecated
      * use `aggregation_method` attribute instead
      * 

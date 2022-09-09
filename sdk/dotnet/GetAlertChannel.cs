@@ -28,6 +28,12 @@ namespace Pulumi.NewRelic
     public sealed class GetAlertChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// </summary>
+        [Input("accountId")]
+        public int? AccountId { get; set; }
+
+        /// <summary>
         /// The name of the alert channel in New Relic.
         /// </summary>
         [Input("name", required: true)]
@@ -41,6 +47,12 @@ namespace Pulumi.NewRelic
 
     public sealed class GetAlertChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         /// <summary>
         /// The name of the alert channel in New Relic.
         /// </summary>
@@ -57,6 +69,7 @@ namespace Pulumi.NewRelic
     [OutputType]
     public sealed class GetAlertChannelResult
     {
+        public readonly int AccountId;
         /// <summary>
         /// Alert channel configuration.
         /// </summary>
@@ -77,6 +90,8 @@ namespace Pulumi.NewRelic
 
         [OutputConstructor]
         private GetAlertChannelResult(
+            int accountId,
+
             Outputs.GetAlertChannelConfigResult config,
 
             string id,
@@ -87,6 +102,7 @@ namespace Pulumi.NewRelic
 
             string type)
         {
+            AccountId = accountId;
             Config = config;
             Id = id;
             Name = name;

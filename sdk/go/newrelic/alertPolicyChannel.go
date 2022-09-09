@@ -22,14 +22,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.LookupAlertPolicy(ctx, &GetAlertPolicyArgs{
+//			examplePolicy, err := newrelic.LookupAlertPolicy(ctx, &GetAlertPolicyArgs{
 //				Name: "my-alert-policy",
 //			}, nil)
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
-//				PolicyId: pulumi.Any(newrelic_alert_policy.Example_policy.Id),
+//				PolicyId: pulumi.String(examplePolicy.Id),
 //				ChannelIds: pulumi.IntArray{
 //					emailChannel.ID(),
 //					slackChannel.ID(),

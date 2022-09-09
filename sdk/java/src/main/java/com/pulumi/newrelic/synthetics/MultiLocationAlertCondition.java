@@ -24,6 +24,61 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.AlertPolicy;
+ * import com.pulumi.newrelic.synthetics.Monitor;
+ * import com.pulumi.newrelic.synthetics.MonitorArgs;
+ * import com.pulumi.newrelic.synthetics.MultiLocationAlertCondition;
+ * import com.pulumi.newrelic.synthetics.MultiLocationAlertConditionArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MultiLocationAlertConditionCriticalArgs;
+ * import com.pulumi.newrelic.synthetics.inputs.MultiLocationAlertConditionWarningArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var policy = new AlertPolicy(&#34;policy&#34;);
+ * 
+ *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
+ *             .locationsPublics(&#34;US_WEST_1&#34;)
+ *             .period(&#34;EVERY_10_MINUTES&#34;)
+ *             .status(&#34;DISABLED&#34;)
+ *             .type(&#34;SIMPLE&#34;)
+ *             .uri(&#34;https://www.one.newrelic.com&#34;)
+ *             .build());
+ * 
+ *         var example = new MultiLocationAlertCondition(&#34;example&#34;, MultiLocationAlertConditionArgs.builder()        
+ *             .policyId(policy.id())
+ *             .runbookUrl(&#34;https://example.com&#34;)
+ *             .enabled(true)
+ *             .violationTimeLimitSeconds(&#34;3600&#34;)
+ *             .entities(monitor.id())
+ *             .critical(MultiLocationAlertConditionCriticalArgs.builder()
+ *                 .threshold(2)
+ *                 .build())
+ *             .warning(MultiLocationAlertConditionWarningArgs.builder()
+ *                 .threshold(1)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -66,14 +121,14 @@ public class MultiLocationAlertCondition extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.enabled);
     }
     /**
-     * The GUIDs of the Synthetics monitors to alert on.
+     * The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
     @Export(name="entities", type=List.class, parameters={String.class})
     private Output<List<String>> entities;
 
     /**
-     * @return The GUIDs of the Synthetics monitors to alert on.
+     * @return The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
     public Output<List<String>> entities() {

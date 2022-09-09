@@ -106,6 +106,7 @@ def get_alert_policy(account_id: Optional[int] = None,
     Use this data source to get information about a specific alert policy in New Relic that already exists.
 
 
+    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
     :param str name: The name of the alert policy in New Relic.
     """
@@ -134,6 +135,7 @@ def get_alert_policy_output(account_id: Optional[pulumi.Input[Optional[int]]] = 
     Use this data source to get information about a specific alert policy in New Relic that already exists.
 
 
+    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str incident_preference: The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
     :param str name: The name of the alert policy in New Relic.
     """

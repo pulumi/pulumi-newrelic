@@ -12,15 +12,27 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class NotificationDestinationPropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The notification property display value.
+        /// </summary>
         [Input("displayValue")]
         public Input<string>? DisplayValue { get; set; }
 
+        /// <summary>
+        /// The notification property key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The notification property label.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The notification property value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

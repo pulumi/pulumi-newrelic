@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,6 @@ type LookupSecureCredentialArgs struct {
 
 // A collection of values returned by getSecureCredential.
 type LookupSecureCredentialResult struct {
-	// The time the secure credential was created.
-	CreatedAt string `pulumi:"createdAt"`
 	// The secure credential's description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -103,11 +101,6 @@ func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutput
 
 func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutputWithContext(ctx context.Context) LookupSecureCredentialResultOutput {
 	return o
-}
-
-// The time the secure credential was created.
-func (o LookupSecureCredentialResultOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecureCredentialResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // The secure credential's description.

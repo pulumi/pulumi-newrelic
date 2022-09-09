@@ -20,7 +20,9 @@ class AwsIntegrationsArgs:
                  account_id: Optional[pulumi.Input[int]] = None,
                  billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
+                 doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
                  health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
+                 s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
                  trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
                  vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
@@ -30,7 +32,9 @@ class AwsIntegrationsArgs:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsBillingArgs'] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Billing integration
         :param pulumi.Input['AwsIntegrationsHealthArgs'] health: Health integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration
         :param pulumi.Input['AwsIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsXRayArgs'] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -42,8 +46,12 @@ class AwsIntegrationsArgs:
             pulumi.set(__self__, "billing", billing)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
+        if doc_db is not None:
+            pulumi.set(__self__, "doc_db", doc_db)
         if health is not None:
             pulumi.set(__self__, "health", health)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
         if trusted_advisor is not None:
             pulumi.set(__self__, "trusted_advisor", trusted_advisor)
         if vpc is not None:
@@ -100,6 +108,18 @@ class AwsIntegrationsArgs:
         pulumi.set(self, "cloudtrail", value)
 
     @property
+    @pulumi.getter(name="docDb")
+    def doc_db(self) -> Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]:
+        """
+        Billing integration
+        """
+        return pulumi.get(self, "doc_db")
+
+    @doc_db.setter
+    def doc_db(self, value: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]):
+        pulumi.set(self, "doc_db", value)
+
+    @property
     @pulumi.getter
     def health(self) -> Optional[pulumi.Input['AwsIntegrationsHealthArgs']]:
         """
@@ -110,6 +130,18 @@ class AwsIntegrationsArgs:
     @health.setter
     def health(self, value: Optional[pulumi.Input['AwsIntegrationsHealthArgs']]):
         pulumi.set(self, "health", value)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AwsIntegrationsS3Args']]:
+        """
+        S3 integration
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AwsIntegrationsS3Args']]):
+        pulumi.set(self, "s3", value)
 
     @property
     @pulumi.getter(name="trustedAdvisor")
@@ -154,8 +186,10 @@ class _AwsIntegrationsState:
                  account_id: Optional[pulumi.Input[int]] = None,
                  billing: Optional[pulumi.Input['AwsIntegrationsBillingArgs']] = None,
                  cloudtrail: Optional[pulumi.Input['AwsIntegrationsCloudtrailArgs']] = None,
+                 doc_db: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']] = None,
                  health: Optional[pulumi.Input['AwsIntegrationsHealthArgs']] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
+                 s3: Optional[pulumi.Input['AwsIntegrationsS3Args']] = None,
                  trusted_advisor: Optional[pulumi.Input['AwsIntegrationsTrustedAdvisorArgs']] = None,
                  vpc: Optional[pulumi.Input['AwsIntegrationsVpcArgs']] = None,
                  x_ray: Optional[pulumi.Input['AwsIntegrationsXRayArgs']] = None):
@@ -164,8 +198,10 @@ class _AwsIntegrationsState:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input['AwsIntegrationsBillingArgs'] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsCloudtrailArgs'] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
+        :param pulumi.Input['AwsIntegrationsDocDbArgs'] doc_db: Billing integration
         :param pulumi.Input['AwsIntegrationsHealthArgs'] health: Health integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input['AwsIntegrationsS3Args'] s3: S3 integration
         :param pulumi.Input['AwsIntegrationsTrustedAdvisorArgs'] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsVpcArgs'] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input['AwsIntegrationsXRayArgs'] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -176,10 +212,14 @@ class _AwsIntegrationsState:
             pulumi.set(__self__, "billing", billing)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
+        if doc_db is not None:
+            pulumi.set(__self__, "doc_db", doc_db)
         if health is not None:
             pulumi.set(__self__, "health", health)
         if linked_account_id is not None:
             pulumi.set(__self__, "linked_account_id", linked_account_id)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
         if trusted_advisor is not None:
             pulumi.set(__self__, "trusted_advisor", trusted_advisor)
         if vpc is not None:
@@ -224,6 +264,18 @@ class _AwsIntegrationsState:
         pulumi.set(self, "cloudtrail", value)
 
     @property
+    @pulumi.getter(name="docDb")
+    def doc_db(self) -> Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]:
+        """
+        Billing integration
+        """
+        return pulumi.get(self, "doc_db")
+
+    @doc_db.setter
+    def doc_db(self, value: Optional[pulumi.Input['AwsIntegrationsDocDbArgs']]):
+        pulumi.set(self, "doc_db", value)
+
+    @property
     @pulumi.getter
     def health(self) -> Optional[pulumi.Input['AwsIntegrationsHealthArgs']]:
         """
@@ -246,6 +298,18 @@ class _AwsIntegrationsState:
     @linked_account_id.setter
     def linked_account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "linked_account_id", value)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AwsIntegrationsS3Args']]:
+        """
+        S3 integration
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AwsIntegrationsS3Args']]):
+        pulumi.set(self, "s3", value)
 
     @property
     @pulumi.getter(name="trustedAdvisor")
@@ -292,8 +356,10 @@ class AwsIntegrations(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[int]] = None,
                  billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
                  cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
+                 doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
                  health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
+                 s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
                  trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
                  x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
@@ -312,8 +378,10 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Billing integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: Health integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -351,8 +419,10 @@ class AwsIntegrations(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[int]] = None,
                  billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
                  cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
+                 doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
                  health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
                  linked_account_id: Optional[pulumi.Input[int]] = None,
+                 s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
                  trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
                  x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None,
@@ -368,10 +438,12 @@ class AwsIntegrations(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["billing"] = billing
             __props__.__dict__["cloudtrail"] = cloudtrail
+            __props__.__dict__["doc_db"] = doc_db
             __props__.__dict__["health"] = health
             if linked_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_account_id'")
             __props__.__dict__["linked_account_id"] = linked_account_id
+            __props__.__dict__["s3"] = s3
             __props__.__dict__["trusted_advisor"] = trusted_advisor
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["x_ray"] = x_ray
@@ -388,8 +460,10 @@ class AwsIntegrations(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[int]] = None,
             billing: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']]] = None,
             cloudtrail: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']]] = None,
+            doc_db: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']]] = None,
             health: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']]] = None,
             linked_account_id: Optional[pulumi.Input[int]] = None,
+            s3: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']]] = None,
             trusted_advisor: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']]] = None,
             vpc: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']]] = None,
             x_ray: Optional[pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']]] = None) -> 'AwsIntegrations':
@@ -403,8 +477,10 @@ class AwsIntegrations(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsBillingArgs']] billing: Billing integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsCloudtrailArgs']] cloudtrail: Cloudtrail integration. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsDocDbArgs']] doc_db: Billing integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsHealthArgs']] health: Health integration. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked AWS account in New Relic.
+        :param pulumi.Input[pulumi.InputType['AwsIntegrationsS3Args']] s3: S3 integration
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsTrustedAdvisorArgs']] trusted_advisor: Trusted Advisor integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsVpcArgs']] vpc: VPC integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AwsIntegrationsXRayArgs']] x_ray: X-Ray integration. See Integration blocks below for details.
@@ -416,8 +492,10 @@ class AwsIntegrations(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["billing"] = billing
         __props__.__dict__["cloudtrail"] = cloudtrail
+        __props__.__dict__["doc_db"] = doc_db
         __props__.__dict__["health"] = health
         __props__.__dict__["linked_account_id"] = linked_account_id
+        __props__.__dict__["s3"] = s3
         __props__.__dict__["trusted_advisor"] = trusted_advisor
         __props__.__dict__["vpc"] = vpc
         __props__.__dict__["x_ray"] = x_ray
@@ -448,6 +526,14 @@ class AwsIntegrations(pulumi.CustomResource):
         return pulumi.get(self, "cloudtrail")
 
     @property
+    @pulumi.getter(name="docDb")
+    def doc_db(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsDocDb']]:
+        """
+        Billing integration
+        """
+        return pulumi.get(self, "doc_db")
+
+    @property
     @pulumi.getter
     def health(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsHealth']]:
         """
@@ -462,6 +548,14 @@ class AwsIntegrations(pulumi.CustomResource):
         The ID of the linked AWS account in New Relic.
         """
         return pulumi.get(self, "linked_account_id")
+
+    @property
+    @pulumi.getter
+    def s3(self) -> pulumi.Output[Optional['outputs.AwsIntegrationsS3']]:
+        """
+        S3 integration
+        """
+        return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter(name="trustedAdvisor")

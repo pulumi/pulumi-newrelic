@@ -155,54 +155,6 @@ export interface AlertMutingRuleSchedule {
     weeklyRepeatDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface DashboardFilter {
-    attributes?: pulumi.Input<pulumi.Input<string>[]>;
-    eventTypes: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface DashboardWidget {
-    accountId?: pulumi.Input<number>;
-    column: pulumi.Input<number>;
-    compareWiths?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetCompareWith>[]>;
-    drilldownDashboardId?: pulumi.Input<number>;
-    duration?: pulumi.Input<number>;
-    endTime?: pulumi.Input<number>;
-    entityIds?: pulumi.Input<pulumi.Input<number>[]>;
-    facet?: pulumi.Input<string>;
-    height?: pulumi.Input<number>;
-    limit?: pulumi.Input<number>;
-    metrics?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetMetric>[]>;
-    notes?: pulumi.Input<string>;
-    nrql?: pulumi.Input<string>;
-    orderBy?: pulumi.Input<string>;
-    rawMetricName?: pulumi.Input<string>;
-    row: pulumi.Input<number>;
-    source?: pulumi.Input<string>;
-    thresholdRed?: pulumi.Input<number>;
-    thresholdYellow?: pulumi.Input<number>;
-    title: pulumi.Input<string>;
-    visualization: pulumi.Input<string>;
-    widgetId?: pulumi.Input<number>;
-    width?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetCompareWith {
-    offsetDuration: pulumi.Input<string>;
-    presentation: pulumi.Input<inputs.DashboardWidgetCompareWithPresentation>;
-}
-
-export interface DashboardWidgetCompareWithPresentation {
-    color: pulumi.Input<string>;
-    name: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetMetric {
-    name: pulumi.Input<string>;
-    scope?: pulumi.Input<string>;
-    units?: pulumi.Input<string>;
-    values?: pulumi.Input<pulumi.Input<string>[]>;
-}
-
 export interface EntityTagsTag {
     /**
      * The tag key.
@@ -237,48 +189,77 @@ export interface InfraAlertConditionWarning {
 }
 
 export interface NotificationChannelProperty {
+    /**
+     * The notification property display value.
+     * *
+     * Each notification channel type supports a specific set of arguments for the `property` block:
+     */
     displayValue?: pulumi.Input<string>;
+    /**
+     * The notification property key.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The notification property label.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * The notification property value.
+     */
     value: pulumi.Input<string>;
 }
 
+export interface NotificationDestinationAuthBasic {
+    /**
+     * Specifies an authentication password for use with a destination.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The username of the basic auth.
+     */
+    user: pulumi.Input<string>;
+}
+
+export interface NotificationDestinationAuthToken {
+    /**
+     * The prefix of the token auth.
+     */
+    prefix?: pulumi.Input<string>;
+    /**
+     * Specifies the token for integrating.
+     */
+    token: pulumi.Input<string>;
+}
+
 export interface NotificationDestinationProperty {
+    /**
+     * The notification property display value.
+     */
     displayValue?: pulumi.Input<string>;
+    /**
+     * The notification property key.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The notification property label.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * The notification property value.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface NrqlAlertConditionCritical {
     /**
-     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: pulumi.Input<number>;
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     */
     operator?: pulumi.Input<string>;
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     */
     threshold: pulumi.Input<number>;
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-     * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-     */
     thresholdDuration?: pulumi.Input<number>;
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-     */
     thresholdOccurrences?: pulumi.Input<string>;
     /**
-     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
@@ -286,20 +267,11 @@ export interface NrqlAlertConditionCritical {
 
 export interface NrqlAlertConditionNrql {
     /**
-     * Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-     * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-     *
      * @deprecated use `aggregation_method` attribute instead
      */
     evaluationOffset?: pulumi.Input<number>;
-    /**
-     * The NRQL query to execute for the condition.
-     */
     query: pulumi.Input<string>;
     /**
-     * **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-     * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-     *
      * @deprecated use `aggregation_method` attribute instead
      */
     sinceValue?: pulumi.Input<string>;
@@ -307,37 +279,15 @@ export interface NrqlAlertConditionNrql {
 
 export interface NrqlAlertConditionTerm {
     /**
-     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: pulumi.Input<number>;
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     */
     operator?: pulumi.Input<string>;
-    /**
-     * `critical` or `warning`. Defaults to `critical`.
-     */
     priority?: pulumi.Input<string>;
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     */
     threshold: pulumi.Input<number>;
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-     * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-     */
     thresholdDuration?: pulumi.Input<number>;
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-     */
     thresholdOccurrences?: pulumi.Input<string>;
     /**
-     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
@@ -345,33 +295,14 @@ export interface NrqlAlertConditionTerm {
 
 export interface NrqlAlertConditionWarning {
     /**
-     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: pulumi.Input<number>;
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     */
     operator?: pulumi.Input<string>;
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     */
     threshold: pulumi.Input<number>;
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-     * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-     */
     thresholdDuration?: pulumi.Input<number>;
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-     */
     thresholdOccurrences?: pulumi.Input<string>;
     /**
-     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: pulumi.Input<string>;
@@ -1236,6 +1167,80 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
      */
     unit: pulumi.Input<string>;
 }
+
+export interface WorkflowDestinationConfiguration {
+    channelId: pulumi.Input<string>;
+    /**
+     * A nrql enrichment name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * the filter's type.   One of: `FILTER` or `VIEW`.
+     * * `predicates`
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface WorkflowEnrichments {
+    nrqls: pulumi.Input<pulumi.Input<inputs.WorkflowEnrichmentsNrql>[]>;
+}
+
+export interface WorkflowEnrichmentsNrql {
+    /**
+     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * A list of nrql enrichments.
+     */
+    configurations: pulumi.Input<pulumi.Input<inputs.WorkflowEnrichmentsNrqlConfiguration>[]>;
+    enrichmentId?: pulumi.Input<string>;
+    /**
+     * A nrql enrichment name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * the filter's type.   One of: `FILTER` or `VIEW`.
+     * * `predicates`
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface WorkflowEnrichmentsNrqlConfiguration {
+    /**
+     * the nrql query.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface WorkflowIssuesFilter {
+    filterId?: pulumi.Input<string>;
+    /**
+     * A nrql enrichment name.
+     */
+    name: pulumi.Input<string>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.WorkflowIssuesFilterPredicate>[]>;
+    /**
+     * the filter's type.   One of: `FILTER` or `VIEW`.
+     * * `predicates`
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface WorkflowIssuesFilterPredicate {
+    /**
+     * A predicates attribute.
+     */
+    attribute: pulumi.Input<string>;
+    /**
+     * A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     */
+    operator: pulumi.Input<string>;
+    /**
+     * A list of values.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
 export namespace cloud {
     export interface AwsGovcloudIntegrationsAlb {
         /**
@@ -1900,7 +1905,21 @@ export namespace cloud {
         metricsPollingInterval?: pulumi.Input<number>;
     }
 
+    export interface AwsIntegrationsDocDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
     export interface AwsIntegrationsHealth {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+    }
+
+    export interface AwsIntegrationsS3 {
         /**
          * The data polling interval in seconds.
          */
@@ -2481,14 +2500,6 @@ export namespace insights {
 }
 
 export namespace plugins {
-    export interface AlertConditionTerm {
-        duration: pulumi.Input<number>;
-        operator?: pulumi.Input<string>;
-        priority?: pulumi.Input<string>;
-        threshold: pulumi.Input<number>;
-        timeFunction: pulumi.Input<string>;
-    }
-
     export interface WorkloadEntitySearchQuery {
         /**
          * The query.
@@ -2498,19 +2509,48 @@ export namespace plugins {
 }
 
 export namespace synthetics {
-    export interface MonitorScriptLocation {
+    export interface BrokenLinksMonitorTag {
         /**
-         * The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
+         * Name of the tag key.
          */
-        hmac?: pulumi.Input<string>;
+        key: pulumi.Input<string>;
         /**
-         * The monitor script location name.
+         * Values associated with the tag key.
          */
-        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface CertCheckMonitorTag {
         /**
-         * The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
+         * Name of the tag key.
          */
-        vsePassword?: pulumi.Input<string>;
+        key: pulumi.Input<string>;
+        /**
+         * Values associated with the tag key.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface MonitorCustomHeader {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header Value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface MonitorTag {
+        /**
+         * Name of the tag key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Values associated with the tag key.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MultiLocationAlertConditionCritical {
@@ -2519,5 +2559,64 @@ export namespace synthetics {
 
     export interface MultiLocationAlertConditionWarning {
         threshold: pulumi.Input<number>;
+    }
+
+    export interface ScriptMonitorLocationPrivate {
+        /**
+         * The unique identifier for the Synthetics private location in New Relic.
+         */
+        guid: pulumi.Input<string>;
+        /**
+         * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         */
+        vsePassword?: pulumi.Input<string>;
+    }
+
+    export interface ScriptMonitorTag {
+        /**
+         * Name of the tag key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Values associated with the tag key.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StepMonitorLocationPrivate {
+        /**
+         * The unique identifier for the Synthetics private location in New Relic.
+         */
+        guid: pulumi.Input<string>;
+        /**
+         * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         */
+        vsePassword?: pulumi.Input<string>;
+    }
+
+    export interface StepMonitorStep {
+        /**
+         * The position of the step within the script ranging from 0-100.
+         */
+        ordinal: pulumi.Input<number>;
+        /**
+         * Name of the tag key.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StepMonitorTag {
+        /**
+         * Name of the tag key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Values associated with the tag key.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 }

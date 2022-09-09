@@ -10,6 +10,35 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const policy = new newrelic.AlertPolicy("policy", {});
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     locationsPublics: ["US_WEST_1"],
+ *     period: "EVERY_10_MINUTES",
+ *     status: "DISABLED",
+ *     type: "SIMPLE",
+ *     uri: "https://www.one.newrelic.com",
+ * });
+ * const example = new newrelic.synthetics.MultiLocationAlertCondition("example", {
+ *     policyId: policy.id,
+ *     runbookUrl: "https://example.com",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 3600,
+ *     entities: [monitor.id],
+ *     critical: {
+ *         threshold: 2,
+ *     },
+ *     warning: {
+ *         threshold: 1,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -57,7 +86,7 @@ export class MultiLocationAlertCondition extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The GUIDs of the Synthetics monitors to alert on.
+     * The Monitor GUID's of the Synthetics monitors to alert on.
      */
     public readonly entities!: pulumi.Output<string[]>;
     /**
@@ -143,7 +172,7 @@ export interface MultiLocationAlertConditionState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The GUIDs of the Synthetics monitors to alert on.
+     * The Monitor GUID's of the Synthetics monitors to alert on.
      */
     entities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -181,7 +210,7 @@ export interface MultiLocationAlertConditionArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The GUIDs of the Synthetics monitors to alert on.
+     * The Monitor GUID's of the Synthetics monitors to alert on.
      */
     entities: pulumi.Input<pulumi.Input<string>[]>;
     /**

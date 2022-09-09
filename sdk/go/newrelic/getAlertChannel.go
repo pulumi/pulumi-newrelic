@@ -22,12 +22,15 @@ func LookupAlertChannel(ctx *pulumi.Context, args *LookupAlertChannelArgs, opts 
 
 // A collection of arguments for invoking getAlertChannel.
 type LookupAlertChannelArgs struct {
+	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	AccountId *int `pulumi:"accountId"`
 	// The name of the alert channel in New Relic.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getAlertChannel.
 type LookupAlertChannelResult struct {
+	AccountId int `pulumi:"accountId"`
 	// Alert channel configuration.
 	Config GetAlertChannelConfig `pulumi:"config"`
 	// The provider-assigned unique ID for this managed resource.
@@ -54,6 +57,8 @@ func LookupAlertChannelOutput(ctx *pulumi.Context, args LookupAlertChannelOutput
 
 // A collection of arguments for invoking getAlertChannel.
 type LookupAlertChannelOutputArgs struct {
+	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
 	// The name of the alert channel in New Relic.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -75,6 +80,10 @@ func (o LookupAlertChannelResultOutput) ToLookupAlertChannelResultOutput() Looku
 
 func (o LookupAlertChannelResultOutput) ToLookupAlertChannelResultOutputWithContext(ctx context.Context) LookupAlertChannelResultOutput {
 	return o
+}
+
+func (o LookupAlertChannelResultOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAlertChannelResult) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // Alert channel configuration.

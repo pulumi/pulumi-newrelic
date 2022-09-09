@@ -40,6 +40,12 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AwsIntegrationsCloudtrail?> Cloudtrail { get; private set; } = null!;
 
         /// <summary>
+        /// Billing integration
+        /// </summary>
+        [Output("docDb")]
+        public Output<Outputs.AwsIntegrationsDocDb?> DocDb { get; private set; } = null!;
+
+        /// <summary>
         /// Health integration. See Integration blocks below for details.
         /// </summary>
         [Output("health")]
@@ -50,6 +56,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Output("linkedAccountId")]
         public Output<int> LinkedAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// S3 integration
+        /// </summary>
+        [Output("s3")]
+        public Output<Outputs.AwsIntegrationsS3?> S3 { get; private set; } = null!;
 
         /// <summary>
         /// Trusted Advisor integration. See Integration blocks below for details.
@@ -134,6 +146,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsCloudtrailArgs>? Cloudtrail { get; set; }
 
         /// <summary>
+        /// Billing integration
+        /// </summary>
+        [Input("docDb")]
+        public Input<Inputs.AwsIntegrationsDocDbArgs>? DocDb { get; set; }
+
+        /// <summary>
         /// Health integration. See Integration blocks below for details.
         /// </summary>
         [Input("health")]
@@ -144,6 +162,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("linkedAccountId", required: true)]
         public Input<int> LinkedAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// S3 integration
+        /// </summary>
+        [Input("s3")]
+        public Input<Inputs.AwsIntegrationsS3Args>? S3 { get; set; }
 
         /// <summary>
         /// Trusted Advisor integration. See Integration blocks below for details.
@@ -190,6 +214,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AwsIntegrationsCloudtrailGetArgs>? Cloudtrail { get; set; }
 
         /// <summary>
+        /// Billing integration
+        /// </summary>
+        [Input("docDb")]
+        public Input<Inputs.AwsIntegrationsDocDbGetArgs>? DocDb { get; set; }
+
+        /// <summary>
         /// Health integration. See Integration blocks below for details.
         /// </summary>
         [Input("health")]
@@ -200,6 +230,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("linkedAccountId")]
         public Input<int>? LinkedAccountId { get; set; }
+
+        /// <summary>
+        /// S3 integration
+        /// </summary>
+        [Input("s3")]
+        public Input<Inputs.AwsIntegrationsS3GetArgs>? S3 { get; set; }
 
         /// <summary>
         /// Trusted Advisor integration. See Integration blocks below for details.

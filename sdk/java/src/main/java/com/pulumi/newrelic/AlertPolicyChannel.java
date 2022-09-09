@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new AlertPolicyChannel(&#34;foo&#34;, AlertPolicyChannelArgs.builder()        
- *             .policyId(newrelic_alert_policy.example_policy().id())
+ *             .policyId(examplePolicy.applyValue(getAlertPolicyResult -&gt; getAlertPolicyResult.id()))
  *             .channelIds(            
  *                 emailChannel.id(),
  *                 slackChannel.id())

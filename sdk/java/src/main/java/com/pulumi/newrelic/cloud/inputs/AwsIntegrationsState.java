@@ -7,7 +7,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsBillingArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsCloudtrailArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsDocDbArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsHealthArgs;
+import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsS3Args;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsTrustedAdvisorArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsVpcArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsXRayArgs;
@@ -67,6 +69,21 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Billing integration
+     * 
+     */
+    @Import(name="docDb")
+    private @Nullable Output<AwsIntegrationsDocDbArgs> docDb;
+
+    /**
+     * @return Billing integration
+     * 
+     */
+    public Optional<Output<AwsIntegrationsDocDbArgs>> docDb() {
+        return Optional.ofNullable(this.docDb);
+    }
+
+    /**
      * Health integration. See Integration blocks below for details.
      * 
      */
@@ -94,6 +111,21 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<Integer>> linkedAccountId() {
         return Optional.ofNullable(this.linkedAccountId);
+    }
+
+    /**
+     * S3 integration
+     * 
+     */
+    @Import(name="s3")
+    private @Nullable Output<AwsIntegrationsS3Args> s3;
+
+    /**
+     * @return S3 integration
+     * 
+     */
+    public Optional<Output<AwsIntegrationsS3Args>> s3() {
+        return Optional.ofNullable(this.s3);
     }
 
     /**
@@ -147,8 +179,10 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         this.accountId = $.accountId;
         this.billing = $.billing;
         this.cloudtrail = $.cloudtrail;
+        this.docDb = $.docDb;
         this.health = $.health;
         this.linkedAccountId = $.linkedAccountId;
+        this.s3 = $.s3;
         this.trustedAdvisor = $.trustedAdvisor;
         this.vpc = $.vpc;
         this.xRay = $.xRay;
@@ -236,6 +270,27 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param docDb Billing integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder docDb(@Nullable Output<AwsIntegrationsDocDbArgs> docDb) {
+            $.docDb = docDb;
+            return this;
+        }
+
+        /**
+         * @param docDb Billing integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder docDb(AwsIntegrationsDocDbArgs docDb) {
+            return docDb(Output.of(docDb));
+        }
+
+        /**
          * @param health Health integration. See Integration blocks below for details.
          * 
          * @return builder
@@ -275,6 +330,27 @@ public final class AwsIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder linkedAccountId(Integer linkedAccountId) {
             return linkedAccountId(Output.of(linkedAccountId));
+        }
+
+        /**
+         * @param s3 S3 integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3(@Nullable Output<AwsIntegrationsS3Args> s3) {
+            $.s3 = s3;
+            return this;
+        }
+
+        /**
+         * @param s3 S3 integration
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3(AwsIntegrationsS3Args s3) {
+            return s3(Output.of(s3));
         }
 
         /**

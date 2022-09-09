@@ -22,7 +22,10 @@ class GetAlertChannelResult:
     """
     A collection of values returned by getAlertChannel.
     """
-    def __init__(__self__, config=None, id=None, name=None, policy_ids=None, type=None):
+    def __init__(__self__, account_id=None, config=None, id=None, name=None, policy_ids=None, type=None):
+        if account_id and not isinstance(account_id, int):
+            raise TypeError("Expected argument 'account_id' to be a int")
+        pulumi.set(__self__, "account_id", account_id)
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         pulumi.set(__self__, "config", config)
@@ -38,6 +41,11 @@ class GetAlertChannelResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> int:
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
@@ -83,6 +91,7 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
         if False:
             yield self
         return GetAlertChannelResult(
+            account_id=self.account_id,
             config=self.config,
             id=self.id,
             name=self.name,
@@ -90,20 +99,24 @@ class AwaitableGetAlertChannelResult(GetAlertChannelResult):
             type=self.type)
 
 
-def get_alert_channel(name: Optional[str] = None,
+def get_alert_channel(account_id: Optional[int] = None,
+                      name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertChannelResult:
     """
     Use this data source to get information about a specific alert channel in New Relic that already exists.
 
 
+    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str name: The name of the alert channel in New Relic.
     """
     __args__ = dict()
+    __args__['accountId'] = account_id
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getAlertChannel:getAlertChannel', __args__, opts=opts, typ=GetAlertChannelResult).value
 
     return AwaitableGetAlertChannelResult(
+        account_id=__ret__.account_id,
         config=__ret__.config,
         id=__ret__.id,
         name=__ret__.name,
@@ -112,12 +125,14 @@ def get_alert_channel(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_alert_channel)
-def get_alert_channel_output(name: Optional[pulumi.Input[str]] = None,
+def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+                             name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertChannelResult]:
     """
     Use this data source to get information about a specific alert channel in New Relic that already exists.
 
 
+    :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str name: The name of the alert channel in New Relic.
     """
     ...

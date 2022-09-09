@@ -11,72 +11,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create, update, and delete a synthetics monitor in New Relic.
+// Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
 //
 // ## Example Usage
 //
-// ##### Type: `SIMPLE`
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-//				Frequency: pulumi.Int(5),
-//				Locations: pulumi.StringArray{
-//					pulumi.String("AWS_US_EAST_1"),
-//					pulumi.String("AWS_US_EAST_2"),
-//				},
-//				Status:           pulumi.String("ENABLED"),
-//				Type:             pulumi.String("SIMPLE"),
-//				Uri:              pulumi.String("https://example.com"),
-//				ValidationString: pulumi.String("add example validation check here"),
-//				VerifySsl:        pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ##### Type: `BROWSER`
-// ## Additional Examples
-//
-// Type: `BROWSER`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
 //				BypassHeadRequest: pulumi.Bool(true),
-//				Frequency:         pulumi.Int(5),
-//				Locations: pulumi.StringArray{
-//					pulumi.String("AWS_US_EAST_1"),
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("Name"),
+//						Value: pulumi.String("simpleMonitor"),
+//					},
 //				},
-//				Status:                 pulumi.String("ENABLED"),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Status: pulumi.String("ENABLED"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
 //				TreatRedirectAsFailure: pulumi.Bool(true),
-//				Type:                   pulumi.String("BROWSER"),
-//				Uri:                    pulumi.String("https://example.com"),
-//				ValidationString:       pulumi.String("add example validation check here"),
+//				Type:                   pulumi.String("SIMPLE"),
+//				Uri:                    pulumi.String("https://www.one.newrelic.com"),
+//				ValidationString:       pulumi.String("success"),
 //				VerifySsl:              pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -87,28 +62,50 @@ import (
 //	}
 //
 // ```
+// ##### Type: `SIMPLE BROWSER`
 //
-// ##### Type: `SCRIPT_BROWSER`
+// > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-//				Frequency: pulumi.Int(5),
-//				Locations: pulumi.StringArray{
-//					pulumi.String("AWS_US_EAST_1"),
+//			_, err := synthetics.NewMonitor(ctx, "bar", &synthetics.MonitorArgs{
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("name"),
+//						Value: pulumi.String("simple_browser"),
+//					},
 //				},
-//				Status: pulumi.String("ENABLED"),
-//				Type:   pulumi.String("SCRIPT_BROWSER"),
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("AP_SOUTH_1"),
+//				},
+//				Period:             pulumi.String("EVERY_MINUTE"),
+//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
+//				RuntimeTypeVersion: pulumi.String("100"),
+//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
+//				Status:             pulumi.String("ENABLED"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("name"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("SimpleBrowserMonitor"),
+//						},
+//					},
+//				},
+//				Type:             pulumi.String("BROWSER"),
+//				Uri:              pulumi.String("https://www.one.newrelic.com"),
+//				ValidationString: pulumi.String("success"),
+//				VerifySsl:        pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -118,71 +115,56 @@ import (
 //	}
 //
 // ```
-//
-// ##### Type: `SCRIPT_API`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
-//				Frequency: pulumi.Int(5),
-//				Locations: pulumi.StringArray{
-//					pulumi.String("AWS_US_EAST_1"),
-//				},
-//				Status: pulumi.String("ENABLED"),
-//				Type:   pulumi.String("SCRIPT_API"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// See additional examples.
+// ## Additional Examples
 //
 // ## Import
 //
-// Synthetics monitors can be imported using the `id`, e.g. bash
+// Synthetics monitor can be imported using the `guid`, e.g. bash
 //
 // ```sh
 //
-//	$ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+//	$ pulumi import newrelic:synthetics/monitor:Monitor bar <guid>
 //
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState
 
-	// Bypass HEAD request.
+	// The account in which the Synthetics monitor will be created.
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
-	// The interval (in minutes) at which this monitor should run.
-	Frequency pulumi.IntOutput `pulumi:"frequency"`
-	// The locations in which this monitor should be run.
-	Locations pulumi.StringArrayOutput `pulumi:"locations"`
-	// The title of this monitor.
+	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
+	// Capture a screenshot during job execution.
+	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
+	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPrivates pulumi.StringArrayOutput `pulumi:"locationsPrivates"`
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPublics pulumi.StringArrayOutput `pulumi:"locationsPublics"`
+	// The human-readable identifier for the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The base threshold for the SLA report.
-	SlaThreshold pulumi.Float64PtrOutput `pulumi:"slaThreshold"`
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+	Period pulumi.StringOutput `pulumi:"period"`
+	// The runtime type that the monitor will run.
+	RuntimeType pulumi.StringPtrOutput `pulumi:"runtimeType"`
+	// The runtime type that the monitor will run.
+	RuntimeTypeVersion pulumi.StringPtrOutput `pulumi:"runtimeTypeVersion"`
+	// The programing language that should execute the script.
+	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
+	// The run state of the monitor.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Fail the monitor check if redirected.
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	Tags MonitorTagArrayOutput `pulumi:"tags"`
+	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrOutput `pulumi:"treatRedirectAsFailure"`
-	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The URI for the monitor to hit.
+	// The uri the monitor runs against.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
-	// The string to validate against in the response.
+	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrOutput `pulumi:"validationString"`
-	// Verify SSL.
+	// Monitor should validate SSL certificate chain.
 	VerifySsl pulumi.BoolPtrOutput `pulumi:"verifySsl"`
 }
 
@@ -193,12 +175,6 @@ func NewMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Frequency == nil {
-		return nil, errors.New("invalid value for required argument 'Frequency'")
-	}
-	if args.Locations == nil {
-		return nil, errors.New("invalid value for required argument 'Locations'")
-	}
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
@@ -227,52 +203,80 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
-	// Bypass HEAD request.
+	// The account in which the Synthetics monitor will be created.
+	AccountId *int `pulumi:"accountId"`
+	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
-	// The interval (in minutes) at which this monitor should run.
-	Frequency *int `pulumi:"frequency"`
-	// The locations in which this monitor should be run.
-	Locations []string `pulumi:"locations"`
-	// The title of this monitor.
+	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
+	// Capture a screenshot during job execution.
+	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
+	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPrivates []string `pulumi:"locationsPrivates"`
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPublics []string `pulumi:"locationsPublics"`
+	// The human-readable identifier for the monitor.
 	Name *string `pulumi:"name"`
-	// The base threshold for the SLA report.
-	SlaThreshold *float64 `pulumi:"slaThreshold"`
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+	Period *string `pulumi:"period"`
+	// The runtime type that the monitor will run.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The runtime type that the monitor will run.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
+	// The programing language that should execute the script.
+	ScriptLanguage *string `pulumi:"scriptLanguage"`
+	// The run state of the monitor.
 	Status *string `pulumi:"status"`
-	// Fail the monitor check if redirected.
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	Tags []MonitorTag `pulumi:"tags"`
+	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
-	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type *string `pulumi:"type"`
-	// The URI for the monitor to hit.
+	// The uri the monitor runs against.
 	Uri *string `pulumi:"uri"`
-	// The string to validate against in the response.
+	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
-	// Verify SSL.
+	// Monitor should validate SSL certificate chain.
 	VerifySsl *bool `pulumi:"verifySsl"`
 }
 
 type MonitorState struct {
-	// Bypass HEAD request.
+	// The account in which the Synthetics monitor will be created.
+	AccountId pulumi.IntPtrInput
+	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest pulumi.BoolPtrInput
-	// The interval (in minutes) at which this monitor should run.
-	Frequency pulumi.IntPtrInput
-	// The locations in which this monitor should be run.
-	Locations pulumi.StringArrayInput
-	// The title of this monitor.
+	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	CustomHeaders MonitorCustomHeaderArrayInput
+	// Capture a screenshot during job execution.
+	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
+	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPrivates pulumi.StringArrayInput
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPublics pulumi.StringArrayInput
+	// The human-readable identifier for the monitor.
 	Name pulumi.StringPtrInput
-	// The base threshold for the SLA report.
-	SlaThreshold pulumi.Float64PtrInput
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+	Period pulumi.StringPtrInput
+	// The runtime type that the monitor will run.
+	RuntimeType pulumi.StringPtrInput
+	// The runtime type that the monitor will run.
+	RuntimeTypeVersion pulumi.StringPtrInput
+	// The programing language that should execute the script.
+	ScriptLanguage pulumi.StringPtrInput
+	// The run state of the monitor.
 	Status pulumi.StringPtrInput
-	// Fail the monitor check if redirected.
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	Tags MonitorTagArrayInput
+	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
-	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringPtrInput
-	// The URI for the monitor to hit.
+	// The uri the monitor runs against.
 	Uri pulumi.StringPtrInput
-	// The string to validate against in the response.
+	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
-	// Verify SSL.
+	// Monitor should validate SSL certificate chain.
 	VerifySsl pulumi.BoolPtrInput
 }
 
@@ -281,53 +285,81 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
-	// Bypass HEAD request.
+	// The account in which the Synthetics monitor will be created.
+	AccountId *int `pulumi:"accountId"`
+	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
-	// The interval (in minutes) at which this monitor should run.
-	Frequency int `pulumi:"frequency"`
-	// The locations in which this monitor should be run.
-	Locations []string `pulumi:"locations"`
-	// The title of this monitor.
+	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
+	// Capture a screenshot during job execution.
+	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
+	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPrivates []string `pulumi:"locationsPrivates"`
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPublics []string `pulumi:"locationsPublics"`
+	// The human-readable identifier for the monitor.
 	Name *string `pulumi:"name"`
-	// The base threshold for the SLA report.
-	SlaThreshold *float64 `pulumi:"slaThreshold"`
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+	Period *string `pulumi:"period"`
+	// The runtime type that the monitor will run.
+	RuntimeType *string `pulumi:"runtimeType"`
+	// The runtime type that the monitor will run.
+	RuntimeTypeVersion *string `pulumi:"runtimeTypeVersion"`
+	// The programing language that should execute the script.
+	ScriptLanguage *string `pulumi:"scriptLanguage"`
+	// The run state of the monitor.
 	Status string `pulumi:"status"`
-	// Fail the monitor check if redirected.
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	Tags []MonitorTag `pulumi:"tags"`
+	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
-	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type string `pulumi:"type"`
-	// The URI for the monitor to hit.
+	// The uri the monitor runs against.
 	Uri *string `pulumi:"uri"`
-	// The string to validate against in the response.
+	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
-	// Verify SSL.
+	// Monitor should validate SSL certificate chain.
 	VerifySsl *bool `pulumi:"verifySsl"`
 }
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
-	// Bypass HEAD request.
+	// The account in which the Synthetics monitor will be created.
+	AccountId pulumi.IntPtrInput
+	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest pulumi.BoolPtrInput
-	// The interval (in minutes) at which this monitor should run.
-	Frequency pulumi.IntInput
-	// The locations in which this monitor should be run.
-	Locations pulumi.StringArrayInput
-	// The title of this monitor.
+	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	CustomHeaders MonitorCustomHeaderArrayInput
+	// Capture a screenshot during job execution.
+	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
+	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPrivates pulumi.StringArrayInput
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	LocationsPublics pulumi.StringArrayInput
+	// The human-readable identifier for the monitor.
 	Name pulumi.StringPtrInput
-	// The base threshold for the SLA report.
-	SlaThreshold pulumi.Float64PtrInput
-	// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+	// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+	Period pulumi.StringPtrInput
+	// The runtime type that the monitor will run.
+	RuntimeType pulumi.StringPtrInput
+	// The runtime type that the monitor will run.
+	RuntimeTypeVersion pulumi.StringPtrInput
+	// The programing language that should execute the script.
+	ScriptLanguage pulumi.StringPtrInput
+	// The run state of the monitor.
 	Status pulumi.StringInput
-	// Fail the monitor check if redirected.
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+	Tags MonitorTagArrayInput
+	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
-	// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringInput
-	// The URI for the monitor to hit.
+	// The uri the monitor runs against.
 	Uri pulumi.StringPtrInput
-	// The string to validate against in the response.
+	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
-	// Verify SSL.
+	// Monitor should validate SSL certificate chain.
 	VerifySsl pulumi.BoolPtrInput
 }
 
@@ -418,57 +450,92 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 	return o
 }
 
-// Bypass HEAD request.
+// The account in which the Synthetics monitor will be created.
+func (o MonitorOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Monitor should skip default HEAD request and instead use GET verb in check.
 func (o MonitorOutput) BypassHeadRequest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.BypassHeadRequest }).(pulumi.BoolPtrOutput)
 }
 
-// The interval (in minutes) at which this monitor should run.
-func (o MonitorOutput) Frequency() pulumi.IntOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.Frequency }).(pulumi.IntOutput)
+// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+func (o MonitorOutput) CustomHeaders() MonitorCustomHeaderArrayOutput {
+	return o.ApplyT(func(v *Monitor) MonitorCustomHeaderArrayOutput { return v.CustomHeaders }).(MonitorCustomHeaderArrayOutput)
 }
 
-// The locations in which this monitor should be run.
-func (o MonitorOutput) Locations() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
+// Capture a screenshot during job execution.
+func (o MonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
 }
 
-// The title of this monitor.
+// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+func (o MonitorOutput) LocationsPrivates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.LocationsPrivates }).(pulumi.StringArrayOutput)
+}
+
+// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+func (o MonitorOutput) LocationsPublics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.LocationsPublics }).(pulumi.StringArrayOutput)
+}
+
+// The human-readable identifier for the monitor.
 func (o MonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The base threshold for the SLA report.
-func (o MonitorOutput) SlaThreshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.Float64PtrOutput { return v.SlaThreshold }).(pulumi.Float64PtrOutput)
+// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
+func (o MonitorOutput) Period() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
 }
 
-// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+// The runtime type that the monitor will run.
+func (o MonitorOutput) RuntimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RuntimeType }).(pulumi.StringPtrOutput)
+}
+
+// The runtime type that the monitor will run.
+func (o MonitorOutput) RuntimeTypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.RuntimeTypeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The programing language that should execute the script.
+func (o MonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
+}
+
+// The run state of the monitor.
 func (o MonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Fail the monitor check if redirected.
+// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+func (o MonitorOutput) Tags() MonitorTagArrayOutput {
+	return o.ApplyT(func(v *Monitor) MonitorTagArrayOutput { return v.Tags }).(MonitorTagArrayOutput)
+}
+
+// Categorize redirects during a monitor job as a failure.
 func (o MonitorOutput) TreatRedirectAsFailure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.TreatRedirectAsFailure }).(pulumi.BoolPtrOutput)
 }
 
-// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
 func (o MonitorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The URI for the monitor to hit.
+// The uri the monitor runs against.
 func (o MonitorOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// The string to validate against in the response.
+// Validation text for monitor to search for at given URI.
 func (o MonitorOutput) ValidationString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ValidationString }).(pulumi.StringPtrOutput)
 }
 
-// Verify SSL.
+// Monitor should validate SSL certificate chain.
 func (o MonitorOutput) VerifySsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.VerifySsl }).(pulumi.BoolPtrOutput)
 }

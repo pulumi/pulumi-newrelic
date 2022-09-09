@@ -57,9 +57,9 @@ export class SecureCredential extends pulumi.CustomResource {
     }
 
     /**
-     * The time the secure credential was created.
+     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    public readonly createdAt!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<number>;
     /**
      * The secure credential's description.
      */
@@ -90,7 +90,7 @@ export class SecureCredential extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecureCredentialState | undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["lastUpdated"] = state ? state.lastUpdated : undefined;
@@ -103,7 +103,7 @@ export class SecureCredential extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
@@ -119,9 +119,9 @@ export class SecureCredential extends pulumi.CustomResource {
  */
 export interface SecureCredentialState {
     /**
-     * The time the secure credential was created.
+     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    createdAt?: pulumi.Input<string>;
+    accountId?: pulumi.Input<number>;
     /**
      * The secure credential's description.
      */
@@ -145,9 +145,9 @@ export interface SecureCredentialState {
  */
 export interface SecureCredentialArgs {
     /**
-     * The time the secure credential was created.
+     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      */
-    createdAt?: pulumi.Input<string>;
+    accountId?: pulumi.Input<number>;
     /**
      * The secure credential's description.
      */

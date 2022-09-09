@@ -10,119 +10,428 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type MonitorScriptLocation struct {
-	// The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
-	Hmac *string `pulumi:"hmac"`
-	// The monitor script location name.
-	Name string `pulumi:"name"`
-	// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
-	VsePassword *string `pulumi:"vsePassword"`
+type BrokenLinksMonitorTag struct {
+	// Name of the tag key.
+	Key string `pulumi:"key"`
+	// Values associated with the tag key.
+	Values []string `pulumi:"values"`
 }
 
-// MonitorScriptLocationInput is an input type that accepts MonitorScriptLocationArgs and MonitorScriptLocationOutput values.
-// You can construct a concrete instance of `MonitorScriptLocationInput` via:
+// BrokenLinksMonitorTagInput is an input type that accepts BrokenLinksMonitorTagArgs and BrokenLinksMonitorTagOutput values.
+// You can construct a concrete instance of `BrokenLinksMonitorTagInput` via:
 //
-//	MonitorScriptLocationArgs{...}
-type MonitorScriptLocationInput interface {
+//	BrokenLinksMonitorTagArgs{...}
+type BrokenLinksMonitorTagInput interface {
 	pulumi.Input
 
-	ToMonitorScriptLocationOutput() MonitorScriptLocationOutput
-	ToMonitorScriptLocationOutputWithContext(context.Context) MonitorScriptLocationOutput
+	ToBrokenLinksMonitorTagOutput() BrokenLinksMonitorTagOutput
+	ToBrokenLinksMonitorTagOutputWithContext(context.Context) BrokenLinksMonitorTagOutput
 }
 
-type MonitorScriptLocationArgs struct {
-	// The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
-	Hmac pulumi.StringPtrInput `pulumi:"hmac"`
-	// The monitor script location name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
-	VsePassword pulumi.StringPtrInput `pulumi:"vsePassword"`
+type BrokenLinksMonitorTagArgs struct {
+	// Name of the tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Values associated with the tag key.
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
-func (MonitorScriptLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorScriptLocation)(nil)).Elem()
+func (BrokenLinksMonitorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokenLinksMonitorTag)(nil)).Elem()
 }
 
-func (i MonitorScriptLocationArgs) ToMonitorScriptLocationOutput() MonitorScriptLocationOutput {
-	return i.ToMonitorScriptLocationOutputWithContext(context.Background())
+func (i BrokenLinksMonitorTagArgs) ToBrokenLinksMonitorTagOutput() BrokenLinksMonitorTagOutput {
+	return i.ToBrokenLinksMonitorTagOutputWithContext(context.Background())
 }
 
-func (i MonitorScriptLocationArgs) ToMonitorScriptLocationOutputWithContext(ctx context.Context) MonitorScriptLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptLocationOutput)
+func (i BrokenLinksMonitorTagArgs) ToBrokenLinksMonitorTagOutputWithContext(ctx context.Context) BrokenLinksMonitorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorTagOutput)
 }
 
-// MonitorScriptLocationArrayInput is an input type that accepts MonitorScriptLocationArray and MonitorScriptLocationArrayOutput values.
-// You can construct a concrete instance of `MonitorScriptLocationArrayInput` via:
+// BrokenLinksMonitorTagArrayInput is an input type that accepts BrokenLinksMonitorTagArray and BrokenLinksMonitorTagArrayOutput values.
+// You can construct a concrete instance of `BrokenLinksMonitorTagArrayInput` via:
 //
-//	MonitorScriptLocationArray{ MonitorScriptLocationArgs{...} }
-type MonitorScriptLocationArrayInput interface {
+//	BrokenLinksMonitorTagArray{ BrokenLinksMonitorTagArgs{...} }
+type BrokenLinksMonitorTagArrayInput interface {
 	pulumi.Input
 
-	ToMonitorScriptLocationArrayOutput() MonitorScriptLocationArrayOutput
-	ToMonitorScriptLocationArrayOutputWithContext(context.Context) MonitorScriptLocationArrayOutput
+	ToBrokenLinksMonitorTagArrayOutput() BrokenLinksMonitorTagArrayOutput
+	ToBrokenLinksMonitorTagArrayOutputWithContext(context.Context) BrokenLinksMonitorTagArrayOutput
 }
 
-type MonitorScriptLocationArray []MonitorScriptLocationInput
+type BrokenLinksMonitorTagArray []BrokenLinksMonitorTagInput
 
-func (MonitorScriptLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorScriptLocation)(nil)).Elem()
+func (BrokenLinksMonitorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrokenLinksMonitorTag)(nil)).Elem()
 }
 
-func (i MonitorScriptLocationArray) ToMonitorScriptLocationArrayOutput() MonitorScriptLocationArrayOutput {
-	return i.ToMonitorScriptLocationArrayOutputWithContext(context.Background())
+func (i BrokenLinksMonitorTagArray) ToBrokenLinksMonitorTagArrayOutput() BrokenLinksMonitorTagArrayOutput {
+	return i.ToBrokenLinksMonitorTagArrayOutputWithContext(context.Background())
 }
 
-func (i MonitorScriptLocationArray) ToMonitorScriptLocationArrayOutputWithContext(ctx context.Context) MonitorScriptLocationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorScriptLocationArrayOutput)
+func (i BrokenLinksMonitorTagArray) ToBrokenLinksMonitorTagArrayOutputWithContext(ctx context.Context) BrokenLinksMonitorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokenLinksMonitorTagArrayOutput)
 }
 
-type MonitorScriptLocationOutput struct{ *pulumi.OutputState }
+type BrokenLinksMonitorTagOutput struct{ *pulumi.OutputState }
 
-func (MonitorScriptLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorScriptLocation)(nil)).Elem()
+func (BrokenLinksMonitorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokenLinksMonitorTag)(nil)).Elem()
 }
 
-func (o MonitorScriptLocationOutput) ToMonitorScriptLocationOutput() MonitorScriptLocationOutput {
+func (o BrokenLinksMonitorTagOutput) ToBrokenLinksMonitorTagOutput() BrokenLinksMonitorTagOutput {
 	return o
 }
 
-func (o MonitorScriptLocationOutput) ToMonitorScriptLocationOutputWithContext(ctx context.Context) MonitorScriptLocationOutput {
+func (o BrokenLinksMonitorTagOutput) ToBrokenLinksMonitorTagOutputWithContext(ctx context.Context) BrokenLinksMonitorTagOutput {
 	return o
 }
 
-// The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
-func (o MonitorScriptLocationOutput) Hmac() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorScriptLocation) *string { return v.Hmac }).(pulumi.StringPtrOutput)
+// Name of the tag key.
+func (o BrokenLinksMonitorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BrokenLinksMonitorTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The monitor script location name.
-func (o MonitorScriptLocationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MonitorScriptLocation) string { return v.Name }).(pulumi.StringOutput)
+// Values associated with the tag key.
+func (o BrokenLinksMonitorTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrokenLinksMonitorTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-// The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
-func (o MonitorScriptLocationOutput) VsePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorScriptLocation) *string { return v.VsePassword }).(pulumi.StringPtrOutput)
+type BrokenLinksMonitorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BrokenLinksMonitorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrokenLinksMonitorTag)(nil)).Elem()
 }
 
-type MonitorScriptLocationArrayOutput struct{ *pulumi.OutputState }
-
-func (MonitorScriptLocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorScriptLocation)(nil)).Elem()
-}
-
-func (o MonitorScriptLocationArrayOutput) ToMonitorScriptLocationArrayOutput() MonitorScriptLocationArrayOutput {
+func (o BrokenLinksMonitorTagArrayOutput) ToBrokenLinksMonitorTagArrayOutput() BrokenLinksMonitorTagArrayOutput {
 	return o
 }
 
-func (o MonitorScriptLocationArrayOutput) ToMonitorScriptLocationArrayOutputWithContext(ctx context.Context) MonitorScriptLocationArrayOutput {
+func (o BrokenLinksMonitorTagArrayOutput) ToBrokenLinksMonitorTagArrayOutputWithContext(ctx context.Context) BrokenLinksMonitorTagArrayOutput {
 	return o
 }
 
-func (o MonitorScriptLocationArrayOutput) Index(i pulumi.IntInput) MonitorScriptLocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorScriptLocation {
-		return vs[0].([]MonitorScriptLocation)[vs[1].(int)]
-	}).(MonitorScriptLocationOutput)
+func (o BrokenLinksMonitorTagArrayOutput) Index(i pulumi.IntInput) BrokenLinksMonitorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrokenLinksMonitorTag {
+		return vs[0].([]BrokenLinksMonitorTag)[vs[1].(int)]
+	}).(BrokenLinksMonitorTagOutput)
+}
+
+type CertCheckMonitorTag struct {
+	// Name of the tag key.
+	Key string `pulumi:"key"`
+	// Values associated with the tag key.
+	Values []string `pulumi:"values"`
+}
+
+// CertCheckMonitorTagInput is an input type that accepts CertCheckMonitorTagArgs and CertCheckMonitorTagOutput values.
+// You can construct a concrete instance of `CertCheckMonitorTagInput` via:
+//
+//	CertCheckMonitorTagArgs{...}
+type CertCheckMonitorTagInput interface {
+	pulumi.Input
+
+	ToCertCheckMonitorTagOutput() CertCheckMonitorTagOutput
+	ToCertCheckMonitorTagOutputWithContext(context.Context) CertCheckMonitorTagOutput
+}
+
+type CertCheckMonitorTagArgs struct {
+	// Name of the tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Values associated with the tag key.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (CertCheckMonitorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertCheckMonitorTag)(nil)).Elem()
+}
+
+func (i CertCheckMonitorTagArgs) ToCertCheckMonitorTagOutput() CertCheckMonitorTagOutput {
+	return i.ToCertCheckMonitorTagOutputWithContext(context.Background())
+}
+
+func (i CertCheckMonitorTagArgs) ToCertCheckMonitorTagOutputWithContext(ctx context.Context) CertCheckMonitorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorTagOutput)
+}
+
+// CertCheckMonitorTagArrayInput is an input type that accepts CertCheckMonitorTagArray and CertCheckMonitorTagArrayOutput values.
+// You can construct a concrete instance of `CertCheckMonitorTagArrayInput` via:
+//
+//	CertCheckMonitorTagArray{ CertCheckMonitorTagArgs{...} }
+type CertCheckMonitorTagArrayInput interface {
+	pulumi.Input
+
+	ToCertCheckMonitorTagArrayOutput() CertCheckMonitorTagArrayOutput
+	ToCertCheckMonitorTagArrayOutputWithContext(context.Context) CertCheckMonitorTagArrayOutput
+}
+
+type CertCheckMonitorTagArray []CertCheckMonitorTagInput
+
+func (CertCheckMonitorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertCheckMonitorTag)(nil)).Elem()
+}
+
+func (i CertCheckMonitorTagArray) ToCertCheckMonitorTagArrayOutput() CertCheckMonitorTagArrayOutput {
+	return i.ToCertCheckMonitorTagArrayOutputWithContext(context.Background())
+}
+
+func (i CertCheckMonitorTagArray) ToCertCheckMonitorTagArrayOutputWithContext(ctx context.Context) CertCheckMonitorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertCheckMonitorTagArrayOutput)
+}
+
+type CertCheckMonitorTagOutput struct{ *pulumi.OutputState }
+
+func (CertCheckMonitorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertCheckMonitorTag)(nil)).Elem()
+}
+
+func (o CertCheckMonitorTagOutput) ToCertCheckMonitorTagOutput() CertCheckMonitorTagOutput {
+	return o
+}
+
+func (o CertCheckMonitorTagOutput) ToCertCheckMonitorTagOutputWithContext(ctx context.Context) CertCheckMonitorTagOutput {
+	return o
+}
+
+// Name of the tag key.
+func (o CertCheckMonitorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CertCheckMonitorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Values associated with the tag key.
+func (o CertCheckMonitorTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CertCheckMonitorTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type CertCheckMonitorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CertCheckMonitorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertCheckMonitorTag)(nil)).Elem()
+}
+
+func (o CertCheckMonitorTagArrayOutput) ToCertCheckMonitorTagArrayOutput() CertCheckMonitorTagArrayOutput {
+	return o
+}
+
+func (o CertCheckMonitorTagArrayOutput) ToCertCheckMonitorTagArrayOutputWithContext(ctx context.Context) CertCheckMonitorTagArrayOutput {
+	return o
+}
+
+func (o CertCheckMonitorTagArrayOutput) Index(i pulumi.IntInput) CertCheckMonitorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertCheckMonitorTag {
+		return vs[0].([]CertCheckMonitorTag)[vs[1].(int)]
+	}).(CertCheckMonitorTagOutput)
+}
+
+type MonitorCustomHeader struct {
+	// Header name.
+	Name *string `pulumi:"name"`
+	// Header Value.
+	Value *string `pulumi:"value"`
+}
+
+// MonitorCustomHeaderInput is an input type that accepts MonitorCustomHeaderArgs and MonitorCustomHeaderOutput values.
+// You can construct a concrete instance of `MonitorCustomHeaderInput` via:
+//
+//	MonitorCustomHeaderArgs{...}
+type MonitorCustomHeaderInput interface {
+	pulumi.Input
+
+	ToMonitorCustomHeaderOutput() MonitorCustomHeaderOutput
+	ToMonitorCustomHeaderOutputWithContext(context.Context) MonitorCustomHeaderOutput
+}
+
+type MonitorCustomHeaderArgs struct {
+	// Header name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Header Value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (MonitorCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorCustomHeader)(nil)).Elem()
+}
+
+func (i MonitorCustomHeaderArgs) ToMonitorCustomHeaderOutput() MonitorCustomHeaderOutput {
+	return i.ToMonitorCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i MonitorCustomHeaderArgs) ToMonitorCustomHeaderOutputWithContext(ctx context.Context) MonitorCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorCustomHeaderOutput)
+}
+
+// MonitorCustomHeaderArrayInput is an input type that accepts MonitorCustomHeaderArray and MonitorCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `MonitorCustomHeaderArrayInput` via:
+//
+//	MonitorCustomHeaderArray{ MonitorCustomHeaderArgs{...} }
+type MonitorCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToMonitorCustomHeaderArrayOutput() MonitorCustomHeaderArrayOutput
+	ToMonitorCustomHeaderArrayOutputWithContext(context.Context) MonitorCustomHeaderArrayOutput
+}
+
+type MonitorCustomHeaderArray []MonitorCustomHeaderInput
+
+func (MonitorCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorCustomHeader)(nil)).Elem()
+}
+
+func (i MonitorCustomHeaderArray) ToMonitorCustomHeaderArrayOutput() MonitorCustomHeaderArrayOutput {
+	return i.ToMonitorCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorCustomHeaderArray) ToMonitorCustomHeaderArrayOutputWithContext(ctx context.Context) MonitorCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorCustomHeaderArrayOutput)
+}
+
+type MonitorCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (MonitorCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorCustomHeader)(nil)).Elem()
+}
+
+func (o MonitorCustomHeaderOutput) ToMonitorCustomHeaderOutput() MonitorCustomHeaderOutput {
+	return o
+}
+
+func (o MonitorCustomHeaderOutput) ToMonitorCustomHeaderOutputWithContext(ctx context.Context) MonitorCustomHeaderOutput {
+	return o
+}
+
+// Header name.
+func (o MonitorCustomHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorCustomHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Header Value.
+func (o MonitorCustomHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorCustomHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type MonitorCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorCustomHeader)(nil)).Elem()
+}
+
+func (o MonitorCustomHeaderArrayOutput) ToMonitorCustomHeaderArrayOutput() MonitorCustomHeaderArrayOutput {
+	return o
+}
+
+func (o MonitorCustomHeaderArrayOutput) ToMonitorCustomHeaderArrayOutputWithContext(ctx context.Context) MonitorCustomHeaderArrayOutput {
+	return o
+}
+
+func (o MonitorCustomHeaderArrayOutput) Index(i pulumi.IntInput) MonitorCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorCustomHeader {
+		return vs[0].([]MonitorCustomHeader)[vs[1].(int)]
+	}).(MonitorCustomHeaderOutput)
+}
+
+type MonitorTag struct {
+	// Name of the tag key.
+	Key string `pulumi:"key"`
+	// Values associated with the tag key.
+	Values []string `pulumi:"values"`
+}
+
+// MonitorTagInput is an input type that accepts MonitorTagArgs and MonitorTagOutput values.
+// You can construct a concrete instance of `MonitorTagInput` via:
+//
+//	MonitorTagArgs{...}
+type MonitorTagInput interface {
+	pulumi.Input
+
+	ToMonitorTagOutput() MonitorTagOutput
+	ToMonitorTagOutputWithContext(context.Context) MonitorTagOutput
+}
+
+type MonitorTagArgs struct {
+	// Name of the tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Values associated with the tag key.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MonitorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTag)(nil)).Elem()
+}
+
+func (i MonitorTagArgs) ToMonitorTagOutput() MonitorTagOutput {
+	return i.ToMonitorTagOutputWithContext(context.Background())
+}
+
+func (i MonitorTagArgs) ToMonitorTagOutputWithContext(ctx context.Context) MonitorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagOutput)
+}
+
+// MonitorTagArrayInput is an input type that accepts MonitorTagArray and MonitorTagArrayOutput values.
+// You can construct a concrete instance of `MonitorTagArrayInput` via:
+//
+//	MonitorTagArray{ MonitorTagArgs{...} }
+type MonitorTagArrayInput interface {
+	pulumi.Input
+
+	ToMonitorTagArrayOutput() MonitorTagArrayOutput
+	ToMonitorTagArrayOutputWithContext(context.Context) MonitorTagArrayOutput
+}
+
+type MonitorTagArray []MonitorTagInput
+
+func (MonitorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTag)(nil)).Elem()
+}
+
+func (i MonitorTagArray) ToMonitorTagArrayOutput() MonitorTagArrayOutput {
+	return i.ToMonitorTagArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorTagArray) ToMonitorTagArrayOutputWithContext(ctx context.Context) MonitorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagArrayOutput)
+}
+
+type MonitorTagOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorTag)(nil)).Elem()
+}
+
+func (o MonitorTagOutput) ToMonitorTagOutput() MonitorTagOutput {
+	return o
+}
+
+func (o MonitorTagOutput) ToMonitorTagOutputWithContext(ctx context.Context) MonitorTagOutput {
+	return o
+}
+
+// Name of the tag key.
+func (o MonitorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Values associated with the tag key.
+func (o MonitorTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonitorTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MonitorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorTag)(nil)).Elem()
+}
+
+func (o MonitorTagArrayOutput) ToMonitorTagArrayOutput() MonitorTagArrayOutput {
+	return o
+}
+
+func (o MonitorTagArrayOutput) ToMonitorTagArrayOutputWithContext(ctx context.Context) MonitorTagArrayOutput {
+	return o
+}
+
+func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTag {
+		return vs[0].([]MonitorTag)[vs[1].(int)]
+	}).(MonitorTagOutput)
 }
 
 type MultiLocationAlertConditionCritical struct {
@@ -391,17 +700,588 @@ func (o MultiLocationAlertConditionWarningPtrOutput) Threshold() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type ScriptMonitorLocationPrivate struct {
+	// The unique identifier for the Synthetics private location in New Relic.
+	Guid string `pulumi:"guid"`
+	// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+	VsePassword *string `pulumi:"vsePassword"`
+}
+
+// ScriptMonitorLocationPrivateInput is an input type that accepts ScriptMonitorLocationPrivateArgs and ScriptMonitorLocationPrivateOutput values.
+// You can construct a concrete instance of `ScriptMonitorLocationPrivateInput` via:
+//
+//	ScriptMonitorLocationPrivateArgs{...}
+type ScriptMonitorLocationPrivateInput interface {
+	pulumi.Input
+
+	ToScriptMonitorLocationPrivateOutput() ScriptMonitorLocationPrivateOutput
+	ToScriptMonitorLocationPrivateOutputWithContext(context.Context) ScriptMonitorLocationPrivateOutput
+}
+
+type ScriptMonitorLocationPrivateArgs struct {
+	// The unique identifier for the Synthetics private location in New Relic.
+	Guid pulumi.StringInput `pulumi:"guid"`
+	// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+	VsePassword pulumi.StringPtrInput `pulumi:"vsePassword"`
+}
+
+func (ScriptMonitorLocationPrivateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (i ScriptMonitorLocationPrivateArgs) ToScriptMonitorLocationPrivateOutput() ScriptMonitorLocationPrivateOutput {
+	return i.ToScriptMonitorLocationPrivateOutputWithContext(context.Background())
+}
+
+func (i ScriptMonitorLocationPrivateArgs) ToScriptMonitorLocationPrivateOutputWithContext(ctx context.Context) ScriptMonitorLocationPrivateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorLocationPrivateOutput)
+}
+
+// ScriptMonitorLocationPrivateArrayInput is an input type that accepts ScriptMonitorLocationPrivateArray and ScriptMonitorLocationPrivateArrayOutput values.
+// You can construct a concrete instance of `ScriptMonitorLocationPrivateArrayInput` via:
+//
+//	ScriptMonitorLocationPrivateArray{ ScriptMonitorLocationPrivateArgs{...} }
+type ScriptMonitorLocationPrivateArrayInput interface {
+	pulumi.Input
+
+	ToScriptMonitorLocationPrivateArrayOutput() ScriptMonitorLocationPrivateArrayOutput
+	ToScriptMonitorLocationPrivateArrayOutputWithContext(context.Context) ScriptMonitorLocationPrivateArrayOutput
+}
+
+type ScriptMonitorLocationPrivateArray []ScriptMonitorLocationPrivateInput
+
+func (ScriptMonitorLocationPrivateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScriptMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (i ScriptMonitorLocationPrivateArray) ToScriptMonitorLocationPrivateArrayOutput() ScriptMonitorLocationPrivateArrayOutput {
+	return i.ToScriptMonitorLocationPrivateArrayOutputWithContext(context.Background())
+}
+
+func (i ScriptMonitorLocationPrivateArray) ToScriptMonitorLocationPrivateArrayOutputWithContext(ctx context.Context) ScriptMonitorLocationPrivateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorLocationPrivateArrayOutput)
+}
+
+type ScriptMonitorLocationPrivateOutput struct{ *pulumi.OutputState }
+
+func (ScriptMonitorLocationPrivateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (o ScriptMonitorLocationPrivateOutput) ToScriptMonitorLocationPrivateOutput() ScriptMonitorLocationPrivateOutput {
+	return o
+}
+
+func (o ScriptMonitorLocationPrivateOutput) ToScriptMonitorLocationPrivateOutputWithContext(ctx context.Context) ScriptMonitorLocationPrivateOutput {
+	return o
+}
+
+// The unique identifier for the Synthetics private location in New Relic.
+func (o ScriptMonitorLocationPrivateOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptMonitorLocationPrivate) string { return v.Guid }).(pulumi.StringOutput)
+}
+
+// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+func (o ScriptMonitorLocationPrivateOutput) VsePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptMonitorLocationPrivate) *string { return v.VsePassword }).(pulumi.StringPtrOutput)
+}
+
+type ScriptMonitorLocationPrivateArrayOutput struct{ *pulumi.OutputState }
+
+func (ScriptMonitorLocationPrivateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScriptMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (o ScriptMonitorLocationPrivateArrayOutput) ToScriptMonitorLocationPrivateArrayOutput() ScriptMonitorLocationPrivateArrayOutput {
+	return o
+}
+
+func (o ScriptMonitorLocationPrivateArrayOutput) ToScriptMonitorLocationPrivateArrayOutputWithContext(ctx context.Context) ScriptMonitorLocationPrivateArrayOutput {
+	return o
+}
+
+func (o ScriptMonitorLocationPrivateArrayOutput) Index(i pulumi.IntInput) ScriptMonitorLocationPrivateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScriptMonitorLocationPrivate {
+		return vs[0].([]ScriptMonitorLocationPrivate)[vs[1].(int)]
+	}).(ScriptMonitorLocationPrivateOutput)
+}
+
+type ScriptMonitorTag struct {
+	// Name of the tag key.
+	Key string `pulumi:"key"`
+	// Values associated with the tag key.
+	Values []string `pulumi:"values"`
+}
+
+// ScriptMonitorTagInput is an input type that accepts ScriptMonitorTagArgs and ScriptMonitorTagOutput values.
+// You can construct a concrete instance of `ScriptMonitorTagInput` via:
+//
+//	ScriptMonitorTagArgs{...}
+type ScriptMonitorTagInput interface {
+	pulumi.Input
+
+	ToScriptMonitorTagOutput() ScriptMonitorTagOutput
+	ToScriptMonitorTagOutputWithContext(context.Context) ScriptMonitorTagOutput
+}
+
+type ScriptMonitorTagArgs struct {
+	// Name of the tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Values associated with the tag key.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ScriptMonitorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptMonitorTag)(nil)).Elem()
+}
+
+func (i ScriptMonitorTagArgs) ToScriptMonitorTagOutput() ScriptMonitorTagOutput {
+	return i.ToScriptMonitorTagOutputWithContext(context.Background())
+}
+
+func (i ScriptMonitorTagArgs) ToScriptMonitorTagOutputWithContext(ctx context.Context) ScriptMonitorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorTagOutput)
+}
+
+// ScriptMonitorTagArrayInput is an input type that accepts ScriptMonitorTagArray and ScriptMonitorTagArrayOutput values.
+// You can construct a concrete instance of `ScriptMonitorTagArrayInput` via:
+//
+//	ScriptMonitorTagArray{ ScriptMonitorTagArgs{...} }
+type ScriptMonitorTagArrayInput interface {
+	pulumi.Input
+
+	ToScriptMonitorTagArrayOutput() ScriptMonitorTagArrayOutput
+	ToScriptMonitorTagArrayOutputWithContext(context.Context) ScriptMonitorTagArrayOutput
+}
+
+type ScriptMonitorTagArray []ScriptMonitorTagInput
+
+func (ScriptMonitorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScriptMonitorTag)(nil)).Elem()
+}
+
+func (i ScriptMonitorTagArray) ToScriptMonitorTagArrayOutput() ScriptMonitorTagArrayOutput {
+	return i.ToScriptMonitorTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScriptMonitorTagArray) ToScriptMonitorTagArrayOutputWithContext(ctx context.Context) ScriptMonitorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptMonitorTagArrayOutput)
+}
+
+type ScriptMonitorTagOutput struct{ *pulumi.OutputState }
+
+func (ScriptMonitorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptMonitorTag)(nil)).Elem()
+}
+
+func (o ScriptMonitorTagOutput) ToScriptMonitorTagOutput() ScriptMonitorTagOutput {
+	return o
+}
+
+func (o ScriptMonitorTagOutput) ToScriptMonitorTagOutputWithContext(ctx context.Context) ScriptMonitorTagOutput {
+	return o
+}
+
+// Name of the tag key.
+func (o ScriptMonitorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptMonitorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Values associated with the tag key.
+func (o ScriptMonitorTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScriptMonitorTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ScriptMonitorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScriptMonitorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScriptMonitorTag)(nil)).Elem()
+}
+
+func (o ScriptMonitorTagArrayOutput) ToScriptMonitorTagArrayOutput() ScriptMonitorTagArrayOutput {
+	return o
+}
+
+func (o ScriptMonitorTagArrayOutput) ToScriptMonitorTagArrayOutputWithContext(ctx context.Context) ScriptMonitorTagArrayOutput {
+	return o
+}
+
+func (o ScriptMonitorTagArrayOutput) Index(i pulumi.IntInput) ScriptMonitorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScriptMonitorTag {
+		return vs[0].([]ScriptMonitorTag)[vs[1].(int)]
+	}).(ScriptMonitorTagOutput)
+}
+
+type StepMonitorLocationPrivate struct {
+	// The unique identifier for the Synthetics private location in New Relic.
+	Guid string `pulumi:"guid"`
+	// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+	VsePassword *string `pulumi:"vsePassword"`
+}
+
+// StepMonitorLocationPrivateInput is an input type that accepts StepMonitorLocationPrivateArgs and StepMonitorLocationPrivateOutput values.
+// You can construct a concrete instance of `StepMonitorLocationPrivateInput` via:
+//
+//	StepMonitorLocationPrivateArgs{...}
+type StepMonitorLocationPrivateInput interface {
+	pulumi.Input
+
+	ToStepMonitorLocationPrivateOutput() StepMonitorLocationPrivateOutput
+	ToStepMonitorLocationPrivateOutputWithContext(context.Context) StepMonitorLocationPrivateOutput
+}
+
+type StepMonitorLocationPrivateArgs struct {
+	// The unique identifier for the Synthetics private location in New Relic.
+	Guid pulumi.StringInput `pulumi:"guid"`
+	// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+	VsePassword pulumi.StringPtrInput `pulumi:"vsePassword"`
+}
+
+func (StepMonitorLocationPrivateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (i StepMonitorLocationPrivateArgs) ToStepMonitorLocationPrivateOutput() StepMonitorLocationPrivateOutput {
+	return i.ToStepMonitorLocationPrivateOutputWithContext(context.Background())
+}
+
+func (i StepMonitorLocationPrivateArgs) ToStepMonitorLocationPrivateOutputWithContext(ctx context.Context) StepMonitorLocationPrivateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorLocationPrivateOutput)
+}
+
+// StepMonitorLocationPrivateArrayInput is an input type that accepts StepMonitorLocationPrivateArray and StepMonitorLocationPrivateArrayOutput values.
+// You can construct a concrete instance of `StepMonitorLocationPrivateArrayInput` via:
+//
+//	StepMonitorLocationPrivateArray{ StepMonitorLocationPrivateArgs{...} }
+type StepMonitorLocationPrivateArrayInput interface {
+	pulumi.Input
+
+	ToStepMonitorLocationPrivateArrayOutput() StepMonitorLocationPrivateArrayOutput
+	ToStepMonitorLocationPrivateArrayOutputWithContext(context.Context) StepMonitorLocationPrivateArrayOutput
+}
+
+type StepMonitorLocationPrivateArray []StepMonitorLocationPrivateInput
+
+func (StepMonitorLocationPrivateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (i StepMonitorLocationPrivateArray) ToStepMonitorLocationPrivateArrayOutput() StepMonitorLocationPrivateArrayOutput {
+	return i.ToStepMonitorLocationPrivateArrayOutputWithContext(context.Background())
+}
+
+func (i StepMonitorLocationPrivateArray) ToStepMonitorLocationPrivateArrayOutputWithContext(ctx context.Context) StepMonitorLocationPrivateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorLocationPrivateArrayOutput)
+}
+
+type StepMonitorLocationPrivateOutput struct{ *pulumi.OutputState }
+
+func (StepMonitorLocationPrivateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (o StepMonitorLocationPrivateOutput) ToStepMonitorLocationPrivateOutput() StepMonitorLocationPrivateOutput {
+	return o
+}
+
+func (o StepMonitorLocationPrivateOutput) ToStepMonitorLocationPrivateOutputWithContext(ctx context.Context) StepMonitorLocationPrivateOutput {
+	return o
+}
+
+// The unique identifier for the Synthetics private location in New Relic.
+func (o StepMonitorLocationPrivateOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v StepMonitorLocationPrivate) string { return v.Guid }).(pulumi.StringOutput)
+}
+
+// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+func (o StepMonitorLocationPrivateOutput) VsePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StepMonitorLocationPrivate) *string { return v.VsePassword }).(pulumi.StringPtrOutput)
+}
+
+type StepMonitorLocationPrivateArrayOutput struct{ *pulumi.OutputState }
+
+func (StepMonitorLocationPrivateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepMonitorLocationPrivate)(nil)).Elem()
+}
+
+func (o StepMonitorLocationPrivateArrayOutput) ToStepMonitorLocationPrivateArrayOutput() StepMonitorLocationPrivateArrayOutput {
+	return o
+}
+
+func (o StepMonitorLocationPrivateArrayOutput) ToStepMonitorLocationPrivateArrayOutputWithContext(ctx context.Context) StepMonitorLocationPrivateArrayOutput {
+	return o
+}
+
+func (o StepMonitorLocationPrivateArrayOutput) Index(i pulumi.IntInput) StepMonitorLocationPrivateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StepMonitorLocationPrivate {
+		return vs[0].([]StepMonitorLocationPrivate)[vs[1].(int)]
+	}).(StepMonitorLocationPrivateOutput)
+}
+
+type StepMonitorStep struct {
+	// The position of the step within the script ranging from 0-100.
+	Ordinal int `pulumi:"ordinal"`
+	// Name of the tag key.
+	Type string `pulumi:"type"`
+	// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+	Values []string `pulumi:"values"`
+}
+
+// StepMonitorStepInput is an input type that accepts StepMonitorStepArgs and StepMonitorStepOutput values.
+// You can construct a concrete instance of `StepMonitorStepInput` via:
+//
+//	StepMonitorStepArgs{...}
+type StepMonitorStepInput interface {
+	pulumi.Input
+
+	ToStepMonitorStepOutput() StepMonitorStepOutput
+	ToStepMonitorStepOutputWithContext(context.Context) StepMonitorStepOutput
+}
+
+type StepMonitorStepArgs struct {
+	// The position of the step within the script ranging from 0-100.
+	Ordinal pulumi.IntInput `pulumi:"ordinal"`
+	// Name of the tag key.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StepMonitorStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepMonitorStep)(nil)).Elem()
+}
+
+func (i StepMonitorStepArgs) ToStepMonitorStepOutput() StepMonitorStepOutput {
+	return i.ToStepMonitorStepOutputWithContext(context.Background())
+}
+
+func (i StepMonitorStepArgs) ToStepMonitorStepOutputWithContext(ctx context.Context) StepMonitorStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorStepOutput)
+}
+
+// StepMonitorStepArrayInput is an input type that accepts StepMonitorStepArray and StepMonitorStepArrayOutput values.
+// You can construct a concrete instance of `StepMonitorStepArrayInput` via:
+//
+//	StepMonitorStepArray{ StepMonitorStepArgs{...} }
+type StepMonitorStepArrayInput interface {
+	pulumi.Input
+
+	ToStepMonitorStepArrayOutput() StepMonitorStepArrayOutput
+	ToStepMonitorStepArrayOutputWithContext(context.Context) StepMonitorStepArrayOutput
+}
+
+type StepMonitorStepArray []StepMonitorStepInput
+
+func (StepMonitorStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepMonitorStep)(nil)).Elem()
+}
+
+func (i StepMonitorStepArray) ToStepMonitorStepArrayOutput() StepMonitorStepArrayOutput {
+	return i.ToStepMonitorStepArrayOutputWithContext(context.Background())
+}
+
+func (i StepMonitorStepArray) ToStepMonitorStepArrayOutputWithContext(ctx context.Context) StepMonitorStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorStepArrayOutput)
+}
+
+type StepMonitorStepOutput struct{ *pulumi.OutputState }
+
+func (StepMonitorStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepMonitorStep)(nil)).Elem()
+}
+
+func (o StepMonitorStepOutput) ToStepMonitorStepOutput() StepMonitorStepOutput {
+	return o
+}
+
+func (o StepMonitorStepOutput) ToStepMonitorStepOutputWithContext(ctx context.Context) StepMonitorStepOutput {
+	return o
+}
+
+// The position of the step within the script ranging from 0-100.
+func (o StepMonitorStepOutput) Ordinal() pulumi.IntOutput {
+	return o.ApplyT(func(v StepMonitorStep) int { return v.Ordinal }).(pulumi.IntOutput)
+}
+
+// Name of the tag key.
+func (o StepMonitorStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StepMonitorStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+func (o StepMonitorStepOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StepMonitorStep) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StepMonitorStepArrayOutput struct{ *pulumi.OutputState }
+
+func (StepMonitorStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepMonitorStep)(nil)).Elem()
+}
+
+func (o StepMonitorStepArrayOutput) ToStepMonitorStepArrayOutput() StepMonitorStepArrayOutput {
+	return o
+}
+
+func (o StepMonitorStepArrayOutput) ToStepMonitorStepArrayOutputWithContext(ctx context.Context) StepMonitorStepArrayOutput {
+	return o
+}
+
+func (o StepMonitorStepArrayOutput) Index(i pulumi.IntInput) StepMonitorStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StepMonitorStep {
+		return vs[0].([]StepMonitorStep)[vs[1].(int)]
+	}).(StepMonitorStepOutput)
+}
+
+type StepMonitorTag struct {
+	// Name of the tag key.
+	Key string `pulumi:"key"`
+	// Values associated with the tag key.
+	Values []string `pulumi:"values"`
+}
+
+// StepMonitorTagInput is an input type that accepts StepMonitorTagArgs and StepMonitorTagOutput values.
+// You can construct a concrete instance of `StepMonitorTagInput` via:
+//
+//	StepMonitorTagArgs{...}
+type StepMonitorTagInput interface {
+	pulumi.Input
+
+	ToStepMonitorTagOutput() StepMonitorTagOutput
+	ToStepMonitorTagOutputWithContext(context.Context) StepMonitorTagOutput
+}
+
+type StepMonitorTagArgs struct {
+	// Name of the tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Values associated with the tag key.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StepMonitorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepMonitorTag)(nil)).Elem()
+}
+
+func (i StepMonitorTagArgs) ToStepMonitorTagOutput() StepMonitorTagOutput {
+	return i.ToStepMonitorTagOutputWithContext(context.Background())
+}
+
+func (i StepMonitorTagArgs) ToStepMonitorTagOutputWithContext(ctx context.Context) StepMonitorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorTagOutput)
+}
+
+// StepMonitorTagArrayInput is an input type that accepts StepMonitorTagArray and StepMonitorTagArrayOutput values.
+// You can construct a concrete instance of `StepMonitorTagArrayInput` via:
+//
+//	StepMonitorTagArray{ StepMonitorTagArgs{...} }
+type StepMonitorTagArrayInput interface {
+	pulumi.Input
+
+	ToStepMonitorTagArrayOutput() StepMonitorTagArrayOutput
+	ToStepMonitorTagArrayOutputWithContext(context.Context) StepMonitorTagArrayOutput
+}
+
+type StepMonitorTagArray []StepMonitorTagInput
+
+func (StepMonitorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepMonitorTag)(nil)).Elem()
+}
+
+func (i StepMonitorTagArray) ToStepMonitorTagArrayOutput() StepMonitorTagArrayOutput {
+	return i.ToStepMonitorTagArrayOutputWithContext(context.Background())
+}
+
+func (i StepMonitorTagArray) ToStepMonitorTagArrayOutputWithContext(ctx context.Context) StepMonitorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StepMonitorTagArrayOutput)
+}
+
+type StepMonitorTagOutput struct{ *pulumi.OutputState }
+
+func (StepMonitorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StepMonitorTag)(nil)).Elem()
+}
+
+func (o StepMonitorTagOutput) ToStepMonitorTagOutput() StepMonitorTagOutput {
+	return o
+}
+
+func (o StepMonitorTagOutput) ToStepMonitorTagOutputWithContext(ctx context.Context) StepMonitorTagOutput {
+	return o
+}
+
+// Name of the tag key.
+func (o StepMonitorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StepMonitorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Values associated with the tag key.
+func (o StepMonitorTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StepMonitorTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StepMonitorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StepMonitorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StepMonitorTag)(nil)).Elem()
+}
+
+func (o StepMonitorTagArrayOutput) ToStepMonitorTagArrayOutput() StepMonitorTagArrayOutput {
+	return o
+}
+
+func (o StepMonitorTagArrayOutput) ToStepMonitorTagArrayOutputWithContext(ctx context.Context) StepMonitorTagArrayOutput {
+	return o
+}
+
+func (o StepMonitorTagArrayOutput) Index(i pulumi.IntInput) StepMonitorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StepMonitorTag {
+		return vs[0].([]StepMonitorTag)[vs[1].(int)]
+	}).(StepMonitorTagOutput)
+}
+
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptLocationInput)(nil)).Elem(), MonitorScriptLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitorScriptLocationArrayInput)(nil)).Elem(), MonitorScriptLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokenLinksMonitorTagInput)(nil)).Elem(), BrokenLinksMonitorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokenLinksMonitorTagArrayInput)(nil)).Elem(), BrokenLinksMonitorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertCheckMonitorTagInput)(nil)).Elem(), CertCheckMonitorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertCheckMonitorTagArrayInput)(nil)).Elem(), CertCheckMonitorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorCustomHeaderInput)(nil)).Elem(), MonitorCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorCustomHeaderArrayInput)(nil)).Elem(), MonitorCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagInput)(nil)).Elem(), MonitorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorTagArrayInput)(nil)).Elem(), MonitorTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionCriticalInput)(nil)).Elem(), MultiLocationAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionCriticalPtrInput)(nil)).Elem(), MultiLocationAlertConditionCriticalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionWarningInput)(nil)).Elem(), MultiLocationAlertConditionWarningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiLocationAlertConditionWarningPtrInput)(nil)).Elem(), MultiLocationAlertConditionWarningArgs{})
-	pulumi.RegisterOutputType(MonitorScriptLocationOutput{})
-	pulumi.RegisterOutputType(MonitorScriptLocationArrayOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptMonitorLocationPrivateInput)(nil)).Elem(), ScriptMonitorLocationPrivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptMonitorLocationPrivateArrayInput)(nil)).Elem(), ScriptMonitorLocationPrivateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptMonitorTagInput)(nil)).Elem(), ScriptMonitorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptMonitorTagArrayInput)(nil)).Elem(), ScriptMonitorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepMonitorLocationPrivateInput)(nil)).Elem(), StepMonitorLocationPrivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepMonitorLocationPrivateArrayInput)(nil)).Elem(), StepMonitorLocationPrivateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepMonitorStepInput)(nil)).Elem(), StepMonitorStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepMonitorStepArrayInput)(nil)).Elem(), StepMonitorStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepMonitorTagInput)(nil)).Elem(), StepMonitorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StepMonitorTagArrayInput)(nil)).Elem(), StepMonitorTagArray{})
+	pulumi.RegisterOutputType(BrokenLinksMonitorTagOutput{})
+	pulumi.RegisterOutputType(BrokenLinksMonitorTagArrayOutput{})
+	pulumi.RegisterOutputType(CertCheckMonitorTagOutput{})
+	pulumi.RegisterOutputType(CertCheckMonitorTagArrayOutput{})
+	pulumi.RegisterOutputType(MonitorCustomHeaderOutput{})
+	pulumi.RegisterOutputType(MonitorCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(MonitorTagOutput{})
+	pulumi.RegisterOutputType(MonitorTagArrayOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionCriticalOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionCriticalPtrOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(MultiLocationAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(ScriptMonitorLocationPrivateOutput{})
+	pulumi.RegisterOutputType(ScriptMonitorLocationPrivateArrayOutput{})
+	pulumi.RegisterOutputType(ScriptMonitorTagOutput{})
+	pulumi.RegisterOutputType(ScriptMonitorTagArrayOutput{})
+	pulumi.RegisterOutputType(StepMonitorLocationPrivateOutput{})
+	pulumi.RegisterOutputType(StepMonitorLocationPrivateArrayOutput{})
+	pulumi.RegisterOutputType(StepMonitorStepOutput{})
+	pulumi.RegisterOutputType(StepMonitorStepArrayOutput{})
+	pulumi.RegisterOutputType(StepMonitorTagOutput{})
+	pulumi.RegisterOutputType(StepMonitorTagArrayOutput{})
 }

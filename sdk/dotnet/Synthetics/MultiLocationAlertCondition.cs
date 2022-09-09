@@ -14,6 +14,52 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new NewRelic.AlertPolicy("policy");
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "US_WEST_1",
+    ///         },
+    ///         Period = "EVERY_10_MINUTES",
+    ///         Status = "DISABLED",
+    ///         Type = "SIMPLE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///     });
+    /// 
+    ///     var example = new NewRelic.Synthetics.MultiLocationAlertCondition("example", new()
+    ///     {
+    ///         PolicyId = policy.Id,
+    ///         RunbookUrl = "https://example.com",
+    ///         Enabled = true,
+    ///         ViolationTimeLimitSeconds = 3600,
+    ///         Entities = new[]
+    ///         {
+    ///             monitor.Id,
+    ///         },
+    ///         Critical = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionCriticalArgs
+    ///         {
+    ///             Threshold = 2,
+    ///         },
+    ///         Warning = new NewRelic.Synthetics.Inputs.MultiLocationAlertConditionWarningArgs
+    ///         {
+    ///             Threshold = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -40,7 +86,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The GUIDs of the Synthetics monitors to alert on.
+        /// The Monitor GUID's of the Synthetics monitors to alert on.
         /// </summary>
         [Output("entities")]
         public Output<ImmutableArray<string>> Entities { get; private set; } = null!;
@@ -137,7 +183,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _entities;
 
         /// <summary>
-        /// The GUIDs of the Synthetics monitors to alert on.
+        /// The Monitor GUID's of the Synthetics monitors to alert on.
         /// </summary>
         public InputList<string> Entities
         {
@@ -199,7 +245,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _entities;
 
         /// <summary>
-        /// The GUIDs of the Synthetics monitors to alert on.
+        /// The Monitor GUID's of the Synthetics monitors to alert on.
         /// </summary>
         public InputList<string> Entities
         {

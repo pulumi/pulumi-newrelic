@@ -85,7 +85,6 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * <<<<<<< HEAD
  * ## Upgrade from 1.x to 2.x
  *
  * There have been several deprecations in the `newrelic.NrqlAlertCondition`
@@ -157,8 +156,6 @@ import * as utilities from "./utilities";
  * ```sh
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
- *
- *  <<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
  */
 export class NrqlAlertCondition extends pulumi.CustomResource {
     /**
@@ -205,7 +202,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly aggregationTimer!: pulumi.Output<string | undefined>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      */
     public readonly aggregationWindow!: pulumi.Output<number>;
     /**
@@ -233,7 +230,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
-     * The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
     public readonly expirationDuration!: pulumi.Output<number | undefined>;
     /**
@@ -275,11 +272,11 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public readonly terms!: pulumi.Output<outputs.NrqlAlertConditionTerm[] | undefined>;
     /**
-     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * Possible values are `singleValue`, `sum` (case insensitive).
+     * **DEPRECATED** Use `signal.slide_by` instead.
      *
      * @deprecated 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
      */
@@ -401,7 +398,7 @@ export interface NrqlAlertConditionState {
      */
     aggregationTimer?: pulumi.Input<string>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
@@ -429,7 +426,7 @@ export interface NrqlAlertConditionState {
      */
     entityGuid?: pulumi.Input<string>;
     /**
-     * The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
     expirationDuration?: pulumi.Input<number>;
     /**
@@ -471,11 +468,11 @@ export interface NrqlAlertConditionState {
      */
     terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
-     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */
     type?: pulumi.Input<string>;
     /**
-     * Possible values are `singleValue`, `sum` (case insensitive).
+     * **DEPRECATED** Use `signal.slide_by` instead.
      *
      * @deprecated 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
      */
@@ -519,7 +516,7 @@ export interface NrqlAlertConditionArgs {
      */
     aggregationTimer?: pulumi.Input<string>;
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      */
     aggregationWindow?: pulumi.Input<number>;
     /**
@@ -543,7 +540,7 @@ export interface NrqlAlertConditionArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
     expirationDuration?: pulumi.Input<number>;
     /**
@@ -585,11 +582,11 @@ export interface NrqlAlertConditionArgs {
      */
     terms?: pulumi.Input<pulumi.Input<inputs.NrqlAlertConditionTerm>[]>;
     /**
-     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      */
     type?: pulumi.Input<string>;
     /**
-     * Possible values are `singleValue`, `sum` (case insensitive).
+     * **DEPRECATED** Use `signal.slide_by` instead.
      *
      * @deprecated 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
      */

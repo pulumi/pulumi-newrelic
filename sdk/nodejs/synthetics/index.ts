@@ -6,20 +6,27 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alertCondition";
-export * from "./getMonitor";
-export * from "./getMonitorLocation";
+export * from "./brokenLinksMonitor";
+export * from "./certCheckMonitor";
+export * from "./getPrivateLocation";
 export * from "./getSecureCredential";
 export * from "./monitor";
-export * from "./monitorScript";
 export * from "./multiLocationAlertCondition";
+export * from "./privateLocation";
+export * from "./scriptMonitor";
 export * from "./secureCredential";
+export * from "./stepMonitor";
 
 // Import resources to register:
 import { AlertCondition } from "./alertCondition";
+import { BrokenLinksMonitor } from "./brokenLinksMonitor";
+import { CertCheckMonitor } from "./certCheckMonitor";
 import { Monitor } from "./monitor";
-import { MonitorScript } from "./monitorScript";
 import { MultiLocationAlertCondition } from "./multiLocationAlertCondition";
+import { PrivateLocation } from "./privateLocation";
+import { ScriptMonitor } from "./scriptMonitor";
 import { SecureCredential } from "./secureCredential";
+import { StepMonitor } from "./stepMonitor";
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,21 +34,33 @@ const _module = {
         switch (type) {
             case "newrelic:synthetics/alertCondition:AlertCondition":
                 return new AlertCondition(name, <any>undefined, { urn })
+            case "newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor":
+                return new BrokenLinksMonitor(name, <any>undefined, { urn })
+            case "newrelic:synthetics/certCheckMonitor:CertCheckMonitor":
+                return new CertCheckMonitor(name, <any>undefined, { urn })
             case "newrelic:synthetics/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
-            case "newrelic:synthetics/monitorScript:MonitorScript":
-                return new MonitorScript(name, <any>undefined, { urn })
             case "newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition":
                 return new MultiLocationAlertCondition(name, <any>undefined, { urn })
+            case "newrelic:synthetics/privateLocation:PrivateLocation":
+                return new PrivateLocation(name, <any>undefined, { urn })
+            case "newrelic:synthetics/scriptMonitor:ScriptMonitor":
+                return new ScriptMonitor(name, <any>undefined, { urn })
             case "newrelic:synthetics/secureCredential:SecureCredential":
                 return new SecureCredential(name, <any>undefined, { urn })
+            case "newrelic:synthetics/stepMonitor:StepMonitor":
+                return new StepMonitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/alertCondition", _module)
+pulumi.runtime.registerResourceModule("newrelic", "synthetics/brokenLinksMonitor", _module)
+pulumi.runtime.registerResourceModule("newrelic", "synthetics/certCheckMonitor", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/monitor", _module)
-pulumi.runtime.registerResourceModule("newrelic", "synthetics/monitorScript", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/multiLocationAlertCondition", _module)
+pulumi.runtime.registerResourceModule("newrelic", "synthetics/privateLocation", _module)
+pulumi.runtime.registerResourceModule("newrelic", "synthetics/scriptMonitor", _module)
 pulumi.runtime.registerResourceModule("newrelic", "synthetics/secureCredential", _module)
+pulumi.runtime.registerResourceModule("newrelic", "synthetics/stepMonitor", _module)

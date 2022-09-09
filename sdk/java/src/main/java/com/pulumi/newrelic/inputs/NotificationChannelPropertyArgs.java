@@ -15,30 +15,66 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
 
     public static final NotificationChannelPropertyArgs Empty = new NotificationChannelPropertyArgs();
 
+    /**
+     * The notification property display value.
+     * *
+     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * 
+     */
     @Import(name="displayValue")
     private @Nullable Output<String> displayValue;
 
+    /**
+     * @return The notification property display value.
+     * *
+     * Each notification channel type supports a specific set of arguments for the `property` block:
+     * 
+     */
     public Optional<Output<String>> displayValue() {
         return Optional.ofNullable(this.displayValue);
     }
 
+    /**
+     * The notification property key.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The notification property key.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The notification property label.
+     * 
+     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
+    /**
+     * @return The notification property label.
+     * 
+     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
+    /**
+     * The notification property value.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The notification property value.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -70,38 +106,90 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
             $ = new NotificationChannelPropertyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param displayValue The notification property display value.
+         * *
+         * Each notification channel type supports a specific set of arguments for the `property` block:
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayValue(@Nullable Output<String> displayValue) {
             $.displayValue = displayValue;
             return this;
         }
 
+        /**
+         * @param displayValue The notification property display value.
+         * *
+         * Each notification channel type supports a specific set of arguments for the `property` block:
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayValue(String displayValue) {
             return displayValue(Output.of(displayValue));
         }
 
+        /**
+         * @param key The notification property key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The notification property key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param label The notification property label.
+         * 
+         * @return builder
+         * 
+         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
+        /**
+         * @param label The notification property label.
+         * 
+         * @return builder
+         * 
+         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
+        /**
+         * @param value The notification property value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The notification property value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

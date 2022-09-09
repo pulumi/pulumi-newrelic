@@ -10,68 +10,135 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'MonitorScriptLocation',
+    'BrokenLinksMonitorTag',
+    'CertCheckMonitorTag',
+    'MonitorCustomHeader',
+    'MonitorTag',
     'MultiLocationAlertConditionCritical',
     'MultiLocationAlertConditionWarning',
+    'ScriptMonitorLocationPrivate',
+    'ScriptMonitorTag',
+    'StepMonitorLocationPrivate',
+    'StepMonitorStep',
+    'StepMonitorTag',
 ]
 
 @pulumi.output_type
-class MonitorScriptLocation(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vsePassword":
-            suggest = "vse_password"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorScriptLocation. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorScriptLocation.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorScriptLocation.__key_warning(key)
-        return super().get(key, default)
-
+class BrokenLinksMonitorTag(dict):
     def __init__(__self__, *,
-                 name: str,
-                 hmac: Optional[str] = None,
-                 vse_password: Optional[str] = None):
+                 key: str,
+                 values: Sequence[str]):
         """
-        :param str name: The monitor script location name.
-        :param str hmac: The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
-        :param str vse_password: The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.
+        :param str key: Name of the tag key.
+        :param Sequence[str] values: Values associated with the tag key.
         """
-        pulumi.set(__self__, "name", name)
-        if hmac is not None:
-            pulumi.set(__self__, "hmac", hmac)
-        if vse_password is not None:
-            pulumi.set(__self__, "vse_password", vse_password)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def key(self) -> str:
         """
-        The monitor script location name.
+        Name of the tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Values associated with the tag key.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class CertCheckMonitorTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Name of the tag key.
+        :param Sequence[str] values: Values associated with the tag key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Name of the tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Values associated with the tag key.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MonitorCustomHeader(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Header name.
+        :param str value: Header Value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Header name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def hmac(self) -> Optional[str]:
+    def value(self) -> Optional[str]:
         """
-        The monitor script authentication code for the location. Use one of either `hmac` or `vse_password`.
+        Header Value.
         """
-        return pulumi.get(self, "hmac")
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MonitorTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Name of the tag key.
+        :param Sequence[str] values: Values associated with the tag key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
-    @pulumi.getter(name="vsePassword")
-    def vse_password(self) -> Optional[str]:
+    @pulumi.getter
+    def key(self) -> str:
         """
-        The password for the location used to calculate the HMAC. Use one of either `hmac` or `vse_password`.
+        Name of the tag key.
         """
-        return pulumi.get(self, "vse_password")
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Values associated with the tag key.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -96,5 +163,198 @@ class MultiLocationAlertConditionWarning(dict):
     @pulumi.getter
     def threshold(self) -> int:
         return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class ScriptMonitorLocationPrivate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vsePassword":
+            suggest = "vse_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptMonitorLocationPrivate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptMonitorLocationPrivate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptMonitorLocationPrivate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guid: str,
+                 vse_password: Optional[str] = None):
+        """
+        :param str guid: The unique identifier for the Synthetics private location in New Relic.
+        :param str vse_password: The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        """
+        pulumi.set(__self__, "guid", guid)
+        if vse_password is not None:
+            pulumi.set(__self__, "vse_password", vse_password)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
+        """
+        The unique identifier for the Synthetics private location in New Relic.
+        """
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter(name="vsePassword")
+    def vse_password(self) -> Optional[str]:
+        """
+        The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        """
+        return pulumi.get(self, "vse_password")
+
+
+@pulumi.output_type
+class ScriptMonitorTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Name of the tag key.
+        :param Sequence[str] values: Values associated with the tag key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Name of the tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Values associated with the tag key.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class StepMonitorLocationPrivate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vsePassword":
+            suggest = "vse_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StepMonitorLocationPrivate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StepMonitorLocationPrivate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StepMonitorLocationPrivate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guid: str,
+                 vse_password: Optional[str] = None):
+        """
+        :param str guid: The unique identifier for the Synthetics private location in New Relic.
+        :param str vse_password: The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        """
+        pulumi.set(__self__, "guid", guid)
+        if vse_password is not None:
+            pulumi.set(__self__, "vse_password", vse_password)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
+        """
+        The unique identifier for the Synthetics private location in New Relic.
+        """
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter(name="vsePassword")
+    def vse_password(self) -> Optional[str]:
+        """
+        The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        """
+        return pulumi.get(self, "vse_password")
+
+
+@pulumi.output_type
+class StepMonitorStep(dict):
+    def __init__(__self__, *,
+                 ordinal: int,
+                 type: str,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param int ordinal: The position of the step within the script ranging from 0-100.
+        :param str type: Name of the tag key.
+        :param Sequence[str] values: The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        """
+        pulumi.set(__self__, "ordinal", ordinal)
+        pulumi.set(__self__, "type", type)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def ordinal(self) -> int:
+        """
+        The position of the step within the script ranging from 0-100.
+        """
+        return pulumi.get(self, "ordinal")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Name of the tag key.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class StepMonitorTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Name of the tag key.
+        :param Sequence[str] values: Values associated with the tag key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Name of the tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Values associated with the tag key.
+        """
+        return pulumi.get(self, "values")
 
 

@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const fooMonitor = newrelic.synthetics.getMonitor({
- *     name: "foo",
- * });
- * const fooAlertCondition = new newrelic.synthetics.AlertCondition("fooAlertCondition", {
- *     policyId: newrelic_alert_policy.foo.id,
- *     monitorId: fooMonitor.then(fooMonitor => fooMonitor.id),
- *     runbookUrl: "https://www.example.com",
- * });
- * ```
- *
  * ## Import
  *
  * Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -66,7 +50,7 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     public readonly monitorId!: pulumi.Output<string>;
     /**
@@ -128,7 +112,7 @@ export interface AlertConditionState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     monitorId?: pulumi.Input<string>;
     /**
@@ -154,7 +138,7 @@ export interface AlertConditionArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      */
     monitorId: pulumi.Input<string>;
     /**

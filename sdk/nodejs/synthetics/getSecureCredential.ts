@@ -46,10 +46,6 @@ export interface GetSecureCredentialArgs {
  */
 export interface GetSecureCredentialResult {
     /**
-     * The time the secure credential was created.
-     */
-    readonly createdAt: string;
-    /**
      * The secure credential's description.
      */
     readonly description: string;

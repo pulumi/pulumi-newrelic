@@ -10,11 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
-    /// Use this resource to create, update, and delete a synthetics monitor in New Relic.
+    /// Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
-    /// ##### Type: `SIMPLE`
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -22,58 +21,46 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
-    ///     {
-    ///         Frequency = 5,
-    ///         Locations = new[]
-    ///         {
-    ///             "AWS_US_EAST_1",
-    ///             "AWS_US_EAST_2",
-    ///         },
-    ///         Status = "ENABLED",
-    ///         Type = "SIMPLE",
-    ///         Uri = "https://example.com",
-    ///         ValidationString = "add example validation check here",
-    ///         VerifySsl = true,
-    ///     });
-    /// 
-    ///     // Optional for type "SIMPLE" and "BROWSER"
-    /// });
-    /// ```
-    /// 
-    /// ##### Type: `BROWSER`
-    /// ## Additional Examples
-    /// 
-    /// Type: `BROWSER`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
     ///         BypassHeadRequest = true,
-    ///         Frequency = 5,
-    ///         Locations = new[]
+    ///         CustomHeaders = new[]
     ///         {
-    ///             "AWS_US_EAST_1",
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "Name",
+    ///                 Value = "simpleMonitor",
+    ///             },
     ///         },
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
+    ///         Period = "EVERY_MINUTE",
     ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
     ///         TreatRedirectAsFailure = true,
-    ///         Type = "BROWSER",
-    ///         Uri = "https://example.com",
-    ///         ValidationString = "add example validation check here",
+    ///         Type = "SIMPLE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         ValidationString = "success",
     ///         VerifySsl = true,
     ///     });
     /// 
-    ///     // optional for type "SIMPLE" and "BROWSER"
     /// });
     /// ```
+    /// ##### Type: `SIMPLE BROWSER`
     /// 
-    /// ##### Type: `SCRIPT_BROWSER`
+    /// &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -82,116 +69,163 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+    ///     var bar = new NewRelic.Synthetics.Monitor("bar", new()
     ///     {
-    ///         Frequency = 5,
-    ///         Locations = new[]
+    ///         CustomHeaders = new[]
     ///         {
-    ///             "AWS_US_EAST_1",
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Value = "simple_browser",
+    ///             },
     ///         },
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         LocationsPublics = new[]
+    ///         {
+    ///             "AP_SOUTH_1",
+    ///         },
+    ///         Period = "EVERY_MINUTE",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
+    ///         ScriptLanguage = "JAVASCRIPT",
     ///         Status = "ENABLED",
-    ///         Type = "SCRIPT_BROWSER",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "SimpleBrowserMonitor",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "BROWSER",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
     ///     });
     /// 
     /// });
     /// ```
-    /// 
-    /// ##### Type: `SCRIPT_API`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
-    ///     {
-    ///         Frequency = 5,
-    ///         Locations = new[]
-    ///         {
-    ///             "AWS_US_EAST_1",
-    ///         },
-    ///         Status = "ENABLED",
-    ///         Type = "SCRIPT_API",
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// See additional examples.
+    /// ## Additional Examples
     /// 
     /// ## Import
     /// 
-    /// Synthetics monitors can be imported using the `id`, e.g. bash
+    /// Synthetics monitor can be imported using the `guid`, e.g. bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/monitor:Monitor main &lt;id&gt;
+    ///  $ pulumi import newrelic:synthetics/monitor:Monitor bar &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/monitor:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Bypass HEAD request.
+        /// The account in which the Synthetics monitor will be created.
+        /// </summary>
+        [Output("accountId")]
+        public Output<int> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Monitor should skip default HEAD request and instead use GET verb in check.
         /// </summary>
         [Output("bypassHeadRequest")]
         public Output<bool?> BypassHeadRequest { get; private set; } = null!;
 
         /// <summary>
-        /// The interval (in minutes) at which this monitor should run.
+        /// Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         /// </summary>
-        [Output("frequency")]
-        public Output<int> Frequency { get; private set; } = null!;
+        [Output("customHeaders")]
+        public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// The locations in which this monitor should be run.
+        /// Capture a screenshot during job execution.
         /// </summary>
-        [Output("locations")]
-        public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
+        [Output("enableScreenshotOnFailureAndScript")]
+        public Output<bool?> EnableScreenshotOnFailureAndScript { get; private set; } = null!;
 
         /// <summary>
-        /// The title of this monitor.
+        /// The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        /// </summary>
+        [Output("locationsPrivates")]
+        public Output<ImmutableArray<string>> LocationsPrivates { get; private set; } = null!;
+
+        /// <summary>
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// </summary>
+        [Output("locationsPublics")]
+        public Output<ImmutableArray<string>> LocationsPublics { get; private set; } = null!;
+
+        /// <summary>
+        /// The human-readable identifier for the monitor.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The base threshold for the SLA report.
+        /// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         /// </summary>
-        [Output("slaThreshold")]
-        public Output<double?> SlaThreshold { get; private set; } = null!;
+        [Output("period")]
+        public Output<string> Period { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+        /// The runtime type that the monitor will run.
+        /// </summary>
+        [Output("runtimeType")]
+        public Output<string?> RuntimeType { get; private set; } = null!;
+
+        /// <summary>
+        /// The runtime type that the monitor will run.
+        /// </summary>
+        [Output("runtimeTypeVersion")]
+        public Output<string?> RuntimeTypeVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The programing language that should execute the script.
+        /// </summary>
+        [Output("scriptLanguage")]
+        public Output<string?> ScriptLanguage { get; private set; } = null!;
+
+        /// <summary>
+        /// The run state of the monitor.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Fail the monitor check if redirected.
+        /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.MonitorTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Categorize redirects during a monitor job as a failure.
         /// </summary>
         [Output("treatRedirectAsFailure")]
         public Output<bool?> TreatRedirectAsFailure { get; private set; } = null!;
 
         /// <summary>
-        /// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+        /// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The URI for the monitor to hit.
+        /// The uri the monitor runs against.
         /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
 
         /// <summary>
-        /// The string to validate against in the response.
+        /// Validation text for monitor to search for at given URI.
         /// </summary>
         [Output("validationString")]
         public Output<string?> ValidationString { get; private set; } = null!;
 
         /// <summary>
-        /// Verify SSL.
+        /// Monitor should validate SSL certificate chain.
         /// </summary>
         [Output("verifySsl")]
         public Output<bool?> VerifySsl { get; private set; } = null!;
@@ -243,73 +277,133 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Bypass HEAD request.
+        /// The account in which the Synthetics monitor will be created.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// Monitor should skip default HEAD request and instead use GET verb in check.
         /// </summary>
         [Input("bypassHeadRequest")]
         public Input<bool>? BypassHeadRequest { get; set; }
 
-        /// <summary>
-        /// The interval (in minutes) at which this monitor should run.
-        /// </summary>
-        [Input("frequency", required: true)]
-        public Input<int> Frequency { get; set; } = null!;
-
-        [Input("locations", required: true)]
-        private InputList<string>? _locations;
+        [Input("customHeaders")]
+        private InputList<Inputs.MonitorCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// The locations in which this monitor should be run.
+        /// Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         /// </summary>
-        public InputList<string> Locations
+        public InputList<Inputs.MonitorCustomHeaderArgs> CustomHeaders
         {
-            get => _locations ?? (_locations = new InputList<string>());
-            set => _locations = value;
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorCustomHeaderArgs>());
+            set => _customHeaders = value;
         }
 
         /// <summary>
-        /// The title of this monitor.
+        /// Capture a screenshot during job execution.
+        /// </summary>
+        [Input("enableScreenshotOnFailureAndScript")]
+        public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
+
+        [Input("locationsPrivates")]
+        private InputList<string>? _locationsPrivates;
+
+        /// <summary>
+        /// The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        /// </summary>
+        public InputList<string> LocationsPrivates
+        {
+            get => _locationsPrivates ?? (_locationsPrivates = new InputList<string>());
+            set => _locationsPrivates = value;
+        }
+
+        [Input("locationsPublics")]
+        private InputList<string>? _locationsPublics;
+
+        /// <summary>
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// </summary>
+        public InputList<string> LocationsPublics
+        {
+            get => _locationsPublics ?? (_locationsPublics = new InputList<string>());
+            set => _locationsPublics = value;
+        }
+
+        /// <summary>
+        /// The human-readable identifier for the monitor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The base threshold for the SLA report.
+        /// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         /// </summary>
-        [Input("slaThreshold")]
-        public Input<double>? SlaThreshold { get; set; }
+        [Input("period")]
+        public Input<string>? Period { get; set; }
 
         /// <summary>
-        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+        /// The runtime type that the monitor will run.
+        /// </summary>
+        [Input("runtimeType")]
+        public Input<string>? RuntimeType { get; set; }
+
+        /// <summary>
+        /// The runtime type that the monitor will run.
+        /// </summary>
+        [Input("runtimeTypeVersion")]
+        public Input<string>? RuntimeTypeVersion { get; set; }
+
+        /// <summary>
+        /// The programing language that should execute the script.
+        /// </summary>
+        [Input("scriptLanguage")]
+        public Input<string>? ScriptLanguage { get; set; }
+
+        /// <summary>
+        /// The run state of the monitor.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.MonitorTagArgs>? _tags;
+
         /// <summary>
-        /// Fail the monitor check if redirected.
+        /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// </summary>
+        public InputList<Inputs.MonitorTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.MonitorTagArgs>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Categorize redirects during a monitor job as a failure.
         /// </summary>
         [Input("treatRedirectAsFailure")]
         public Input<bool>? TreatRedirectAsFailure { get; set; }
 
         /// <summary>
-        /// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+        /// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The URI for the monitor to hit.
+        /// The uri the monitor runs against.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
-        /// The string to validate against in the response.
+        /// Validation text for monitor to search for at given URI.
         /// </summary>
         [Input("validationString")]
         public Input<string>? ValidationString { get; set; }
 
         /// <summary>
-        /// Verify SSL.
+        /// Monitor should validate SSL certificate chain.
         /// </summary>
         [Input("verifySsl")]
         public Input<bool>? VerifySsl { get; set; }
@@ -323,73 +417,133 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Bypass HEAD request.
+        /// The account in which the Synthetics monitor will be created.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// Monitor should skip default HEAD request and instead use GET verb in check.
         /// </summary>
         [Input("bypassHeadRequest")]
         public Input<bool>? BypassHeadRequest { get; set; }
 
-        /// <summary>
-        /// The interval (in minutes) at which this monitor should run.
-        /// </summary>
-        [Input("frequency")]
-        public Input<int>? Frequency { get; set; }
-
-        [Input("locations")]
-        private InputList<string>? _locations;
+        [Input("customHeaders")]
+        private InputList<Inputs.MonitorCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
-        /// The locations in which this monitor should be run.
+        /// Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         /// </summary>
-        public InputList<string> Locations
+        public InputList<Inputs.MonitorCustomHeaderGetArgs> CustomHeaders
         {
-            get => _locations ?? (_locations = new InputList<string>());
-            set => _locations = value;
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorCustomHeaderGetArgs>());
+            set => _customHeaders = value;
         }
 
         /// <summary>
-        /// The title of this monitor.
+        /// Capture a screenshot during job execution.
+        /// </summary>
+        [Input("enableScreenshotOnFailureAndScript")]
+        public Input<bool>? EnableScreenshotOnFailureAndScript { get; set; }
+
+        [Input("locationsPrivates")]
+        private InputList<string>? _locationsPrivates;
+
+        /// <summary>
+        /// The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        /// </summary>
+        public InputList<string> LocationsPrivates
+        {
+            get => _locationsPrivates ?? (_locationsPrivates = new InputList<string>());
+            set => _locationsPrivates = value;
+        }
+
+        [Input("locationsPublics")]
+        private InputList<string>? _locationsPublics;
+
+        /// <summary>
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// </summary>
+        public InputList<string> LocationsPublics
+        {
+            get => _locationsPublics ?? (_locationsPublics = new InputList<string>());
+            set => _locationsPublics = value;
+        }
+
+        /// <summary>
+        /// The human-readable identifier for the monitor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The base threshold for the SLA report.
+        /// The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         /// </summary>
-        [Input("slaThreshold")]
-        public Input<double>? SlaThreshold { get; set; }
+        [Input("period")]
+        public Input<string>? Period { get; set; }
 
         /// <summary>
-        /// The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+        /// The runtime type that the monitor will run.
+        /// </summary>
+        [Input("runtimeType")]
+        public Input<string>? RuntimeType { get; set; }
+
+        /// <summary>
+        /// The runtime type that the monitor will run.
+        /// </summary>
+        [Input("runtimeTypeVersion")]
+        public Input<string>? RuntimeTypeVersion { get; set; }
+
+        /// <summary>
+        /// The programing language that should execute the script.
+        /// </summary>
+        [Input("scriptLanguage")]
+        public Input<string>? ScriptLanguage { get; set; }
+
+        /// <summary>
+        /// The run state of the monitor.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.MonitorTagGetArgs>? _tags;
+
         /// <summary>
-        /// Fail the monitor check if redirected.
+        /// The tags that will be associated with the monitor. See Nested tag blocks below for details.
+        /// </summary>
+        public InputList<Inputs.MonitorTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.MonitorTagGetArgs>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Categorize redirects during a monitor job as a failure.
         /// </summary>
         [Input("treatRedirectAsFailure")]
         public Input<bool>? TreatRedirectAsFailure { get; set; }
 
         /// <summary>
-        /// The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+        /// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The URI for the monitor to hit.
+        /// The uri the monitor runs against.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
-        /// The string to validate against in the response.
+        /// Validation text for monitor to search for at given URI.
         /// </summary>
         [Input("validationString")]
         public Input<string>? ValidationString { get; set; }
 
         /// <summary>
-        /// Verify SSL.
+        /// Monitor should validate SSL certificate chain.
         /// </summary>
         [Input("verifySsl")]
         public Input<bool>? VerifySsl { get; set; }

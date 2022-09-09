@@ -84,14 +84,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      * 
      */
     @Import(name="aggregationWindow")
     private @Nullable Output<Integer> aggregationWindow;
 
     /**
-     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      * 
      */
     public Optional<Output<Integer>> aggregationWindow() {
@@ -189,14 +189,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      * 
      */
     @Import(name="expirationDuration")
     private @Nullable Output<Integer> expirationDuration;
 
     /**
-     * @return The amount of time (in seconds) to wait before considering the signal expired.
+     * @return The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      * 
      */
     public Optional<Output<Integer>> expirationDuration() {
@@ -347,14 +347,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * @return The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -362,7 +362,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Possible values are `single_value`, `sum` (case insensitive).
+     * **DEPRECATED** Use `signal.slide_by` instead.
      * 
      * @deprecated
      * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
@@ -373,7 +373,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     private @Nullable Output<String> valueFunction;
 
     /**
-     * @return Possible values are `single_value`, `sum` (case insensitive).
+     * @return **DEPRECATED** Use `signal.slide_by` instead.
      * 
      * @deprecated
      * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
@@ -575,7 +575,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+         * @param aggregationWindow The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expirationDuration The amount of time (in seconds) to wait before considering the signal expired.
+         * @param expirationDuration The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expirationDuration The amount of time (in seconds) to wait before considering the signal expired.
+         * @param expirationDuration The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+         * @param type The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
          * 
          * @return builder
          * 
@@ -965,7 +965,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+         * @param type The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
          * 
          * @return builder
          * 
@@ -975,7 +975,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param valueFunction Possible values are `single_value`, `sum` (case insensitive).
+         * @param valueFunction **DEPRECATED** Use `signal.slide_by` instead.
          * 
          * @return builder
          * 
@@ -990,7 +990,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param valueFunction Possible values are `single_value`, `sum` (case insensitive).
+         * @param valueFunction **DEPRECATED** Use `signal.slide_by` instead.
          * 
          * @return builder
          * 

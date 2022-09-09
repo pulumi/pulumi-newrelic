@@ -16,26 +16,44 @@ __all__ = ['NotificationChannelArgs', 'NotificationChannel']
 @pulumi.input_type
 class NotificationChannelArgs:
     def __init__(__self__, *,
+                 account_id: pulumi.Input[int],
                  destination_id: pulumi.Input[str],
                  product: pulumi.Input[str],
+                 properties: pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]],
                  type: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]] = None):
+                 active: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NotificationChannel resource.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] destination_id: The id of the destination.
-        :param pulumi.Input[str] product: The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
         """
+        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "destination_id", destination_id)
         pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "type", type)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[int]:
+        """
+        Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="destinationId")
@@ -53,7 +71,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[str]:
         """
-        The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+        The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         """
         return pulumi.get(self, "product")
 
@@ -63,15 +81,39 @@ class NotificationChannelArgs:
 
     @property
     @pulumi.getter
+    def properties(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]:
+        """
+        A nested block that describes a notification channel property. See Nested property blocks below for details.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the channel is active.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
 
     @property
     @pulumi.getter
@@ -85,35 +127,33 @@ class NotificationChannelArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]]:
-        """
-        A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]]):
-        pulumi.set(self, "properties", value)
-
 
 @pulumi.input_type
 class _NotificationChannelState:
     def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
                  destination_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NotificationChannel resources.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] destination_id: The id of the destination.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] product: The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
+        :param pulumi.Input[str] status: The status of the channel.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
         if destination_id is not None:
             pulumi.set(__self__, "destination_id", destination_id)
         if name is not None:
@@ -122,8 +162,34 @@ class _NotificationChannelState:
             pulumi.set(__self__, "product", product)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the channel is active.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
 
     @property
     @pulumi.getter(name="destinationId")
@@ -153,7 +219,7 @@ class _NotificationChannelState:
     @pulumi.getter
     def product(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+        The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         """
         return pulumi.get(self, "product")
 
@@ -165,7 +231,7 @@ class _NotificationChannelState:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]]]:
         """
-        A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+        A nested block that describes a notification channel property. See Nested property blocks below for details.
         """
         return pulumi.get(self, "properties")
 
@@ -175,9 +241,21 @@ class _NotificationChannelState:
 
     @property
     @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the channel.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 
@@ -191,6 +269,8 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
                  destination_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product: Optional[pulumi.Input[str]] = None,
@@ -198,39 +278,38 @@ class NotificationChannel(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Use this resource to create and manage New Relic notification channels.
+        Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 
         ## Example Usage
 
-        ##### Webhook
+        ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
                 label="Payload Template",
-                value=\"\"\"{
-        	"name": "foo"
-        }
-        \"\"\",
+                value="name: {{ foo }}",
             )],
             type="WEBHOOK")
         ```
         See additional examples.
         ## Additional Examples
 
-        ##### ServiceNow
+        ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
-            product="PD",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
             properties=[
                 newrelic.NotificationChannelPropertyArgs(
                     key="description",
@@ -244,24 +323,60 @@ class NotificationChannel(pulumi.CustomResource):
             type="SERVICENOW_INCIDENTS")
         ```
 
-        ##### Email
+        ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="ERROR_TRACKING",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="subject",
+                value="New Subject Title",
+            )],
             type="EMAIL")
         ```
 
-        ##### PagerDuty with account integration
+        ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="ERROR_TRACKING",
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="project",
+                    value="10000",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="issuetype",
+                    value="10004",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="description",
+                    value="Issue ID: {{ issueId }}",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="summary",
+                    value="{{ annotations.title.[0] }}",
+                ),
+            ],
+            type="JIRA_CLASSIC")
+        ```
+
+        ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
                 newrelic.NotificationChannelPropertyArgs(
@@ -270,23 +385,24 @@ class NotificationChannel(pulumi.CustomResource):
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="service",
-                    value="1234",
+                    value="PTQK3FM",
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="email",
-                    value="test@test.com",
+                    value="example@email.com",
                 ),
             ],
             type="PAGERDUTY_ACCOUNT_INTEGRATION")
         ```
 
-        ##### PagerDuty with service integration
+        ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="summary",
@@ -297,13 +413,58 @@ class NotificationChannel(pulumi.CustomResource):
 
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
+        ## Full Scenario Example
+
+        Create a destination resource and reference that destination to the channel resource:
+
+        ### Create a destination
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            account_id=12345678,
+            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
+                password="password",
+                user="username",
+            ),
+            properties=[newrelic.NotificationDestinationPropertyArgs(
+                key="url",
+                value="https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+            )],
+            type="WEBHOOK")
+        ```
+
+        ### Create a channel
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            account_id=12345678,
+            type="WEBHOOK",
+            destination_id=newrelic_notification_destination["webhook-destination"]["id"],
+            product="IINT",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="payload",
+                value="{name: foo}",
+                label="Payload Template",
+            )])
+        ```
+
+        ## Additional Information
+
+        More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] destination_id: The id of the destination.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] product: The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         ...
     @overload
@@ -312,39 +473,38 @@ class NotificationChannel(pulumi.CustomResource):
                  args: NotificationChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create and manage New Relic notification channels.
+        Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 
         ## Example Usage
 
-        ##### Webhook
+        ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
                 label="Payload Template",
-                value=\"\"\"{
-        	"name": "foo"
-        }
-        \"\"\",
+                value="name: {{ foo }}",
             )],
             type="WEBHOOK")
         ```
         See additional examples.
         ## Additional Examples
 
-        ##### ServiceNow
+        ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
-            product="PD",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
             properties=[
                 newrelic.NotificationChannelPropertyArgs(
                     key="description",
@@ -358,24 +518,60 @@ class NotificationChannel(pulumi.CustomResource):
             type="SERVICENOW_INCIDENTS")
         ```
 
-        ##### Email
+        ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="ERROR_TRACKING",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="subject",
+                value="New Subject Title",
+            )],
             type="EMAIL")
         ```
 
-        ##### PagerDuty with account integration
+        ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="ERROR_TRACKING",
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="project",
+                    value="10000",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="issuetype",
+                    value="10004",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="description",
+                    value="Issue ID: {{ issueId }}",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="summary",
+                    value="{{ annotations.title.[0] }}",
+                ),
+            ],
+            type="JIRA_CLASSIC")
+        ```
+
+        ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[
                 newrelic.NotificationChannelPropertyArgs(
@@ -384,23 +580,24 @@ class NotificationChannel(pulumi.CustomResource):
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="service",
-                    value="1234",
+                    value="PTQK3FM",
                 ),
                 newrelic.NotificationChannelPropertyArgs(
                     key="email",
-                    value="test@test.com",
+                    value="example@email.com",
                 ),
             ],
             type="PAGERDUTY_ACCOUNT_INTEGRATION")
         ```
 
-        ##### PagerDuty with service integration
+        ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
         foo = newrelic.NotificationChannel("foo",
-            destination_id="1234",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="summary",
@@ -410,6 +607,49 @@ class NotificationChannel(pulumi.CustomResource):
         ```
 
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+
+        ## Full Scenario Example
+
+        Create a destination resource and reference that destination to the channel resource:
+
+        ### Create a destination
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        webhook_destination = newrelic.NotificationDestination("webhook-destination",
+            account_id=12345678,
+            auth_basic=newrelic.NotificationDestinationAuthBasicArgs(
+                password="password",
+                user="username",
+            ),
+            properties=[newrelic.NotificationDestinationPropertyArgs(
+                key="url",
+                value="https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+            )],
+            type="WEBHOOK")
+        ```
+
+        ### Create a channel
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        webhook_channel = newrelic.NotificationChannel("webhook-channel",
+            account_id=12345678,
+            type="WEBHOOK",
+            destination_id=newrelic_notification_destination["webhook-destination"]["id"],
+            product="IINT",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="payload",
+                value="{name: foo}",
+                label="Payload Template",
+            )])
+        ```
+
+        ## Additional Information
+
+        More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.
@@ -426,6 +666,8 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
                  destination_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product: Optional[pulumi.Input[str]] = None,
@@ -440,6 +682,10 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
+            if account_id is None and not opts.urn:
+                raise TypeError("Missing required property 'account_id'")
+            __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["active"] = active
             if destination_id is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_id'")
             __props__.__dict__["destination_id"] = destination_id
@@ -447,10 +693,13 @@ class NotificationChannel(pulumi.CustomResource):
             if product is None and not opts.urn:
                 raise TypeError("Missing required property 'product'")
             __props__.__dict__["product"] = product
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["status"] = None
         super(NotificationChannel, __self__).__init__(
             'newrelic:index/notificationChannel:NotificationChannel',
             resource_name,
@@ -461,10 +710,13 @@ class NotificationChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: Optional[pulumi.Input[int]] = None,
+            active: Optional[pulumi.Input[bool]] = None,
             destination_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             product: Optional[pulumi.Input[str]] = None,
             properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]]] = None,
+            status: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'NotificationChannel':
         """
         Get an existing NotificationChannel resource's state with the given name, id, and optional extra
@@ -473,22 +725,44 @@ class NotificationChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] destination_id: The id of the destination.
         :param pulumi.Input[str] name: The name of the channel.
-        :param pulumi.Input[str] product: The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
+        :param pulumi.Input[str] status: The status of the channel.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _NotificationChannelState.__new__(_NotificationChannelState)
 
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["active"] = active
         __props__.__dict__["destination_id"] = destination_id
         __props__.__dict__["name"] = name
         __props__.__dict__["product"] = product
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[int]:
+        """
+        Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def active(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the channel is active.
+        """
+        return pulumi.get(self, "active")
 
     @property
     @pulumi.getter(name="destinationId")
@@ -510,23 +784,31 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def product(self) -> pulumi.Output[str]:
         """
-        The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+        The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         """
         return pulumi.get(self, "product")
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output[Optional[Sequence['outputs.NotificationChannelProperty']]]:
+    def properties(self) -> pulumi.Output[Sequence['outputs.NotificationChannelProperty']]:
         """
-        A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+        A nested block that describes a notification channel property. See Nested property blocks below for details.
         """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        The status of the channel.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 

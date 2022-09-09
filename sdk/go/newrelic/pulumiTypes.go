@@ -1179,647 +1179,6 @@ func (o AlertMutingRuleSchedulePtrOutput) WeeklyRepeatDays() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-type DashboardFilter struct {
-	Attributes []string `pulumi:"attributes"`
-	EventTypes []string `pulumi:"eventTypes"`
-}
-
-// DashboardFilterInput is an input type that accepts DashboardFilterArgs and DashboardFilterOutput values.
-// You can construct a concrete instance of `DashboardFilterInput` via:
-//
-//	DashboardFilterArgs{...}
-type DashboardFilterInput interface {
-	pulumi.Input
-
-	ToDashboardFilterOutput() DashboardFilterOutput
-	ToDashboardFilterOutputWithContext(context.Context) DashboardFilterOutput
-}
-
-type DashboardFilterArgs struct {
-	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
-	EventTypes pulumi.StringArrayInput `pulumi:"eventTypes"`
-}
-
-func (DashboardFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardFilter)(nil)).Elem()
-}
-
-func (i DashboardFilterArgs) ToDashboardFilterOutput() DashboardFilterOutput {
-	return i.ToDashboardFilterOutputWithContext(context.Background())
-}
-
-func (i DashboardFilterArgs) ToDashboardFilterOutputWithContext(ctx context.Context) DashboardFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardFilterOutput)
-}
-
-func (i DashboardFilterArgs) ToDashboardFilterPtrOutput() DashboardFilterPtrOutput {
-	return i.ToDashboardFilterPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardFilterArgs) ToDashboardFilterPtrOutputWithContext(ctx context.Context) DashboardFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardFilterOutput).ToDashboardFilterPtrOutputWithContext(ctx)
-}
-
-// DashboardFilterPtrInput is an input type that accepts DashboardFilterArgs, DashboardFilterPtr and DashboardFilterPtrOutput values.
-// You can construct a concrete instance of `DashboardFilterPtrInput` via:
-//
-//	        DashboardFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardFilterPtrInput interface {
-	pulumi.Input
-
-	ToDashboardFilterPtrOutput() DashboardFilterPtrOutput
-	ToDashboardFilterPtrOutputWithContext(context.Context) DashboardFilterPtrOutput
-}
-
-type dashboardFilterPtrType DashboardFilterArgs
-
-func DashboardFilterPtr(v *DashboardFilterArgs) DashboardFilterPtrInput {
-	return (*dashboardFilterPtrType)(v)
-}
-
-func (*dashboardFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardFilter)(nil)).Elem()
-}
-
-func (i *dashboardFilterPtrType) ToDashboardFilterPtrOutput() DashboardFilterPtrOutput {
-	return i.ToDashboardFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardFilterPtrType) ToDashboardFilterPtrOutputWithContext(ctx context.Context) DashboardFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardFilterPtrOutput)
-}
-
-type DashboardFilterOutput struct{ *pulumi.OutputState }
-
-func (DashboardFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardFilter)(nil)).Elem()
-}
-
-func (o DashboardFilterOutput) ToDashboardFilterOutput() DashboardFilterOutput {
-	return o
-}
-
-func (o DashboardFilterOutput) ToDashboardFilterOutputWithContext(ctx context.Context) DashboardFilterOutput {
-	return o
-}
-
-func (o DashboardFilterOutput) ToDashboardFilterPtrOutput() DashboardFilterPtrOutput {
-	return o.ToDashboardFilterPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardFilterOutput) ToDashboardFilterPtrOutputWithContext(ctx context.Context) DashboardFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardFilter) *DashboardFilter {
-		return &v
-	}).(DashboardFilterPtrOutput)
-}
-
-func (o DashboardFilterOutput) Attributes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardFilter) []string { return v.Attributes }).(pulumi.StringArrayOutput)
-}
-
-func (o DashboardFilterOutput) EventTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardFilter) []string { return v.EventTypes }).(pulumi.StringArrayOutput)
-}
-
-type DashboardFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardFilter)(nil)).Elem()
-}
-
-func (o DashboardFilterPtrOutput) ToDashboardFilterPtrOutput() DashboardFilterPtrOutput {
-	return o
-}
-
-func (o DashboardFilterPtrOutput) ToDashboardFilterPtrOutputWithContext(ctx context.Context) DashboardFilterPtrOutput {
-	return o
-}
-
-func (o DashboardFilterPtrOutput) Elem() DashboardFilterOutput {
-	return o.ApplyT(func(v *DashboardFilter) DashboardFilter {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardFilter
-		return ret
-	}).(DashboardFilterOutput)
-}
-
-func (o DashboardFilterPtrOutput) Attributes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardFilter) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Attributes
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o DashboardFilterPtrOutput) EventTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardFilter) []string {
-		if v == nil {
-			return nil
-		}
-		return v.EventTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-type DashboardWidget struct {
-	AccountId            *int                         `pulumi:"accountId"`
-	Column               int                          `pulumi:"column"`
-	CompareWiths         []DashboardWidgetCompareWith `pulumi:"compareWiths"`
-	DrilldownDashboardId *int                         `pulumi:"drilldownDashboardId"`
-	Duration             *int                         `pulumi:"duration"`
-	EndTime              *int                         `pulumi:"endTime"`
-	EntityIds            []int                        `pulumi:"entityIds"`
-	Facet                *string                      `pulumi:"facet"`
-	Height               *int                         `pulumi:"height"`
-	Limit                *int                         `pulumi:"limit"`
-	Metrics              []DashboardWidgetMetric      `pulumi:"metrics"`
-	Notes                *string                      `pulumi:"notes"`
-	Nrql                 *string                      `pulumi:"nrql"`
-	OrderBy              *string                      `pulumi:"orderBy"`
-	RawMetricName        *string                      `pulumi:"rawMetricName"`
-	Row                  int                          `pulumi:"row"`
-	Source               *string                      `pulumi:"source"`
-	ThresholdRed         *float64                     `pulumi:"thresholdRed"`
-	ThresholdYellow      *float64                     `pulumi:"thresholdYellow"`
-	Title                string                       `pulumi:"title"`
-	Visualization        string                       `pulumi:"visualization"`
-	WidgetId             *int                         `pulumi:"widgetId"`
-	Width                *int                         `pulumi:"width"`
-}
-
-// DashboardWidgetInput is an input type that accepts DashboardWidgetArgs and DashboardWidgetOutput values.
-// You can construct a concrete instance of `DashboardWidgetInput` via:
-//
-//	DashboardWidgetArgs{...}
-type DashboardWidgetInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetOutput() DashboardWidgetOutput
-	ToDashboardWidgetOutputWithContext(context.Context) DashboardWidgetOutput
-}
-
-type DashboardWidgetArgs struct {
-	AccountId            pulumi.IntPtrInput                   `pulumi:"accountId"`
-	Column               pulumi.IntInput                      `pulumi:"column"`
-	CompareWiths         DashboardWidgetCompareWithArrayInput `pulumi:"compareWiths"`
-	DrilldownDashboardId pulumi.IntPtrInput                   `pulumi:"drilldownDashboardId"`
-	Duration             pulumi.IntPtrInput                   `pulumi:"duration"`
-	EndTime              pulumi.IntPtrInput                   `pulumi:"endTime"`
-	EntityIds            pulumi.IntArrayInput                 `pulumi:"entityIds"`
-	Facet                pulumi.StringPtrInput                `pulumi:"facet"`
-	Height               pulumi.IntPtrInput                   `pulumi:"height"`
-	Limit                pulumi.IntPtrInput                   `pulumi:"limit"`
-	Metrics              DashboardWidgetMetricArrayInput      `pulumi:"metrics"`
-	Notes                pulumi.StringPtrInput                `pulumi:"notes"`
-	Nrql                 pulumi.StringPtrInput                `pulumi:"nrql"`
-	OrderBy              pulumi.StringPtrInput                `pulumi:"orderBy"`
-	RawMetricName        pulumi.StringPtrInput                `pulumi:"rawMetricName"`
-	Row                  pulumi.IntInput                      `pulumi:"row"`
-	Source               pulumi.StringPtrInput                `pulumi:"source"`
-	ThresholdRed         pulumi.Float64PtrInput               `pulumi:"thresholdRed"`
-	ThresholdYellow      pulumi.Float64PtrInput               `pulumi:"thresholdYellow"`
-	Title                pulumi.StringInput                   `pulumi:"title"`
-	Visualization        pulumi.StringInput                   `pulumi:"visualization"`
-	WidgetId             pulumi.IntPtrInput                   `pulumi:"widgetId"`
-	Width                pulumi.IntPtrInput                   `pulumi:"width"`
-}
-
-func (DashboardWidgetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidget)(nil)).Elem()
-}
-
-func (i DashboardWidgetArgs) ToDashboardWidgetOutput() DashboardWidgetOutput {
-	return i.ToDashboardWidgetOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetArgs) ToDashboardWidgetOutputWithContext(ctx context.Context) DashboardWidgetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetOutput)
-}
-
-// DashboardWidgetArrayInput is an input type that accepts DashboardWidgetArray and DashboardWidgetArrayOutput values.
-// You can construct a concrete instance of `DashboardWidgetArrayInput` via:
-//
-//	DashboardWidgetArray{ DashboardWidgetArgs{...} }
-type DashboardWidgetArrayInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetArrayOutput() DashboardWidgetArrayOutput
-	ToDashboardWidgetArrayOutputWithContext(context.Context) DashboardWidgetArrayOutput
-}
-
-type DashboardWidgetArray []DashboardWidgetInput
-
-func (DashboardWidgetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidget)(nil)).Elem()
-}
-
-func (i DashboardWidgetArray) ToDashboardWidgetArrayOutput() DashboardWidgetArrayOutput {
-	return i.ToDashboardWidgetArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetArray) ToDashboardWidgetArrayOutputWithContext(ctx context.Context) DashboardWidgetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetArrayOutput)
-}
-
-type DashboardWidgetOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidget)(nil)).Elem()
-}
-
-func (o DashboardWidgetOutput) ToDashboardWidgetOutput() DashboardWidgetOutput {
-	return o
-}
-
-func (o DashboardWidgetOutput) ToDashboardWidgetOutputWithContext(ctx context.Context) DashboardWidgetOutput {
-	return o
-}
-
-func (o DashboardWidgetOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.AccountId }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Column() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardWidget) int { return v.Column }).(pulumi.IntOutput)
-}
-
-func (o DashboardWidgetOutput) CompareWiths() DashboardWidgetCompareWithArrayOutput {
-	return o.ApplyT(func(v DashboardWidget) []DashboardWidgetCompareWith { return v.CompareWiths }).(DashboardWidgetCompareWithArrayOutput)
-}
-
-func (o DashboardWidgetOutput) DrilldownDashboardId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.DrilldownDashboardId }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Duration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.Duration }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) EndTime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.EndTime }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) EntityIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v DashboardWidget) []int { return v.EntityIds }).(pulumi.IntArrayOutput)
-}
-
-func (o DashboardWidgetOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Height() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.Height }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Metrics() DashboardWidgetMetricArrayOutput {
-	return o.ApplyT(func(v DashboardWidget) []DashboardWidgetMetric { return v.Metrics }).(DashboardWidgetMetricArrayOutput)
-}
-
-func (o DashboardWidgetOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *string { return v.Notes }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Nrql() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *string { return v.Nrql }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetOutput) OrderBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetOutput) RawMetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *string { return v.RawMetricName }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Row() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardWidget) int { return v.Row }).(pulumi.IntOutput)
-}
-
-func (o DashboardWidgetOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *string { return v.Source }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetOutput) ThresholdRed() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *float64 { return v.ThresholdRed }).(pulumi.Float64PtrOutput)
-}
-
-func (o DashboardWidgetOutput) ThresholdYellow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *float64 { return v.ThresholdYellow }).(pulumi.Float64PtrOutput)
-}
-
-func (o DashboardWidgetOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidget) string { return v.Title }).(pulumi.StringOutput)
-}
-
-func (o DashboardWidgetOutput) Visualization() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidget) string { return v.Visualization }).(pulumi.StringOutput)
-}
-
-func (o DashboardWidgetOutput) WidgetId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.WidgetId }).(pulumi.IntPtrOutput)
-}
-
-func (o DashboardWidgetOutput) Width() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidget) *int { return v.Width }).(pulumi.IntPtrOutput)
-}
-
-type DashboardWidgetArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidget)(nil)).Elem()
-}
-
-func (o DashboardWidgetArrayOutput) ToDashboardWidgetArrayOutput() DashboardWidgetArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetArrayOutput) ToDashboardWidgetArrayOutputWithContext(ctx context.Context) DashboardWidgetArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetArrayOutput) Index(i pulumi.IntInput) DashboardWidgetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidget {
-		return vs[0].([]DashboardWidget)[vs[1].(int)]
-	}).(DashboardWidgetOutput)
-}
-
-type DashboardWidgetCompareWith struct {
-	OffsetDuration string                                 `pulumi:"offsetDuration"`
-	Presentation   DashboardWidgetCompareWithPresentation `pulumi:"presentation"`
-}
-
-// DashboardWidgetCompareWithInput is an input type that accepts DashboardWidgetCompareWithArgs and DashboardWidgetCompareWithOutput values.
-// You can construct a concrete instance of `DashboardWidgetCompareWithInput` via:
-//
-//	DashboardWidgetCompareWithArgs{...}
-type DashboardWidgetCompareWithInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetCompareWithOutput() DashboardWidgetCompareWithOutput
-	ToDashboardWidgetCompareWithOutputWithContext(context.Context) DashboardWidgetCompareWithOutput
-}
-
-type DashboardWidgetCompareWithArgs struct {
-	OffsetDuration pulumi.StringInput                          `pulumi:"offsetDuration"`
-	Presentation   DashboardWidgetCompareWithPresentationInput `pulumi:"presentation"`
-}
-
-func (DashboardWidgetCompareWithArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetCompareWith)(nil)).Elem()
-}
-
-func (i DashboardWidgetCompareWithArgs) ToDashboardWidgetCompareWithOutput() DashboardWidgetCompareWithOutput {
-	return i.ToDashboardWidgetCompareWithOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetCompareWithArgs) ToDashboardWidgetCompareWithOutputWithContext(ctx context.Context) DashboardWidgetCompareWithOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetCompareWithOutput)
-}
-
-// DashboardWidgetCompareWithArrayInput is an input type that accepts DashboardWidgetCompareWithArray and DashboardWidgetCompareWithArrayOutput values.
-// You can construct a concrete instance of `DashboardWidgetCompareWithArrayInput` via:
-//
-//	DashboardWidgetCompareWithArray{ DashboardWidgetCompareWithArgs{...} }
-type DashboardWidgetCompareWithArrayInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetCompareWithArrayOutput() DashboardWidgetCompareWithArrayOutput
-	ToDashboardWidgetCompareWithArrayOutputWithContext(context.Context) DashboardWidgetCompareWithArrayOutput
-}
-
-type DashboardWidgetCompareWithArray []DashboardWidgetCompareWithInput
-
-func (DashboardWidgetCompareWithArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetCompareWith)(nil)).Elem()
-}
-
-func (i DashboardWidgetCompareWithArray) ToDashboardWidgetCompareWithArrayOutput() DashboardWidgetCompareWithArrayOutput {
-	return i.ToDashboardWidgetCompareWithArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetCompareWithArray) ToDashboardWidgetCompareWithArrayOutputWithContext(ctx context.Context) DashboardWidgetCompareWithArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetCompareWithArrayOutput)
-}
-
-type DashboardWidgetCompareWithOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetCompareWithOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetCompareWith)(nil)).Elem()
-}
-
-func (o DashboardWidgetCompareWithOutput) ToDashboardWidgetCompareWithOutput() DashboardWidgetCompareWithOutput {
-	return o
-}
-
-func (o DashboardWidgetCompareWithOutput) ToDashboardWidgetCompareWithOutputWithContext(ctx context.Context) DashboardWidgetCompareWithOutput {
-	return o
-}
-
-func (o DashboardWidgetCompareWithOutput) OffsetDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetCompareWith) string { return v.OffsetDuration }).(pulumi.StringOutput)
-}
-
-func (o DashboardWidgetCompareWithOutput) Presentation() DashboardWidgetCompareWithPresentationOutput {
-	return o.ApplyT(func(v DashboardWidgetCompareWith) DashboardWidgetCompareWithPresentation { return v.Presentation }).(DashboardWidgetCompareWithPresentationOutput)
-}
-
-type DashboardWidgetCompareWithArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetCompareWithArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetCompareWith)(nil)).Elem()
-}
-
-func (o DashboardWidgetCompareWithArrayOutput) ToDashboardWidgetCompareWithArrayOutput() DashboardWidgetCompareWithArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetCompareWithArrayOutput) ToDashboardWidgetCompareWithArrayOutputWithContext(ctx context.Context) DashboardWidgetCompareWithArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetCompareWithArrayOutput) Index(i pulumi.IntInput) DashboardWidgetCompareWithOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetCompareWith {
-		return vs[0].([]DashboardWidgetCompareWith)[vs[1].(int)]
-	}).(DashboardWidgetCompareWithOutput)
-}
-
-type DashboardWidgetCompareWithPresentation struct {
-	Color string `pulumi:"color"`
-	Name  string `pulumi:"name"`
-}
-
-// DashboardWidgetCompareWithPresentationInput is an input type that accepts DashboardWidgetCompareWithPresentationArgs and DashboardWidgetCompareWithPresentationOutput values.
-// You can construct a concrete instance of `DashboardWidgetCompareWithPresentationInput` via:
-//
-//	DashboardWidgetCompareWithPresentationArgs{...}
-type DashboardWidgetCompareWithPresentationInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetCompareWithPresentationOutput() DashboardWidgetCompareWithPresentationOutput
-	ToDashboardWidgetCompareWithPresentationOutputWithContext(context.Context) DashboardWidgetCompareWithPresentationOutput
-}
-
-type DashboardWidgetCompareWithPresentationArgs struct {
-	Color pulumi.StringInput `pulumi:"color"`
-	Name  pulumi.StringInput `pulumi:"name"`
-}
-
-func (DashboardWidgetCompareWithPresentationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetCompareWithPresentation)(nil)).Elem()
-}
-
-func (i DashboardWidgetCompareWithPresentationArgs) ToDashboardWidgetCompareWithPresentationOutput() DashboardWidgetCompareWithPresentationOutput {
-	return i.ToDashboardWidgetCompareWithPresentationOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetCompareWithPresentationArgs) ToDashboardWidgetCompareWithPresentationOutputWithContext(ctx context.Context) DashboardWidgetCompareWithPresentationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetCompareWithPresentationOutput)
-}
-
-type DashboardWidgetCompareWithPresentationOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetCompareWithPresentationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetCompareWithPresentation)(nil)).Elem()
-}
-
-func (o DashboardWidgetCompareWithPresentationOutput) ToDashboardWidgetCompareWithPresentationOutput() DashboardWidgetCompareWithPresentationOutput {
-	return o
-}
-
-func (o DashboardWidgetCompareWithPresentationOutput) ToDashboardWidgetCompareWithPresentationOutputWithContext(ctx context.Context) DashboardWidgetCompareWithPresentationOutput {
-	return o
-}
-
-func (o DashboardWidgetCompareWithPresentationOutput) Color() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetCompareWithPresentation) string { return v.Color }).(pulumi.StringOutput)
-}
-
-func (o DashboardWidgetCompareWithPresentationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetCompareWithPresentation) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type DashboardWidgetMetric struct {
-	Name   string   `pulumi:"name"`
-	Scope  *string  `pulumi:"scope"`
-	Units  *string  `pulumi:"units"`
-	Values []string `pulumi:"values"`
-}
-
-// DashboardWidgetMetricInput is an input type that accepts DashboardWidgetMetricArgs and DashboardWidgetMetricOutput values.
-// You can construct a concrete instance of `DashboardWidgetMetricInput` via:
-//
-//	DashboardWidgetMetricArgs{...}
-type DashboardWidgetMetricInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetMetricOutput() DashboardWidgetMetricOutput
-	ToDashboardWidgetMetricOutputWithContext(context.Context) DashboardWidgetMetricOutput
-}
-
-type DashboardWidgetMetricArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
-	Scope  pulumi.StringPtrInput   `pulumi:"scope"`
-	Units  pulumi.StringPtrInput   `pulumi:"units"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (DashboardWidgetMetricArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetMetric)(nil)).Elem()
-}
-
-func (i DashboardWidgetMetricArgs) ToDashboardWidgetMetricOutput() DashboardWidgetMetricOutput {
-	return i.ToDashboardWidgetMetricOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetMetricArgs) ToDashboardWidgetMetricOutputWithContext(ctx context.Context) DashboardWidgetMetricOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetMetricOutput)
-}
-
-// DashboardWidgetMetricArrayInput is an input type that accepts DashboardWidgetMetricArray and DashboardWidgetMetricArrayOutput values.
-// You can construct a concrete instance of `DashboardWidgetMetricArrayInput` via:
-//
-//	DashboardWidgetMetricArray{ DashboardWidgetMetricArgs{...} }
-type DashboardWidgetMetricArrayInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetMetricArrayOutput() DashboardWidgetMetricArrayOutput
-	ToDashboardWidgetMetricArrayOutputWithContext(context.Context) DashboardWidgetMetricArrayOutput
-}
-
-type DashboardWidgetMetricArray []DashboardWidgetMetricInput
-
-func (DashboardWidgetMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetMetric)(nil)).Elem()
-}
-
-func (i DashboardWidgetMetricArray) ToDashboardWidgetMetricArrayOutput() DashboardWidgetMetricArrayOutput {
-	return i.ToDashboardWidgetMetricArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetMetricArray) ToDashboardWidgetMetricArrayOutputWithContext(ctx context.Context) DashboardWidgetMetricArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetMetricArrayOutput)
-}
-
-type DashboardWidgetMetricOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetMetric)(nil)).Elem()
-}
-
-func (o DashboardWidgetMetricOutput) ToDashboardWidgetMetricOutput() DashboardWidgetMetricOutput {
-	return o
-}
-
-func (o DashboardWidgetMetricOutput) ToDashboardWidgetMetricOutputWithContext(ctx context.Context) DashboardWidgetMetricOutput {
-	return o
-}
-
-func (o DashboardWidgetMetricOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetMetric) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DashboardWidgetMetricOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetMetric) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetMetricOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetMetric) *string { return v.Units }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardWidgetMetricOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetMetric) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type DashboardWidgetMetricArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetMetricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetMetric)(nil)).Elem()
-}
-
-func (o DashboardWidgetMetricArrayOutput) ToDashboardWidgetMetricArrayOutput() DashboardWidgetMetricArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetMetricArrayOutput) ToDashboardWidgetMetricArrayOutputWithContext(ctx context.Context) DashboardWidgetMetricArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetMetricArrayOutput) Index(i pulumi.IntInput) DashboardWidgetMetricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetMetric {
-		return vs[0].([]DashboardWidgetMetric)[vs[1].(int)]
-	}).(DashboardWidgetMetricOutput)
-}
-
 type EntityTagsTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -2253,10 +1612,16 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type NotificationChannelProperty struct {
+	// The notification property display value.
+	// *
+	// Each notification channel type supports a specific set of arguments for the `property` block:
 	DisplayValue *string `pulumi:"displayValue"`
-	Key          string  `pulumi:"key"`
-	Label        *string `pulumi:"label"`
-	Value        string  `pulumi:"value"`
+	// The notification property key.
+	Key string `pulumi:"key"`
+	// The notification property label.
+	Label *string `pulumi:"label"`
+	// The notification property value.
+	Value string `pulumi:"value"`
 }
 
 // NotificationChannelPropertyInput is an input type that accepts NotificationChannelPropertyArgs and NotificationChannelPropertyOutput values.
@@ -2271,10 +1636,16 @@ type NotificationChannelPropertyInput interface {
 }
 
 type NotificationChannelPropertyArgs struct {
+	// The notification property display value.
+	// *
+	// Each notification channel type supports a specific set of arguments for the `property` block:
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
-	Key          pulumi.StringInput    `pulumi:"key"`
-	Label        pulumi.StringPtrInput `pulumi:"label"`
-	Value        pulumi.StringInput    `pulumi:"value"`
+	// The notification property key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The notification property label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The notification property value.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (NotificationChannelPropertyArgs) ElementType() reflect.Type {
@@ -2328,18 +1699,24 @@ func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutputWi
 	return o
 }
 
+// The notification property display value.
+// *
+// Each notification channel type supports a specific set of arguments for the `property` block:
 func (o NotificationChannelPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
 
+// The notification property key.
 func (o NotificationChannelPropertyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The notification property label.
 func (o NotificationChannelPropertyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The notification property value.
 func (o NotificationChannelPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2364,11 +1741,327 @@ func (o NotificationChannelPropertyArrayOutput) Index(i pulumi.IntInput) Notific
 	}).(NotificationChannelPropertyOutput)
 }
 
+type NotificationDestinationAuthBasic struct {
+	// Specifies an authentication password for use with a destination.
+	Password string `pulumi:"password"`
+	// The username of the basic auth.
+	User string `pulumi:"user"`
+}
+
+// NotificationDestinationAuthBasicInput is an input type that accepts NotificationDestinationAuthBasicArgs and NotificationDestinationAuthBasicOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthBasicInput` via:
+//
+//	NotificationDestinationAuthBasicArgs{...}
+type NotificationDestinationAuthBasicInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthBasicOutput() NotificationDestinationAuthBasicOutput
+	ToNotificationDestinationAuthBasicOutputWithContext(context.Context) NotificationDestinationAuthBasicOutput
+}
+
+type NotificationDestinationAuthBasicArgs struct {
+	// Specifies an authentication password for use with a destination.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username of the basic auth.
+	User pulumi.StringInput `pulumi:"user"`
+}
+
+func (NotificationDestinationAuthBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (i NotificationDestinationAuthBasicArgs) ToNotificationDestinationAuthBasicOutput() NotificationDestinationAuthBasicOutput {
+	return i.ToNotificationDestinationAuthBasicOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthBasicArgs) ToNotificationDestinationAuthBasicOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthBasicOutput)
+}
+
+func (i NotificationDestinationAuthBasicArgs) ToNotificationDestinationAuthBasicPtrOutput() NotificationDestinationAuthBasicPtrOutput {
+	return i.ToNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthBasicArgs) ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthBasicOutput).ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx)
+}
+
+// NotificationDestinationAuthBasicPtrInput is an input type that accepts NotificationDestinationAuthBasicArgs, NotificationDestinationAuthBasicPtr and NotificationDestinationAuthBasicPtrOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthBasicPtrInput` via:
+//
+//	        NotificationDestinationAuthBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationDestinationAuthBasicPtrInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthBasicPtrOutput() NotificationDestinationAuthBasicPtrOutput
+	ToNotificationDestinationAuthBasicPtrOutputWithContext(context.Context) NotificationDestinationAuthBasicPtrOutput
+}
+
+type notificationDestinationAuthBasicPtrType NotificationDestinationAuthBasicArgs
+
+func NotificationDestinationAuthBasicPtr(v *NotificationDestinationAuthBasicArgs) NotificationDestinationAuthBasicPtrInput {
+	return (*notificationDestinationAuthBasicPtrType)(v)
+}
+
+func (*notificationDestinationAuthBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (i *notificationDestinationAuthBasicPtrType) ToNotificationDestinationAuthBasicPtrOutput() NotificationDestinationAuthBasicPtrOutput {
+	return i.ToNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationDestinationAuthBasicPtrType) ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthBasicPtrOutput)
+}
+
+type NotificationDestinationAuthBasicOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBasicOutput() NotificationDestinationAuthBasicOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBasicOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBasicPtrOutput() NotificationDestinationAuthBasicPtrOutput {
+	return o.ToNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationDestinationAuthBasicOutput) ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationDestinationAuthBasic) *NotificationDestinationAuthBasic {
+		return &v
+	}).(NotificationDestinationAuthBasicPtrOutput)
+}
+
+// Specifies an authentication password for use with a destination.
+func (o NotificationDestinationAuthBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username of the basic auth.
+func (o NotificationDestinationAuthBasicOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthBasic) string { return v.User }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationAuthBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthBasicPtrOutput) ToNotificationDestinationAuthBasicPtrOutput() NotificationDestinationAuthBasicPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthBasicPtrOutput) ToNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthBasicPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthBasicPtrOutput) Elem() NotificationDestinationAuthBasicOutput {
+	return o.ApplyT(func(v *NotificationDestinationAuthBasic) NotificationDestinationAuthBasic {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationDestinationAuthBasic
+		return ret
+	}).(NotificationDestinationAuthBasicOutput)
+}
+
+// Specifies an authentication password for use with a destination.
+func (o NotificationDestinationAuthBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the basic auth.
+func (o NotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationAuthBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotificationDestinationAuthToken struct {
+	// The prefix of the token auth.
+	Prefix *string `pulumi:"prefix"`
+	// Specifies the token for integrating.
+	Token string `pulumi:"token"`
+}
+
+// NotificationDestinationAuthTokenInput is an input type that accepts NotificationDestinationAuthTokenArgs and NotificationDestinationAuthTokenOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthTokenInput` via:
+//
+//	NotificationDestinationAuthTokenArgs{...}
+type NotificationDestinationAuthTokenInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthTokenOutput() NotificationDestinationAuthTokenOutput
+	ToNotificationDestinationAuthTokenOutputWithContext(context.Context) NotificationDestinationAuthTokenOutput
+}
+
+type NotificationDestinationAuthTokenArgs struct {
+	// The prefix of the token auth.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Specifies the token for integrating.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (NotificationDestinationAuthTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (i NotificationDestinationAuthTokenArgs) ToNotificationDestinationAuthTokenOutput() NotificationDestinationAuthTokenOutput {
+	return i.ToNotificationDestinationAuthTokenOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthTokenArgs) ToNotificationDestinationAuthTokenOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthTokenOutput)
+}
+
+func (i NotificationDestinationAuthTokenArgs) ToNotificationDestinationAuthTokenPtrOutput() NotificationDestinationAuthTokenPtrOutput {
+	return i.ToNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationDestinationAuthTokenArgs) ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthTokenOutput).ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx)
+}
+
+// NotificationDestinationAuthTokenPtrInput is an input type that accepts NotificationDestinationAuthTokenArgs, NotificationDestinationAuthTokenPtr and NotificationDestinationAuthTokenPtrOutput values.
+// You can construct a concrete instance of `NotificationDestinationAuthTokenPtrInput` via:
+//
+//	        NotificationDestinationAuthTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationDestinationAuthTokenPtrInput interface {
+	pulumi.Input
+
+	ToNotificationDestinationAuthTokenPtrOutput() NotificationDestinationAuthTokenPtrOutput
+	ToNotificationDestinationAuthTokenPtrOutputWithContext(context.Context) NotificationDestinationAuthTokenPtrOutput
+}
+
+type notificationDestinationAuthTokenPtrType NotificationDestinationAuthTokenArgs
+
+func NotificationDestinationAuthTokenPtr(v *NotificationDestinationAuthTokenArgs) NotificationDestinationAuthTokenPtrInput {
+	return (*notificationDestinationAuthTokenPtrType)(v)
+}
+
+func (*notificationDestinationAuthTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (i *notificationDestinationAuthTokenPtrType) ToNotificationDestinationAuthTokenPtrOutput() NotificationDestinationAuthTokenPtrOutput {
+	return i.ToNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationDestinationAuthTokenPtrType) ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationDestinationAuthTokenPtrOutput)
+}
+
+type NotificationDestinationAuthTokenOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTokenOutput() NotificationDestinationAuthTokenOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTokenOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTokenPtrOutput() NotificationDestinationAuthTokenPtrOutput {
+	return o.ToNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationDestinationAuthTokenOutput) ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationDestinationAuthToken) *NotificationDestinationAuthToken {
+		return &v
+	}).(NotificationDestinationAuthTokenPtrOutput)
+}
+
+// The prefix of the token auth.
+func (o NotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the token for integrating.
+func (o NotificationDestinationAuthTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationDestinationAuthToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type NotificationDestinationAuthTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationDestinationAuthTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (o NotificationDestinationAuthTokenPtrOutput) ToNotificationDestinationAuthTokenPtrOutput() NotificationDestinationAuthTokenPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthTokenPtrOutput) ToNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) NotificationDestinationAuthTokenPtrOutput {
+	return o
+}
+
+func (o NotificationDestinationAuthTokenPtrOutput) Elem() NotificationDestinationAuthTokenOutput {
+	return o.ApplyT(func(v *NotificationDestinationAuthToken) NotificationDestinationAuthToken {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationDestinationAuthToken
+		return ret
+	}).(NotificationDestinationAuthTokenOutput)
+}
+
+// The prefix of the token auth.
+func (o NotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the token for integrating.
+func (o NotificationDestinationAuthTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationDestinationAuthToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
 type NotificationDestinationProperty struct {
+	// The notification property display value.
 	DisplayValue *string `pulumi:"displayValue"`
-	Key          string  `pulumi:"key"`
-	Label        *string `pulumi:"label"`
-	Value        string  `pulumi:"value"`
+	// The notification property key.
+	Key string `pulumi:"key"`
+	// The notification property label.
+	Label *string `pulumi:"label"`
+	// The notification property value.
+	Value string `pulumi:"value"`
 }
 
 // NotificationDestinationPropertyInput is an input type that accepts NotificationDestinationPropertyArgs and NotificationDestinationPropertyOutput values.
@@ -2383,10 +2076,14 @@ type NotificationDestinationPropertyInput interface {
 }
 
 type NotificationDestinationPropertyArgs struct {
+	// The notification property display value.
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
-	Key          pulumi.StringInput    `pulumi:"key"`
-	Label        pulumi.StringPtrInput `pulumi:"label"`
-	Value        pulumi.StringInput    `pulumi:"value"`
+	// The notification property key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The notification property label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The notification property value.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (NotificationDestinationPropertyArgs) ElementType() reflect.Type {
@@ -2440,18 +2137,22 @@ func (o NotificationDestinationPropertyOutput) ToNotificationDestinationProperty
 	return o
 }
 
+// The notification property display value.
 func (o NotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
 
+// The notification property key.
 func (o NotificationDestinationPropertyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The notification property label.
 func (o NotificationDestinationPropertyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The notification property value.
 func (o NotificationDestinationPropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationDestinationProperty) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2477,23 +2178,12 @@ func (o NotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) Not
 }
 
 type NrqlAlertConditionCritical struct {
-	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration *int `pulumi:"duration"`
-	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-	Operator *string `pulumi:"operator"`
-	// The value which will trigger a violation. Must be `0` or greater.
-	Threshold float64 `pulumi:"threshold"`
-	// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-	// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-	ThresholdDuration *int `pulumi:"thresholdDuration"`
-	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+	Duration             *int    `pulumi:"duration"`
+	Operator             *string `pulumi:"operator"`
+	Threshold            float64 `pulumi:"threshold"`
+	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
-	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -2510,23 +2200,12 @@ type NrqlAlertConditionCriticalInput interface {
 }
 
 type NrqlAlertConditionCriticalArgs struct {
-	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The value which will trigger a violation. Must be `0` or greater.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-	// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
-	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
+	Operator             pulumi.StringPtrInput `pulumi:"operator"`
+	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
+	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
-	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -2608,38 +2287,27 @@ func (o NrqlAlertConditionCriticalOutput) ToNrqlAlertConditionCriticalPtrOutputW
 	}).(NrqlAlertConditionCriticalPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
 func (o NrqlAlertConditionCriticalOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionCriticalOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
 func (o NrqlAlertConditionCriticalOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
-// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionCriticalOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionCritical) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -2669,8 +2337,6 @@ func (o NrqlAlertConditionCriticalPtrOutput) Elem() NrqlAlertConditionCriticalOu
 	}).(NrqlAlertConditionCriticalOutput)
 }
 
-// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
@@ -2681,7 +2347,6 @@ func (o NrqlAlertConditionCriticalPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
 func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2691,7 +2356,6 @@ func (o NrqlAlertConditionCriticalPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *float64 {
 		if v == nil {
@@ -2701,10 +2365,6 @@ func (o NrqlAlertConditionCriticalPtrOutput) Threshold() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
 func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *int {
 		if v == nil {
@@ -2714,7 +2374,6 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdDuration() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
 		if v == nil {
@@ -2724,8 +2383,6 @@ func (o NrqlAlertConditionCriticalPtrOutput) ThresholdOccurrences() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionCritical) *string {
@@ -2737,16 +2394,9 @@ func (o NrqlAlertConditionCriticalPtrOutput) TimeFunction() pulumi.StringPtrOutp
 }
 
 type NrqlAlertConditionNrql struct {
-	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-	//
 	// Deprecated: use `aggregation_method` attribute instead
-	EvaluationOffset *int `pulumi:"evaluationOffset"`
-	// The NRQL query to execute for the condition.
-	Query string `pulumi:"query"`
-	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-	//
+	EvaluationOffset *int   `pulumi:"evaluationOffset"`
+	Query            string `pulumi:"query"`
 	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue *string `pulumi:"sinceValue"`
 }
@@ -2763,16 +2413,9 @@ type NrqlAlertConditionNrqlInput interface {
 }
 
 type NrqlAlertConditionNrqlArgs struct {
-	// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-	//
 	// Deprecated: use `aggregation_method` attribute instead
 	EvaluationOffset pulumi.IntPtrInput `pulumi:"evaluationOffset"`
-	// The NRQL query to execute for the condition.
-	Query pulumi.StringInput `pulumi:"query"`
-	// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-	// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-	//
+	Query            pulumi.StringInput `pulumi:"query"`
 	// Deprecated: use `aggregation_method` attribute instead
 	SinceValue pulumi.StringPtrInput `pulumi:"sinceValue"`
 }
@@ -2854,22 +2497,15 @@ func (o NrqlAlertConditionNrqlOutput) ToNrqlAlertConditionNrqlPtrOutputWithConte
 	}).(NrqlAlertConditionNrqlPtrOutput)
 }
 
-// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *int { return v.EvaluationOffset }).(pulumi.IntPtrOutput)
 }
 
-// The NRQL query to execute for the condition.
 func (o NrqlAlertConditionNrqlOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) string { return v.Query }).(pulumi.StringOutput)
 }
 
-// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionNrql) *string { return v.SinceValue }).(pulumi.StringPtrOutput)
@@ -2899,9 +2535,6 @@ func (o NrqlAlertConditionNrqlPtrOutput) Elem() NrqlAlertConditionNrqlOutput {
 	}).(NrqlAlertConditionNrqlOutput)
 }
 
-// Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *int {
@@ -2912,7 +2545,6 @@ func (o NrqlAlertConditionNrqlPtrOutput) EvaluationOffset() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The NRQL query to execute for the condition.
 func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
 		if v == nil {
@@ -2922,9 +2554,6 @@ func (o NrqlAlertConditionNrqlPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-// <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-//
 // Deprecated: use `aggregation_method` attribute instead
 func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionNrql) *string {
@@ -2936,25 +2565,13 @@ func (o NrqlAlertConditionNrqlPtrOutput) SinceValue() pulumi.StringPtrOutput {
 }
 
 type NrqlAlertConditionTerm struct {
-	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration *int `pulumi:"duration"`
-	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-	Operator *string `pulumi:"operator"`
-	// `critical` or `warning`. Defaults to `critical`.
-	Priority *string `pulumi:"priority"`
-	// The value which will trigger a violation. Must be `0` or greater.
-	Threshold float64 `pulumi:"threshold"`
-	// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-	// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-	ThresholdDuration *int `pulumi:"thresholdDuration"`
-	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+	Duration             *int    `pulumi:"duration"`
+	Operator             *string `pulumi:"operator"`
+	Priority             *string `pulumi:"priority"`
+	Threshold            float64 `pulumi:"threshold"`
+	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
-	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -2971,25 +2588,13 @@ type NrqlAlertConditionTermInput interface {
 }
 
 type NrqlAlertConditionTermArgs struct {
-	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// `critical` or `warning`. Defaults to `critical`.
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	// The value which will trigger a violation. Must be `0` or greater.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-	// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
-	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
+	Operator             pulumi.StringPtrInput `pulumi:"operator"`
+	Priority             pulumi.StringPtrInput `pulumi:"priority"`
+	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
+	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
-	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -3045,43 +2650,31 @@ func (o NrqlAlertConditionTermOutput) ToNrqlAlertConditionTermOutputWithContext(
 	return o
 }
 
-// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionTermOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
 func (o NrqlAlertConditionTermOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// `critical` or `warning`. Defaults to `critical`.
 func (o NrqlAlertConditionTermOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
-// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionTermOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
 func (o NrqlAlertConditionTermOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
-// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionTermOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionTermOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionTerm) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -3108,23 +2701,12 @@ func (o NrqlAlertConditionTermArrayOutput) Index(i pulumi.IntInput) NrqlAlertCon
 }
 
 type NrqlAlertConditionWarning struct {
-	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration *int `pulumi:"duration"`
-	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-	Operator *string `pulumi:"operator"`
-	// The value which will trigger a violation. Must be `0` or greater.
-	Threshold float64 `pulumi:"threshold"`
-	// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-	// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-	ThresholdDuration *int `pulumi:"thresholdDuration"`
-	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+	Duration             *int    `pulumi:"duration"`
+	Operator             *string `pulumi:"operator"`
+	Threshold            float64 `pulumi:"threshold"`
+	ThresholdDuration    *int    `pulumi:"thresholdDuration"`
 	ThresholdOccurrences *string `pulumi:"thresholdOccurrences"`
-	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction *string `pulumi:"timeFunction"`
 }
@@ -3141,23 +2723,12 @@ type NrqlAlertConditionWarningInput interface {
 }
 
 type NrqlAlertConditionWarningArgs struct {
-	// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-	//
 	// Deprecated: use `threshold_duration` attribute instead
-	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The value which will trigger a violation. Must be `0` or greater.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-	// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-	// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-	ThresholdDuration pulumi.IntPtrInput `pulumi:"thresholdDuration"`
-	// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
+	Duration             pulumi.IntPtrInput    `pulumi:"duration"`
+	Operator             pulumi.StringPtrInput `pulumi:"operator"`
+	Threshold            pulumi.Float64Input   `pulumi:"threshold"`
+	ThresholdDuration    pulumi.IntPtrInput    `pulumi:"thresholdDuration"`
 	ThresholdOccurrences pulumi.StringPtrInput `pulumi:"thresholdOccurrences"`
-	// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-	//
 	// Deprecated: use `threshold_occurrences` attribute instead
 	TimeFunction pulumi.StringPtrInput `pulumi:"timeFunction"`
 }
@@ -3239,38 +2810,27 @@ func (o NrqlAlertConditionWarningOutput) ToNrqlAlertConditionWarningPtrOutputWit
 	}).(NrqlAlertConditionWarningPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
 func (o NrqlAlertConditionWarningOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionWarningOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
 func (o NrqlAlertConditionWarningOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *int { return v.ThresholdDuration }).(pulumi.IntPtrOutput)
 }
 
-// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionWarningOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.ThresholdOccurrences }).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NrqlAlertConditionWarning) *string { return v.TimeFunction }).(pulumi.StringPtrOutput)
@@ -3300,8 +2860,6 @@ func (o NrqlAlertConditionWarningPtrOutput) Elem() NrqlAlertConditionWarningOutp
 	}).(NrqlAlertConditionWarningOutput)
 }
 
-// **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-//
 // Deprecated: use `threshold_duration` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
@@ -3312,7 +2870,6 @@ func (o NrqlAlertConditionWarningPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
 func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
@@ -3322,7 +2879,6 @@ func (o NrqlAlertConditionWarningPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value which will trigger a violation. Must be `0` or greater.
 func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *float64 {
 		if v == nil {
@@ -3332,10 +2888,6 @@ func (o NrqlAlertConditionWarningPtrOutput) Threshold() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-// <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
 func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *int {
 		if v == nil {
@@ -3345,7 +2897,6 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdDuration() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
 		if v == nil {
@@ -3355,8 +2906,6 @@ func (o NrqlAlertConditionWarningPtrOutput) ThresholdOccurrences() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-//
 // Deprecated: use `threshold_occurrences` attribute instead
 func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertConditionWarning) *string {
@@ -8807,6 +8356,789 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkflowDestinationConfiguration struct {
+	ChannelId string `pulumi:"channelId"`
+	// A nrql enrichment name.
+	Name *string `pulumi:"name"`
+	// the filter's type.   One of: `FILTER` or `VIEW`.
+	// * `predicates`
+	Type *string `pulumi:"type"`
+}
+
+// WorkflowDestinationConfigurationInput is an input type that accepts WorkflowDestinationConfigurationArgs and WorkflowDestinationConfigurationOutput values.
+// You can construct a concrete instance of `WorkflowDestinationConfigurationInput` via:
+//
+//	WorkflowDestinationConfigurationArgs{...}
+type WorkflowDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkflowDestinationConfigurationOutput() WorkflowDestinationConfigurationOutput
+	ToWorkflowDestinationConfigurationOutputWithContext(context.Context) WorkflowDestinationConfigurationOutput
+}
+
+type WorkflowDestinationConfigurationArgs struct {
+	ChannelId pulumi.StringInput `pulumi:"channelId"`
+	// A nrql enrichment name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// the filter's type.   One of: `FILTER` or `VIEW`.
+	// * `predicates`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkflowDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowDestinationConfiguration)(nil)).Elem()
+}
+
+func (i WorkflowDestinationConfigurationArgs) ToWorkflowDestinationConfigurationOutput() WorkflowDestinationConfigurationOutput {
+	return i.ToWorkflowDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkflowDestinationConfigurationArgs) ToWorkflowDestinationConfigurationOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationConfigurationOutput)
+}
+
+// WorkflowDestinationConfigurationArrayInput is an input type that accepts WorkflowDestinationConfigurationArray and WorkflowDestinationConfigurationArrayOutput values.
+// You can construct a concrete instance of `WorkflowDestinationConfigurationArrayInput` via:
+//
+//	WorkflowDestinationConfigurationArray{ WorkflowDestinationConfigurationArgs{...} }
+type WorkflowDestinationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowDestinationConfigurationArrayOutput() WorkflowDestinationConfigurationArrayOutput
+	ToWorkflowDestinationConfigurationArrayOutputWithContext(context.Context) WorkflowDestinationConfigurationArrayOutput
+}
+
+type WorkflowDestinationConfigurationArray []WorkflowDestinationConfigurationInput
+
+func (WorkflowDestinationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowDestinationConfiguration)(nil)).Elem()
+}
+
+func (i WorkflowDestinationConfigurationArray) ToWorkflowDestinationConfigurationArrayOutput() WorkflowDestinationConfigurationArrayOutput {
+	return i.ToWorkflowDestinationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowDestinationConfigurationArray) ToWorkflowDestinationConfigurationArrayOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationConfigurationArrayOutput)
+}
+
+type WorkflowDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowDestinationConfiguration)(nil)).Elem()
+}
+
+func (o WorkflowDestinationConfigurationOutput) ToWorkflowDestinationConfigurationOutput() WorkflowDestinationConfigurationOutput {
+	return o
+}
+
+func (o WorkflowDestinationConfigurationOutput) ToWorkflowDestinationConfigurationOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationOutput {
+	return o
+}
+
+func (o WorkflowDestinationConfigurationOutput) ChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowDestinationConfiguration) string { return v.ChannelId }).(pulumi.StringOutput)
+}
+
+// A nrql enrichment name.
+func (o WorkflowDestinationConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowDestinationConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// the filter's type.   One of: `FILTER` or `VIEW`.
+// * `predicates`
+func (o WorkflowDestinationConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowDestinationConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowDestinationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowDestinationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowDestinationConfiguration)(nil)).Elem()
+}
+
+func (o WorkflowDestinationConfigurationArrayOutput) ToWorkflowDestinationConfigurationArrayOutput() WorkflowDestinationConfigurationArrayOutput {
+	return o
+}
+
+func (o WorkflowDestinationConfigurationArrayOutput) ToWorkflowDestinationConfigurationArrayOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationArrayOutput {
+	return o
+}
+
+func (o WorkflowDestinationConfigurationArrayOutput) Index(i pulumi.IntInput) WorkflowDestinationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowDestinationConfiguration {
+		return vs[0].([]WorkflowDestinationConfiguration)[vs[1].(int)]
+	}).(WorkflowDestinationConfigurationOutput)
+}
+
+type WorkflowEnrichments struct {
+	Nrqls []WorkflowEnrichmentsNrql `pulumi:"nrqls"`
+}
+
+// WorkflowEnrichmentsInput is an input type that accepts WorkflowEnrichmentsArgs and WorkflowEnrichmentsOutput values.
+// You can construct a concrete instance of `WorkflowEnrichmentsInput` via:
+//
+//	WorkflowEnrichmentsArgs{...}
+type WorkflowEnrichmentsInput interface {
+	pulumi.Input
+
+	ToWorkflowEnrichmentsOutput() WorkflowEnrichmentsOutput
+	ToWorkflowEnrichmentsOutputWithContext(context.Context) WorkflowEnrichmentsOutput
+}
+
+type WorkflowEnrichmentsArgs struct {
+	Nrqls WorkflowEnrichmentsNrqlArrayInput `pulumi:"nrqls"`
+}
+
+func (WorkflowEnrichmentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnrichments)(nil)).Elem()
+}
+
+func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsOutput() WorkflowEnrichmentsOutput {
+	return i.ToWorkflowEnrichmentsOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsOutputWithContext(ctx context.Context) WorkflowEnrichmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsOutput)
+}
+
+func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsPtrOutput() WorkflowEnrichmentsPtrOutput {
+	return i.ToWorkflowEnrichmentsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnrichmentsArgs) ToWorkflowEnrichmentsPtrOutputWithContext(ctx context.Context) WorkflowEnrichmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsOutput).ToWorkflowEnrichmentsPtrOutputWithContext(ctx)
+}
+
+// WorkflowEnrichmentsPtrInput is an input type that accepts WorkflowEnrichmentsArgs, WorkflowEnrichmentsPtr and WorkflowEnrichmentsPtrOutput values.
+// You can construct a concrete instance of `WorkflowEnrichmentsPtrInput` via:
+//
+//	        WorkflowEnrichmentsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowEnrichmentsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowEnrichmentsPtrOutput() WorkflowEnrichmentsPtrOutput
+	ToWorkflowEnrichmentsPtrOutputWithContext(context.Context) WorkflowEnrichmentsPtrOutput
+}
+
+type workflowEnrichmentsPtrType WorkflowEnrichmentsArgs
+
+func WorkflowEnrichmentsPtr(v *WorkflowEnrichmentsArgs) WorkflowEnrichmentsPtrInput {
+	return (*workflowEnrichmentsPtrType)(v)
+}
+
+func (*workflowEnrichmentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowEnrichments)(nil)).Elem()
+}
+
+func (i *workflowEnrichmentsPtrType) ToWorkflowEnrichmentsPtrOutput() WorkflowEnrichmentsPtrOutput {
+	return i.ToWorkflowEnrichmentsPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowEnrichmentsPtrType) ToWorkflowEnrichmentsPtrOutputWithContext(ctx context.Context) WorkflowEnrichmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsPtrOutput)
+}
+
+type WorkflowEnrichmentsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnrichmentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnrichments)(nil)).Elem()
+}
+
+func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsOutput() WorkflowEnrichmentsOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsOutputWithContext(ctx context.Context) WorkflowEnrichmentsOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsPtrOutput() WorkflowEnrichmentsPtrOutput {
+	return o.ToWorkflowEnrichmentsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsPtrOutputWithContext(ctx context.Context) WorkflowEnrichmentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowEnrichments) *WorkflowEnrichments {
+		return &v
+	}).(WorkflowEnrichmentsPtrOutput)
+}
+
+func (o WorkflowEnrichmentsOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
+	return o.ApplyT(func(v WorkflowEnrichments) []WorkflowEnrichmentsNrql { return v.Nrqls }).(WorkflowEnrichmentsNrqlArrayOutput)
+}
+
+type WorkflowEnrichmentsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnrichmentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowEnrichments)(nil)).Elem()
+}
+
+func (o WorkflowEnrichmentsPtrOutput) ToWorkflowEnrichmentsPtrOutput() WorkflowEnrichmentsPtrOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsPtrOutput) ToWorkflowEnrichmentsPtrOutputWithContext(ctx context.Context) WorkflowEnrichmentsPtrOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsPtrOutput) Elem() WorkflowEnrichmentsOutput {
+	return o.ApplyT(func(v *WorkflowEnrichments) WorkflowEnrichments {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowEnrichments
+		return ret
+	}).(WorkflowEnrichmentsOutput)
+}
+
+func (o WorkflowEnrichmentsPtrOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
+	return o.ApplyT(func(v *WorkflowEnrichments) []WorkflowEnrichmentsNrql {
+		if v == nil {
+			return nil
+		}
+		return v.Nrqls
+	}).(WorkflowEnrichmentsNrqlArrayOutput)
+}
+
+type WorkflowEnrichmentsNrql struct {
+	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
+	// A list of nrql enrichments.
+	Configurations []WorkflowEnrichmentsNrqlConfiguration `pulumi:"configurations"`
+	EnrichmentId   *string                                `pulumi:"enrichmentId"`
+	// A nrql enrichment name.
+	Name string `pulumi:"name"`
+	// the filter's type.   One of: `FILTER` or `VIEW`.
+	// * `predicates`
+	Type *string `pulumi:"type"`
+}
+
+// WorkflowEnrichmentsNrqlInput is an input type that accepts WorkflowEnrichmentsNrqlArgs and WorkflowEnrichmentsNrqlOutput values.
+// You can construct a concrete instance of `WorkflowEnrichmentsNrqlInput` via:
+//
+//	WorkflowEnrichmentsNrqlArgs{...}
+type WorkflowEnrichmentsNrqlInput interface {
+	pulumi.Input
+
+	ToWorkflowEnrichmentsNrqlOutput() WorkflowEnrichmentsNrqlOutput
+	ToWorkflowEnrichmentsNrqlOutputWithContext(context.Context) WorkflowEnrichmentsNrqlOutput
+}
+
+type WorkflowEnrichmentsNrqlArgs struct {
+	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
+	// A list of nrql enrichments.
+	Configurations WorkflowEnrichmentsNrqlConfigurationArrayInput `pulumi:"configurations"`
+	EnrichmentId   pulumi.StringPtrInput                          `pulumi:"enrichmentId"`
+	// A nrql enrichment name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the filter's type.   One of: `FILTER` or `VIEW`.
+	// * `predicates`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkflowEnrichmentsNrqlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnrichmentsNrql)(nil)).Elem()
+}
+
+func (i WorkflowEnrichmentsNrqlArgs) ToWorkflowEnrichmentsNrqlOutput() WorkflowEnrichmentsNrqlOutput {
+	return i.ToWorkflowEnrichmentsNrqlOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnrichmentsNrqlArgs) ToWorkflowEnrichmentsNrqlOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlOutput)
+}
+
+// WorkflowEnrichmentsNrqlArrayInput is an input type that accepts WorkflowEnrichmentsNrqlArray and WorkflowEnrichmentsNrqlArrayOutput values.
+// You can construct a concrete instance of `WorkflowEnrichmentsNrqlArrayInput` via:
+//
+//	WorkflowEnrichmentsNrqlArray{ WorkflowEnrichmentsNrqlArgs{...} }
+type WorkflowEnrichmentsNrqlArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowEnrichmentsNrqlArrayOutput() WorkflowEnrichmentsNrqlArrayOutput
+	ToWorkflowEnrichmentsNrqlArrayOutputWithContext(context.Context) WorkflowEnrichmentsNrqlArrayOutput
+}
+
+type WorkflowEnrichmentsNrqlArray []WorkflowEnrichmentsNrqlInput
+
+func (WorkflowEnrichmentsNrqlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowEnrichmentsNrql)(nil)).Elem()
+}
+
+func (i WorkflowEnrichmentsNrqlArray) ToWorkflowEnrichmentsNrqlArrayOutput() WorkflowEnrichmentsNrqlArrayOutput {
+	return i.ToWorkflowEnrichmentsNrqlArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnrichmentsNrqlArray) ToWorkflowEnrichmentsNrqlArrayOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlArrayOutput)
+}
+
+type WorkflowEnrichmentsNrqlOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnrichmentsNrqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnrichmentsNrql)(nil)).Elem()
+}
+
+func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutput() WorkflowEnrichmentsNrqlOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlOutput {
+	return o
+}
+
+// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+func (o WorkflowEnrichmentsNrqlOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *int { return v.AccountId }).(pulumi.IntPtrOutput)
+}
+
+// A list of nrql enrichments.
+func (o WorkflowEnrichmentsNrqlOutput) Configurations() WorkflowEnrichmentsNrqlConfigurationArrayOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) []WorkflowEnrichmentsNrqlConfiguration { return v.Configurations }).(WorkflowEnrichmentsNrqlConfigurationArrayOutput)
+}
+
+func (o WorkflowEnrichmentsNrqlOutput) EnrichmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.EnrichmentId }).(pulumi.StringPtrOutput)
+}
+
+// A nrql enrichment name.
+func (o WorkflowEnrichmentsNrqlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the filter's type.   One of: `FILTER` or `VIEW`.
+// * `predicates`
+func (o WorkflowEnrichmentsNrqlOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowEnrichmentsNrqlArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnrichmentsNrqlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowEnrichmentsNrql)(nil)).Elem()
+}
+
+func (o WorkflowEnrichmentsNrqlArrayOutput) ToWorkflowEnrichmentsNrqlArrayOutput() WorkflowEnrichmentsNrqlArrayOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsNrqlArrayOutput) ToWorkflowEnrichmentsNrqlArrayOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlArrayOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsNrqlArrayOutput) Index(i pulumi.IntInput) WorkflowEnrichmentsNrqlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowEnrichmentsNrql {
+		return vs[0].([]WorkflowEnrichmentsNrql)[vs[1].(int)]
+	}).(WorkflowEnrichmentsNrqlOutput)
+}
+
+type WorkflowEnrichmentsNrqlConfiguration struct {
+	// the nrql query.
+	Query string `pulumi:"query"`
+}
+
+// WorkflowEnrichmentsNrqlConfigurationInput is an input type that accepts WorkflowEnrichmentsNrqlConfigurationArgs and WorkflowEnrichmentsNrqlConfigurationOutput values.
+// You can construct a concrete instance of `WorkflowEnrichmentsNrqlConfigurationInput` via:
+//
+//	WorkflowEnrichmentsNrqlConfigurationArgs{...}
+type WorkflowEnrichmentsNrqlConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkflowEnrichmentsNrqlConfigurationOutput() WorkflowEnrichmentsNrqlConfigurationOutput
+	ToWorkflowEnrichmentsNrqlConfigurationOutputWithContext(context.Context) WorkflowEnrichmentsNrqlConfigurationOutput
+}
+
+type WorkflowEnrichmentsNrqlConfigurationArgs struct {
+	// the nrql query.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (WorkflowEnrichmentsNrqlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnrichmentsNrqlConfiguration)(nil)).Elem()
+}
+
+func (i WorkflowEnrichmentsNrqlConfigurationArgs) ToWorkflowEnrichmentsNrqlConfigurationOutput() WorkflowEnrichmentsNrqlConfigurationOutput {
+	return i.ToWorkflowEnrichmentsNrqlConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnrichmentsNrqlConfigurationArgs) ToWorkflowEnrichmentsNrqlConfigurationOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlConfigurationOutput)
+}
+
+// WorkflowEnrichmentsNrqlConfigurationArrayInput is an input type that accepts WorkflowEnrichmentsNrqlConfigurationArray and WorkflowEnrichmentsNrqlConfigurationArrayOutput values.
+// You can construct a concrete instance of `WorkflowEnrichmentsNrqlConfigurationArrayInput` via:
+//
+//	WorkflowEnrichmentsNrqlConfigurationArray{ WorkflowEnrichmentsNrqlConfigurationArgs{...} }
+type WorkflowEnrichmentsNrqlConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowEnrichmentsNrqlConfigurationArrayOutput() WorkflowEnrichmentsNrqlConfigurationArrayOutput
+	ToWorkflowEnrichmentsNrqlConfigurationArrayOutputWithContext(context.Context) WorkflowEnrichmentsNrqlConfigurationArrayOutput
+}
+
+type WorkflowEnrichmentsNrqlConfigurationArray []WorkflowEnrichmentsNrqlConfigurationInput
+
+func (WorkflowEnrichmentsNrqlConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowEnrichmentsNrqlConfiguration)(nil)).Elem()
+}
+
+func (i WorkflowEnrichmentsNrqlConfigurationArray) ToWorkflowEnrichmentsNrqlConfigurationArrayOutput() WorkflowEnrichmentsNrqlConfigurationArrayOutput {
+	return i.ToWorkflowEnrichmentsNrqlConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowEnrichmentsNrqlConfigurationArray) ToWorkflowEnrichmentsNrqlConfigurationArrayOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEnrichmentsNrqlConfigurationArrayOutput)
+}
+
+type WorkflowEnrichmentsNrqlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnrichmentsNrqlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowEnrichmentsNrqlConfiguration)(nil)).Elem()
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToWorkflowEnrichmentsNrqlConfigurationOutput() WorkflowEnrichmentsNrqlConfigurationOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToWorkflowEnrichmentsNrqlConfigurationOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlConfigurationOutput {
+	return o
+}
+
+// the nrql query.
+func (o WorkflowEnrichmentsNrqlConfigurationOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowEnrichmentsNrqlConfiguration) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type WorkflowEnrichmentsNrqlConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowEnrichmentsNrqlConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowEnrichmentsNrqlConfiguration)(nil)).Elem()
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) ToWorkflowEnrichmentsNrqlConfigurationArrayOutput() WorkflowEnrichmentsNrqlConfigurationArrayOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) ToWorkflowEnrichmentsNrqlConfigurationArrayOutputWithContext(ctx context.Context) WorkflowEnrichmentsNrqlConfigurationArrayOutput {
+	return o
+}
+
+func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) Index(i pulumi.IntInput) WorkflowEnrichmentsNrqlConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowEnrichmentsNrqlConfiguration {
+		return vs[0].([]WorkflowEnrichmentsNrqlConfiguration)[vs[1].(int)]
+	}).(WorkflowEnrichmentsNrqlConfigurationOutput)
+}
+
+type WorkflowIssuesFilter struct {
+	FilterId *string `pulumi:"filterId"`
+	// A nrql enrichment name.
+	Name       string                          `pulumi:"name"`
+	Predicates []WorkflowIssuesFilterPredicate `pulumi:"predicates"`
+	// the filter's type.   One of: `FILTER` or `VIEW`.
+	// * `predicates`
+	Type string `pulumi:"type"`
+}
+
+// WorkflowIssuesFilterInput is an input type that accepts WorkflowIssuesFilterArgs and WorkflowIssuesFilterOutput values.
+// You can construct a concrete instance of `WorkflowIssuesFilterInput` via:
+//
+//	WorkflowIssuesFilterArgs{...}
+type WorkflowIssuesFilterInput interface {
+	pulumi.Input
+
+	ToWorkflowIssuesFilterOutput() WorkflowIssuesFilterOutput
+	ToWorkflowIssuesFilterOutputWithContext(context.Context) WorkflowIssuesFilterOutput
+}
+
+type WorkflowIssuesFilterArgs struct {
+	FilterId pulumi.StringPtrInput `pulumi:"filterId"`
+	// A nrql enrichment name.
+	Name       pulumi.StringInput                      `pulumi:"name"`
+	Predicates WorkflowIssuesFilterPredicateArrayInput `pulumi:"predicates"`
+	// the filter's type.   One of: `FILTER` or `VIEW`.
+	// * `predicates`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowIssuesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowIssuesFilter)(nil)).Elem()
+}
+
+func (i WorkflowIssuesFilterArgs) ToWorkflowIssuesFilterOutput() WorkflowIssuesFilterOutput {
+	return i.ToWorkflowIssuesFilterOutputWithContext(context.Background())
+}
+
+func (i WorkflowIssuesFilterArgs) ToWorkflowIssuesFilterOutputWithContext(ctx context.Context) WorkflowIssuesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterOutput)
+}
+
+func (i WorkflowIssuesFilterArgs) ToWorkflowIssuesFilterPtrOutput() WorkflowIssuesFilterPtrOutput {
+	return i.ToWorkflowIssuesFilterPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowIssuesFilterArgs) ToWorkflowIssuesFilterPtrOutputWithContext(ctx context.Context) WorkflowIssuesFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterOutput).ToWorkflowIssuesFilterPtrOutputWithContext(ctx)
+}
+
+// WorkflowIssuesFilterPtrInput is an input type that accepts WorkflowIssuesFilterArgs, WorkflowIssuesFilterPtr and WorkflowIssuesFilterPtrOutput values.
+// You can construct a concrete instance of `WorkflowIssuesFilterPtrInput` via:
+//
+//	        WorkflowIssuesFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowIssuesFilterPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowIssuesFilterPtrOutput() WorkflowIssuesFilterPtrOutput
+	ToWorkflowIssuesFilterPtrOutputWithContext(context.Context) WorkflowIssuesFilterPtrOutput
+}
+
+type workflowIssuesFilterPtrType WorkflowIssuesFilterArgs
+
+func WorkflowIssuesFilterPtr(v *WorkflowIssuesFilterArgs) WorkflowIssuesFilterPtrInput {
+	return (*workflowIssuesFilterPtrType)(v)
+}
+
+func (*workflowIssuesFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowIssuesFilter)(nil)).Elem()
+}
+
+func (i *workflowIssuesFilterPtrType) ToWorkflowIssuesFilterPtrOutput() WorkflowIssuesFilterPtrOutput {
+	return i.ToWorkflowIssuesFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowIssuesFilterPtrType) ToWorkflowIssuesFilterPtrOutputWithContext(ctx context.Context) WorkflowIssuesFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterPtrOutput)
+}
+
+type WorkflowIssuesFilterOutput struct{ *pulumi.OutputState }
+
+func (WorkflowIssuesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowIssuesFilter)(nil)).Elem()
+}
+
+func (o WorkflowIssuesFilterOutput) ToWorkflowIssuesFilterOutput() WorkflowIssuesFilterOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterOutput) ToWorkflowIssuesFilterOutputWithContext(ctx context.Context) WorkflowIssuesFilterOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterOutput) ToWorkflowIssuesFilterPtrOutput() WorkflowIssuesFilterPtrOutput {
+	return o.ToWorkflowIssuesFilterPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowIssuesFilterOutput) ToWorkflowIssuesFilterPtrOutputWithContext(ctx context.Context) WorkflowIssuesFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowIssuesFilter) *WorkflowIssuesFilter {
+		return &v
+	}).(WorkflowIssuesFilterPtrOutput)
+}
+
+func (o WorkflowIssuesFilterOutput) FilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilter) *string { return v.FilterId }).(pulumi.StringPtrOutput)
+}
+
+// A nrql enrichment name.
+func (o WorkflowIssuesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WorkflowIssuesFilterOutput) Predicates() WorkflowIssuesFilterPredicateArrayOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilter) []WorkflowIssuesFilterPredicate { return v.Predicates }).(WorkflowIssuesFilterPredicateArrayOutput)
+}
+
+// the filter's type.   One of: `FILTER` or `VIEW`.
+// * `predicates`
+func (o WorkflowIssuesFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowIssuesFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowIssuesFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowIssuesFilter)(nil)).Elem()
+}
+
+func (o WorkflowIssuesFilterPtrOutput) ToWorkflowIssuesFilterPtrOutput() WorkflowIssuesFilterPtrOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterPtrOutput) ToWorkflowIssuesFilterPtrOutputWithContext(ctx context.Context) WorkflowIssuesFilterPtrOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterPtrOutput) Elem() WorkflowIssuesFilterOutput {
+	return o.ApplyT(func(v *WorkflowIssuesFilter) WorkflowIssuesFilter {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowIssuesFilter
+		return ret
+	}).(WorkflowIssuesFilterOutput)
+}
+
+func (o WorkflowIssuesFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nrql enrichment name.
+func (o WorkflowIssuesFilterPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowIssuesFilterPtrOutput) Predicates() WorkflowIssuesFilterPredicateArrayOutput {
+	return o.ApplyT(func(v *WorkflowIssuesFilter) []WorkflowIssuesFilterPredicate {
+		if v == nil {
+			return nil
+		}
+		return v.Predicates
+	}).(WorkflowIssuesFilterPredicateArrayOutput)
+}
+
+// the filter's type.   One of: `FILTER` or `VIEW`.
+// * `predicates`
+func (o WorkflowIssuesFilterPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowIssuesFilterPredicate struct {
+	// A predicates attribute.
+	Attribute string `pulumi:"attribute"`
+	// A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+	Operator string `pulumi:"operator"`
+	// A list of values.
+	Values []string `pulumi:"values"`
+}
+
+// WorkflowIssuesFilterPredicateInput is an input type that accepts WorkflowIssuesFilterPredicateArgs and WorkflowIssuesFilterPredicateOutput values.
+// You can construct a concrete instance of `WorkflowIssuesFilterPredicateInput` via:
+//
+//	WorkflowIssuesFilterPredicateArgs{...}
+type WorkflowIssuesFilterPredicateInput interface {
+	pulumi.Input
+
+	ToWorkflowIssuesFilterPredicateOutput() WorkflowIssuesFilterPredicateOutput
+	ToWorkflowIssuesFilterPredicateOutputWithContext(context.Context) WorkflowIssuesFilterPredicateOutput
+}
+
+type WorkflowIssuesFilterPredicateArgs struct {
+	// A predicates attribute.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+	// A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WorkflowIssuesFilterPredicateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowIssuesFilterPredicate)(nil)).Elem()
+}
+
+func (i WorkflowIssuesFilterPredicateArgs) ToWorkflowIssuesFilterPredicateOutput() WorkflowIssuesFilterPredicateOutput {
+	return i.ToWorkflowIssuesFilterPredicateOutputWithContext(context.Background())
+}
+
+func (i WorkflowIssuesFilterPredicateArgs) ToWorkflowIssuesFilterPredicateOutputWithContext(ctx context.Context) WorkflowIssuesFilterPredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterPredicateOutput)
+}
+
+// WorkflowIssuesFilterPredicateArrayInput is an input type that accepts WorkflowIssuesFilterPredicateArray and WorkflowIssuesFilterPredicateArrayOutput values.
+// You can construct a concrete instance of `WorkflowIssuesFilterPredicateArrayInput` via:
+//
+//	WorkflowIssuesFilterPredicateArray{ WorkflowIssuesFilterPredicateArgs{...} }
+type WorkflowIssuesFilterPredicateArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowIssuesFilterPredicateArrayOutput() WorkflowIssuesFilterPredicateArrayOutput
+	ToWorkflowIssuesFilterPredicateArrayOutputWithContext(context.Context) WorkflowIssuesFilterPredicateArrayOutput
+}
+
+type WorkflowIssuesFilterPredicateArray []WorkflowIssuesFilterPredicateInput
+
+func (WorkflowIssuesFilterPredicateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowIssuesFilterPredicate)(nil)).Elem()
+}
+
+func (i WorkflowIssuesFilterPredicateArray) ToWorkflowIssuesFilterPredicateArrayOutput() WorkflowIssuesFilterPredicateArrayOutput {
+	return i.ToWorkflowIssuesFilterPredicateArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowIssuesFilterPredicateArray) ToWorkflowIssuesFilterPredicateArrayOutputWithContext(ctx context.Context) WorkflowIssuesFilterPredicateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIssuesFilterPredicateArrayOutput)
+}
+
+type WorkflowIssuesFilterPredicateOutput struct{ *pulumi.OutputState }
+
+func (WorkflowIssuesFilterPredicateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowIssuesFilterPredicate)(nil)).Elem()
+}
+
+func (o WorkflowIssuesFilterPredicateOutput) ToWorkflowIssuesFilterPredicateOutput() WorkflowIssuesFilterPredicateOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterPredicateOutput) ToWorkflowIssuesFilterPredicateOutputWithContext(ctx context.Context) WorkflowIssuesFilterPredicateOutput {
+	return o
+}
+
+// A predicates attribute.
+func (o WorkflowIssuesFilterPredicateOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+// A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+func (o WorkflowIssuesFilterPredicateOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values.
+func (o WorkflowIssuesFilterPredicateOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowIssuesFilterPredicateArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowIssuesFilterPredicateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowIssuesFilterPredicate)(nil)).Elem()
+}
+
+func (o WorkflowIssuesFilterPredicateArrayOutput) ToWorkflowIssuesFilterPredicateArrayOutput() WorkflowIssuesFilterPredicateArrayOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterPredicateArrayOutput) ToWorkflowIssuesFilterPredicateArrayOutputWithContext(ctx context.Context) WorkflowIssuesFilterPredicateArrayOutput {
+	return o
+}
+
+func (o WorkflowIssuesFilterPredicateArrayOutput) Index(i pulumi.IntInput) WorkflowIssuesFilterPredicateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowIssuesFilterPredicate {
+		return vs[0].([]WorkflowIssuesFilterPredicate)[vs[1].(int)]
+	}).(WorkflowIssuesFilterPredicateOutput)
+}
+
 type GetAlertChannelConfig struct {
 	ApiKey                *string           `pulumi:"apiKey"`
 	AuthPassword          *string           `pulumi:"authPassword"`
@@ -9129,15 +9461,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleConditionConditionArrayInput)(nil)).Elem(), AlertMutingRuleConditionConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleScheduleInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertMutingRuleSchedulePtrInput)(nil)).Elem(), AlertMutingRuleScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterInput)(nil)).Elem(), DashboardFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterPtrInput)(nil)).Elem(), DashboardFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetInput)(nil)).Elem(), DashboardWidgetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetArrayInput)(nil)).Elem(), DashboardWidgetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetCompareWithInput)(nil)).Elem(), DashboardWidgetCompareWithArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetCompareWithArrayInput)(nil)).Elem(), DashboardWidgetCompareWithArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetCompareWithPresentationInput)(nil)).Elem(), DashboardWidgetCompareWithPresentationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetMetricInput)(nil)).Elem(), DashboardWidgetMetricArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetMetricArrayInput)(nil)).Elem(), DashboardWidgetMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagInput)(nil)).Elem(), EntityTagsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTagsTagArrayInput)(nil)).Elem(), EntityTagsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionCriticalInput)(nil)).Elem(), InfraAlertConditionCriticalArgs{})
@@ -9146,6 +9469,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfraAlertConditionWarningPtrInput)(nil)).Elem(), InfraAlertConditionWarningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelPropertyInput)(nil)).Elem(), NotificationChannelPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelPropertyArrayInput)(nil)).Elem(), NotificationChannelPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthBasicInput)(nil)).Elem(), NotificationDestinationAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthBasicPtrInput)(nil)).Elem(), NotificationDestinationAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationAuthTokenPtrInput)(nil)).Elem(), NotificationDestinationAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyInput)(nil)).Elem(), NotificationDestinationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationDestinationPropertyArrayInput)(nil)).Elem(), NotificationDestinationPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionCriticalInput)(nil)).Elem(), NrqlAlertConditionCriticalArgs{})
@@ -9230,6 +9557,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationConfigurationInput)(nil)).Elem(), WorkflowDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationConfigurationArrayInput)(nil)).Elem(), WorkflowDestinationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsInput)(nil)).Elem(), WorkflowEnrichmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsPtrInput)(nil)).Elem(), WorkflowEnrichmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsNrqlInput)(nil)).Elem(), WorkflowEnrichmentsNrqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsNrqlArrayInput)(nil)).Elem(), WorkflowEnrichmentsNrqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsNrqlConfigurationInput)(nil)).Elem(), WorkflowEnrichmentsNrqlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsNrqlConfigurationArrayInput)(nil)).Elem(), WorkflowEnrichmentsNrqlConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIssuesFilterInput)(nil)).Elem(), WorkflowIssuesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIssuesFilterPtrInput)(nil)).Elem(), WorkflowIssuesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIssuesFilterPredicateInput)(nil)).Elem(), WorkflowIssuesFilterPredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIssuesFilterPredicateArrayInput)(nil)).Elem(), WorkflowIssuesFilterPredicateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertChannelConfigInput)(nil)).Elem(), GetAlertChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagInput)(nil)).Elem(), GetEntityTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagPtrInput)(nil)).Elem(), GetEntityTagArgs{})
@@ -9243,15 +9582,6 @@ func init() {
 	pulumi.RegisterOutputType(AlertMutingRuleConditionConditionArrayOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleScheduleOutput{})
 	pulumi.RegisterOutputType(AlertMutingRuleSchedulePtrOutput{})
-	pulumi.RegisterOutputType(DashboardFilterOutput{})
-	pulumi.RegisterOutputType(DashboardFilterPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetArrayOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetCompareWithOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetCompareWithArrayOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetCompareWithPresentationOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetMetricOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetMetricArrayOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagOutput{})
 	pulumi.RegisterOutputType(EntityTagsTagArrayOutput{})
 	pulumi.RegisterOutputType(InfraAlertConditionCriticalOutput{})
@@ -9260,6 +9590,10 @@ func init() {
 	pulumi.RegisterOutputType(InfraAlertConditionWarningPtrOutput{})
 	pulumi.RegisterOutputType(NotificationChannelPropertyOutput{})
 	pulumi.RegisterOutputType(NotificationChannelPropertyArrayOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthBasicOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthBasicPtrOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthTokenOutput{})
+	pulumi.RegisterOutputType(NotificationDestinationAuthTokenPtrOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyOutput{})
 	pulumi.RegisterOutputType(NotificationDestinationPropertyArrayOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionCriticalOutput{})
@@ -9344,6 +9678,18 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkflowDestinationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowEnrichmentsOutput{})
+	pulumi.RegisterOutputType(WorkflowEnrichmentsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowEnrichmentsNrqlOutput{})
+	pulumi.RegisterOutputType(WorkflowEnrichmentsNrqlArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowEnrichmentsNrqlConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkflowEnrichmentsNrqlConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowIssuesFilterOutput{})
+	pulumi.RegisterOutputType(WorkflowIssuesFilterPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowIssuesFilterPredicateOutput{})
+	pulumi.RegisterOutputType(WorkflowIssuesFilterPredicateArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 	pulumi.RegisterOutputType(GetEntityTagPtrOutput{})

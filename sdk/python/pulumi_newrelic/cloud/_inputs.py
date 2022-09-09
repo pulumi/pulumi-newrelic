@@ -32,7 +32,9 @@ __all__ = [
     'AwsGovcloudIntegrationsSqsArgs',
     'AwsIntegrationsBillingArgs',
     'AwsIntegrationsCloudtrailArgs',
+    'AwsIntegrationsDocDbArgs',
     'AwsIntegrationsHealthArgs',
+    'AwsIntegrationsS3Args',
     'AwsIntegrationsTrustedAdvisorArgs',
     'AwsIntegrationsVpcArgs',
     'AwsIntegrationsXRayArgs',
@@ -2137,7 +2139,53 @@ class AwsIntegrationsCloudtrailArgs:
 
 
 @pulumi.input_type
+class AwsIntegrationsDocDbArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+@pulumi.input_type
 class AwsIntegrationsHealthArgs:
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @metrics_polling_interval.setter
+    def metrics_polling_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "metrics_polling_interval", value)
+
+
+@pulumi.input_type
+class AwsIntegrationsS3Args:
     def __init__(__self__, *,
                  metrics_polling_interval: Optional[pulumi.Input[int]] = None):
         """

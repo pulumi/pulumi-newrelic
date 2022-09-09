@@ -11,7 +11,6 @@ from .alert_muting_rule import *
 from .alert_policy import *
 from .alert_policy_channel import *
 from .api_access_key import *
-from .dashboard import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
 from .get_account import *
@@ -30,6 +29,7 @@ from .one_dashboard import *
 from .one_dashboard_raw import *
 from .provider import *
 from .service_level import *
+from .workflow import *
 from ._inputs import *
 from . import outputs
 
@@ -169,14 +169,6 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
-  "mod": "index/dashboard",
-  "fqn": "pulumi_newrelic",
-  "classes": {
-   "newrelic:index/dashboard:Dashboard": "Dashboard"
-  }
- },
- {
-  "pkg": "newrelic",
   "mod": "index/entityTags",
   "fqn": "pulumi_newrelic",
   "classes": {
@@ -257,18 +249,18 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
-  "mod": "insights/event",
-  "fqn": "pulumi_newrelic.insights",
+  "mod": "index/workflow",
+  "fqn": "pulumi_newrelic",
   "classes": {
-   "newrelic:insights/event:Event": "Event"
+   "newrelic:index/workflow:Workflow": "Workflow"
   }
  },
  {
   "pkg": "newrelic",
-  "mod": "plugins/alertCondition",
-  "fqn": "pulumi_newrelic.plugins",
+  "mod": "insights/event",
+  "fqn": "pulumi_newrelic.insights",
   "classes": {
-   "newrelic:plugins/alertCondition:AlertCondition": "AlertCondition"
+   "newrelic:insights/event:Event": "Event"
   }
  },
  {
@@ -297,18 +289,26 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
-  "mod": "synthetics/monitor",
+  "mod": "synthetics/brokenLinksMonitor",
   "fqn": "pulumi_newrelic.synthetics",
   "classes": {
-   "newrelic:synthetics/monitor:Monitor": "Monitor"
+   "newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor": "BrokenLinksMonitor"
   }
  },
  {
   "pkg": "newrelic",
-  "mod": "synthetics/monitorScript",
+  "mod": "synthetics/certCheckMonitor",
   "fqn": "pulumi_newrelic.synthetics",
   "classes": {
-   "newrelic:synthetics/monitorScript:MonitorScript": "MonitorScript"
+   "newrelic:synthetics/certCheckMonitor:CertCheckMonitor": "CertCheckMonitor"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "synthetics/monitor",
+  "fqn": "pulumi_newrelic.synthetics",
+  "classes": {
+   "newrelic:synthetics/monitor:Monitor": "Monitor"
   }
  },
  {
@@ -321,10 +321,34 @@ _utilities.register(
  },
  {
   "pkg": "newrelic",
+  "mod": "synthetics/privateLocation",
+  "fqn": "pulumi_newrelic.synthetics",
+  "classes": {
+   "newrelic:synthetics/privateLocation:PrivateLocation": "PrivateLocation"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "synthetics/scriptMonitor",
+  "fqn": "pulumi_newrelic.synthetics",
+  "classes": {
+   "newrelic:synthetics/scriptMonitor:ScriptMonitor": "ScriptMonitor"
+  }
+ },
+ {
+  "pkg": "newrelic",
   "mod": "synthetics/secureCredential",
   "fqn": "pulumi_newrelic.synthetics",
   "classes": {
    "newrelic:synthetics/secureCredential:SecureCredential": "SecureCredential"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "synthetics/stepMonitor",
+  "fqn": "pulumi_newrelic.synthetics",
+  "classes": {
+   "newrelic:synthetics/stepMonitor:StepMonitor": "StepMonitor"
   }
  }
 ]

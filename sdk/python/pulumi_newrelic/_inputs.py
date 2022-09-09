@@ -15,15 +15,12 @@ __all__ = [
     'AlertMutingRuleConditionArgs',
     'AlertMutingRuleConditionConditionArgs',
     'AlertMutingRuleScheduleArgs',
-    'DashboardFilterArgs',
-    'DashboardWidgetArgs',
-    'DashboardWidgetCompareWithArgs',
-    'DashboardWidgetCompareWithPresentationArgs',
-    'DashboardWidgetMetricArgs',
     'EntityTagsTagArgs',
     'InfraAlertConditionCriticalArgs',
     'InfraAlertConditionWarningArgs',
     'NotificationChannelPropertyArgs',
+    'NotificationDestinationAuthBasicArgs',
+    'NotificationDestinationAuthTokenArgs',
     'NotificationDestinationPropertyArgs',
     'NrqlAlertConditionCriticalArgs',
     'NrqlAlertConditionNrqlArgs',
@@ -66,6 +63,12 @@ __all__ = [
     'ServiceLevelObjectiveArgs',
     'ServiceLevelObjectiveTimeWindowArgs',
     'ServiceLevelObjectiveTimeWindowRollingArgs',
+    'WorkflowDestinationConfigurationArgs',
+    'WorkflowEnrichmentsArgs',
+    'WorkflowEnrichmentsNrqlArgs',
+    'WorkflowEnrichmentsNrqlConfigurationArgs',
+    'WorkflowIssuesFilterArgs',
+    'WorkflowIssuesFilterPredicateArgs',
     'GetEntityTagArgs',
 ]
 
@@ -684,417 +687,6 @@ class AlertMutingRuleScheduleArgs:
 
 
 @pulumi.input_type
-class DashboardFilterArgs:
-    def __init__(__self__, *,
-                 event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "event_types", event_types)
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-
-    @property
-    @pulumi.getter(name="eventTypes")
-    def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "event_types")
-
-    @event_types.setter
-    def event_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "event_types", value)
-
-    @property
-    @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "attributes")
-
-    @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "attributes", value)
-
-
-@pulumi.input_type
-class DashboardWidgetArgs:
-    def __init__(__self__, *,
-                 column: pulumi.Input[int],
-                 row: pulumi.Input[int],
-                 title: pulumi.Input[str],
-                 visualization: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[int]] = None,
-                 compare_withs: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetCompareWithArgs']]]] = None,
-                 drilldown_dashboard_id: Optional[pulumi.Input[int]] = None,
-                 duration: Optional[pulumi.Input[int]] = None,
-                 end_time: Optional[pulumi.Input[int]] = None,
-                 entity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 height: Optional[pulumi.Input[int]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]]] = None,
-                 notes: Optional[pulumi.Input[str]] = None,
-                 nrql: Optional[pulumi.Input[str]] = None,
-                 order_by: Optional[pulumi.Input[str]] = None,
-                 raw_metric_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
-                 threshold_red: Optional[pulumi.Input[float]] = None,
-                 threshold_yellow: Optional[pulumi.Input[float]] = None,
-                 widget_id: Optional[pulumi.Input[int]] = None,
-                 width: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "row", row)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "visualization", visualization)
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
-        if compare_withs is not None:
-            pulumi.set(__self__, "compare_withs", compare_withs)
-        if drilldown_dashboard_id is not None:
-            pulumi.set(__self__, "drilldown_dashboard_id", drilldown_dashboard_id)
-        if duration is not None:
-            pulumi.set(__self__, "duration", duration)
-        if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
-        if entity_ids is not None:
-            pulumi.set(__self__, "entity_ids", entity_ids)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if height is not None:
-            pulumi.set(__self__, "height", height)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
-        if notes is not None:
-            pulumi.set(__self__, "notes", notes)
-        if nrql is not None:
-            pulumi.set(__self__, "nrql", nrql)
-        if order_by is not None:
-            pulumi.set(__self__, "order_by", order_by)
-        if raw_metric_name is not None:
-            pulumi.set(__self__, "raw_metric_name", raw_metric_name)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if threshold_red is not None:
-            pulumi.set(__self__, "threshold_red", threshold_red)
-        if threshold_yellow is not None:
-            pulumi.set(__self__, "threshold_yellow", threshold_yellow)
-        if widget_id is not None:
-            pulumi.set(__self__, "widget_id", widget_id)
-        if width is not None:
-            pulumi.set(__self__, "width", width)
-
-    @property
-    @pulumi.getter
-    def column(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "column")
-
-    @column.setter
-    def column(self, value: pulumi.Input[int]):
-        pulumi.set(self, "column", value)
-
-    @property
-    @pulumi.getter
-    def row(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "row")
-
-    @row.setter
-    def row(self, value: pulumi.Input[int]):
-        pulumi.set(self, "row", value)
-
-    @property
-    @pulumi.getter
-    def title(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "title")
-
-    @title.setter
-    def title(self, value: pulumi.Input[str]):
-        pulumi.set(self, "title", value)
-
-    @property
-    @pulumi.getter
-    def visualization(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "visualization")
-
-    @visualization.setter
-    def visualization(self, value: pulumi.Input[str]):
-        pulumi.set(self, "visualization", value)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "account_id", value)
-
-    @property
-    @pulumi.getter(name="compareWiths")
-    def compare_withs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetCompareWithArgs']]]]:
-        return pulumi.get(self, "compare_withs")
-
-    @compare_withs.setter
-    def compare_withs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetCompareWithArgs']]]]):
-        pulumi.set(self, "compare_withs", value)
-
-    @property
-    @pulumi.getter(name="drilldownDashboardId")
-    def drilldown_dashboard_id(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "drilldown_dashboard_id")
-
-    @drilldown_dashboard_id.setter
-    def drilldown_dashboard_id(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "drilldown_dashboard_id", value)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "duration")
-
-    @duration.setter
-    def duration(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "duration", value)
-
-    @property
-    @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "end_time")
-
-    @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "end_time", value)
-
-    @property
-    @pulumi.getter(name="entityIds")
-    def entity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        return pulumi.get(self, "entity_ids")
-
-    @entity_ids.setter
-    def entity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "entity_ids", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "height")
-
-    @height.setter
-    def height(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "height", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]]]:
-        return pulumi.get(self, "metrics")
-
-    @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetMetricArgs']]]]):
-        pulumi.set(self, "metrics", value)
-
-    @property
-    @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "notes")
-
-    @notes.setter
-    def notes(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "notes", value)
-
-    @property
-    @pulumi.getter
-    def nrql(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "nrql")
-
-    @nrql.setter
-    def nrql(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "nrql", value)
-
-    @property
-    @pulumi.getter(name="orderBy")
-    def order_by(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "order_by")
-
-    @order_by.setter
-    def order_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order_by", value)
-
-    @property
-    @pulumi.getter(name="rawMetricName")
-    def raw_metric_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "raw_metric_name")
-
-    @raw_metric_name.setter
-    def raw_metric_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "raw_metric_name", value)
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source", value)
-
-    @property
-    @pulumi.getter(name="thresholdRed")
-    def threshold_red(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "threshold_red")
-
-    @threshold_red.setter
-    def threshold_red(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "threshold_red", value)
-
-    @property
-    @pulumi.getter(name="thresholdYellow")
-    def threshold_yellow(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "threshold_yellow")
-
-    @threshold_yellow.setter
-    def threshold_yellow(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "threshold_yellow", value)
-
-    @property
-    @pulumi.getter(name="widgetId")
-    def widget_id(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "widget_id")
-
-    @widget_id.setter
-    def widget_id(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "widget_id", value)
-
-    @property
-    @pulumi.getter
-    def width(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "width")
-
-    @width.setter
-    def width(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "width", value)
-
-
-@pulumi.input_type
-class DashboardWidgetCompareWithArgs:
-    def __init__(__self__, *,
-                 offset_duration: pulumi.Input[str],
-                 presentation: pulumi.Input['DashboardWidgetCompareWithPresentationArgs']):
-        pulumi.set(__self__, "offset_duration", offset_duration)
-        pulumi.set(__self__, "presentation", presentation)
-
-    @property
-    @pulumi.getter(name="offsetDuration")
-    def offset_duration(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "offset_duration")
-
-    @offset_duration.setter
-    def offset_duration(self, value: pulumi.Input[str]):
-        pulumi.set(self, "offset_duration", value)
-
-    @property
-    @pulumi.getter
-    def presentation(self) -> pulumi.Input['DashboardWidgetCompareWithPresentationArgs']:
-        return pulumi.get(self, "presentation")
-
-    @presentation.setter
-    def presentation(self, value: pulumi.Input['DashboardWidgetCompareWithPresentationArgs']):
-        pulumi.set(self, "presentation", value)
-
-
-@pulumi.input_type
-class DashboardWidgetCompareWithPresentationArgs:
-    def __init__(__self__, *,
-                 color: pulumi.Input[str],
-                 name: pulumi.Input[str]):
-        pulumi.set(__self__, "color", color)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def color(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "color")
-
-    @color.setter
-    def color(self, value: pulumi.Input[str]):
-        pulumi.set(self, "color", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class DashboardWidgetMetricArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 scope: Optional[pulumi.Input[str]] = None,
-                 units: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "name", name)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-        if units is not None:
-            pulumi.set(__self__, "units", units)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scope", value)
-
-    @property
-    @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "units")
-
-    @units.setter
-    def units(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "units", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
 class EntityTagsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -1218,6 +810,14 @@ class NotificationChannelPropertyArgs:
                  value: pulumi.Input[str],
                  display_value: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The notification property key.
+        :param pulumi.Input[str] value: The notification property value.
+        :param pulumi.Input[str] display_value: The notification property display value.
+               *
+               Each notification channel type supports a specific set of arguments for the `property` block:
+        :param pulumi.Input[str] label: The notification property label.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if display_value is not None:
@@ -1228,6 +828,9 @@ class NotificationChannelPropertyArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The notification property key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1237,6 +840,9 @@ class NotificationChannelPropertyArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The notification property value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1246,6 +852,11 @@ class NotificationChannelPropertyArgs:
     @property
     @pulumi.getter(name="displayValue")
     def display_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification property display value.
+        *
+        Each notification channel type supports a specific set of arguments for the `property` block:
+        """
         return pulumi.get(self, "display_value")
 
     @display_value.setter
@@ -1255,11 +866,89 @@ class NotificationChannelPropertyArgs:
     @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification property label.
+        """
         return pulumi.get(self, "label")
 
     @label.setter
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
+
+
+@pulumi.input_type
+class NotificationDestinationAuthBasicArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 user: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: Specifies an authentication password for use with a destination.
+        :param pulumi.Input[str] user: The username of the basic auth.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Specifies an authentication password for use with a destination.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        """
+        The username of the basic auth.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
+
+
+@pulumi.input_type
+class NotificationDestinationAuthTokenArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str],
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] token: Specifies the token for integrating.
+        :param pulumi.Input[str] prefix: The prefix of the token auth.
+        """
+        pulumi.set(__self__, "token", token)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        Specifies the token for integrating.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix of the token auth.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
 
 @pulumi.input_type
@@ -1269,6 +958,12 @@ class NotificationDestinationPropertyArgs:
                  value: pulumi.Input[str],
                  display_value: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The notification property key.
+        :param pulumi.Input[str] value: The notification property value.
+        :param pulumi.Input[str] display_value: The notification property display value.
+        :param pulumi.Input[str] label: The notification property label.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if display_value is not None:
@@ -1279,6 +974,9 @@ class NotificationDestinationPropertyArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The notification property key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1288,6 +986,9 @@ class NotificationDestinationPropertyArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The notification property value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1297,6 +998,9 @@ class NotificationDestinationPropertyArgs:
     @property
     @pulumi.getter(name="displayValue")
     def display_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification property display value.
+        """
         return pulumi.get(self, "display_value")
 
     @display_value.setter
@@ -1306,6 +1010,9 @@ class NotificationDestinationPropertyArgs:
     @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The notification property label.
+        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -1322,17 +1029,6 @@ class NrqlAlertConditionCriticalArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[float] threshold: The value which will trigger a violation. Must be `0` or greater.
-        :param pulumi.Input[int] duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        :param pulumi.Input[str] operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-               <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        :param pulumi.Input[str] time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1354,9 +1050,6 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
-        """
-        The value which will trigger a violation. Must be `0` or greater.
-        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1366,9 +1059,6 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -1378,9 +1068,6 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1390,12 +1077,6 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1405,9 +1086,6 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
-        """
-        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1417,9 +1095,6 @@ class NrqlAlertConditionCriticalArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
-        """
-        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -1433,13 +1108,6 @@ class NrqlAlertConditionNrqlArgs:
                  query: pulumi.Input[str],
                  evaluation_offset: Optional[pulumi.Input[int]] = None,
                  since_value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] query: The NRQL query to execute for the condition.
-        :param pulumi.Input[int] evaluation_offset: Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-               <small>\\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
-        :param pulumi.Input[str] since_value: **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-               <small>\\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
-        """
         pulumi.set(__self__, "query", query)
         if evaluation_offset is not None:
             warnings.warn("""use `aggregation_method` attribute instead""", DeprecationWarning)
@@ -1455,9 +1123,6 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        The NRQL query to execute for the condition.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -1467,10 +1132,6 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter(name="evaluationOffset")
     def evaluation_offset(self) -> Optional[pulumi.Input[int]]:
-        """
-        Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-        <small>\\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
-        """
         return pulumi.get(self, "evaluation_offset")
 
     @evaluation_offset.setter
@@ -1480,10 +1141,6 @@ class NrqlAlertConditionNrqlArgs:
     @property
     @pulumi.getter(name="sinceValue")
     def since_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        **DEPRECATED:** Use `evaluation_offset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-        <small>\\***Note**: One of `evaluation_offset` _or_ `since_value` must be set, but not both.</small>
-        """
         return pulumi.get(self, "since_value")
 
     @since_value.setter
@@ -1501,18 +1158,6 @@ class NrqlAlertConditionTermArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[float] threshold: The value which will trigger a violation. Must be `0` or greater.
-        :param pulumi.Input[int] duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        :param pulumi.Input[str] operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-        :param pulumi.Input[str] priority: `critical` or `warning`. Defaults to `critical`.
-        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-               <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        :param pulumi.Input[str] time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1536,9 +1181,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
-        """
-        The value which will trigger a violation. Must be `0` or greater.
-        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1548,9 +1190,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -1560,9 +1199,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1572,9 +1208,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
-        """
-        `critical` or `warning`. Defaults to `critical`.
-        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -1584,12 +1217,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1599,9 +1226,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
-        """
-        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1611,9 +1235,6 @@ class NrqlAlertConditionTermArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
-        """
-        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -1630,17 +1251,6 @@ class NrqlAlertConditionWarningArgs:
                  threshold_duration: Optional[pulumi.Input[int]] = None,
                  threshold_occurrences: Optional[pulumi.Input[str]] = None,
                  time_function: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[float] threshold: The value which will trigger a violation. Must be `0` or greater.
-        :param pulumi.Input[int] duration: **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        :param pulumi.Input[str] operator: Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-        :param pulumi.Input[int] threshold_duration: The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-               <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-               <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-        :param pulumi.Input[str] threshold_occurrences: The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        :param pulumi.Input[str] time_function: **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         pulumi.set(__self__, "threshold", threshold)
         if duration is not None:
             warnings.warn("""use `threshold_duration` attribute instead""", DeprecationWarning)
@@ -1662,9 +1272,6 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Input[float]:
-        """
-        The value which will trigger a violation. Must be `0` or greater.
-        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -1674,9 +1281,6 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -1686,9 +1290,6 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -1698,12 +1299,6 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="thresholdDuration")
     def threshold_duration(self) -> Optional[pulumi.Input[int]]:
-        """
-        The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-        """
         return pulumi.get(self, "threshold_duration")
 
     @threshold_duration.setter
@@ -1713,9 +1308,6 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="thresholdOccurrences")
     def threshold_occurrences(self) -> Optional[pulumi.Input[str]]:
-        """
-        The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-        """
         return pulumi.get(self, "threshold_occurrences")
 
     @threshold_occurrences.setter
@@ -1725,9 +1317,6 @@ class NrqlAlertConditionWarningArgs:
     @property
     @pulumi.getter(name="timeFunction")
     def time_function(self) -> Optional[pulumi.Input[str]]:
-        """
-        **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-        """
         return pulumi.get(self, "time_function")
 
     @time_function.setter
@@ -4998,6 +4587,294 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
     @unit.setter
     def unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class WorkflowDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 channel_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: A nrql enrichment name.
+        :param pulumi.Input[str] type: the filter's type.   One of: `FILTER` or `VIEW`.
+               * `predicates`
+        """
+        pulumi.set(__self__, "channel_id", channel_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="channelId")
+    def channel_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "channel_id")
+
+    @channel_id.setter
+    def channel_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A nrql enrichment name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        the filter's type.   One of: `FILTER` or `VIEW`.
+        * `predicates`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WorkflowEnrichmentsArgs:
+    def __init__(__self__, *,
+                 nrqls: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgs']]]):
+        pulumi.set(__self__, "nrqls", nrqls)
+
+    @property
+    @pulumi.getter
+    def nrqls(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgs']]]:
+        return pulumi.get(self, "nrqls")
+
+    @nrqls.setter
+    def nrqls(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlArgs']]]):
+        pulumi.set(self, "nrqls", value)
+
+
+@pulumi.input_type
+class WorkflowEnrichmentsNrqlArgs:
+    def __init__(__self__, *,
+                 configurations: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]],
+                 name: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[int]] = None,
+                 enrichment_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]] configurations: A list of nrql enrichments.
+        :param pulumi.Input[str] name: A nrql enrichment name.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+        :param pulumi.Input[str] type: the filter's type.   One of: `FILTER` or `VIEW`.
+               * `predicates`
+        """
+        pulumi.set(__self__, "configurations", configurations)
+        pulumi.set(__self__, "name", name)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if enrichment_id is not None:
+            pulumi.set(__self__, "enrichment_id", enrichment_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]]:
+        """
+        A list of nrql enrichments.
+        """
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A nrql enrichment name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="enrichmentId")
+    def enrichment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "enrichment_id")
+
+    @enrichment_id.setter
+    def enrichment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enrichment_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        the filter's type.   One of: `FILTER` or `VIEW`.
+        * `predicates`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WorkflowEnrichmentsNrqlConfigurationArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] query: the nrql query.
+        """
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        """
+        the nrql query.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class WorkflowIssuesFilterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 filter_id: Optional[pulumi.Input[str]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: A nrql enrichment name.
+        :param pulumi.Input[str] type: the filter's type.   One of: `FILTER` or `VIEW`.
+               * `predicates`
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if filter_id is not None:
+            pulumi.set(__self__, "filter_id", filter_id)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A nrql enrichment name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        the filter's type.   One of: `FILTER` or `VIEW`.
+        * `predicates`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="filterId")
+    def filter_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter_id")
+
+    @filter_id.setter
+    def filter_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]]:
+        return pulumi.get(self, "predicates")
+
+    @predicates.setter
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]]):
+        pulumi.set(self, "predicates", value)
+
+
+@pulumi.input_type
+class WorkflowIssuesFilterPredicateArgs:
+    def __init__(__self__, *,
+                 attribute: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] attribute: A predicates attribute.
+        :param pulumi.Input[str] operator: A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> pulumi.Input[str]:
+        """
+        A predicates attribute.
+        """
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

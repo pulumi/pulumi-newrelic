@@ -11,7 +11,6 @@ export * from "./alertMutingRule";
 export * from "./alertPolicy";
 export * from "./alertPolicyChannel";
 export * from "./apiAccessKey";
-export * from "./dashboard";
 export * from "./entityTags";
 export * from "./eventsToMetricsRule";
 export * from "./getAccount";
@@ -30,6 +29,7 @@ export * from "./oneDashboard";
 export * from "./oneDashboardRaw";
 export * from "./provider";
 export * from "./serviceLevel";
+export * from "./workflow";
 
 // Export sub-modules:
 import * as cloud from "./cloud";
@@ -55,7 +55,6 @@ import { AlertMutingRule } from "./alertMutingRule";
 import { AlertPolicy } from "./alertPolicy";
 import { AlertPolicyChannel } from "./alertPolicyChannel";
 import { ApiAccessKey } from "./apiAccessKey";
-import { Dashboard } from "./dashboard";
 import { EntityTags } from "./entityTags";
 import { EventsToMetricsRule } from "./eventsToMetricsRule";
 import { InfraAlertCondition } from "./infraAlertCondition";
@@ -66,6 +65,7 @@ import { NrqlDropRule } from "./nrqlDropRule";
 import { OneDashboard } from "./oneDashboard";
 import { OneDashboardRaw } from "./oneDashboardRaw";
 import { ServiceLevel } from "./serviceLevel";
+import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),
@@ -83,8 +83,6 @@ const _module = {
                 return new AlertPolicyChannel(name, <any>undefined, { urn })
             case "newrelic:index/apiAccessKey:ApiAccessKey":
                 return new ApiAccessKey(name, <any>undefined, { urn })
-            case "newrelic:index/dashboard:Dashboard":
-                return new Dashboard(name, <any>undefined, { urn })
             case "newrelic:index/entityTags:EntityTags":
                 return new EntityTags(name, <any>undefined, { urn })
             case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
@@ -105,6 +103,8 @@ const _module = {
                 return new OneDashboardRaw(name, <any>undefined, { urn })
             case "newrelic:index/serviceLevel:ServiceLevel":
                 return new ServiceLevel(name, <any>undefined, { urn })
+            case "newrelic:index/workflow:Workflow":
+                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -116,7 +116,6 @@ pulumi.runtime.registerResourceModule("newrelic", "index/alertMutingRule", _modu
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicy", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicyChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/apiAccessKey", _module)
-pulumi.runtime.registerResourceModule("newrelic", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
@@ -127,6 +126,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/nrqlDropRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)
 
 import { Provider } from "./provider";
 

@@ -14,30 +14,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooMonitor = NewRelic.Synthetics.GetMonitor.Invoke(new()
-    ///     {
-    ///         Name = "foo",
-    ///     });
-    /// 
-    ///     var fooAlertCondition = new NewRelic.Synthetics.AlertCondition("fooAlertCondition", new()
-    ///     {
-    ///         PolicyId = newrelic_alert_policy.Foo.Id,
-    ///         MonitorId = fooMonitor.Apply(getMonitorResult =&gt; getMonitorResult.Id),
-    ///         RunbookUrl = "https://www.example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synthetics alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.
@@ -56,7 +32,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synthetics monitor to be referenced in the alert condition.
+        /// The GUID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Output("monitorId")]
         public Output<string> MonitorId { get; private set; } = null!;
@@ -132,7 +108,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ID of the Synthetics monitor to be referenced in the alert condition.
+        /// The GUID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Input("monitorId", required: true)]
         public Input<string> MonitorId { get; set; } = null!;
@@ -170,7 +146,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ID of the Synthetics monitor to be referenced in the alert condition.
+        /// The GUID of the Synthetics monitor to be referenced in the alert condition.
         /// </summary>
         [Input("monitorId")]
         public Input<string>? MonitorId { get; set; }

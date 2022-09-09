@@ -15,6 +15,61 @@ import (
 //
 // > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			policy, err := newrelic.NewAlertPolicy(ctx, "policy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			monitor, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				LocationsPublics: pulumi.StringArray{
+//					pulumi.String("US_WEST_1"),
+//				},
+//				Period: pulumi.String("EVERY_10_MINUTES"),
+//				Status: pulumi.String("DISABLED"),
+//				Type:   pulumi.String("SIMPLE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMultiLocationAlertCondition(ctx, "example", &synthetics.MultiLocationAlertConditionArgs{
+//				PolicyId:                  policy.ID(),
+//				RunbookUrl:                pulumi.String("https://example.com"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(3600),
+//				Entities: pulumi.StringArray{
+//					monitor.ID(),
+//				},
+//				Critical: &synthetics.MultiLocationAlertConditionCriticalArgs{
+//					Threshold: pulumi.Int(2),
+//				},
+//				Warning: &synthetics.MultiLocationAlertConditionWarningArgs{
+//					Threshold: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // # New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -33,7 +88,7 @@ type MultiLocationAlertCondition struct {
 	Critical MultiLocationAlertConditionCriticalOutput `pulumi:"critical"`
 	// Set whether to enable the alert condition.  Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The GUIDs of the Synthetics monitors to alert on.
+	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayOutput `pulumi:"entities"`
 	// The title of the condition.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -92,7 +147,7 @@ type multiLocationAlertConditionState struct {
 	Critical *MultiLocationAlertConditionCritical `pulumi:"critical"`
 	// Set whether to enable the alert condition.  Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The GUIDs of the Synthetics monitors to alert on.
+	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities []string `pulumi:"entities"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
@@ -111,7 +166,7 @@ type MultiLocationAlertConditionState struct {
 	Critical MultiLocationAlertConditionCriticalPtrInput
 	// Set whether to enable the alert condition.  Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The GUIDs of the Synthetics monitors to alert on.
+	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
@@ -134,7 +189,7 @@ type multiLocationAlertConditionArgs struct {
 	Critical MultiLocationAlertConditionCritical `pulumi:"critical"`
 	// Set whether to enable the alert condition.  Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// The GUIDs of the Synthetics monitors to alert on.
+	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities []string `pulumi:"entities"`
 	// The title of the condition.
 	Name *string `pulumi:"name"`
@@ -154,7 +209,7 @@ type MultiLocationAlertConditionArgs struct {
 	Critical MultiLocationAlertConditionCriticalInput
 	// Set whether to enable the alert condition.  Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// The GUIDs of the Synthetics monitors to alert on.
+	// The Monitor GUID's of the Synthetics monitors to alert on.
 	Entities pulumi.StringArrayInput
 	// The title of the condition.
 	Name pulumi.StringPtrInput
@@ -265,7 +320,7 @@ func (o MultiLocationAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The GUIDs of the Synthetics monitors to alert on.
+// The Monitor GUID's of the Synthetics monitors to alert on.
 func (o MultiLocationAlertConditionOutput) Entities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MultiLocationAlertCondition) pulumi.StringArrayOutput { return v.Entities }).(pulumi.StringArrayOutput)
 }

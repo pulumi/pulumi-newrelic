@@ -43,10 +43,10 @@ namespace Pulumi.NewRelic.Synthetics
     public partial class SecureCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the secure credential was created.
+        /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
+        [Output("accountId")]
+        public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// The secure credential's description.
@@ -119,10 +119,10 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class SecureCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time the secure credential was created.
+        /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.
@@ -157,10 +157,10 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class SecureCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time the secure credential was created.
+        /// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
         /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
 
         /// <summary>
         /// The secure credential's description.

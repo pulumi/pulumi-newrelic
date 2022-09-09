@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,7 +111,6 @@ import (
 //
 // ```
 //
-// <<<<<<< HEAD
 // ## Upgrade from 1.x to 2.x
 //
 // There have been several deprecations in the `NrqlAlertCondition`
@@ -127,7 +126,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -170,7 +169,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -223,8 +222,6 @@ import (
 //	$ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
 //
 // ```
-//
-//	<<<<<<< HEAD ======= >>>>>>> v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
 type NrqlAlertCondition struct {
 	pulumi.CustomResourceState
 
@@ -236,7 +233,7 @@ type NrqlAlertCondition struct {
 	AggregationMethod pulumi.StringPtrOutput `pulumi:"aggregationMethod"`
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer pulumi.StringPtrOutput `pulumi:"aggregationTimer"`
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
 	AggregationWindow pulumi.IntOutput `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrOutput `pulumi:"baselineDirection"`
@@ -250,7 +247,7 @@ type NrqlAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
-	// The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrOutput `pulumi:"expirationDuration"`
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption pulumi.StringPtrOutput `pulumi:"fillOption"`
@@ -272,9 +269,9 @@ type NrqlAlertCondition struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
-	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Possible values are `singleValue`, `sum` (case insensitive).
+	// **DEPRECATED** Use `signal.slide_by` instead.
 	//
 	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
@@ -333,7 +330,7 @@ type nrqlAlertConditionState struct {
 	AggregationMethod *string `pulumi:"aggregationMethod"`
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer *string `pulumi:"aggregationTimer"`
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
 	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
@@ -347,7 +344,7 @@ type nrqlAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
-	// The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration *int `pulumi:"expirationDuration"`
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption *string `pulumi:"fillOption"`
@@ -369,9 +366,9 @@ type nrqlAlertConditionState struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
-	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type *string `pulumi:"type"`
-	// Possible values are `singleValue`, `sum` (case insensitive).
+	// **DEPRECATED** Use `signal.slide_by` instead.
 	//
 	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction *string `pulumi:"valueFunction"`
@@ -396,7 +393,7 @@ type NrqlAlertConditionState struct {
 	AggregationMethod pulumi.StringPtrInput
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer pulumi.StringPtrInput
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
 	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
@@ -410,7 +407,7 @@ type NrqlAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
-	// The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrInput
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption pulumi.StringPtrInput
@@ -432,9 +429,9 @@ type NrqlAlertConditionState struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
-	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrInput
-	// Possible values are `singleValue`, `sum` (case insensitive).
+	// **DEPRECATED** Use `signal.slide_by` instead.
 	//
 	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction pulumi.StringPtrInput
@@ -463,7 +460,7 @@ type nrqlAlertConditionArgs struct {
 	AggregationMethod *string `pulumi:"aggregationMethod"`
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer *string `pulumi:"aggregationTimer"`
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
 	AggregationWindow *int `pulumi:"aggregationWindow"`
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection *string `pulumi:"baselineDirection"`
@@ -475,7 +472,7 @@ type nrqlAlertConditionArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration *int `pulumi:"expirationDuration"`
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption *string `pulumi:"fillOption"`
@@ -497,9 +494,9 @@ type nrqlAlertConditionArgs struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
-	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type *string `pulumi:"type"`
-	// Possible values are `singleValue`, `sum` (case insensitive).
+	// **DEPRECATED** Use `signal.slide_by` instead.
 	//
 	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction *string `pulumi:"valueFunction"`
@@ -525,7 +522,7 @@ type NrqlAlertConditionArgs struct {
 	AggregationMethod pulumi.StringPtrInput
 	// How long we wait after each data point arrives to make sure we've processed the whole batch. Use `aggregationTimer` with the `eventTimer` method. The timer value can range from 0 seconds to 1200 seconds (20 minutes); the default is 60 seconds. `aggregationTimer` cannot be set with `nrql.evaluation_offset`.
 	AggregationTimer pulumi.StringPtrInput
-	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+	// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
 	AggregationWindow pulumi.IntPtrInput
 	// The baseline direction of a _baseline_ NRQL alert condition. Valid values are: `lowerOnly`, `upperAndLower`, `upperOnly` (case insensitive).
 	BaselineDirection pulumi.StringPtrInput
@@ -537,7 +534,7 @@ type NrqlAlertConditionArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The amount of time (in seconds) to wait before considering the signal expired.
+	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrInput
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
 	FillOption pulumi.StringPtrInput
@@ -559,9 +556,9 @@ type NrqlAlertConditionArgs struct {
 	//
 	// Deprecated: use `critical` and `warning` attributes instead
 	Terms NrqlAlertConditionTermArrayInput
-	// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrInput
-	// Possible values are `singleValue`, `sum` (case insensitive).
+	// **DEPRECATED** Use `signal.slide_by` instead.
 	//
 	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 	ValueFunction pulumi.StringPtrInput
@@ -684,7 +681,7 @@ func (o NrqlAlertConditionOutput) AggregationTimer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.AggregationTimer }).(pulumi.StringPtrOutput)
 }
 
-// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
 func (o NrqlAlertConditionOutput) AggregationWindow() pulumi.IntOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntOutput { return v.AggregationWindow }).(pulumi.IntOutput)
 }
@@ -719,7 +716,7 @@ func (o NrqlAlertConditionOutput) EntityGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
 }
 
-// The amount of time (in seconds) to wait before considering the signal expired.
+// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 func (o NrqlAlertConditionOutput) ExpirationDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.ExpirationDuration }).(pulumi.IntPtrOutput)
 }
@@ -771,12 +768,12 @@ func (o NrqlAlertConditionOutput) Terms() NrqlAlertConditionTermArrayOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) NrqlAlertConditionTermArrayOutput { return v.Terms }).(NrqlAlertConditionTermArrayOutput)
 }
 
-// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 func (o NrqlAlertConditionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Possible values are `singleValue`, `sum` (case insensitive).
+// **DEPRECATED** Use `signal.slide_by` instead.
 //
 // Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
 func (o NrqlAlertConditionOutput) ValueFunction() pulumi.StringPtrOutput {

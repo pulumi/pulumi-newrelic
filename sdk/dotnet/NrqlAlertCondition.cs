@@ -100,7 +100,6 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
     /// ## Upgrade from 1.x to 2.x
     /// 
     /// There have been several deprecations in the `newrelic.NrqlAlertCondition`
@@ -191,8 +190,6 @@ namespace Pulumi.NewRelic
     /// ```sh
     ///  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
     /// ```
-    /// 
-    ///  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
     /// </summary>
     [NewRelicResourceType("newrelic:index/nrqlAlertCondition:NrqlAlertCondition")]
     public partial class NrqlAlertCondition : global::Pulumi.CustomResource
@@ -222,7 +219,7 @@ namespace Pulumi.NewRelic
         public Output<string?> AggregationTimer { get; private set; } = null!;
 
         /// <summary>
-        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         /// </summary>
         [Output("aggregationWindow")]
         public Output<int> AggregationWindow { get; private set; } = null!;
@@ -264,7 +261,7 @@ namespace Pulumi.NewRelic
         public Output<string> EntityGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of time (in seconds) to wait before considering the signal expired.
+        /// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         /// </summary>
         [Output("expirationDuration")]
         public Output<int?> ExpirationDuration { get; private set; } = null!;
@@ -324,13 +321,13 @@ namespace Pulumi.NewRelic
         public Output<ImmutableArray<Outputs.NrqlAlertConditionTerm>> Terms { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Possible values are `single_value`, `sum` (case insensitive).
+        /// **DEPRECATED** Use `signal.slide_by` instead.
         /// </summary>
         [Output("valueFunction")]
         public Output<string?> ValueFunction { get; private set; } = null!;
@@ -426,7 +423,7 @@ namespace Pulumi.NewRelic
         public Input<string>? AggregationTimer { get; set; }
 
         /// <summary>
-        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         /// </summary>
         [Input("aggregationWindow")]
         public Input<int>? AggregationWindow { get; set; }
@@ -462,7 +459,7 @@ namespace Pulumi.NewRelic
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The amount of time (in seconds) to wait before considering the signal expired.
+        /// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         /// </summary>
         [Input("expirationDuration")]
         public Input<int>? ExpirationDuration { get; set; }
@@ -529,13 +526,13 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Possible values are `single_value`, `sum` (case insensitive).
+        /// **DEPRECATED** Use `signal.slide_by` instead.
         /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }
@@ -593,7 +590,7 @@ namespace Pulumi.NewRelic
         public Input<string>? AggregationTimer { get; set; }
 
         /// <summary>
-        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+        /// The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
         /// </summary>
         [Input("aggregationWindow")]
         public Input<int>? AggregationWindow { get; set; }
@@ -635,7 +632,7 @@ namespace Pulumi.NewRelic
         public Input<string>? EntityGuid { get; set; }
 
         /// <summary>
-        /// The amount of time (in seconds) to wait before considering the signal expired.
+        /// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         /// </summary>
         [Input("expirationDuration")]
         public Input<int>? ExpirationDuration { get; set; }
@@ -702,13 +699,13 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+        /// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Possible values are `single_value`, `sum` (case insensitive).
+        /// **DEPRECATED** Use `signal.slide_by` instead.
         /// </summary>
         [Input("valueFunction")]
         public Input<string>? ValueFunction { get; set; }

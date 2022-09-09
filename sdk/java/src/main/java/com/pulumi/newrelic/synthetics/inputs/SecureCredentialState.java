@@ -5,6 +5,7 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,18 +17,18 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
     public static final SecureCredentialState Empty = new SecureCredentialState();
 
     /**
-     * The time the secure credential was created.
+     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Import(name="createdAt")
-    private @Nullable Output<String> createdAt;
+    @Import(name="accountId")
+    private @Nullable Output<Integer> accountId;
 
     /**
-     * @return The time the secure credential was created.
+     * @return Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Optional<Output<String>> createdAt() {
-        return Optional.ofNullable(this.createdAt);
+    public Optional<Output<Integer>> accountId() {
+        return Optional.ofNullable(this.accountId);
     }
 
     /**
@@ -93,7 +94,7 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
     private SecureCredentialState() {}
 
     private SecureCredentialState(SecureCredentialState $) {
-        this.createdAt = $.createdAt;
+        this.accountId = $.accountId;
         this.description = $.description;
         this.key = $.key;
         this.lastUpdated = $.lastUpdated;
@@ -119,24 +120,24 @@ public final class SecureCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param createdAt The time the secure credential was created.
+         * @param accountId Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
          */
-        public Builder createdAt(@Nullable Output<String> createdAt) {
-            $.createdAt = createdAt;
+        public Builder accountId(@Nullable Output<Integer> accountId) {
+            $.accountId = accountId;
             return this;
         }
 
         /**
-         * @param createdAt The time the secure credential was created.
+         * @param accountId Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
          */
-        public Builder createdAt(String createdAt) {
-            return createdAt(Output.of(createdAt));
+        public Builder accountId(Integer accountId) {
+            return accountId(Output.of(accountId));
         }
 
         /**

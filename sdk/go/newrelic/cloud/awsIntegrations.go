@@ -29,10 +29,14 @@ type AwsIntegrations struct {
 	Billing AwsIntegrationsBillingPtrOutput `pulumi:"billing"`
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrOutput `pulumi:"cloudtrail"`
+	// Billing integration
+	DocDb AwsIntegrationsDocDbPtrOutput `pulumi:"docDb"`
 	// Health integration. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrOutput `pulumi:"health"`
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
+	// S3 integration
+	S3 AwsIntegrationsS3PtrOutput `pulumi:"s3"`
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrOutput `pulumi:"trustedAdvisor"`
 	// VPC integration. See Integration blocks below for details.
@@ -79,10 +83,14 @@ type awsIntegrationsState struct {
 	Billing *AwsIntegrationsBilling `pulumi:"billing"`
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail *AwsIntegrationsCloudtrail `pulumi:"cloudtrail"`
+	// Billing integration
+	DocDb *AwsIntegrationsDocDb `pulumi:"docDb"`
 	// Health integration. See Integration blocks below for details.
 	Health *AwsIntegrationsHealth `pulumi:"health"`
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
+	// S3 integration
+	S3 *AwsIntegrationsS3 `pulumi:"s3"`
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor *AwsIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// VPC integration. See Integration blocks below for details.
@@ -98,10 +106,14 @@ type AwsIntegrationsState struct {
 	Billing AwsIntegrationsBillingPtrInput
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrInput
+	// Billing integration
+	DocDb AwsIntegrationsDocDbPtrInput
 	// Health integration. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrInput
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId pulumi.IntPtrInput
+	// S3 integration
+	S3 AwsIntegrationsS3PtrInput
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrInput
 	// VPC integration. See Integration blocks below for details.
@@ -121,10 +133,14 @@ type awsIntegrationsArgs struct {
 	Billing *AwsIntegrationsBilling `pulumi:"billing"`
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail *AwsIntegrationsCloudtrail `pulumi:"cloudtrail"`
+	// Billing integration
+	DocDb *AwsIntegrationsDocDb `pulumi:"docDb"`
 	// Health integration. See Integration blocks below for details.
 	Health *AwsIntegrationsHealth `pulumi:"health"`
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId int `pulumi:"linkedAccountId"`
+	// S3 integration
+	S3 *AwsIntegrationsS3 `pulumi:"s3"`
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor *AwsIntegrationsTrustedAdvisor `pulumi:"trustedAdvisor"`
 	// VPC integration. See Integration blocks below for details.
@@ -141,10 +157,14 @@ type AwsIntegrationsArgs struct {
 	Billing AwsIntegrationsBillingPtrInput
 	// Cloudtrail integration. See Integration blocks below for details.
 	Cloudtrail AwsIntegrationsCloudtrailPtrInput
+	// Billing integration
+	DocDb AwsIntegrationsDocDbPtrInput
 	// Health integration. See Integration blocks below for details.
 	Health AwsIntegrationsHealthPtrInput
 	// The ID of the linked AWS account in New Relic.
 	LinkedAccountId pulumi.IntInput
+	// S3 integration
+	S3 AwsIntegrationsS3PtrInput
 	// Trusted Advisor integration. See Integration blocks below for details.
 	TrustedAdvisor AwsIntegrationsTrustedAdvisorPtrInput
 	// VPC integration. See Integration blocks below for details.
@@ -255,6 +275,11 @@ func (o AwsIntegrationsOutput) Cloudtrail() AwsIntegrationsCloudtrailPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsCloudtrailPtrOutput { return v.Cloudtrail }).(AwsIntegrationsCloudtrailPtrOutput)
 }
 
+// Billing integration
+func (o AwsIntegrationsOutput) DocDb() AwsIntegrationsDocDbPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsDocDbPtrOutput { return v.DocDb }).(AwsIntegrationsDocDbPtrOutput)
+}
+
 // Health integration. See Integration blocks below for details.
 func (o AwsIntegrationsOutput) Health() AwsIntegrationsHealthPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsHealthPtrOutput { return v.Health }).(AwsIntegrationsHealthPtrOutput)
@@ -263,6 +288,11 @@ func (o AwsIntegrationsOutput) Health() AwsIntegrationsHealthPtrOutput {
 // The ID of the linked AWS account in New Relic.
 func (o AwsIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AwsIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
+}
+
+// S3 integration
+func (o AwsIntegrationsOutput) S3() AwsIntegrationsS3PtrOutput {
+	return o.ApplyT(func(v *AwsIntegrations) AwsIntegrationsS3PtrOutput { return v.S3 }).(AwsIntegrationsS3PtrOutput)
 }
 
 // Trusted Advisor integration. See Integration blocks below for details.

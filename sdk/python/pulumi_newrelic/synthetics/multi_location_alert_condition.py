@@ -27,7 +27,7 @@ class MultiLocationAlertConditionArgs:
         """
         The set of arguments for constructing a MultiLocationAlertCondition resource.
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[int] violation_time_limit_seconds: The maximum number of seconds a violation can remain open before being closed by the system. Must be one of: 0, 3600, 7200, 14400, 28800, 43200, 86400.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
@@ -64,7 +64,7 @@ class MultiLocationAlertConditionArgs:
     @pulumi.getter
     def entities(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The GUIDs of the Synthetics monitors to alert on.
+        The Monitor GUID's of the Synthetics monitors to alert on.
         """
         return pulumi.get(self, "entities")
 
@@ -160,7 +160,7 @@ class _MultiLocationAlertConditionState:
         Input properties used for looking up and filtering MultiLocationAlertCondition resources.
         :param pulumi.Input['MultiLocationAlertConditionCriticalArgs'] critical: A condition term with the priority set to critical.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -212,7 +212,7 @@ class _MultiLocationAlertConditionState:
     @pulumi.getter
     def entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The GUIDs of the Synthetics monitors to alert on.
+        The Monitor GUID's of the Synthetics monitors to alert on.
         """
         return pulumi.get(self, "entities")
 
@@ -300,6 +300,33 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        policy = newrelic.AlertPolicy("policy")
+        monitor = newrelic.synthetics.Monitor("monitor",
+            locations_publics=["US_WEST_1"],
+            period="EVERY_10_MINUTES",
+            status="DISABLED",
+            type="SIMPLE",
+            uri="https://www.one.newrelic.com")
+        example = newrelic.synthetics.MultiLocationAlertCondition("example",
+            policy_id=policy.id,
+            runbook_url="https://example.com",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            entities=[monitor.id],
+            critical=newrelic.synthetics.MultiLocationAlertConditionCriticalArgs(
+                threshold=2,
+            ),
+            warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
+                threshold=1,
+            ))
+        ```
+
         ## Import
 
         New Relic Synthetics MultiLocation Conditions can be imported using a concatenated string of the format
@@ -314,7 +341,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']] critical: A condition term with the priority set to critical.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -331,6 +358,33 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        policy = newrelic.AlertPolicy("policy")
+        monitor = newrelic.synthetics.Monitor("monitor",
+            locations_publics=["US_WEST_1"],
+            period="EVERY_10_MINUTES",
+            status="DISABLED",
+            type="SIMPLE",
+            uri="https://www.one.newrelic.com")
+        example = newrelic.synthetics.MultiLocationAlertCondition("example",
+            policy_id=policy.id,
+            runbook_url="https://example.com",
+            enabled=True,
+            violation_time_limit_seconds=3600,
+            entities=[monitor.id],
+            critical=newrelic.synthetics.MultiLocationAlertConditionCriticalArgs(
+                threshold=2,
+            ),
+            warning=newrelic.synthetics.MultiLocationAlertConditionWarningArgs(
+                threshold=1,
+            ))
+        ```
 
         ## Import
 
@@ -417,7 +471,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MultiLocationAlertConditionCriticalArgs']] critical: A condition term with the priority set to critical.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition.  Defaults to true.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The GUIDs of the Synthetics monitors to alert on.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entities: The Monitor GUID's of the Synthetics monitors to alert on.
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition will be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -458,7 +512,7 @@ class MultiLocationAlertCondition(pulumi.CustomResource):
     @pulumi.getter
     def entities(self) -> pulumi.Output[Sequence[str]]:
         """
-        The GUIDs of the Synthetics monitors to alert on.
+        The Monitor GUID's of the Synthetics monitors to alert on.
         """
         return pulumi.get(self, "entities")
 

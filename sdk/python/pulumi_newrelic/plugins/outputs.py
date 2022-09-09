@@ -10,68 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AlertConditionTerm',
     'WorkloadEntitySearchQuery',
 ]
-
-@pulumi.output_type
-class AlertConditionTerm(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timeFunction":
-            suggest = "time_function"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertConditionTerm. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertConditionTerm.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertConditionTerm.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 duration: int,
-                 threshold: float,
-                 time_function: str,
-                 operator: Optional[str] = None,
-                 priority: Optional[str] = None):
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_function", time_function)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> int:
-        return pulumi.get(self, "duration")
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> float:
-        return pulumi.get(self, "threshold")
-
-    @property
-    @pulumi.getter(name="timeFunction")
-    def time_function(self) -> str:
-        return pulumi.get(self, "time_function")
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[str]:
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[str]:
-        return pulumi.get(self, "priority")
-
 
 @pulumi.output_type
 class WorkloadEntitySearchQuery(dict):

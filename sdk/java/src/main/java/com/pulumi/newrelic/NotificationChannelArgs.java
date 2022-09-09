@@ -6,6 +6,8 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +18,36 @@ import javax.annotation.Nullable;
 public final class NotificationChannelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NotificationChannelArgs Empty = new NotificationChannelArgs();
+
+    /**
+     * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+     * 
+     */
+    @Import(name="accountId", required=true)
+    private Output<Integer> accountId;
+
+    /**
+     * @return Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+     * 
+     */
+    public Output<Integer> accountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Indicates whether the channel is active.
+     * 
+     */
+    @Import(name="active")
+    private @Nullable Output<Boolean> active;
+
+    /**
+     * @return Indicates whether the channel is active.
+     * 
+     */
+    public Optional<Output<Boolean>> active() {
+        return Optional.ofNullable(this.active);
+    }
 
     /**
      * The id of the destination.
@@ -48,14 +80,14 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+     * The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
      * 
      */
     @Import(name="product", required=true)
     private Output<String> product;
 
     /**
-     * @return The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+     * @return The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
      * 
      */
     public Output<String> product() {
@@ -63,29 +95,29 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+     * A nested block that describes a notification channel property. See Nested property blocks below for details.
      * 
      */
-    @Import(name="properties")
-    private @Nullable Output<List<NotificationChannelPropertyArgs>> properties;
+    @Import(name="properties", required=true)
+    private Output<List<NotificationChannelPropertyArgs>> properties;
 
     /**
-     * @return A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+     * @return A nested block that describes a notification channel property. See Nested property blocks below for details.
      * 
      */
-    public Optional<Output<List<NotificationChannelPropertyArgs>>> properties() {
-        return Optional.ofNullable(this.properties);
+    public Output<List<NotificationChannelPropertyArgs>> properties() {
+        return this.properties;
     }
 
     /**
-     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * @return The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
     public Output<String> type() {
@@ -95,6 +127,8 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
     private NotificationChannelArgs() {}
 
     private NotificationChannelArgs(NotificationChannelArgs $) {
+        this.accountId = $.accountId;
+        this.active = $.active;
         this.destinationId = $.destinationId;
         this.name = $.name;
         this.product = $.product;
@@ -118,6 +152,48 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
 
         public Builder(NotificationChannelArgs defaults) {
             $ = new NotificationChannelArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(Output<Integer> accountId) {
+            $.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * @param accountId Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(Integer accountId) {
+            return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param active Indicates whether the channel is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder active(@Nullable Output<Boolean> active) {
+            $.active = active;
+            return this;
+        }
+
+        /**
+         * @param active Indicates whether the channel is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder active(Boolean active) {
+            return active(Output.of(active));
         }
 
         /**
@@ -163,7 +239,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param product The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+         * @param product The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
          * 
          * @return builder
          * 
@@ -174,7 +250,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param product The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+         * @param product The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
          * 
          * @return builder
          * 
@@ -184,18 +260,18 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param properties A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+         * @param properties A nested block that describes a notification channel property. See Nested property blocks below for details.
          * 
          * @return builder
          * 
          */
-        public Builder properties(@Nullable Output<List<NotificationChannelPropertyArgs>> properties) {
+        public Builder properties(Output<List<NotificationChannelPropertyArgs>> properties) {
             $.properties = properties;
             return this;
         }
 
         /**
-         * @param properties A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+         * @param properties A nested block that describes a notification channel property. See Nested property blocks below for details.
          * 
          * @return builder
          * 
@@ -205,7 +281,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param properties A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+         * @param properties A nested block that describes a notification channel property. See Nested property blocks below for details.
          * 
          * @return builder
          * 
@@ -215,7 +291,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+         * @param type The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
          * 
          * @return builder
          * 
@@ -226,7 +302,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+         * @param type The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
          * 
          * @return builder
          * 
@@ -236,8 +312,10 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         public NotificationChannelArgs build() {
+            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
             $.destinationId = Objects.requireNonNull($.destinationId, "expected parameter 'destinationId' to be non-null");
             $.product = Objects.requireNonNull($.product, "expected parameter 'product' to be non-null");
+            $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }

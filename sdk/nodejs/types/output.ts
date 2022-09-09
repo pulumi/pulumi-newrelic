@@ -155,54 +155,6 @@ export interface AlertMutingRuleSchedule {
     weeklyRepeatDays?: string[];
 }
 
-export interface DashboardFilter {
-    attributes?: string[];
-    eventTypes: string[];
-}
-
-export interface DashboardWidget {
-    accountId?: number;
-    column: number;
-    compareWiths?: outputs.DashboardWidgetCompareWith[];
-    drilldownDashboardId?: number;
-    duration?: number;
-    endTime?: number;
-    entityIds?: number[];
-    facet?: string;
-    height?: number;
-    limit?: number;
-    metrics?: outputs.DashboardWidgetMetric[];
-    notes?: string;
-    nrql?: string;
-    orderBy?: string;
-    rawMetricName: string;
-    row: number;
-    source?: string;
-    thresholdRed?: number;
-    thresholdYellow?: number;
-    title: string;
-    visualization: string;
-    widgetId: number;
-    width?: number;
-}
-
-export interface DashboardWidgetCompareWith {
-    offsetDuration: string;
-    presentation: outputs.DashboardWidgetCompareWithPresentation;
-}
-
-export interface DashboardWidgetCompareWithPresentation {
-    color: string;
-    name: string;
-}
-
-export interface DashboardWidgetMetric {
-    name: string;
-    scope?: string;
-    units?: string;
-    values?: string[];
-}
-
 export interface EntityTagsTag {
     /**
      * The tag key.
@@ -255,48 +207,77 @@ export interface InfraAlertConditionWarning {
 }
 
 export interface NotificationChannelProperty {
+    /**
+     * The notification property display value.
+     * *
+     * Each notification channel type supports a specific set of arguments for the `property` block:
+     */
     displayValue?: string;
+    /**
+     * The notification property key.
+     */
     key: string;
+    /**
+     * The notification property label.
+     */
     label?: string;
+    /**
+     * The notification property value.
+     */
     value: string;
 }
 
+export interface NotificationDestinationAuthBasic {
+    /**
+     * Specifies an authentication password for use with a destination.
+     */
+    password: string;
+    /**
+     * The username of the basic auth.
+     */
+    user: string;
+}
+
+export interface NotificationDestinationAuthToken {
+    /**
+     * The prefix of the token auth.
+     */
+    prefix?: string;
+    /**
+     * Specifies the token for integrating.
+     */
+    token: string;
+}
+
 export interface NotificationDestinationProperty {
+    /**
+     * The notification property display value.
+     */
     displayValue?: string;
+    /**
+     * The notification property key.
+     */
     key: string;
+    /**
+     * The notification property label.
+     */
     label?: string;
+    /**
+     * The notification property value.
+     */
     value: string;
 }
 
 export interface NrqlAlertConditionCritical {
     /**
-     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: number;
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     */
     operator?: string;
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     */
     threshold: number;
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-     * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-     */
     thresholdDuration?: number;
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-     */
     thresholdOccurrences?: string;
     /**
-     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: string;
@@ -304,20 +285,11 @@ export interface NrqlAlertConditionCritical {
 
 export interface NrqlAlertConditionNrql {
     /**
-     * Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated in one-minute time windows. The start time depends on this value. It's recommended to set this to 3 minutes. An offset of less than 3 minutes will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluationOffset` set to 3 minutes, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`.<br>
-     * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-     *
      * @deprecated use `aggregation_method` attribute instead
      */
     evaluationOffset?: number;
-    /**
-     * The NRQL query to execute for the condition.
-     */
     query: string;
     /**
-     * **DEPRECATED:** Use `evaluationOffset` instead. The value to be used in the `SINCE <X> minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). <br>
-     * <small>\***Note**: One of `evaluationOffset` _or_ `sinceValue` must be set, but not both.</small>
-     *
      * @deprecated use `aggregation_method` attribute instead
      */
     sinceValue?: string;
@@ -325,37 +297,15 @@ export interface NrqlAlertConditionNrql {
 
 export interface NrqlAlertConditionTerm {
     /**
-     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: number;
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     */
     operator?: string;
-    /**
-     * `critical` or `warning`. Defaults to `critical`.
-     */
     priority?: string;
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     */
     threshold: number;
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-     * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-     */
     thresholdDuration?: number;
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-     */
     thresholdOccurrences?: string;
     /**
-     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: string;
@@ -363,33 +313,14 @@ export interface NrqlAlertConditionTerm {
 
 export interface NrqlAlertConditionWarning {
     /**
-     * **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     *
      * @deprecated use `threshold_duration` attribute instead
      */
     duration?: number;
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     */
     operator?: string;
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     */
     threshold: number;
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-     * <br>For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
-     */
     thresholdDuration?: number;
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
-     */
     thresholdOccurrences?: string;
     /**
-     * **DEPRECATED:** Use `thresholdOccurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     *
      * @deprecated use `threshold_occurrences` attribute instead
      */
     timeFunction?: string;
@@ -1255,6 +1186,80 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
     unit: string;
 }
 
+export interface WorkflowDestinationConfiguration {
+    channelId: string;
+    /**
+     * A nrql enrichment name.
+     */
+    name: string;
+    /**
+     * the filter's type.   One of: `FILTER` or `VIEW`.
+     * * `predicates`
+     */
+    type: string;
+}
+
+export interface WorkflowEnrichments {
+    nrqls: outputs.WorkflowEnrichmentsNrql[];
+}
+
+export interface WorkflowEnrichmentsNrql {
+    /**
+     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     */
+    accountId: number;
+    /**
+     * A list of nrql enrichments.
+     */
+    configurations: outputs.WorkflowEnrichmentsNrqlConfiguration[];
+    enrichmentId: string;
+    /**
+     * A nrql enrichment name.
+     */
+    name: string;
+    /**
+     * the filter's type.   One of: `FILTER` or `VIEW`.
+     * * `predicates`
+     */
+    type: string;
+}
+
+export interface WorkflowEnrichmentsNrqlConfiguration {
+    /**
+     * the nrql query.
+     */
+    query: string;
+}
+
+export interface WorkflowIssuesFilter {
+    filterId: string;
+    /**
+     * A nrql enrichment name.
+     */
+    name: string;
+    predicates?: outputs.WorkflowIssuesFilterPredicate[];
+    /**
+     * the filter's type.   One of: `FILTER` or `VIEW`.
+     * * `predicates`
+     */
+    type: string;
+}
+
+export interface WorkflowIssuesFilterPredicate {
+    /**
+     * A predicates attribute.
+     */
+    attribute: string;
+    /**
+     * A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     */
+    operator: string;
+    /**
+     * A list of values.
+     */
+    values: string[];
+}
+
 export namespace cloud {
     export interface AwsGovcloudIntegrationsAlb {
         /**
@@ -1919,7 +1924,21 @@ export namespace cloud {
         metricsPollingInterval?: number;
     }
 
+    export interface AwsIntegrationsDocDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
     export interface AwsIntegrationsHealth {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+    }
+
+    export interface AwsIntegrationsS3 {
         /**
          * The data polling interval in seconds.
          */
@@ -2502,14 +2521,6 @@ export namespace insights {
 }
 
 export namespace plugins {
-    export interface AlertConditionTerm {
-        duration: number;
-        operator?: string;
-        priority?: string;
-        threshold: number;
-        timeFunction: string;
-    }
-
     export interface WorkloadEntitySearchQuery {
         /**
          * The query.
@@ -2520,19 +2531,48 @@ export namespace plugins {
 }
 
 export namespace synthetics {
-    export interface MonitorScriptLocation {
+    export interface BrokenLinksMonitorTag {
         /**
-         * The monitor script authentication code for the location. Use one of either `hmac` or `vsePassword`.
+         * Name of the tag key.
          */
-        hmac?: string;
+        key: string;
         /**
-         * The monitor script location name.
+         * Values associated with the tag key.
          */
-        name: string;
+        values: string[];
+    }
+
+    export interface CertCheckMonitorTag {
         /**
-         * The password for the location used to calculate the HMAC. Use one of either `hmac` or `vsePassword`.
+         * Name of the tag key.
          */
-        vsePassword?: string;
+        key: string;
+        /**
+         * Values associated with the tag key.
+         */
+        values: string[];
+    }
+
+    export interface MonitorCustomHeader {
+        /**
+         * Header name.
+         */
+        name?: string;
+        /**
+         * Header Value.
+         */
+        value?: string;
+    }
+
+    export interface MonitorTag {
+        /**
+         * Name of the tag key.
+         */
+        key: string;
+        /**
+         * Values associated with the tag key.
+         */
+        values: string[];
     }
 
     export interface MultiLocationAlertConditionCritical {
@@ -2541,6 +2581,65 @@ export namespace synthetics {
 
     export interface MultiLocationAlertConditionWarning {
         threshold: number;
+    }
+
+    export interface ScriptMonitorLocationPrivate {
+        /**
+         * The unique identifier for the Synthetics private location in New Relic.
+         */
+        guid: string;
+        /**
+         * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         */
+        vsePassword?: string;
+    }
+
+    export interface ScriptMonitorTag {
+        /**
+         * Name of the tag key.
+         */
+        key: string;
+        /**
+         * Values associated with the tag key.
+         */
+        values: string[];
+    }
+
+    export interface StepMonitorLocationPrivate {
+        /**
+         * The unique identifier for the Synthetics private location in New Relic.
+         */
+        guid: string;
+        /**
+         * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         */
+        vsePassword?: string;
+    }
+
+    export interface StepMonitorStep {
+        /**
+         * The position of the step within the script ranging from 0-100.
+         */
+        ordinal: number;
+        /**
+         * Name of the tag key.
+         */
+        type: string;
+        /**
+         * The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+         */
+        values?: string[];
+    }
+
+    export interface StepMonitorTag {
+        /**
+         * Name of the tag key.
+         */
+        key: string;
+        /**
+         * Values associated with the tag key.
+         */
+        values: string[];
     }
 
 }

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +23,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "newrelic:synthetics/alertCondition:AlertCondition":
 		r = &AlertCondition{}
+	case "newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor":
+		r = &BrokenLinksMonitor{}
+	case "newrelic:synthetics/certCheckMonitor:CertCheckMonitor":
+		r = &CertCheckMonitor{}
 	case "newrelic:synthetics/monitor:Monitor":
 		r = &Monitor{}
-	case "newrelic:synthetics/monitorScript:MonitorScript":
-		r = &MonitorScript{}
 	case "newrelic:synthetics/multiLocationAlertCondition:MultiLocationAlertCondition":
 		r = &MultiLocationAlertCondition{}
+	case "newrelic:synthetics/privateLocation:PrivateLocation":
+		r = &PrivateLocation{}
+	case "newrelic:synthetics/scriptMonitor:ScriptMonitor":
+		r = &ScriptMonitor{}
 	case "newrelic:synthetics/secureCredential:SecureCredential":
 		r = &SecureCredential{}
+	case "newrelic:synthetics/stepMonitor:StepMonitor":
+		r = &StepMonitor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -51,12 +59,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
-		"synthetics/monitor",
+		"synthetics/brokenLinksMonitor",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
-		"synthetics/monitorScript",
+		"synthetics/certCheckMonitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"synthetics/monitor",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -66,7 +79,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
+		"synthetics/privateLocation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"synthetics/scriptMonitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
 		"synthetics/secureCredential",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"synthetics/stepMonitor",
 		&module{version},
 	)
 }
