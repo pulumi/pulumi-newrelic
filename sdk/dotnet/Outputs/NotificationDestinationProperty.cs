@@ -13,9 +13,21 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class NotificationDestinationProperty
     {
+        /// <summary>
+        /// The notification property display value.
+        /// </summary>
         public readonly string? DisplayValue;
+        /// <summary>
+        /// The notification property key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The notification property label.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The notification property value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

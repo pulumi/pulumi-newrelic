@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
-    /// Use this resource to create and manage New Relic notification channels.
+    /// Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
     /// 
     /// ## Example Usage
     /// 
-    /// ##### Webhook
+    /// ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -24,7 +24,8 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         DestinationId = "1234",
+    ///         AccountId = 12345678,
+    ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
     ///         {
@@ -32,10 +33,7 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 Key = "payload",
     ///                 Label = "Payload Template",
-    ///                 Value = @"{
-    /// 	""name"": ""foo""
-    /// }
-    /// ",
+    ///                 Value = "name: {{ foo }}",
     ///             },
     ///         },
     ///         Type = "WEBHOOK",
@@ -46,7 +44,7 @@ namespace Pulumi.NewRelic
     /// See additional examples.
     /// ## Additional Examples
     /// 
-    /// ##### ServiceNow
+    /// ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -56,8 +54,9 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         DestinationId = "1234",
-    ///         Product = "PD",
+    ///         AccountId = 12345678,
+    ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+    ///         Product = "IINT",
     ///         Properties = new[]
     ///         {
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
@@ -77,7 +76,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// ##### Email
+    /// ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -87,15 +86,24 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         DestinationId = "1234",
+    ///         AccountId = 12345678,
+    ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "ERROR_TRACKING",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "subject",
+    ///                 Value = "New Subject Title",
+    ///             },
+    ///         },
     ///         Type = "EMAIL",
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ##### PagerDuty with account integration
+    /// ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -105,7 +113,50 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         DestinationId = "1234",
+    ///         AccountId = 12345678,
+    ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+    ///         Product = "ERROR_TRACKING",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "project",
+    ///                 Value = "10000",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "issuetype",
+    ///                 Value = "10004",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "description",
+    ///                 Value = "Issue ID: {{ issueId }}",
+    ///             },
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "summary",
+    ///                 Value = "{{ annotations.title.[0] }}",
+    ///             },
+    ///         },
+    ///         Type = "JIRA_CLASSIC",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.NotificationChannel("foo", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
     ///         {
@@ -117,12 +168,12 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "service",
-    ///                 Value = "1234",
+    ///                 Value = "PTQK3FM",
     ///             },
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "email",
-    ///                 Value = "test@test.com",
+    ///                 Value = "example@email.com",
     ///             },
     ///         },
     ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
@@ -131,7 +182,7 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
-    /// ##### PagerDuty with service integration
+    /// ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -141,7 +192,8 @@ namespace Pulumi.NewRelic
     /// {
     ///     var foo = new NewRelic.NotificationChannel("foo", new()
     ///     {
-    ///         DestinationId = "1234",
+    ///         AccountId = 12345678,
+    ///         DestinationId = "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
     ///         Product = "IINT",
     ///         Properties = new[]
     ///         {
@@ -158,10 +210,88 @@ namespace Pulumi.NewRelic
     /// ```
     /// 
     /// &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+    /// 
+    /// ## Full Scenario Example
+    /// 
+    /// Create a destination resource and reference that destination to the channel resource:
+    /// 
+    /// ### Create a destination
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webhook_destination = new NewRelic.NotificationDestination("webhook-destination", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
+    ///         {
+    ///             Password = "password",
+    ///             User = "username",
+    ///         },
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
+    ///             {
+    ///                 Key = "url",
+    ///                 Value = "https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+    ///             },
+    ///         },
+    ///         Type = "WEBHOOK",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Create a channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webhook_channel = new NewRelic.NotificationChannel("webhook-channel", new()
+    ///     {
+    ///         AccountId = 12345678,
+    ///         Type = "WEBHOOK",
+    ///         DestinationId = newrelic_notification_destination.Webhook_destination.Id,
+    ///         Product = "IINT",
+    ///         Properties = new[]
+    ///         {
+    ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+    ///             {
+    ///                 Key = "payload",
+    ///                 Value = "{name: foo}",
+    ///                 Label = "Payload Template",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Additional Information
+    /// 
+    /// More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
     /// </summary>
     [NewRelicResourceType("newrelic:index/notificationChannel:NotificationChannel")]
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        /// </summary>
+        [Output("accountId")]
+        public Output<int> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the channel is active.
+        /// </summary>
+        [Output("active")]
+        public Output<bool?> Active { get; private set; } = null!;
+
         /// <summary>
         /// The id of the destination.
         /// </summary>
@@ -175,19 +305,25 @@ namespace Pulumi.NewRelic
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+        /// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         /// </summary>
         [Output("product")]
         public Output<string> Product { get; private set; } = null!;
 
         /// <summary>
-        /// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+        /// A nested block that describes a notification channel property. See Nested property blocks below for details.
         /// </summary>
         [Output("properties")]
         public Output<ImmutableArray<Outputs.NotificationChannelProperty>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        /// The status of the channel.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -239,6 +375,18 @@ namespace Pulumi.NewRelic
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        /// </summary>
+        [Input("accountId", required: true)]
+        public Input<int> AccountId { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the channel is active.
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
         /// The id of the destination.
         /// </summary>
         [Input("destinationId", required: true)]
@@ -251,16 +399,16 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+        /// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
-        [Input("properties")]
+        [Input("properties", required: true)]
         private InputList<Inputs.NotificationChannelPropertyArgs>? _properties;
 
         /// <summary>
-        /// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+        /// A nested block that describes a notification channel property. See Nested property blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationChannelPropertyArgs> Properties
         {
@@ -269,7 +417,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -283,6 +431,18 @@ namespace Pulumi.NewRelic
     public sealed class NotificationChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// Indicates whether the channel is active.
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
         /// The id of the destination.
         /// </summary>
         [Input("destinationId")]
@@ -295,7 +455,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+        /// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         /// </summary>
         [Input("product")]
         public Input<string>? Product { get; set; }
@@ -304,7 +464,7 @@ namespace Pulumi.NewRelic
         private InputList<Inputs.NotificationChannelPropertyGetArgs>? _properties;
 
         /// <summary>
-        /// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+        /// A nested block that describes a notification channel property. See Nested property blocks below for details.
         /// </summary>
         public InputList<Inputs.NotificationChannelPropertyGetArgs> Properties
         {
@@ -313,7 +473,13 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        /// The status of the channel.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

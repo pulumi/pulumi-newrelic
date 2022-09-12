@@ -22,6 +22,7 @@ func LookupAlertPolicy(ctx *pulumi.Context, args *LookupAlertPolicyArgs, opts ..
 
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyArgs struct {
+	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
 	IncidentPreference *string `pulumi:"incidentPreference"`
@@ -58,6 +59,7 @@ func LookupAlertPolicyOutput(ctx *pulumi.Context, args LookupAlertPolicyOutputAr
 
 // A collection of arguments for invoking getAlertPolicy.
 type LookupAlertPolicyOutputArgs struct {
+	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
 	// The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
 	IncidentPreference pulumi.StringPtrInput `pulumi:"incidentPreference"`

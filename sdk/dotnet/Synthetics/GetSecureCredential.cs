@@ -104,10 +104,6 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class GetSecureCredentialResult
     {
         /// <summary>
-        /// The time the secure credential was created.
-        /// </summary>
-        public readonly string CreatedAt;
-        /// <summary>
         /// The secure credential's description.
         /// </summary>
         public readonly string Description;
@@ -123,8 +119,6 @@ namespace Pulumi.NewRelic.Synthetics
 
         [OutputConstructor]
         private GetSecureCredentialResult(
-            string createdAt,
-
             string description,
 
             string id,
@@ -133,7 +127,6 @@ namespace Pulumi.NewRelic.Synthetics
 
             string lastUpdated)
         {
-            CreatedAt = createdAt;
             Description = description;
             Id = id;
             Key = key;

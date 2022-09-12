@@ -10,11 +10,6 @@ import java.util.Objects;
 @CustomType
 public final class GetSecureCredentialResult {
     /**
-     * @return The time the secure credential was created.
-     * 
-     */
-    private String createdAt;
-    /**
      * @return The secure credential&#39;s description.
      * 
      */
@@ -32,13 +27,6 @@ public final class GetSecureCredentialResult {
     private String lastUpdated;
 
     private GetSecureCredentialResult() {}
-    /**
-     * @return The time the secure credential was created.
-     * 
-     */
-    public String createdAt() {
-        return this.createdAt;
-    }
     /**
      * @return The secure credential&#39;s description.
      * 
@@ -73,7 +61,6 @@ public final class GetSecureCredentialResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String createdAt;
         private String description;
         private String id;
         private String key;
@@ -81,18 +68,12 @@ public final class GetSecureCredentialResult {
         public Builder() {}
         public Builder(GetSecureCredentialResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.createdAt = defaults.createdAt;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.lastUpdated = defaults.lastUpdated;
         }
 
-        @CustomType.Setter
-        public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
-            return this;
-        }
         @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
@@ -115,7 +96,6 @@ public final class GetSecureCredentialResult {
         }
         public GetSecureCredentialResult build() {
             final var o = new GetSecureCredentialResult();
-            o.createdAt = createdAt;
             o.description = description;
             o.id = id;
             o.key = key;

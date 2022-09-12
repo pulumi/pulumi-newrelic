@@ -127,71 +127,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
- * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
- * ### Type: `outlier`
- * 
- * In software development and operations, it is common to have a group consisting of members you expect to behave approximately the same. [Outlier detection](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/outlier-detection-nrql-alert) facilitates alerting when the behavior of one or more common members falls outside a specified range expectation.
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.AlertPolicy;
- * import com.pulumi.newrelic.NrqlAlertCondition;
- * import com.pulumi.newrelic.NrqlAlertConditionArgs;
- * import com.pulumi.newrelic.inputs.NrqlAlertConditionNrqlArgs;
- * import com.pulumi.newrelic.inputs.NrqlAlertConditionCriticalArgs;
- * import com.pulumi.newrelic.inputs.NrqlAlertConditionWarningArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var fooAlertPolicy = new AlertPolicy(&#34;fooAlertPolicy&#34;);
- * 
- *         var fooNrqlAlertCondition = new NrqlAlertCondition(&#34;fooNrqlAlertCondition&#34;, NrqlAlertConditionArgs.builder()        
- *             .type(&#34;outlier&#34;)
- *             .accountId(&#34;your_account_id&#34;)
- *             .policyId(fooAlertPolicy.id())
- *             .description(&#34;Alert when outlier conditions occur&#34;)
- *             .enabled(true)
- *             .runbookUrl(&#34;https://www.example.com&#34;)
- *             .violationTimeLimitSeconds(3600)
- *             .aggregationMethod(&#34;event_flow&#34;)
- *             .aggregationDelay(120)
- *             .expectedGroups(2)
- *             .openViolationOnGroupOverlap(true)
- *             .nrql(NrqlAlertConditionNrqlArgs.builder()
- *                 .query(&#34;SELECT percentile(duration, 95) FROM Transaction WHERE appName = &#39;ExampleAppName&#39; FACET host&#34;)
- *                 .build())
- *             .critical(NrqlAlertConditionCriticalArgs.builder()
- *                 .operator(&#34;above&#34;)
- *                 .threshold(0.002)
- *                 .thresholdDuration(600)
- *                 .thresholdOccurrences(&#34;all&#34;)
- *                 .build())
- *             .warning(NrqlAlertConditionWarningArgs.builder()
- *                 .operator(&#34;above&#34;)
- *                 .threshold(0.0015)
- *                 .thresholdDuration(600)
- *                 .thresholdOccurrences(&#34;all&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Upgrade from 1.x to 2.x
  * 
  * There have been several deprecations in the `newrelic.NrqlAlertCondition`
@@ -306,8 +241,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import newrelic:index/nrqlAlertCondition:NrqlAlertCondition foo 538291:6789035:static
  * ```
  * 
- *  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; v2.46.1 Users can find the actual values for `policy_id` and `condition_id` from the New Relic One UI under respective policy and condition.
- * 
  */
 @ResourceType(type="newrelic:index/nrqlAlertCondition:NrqlAlertCondition")
 public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
@@ -368,14 +301,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aggregationTimer);
     }
     /**
-     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      * 
      */
     @Export(name="aggregationWindow", type=Integer.class, parameters={})
     private Output<Integer> aggregationWindow;
 
     /**
-     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 15 minutes (900 seconds). Default is 60 seconds.
+     * @return The duration of the time window used to evaluate the NRQL query, in seconds. The value must be at least 30 seconds, and no more than 900 seconds (15 minutes). Default is 60 seconds.
      * 
      */
     public Output<Integer> aggregationWindow() {
@@ -466,14 +399,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return this.entityGuid;
     }
     /**
-     * The amount of time (in seconds) to wait before considering the signal expired.
+     * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      * 
      */
     @Export(name="expirationDuration", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> expirationDuration;
 
     /**
-     * @return The amount of time (in seconds) to wait before considering the signal expired.
+     * @return The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      * 
      */
     public Output<Optional<Integer>> expirationDuration() {
@@ -610,21 +543,21 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.terms);
     }
     /**
-     * The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of the condition. Valid values are `static`, `baseline`, or `outlier`. Defaults to `static`.
+     * @return The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
      * 
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
     /**
-     * Possible values are `single_value`, `sum` (case insensitive).
+     * **DEPRECATED** Use `signal.slide_by` instead.
      * 
      * @deprecated
      * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
@@ -635,7 +568,7 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> valueFunction;
 
     /**
-     * @return Possible values are `single_value`, `sum` (case insensitive).
+     * @return **DEPRECATED** Use `signal.slide_by` instead.
      * 
      */
     public Output<Optional<String>> valueFunction() {

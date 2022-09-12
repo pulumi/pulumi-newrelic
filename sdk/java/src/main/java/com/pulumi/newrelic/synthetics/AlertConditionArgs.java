@@ -33,14 +33,14 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the Synthetics monitor to be referenced in the alert condition.
+     * The GUID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     @Import(name="monitorId", required=true)
     private Output<String> monitorId;
 
     /**
-     * @return The ID of the Synthetics monitor to be referenced in the alert condition.
+     * @return The GUID of the Synthetics monitor to be referenced in the alert condition.
      * 
      */
     public Output<String> monitorId() {
@@ -142,7 +142,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param monitorId The ID of the Synthetics monitor to be referenced in the alert condition.
+         * @param monitorId The GUID of the Synthetics monitor to be referenced in the alert condition.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param monitorId The ID of the Synthetics monitor to be referenced in the alert condition.
+         * @param monitorId The GUID of the Synthetics monitor to be referenced in the alert condition.
          * 
          * @return builder
          * 

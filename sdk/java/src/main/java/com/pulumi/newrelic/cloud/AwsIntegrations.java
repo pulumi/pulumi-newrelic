@@ -12,7 +12,9 @@ import com.pulumi.newrelic.cloud.AwsIntegrationsArgs;
 import com.pulumi.newrelic.cloud.inputs.AwsIntegrationsState;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsBilling;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsCloudtrail;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsDocDb;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsHealth;
+import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsS3;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsTrustedAdvisor;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsVpc;
 import com.pulumi.newrelic.cloud.outputs.AwsIntegrationsXRay;
@@ -75,6 +77,20 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cloudtrail);
     }
     /**
+     * Billing integration
+     * 
+     */
+    @Export(name="docDb", type=AwsIntegrationsDocDb.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsDocDb> docDb;
+
+    /**
+     * @return Billing integration
+     * 
+     */
+    public Output<Optional<AwsIntegrationsDocDb>> docDb() {
+        return Codegen.optional(this.docDb);
+    }
+    /**
      * Health integration. See Integration blocks below for details.
      * 
      */
@@ -101,6 +117,20 @@ public class AwsIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> linkedAccountId() {
         return this.linkedAccountId;
+    }
+    /**
+     * S3 integration
+     * 
+     */
+    @Export(name="s3", type=AwsIntegrationsS3.class, parameters={})
+    private Output</* @Nullable */ AwsIntegrationsS3> s3;
+
+    /**
+     * @return S3 integration
+     * 
+     */
+    public Output<Optional<AwsIntegrationsS3>> s3() {
+        return Codegen.optional(this.s3);
     }
     /**
      * Trusted Advisor integration. See Integration blocks below for details.

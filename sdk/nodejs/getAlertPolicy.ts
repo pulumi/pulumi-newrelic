@@ -24,6 +24,9 @@ export function getAlertPolicy(args: GetAlertPolicyArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAlertPolicy.
  */
 export interface GetAlertPolicyArgs {
+    /**
+     * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     */
     accountId?: number;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.
@@ -67,6 +70,9 @@ export function getAlertPolicyOutput(args: GetAlertPolicyOutputArgs, opts?: pulu
  * A collection of arguments for invoking getAlertPolicy.
  */
 export interface GetAlertPolicyOutputArgs {
+    /**
+     * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     */
     accountId?: pulumi.Input<number>;
     /**
      * The rollup strategy for the policy. Options include: PER_POLICY, PER_CONDITION, or PER_CONDITION_AND_TARGET. The default is PER_POLICY.

@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.synthetics.SecureCredentialArgs;
 import com.pulumi.newrelic.synthetics.inputs.SecureCredentialState;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,18 +62,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:synthetics/secureCredential:SecureCredential")
 public class SecureCredential extends com.pulumi.resources.CustomResource {
     /**
-     * The time the secure credential was created.
+     * Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
-    private Output<String> createdAt;
+    @Export(name="accountId", type=Integer.class, parameters={})
+    private Output<Integer> accountId;
 
     /**
-     * @return The time the secure credential was created.
+     * @return Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Output<String> createdAt() {
-        return this.createdAt;
+    public Output<Integer> accountId() {
+        return this.accountId;
     }
     /**
      * The secure credential&#39;s description.

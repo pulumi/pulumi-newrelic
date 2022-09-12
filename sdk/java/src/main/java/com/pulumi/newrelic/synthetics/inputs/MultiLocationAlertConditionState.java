@@ -51,14 +51,14 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
     }
 
     /**
-     * The GUIDs of the Synthetics monitors to alert on.
+     * The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
     @Import(name="entities")
     private @Nullable Output<List<String>> entities;
 
     /**
-     * @return The GUIDs of the Synthetics monitors to alert on.
+     * @return The Monitor GUID&#39;s of the Synthetics monitors to alert on.
      * 
      */
     public Optional<Output<List<String>>> entities() {
@@ -214,7 +214,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param entities The GUIDs of the Synthetics monitors to alert on.
+         * @param entities The Monitor GUID&#39;s of the Synthetics monitors to alert on.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param entities The GUIDs of the Synthetics monitors to alert on.
+         * @param entities The Monitor GUID&#39;s of the Synthetics monitors to alert on.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class MultiLocationAlertConditionState extends com.pulumi.resources
         }
 
         /**
-         * @param entities The GUIDs of the Synthetics monitors to alert on.
+         * @param entities The Monitor GUID&#39;s of the Synthetics monitors to alert on.
          * 
          * @return builder
          * 

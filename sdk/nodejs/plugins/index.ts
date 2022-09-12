@@ -5,14 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alertCondition";
 export * from "./applicationSettings";
-export * from "./getPlugin";
-export * from "./getPluginComponent";
 export * from "./workload";
 
 // Import resources to register:
-import { AlertCondition } from "./alertCondition";
 import { ApplicationSettings } from "./applicationSettings";
 import { Workload } from "./workload";
 
@@ -20,8 +16,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "newrelic:plugins/alertCondition:AlertCondition":
-                return new AlertCondition(name, <any>undefined, { urn })
             case "newrelic:plugins/applicationSettings:ApplicationSettings":
                 return new ApplicationSettings(name, <any>undefined, { urn })
             case "newrelic:plugins/workload:Workload":
@@ -31,6 +25,5 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("newrelic", "plugins/alertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "plugins/applicationSettings", _module)
 pulumi.runtime.registerResourceModule("newrelic", "plugins/workload", _module)

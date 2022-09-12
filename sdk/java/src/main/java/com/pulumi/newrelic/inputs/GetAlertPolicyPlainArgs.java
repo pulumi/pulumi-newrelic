@@ -15,9 +15,17 @@ public final class GetAlertPolicyPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetAlertPolicyPlainArgs Empty = new GetAlertPolicyPlainArgs();
 
+    /**
+     * The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Integer accountId;
 
+    /**
+     * @return The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     * 
+     */
     public Optional<Integer> accountId() {
         return Optional.ofNullable(this.accountId);
     }
@@ -78,6 +86,12 @@ public final class GetAlertPolicyPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetAlertPolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Integer accountId) {
             $.accountId = accountId;
             return this;

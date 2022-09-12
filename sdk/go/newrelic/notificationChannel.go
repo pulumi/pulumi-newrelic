@@ -11,19 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create and manage New Relic notification channels.
+// Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 //
 // ## Example Usage
 //
-// ##### Webhook
+// ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
 // ```go
 // package main
 //
 // import (
 //
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,13 +29,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				DestinationId: pulumi.String("1234"),
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
 //						Label: pulumi.String("Payload Template"),
-//						Value: pulumi.String(fmt.Sprintf("{\n	\"name\": \"foo\"\n}\n")),
+//						Value: pulumi.String("name: {{ foo }}"),
 //					},
 //				},
 //				Type: pulumi.String("WEBHOOK"),
@@ -53,13 +52,13 @@ import (
 // See additional examples.
 // ## Additional Examples
 //
-// ##### ServiceNow
+// ##### [ServiceNow](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#servicenow)
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,8 +66,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				DestinationId: pulumi.String("1234"),
-//				Product:       pulumi.String("PD"),
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("IINT"),
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("description"),
@@ -90,13 +90,13 @@ import (
 //
 // ```
 //
-// ##### Email
+// ##### [Email](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#email)
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,9 +104,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				DestinationId: pulumi.String("1234"),
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("ERROR_TRACKING"),
-//				Type:          pulumi.String("EMAIL"),
+//				Properties: NotificationChannelPropertyArray{
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("subject"),
+//						Value: pulumi.String("New Subject Title"),
+//					},
+//				},
+//				Type: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err
@@ -117,13 +124,13 @@ import (
 //
 // ```
 //
-// ##### PagerDuty with account integration
+// ##### [Jira Classic](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#jira)
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -131,7 +138,54 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				DestinationId: pulumi.String("1234"),
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
+//				Product:       pulumi.String("ERROR_TRACKING"),
+//				Properties: NotificationChannelPropertyArray{
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("project"),
+//						Value: pulumi.String("10000"),
+//					},
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("issuetype"),
+//						Value: pulumi.String("10004"),
+//					},
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("description"),
+//						Value: pulumi.String("Issue ID: {{ issueId }}"),
+//					},
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("summary"),
+//						Value: pulumi.String("{{ annotations.title.[0] }}"),
+//					},
+//				},
+//				Type: pulumi.String("JIRA_CLASSIC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{
@@ -140,11 +194,11 @@ import (
 //					},
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("service"),
-//						Value: pulumi.String("1234"),
+//						Value: pulumi.String("PTQK3FM"),
 //					},
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("email"),
-//						Value: pulumi.String("test@test.com"),
+//						Value: pulumi.String("example@email.com"),
 //					},
 //				},
 //				Type: pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
@@ -158,13 +212,13 @@ import (
 //
 // ```
 //
-// ##### PagerDuty with service integration
+// ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#pagerduty)
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -172,7 +226,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewNotificationChannel(ctx, "foo", &newrelic.NotificationChannelArgs{
-//				DestinationId: pulumi.String("1234"),
+//				AccountId:     pulumi.Int(12345678),
+//				DestinationId: pulumi.String("00b6bd1d-ac06-4d3d-bd72-49551e70f7a8"),
 //				Product:       pulumi.String("IINT"),
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{
@@ -192,18 +247,103 @@ import (
 // ```
 //
 // > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
+//
+// ## Full Scenario Example
+//
+// Create a destination resource and reference that destination to the channel resource:
+//
+// ### Create a destination
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
+//				AccountId: pulumi.Int(12345678),
+//				AuthBasic: &NotificationDestinationAuthBasicArgs{
+//					Password: pulumi.String("password"),
+//					User:     pulumi.String("username"),
+//				},
+//				Properties: NotificationDestinationPropertyArray{
+//					&NotificationDestinationPropertyArgs{
+//						Key:   pulumi.String("url"),
+//						Value: pulumi.String("https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b"),
+//					},
+//				},
+//				Type: pulumi.String("WEBHOOK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Create a channel
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
+//				AccountId:     pulumi.Int(12345678),
+//				Type:          pulumi.String("WEBHOOK"),
+//				DestinationId: pulumi.Any(newrelic_notification_destination.Webhook - destination.Id),
+//				Product:       pulumi.String("IINT"),
+//				Properties: NotificationChannelPropertyArray{
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Value: pulumi.String("{name: foo}"),
+//						Label: pulumi.String("Payload Template"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Additional Information
+//
+// More details about the channels API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels).
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
+	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// Indicates whether the channel is active.
+	Active pulumi.BoolPtrOutput `pulumi:"active"`
 	// The id of the destination.
 	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
 	// The name of the channel.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+	// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
 	Product pulumi.StringOutput `pulumi:"product"`
-	// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties NotificationChannelPropertyArrayOutput `pulumi:"properties"`
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+	// The status of the channel.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -214,11 +354,17 @@ func NewNotificationChannel(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AccountId == nil {
+		return nil, errors.New("invalid value for required argument 'AccountId'")
+	}
 	if args.DestinationId == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationId'")
 	}
 	if args.Product == nil {
 		return nil, errors.New("invalid value for required argument 'Product'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
@@ -245,28 +391,40 @@ func GetNotificationChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannel resources.
 type notificationChannelState struct {
+	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
+	// Indicates whether the channel is active.
+	Active *bool `pulumi:"active"`
 	// The id of the destination.
 	DestinationId *string `pulumi:"destinationId"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+	// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
 	Product *string `pulumi:"product"`
-	// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties []NotificationChannelProperty `pulumi:"properties"`
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+	// The status of the channel.
+	Status *string `pulumi:"status"`
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
 	Type *string `pulumi:"type"`
 }
 
 type NotificationChannelState struct {
+	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput
+	// Indicates whether the channel is active.
+	Active pulumi.BoolPtrInput
 	// The id of the destination.
 	DestinationId pulumi.StringPtrInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+	// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
 	Product pulumi.StringPtrInput
-	// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties NotificationChannelPropertyArrayInput
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+	// The status of the channel.
+	Status pulumi.StringPtrInput
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
 	Type pulumi.StringPtrInput
 }
 
@@ -275,29 +433,37 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
+	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+	AccountId int `pulumi:"accountId"`
+	// Indicates whether the channel is active.
+	Active *bool `pulumi:"active"`
 	// The id of the destination.
 	DestinationId string `pulumi:"destinationId"`
 	// The name of the channel.
 	Name *string `pulumi:"name"`
-	// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+	// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
 	Product string `pulumi:"product"`
-	// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties []NotificationChannelProperty `pulumi:"properties"`
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
+	// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntInput
+	// Indicates whether the channel is active.
+	Active pulumi.BoolPtrInput
 	// The id of the destination.
 	DestinationId pulumi.StringInput
 	// The name of the channel.
 	Name pulumi.StringPtrInput
-	// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+	// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
 	Product pulumi.StringInput
-	// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+	// A nested block that describes a notification channel property. See Nested property blocks below for details.
 	Properties NotificationChannelPropertyArrayInput
-	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+	// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
 	Type pulumi.StringInput
 }
 
@@ -388,6 +554,16 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
+// Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+func (o NotificationChannelOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Indicates whether the channel is active.
+func (o NotificationChannelOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
 // The id of the destination.
 func (o NotificationChannelOutput) DestinationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.DestinationId }).(pulumi.StringOutput)
@@ -398,17 +574,22 @@ func (o NotificationChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of product.  One of: `ALERTS`, `DISCUSSIONS`, `ERROR_TRACKING`, `IINT`, `NTFC`, `PD` or `SHARING`.
+// The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
 func (o NotificationChannelOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Product }).(pulumi.StringOutput)
 }
 
-// A nested block that describes a notification channel properties.  Only one properties block is permitted per notification channel definition.  See Nested properties blocks below for details.
+// A nested block that describes a notification channel property. See Nested property blocks below for details.
 func (o NotificationChannelOutput) Properties() NotificationChannelPropertyArrayOutput {
 	return o.ApplyT(func(v *NotificationChannel) NotificationChannelPropertyArrayOutput { return v.Properties }).(NotificationChannelPropertyArrayOutput)
 }
 
-// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+// The status of the channel.
+func (o NotificationChannelOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
 func (o NotificationChannelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

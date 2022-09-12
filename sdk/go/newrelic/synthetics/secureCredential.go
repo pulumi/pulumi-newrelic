@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,8 +53,8 @@ import (
 type SecureCredential struct {
 	pulumi.CustomResourceState
 
-	// The time the secure credential was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The secure credential's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -100,8 +100,8 @@ func GetSecureCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecureCredential resources.
 type secureCredentialState struct {
-	// The time the secure credential was created.
-	CreatedAt *string `pulumi:"createdAt"`
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -113,8 +113,8 @@ type secureCredentialState struct {
 }
 
 type SecureCredentialState struct {
-	// The time the secure credential was created.
-	CreatedAt pulumi.StringPtrInput
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -130,8 +130,8 @@ func (SecureCredentialState) ElementType() reflect.Type {
 }
 
 type secureCredentialArgs struct {
-	// The time the secure credential was created.
-	CreatedAt *string `pulumi:"createdAt"`
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
 	// The secure credential's description.
 	Description *string `pulumi:"description"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -144,8 +144,8 @@ type secureCredentialArgs struct {
 
 // The set of arguments for constructing a SecureCredential resource.
 type SecureCredentialArgs struct {
-	// The time the secure credential was created.
-	CreatedAt pulumi.StringPtrInput
+	// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput
 	// The secure credential's description.
 	Description pulumi.StringPtrInput
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -243,9 +243,9 @@ func (o SecureCredentialOutput) ToSecureCredentialOutputWithContext(ctx context.
 	return o
 }
 
-// The time the secure credential was created.
-func (o SecureCredentialOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecureCredential) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+// Determines the New Relic account where the secure credential will be created. Defaults to the account associated with the API key used.
+func (o SecureCredentialOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *SecureCredential) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // The secure credential's description.

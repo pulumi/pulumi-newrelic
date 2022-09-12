@@ -32,7 +32,9 @@ __all__ = [
     'AwsGovcloudIntegrationsSqs',
     'AwsIntegrationsBilling',
     'AwsIntegrationsCloudtrail',
+    'AwsIntegrationsDocDb',
     'AwsIntegrationsHealth',
+    'AwsIntegrationsS3',
     'AwsIntegrationsTrustedAdvisor',
     'AwsIntegrationsVpc',
     'AwsIntegrationsXRay',
@@ -2293,6 +2295,42 @@ class AwsIntegrationsCloudtrail(dict):
 
 
 @pulumi.output_type
+class AwsIntegrationsDocDb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsIntegrationsDocDb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsIntegrationsDocDb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsIntegrationsDocDb.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[int] = None):
+        """
+        :param int metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[int]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
 class AwsIntegrationsHealth(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2309,6 +2347,42 @@ class AwsIntegrationsHealth(dict):
 
     def get(self, key: str, default = None) -> Any:
         AwsIntegrationsHealth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[int] = None):
+        """
+        :param int metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[int]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+
+@pulumi.output_type
+class AwsIntegrationsS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsIntegrationsS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsIntegrationsS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsIntegrationsS3.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

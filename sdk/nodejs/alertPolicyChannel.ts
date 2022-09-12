@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * // Applies the created channels above to the alert policy
  * // referenced at the top of the config.
  * const foo = new newrelic.AlertPolicyChannel("foo", {
- *     policyId: newrelic_alert_policy.example_policy.id,
+ *     policyId: examplePolicy.then(examplePolicy => examplePolicy.id),
  *     channelIds: [
  *         emailChannel.id,
  *         slackChannel.id,

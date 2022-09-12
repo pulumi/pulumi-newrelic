@@ -5255,6 +5255,143 @@ func (o AwsIntegrationsCloudtrailPtrOutput) MetricsPollingInterval() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type AwsIntegrationsDocDb struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsIntegrationsDocDbInput is an input type that accepts AwsIntegrationsDocDbArgs and AwsIntegrationsDocDbOutput values.
+// You can construct a concrete instance of `AwsIntegrationsDocDbInput` via:
+//
+//	AwsIntegrationsDocDbArgs{...}
+type AwsIntegrationsDocDbInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsDocDbOutput() AwsIntegrationsDocDbOutput
+	ToAwsIntegrationsDocDbOutputWithContext(context.Context) AwsIntegrationsDocDbOutput
+}
+
+type AwsIntegrationsDocDbArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsIntegrationsDocDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsDocDb)(nil)).Elem()
+}
+
+func (i AwsIntegrationsDocDbArgs) ToAwsIntegrationsDocDbOutput() AwsIntegrationsDocDbOutput {
+	return i.ToAwsIntegrationsDocDbOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsDocDbArgs) ToAwsIntegrationsDocDbOutputWithContext(ctx context.Context) AwsIntegrationsDocDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDocDbOutput)
+}
+
+func (i AwsIntegrationsDocDbArgs) ToAwsIntegrationsDocDbPtrOutput() AwsIntegrationsDocDbPtrOutput {
+	return i.ToAwsIntegrationsDocDbPtrOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsDocDbArgs) ToAwsIntegrationsDocDbPtrOutputWithContext(ctx context.Context) AwsIntegrationsDocDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDocDbOutput).ToAwsIntegrationsDocDbPtrOutputWithContext(ctx)
+}
+
+// AwsIntegrationsDocDbPtrInput is an input type that accepts AwsIntegrationsDocDbArgs, AwsIntegrationsDocDbPtr and AwsIntegrationsDocDbPtrOutput values.
+// You can construct a concrete instance of `AwsIntegrationsDocDbPtrInput` via:
+//
+//	        AwsIntegrationsDocDbArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsIntegrationsDocDbPtrInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsDocDbPtrOutput() AwsIntegrationsDocDbPtrOutput
+	ToAwsIntegrationsDocDbPtrOutputWithContext(context.Context) AwsIntegrationsDocDbPtrOutput
+}
+
+type awsIntegrationsDocDbPtrType AwsIntegrationsDocDbArgs
+
+func AwsIntegrationsDocDbPtr(v *AwsIntegrationsDocDbArgs) AwsIntegrationsDocDbPtrInput {
+	return (*awsIntegrationsDocDbPtrType)(v)
+}
+
+func (*awsIntegrationsDocDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsDocDb)(nil)).Elem()
+}
+
+func (i *awsIntegrationsDocDbPtrType) ToAwsIntegrationsDocDbPtrOutput() AwsIntegrationsDocDbPtrOutput {
+	return i.ToAwsIntegrationsDocDbPtrOutputWithContext(context.Background())
+}
+
+func (i *awsIntegrationsDocDbPtrType) ToAwsIntegrationsDocDbPtrOutputWithContext(ctx context.Context) AwsIntegrationsDocDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsDocDbPtrOutput)
+}
+
+type AwsIntegrationsDocDbOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsDocDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsDocDb)(nil)).Elem()
+}
+
+func (o AwsIntegrationsDocDbOutput) ToAwsIntegrationsDocDbOutput() AwsIntegrationsDocDbOutput {
+	return o
+}
+
+func (o AwsIntegrationsDocDbOutput) ToAwsIntegrationsDocDbOutputWithContext(ctx context.Context) AwsIntegrationsDocDbOutput {
+	return o
+}
+
+func (o AwsIntegrationsDocDbOutput) ToAwsIntegrationsDocDbPtrOutput() AwsIntegrationsDocDbPtrOutput {
+	return o.ToAwsIntegrationsDocDbPtrOutputWithContext(context.Background())
+}
+
+func (o AwsIntegrationsDocDbOutput) ToAwsIntegrationsDocDbPtrOutputWithContext(ctx context.Context) AwsIntegrationsDocDbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsDocDb) *AwsIntegrationsDocDb {
+		return &v
+	}).(AwsIntegrationsDocDbPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsDocDbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsIntegrationsDocDb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsIntegrationsDocDbPtrOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsDocDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsDocDb)(nil)).Elem()
+}
+
+func (o AwsIntegrationsDocDbPtrOutput) ToAwsIntegrationsDocDbPtrOutput() AwsIntegrationsDocDbPtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsDocDbPtrOutput) ToAwsIntegrationsDocDbPtrOutputWithContext(ctx context.Context) AwsIntegrationsDocDbPtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsDocDbPtrOutput) Elem() AwsIntegrationsDocDbOutput {
+	return o.ApplyT(func(v *AwsIntegrationsDocDb) AwsIntegrationsDocDb {
+		if v != nil {
+			return *v
+		}
+		var ret AwsIntegrationsDocDb
+		return ret
+	}).(AwsIntegrationsDocDbOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsDocDbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrationsDocDb) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
 type AwsIntegrationsHealth struct {
 	// The data polling interval in seconds.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
@@ -5385,6 +5522,143 @@ func (o AwsIntegrationsHealthPtrOutput) Elem() AwsIntegrationsHealthOutput {
 // The data polling interval in seconds.
 func (o AwsIntegrationsHealthPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AwsIntegrationsHealth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type AwsIntegrationsS3 struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// AwsIntegrationsS3Input is an input type that accepts AwsIntegrationsS3Args and AwsIntegrationsS3Output values.
+// You can construct a concrete instance of `AwsIntegrationsS3Input` via:
+//
+//	AwsIntegrationsS3Args{...}
+type AwsIntegrationsS3Input interface {
+	pulumi.Input
+
+	ToAwsIntegrationsS3Output() AwsIntegrationsS3Output
+	ToAwsIntegrationsS3OutputWithContext(context.Context) AwsIntegrationsS3Output
+}
+
+type AwsIntegrationsS3Args struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (AwsIntegrationsS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsS3)(nil)).Elem()
+}
+
+func (i AwsIntegrationsS3Args) ToAwsIntegrationsS3Output() AwsIntegrationsS3Output {
+	return i.ToAwsIntegrationsS3OutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsS3Args) ToAwsIntegrationsS3OutputWithContext(ctx context.Context) AwsIntegrationsS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsS3Output)
+}
+
+func (i AwsIntegrationsS3Args) ToAwsIntegrationsS3PtrOutput() AwsIntegrationsS3PtrOutput {
+	return i.ToAwsIntegrationsS3PtrOutputWithContext(context.Background())
+}
+
+func (i AwsIntegrationsS3Args) ToAwsIntegrationsS3PtrOutputWithContext(ctx context.Context) AwsIntegrationsS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsS3Output).ToAwsIntegrationsS3PtrOutputWithContext(ctx)
+}
+
+// AwsIntegrationsS3PtrInput is an input type that accepts AwsIntegrationsS3Args, AwsIntegrationsS3Ptr and AwsIntegrationsS3PtrOutput values.
+// You can construct a concrete instance of `AwsIntegrationsS3PtrInput` via:
+//
+//	        AwsIntegrationsS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AwsIntegrationsS3PtrInput interface {
+	pulumi.Input
+
+	ToAwsIntegrationsS3PtrOutput() AwsIntegrationsS3PtrOutput
+	ToAwsIntegrationsS3PtrOutputWithContext(context.Context) AwsIntegrationsS3PtrOutput
+}
+
+type awsIntegrationsS3PtrType AwsIntegrationsS3Args
+
+func AwsIntegrationsS3Ptr(v *AwsIntegrationsS3Args) AwsIntegrationsS3PtrInput {
+	return (*awsIntegrationsS3PtrType)(v)
+}
+
+func (*awsIntegrationsS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsS3)(nil)).Elem()
+}
+
+func (i *awsIntegrationsS3PtrType) ToAwsIntegrationsS3PtrOutput() AwsIntegrationsS3PtrOutput {
+	return i.ToAwsIntegrationsS3PtrOutputWithContext(context.Background())
+}
+
+func (i *awsIntegrationsS3PtrType) ToAwsIntegrationsS3PtrOutputWithContext(ctx context.Context) AwsIntegrationsS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsIntegrationsS3PtrOutput)
+}
+
+type AwsIntegrationsS3Output struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsIntegrationsS3)(nil)).Elem()
+}
+
+func (o AwsIntegrationsS3Output) ToAwsIntegrationsS3Output() AwsIntegrationsS3Output {
+	return o
+}
+
+func (o AwsIntegrationsS3Output) ToAwsIntegrationsS3OutputWithContext(ctx context.Context) AwsIntegrationsS3Output {
+	return o
+}
+
+func (o AwsIntegrationsS3Output) ToAwsIntegrationsS3PtrOutput() AwsIntegrationsS3PtrOutput {
+	return o.ToAwsIntegrationsS3PtrOutputWithContext(context.Background())
+}
+
+func (o AwsIntegrationsS3Output) ToAwsIntegrationsS3PtrOutputWithContext(ctx context.Context) AwsIntegrationsS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsIntegrationsS3) *AwsIntegrationsS3 {
+		return &v
+	}).(AwsIntegrationsS3PtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsS3Output) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AwsIntegrationsS3) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type AwsIntegrationsS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AwsIntegrationsS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsIntegrationsS3)(nil)).Elem()
+}
+
+func (o AwsIntegrationsS3PtrOutput) ToAwsIntegrationsS3PtrOutput() AwsIntegrationsS3PtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsS3PtrOutput) ToAwsIntegrationsS3PtrOutputWithContext(ctx context.Context) AwsIntegrationsS3PtrOutput {
+	return o
+}
+
+func (o AwsIntegrationsS3PtrOutput) Elem() AwsIntegrationsS3Output {
+	return o.ApplyT(func(v *AwsIntegrationsS3) AwsIntegrationsS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AwsIntegrationsS3
+		return ret
+	}).(AwsIntegrationsS3Output)
+}
+
+// The data polling interval in seconds.
+func (o AwsIntegrationsS3PtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AwsIntegrationsS3) *int {
 		if v == nil {
 			return nil
 		}
@@ -13999,8 +14273,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsBillingPtrInput)(nil)).Elem(), AwsIntegrationsBillingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsCloudtrailInput)(nil)).Elem(), AwsIntegrationsCloudtrailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsCloudtrailPtrInput)(nil)).Elem(), AwsIntegrationsCloudtrailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsDocDbInput)(nil)).Elem(), AwsIntegrationsDocDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsDocDbPtrInput)(nil)).Elem(), AwsIntegrationsDocDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsHealthInput)(nil)).Elem(), AwsIntegrationsHealthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsHealthPtrInput)(nil)).Elem(), AwsIntegrationsHealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsS3Input)(nil)).Elem(), AwsIntegrationsS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsS3PtrInput)(nil)).Elem(), AwsIntegrationsS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsTrustedAdvisorInput)(nil)).Elem(), AwsIntegrationsTrustedAdvisorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsTrustedAdvisorPtrInput)(nil)).Elem(), AwsIntegrationsTrustedAdvisorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsIntegrationsVpcInput)(nil)).Elem(), AwsIntegrationsVpcArgs{})
@@ -14159,8 +14437,12 @@ func init() {
 	pulumi.RegisterOutputType(AwsIntegrationsBillingPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsCloudtrailOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsCloudtrailPtrOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsDocDbOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsDocDbPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsHealthOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsHealthPtrOutput{})
+	pulumi.RegisterOutputType(AwsIntegrationsS3Output{})
+	pulumi.RegisterOutputType(AwsIntegrationsS3PtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsTrustedAdvisorOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsTrustedAdvisorPtrOutput{})
 	pulumi.RegisterOutputType(AwsIntegrationsVpcOutput{})

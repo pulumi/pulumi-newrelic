@@ -15,6 +15,7 @@ export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:index/getAlertChannel:getAlertChannel", {
+        "accountId": args.accountId,
         "name": args.name,
     }, opts);
 }
@@ -23,6 +24,10 @@ export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getAlertChannel.
  */
 export interface GetAlertChannelArgs {
+    /**
+     * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     */
+    accountId?: number;
     /**
      * The name of the alert channel in New Relic.
      */
@@ -33,6 +38,7 @@ export interface GetAlertChannelArgs {
  * A collection of values returned by getAlertChannel.
  */
 export interface GetAlertChannelResult {
+    readonly accountId: number;
     /**
      * Alert channel configuration.
      */
@@ -60,6 +66,10 @@ export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pu
  * A collection of arguments for invoking getAlertChannel.
  */
 export interface GetAlertChannelOutputArgs {
+    /**
+     * The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * The name of the alert channel in New Relic.
      */

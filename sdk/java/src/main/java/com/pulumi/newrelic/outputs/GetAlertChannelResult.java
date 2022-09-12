@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAlertChannelResult {
+    private Integer accountId;
     /**
      * @return Alert channel configuration.
      * 
@@ -35,6 +36,9 @@ public final class GetAlertChannelResult {
     private String type;
 
     private GetAlertChannelResult() {}
+    public Integer accountId() {
+        return this.accountId;
+    }
     /**
      * @return Alert channel configuration.
      * 
@@ -76,6 +80,7 @@ public final class GetAlertChannelResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer accountId;
         private GetAlertChannelConfig config;
         private String id;
         private String name;
@@ -84,6 +89,7 @@ public final class GetAlertChannelResult {
         public Builder() {}
         public Builder(GetAlertChannelResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountId = defaults.accountId;
     	      this.config = defaults.config;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -91,6 +97,11 @@ public final class GetAlertChannelResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder accountId(Integer accountId) {
+            this.accountId = Objects.requireNonNull(accountId);
+            return this;
+        }
         @CustomType.Setter
         public Builder config(GetAlertChannelConfig config) {
             this.config = Objects.requireNonNull(config);
@@ -121,6 +132,7 @@ public final class GetAlertChannelResult {
         }
         public GetAlertChannelResult build() {
             final var o = new GetAlertChannelResult();
+            o.accountId = accountId;
             o.config = config;
             o.id = id;
             o.name = name;

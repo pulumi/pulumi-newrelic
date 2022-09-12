@@ -2,88 +2,148 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to create, update, and delete a synthetics monitor in New Relic.
+ * Use this resource to create, update, and delete a Simple or Browser Synthetics Monitor in New Relic.
  *
  * ## Example Usage
  *
- * ##### Type: `SIMPLE`
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.synthetics.Monitor("foo", {
- *     frequency: 5,
- *     locations: [
- *         "AWS_US_EAST_1",
- *         "AWS_US_EAST_2",
- *     ],
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     bypassHeadRequest: true,
+ *     customHeaders: [{
+ *         name: "Name",
+ *         value: "simpleMonitor",
+ *     }],
+ *     locationsPublics: ["AP_SOUTH_1"],
+ *     period: "EVERY_MINUTE",
  *     status: "ENABLED",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ *     treatRedirectAsFailure: true,
  *     type: "SIMPLE",
- *     uri: "https://example.com", // Required for type "SIMPLE" and "BROWSER"
- *     validationString: "add example validation check here", // Optional for type "SIMPLE" and "BROWSER"
- *     verifySsl: true, // Optional for type "SIMPLE" and "BROWSER"
+ *     uri: "https://www.one.newrelic.com",
+ *     validationString: "success",
+ *     verifySsl: true,
  * });
  * ```
+ * ##### Type: `SIMPLE BROWSER`
  *
- * ##### Type: `BROWSER`
+ * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const bar = new newrelic.synthetics.Monitor("bar", {
+ *     customHeaders: [{
+ *         name: "name",
+ *         value: "simple_browser",
+ *     }],
+ *     enableScreenshotOnFailureAndScript: true,
+ *     locationsPublics: ["AP_SOUTH_1"],
+ *     period: "EVERY_MINUTE",
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
+ *     scriptLanguage: "JAVASCRIPT",
+ *     status: "ENABLED",
+ *     tags: [{
+ *         key: "name",
+ *         values: ["SimpleBrowserMonitor"],
+ *     }],
+ *     type: "BROWSER",
+ *     uri: "https://www.one.newrelic.com",
+ *     validationString: "success",
+ *     verifySsl: true,
+ * });
+ * ```
+ * See additional examples.
  * ## Additional Examples
  *
- * Type: `BROWSER`
+ * ### Create a monitor with a private location
+ *
+ * The below example shows how you can define a private location and attach it to a monitor.
+ *
+ * > **NOTE:** It can take up to 10 minutes for a private location to become available.
+ *
+ * ##### Type: `SIMPLE`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.synthetics.Monitor("foo", {
- *     bypassHeadRequest: true, // Note: optional for type "BROWSER" only
- *     frequency: 5,
- *     locations: ["AWS_US_EAST_1"],
+ * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
+ *     description: "Test Description",
+ *     verifiedScriptExecution: false,
+ * });
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     bypassHeadRequest: true,
+ *     customHeaders: [{
+ *         name: "name",
+ *         value: "simple_browser",
+ *     }],
+ *     locationPrivate: ["newrelic_synthetics_private_location.private_location.id"],
+ *     period: "EVERY_MINUTE",
  *     status: "ENABLED",
- *     treatRedirectAsFailure: true, // Note: optional for type "BROWSER" only
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
+ *     treatRedirectAsFailure: true,
+ *     type: "SIMPLE",
+ *     uri: "https://www.one.newrelic.com",
+ *     validationString: "success",
+ *     verifySsl: true,
+ * });
+ * ```
+ * ##### Type: `BROWSER`
+ *
+ * > **NOTE:** Currently, it's only possible to use a private location with a monitor running on a legacy runtime. Leave `runtimeTypeVersion`, `runtimeType` & `scriptLanguage` empty to use legacy runtime. See example below.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
+ *     description: "Test Description",
+ *     verifiedScriptExecution: false,
+ * });
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     customHeaders: [{
+ *         name: "name",
+ *         value: "simple_browser",
+ *     }],
+ *     enableScreenshotOnFailureAndScript: true,
+ *     locationPrivate: ["newrelic_synthetics_private_location.bar1"],
+ *     period: "EVERY_MINUTE",
+ *     runtimeType: "",
+ *     runtimeTypeVersion: "",
+ *     scriptLanguage: "",
+ *     status: "ENABLED",
+ *     tags: [{
+ *         key: "some_key",
+ *         values: ["some_value"],
+ *     }],
  *     type: "BROWSER",
- *     uri: "https://example.com", // required for type "SIMPLE" and "BROWSER"
- *     validationString: "add example validation check here", // optional for type "SIMPLE" and "BROWSER"
- *     verifySsl: true, // optional for type "SIMPLE" and "BROWSER"
- * });
- * ```
- *
- * ##### Type: `SCRIPT_BROWSER`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.synthetics.Monitor("foo", {
- *     frequency: 5,
- *     locations: ["AWS_US_EAST_1"],
- *     status: "ENABLED",
- *     type: "SCRIPT_BROWSER",
- * });
- * ```
- *
- * ##### Type: `SCRIPT_API`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.synthetics.Monitor("foo", {
- *     frequency: 5,
- *     locations: ["AWS_US_EAST_1"],
- *     status: "ENABLED",
- *     type: "SCRIPT_API",
+ *     uri: "https://www.one.newrelic.com",
+ *     validationString: "success",
+ *     verifySsl: true,
  * });
  * ```
  *
  * ## Import
  *
- * Synthetics monitors can be imported using the `id`, e.g. bash
+ * Synthetics monitor can be imported using the `guid`, e.g. bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/monitor:Monitor main <id>
+ *  $ pulumi import newrelic:synthetics/monitor:Monitor bar <guid>
  * ```
  */
 export class Monitor extends pulumi.CustomResource {
@@ -115,47 +175,75 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /**
-     * Bypass HEAD request.
+     * The account in which the Synthetics monitor will be created.
+     */
+    public readonly accountId!: pulumi.Output<number>;
+    /**
+     * Monitor should skip default HEAD request and instead use GET verb in check.
      */
     public readonly bypassHeadRequest!: pulumi.Output<boolean | undefined>;
     /**
-     * The interval (in minutes) at which this monitor should run.
+     * Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
      */
-    public readonly frequency!: pulumi.Output<number>;
+    public readonly customHeaders!: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
     /**
-     * The locations in which this monitor should be run.
+     * Capture a screenshot during job execution.
      */
-    public readonly locations!: pulumi.Output<string[]>;
+    public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
     /**
-     * The title of this monitor.
+     * The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+     */
+    public readonly locationsPrivates!: pulumi.Output<string[] | undefined>;
+    /**
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     */
+    public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
+    /**
+     * The human-readable identifier for the monitor.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The base threshold for the SLA report.
+     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
-    public readonly slaThreshold!: pulumi.Output<number | undefined>;
+    public readonly period!: pulumi.Output<string>;
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+     * The runtime type that the monitor will run.
+     */
+    public readonly runtimeType!: pulumi.Output<string | undefined>;
+    /**
+     * The runtime type that the monitor will run.
+     */
+    public readonly runtimeTypeVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The programing language that should execute the script.
+     */
+    public readonly scriptLanguage!: pulumi.Output<string | undefined>;
+    /**
+     * The run state of the monitor.
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * Fail the monitor check if redirected.
+     * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     */
+    public readonly tags!: pulumi.Output<outputs.synthetics.MonitorTag[] | undefined>;
+    /**
+     * Categorize redirects during a monitor job as a failure.
      */
     public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
     /**
-     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The URI for the monitor to hit.
+     * The uri the monitor runs against.
      */
     public readonly uri!: pulumi.Output<string | undefined>;
     /**
-     * The string to validate against in the response.
+     * Validation text for monitor to search for at given URI.
      */
     public readonly validationString!: pulumi.Output<string | undefined>;
     /**
-     * Verify SSL.
+     * Monitor should validate SSL certificate chain.
      */
     public readonly verifySsl!: pulumi.Output<boolean | undefined>;
 
@@ -172,12 +260,19 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["bypassHeadRequest"] = state ? state.bypassHeadRequest : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["locations"] = state ? state.locations : undefined;
+            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
+            resourceInputs["enableScreenshotOnFailureAndScript"] = state ? state.enableScreenshotOnFailureAndScript : undefined;
+            resourceInputs["locationsPrivates"] = state ? state.locationsPrivates : undefined;
+            resourceInputs["locationsPublics"] = state ? state.locationsPublics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["slaThreshold"] = state ? state.slaThreshold : undefined;
+            resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["runtimeType"] = state ? state.runtimeType : undefined;
+            resourceInputs["runtimeTypeVersion"] = state ? state.runtimeTypeVersion : undefined;
+            resourceInputs["scriptLanguage"] = state ? state.scriptLanguage : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["treatRedirectAsFailure"] = state ? state.treatRedirectAsFailure : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["uri"] = state ? state.uri : undefined;
@@ -185,24 +280,25 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["verifySsl"] = state ? state.verifySsl : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.frequency === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'frequency'");
-            }
-            if ((!args || args.locations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'locations'");
-            }
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["bypassHeadRequest"] = args ? args.bypassHeadRequest : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["enableScreenshotOnFailureAndScript"] = args ? args.enableScreenshotOnFailureAndScript : undefined;
+            resourceInputs["locationsPrivates"] = args ? args.locationsPrivates : undefined;
+            resourceInputs["locationsPublics"] = args ? args.locationsPublics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["slaThreshold"] = args ? args.slaThreshold : undefined;
+            resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["runtimeType"] = args ? args.runtimeType : undefined;
+            resourceInputs["runtimeTypeVersion"] = args ? args.runtimeTypeVersion : undefined;
+            resourceInputs["scriptLanguage"] = args ? args.scriptLanguage : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["treatRedirectAsFailure"] = args ? args.treatRedirectAsFailure : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
@@ -219,47 +315,75 @@ export class Monitor extends pulumi.CustomResource {
  */
 export interface MonitorState {
     /**
-     * Bypass HEAD request.
+     * The account in which the Synthetics monitor will be created.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * Monitor should skip default HEAD request and instead use GET verb in check.
      */
     bypassHeadRequest?: pulumi.Input<boolean>;
     /**
-     * The interval (in minutes) at which this monitor should run.
+     * Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
      */
-    frequency?: pulumi.Input<number>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
     /**
-     * The locations in which this monitor should be run.
+     * Capture a screenshot during job execution.
      */
-    locations?: pulumi.Input<pulumi.Input<string>[]>;
+    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
-     * The title of this monitor.
+     * The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+     */
+    locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     */
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The human-readable identifier for the monitor.
      */
     name?: pulumi.Input<string>;
     /**
-     * The base threshold for the SLA report.
+     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
-    slaThreshold?: pulumi.Input<number>;
+    period?: pulumi.Input<string>;
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+     * The runtime type that the monitor will run.
+     */
+    runtimeType?: pulumi.Input<string>;
+    /**
+     * The runtime type that the monitor will run.
+     */
+    runtimeTypeVersion?: pulumi.Input<string>;
+    /**
+     * The programing language that should execute the script.
+     */
+    scriptLanguage?: pulumi.Input<string>;
+    /**
+     * The run state of the monitor.
      */
     status?: pulumi.Input<string>;
     /**
-     * Fail the monitor check if redirected.
+     * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorTag>[]>;
+    /**
+     * Categorize redirects during a monitor job as a failure.
      */
     treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
     type?: pulumi.Input<string>;
     /**
-     * The URI for the monitor to hit.
+     * The uri the monitor runs against.
      */
     uri?: pulumi.Input<string>;
     /**
-     * The string to validate against in the response.
+     * Validation text for monitor to search for at given URI.
      */
     validationString?: pulumi.Input<string>;
     /**
-     * Verify SSL.
+     * Monitor should validate SSL certificate chain.
      */
     verifySsl?: pulumi.Input<boolean>;
 }
@@ -269,47 +393,75 @@ export interface MonitorState {
  */
 export interface MonitorArgs {
     /**
-     * Bypass HEAD request.
+     * The account in which the Synthetics monitor will be created.
+     */
+    accountId?: pulumi.Input<number>;
+    /**
+     * Monitor should skip default HEAD request and instead use GET verb in check.
      */
     bypassHeadRequest?: pulumi.Input<boolean>;
     /**
-     * The interval (in minutes) at which this monitor should run.
+     * Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
      */
-    frequency: pulumi.Input<number>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
     /**
-     * The locations in which this monitor should be run.
+     * Capture a screenshot during job execution.
      */
-    locations: pulumi.Input<pulumi.Input<string>[]>;
+    enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
-     * The title of this monitor.
+     * The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+     */
+    locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     */
+    locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The human-readable identifier for the monitor.
      */
     name?: pulumi.Input<string>;
     /**
-     * The base threshold for the SLA report.
+     * The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
      */
-    slaThreshold?: pulumi.Input<number>;
+    period?: pulumi.Input<string>;
     /**
-     * The monitor status (i.e. `ENABLED`, `MUTED`, `DISABLED`).
+     * The runtime type that the monitor will run.
+     */
+    runtimeType?: pulumi.Input<string>;
+    /**
+     * The runtime type that the monitor will run.
+     */
+    runtimeTypeVersion?: pulumi.Input<string>;
+    /**
+     * The programing language that should execute the script.
+     */
+    scriptLanguage?: pulumi.Input<string>;
+    /**
+     * The run state of the monitor.
      */
     status: pulumi.Input<string>;
     /**
-     * Fail the monitor check if redirected.
+     * The tags that will be associated with the monitor. See Nested tag blocks below for details.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorTag>[]>;
+    /**
+     * Categorize redirects during a monitor job as a failure.
      */
     treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * The monitor type. Valid values are `SIMPLE`, `BROWSER`, `SCRIPT_BROWSER`, and `SCRIPT_API`.
+     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
     type: pulumi.Input<string>;
     /**
-     * The URI for the monitor to hit.
+     * The uri the monitor runs against.
      */
     uri?: pulumi.Input<string>;
     /**
-     * The string to validate against in the response.
+     * Validation text for monitor to search for at given URI.
      */
     validationString?: pulumi.Input<string>;
     /**
-     * Verify SSL.
+     * Monitor should validate SSL certificate chain.
      */
     verifySsl?: pulumi.Input<boolean>;
 }

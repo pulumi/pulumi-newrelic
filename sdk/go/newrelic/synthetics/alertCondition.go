@@ -15,40 +15,6 @@ import (
 //
 // > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooMonitor, err := synthetics.LookupMonitor(ctx, &synthetics.LookupMonitorArgs{
-//				Name: "foo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synthetics.NewAlertCondition(ctx, "fooAlertCondition", &synthetics.AlertConditionArgs{
-//				PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
-//				MonitorId:  pulumi.String(fooMonitor.Id),
-//				RunbookUrl: pulumi.String("https://www.example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -63,7 +29,7 @@ type AlertCondition struct {
 
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The ID of the Synthetics monitor to be referenced in the alert condition.
+	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
 	// The title of this condition.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -110,7 +76,7 @@ func GetAlertCondition(ctx *pulumi.Context,
 type alertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The ID of the Synthetics monitor to be referenced in the alert condition.
+	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId *string `pulumi:"monitorId"`
 	// The title of this condition.
 	Name *string `pulumi:"name"`
@@ -123,7 +89,7 @@ type alertConditionState struct {
 type AlertConditionState struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The ID of the Synthetics monitor to be referenced in the alert condition.
+	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringPtrInput
 	// The title of this condition.
 	Name pulumi.StringPtrInput
@@ -140,7 +106,7 @@ func (AlertConditionState) ElementType() reflect.Type {
 type alertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The ID of the Synthetics monitor to be referenced in the alert condition.
+	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId string `pulumi:"monitorId"`
 	// The title of this condition.
 	Name *string `pulumi:"name"`
@@ -154,7 +120,7 @@ type alertConditionArgs struct {
 type AlertConditionArgs struct {
 	// Set whether to enable the alert condition. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The ID of the Synthetics monitor to be referenced in the alert condition.
+	// The GUID of the Synthetics monitor to be referenced in the alert condition.
 	MonitorId pulumi.StringInput
 	// The title of this condition.
 	Name pulumi.StringPtrInput
@@ -256,7 +222,7 @@ func (o AlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Synthetics monitor to be referenced in the alert condition.
+// The GUID of the Synthetics monitor to be referenced in the alert condition.
 func (o AlertConditionOutput) MonitorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.MonitorId }).(pulumi.StringOutput)
 }

@@ -21,10 +21,7 @@ class GetSecureCredentialResult:
     """
     A collection of values returned by getSecureCredential.
     """
-    def __init__(__self__, created_at=None, description=None, id=None, key=None, last_updated=None):
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
+    def __init__(__self__, description=None, id=None, key=None, last_updated=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,14 +34,6 @@ class GetSecureCredentialResult:
         if last_updated and not isinstance(last_updated, str):
             raise TypeError("Expected argument 'last_updated' to be a str")
         pulumi.set(__self__, "last_updated", last_updated)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
-        """
-        The time the secure credential was created.
-        """
-        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -82,7 +71,6 @@ class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
         if False:
             yield self
         return GetSecureCredentialResult(
-            created_at=self.created_at,
             description=self.description,
             id=self.id,
             key=self.key,
@@ -114,7 +102,6 @@ def get_secure_credential(key: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getSecureCredential:getSecureCredential', __args__, opts=opts, typ=GetSecureCredentialResult).value
 
     return AwaitableGetSecureCredentialResult(
-        created_at=__ret__.created_at,
         description=__ret__.description,
         id=__ret__.id,
         key=__ret__.key,

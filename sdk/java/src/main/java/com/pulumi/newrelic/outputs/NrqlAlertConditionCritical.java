@@ -14,40 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NrqlAlertConditionCritical {
     /**
-     * @return **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
      */
     @Deprecated /* use `threshold_duration` attribute instead */
     private @Nullable Integer duration;
-    /**
-     * @return Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     * 
-     */
     private @Nullable String operator;
-    /**
-     * @return The value which will trigger a violation. Must be `0` or greater.
-     * 
-     */
     private Double threshold;
-    /**
-     * @return The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-     * &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-     * 
-     */
     private @Nullable Integer thresholdDuration;
-    /**
-     * @return The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-     * 
-     */
     private @Nullable String thresholdOccurrences;
     /**
-     * @return **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 
@@ -57,8 +34,6 @@ public final class NrqlAlertConditionCritical {
 
     private NrqlAlertConditionCritical() {}
     /**
-     * @return **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
@@ -67,40 +42,19 @@ public final class NrqlAlertConditionCritical {
     public Optional<Integer> duration() {
         return Optional.ofNullable(this.duration);
     }
-    /**
-     * @return Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     * 
-     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
-    /**
-     * @return The value which will trigger a violation. Must be `0` or greater.
-     * 
-     */
     public Double threshold() {
         return this.threshold;
     }
-    /**
-     * @return The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-     * &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-     * 
-     */
     public Optional<Integer> thresholdDuration() {
         return Optional.ofNullable(this.thresholdDuration);
     }
-    /**
-     * @return The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-     * 
-     */
     public Optional<String> thresholdOccurrences() {
         return Optional.ofNullable(this.thresholdOccurrences);
     }
     /**
-     * @return **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 

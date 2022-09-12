@@ -18,8 +18,6 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     public static final NrqlAlertConditionWarningArgs Empty = new NrqlAlertConditionWarningArgs();
 
     /**
-     * **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
@@ -29,8 +27,6 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     private @Nullable Output<Integer> duration;
 
     /**
-     * @return **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-     * 
      * @deprecated
      * use `threshold_duration` attribute instead
      * 
@@ -40,75 +36,35 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.duration);
     }
 
-    /**
-     * Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     * 
-     */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
-    /**
-     * @return Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-     * 
-     */
     public Optional<Output<String>> operator() {
         return Optional.ofNullable(this.operator);
     }
 
-    /**
-     * The value which will trigger a violation. Must be `0` or greater.
-     * 
-     */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
-    /**
-     * @return The value which will trigger a violation. Must be `0` or greater.
-     * 
-     */
     public Output<Double> threshold() {
         return this.threshold;
     }
 
-    /**
-     * The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-     * &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-     * 
-     */
     @Import(name="thresholdDuration")
     private @Nullable Output<Integer> thresholdDuration;
 
-    /**
-     * @return The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-     * &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-     * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-     * 
-     */
     public Optional<Output<Integer>> thresholdDuration() {
         return Optional.ofNullable(this.thresholdDuration);
     }
 
-    /**
-     * The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-     * 
-     */
     @Import(name="thresholdOccurrences")
     private @Nullable Output<String> thresholdOccurrences;
 
-    /**
-     * @return The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-     * 
-     */
     public Optional<Output<String>> thresholdOccurrences() {
         return Optional.ofNullable(this.thresholdOccurrences);
     }
 
     /**
-     * **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 
@@ -118,8 +74,6 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> timeFunction;
 
     /**
-     * @return **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-     * 
      * @deprecated
      * use `threshold_occurrences` attribute instead
      * 
@@ -159,8 +113,6 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param duration **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-         * 
          * @return builder
          * 
          * @deprecated
@@ -174,8 +126,6 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param duration **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
-         * 
          * @return builder
          * 
          * @deprecated
@@ -187,99 +137,43 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
             return duration(Output.of(duration));
         }
 
-        /**
-         * @param operator Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operator(@Nullable Output<String> operator) {
             $.operator = operator;
             return this;
         }
 
-        /**
-         * @param operator Valid values are `above`, `below`, or `equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `outlier` or `baseline`, the only valid option here is `above`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operator(String operator) {
             return operator(Output.of(operator));
         }
 
-        /**
-         * @param threshold The value which will trigger a violation. Must be `0` or greater.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
-        /**
-         * @param threshold The value which will trigger a violation. Must be `0` or greater.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }
 
-        /**
-         * @param thresholdDuration The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-         * &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-         * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-         * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdDuration(@Nullable Output<Integer> thresholdDuration) {
             $.thresholdDuration = thresholdDuration;
             return this;
         }
 
-        /**
-         * @param thresholdDuration The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-         * &lt;br&gt;For _baseline_ and _outlier_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-         * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-         * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdDuration(Integer thresholdDuration) {
             return thresholdDuration(Output.of(thresholdDuration));
         }
 
-        /**
-         * @param thresholdOccurrences The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdOccurrences(@Nullable Output<String> thresholdOccurrences) {
             $.thresholdOccurrences = thresholdOccurrences;
             return this;
         }
 
-        /**
-         * @param thresholdOccurrences The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdOccurrences(String thresholdOccurrences) {
             return thresholdOccurrences(Output.of(thresholdOccurrences));
         }
 
         /**
-         * @param timeFunction **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -293,8 +187,6 @@ public final class NrqlAlertConditionWarningArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeFunction **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
-         * 
          * @return builder
          * 
          * @deprecated

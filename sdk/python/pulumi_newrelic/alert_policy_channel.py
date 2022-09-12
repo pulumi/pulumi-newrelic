@@ -159,7 +159,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
         # Applies the created channels above to the alert policy
         # referenced at the top of the config.
         foo = newrelic.AlertPolicyChannel("foo",
-            policy_id=newrelic_alert_policy["example_policy"]["id"],
+            policy_id=example_policy.id,
             channel_ids=[
                 email_channel.id,
                 slack_channel.id,
@@ -217,7 +217,7 @@ class AlertPolicyChannel(pulumi.CustomResource):
         # Applies the created channels above to the alert policy
         # referenced at the top of the config.
         foo = newrelic.AlertPolicyChannel("foo",
-            policy_id=newrelic_alert_policy["example_policy"]["id"],
+            policy_id=example_policy.id,
             channel_ids=[
                 email_channel.id,
                 slack_channel.id,

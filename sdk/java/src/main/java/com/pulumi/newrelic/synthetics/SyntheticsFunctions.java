@@ -8,22 +8,20 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.newrelic.Utilities;
-import com.pulumi.newrelic.synthetics.inputs.GetMonitorArgs;
-import com.pulumi.newrelic.synthetics.inputs.GetMonitorLocationArgs;
-import com.pulumi.newrelic.synthetics.inputs.GetMonitorLocationPlainArgs;
-import com.pulumi.newrelic.synthetics.inputs.GetMonitorPlainArgs;
+import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationPlainArgs;
 import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialArgs;
 import com.pulumi.newrelic.synthetics.inputs.GetSecureCredentialPlainArgs;
-import com.pulumi.newrelic.synthetics.outputs.GetMonitorLocationResult;
-import com.pulumi.newrelic.synthetics.outputs.GetMonitorResult;
+import com.pulumi.newrelic.synthetics.outputs.GetPrivateLocationResult;
 import com.pulumi.newrelic.synthetics.outputs.GetSecureCredentialResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class SyntheticsFunctions {
     /**
-     * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
+     * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -31,187 +29,7 @@ public final class SyntheticsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorArgs;
-     * import com.pulumi.newrelic.synthetics.AlertCondition;
-     * import com.pulumi.newrelic.synthetics.AlertConditionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;bar&#34;)
-     *             .build());
-     * 
-     *         var baz = new AlertCondition(&#34;baz&#34;, AlertConditionArgs.builder()        
-     *             .policyId(newrelic_alert_policy.foo().id())
-     *             .monitorId(bar.applyValue(getMonitorResult -&gt; getMonitorResult.id()))
-     *             .runbookUrl(&#34;https://www.example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args) {
-        return getMonitor(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorArgs;
-     * import com.pulumi.newrelic.synthetics.AlertCondition;
-     * import com.pulumi.newrelic.synthetics.AlertConditionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;bar&#34;)
-     *             .build());
-     * 
-     *         var baz = new AlertCondition(&#34;baz&#34;, AlertConditionArgs.builder()        
-     *             .policyId(newrelic_alert_policy.foo().id())
-     *             .monitorId(bar.applyValue(getMonitorResult -&gt; getMonitorResult.id()))
-     *             .runbookUrl(&#34;https://www.example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args) {
-        return getMonitorPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorArgs;
-     * import com.pulumi.newrelic.synthetics.AlertCondition;
-     * import com.pulumi.newrelic.synthetics.AlertConditionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;bar&#34;)
-     *             .build());
-     * 
-     *         var baz = new AlertCondition(&#34;baz&#34;, AlertConditionArgs.builder()        
-     *             .policyId(newrelic_alert_policy.foo().id())
-     *             .monitorId(bar.applyValue(getMonitorResult -&gt; getMonitorResult.id()))
-     *             .runbookUrl(&#34;https://www.example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("newrelic:synthetics/getMonitor:getMonitor", TypeShape.of(GetMonitorResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about a specific synthetics monitor in New Relic that already exists. This can be used to set up a Synthetics alert condition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorArgs;
-     * import com.pulumi.newrelic.synthetics.AlertCondition;
-     * import com.pulumi.newrelic.synthetics.AlertConditionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;bar&#34;)
-     *             .build());
-     * 
-     *         var baz = new AlertCondition(&#34;baz&#34;, AlertConditionArgs.builder()        
-     *             .policyId(newrelic_alert_policy.foo().id())
-     *             .monitorId(bar.applyValue(getMonitorResult -&gt; getMonitorResult.id()))
-     *             .runbookUrl(&#34;https://www.example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("newrelic:synthetics/getMonitor:getMonitor", TypeShape.of(GetMonitorResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorLocationArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
      * import java.util.List;
@@ -227,32 +45,20 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitorLocation(GetMonitorLocationArgs.builder()
-     *             .label(&#34;My private location&#34;)
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .type(&#34;SIMPLE&#34;)
-     *             .frequency(5)
-     *             .status(&#34;ENABLED&#34;)
-     *             .locations(bar.applyValue(getMonitorLocationResult -&gt; getMonitorLocationResult.name()))
-     *             .uri(&#34;https://example.com&#34;)
-     *             .validationString(&#34;add example validation check here&#34;)
-     *             .verifySsl(true)
+     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
      *             .build());
      * 
      *     }
      * }
      * ```
      * 
-     */
-    public static Output<GetMonitorLocationResult> getMonitorLocation(GetMonitorLocationArgs args) {
-        return getMonitorLocation(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
+     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
      * 
-     * ## Example Usage
      * ```java
      * package generated_program;
      * 
@@ -260,7 +66,7 @@ public final class SyntheticsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorLocationArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
      * import java.util.List;
@@ -276,18 +82,12 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitorLocation(GetMonitorLocationArgs.builder()
-     *             .label(&#34;My private location&#34;)
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .type(&#34;SIMPLE&#34;)
-     *             .frequency(5)
-     *             .status(&#34;ENABLED&#34;)
-     *             .locations(bar.applyValue(getMonitorLocationResult -&gt; getMonitorLocationResult.name()))
-     *             .uri(&#34;https://example.com&#34;)
-     *             .validationString(&#34;add example validation check here&#34;)
-     *             .verifySsl(true)
+     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -295,13 +95,14 @@ public final class SyntheticsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetMonitorLocationResult> getMonitorLocationPlain(GetMonitorLocationPlainArgs args) {
-        return getMonitorLocationPlain(args, InvokeOptions.Empty);
+    public static Output<GetPrivateLocationResult> getPrivateLocation(GetPrivateLocationArgs args) {
+        return getPrivateLocation(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
+     * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -309,7 +110,7 @@ public final class SyntheticsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorLocationArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
      * import java.util.List;
@@ -325,32 +126,20 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitorLocation(GetMonitorLocationArgs.builder()
-     *             .label(&#34;My private location&#34;)
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .type(&#34;SIMPLE&#34;)
-     *             .frequency(5)
-     *             .status(&#34;ENABLED&#34;)
-     *             .locations(bar.applyValue(getMonitorLocationResult -&gt; getMonitorLocationResult.name()))
-     *             .uri(&#34;https://example.com&#34;)
-     *             .validationString(&#34;add example validation check here&#34;)
-     *             .verifySsl(true)
+     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
      *             .build());
      * 
      *     }
      * }
      * ```
      * 
-     */
-    public static Output<GetMonitorLocationResult> getMonitorLocation(GetMonitorLocationArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("newrelic:synthetics/getMonitorLocation:getMonitorLocation", TypeShape.of(GetMonitorLocationResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about a specific Synthetics monitor location in New Relic that already exists.
+     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
      * 
-     * ## Example Usage
      * ```java
      * package generated_program;
      * 
@@ -358,7 +147,7 @@ public final class SyntheticsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
-     * import com.pulumi.newrelic.synthetics.inputs.GetMonitorLocationArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
      * import com.pulumi.newrelic.synthetics.Monitor;
      * import com.pulumi.newrelic.synthetics.MonitorArgs;
      * import java.util.List;
@@ -374,18 +163,12 @@ public final class SyntheticsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = SyntheticsFunctions.getMonitorLocation(GetMonitorLocationArgs.builder()
-     *             .label(&#34;My private location&#34;)
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .type(&#34;SIMPLE&#34;)
-     *             .frequency(5)
-     *             .status(&#34;ENABLED&#34;)
-     *             .locations(bar.applyValue(getMonitorLocationResult -&gt; getMonitorLocationResult.name()))
-     *             .uri(&#34;https://example.com&#34;)
-     *             .validationString(&#34;add example validation check here&#34;)
-     *             .verifySsl(true)
+     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -393,8 +176,170 @@ public final class SyntheticsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetMonitorLocationResult> getMonitorLocationPlain(GetMonitorLocationPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("newrelic:synthetics/getMonitorLocation:getMonitorLocation", TypeShape.of(GetMonitorLocationResult.class), args, Utilities.withVersion(options));
+    public static CompletableFuture<GetPrivateLocationResult> getPrivateLocationPlain(GetPrivateLocationPlainArgs args) {
+        return getPrivateLocationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+     * import com.pulumi.newrelic.synthetics.Monitor;
+     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
+     *             .build());
+     * 
+     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
+     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+     * import com.pulumi.newrelic.synthetics.Monitor;
+     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
+     *             .build());
+     * 
+     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
+     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLocationResult> getPrivateLocation(GetPrivateLocationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", TypeShape.of(GetPrivateLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+     * import com.pulumi.newrelic.synthetics.Monitor;
+     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
+     *             .build());
+     * 
+     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
+     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
+     * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
+     * import com.pulumi.newrelic.synthetics.Monitor;
+     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .name(&#34;My private location&#34;)
+     *             .build());
+     * 
+     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
+     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLocationResult> getPrivateLocationPlain(GetPrivateLocationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:synthetics/getPrivateLocation:getPrivateLocation", TypeShape.of(GetPrivateLocationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-newrelic/sdk/v4/go/newrelic"
+	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "newrelic:plugins/alertCondition:AlertCondition":
-		r = &AlertCondition{}
 	case "newrelic:plugins/applicationSettings:ApplicationSettings":
 		r = &ApplicationSettings{}
 	case "newrelic:plugins/workload:Workload":
@@ -40,11 +38,6 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
-	pulumi.RegisterResourceModule(
-		"newrelic",
-		"plugins/alertCondition",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"plugins/applicationSettings",

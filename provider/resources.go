@@ -21,7 +21,7 @@ import (
 	"unicode"
 
 	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
-	"github.com/pulumi/pulumi-newrelic/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -114,7 +114,6 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_alert_condition":          {Tok: makeResource(mainMod, "AlertCondition")},
 			"newrelic_alert_policy":             {Tok: makeResource(mainMod, "AlertPolicy")},
 			"newrelic_alert_policy_channel":     {Tok: makeResource(mainMod, "AlertPolicyChannel")},
-			"newrelic_dashboard":                {Tok: makeResource(mainMod, "Dashboard")},
 			"newrelic_one_dashboard":            {Tok: makeResource(mainMod, "OneDashboard")},
 			"newrelic_one_dashboard_raw":        {Tok: makeResource(mainMod, "OneDashboardRaw")},
 			"newrelic_infra_alert_condition":    {Tok: makeResource(mainMod, "InfraAlertCondition")},
@@ -127,6 +126,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_service_level":            {Tok: makeResource(mainMod, "ServiceLevel")},
 			"newrelic_notification_channel":     {Tok: makeResource(mainMod, "NotificationChannel")},
 			"newrelic_notification_destination": {Tok: makeResource(mainMod, "NotificationDestination")},
+			"newrelic_workflow":                 {Tok: makeResource(mainMod, "Workflow")},
 
 			"newrelic_cloud_aws_govcloud_link_account": {Tok: makeResource(cloudMod, "AwsGovcloudLinkAccount")},
 			"newrelic_cloud_aws_link_account":          {Tok: makeResource(cloudMod, "AwsLinkAccount")},
@@ -139,17 +139,37 @@ func Provider() tfbridge.ProviderInfo {
 
 			"newrelic_synthetics_alert_condition":   {Tok: makeResource(syntheticsMod, "AlertCondition")},
 			"newrelic_synthetics_monitor":           {Tok: makeResource(syntheticsMod, "Monitor")},
-			"newrelic_synthetics_monitor_script":    {Tok: makeResource(syntheticsMod, "MonitorScript")},
 			"newrelic_synthetics_secure_credential": {Tok: makeResource(syntheticsMod, "SecureCredential")},
 			"newrelic_synthetics_multilocation_alert_condition": {
 				Tok: makeResource(syntheticsMod, "MultiLocationAlertCondition"),
 			},
+			"newrelic_synthetics_broken_links_monitor": {
+				Tok: makeResource(syntheticsMod, "BrokenLinksMonitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "synthetics_monitor_broken_links.html.markdown",
+				}},
+			"newrelic_synthetics_cert_check_monitor": {
+				Tok: makeResource(syntheticsMod, "CertCheckMonitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "synthetics_monitor_cert_check.html.markdown",
+				}},
+			"newrelic_synthetics_private_location": {
+				Tok: makeResource(syntheticsMod, "PrivateLocation"),
+			},
+			"newrelic_synthetics_script_monitor": {
+				Tok: makeResource(syntheticsMod, "ScriptMonitor"),
+			},
+			"newrelic_synthetics_step_monitor": {
+				Tok: makeResource(syntheticsMod, "StepMonitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "synthetics_monitor_step.html.markdown",
+				},
+			},
 
 			"newrelic_insights_event": {Tok: makeResource(insightsMod, "Event")},
 
-			"newrelic_plugins_alert_condition": {Tok: makeResource(pluginsMod, "AlertCondition")},
-			"newrelic_workload":                {Tok: makeResource(pluginsMod, "Workload")},
-			"newrelic_application_settings":    {Tok: makeResource(pluginsMod, "ApplicationSettings")},
+			"newrelic_workload":             {Tok: makeResource(pluginsMod, "Workload")},
+			"newrelic_application_settings": {Tok: makeResource(pluginsMod, "ApplicationSettings")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"newrelic_alert_channel": {
@@ -167,12 +187,8 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_account":         {Tok: makeDataSource(mainMod, "getAccount")},
 			"newrelic_cloud_account":   {Tok: makeDataSource(mainMod, "getCloudAccount")},
 
-			"newrelic_synthetics_monitor":           {Tok: makeDataSource(syntheticsMod, "getMonitor")},
-			"newrelic_synthetics_monitor_location":  {Tok: makeDataSource(syntheticsMod, "getMonitorLocation")},
 			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},
-
-			"newrelic_plugin":           {Tok: makeDataSource(pluginsMod, "getPlugin")},
-			"newrelic_plugin_component": {Tok: makeDataSource(pluginsMod, "getPluginComponent")},
+			"newrelic_synthetics_private_location":  {Tok: makeDataSource(syntheticsMod, "getPrivateLocation")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -21,7 +21,7 @@ class AlertConditionArgs:
                  runbook_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlertCondition resource.
-        :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
+        :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
         :param pulumi.Input[str] name: The title of this condition.
@@ -40,7 +40,7 @@ class AlertConditionArgs:
     @pulumi.getter(name="monitorId")
     def monitor_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Synthetics monitor to be referenced in the alert condition.
+        The GUID of the Synthetics monitor to be referenced in the alert condition.
         """
         return pulumi.get(self, "monitor_id")
 
@@ -108,7 +108,7 @@ class _AlertConditionState:
         """
         Input properties used for looking up and filtering AlertCondition resources.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
+        :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -140,7 +140,7 @@ class _AlertConditionState:
     @pulumi.getter(name="monitorId")
     def monitor_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Synthetics monitor to be referenced in the alert condition.
+        The GUID of the Synthetics monitor to be referenced in the alert condition.
         """
         return pulumi.get(self, "monitor_id")
 
@@ -201,19 +201,6 @@ class AlertCondition(pulumi.CustomResource):
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_monitor = newrelic.synthetics.get_monitor(name="foo")
-        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
-            policy_id=newrelic_alert_policy["foo"]["id"],
-            monitor_id=foo_monitor.id,
-            runbook_url="https://www.example.com")
-        ```
-
         ## Import
 
         Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -225,7 +212,7 @@ class AlertCondition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
+        :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -240,19 +227,6 @@ class AlertCondition(pulumi.CustomResource):
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo_monitor = newrelic.synthetics.get_monitor(name="foo")
-        foo_alert_condition = newrelic.synthetics.AlertCondition("fooAlertCondition",
-            policy_id=newrelic_alert_policy["foo"]["id"],
-            monitor_id=foo_monitor.id,
-            runbook_url="https://www.example.com")
-        ```
 
         ## Import
 
@@ -323,7 +297,7 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Set whether to enable the alert condition. Defaults to `true`.
-        :param pulumi.Input[str] monitor_id: The ID of the Synthetics monitor to be referenced in the alert condition.
+        :param pulumi.Input[str] monitor_id: The GUID of the Synthetics monitor to be referenced in the alert condition.
         :param pulumi.Input[str] name: The title of this condition.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -351,7 +325,7 @@ class AlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="monitorId")
     def monitor_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Synthetics monitor to be referenced in the alert condition.
+        The GUID of the Synthetics monitor to be referenced in the alert condition.
         """
         return pulumi.get(self, "monitor_id")
 

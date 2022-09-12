@@ -32,8 +32,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertPolicyChannel{}
 	case "newrelic:index/apiAccessKey:ApiAccessKey":
 		r = &ApiAccessKey{}
-	case "newrelic:index/dashboard:Dashboard":
-		r = &Dashboard{}
 	case "newrelic:index/entityTags:EntityTags":
 		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
@@ -54,6 +52,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OneDashboardRaw{}
 	case "newrelic:index/serviceLevel:ServiceLevel":
 		r = &ServiceLevel{}
+	case "newrelic:index/workflow:Workflow":
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -114,11 +114,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
-		"index/dashboard",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"newrelic",
 		"index/entityTags",
 		&module{version},
 	)
@@ -165,6 +160,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/serviceLevel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/workflow",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

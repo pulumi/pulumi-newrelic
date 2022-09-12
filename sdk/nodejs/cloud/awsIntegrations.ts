@@ -55,6 +55,10 @@ export class AwsIntegrations extends pulumi.CustomResource {
      */
     public readonly cloudtrail!: pulumi.Output<outputs.cloud.AwsIntegrationsCloudtrail | undefined>;
     /**
+     * Billing integration
+     */
+    public readonly docDb!: pulumi.Output<outputs.cloud.AwsIntegrationsDocDb | undefined>;
+    /**
      * Health integration. See Integration blocks below for details.
      */
     public readonly health!: pulumi.Output<outputs.cloud.AwsIntegrationsHealth | undefined>;
@@ -62,6 +66,10 @@ export class AwsIntegrations extends pulumi.CustomResource {
      * The ID of the linked AWS account in New Relic.
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
+    /**
+     * S3 integration
+     */
+    public readonly s3!: pulumi.Output<outputs.cloud.AwsIntegrationsS3 | undefined>;
     /**
      * Trusted Advisor integration. See Integration blocks below for details.
      */
@@ -91,8 +99,10 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["billing"] = state ? state.billing : undefined;
             resourceInputs["cloudtrail"] = state ? state.cloudtrail : undefined;
+            resourceInputs["docDb"] = state ? state.docDb : undefined;
             resourceInputs["health"] = state ? state.health : undefined;
             resourceInputs["linkedAccountId"] = state ? state.linkedAccountId : undefined;
+            resourceInputs["s3"] = state ? state.s3 : undefined;
             resourceInputs["trustedAdvisor"] = state ? state.trustedAdvisor : undefined;
             resourceInputs["vpc"] = state ? state.vpc : undefined;
             resourceInputs["xRay"] = state ? state.xRay : undefined;
@@ -104,8 +114,10 @@ export class AwsIntegrations extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["billing"] = args ? args.billing : undefined;
             resourceInputs["cloudtrail"] = args ? args.cloudtrail : undefined;
+            resourceInputs["docDb"] = args ? args.docDb : undefined;
             resourceInputs["health"] = args ? args.health : undefined;
             resourceInputs["linkedAccountId"] = args ? args.linkedAccountId : undefined;
+            resourceInputs["s3"] = args ? args.s3 : undefined;
             resourceInputs["trustedAdvisor"] = args ? args.trustedAdvisor : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["xRay"] = args ? args.xRay : undefined;
@@ -132,6 +144,10 @@ export interface AwsIntegrationsState {
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail>;
     /**
+     * Billing integration
+     */
+    docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
+    /**
      * Health integration. See Integration blocks below for details.
      */
     health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth>;
@@ -139,6 +155,10 @@ export interface AwsIntegrationsState {
      * The ID of the linked AWS account in New Relic.
      */
     linkedAccountId?: pulumi.Input<number>;
+    /**
+     * S3 integration
+     */
+    s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
     /**
      * Trusted Advisor integration. See Integration blocks below for details.
      */
@@ -170,6 +190,10 @@ export interface AwsIntegrationsArgs {
      */
     cloudtrail?: pulumi.Input<inputs.cloud.AwsIntegrationsCloudtrail>;
     /**
+     * Billing integration
+     */
+    docDb?: pulumi.Input<inputs.cloud.AwsIntegrationsDocDb>;
+    /**
      * Health integration. See Integration blocks below for details.
      */
     health?: pulumi.Input<inputs.cloud.AwsIntegrationsHealth>;
@@ -177,6 +201,10 @@ export interface AwsIntegrationsArgs {
      * The ID of the linked AWS account in New Relic.
      */
     linkedAccountId: pulumi.Input<number>;
+    /**
+     * S3 integration
+     */
+    s3?: pulumi.Input<inputs.cloud.AwsIntegrationsS3>;
     /**
      * Trusted Advisor integration. See Integration blocks below for details.
      */

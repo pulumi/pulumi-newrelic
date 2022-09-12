@@ -54,7 +54,7 @@ namespace Pulumi.NewRelic
     ///     // referenced at the top of the config.
     ///     var foo = new NewRelic.AlertPolicyChannel("foo", new()
     ///     {
-    ///         PolicyId = newrelic_alert_policy.Example_policy.Id,
+    ///         PolicyId = examplePolicy.Apply(getAlertPolicyResult =&gt; getAlertPolicyResult.Id),
     ///         ChannelIds = new[]
     ///         {
     ///             emailChannel.Id,

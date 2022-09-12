@@ -5,10 +5,13 @@ package com.pulumi.newrelic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
+import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
 import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,18 +22,63 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     public static final NotificationDestinationArgs Empty = new NotificationDestinationArgs();
 
     /**
-     * A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
+     * Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      * 
      */
-    @Import(name="auth")
-    private @Nullable Output<Map<String,String>> auth;
+    @Import(name="accountId")
+    private @Nullable Output<Integer> accountId;
 
     /**
-     * @return A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
+     * @return Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
      * 
      */
-    public Optional<Output<Map<String,String>>> auth() {
-        return Optional.ofNullable(this.auth);
+    public Optional<Output<Integer>> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * Indicates whether the destination is active.
+     * 
+     */
+    @Import(name="active")
+    private @Nullable Output<Boolean> active;
+
+    /**
+     * @return Indicates whether the destination is active.
+     * 
+     */
+    public Optional<Output<Boolean>> active() {
+        return Optional.ofNullable(this.active);
+    }
+
+    /**
+     * A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+     * 
+     */
+    @Import(name="authBasic")
+    private @Nullable Output<NotificationDestinationAuthBasicArgs> authBasic;
+
+    /**
+     * @return A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+     * 
+     */
+    public Optional<Output<NotificationDestinationAuthBasicArgs>> authBasic() {
+        return Optional.ofNullable(this.authBasic);
+    }
+
+    /**
+     * A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+     * 
+     */
+    @Import(name="authToken")
+    private @Nullable Output<NotificationDestinationAuthTokenArgs> authToken;
+
+    /**
+     * @return A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+     * 
+     */
+    public Optional<Output<NotificationDestinationAuthTokenArgs>> authToken() {
+        return Optional.ofNullable(this.authToken);
     }
 
     /**
@@ -49,29 +97,29 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
+     * A nested block that describes a notification destination property. See Nested property blocks below for details.
      * 
      */
-    @Import(name="properties")
-    private @Nullable Output<List<NotificationDestinationPropertyArgs>> properties;
+    @Import(name="properties", required=true)
+    private Output<List<NotificationDestinationPropertyArgs>> properties;
 
     /**
-     * @return A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
+     * @return A nested block that describes a notification destination property. See Nested property blocks below for details.
      * 
      */
-    public Optional<Output<List<NotificationDestinationPropertyArgs>>> properties() {
-        return Optional.ofNullable(this.properties);
+    public Output<List<NotificationDestinationPropertyArgs>> properties() {
+        return this.properties;
     }
 
     /**
-     * The type of the auth.  One of: `TOKEN` or `BASIC`.
+     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the auth.  One of: `TOKEN` or `BASIC`.
+     * @return The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
     public Output<String> type() {
@@ -81,7 +129,10 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
     private NotificationDestinationArgs() {}
 
     private NotificationDestinationArgs(NotificationDestinationArgs $) {
-        this.auth = $.auth;
+        this.accountId = $.accountId;
+        this.active = $.active;
+        this.authBasic = $.authBasic;
+        this.authToken = $.authToken;
         this.name = $.name;
         this.properties = $.properties;
         this.type = $.type;
@@ -106,24 +157,87 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param auth A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
+         * @param accountId Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
          */
-        public Builder auth(@Nullable Output<Map<String,String>> auth) {
-            $.auth = auth;
+        public Builder accountId(@Nullable Output<Integer> accountId) {
+            $.accountId = accountId;
             return this;
         }
 
         /**
-         * @param auth A nested block that describes a notification destination authentication. Only one auth block is permitted per notification destination definition.  See Nested auth blocks below for details.
+         * @param accountId Determines the New Relic account where the notification destination will be created. Defaults to the account associated with the API key used.
          * 
          * @return builder
          * 
          */
-        public Builder auth(Map<String,String> auth) {
-            return auth(Output.of(auth));
+        public Builder accountId(Integer accountId) {
+            return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param active Indicates whether the destination is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder active(@Nullable Output<Boolean> active) {
+            $.active = active;
+            return this;
+        }
+
+        /**
+         * @param active Indicates whether the destination is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder active(Boolean active) {
+            return active(Output.of(active));
+        }
+
+        /**
+         * @param authBasic A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authBasic(@Nullable Output<NotificationDestinationAuthBasicArgs> authBasic) {
+            $.authBasic = authBasic;
+            return this;
+        }
+
+        /**
+         * @param authBasic A nested block that describes a basic username and password authentication credentials. Only one auth_basic block is permitted per notification destination definition.  See Nested auth_basic blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authBasic(NotificationDestinationAuthBasicArgs authBasic) {
+            return authBasic(Output.of(authBasic));
+        }
+
+        /**
+         * @param authToken A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authToken(@Nullable Output<NotificationDestinationAuthTokenArgs> authToken) {
+            $.authToken = authToken;
+            return this;
+        }
+
+        /**
+         * @param authToken A nested block that describes a token authentication credentials. Only one auth_token block is permitted per notification destination definition.  See Nested auth_token blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authToken(NotificationDestinationAuthTokenArgs authToken) {
+            return authToken(Output.of(authToken));
         }
 
         /**
@@ -148,18 +262,18 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param properties A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
+         * @param properties A nested block that describes a notification destination property. See Nested property blocks below for details.
          * 
          * @return builder
          * 
          */
-        public Builder properties(@Nullable Output<List<NotificationDestinationPropertyArgs>> properties) {
+        public Builder properties(Output<List<NotificationDestinationPropertyArgs>> properties) {
             $.properties = properties;
             return this;
         }
 
         /**
-         * @param properties A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
+         * @param properties A nested block that describes a notification destination property. See Nested property blocks below for details.
          * 
          * @return builder
          * 
@@ -169,7 +283,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param properties A nested block that describes a notification destination properties.  Only one properties block is permitted per notification destination definition.  See Nested properties blocks below for details.
+         * @param properties A nested block that describes a notification destination property. See Nested property blocks below for details.
          * 
          * @return builder
          * 
@@ -179,7 +293,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The type of the auth.  One of: `TOKEN` or `BASIC`.
+         * @param type The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
          * 
          * @return builder
          * 
@@ -190,7 +304,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The type of the auth.  One of: `TOKEN` or `BASIC`.
+         * @param type The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
          * 
          * @return builder
          * 
@@ -200,6 +314,7 @@ public final class NotificationDestinationArgs extends com.pulumi.resources.Reso
         }
 
         public NotificationDestinationArgs build() {
+            $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }
