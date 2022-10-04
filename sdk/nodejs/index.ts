@@ -26,6 +26,7 @@ export * from "./notificationDestination";
 export * from "./nrqlAlertCondition";
 export * from "./nrqlDropRule";
 export * from "./oneDashboard";
+export * from "./oneDashboardJson";
 export * from "./oneDashboardRaw";
 export * from "./provider";
 export * from "./serviceLevel";
@@ -63,6 +64,7 @@ import { NotificationDestination } from "./notificationDestination";
 import { NrqlAlertCondition } from "./nrqlAlertCondition";
 import { NrqlDropRule } from "./nrqlDropRule";
 import { OneDashboard } from "./oneDashboard";
+import { OneDashboardJson } from "./oneDashboardJson";
 import { OneDashboardRaw } from "./oneDashboardRaw";
 import { ServiceLevel } from "./serviceLevel";
 import { Workflow } from "./workflow";
@@ -99,6 +101,8 @@ const _module = {
                 return new NrqlDropRule(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboard:OneDashboard":
                 return new OneDashboard(name, <any>undefined, { urn })
+            case "newrelic:index/oneDashboardJson:OneDashboardJson":
+                return new OneDashboardJson(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboardRaw:OneDashboardRaw":
                 return new OneDashboardRaw(name, <any>undefined, { urn })
             case "newrelic:index/serviceLevel:ServiceLevel":
@@ -124,6 +128,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlDropRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardJson", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)
