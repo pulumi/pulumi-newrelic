@@ -16,44 +16,33 @@ __all__ = ['NotificationChannelArgs', 'NotificationChannel']
 @pulumi.input_type
 class NotificationChannelArgs:
     def __init__(__self__, *,
-                 account_id: pulumi.Input[int],
                  destination_id: pulumi.Input[str],
                  product: pulumi.Input[str],
                  properties: pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]],
                  type: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[int]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NotificationChannel resource.
-        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] destination_id: The id of the destination.
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[int] account_id: Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] active: Indicates whether the channel is active.
         :param pulumi.Input[str] name: The name of the channel.
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "destination_id", destination_id)
         pulumi.set(__self__, "product", product)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "type", type)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if active is not None:
             pulumi.set(__self__, "active", active)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Input[int]:
-        """
-        Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: pulumi.Input[int]):
-        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="destinationId")
@@ -95,13 +84,25 @@ class NotificationChannelArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -148,7 +149,7 @@ class _NotificationChannelState:
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelPropertyArgs']]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[str] status: The status of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -255,7 +256,7 @@ class _NotificationChannelState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 
@@ -411,6 +412,56 @@ class NotificationChannel(pulumi.CustomResource):
             type="PAGERDUTY_SERVICE_INTEGRATION")
         ```
 
+        #### Mobile Push
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
+            type="MOBILE_PUSH")
+        ```
+
+        #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="eventSource",
+                    value="aws.partner/mydomain/myaccountid/name",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="eventContent",
+                    value="{ id: {{ json issueId }} }",
+                ),
+            ],
+            type="EVENT_BRIDGE")
+        ```
+
+        #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="channelId",
+                value="123456",
+            )],
+            type="SLACK")
+        ```
+
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
         ## Full Scenario Example
@@ -430,7 +481,7 @@ class NotificationChannel(pulumi.CustomResource):
             ),
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
-                value="https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+                value="https://webhook.mywebhook.com",
             )],
             type="WEBHOOK")
         ```
@@ -464,7 +515,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         ...
     @overload
@@ -606,6 +657,56 @@ class NotificationChannel(pulumi.CustomResource):
             type="PAGERDUTY_SERVICE_INTEGRATION")
         ```
 
+        #### Mobile Push
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
+            type="MOBILE_PUSH")
+        ```
+
+        #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="eventSource",
+                    value="aws.partner/mydomain/myaccountid/name",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="eventContent",
+                    value="{ id: {{ json issueId }} }",
+                ),
+            ],
+            type="EVENT_BRIDGE")
+        ```
+
+        #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.NotificationChannel("foo",
+            account_id=12345678,
+            destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+            product="IINT",
+            properties=[newrelic.NotificationChannelPropertyArgs(
+                key="channelId",
+                value="123456",
+            )],
+            type="SLACK")
+        ```
+
         > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
 
         ## Full Scenario Example
@@ -625,7 +726,7 @@ class NotificationChannel(pulumi.CustomResource):
             ),
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
-                value="https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+                value="https://webhook.mywebhook.com",
             )],
             type="WEBHOOK")
         ```
@@ -682,8 +783,6 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
-            if account_id is None and not opts.urn:
-                raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["active"] = active
             if destination_id is None and not opts.urn:
@@ -732,7 +831,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] product: The type of product.  One of: `DISCUSSIONS`, `ERROR_TRACKING` or `IINT` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationChannelPropertyArgs']]]] properties: A nested block that describes a notification channel property. See Nested property blocks below for details.
         :param pulumi.Input[str] status: The status of the channel.
-        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        :param pulumi.Input[str] type: The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -808,7 +907,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
         """
         return pulumi.get(self, "type")
 

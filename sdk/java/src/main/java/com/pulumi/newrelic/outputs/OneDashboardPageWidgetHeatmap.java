@@ -20,6 +20,7 @@ public final class OneDashboardPageWidgetHeatmap {
      * 
      */
     private Integer column;
+    private @Nullable Boolean filterCurrentDashboard;
     /**
      * @return (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      * 
@@ -31,6 +32,7 @@ public final class OneDashboardPageWidgetHeatmap {
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
+    private @Nullable List<String> linkedEntityGuids;
     /**
      * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -62,6 +64,9 @@ public final class OneDashboardPageWidgetHeatmap {
     public Integer column() {
         return this.column;
     }
+    public Optional<Boolean> filterCurrentDashboard() {
+        return Optional.ofNullable(this.filterCurrentDashboard);
+    }
     /**
      * @return (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      * 
@@ -78,6 +83,9 @@ public final class OneDashboardPageWidgetHeatmap {
      */
     public Optional<Boolean> ignoreTimeRange() {
         return Optional.ofNullable(this.ignoreTimeRange);
+    }
+    public List<String> linkedEntityGuids() {
+        return this.linkedEntityGuids == null ? List.of() : this.linkedEntityGuids;
     }
     /**
      * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -120,9 +128,11 @@ public final class OneDashboardPageWidgetHeatmap {
     @CustomType.Builder
     public static final class Builder {
         private Integer column;
+        private @Nullable Boolean filterCurrentDashboard;
         private @Nullable Integer height;
         private @Nullable String id;
         private @Nullable Boolean ignoreTimeRange;
+        private @Nullable List<String> linkedEntityGuids;
         private List<OneDashboardPageWidgetHeatmapNrqlQuery> nrqlQueries;
         private Integer row;
         private String title;
@@ -131,9 +141,11 @@ public final class OneDashboardPageWidgetHeatmap {
         public Builder(OneDashboardPageWidgetHeatmap defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.column = defaults.column;
+    	      this.filterCurrentDashboard = defaults.filterCurrentDashboard;
     	      this.height = defaults.height;
     	      this.id = defaults.id;
     	      this.ignoreTimeRange = defaults.ignoreTimeRange;
+    	      this.linkedEntityGuids = defaults.linkedEntityGuids;
     	      this.nrqlQueries = defaults.nrqlQueries;
     	      this.row = defaults.row;
     	      this.title = defaults.title;
@@ -143,6 +155,11 @@ public final class OneDashboardPageWidgetHeatmap {
         @CustomType.Setter
         public Builder column(Integer column) {
             this.column = Objects.requireNonNull(column);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder filterCurrentDashboard(@Nullable Boolean filterCurrentDashboard) {
+            this.filterCurrentDashboard = filterCurrentDashboard;
             return this;
         }
         @CustomType.Setter
@@ -159,6 +176,14 @@ public final class OneDashboardPageWidgetHeatmap {
         public Builder ignoreTimeRange(@Nullable Boolean ignoreTimeRange) {
             this.ignoreTimeRange = ignoreTimeRange;
             return this;
+        }
+        @CustomType.Setter
+        public Builder linkedEntityGuids(@Nullable List<String> linkedEntityGuids) {
+            this.linkedEntityGuids = linkedEntityGuids;
+            return this;
+        }
+        public Builder linkedEntityGuids(String... linkedEntityGuids) {
+            return linkedEntityGuids(List.of(linkedEntityGuids));
         }
         @CustomType.Setter
         public Builder nrqlQueries(List<OneDashboardPageWidgetHeatmapNrqlQuery> nrqlQueries) {
@@ -186,9 +211,11 @@ public final class OneDashboardPageWidgetHeatmap {
         public OneDashboardPageWidgetHeatmap build() {
             final var o = new OneDashboardPageWidgetHeatmap();
             o.column = column;
+            o.filterCurrentDashboard = filterCurrentDashboard;
             o.height = height;
             o.id = id;
             o.ignoreTimeRange = ignoreTimeRange;
+            o.linkedEntityGuids = linkedEntityGuids;
             o.nrqlQueries = nrqlQueries;
             o.row = row;
             o.title = title;

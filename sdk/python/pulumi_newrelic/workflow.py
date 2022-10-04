@@ -16,54 +16,54 @@ __all__ = ['WorkflowArgs', 'Workflow']
 @pulumi.input_type
 class WorkflowArgs:
     def __init__(__self__, *,
-                 destination_configurations: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]],
+                 destinations: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]],
                  issues_filter: pulumi.Input['WorkflowIssuesFilterArgs'],
                  muting_rules_handling: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[int]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 workflow_enabled: Optional[pulumi.Input[bool]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]] destination_configurations: A nested block that contains a channel id.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: A nested block that contains a channel id.
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: The issues filter.  See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] muting_rules_handling: Which muting rule handling this workflow has.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[bool] destinations_enabled: Whether destinations are enabled..
+        :param pulumi.Input[bool] enabled: Whether workflow is enabled.
         :param pulumi.Input['WorkflowEnrichmentsArgs'] enrichments: A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled..
         :param pulumi.Input[str] name: A nrql enrichment name.
-        :param pulumi.Input[bool] workflow_enabled: Whether workflow is enabled.
         """
-        pulumi.set(__self__, "destination_configurations", destination_configurations)
+        pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "issues_filter", issues_filter)
         pulumi.set(__self__, "muting_rules_handling", muting_rules_handling)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if destinations_enabled is not None:
             pulumi.set(__self__, "destinations_enabled", destinations_enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if enrichments is not None:
             pulumi.set(__self__, "enrichments", enrichments)
         if enrichments_enabled is not None:
             pulumi.set(__self__, "enrichments_enabled", enrichments_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if workflow_enabled is not None:
-            pulumi.set(__self__, "workflow_enabled", workflow_enabled)
 
     @property
-    @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]]:
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]:
         """
         A nested block that contains a channel id.
         """
-        return pulumi.get(self, "destination_configurations")
+        return pulumi.get(self, "destinations")
 
-    @destination_configurations.setter
-    def destination_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]]):
-        pulumi.set(self, "destination_configurations", value)
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]):
+        pulumi.set(self, "destinations", value)
 
     @property
     @pulumi.getter(name="issuesFilter")
@@ -115,6 +115,18 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether workflow is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
     def enrichments(self) -> Optional[pulumi.Input['WorkflowEnrichmentsArgs']]:
         """
         A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
@@ -149,53 +161,43 @@ class WorkflowArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="workflowEnabled")
-    def workflow_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether workflow is enabled.
-        """
-        return pulumi.get(self, "workflow_enabled")
-
-    @workflow_enabled.setter
-    def workflow_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "workflow_enabled", value)
-
 
 @pulumi.input_type
 class _WorkflowState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[int]] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
                  issues_filter: Optional[pulumi.Input['WorkflowIssuesFilterArgs']] = None,
                  last_run: Optional[pulumi.Input[str]] = None,
                  muting_rules_handling: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 workflow_enabled: Optional[pulumi.Input[bool]] = None,
                  workflow_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]] destination_configurations: A nested block that contains a channel id.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]] destinations: A nested block that contains a channel id.
         :param pulumi.Input[bool] destinations_enabled: Whether destinations are enabled..
+        :param pulumi.Input[bool] enabled: Whether workflow is enabled.
         :param pulumi.Input['WorkflowEnrichmentsArgs'] enrichments: A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled..
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: The issues filter.  See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: Which muting rule handling this workflow has.
         :param pulumi.Input[str] name: A nrql enrichment name.
-        :param pulumi.Input[bool] workflow_enabled: Whether workflow is enabled.
         :param pulumi.Input[str] workflow_id: The id of the workflow.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
-        if destination_configurations is not None:
-            pulumi.set(__self__, "destination_configurations", destination_configurations)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
         if destinations_enabled is not None:
             pulumi.set(__self__, "destinations_enabled", destinations_enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if enrichments is not None:
             pulumi.set(__self__, "enrichments", enrichments)
         if enrichments_enabled is not None:
@@ -208,8 +210,6 @@ class _WorkflowState:
             pulumi.set(__self__, "muting_rules_handling", muting_rules_handling)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if workflow_enabled is not None:
-            pulumi.set(__self__, "workflow_enabled", workflow_enabled)
         if workflow_id is not None:
             pulumi.set(__self__, "workflow_id", workflow_id)
 
@@ -226,16 +226,16 @@ class _WorkflowState:
         pulumi.set(self, "account_id", value)
 
     @property
-    @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]]]:
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]]:
         """
         A nested block that contains a channel id.
         """
-        return pulumi.get(self, "destination_configurations")
+        return pulumi.get(self, "destinations")
 
-    @destination_configurations.setter
-    def destination_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationConfigurationArgs']]]]):
-        pulumi.set(self, "destination_configurations", value)
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowDestinationArgs']]]]):
+        pulumi.set(self, "destinations", value)
 
     @property
     @pulumi.getter(name="destinationsEnabled")
@@ -248,6 +248,18 @@ class _WorkflowState:
     @destinations_enabled.setter
     def destinations_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "destinations_enabled", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether workflow is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter
@@ -322,18 +334,6 @@ class _WorkflowState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="workflowEnabled")
-    def workflow_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether workflow is enabled.
-        """
-        return pulumi.get(self, "workflow_enabled")
-
-    @workflow_enabled.setter
-    def workflow_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "workflow_enabled", value)
-
-    @property
     @pulumi.getter(name="workflowId")
     def workflow_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -352,71 +352,29 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationConfigurationArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
                  issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
                  muting_rules_handling: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 workflow_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Use this resource to create and manage New Relic workflow.
 
-        ## Example Usage
+        ## Full Scenario Example
 
-        ##### Workflow
+        Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
+
+        ### Create a policy
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.Workflow("foo",
-            account_id=12345678,
-            destination_configurations=[
-                newrelic.WorkflowDestinationConfigurationArgs(
-                    channel_id="20d86999-169c-461a-9c16-3cf330f4b3aa",
-                ),
-                newrelic.WorkflowDestinationConfigurationArgs(
-                    channel_id="e6af0870-cabb-453f-bf0d-fb2b6a14e05c",
-                ),
-            ],
-            destinations_enabled=True,
-            enrichments=newrelic.WorkflowEnrichmentsArgs(
-                nrqls=[
-                    newrelic.WorkflowEnrichmentsNrqlArgs(
-                        configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                            query="SELECT * FROM Log",
-                        )],
-                        name="Log",
-                    ),
-                    newrelic.WorkflowEnrichmentsNrqlArgs(
-                        configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                            query="SELECT * FROM Metric",
-                        )],
-                        name="Metric",
-                    ),
-                ],
-            ),
-            enrichments_enabled=False,
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="filter-name",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.sources",
-                    operator="EXACTLY_MATCHES",
-                    values=[
-                        "newrelic",
-                        "pagerduty",
-                    ],
-                )],
-                type="FILTER",
-            ),
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            workflow_enabled=True)
+        collector_policy = newrelic.AlertPolicy("collector-policy")
         ```
-        ## Full Scenario Example
-
-        Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
 
         ### Create a destination
         ```python
@@ -431,7 +389,7 @@ class Workflow(pulumi.CustomResource):
             ),
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
-                value="https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+                value="https://webhook.mywebhook.com",
             )],
             type="WEBHOOK")
         ```
@@ -448,7 +406,7 @@ class Workflow(pulumi.CustomResource):
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
-                value="{name: foo}",
+                value="{name: {{ variable }} }",
                 label="Payload Template",
             )])
         ```
@@ -465,20 +423,27 @@ class Workflow(pulumi.CustomResource):
                 nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
                     name="Log count",
                     configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                        query="SELECT count(*) FROM Log",
+                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
                     )],
                 )],
             ),
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
                 type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.sources",
-                    operator="EXACTLY_MATCHES",
-                    values=["newrelic"],
-                )],
+                predicates=[
+                    newrelic.WorkflowIssuesFilterPredicateArgs(
+                        attribute="accumulations.policyName",
+                        operator="EXACTLY_MATCHES",
+                        values=["my_policy"],
+                    ),
+                    newrelic.WorkflowIssuesFilterPredicateArgs(
+                        attribute="accumulations.sources",
+                        operator="EXACTLY_MATCHES",
+                        values=["newrelic"],
+                    ),
+                ],
             ),
-            destination_configurations=[newrelic.WorkflowDestinationConfigurationArgs(
+            destinations=[newrelic.WorkflowDestinationArgs(
                 channel_id=newrelic_notification_channel["webhook-channel"]["id"],
             )])
         ```
@@ -487,17 +452,26 @@ class Workflow(pulumi.CustomResource):
 
         More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
 
+        ## v3.3 changes
+
+        In version v3.3 we renamed the following arguments:
+
+        - `workflow_enabled` changed to `enabled`.
+        - `destination_configuration` changed to `destination`.
+        - `predicates` changed to `predicate`.
+        - Enrichment's `configurations` changed to `configuration`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationConfigurationArgs']]]] destination_configurations: A nested block that contains a channel id.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: A nested block that contains a channel id.
         :param pulumi.Input[bool] destinations_enabled: Whether destinations are enabled..
+        :param pulumi.Input[bool] enabled: Whether workflow is enabled.
         :param pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']] enrichments: A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled..
         :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: The issues filter.  See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] muting_rules_handling: Which muting rule handling this workflow has.
         :param pulumi.Input[str] name: A nrql enrichment name.
-        :param pulumi.Input[bool] workflow_enabled: Whether workflow is enabled.
         """
         ...
     @overload
@@ -508,59 +482,17 @@ class Workflow(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic workflow.
 
-        ## Example Usage
+        ## Full Scenario Example
 
-        ##### Workflow
+        Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
+
+        ### Create a policy
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        foo = newrelic.Workflow("foo",
-            account_id=12345678,
-            destination_configurations=[
-                newrelic.WorkflowDestinationConfigurationArgs(
-                    channel_id="20d86999-169c-461a-9c16-3cf330f4b3aa",
-                ),
-                newrelic.WorkflowDestinationConfigurationArgs(
-                    channel_id="e6af0870-cabb-453f-bf0d-fb2b6a14e05c",
-                ),
-            ],
-            destinations_enabled=True,
-            enrichments=newrelic.WorkflowEnrichmentsArgs(
-                nrqls=[
-                    newrelic.WorkflowEnrichmentsNrqlArgs(
-                        configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                            query="SELECT * FROM Log",
-                        )],
-                        name="Log",
-                    ),
-                    newrelic.WorkflowEnrichmentsNrqlArgs(
-                        configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                            query="SELECT * FROM Metric",
-                        )],
-                        name="Metric",
-                    ),
-                ],
-            ),
-            enrichments_enabled=False,
-            issues_filter=newrelic.WorkflowIssuesFilterArgs(
-                name="filter-name",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.sources",
-                    operator="EXACTLY_MATCHES",
-                    values=[
-                        "newrelic",
-                        "pagerduty",
-                    ],
-                )],
-                type="FILTER",
-            ),
-            muting_rules_handling="NOTIFY_ALL_ISSUES",
-            workflow_enabled=True)
+        collector_policy = newrelic.AlertPolicy("collector-policy")
         ```
-        ## Full Scenario Example
-
-        Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
 
         ### Create a destination
         ```python
@@ -575,7 +507,7 @@ class Workflow(pulumi.CustomResource):
             ),
             properties=[newrelic.NotificationDestinationPropertyArgs(
                 key="url",
-                value="https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+                value="https://webhook.mywebhook.com",
             )],
             type="WEBHOOK")
         ```
@@ -592,7 +524,7 @@ class Workflow(pulumi.CustomResource):
             product="IINT",
             properties=[newrelic.NotificationChannelPropertyArgs(
                 key="payload",
-                value="{name: foo}",
+                value="{name: {{ variable }} }",
                 label="Payload Template",
             )])
         ```
@@ -609,20 +541,27 @@ class Workflow(pulumi.CustomResource):
                 nrqls=[newrelic.WorkflowEnrichmentsNrqlArgs(
                     name="Log count",
                     configurations=[newrelic.WorkflowEnrichmentsNrqlConfigurationArgs(
-                        query="SELECT count(*) FROM Log",
+                        query="SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
                     )],
                 )],
             ),
             issues_filter=newrelic.WorkflowIssuesFilterArgs(
                 name="Filter-name",
                 type="FILTER",
-                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
-                    attribute="accumulations.sources",
-                    operator="EXACTLY_MATCHES",
-                    values=["newrelic"],
-                )],
+                predicates=[
+                    newrelic.WorkflowIssuesFilterPredicateArgs(
+                        attribute="accumulations.policyName",
+                        operator="EXACTLY_MATCHES",
+                        values=["my_policy"],
+                    ),
+                    newrelic.WorkflowIssuesFilterPredicateArgs(
+                        attribute="accumulations.sources",
+                        operator="EXACTLY_MATCHES",
+                        values=["newrelic"],
+                    ),
+                ],
             ),
-            destination_configurations=[newrelic.WorkflowDestinationConfigurationArgs(
+            destinations=[newrelic.WorkflowDestinationArgs(
                 channel_id=newrelic_notification_channel["webhook-channel"]["id"],
             )])
         ```
@@ -630,6 +569,15 @@ class Workflow(pulumi.CustomResource):
         ## Additional Information
 
         More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
+
+        ## v3.3 changes
+
+        In version v3.3 we renamed the following arguments:
+
+        - `workflow_enabled` changed to `enabled`.
+        - `destination_configuration` changed to `destination`.
+        - `predicates` changed to `predicate`.
+        - Enrichment's `configurations` changed to `configuration`.
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.
@@ -647,14 +595,14 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationConfigurationArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
                  destinations_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
                  issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
                  muting_rules_handling: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 workflow_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -665,10 +613,11 @@ class Workflow(pulumi.CustomResource):
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if destination_configurations is None and not opts.urn:
-                raise TypeError("Missing required property 'destination_configurations'")
-            __props__.__dict__["destination_configurations"] = destination_configurations
+            if destinations is None and not opts.urn:
+                raise TypeError("Missing required property 'destinations'")
+            __props__.__dict__["destinations"] = destinations
             __props__.__dict__["destinations_enabled"] = destinations_enabled
+            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["enrichments"] = enrichments
             __props__.__dict__["enrichments_enabled"] = enrichments_enabled
             if issues_filter is None and not opts.urn:
@@ -678,7 +627,6 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'muting_rules_handling'")
             __props__.__dict__["muting_rules_handling"] = muting_rules_handling
             __props__.__dict__["name"] = name
-            __props__.__dict__["workflow_enabled"] = workflow_enabled
             __props__.__dict__["last_run"] = None
             __props__.__dict__["workflow_id"] = None
         super(Workflow, __self__).__init__(
@@ -692,15 +640,15 @@ class Workflow(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[int]] = None,
-            destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationConfigurationArgs']]]]] = None,
+            destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]]] = None,
             destinations_enabled: Optional[pulumi.Input[bool]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
             enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
             enrichments_enabled: Optional[pulumi.Input[bool]] = None,
             issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
             last_run: Optional[pulumi.Input[str]] = None,
             muting_rules_handling: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            workflow_enabled: Optional[pulumi.Input[bool]] = None,
             workflow_id: Optional[pulumi.Input[str]] = None) -> 'Workflow':
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
@@ -710,15 +658,15 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationConfigurationArgs']]]] destination_configurations: A nested block that contains a channel id.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowDestinationArgs']]]] destinations: A nested block that contains a channel id.
         :param pulumi.Input[bool] destinations_enabled: Whether destinations are enabled..
+        :param pulumi.Input[bool] enabled: Whether workflow is enabled.
         :param pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']] enrichments: A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled..
         :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: The issues filter.  See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: Which muting rule handling this workflow has.
         :param pulumi.Input[str] name: A nrql enrichment name.
-        :param pulumi.Input[bool] workflow_enabled: Whether workflow is enabled.
         :param pulumi.Input[str] workflow_id: The id of the workflow.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -726,15 +674,15 @@ class Workflow(pulumi.CustomResource):
         __props__ = _WorkflowState.__new__(_WorkflowState)
 
         __props__.__dict__["account_id"] = account_id
-        __props__.__dict__["destination_configurations"] = destination_configurations
+        __props__.__dict__["destinations"] = destinations
         __props__.__dict__["destinations_enabled"] = destinations_enabled
+        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["enrichments"] = enrichments
         __props__.__dict__["enrichments_enabled"] = enrichments_enabled
         __props__.__dict__["issues_filter"] = issues_filter
         __props__.__dict__["last_run"] = last_run
         __props__.__dict__["muting_rules_handling"] = muting_rules_handling
         __props__.__dict__["name"] = name
-        __props__.__dict__["workflow_enabled"] = workflow_enabled
         __props__.__dict__["workflow_id"] = workflow_id
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
@@ -747,12 +695,12 @@ class Workflow(pulumi.CustomResource):
         return pulumi.get(self, "account_id")
 
     @property
-    @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> pulumi.Output[Sequence['outputs.WorkflowDestinationConfiguration']]:
+    @pulumi.getter
+    def destinations(self) -> pulumi.Output[Sequence['outputs.WorkflowDestination']]:
         """
         A nested block that contains a channel id.
         """
-        return pulumi.get(self, "destination_configurations")
+        return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter(name="destinationsEnabled")
@@ -761,6 +709,14 @@ class Workflow(pulumi.CustomResource):
         Whether destinations are enabled..
         """
         return pulumi.get(self, "destinations_enabled")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether workflow is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
@@ -809,14 +765,6 @@ class Workflow(pulumi.CustomResource):
         A nrql enrichment name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="workflowEnabled")
-    def workflow_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether workflow is enabled.
-        """
-        return pulumi.get(self, "workflow_enabled")
 
     @property
     @pulumi.getter(name="workflowId")

@@ -64,7 +64,7 @@ __all__ = [
     'ServiceLevelObjective',
     'ServiceLevelObjectiveTimeWindow',
     'ServiceLevelObjectiveTimeWindowRolling',
-    'WorkflowDestinationConfiguration',
+    'WorkflowDestination',
     'WorkflowEnrichments',
     'WorkflowEnrichmentsNrql',
     'WorkflowEnrichmentsNrqlConfiguration',
@@ -2359,8 +2359,12 @@ class OneDashboardPageWidgetHeatmap(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "filterCurrentDashboard":
+            suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "linkedEntityGuids":
+            suggest = "linked_entity_guids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmap. Access the value via the '{suggest}' property getter instead.")
@@ -2378,9 +2382,11 @@ class OneDashboardPageWidgetHeatmap(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery'],
                  row: int,
                  title: str,
+                 filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 linked_entity_guids: Optional[Sequence[str]] = None,
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
@@ -2397,12 +2403,16 @@ class OneDashboardPageWidgetHeatmap(dict):
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if filter_current_dashboard is not None:
+            pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2441,6 +2451,11 @@ class OneDashboardPageWidgetHeatmap(dict):
         return pulumi.get(self, "title")
 
     @property
+    @pulumi.getter(name="filterCurrentDashboard")
+    def filter_current_dashboard(self) -> Optional[bool]:
+        return pulumi.get(self, "filter_current_dashboard")
+
+    @property
     @pulumi.getter
     def height(self) -> Optional[int]:
         """
@@ -2460,6 +2475,11 @@ class OneDashboardPageWidgetHeatmap(dict):
         (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         """
         return pulumi.get(self, "ignore_time_range")
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "linked_entity_guids")
 
     @property
     @pulumi.getter
@@ -4355,7 +4375,7 @@ class ServiceLevelObjectiveTimeWindowRolling(dict):
 
 
 @pulumi.output_type
-class WorkflowDestinationConfiguration(dict):
+class WorkflowDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4363,14 +4383,14 @@ class WorkflowDestinationConfiguration(dict):
             suggest = "channel_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkflowDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowDestination. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkflowDestinationConfiguration.__key_warning(key)
+        WorkflowDestination.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkflowDestinationConfiguration.__key_warning(key)
+        WorkflowDestination.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4380,7 +4400,7 @@ class WorkflowDestinationConfiguration(dict):
         """
         :param str name: A nrql enrichment name.
         :param str type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicates`
+               * `predicate`
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
@@ -4406,7 +4426,7 @@ class WorkflowDestinationConfiguration(dict):
     def type(self) -> Optional[str]:
         """
         the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicates`
+        * `predicate`
         """
         return pulumi.get(self, "type")
 
@@ -4455,7 +4475,7 @@ class WorkflowEnrichmentsNrql(dict):
         :param str name: A nrql enrichment name.
         :param int account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
         :param str type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicates`
+               * `predicate`
         """
         pulumi.set(__self__, "configurations", configurations)
         pulumi.set(__self__, "name", name)
@@ -4500,7 +4520,7 @@ class WorkflowEnrichmentsNrql(dict):
     def type(self) -> Optional[str]:
         """
         the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicates`
+        * `predicate`
         """
         return pulumi.get(self, "type")
 
@@ -4550,7 +4570,7 @@ class WorkflowIssuesFilter(dict):
         """
         :param str name: A nrql enrichment name.
         :param str type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicates`
+               * `predicate`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -4572,7 +4592,7 @@ class WorkflowIssuesFilter(dict):
     def type(self) -> str:
         """
         the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicates`
+        * `predicate`
         """
         return pulumi.get(self, "type")
 
@@ -4594,8 +4614,8 @@ class WorkflowIssuesFilterPredicate(dict):
                  operator: str,
                  values: Sequence[str]):
         """
-        :param str attribute: A predicates attribute.
-        :param str operator: A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        :param str attribute: A predicate's attribute.
+        :param str operator: A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
         :param Sequence[str] values: A list of values.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -4606,7 +4626,7 @@ class WorkflowIssuesFilterPredicate(dict):
     @pulumi.getter
     def attribute(self) -> str:
         """
-        A predicates attribute.
+        A predicate's attribute.
         """
         return pulumi.get(self, "attribute")
 
@@ -4614,7 +4634,7 @@ class WorkflowIssuesFilterPredicate(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
         """
         return pulumi.get(self, "operator")
 

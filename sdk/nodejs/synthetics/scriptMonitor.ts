@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ##### Type: `SCRIPT_API`
  *
- * > **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * > **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * ```
  * ##### Type: `SCRIPT_BROWSER`
  *
- * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -57,10 +57,10 @@ import * as utilities from "../utilities";
  *     scriptLanguage: "JAVASCRIPT",
  *     status: "DISABLED",
  *     tags: [{
- *         key: "Name",
+ *         key: "some_key",
  *         values: [
- *             "scriptedMonitor",
- *             "hello",
+ *             "some_value1",
+ *             "some_value2",
  *         ],
  *     }],
  *     type: "SCRIPT_BROWSER",
@@ -74,8 +74,6 @@ import * as utilities from "../utilities";
  * The below example shows how you can define a private location and attach it to a monitor.
  *
  * > **NOTE:** It can take up to 10 minutes for a private location to become available.
- *
- * > **NOTE:** Currently, it's only possible to use a private location with a monitor running on a legacy runtime. Leave `runtimeTypeVersion`, `runtimeType` & `scriptLanguage` empty to use legacy runtime. See example below.
  *
  * ##### Type: `SCRIPT_API`
  *
@@ -93,10 +91,10 @@ import * as utilities from "../utilities";
  *         vsePassword: "secret",
  *     }],
  *     period: "EVERY_6_HOURS",
- *     runtimeType: "",
- *     runtimeTypeVersion: "",
+ *     runtimeType: "NODE_API",
+ *     runtimeTypeVersion: "16.10",
  *     script: "console.log('terraform integration test updated')",
- *     scriptLanguage: "",
+ *     scriptLanguage: "JAVASCRIPT",
  *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
@@ -106,8 +104,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ##### Type: `SCRIPT_BROWSER`
- *
- * > **NOTE:** Currently, it's only possible to use a private location with a monitor running on a legacy runtime. Leave `runtimeTypeVersion`, `runtimeType` & `scriptLanguage` empty to use legacy runtime. See example below.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -124,10 +120,10 @@ import * as utilities from "../utilities";
  *         vsePassword: "secret",
  *     }],
  *     period: "EVERY_HOUR",
- *     runtimeType: "",
- *     runtimeTypeVersion: "",
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
  *     script: "$browser.get('https://one.newrelic.com')",
- *     scriptLanguage: "",
+ *     scriptLanguage: "JAVASCRIPT",
  *     status: "DISABLED",
  *     tags: [{
  *         key: "some_key",
@@ -190,7 +186,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly locationPrivates!: pulumi.Output<outputs.synthetics.ScriptMonitorLocationPrivate[] | undefined>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
     /**
@@ -309,7 +305,7 @@ export interface ScriptMonitorState {
      */
     locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -367,7 +363,7 @@ export interface ScriptMonitorArgs {
      */
     locationPrivates?: pulumi.Input<pulumi.Input<inputs.synthetics.ScriptMonitorLocationPrivate>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

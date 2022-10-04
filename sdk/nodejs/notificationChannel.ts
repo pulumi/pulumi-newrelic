@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.NotificationChannel("foo", {
  *     accountId: 12345678,
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
- *     product: "IINT",
+ *     product: "IINT", // (Workflows)
  *     properties: [{
  *         key: "payload",
  *         label: "Payload Template",
@@ -145,6 +145,59 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * #### Mobile Push
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     type: "MOBILE_PUSH",
+ * });
+ * ```
+ *
+ * #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [
+ *         {
+ *             key: "eventSource",
+ *             value: "aws.partner/mydomain/myaccountid/name",
+ *         },
+ *         {
+ *             key: "eventContent",
+ *             value: "{ id: {{ json issueId }} }",
+ *         },
+ *     ],
+ *     type: "EVENT_BRIDGE",
+ * });
+ * ```
+ *
+ * #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.NotificationChannel("foo", {
+ *     accountId: 12345678,
+ *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "channelId",
+ *         value: "123456",
+ *     }],
+ *     type: "SLACK",
+ * });
+ * ```
+ *
  * > **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
  *
  * ## Full Scenario Example
@@ -164,7 +217,7 @@ import * as utilities from "./utilities";
  *     },
  *     properties: [{
  *         key: "url",
- *         value: "https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+ *         value: "https://webhook.mywebhook.com",
  *     }],
  *     type: "WEBHOOK",
  * });
@@ -249,7 +302,7 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -276,9 +329,6 @@ export class NotificationChannel extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as NotificationChannelArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accountId'");
-            }
             if ((!args || args.destinationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationId'");
             }
@@ -338,7 +388,7 @@ export interface NotificationChannelState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      */
     type?: pulumi.Input<string>;
 }
@@ -350,7 +400,7 @@ export interface NotificationChannelArgs {
     /**
      * Determines the New Relic account where the notification channel will be created. Defaults to the account associated with the API key used.
      */
-    accountId: pulumi.Input<number>;
+    accountId?: pulumi.Input<number>;
     /**
      * Indicates whether the channel is active.
      */
@@ -372,7 +422,7 @@ export interface NotificationChannelArgs {
      */
     properties: pulumi.Input<pulumi.Input<inputs.NotificationChannelProperty>[]>;
     /**
-     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      */
     type: pulumi.Input<string>;
 }

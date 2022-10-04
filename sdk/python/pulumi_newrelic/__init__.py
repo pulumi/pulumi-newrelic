@@ -26,6 +26,7 @@ from .notification_destination import *
 from .nrql_alert_condition import *
 from .nrql_drop_rule import *
 from .one_dashboard import *
+from .one_dashboard_json import *
 from .one_dashboard_raw import *
 from .provider import *
 from .service_level import *
@@ -229,6 +230,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/oneDashboard:OneDashboard": "OneDashboard"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/oneDashboardJson",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/oneDashboardJson:OneDashboardJson": "OneDashboardJson"
   }
  },
  {

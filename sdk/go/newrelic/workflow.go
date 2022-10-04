@@ -13,9 +13,11 @@ import (
 
 // Use this resource to create and manage New Relic workflow.
 //
-// ## Example Usage
+// ## Full Scenario Example
 //
-// ##### Workflow
+// Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
+//
+// ### Create a policy
 // ```go
 // package main
 //
@@ -28,55 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewWorkflow(ctx, "foo", &newrelic.WorkflowArgs{
-//				AccountId: pulumi.Int(12345678),
-//				DestinationConfigurations: WorkflowDestinationConfigurationArray{
-//					&WorkflowDestinationConfigurationArgs{
-//						ChannelId: pulumi.String("20d86999-169c-461a-9c16-3cf330f4b3aa"),
-//					},
-//					&WorkflowDestinationConfigurationArgs{
-//						ChannelId: pulumi.String("e6af0870-cabb-453f-bf0d-fb2b6a14e05c"),
-//					},
-//				},
-//				DestinationsEnabled: pulumi.Bool(true),
-//				Enrichments: &WorkflowEnrichmentsArgs{
-//					Nrqls: WorkflowEnrichmentsNrqlArray{
-//						&WorkflowEnrichmentsNrqlArgs{
-//							Configurations: WorkflowEnrichmentsNrqlConfigurationArray{
-//								&WorkflowEnrichmentsNrqlConfigurationArgs{
-//									Query: pulumi.String("SELECT * FROM Log"),
-//								},
-//							},
-//							Name: pulumi.String("Log"),
-//						},
-//						&WorkflowEnrichmentsNrqlArgs{
-//							Configurations: WorkflowEnrichmentsNrqlConfigurationArray{
-//								&WorkflowEnrichmentsNrqlConfigurationArgs{
-//									Query: pulumi.String("SELECT * FROM Metric"),
-//								},
-//							},
-//							Name: pulumi.String("Metric"),
-//						},
-//					},
-//				},
-//				EnrichmentsEnabled: pulumi.Bool(false),
-//				IssuesFilter: &WorkflowIssuesFilterArgs{
-//					Name: pulumi.String("filter-name"),
-//					Predicates: WorkflowIssuesFilterPredicateArray{
-//						&WorkflowIssuesFilterPredicateArgs{
-//							Attribute: pulumi.String("accumulations.sources"),
-//							Operator:  pulumi.String("EXACTLY_MATCHES"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("newrelic"),
-//								pulumi.String("pagerduty"),
-//							},
-//						},
-//					},
-//					Type: pulumi.String("FILTER"),
-//				},
-//				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
-//				WorkflowEnabled:     pulumi.Bool(true),
-//			})
+//			_, err := newrelic.NewAlertPolicy(ctx, "collector-policy", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -85,9 +39,6 @@ import (
 //	}
 //
 // ```
-// ## Full Scenario Example
-//
-// Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
 //
 // ### Create a destination
 // ```go
@@ -111,7 +62,7 @@ import (
 //				Properties: NotificationDestinationPropertyArray{
 //					&NotificationDestinationPropertyArgs{
 //						Key:   pulumi.String("url"),
-//						Value: pulumi.String("https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b"),
+//						Value: pulumi.String("https://webhook.mywebhook.com"),
 //					},
 //				},
 //				Type: pulumi.String("WEBHOOK"),
@@ -146,7 +97,7 @@ import (
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
-//						Value: pulumi.String("{name: foo}"),
+//						Value: pulumi.String("{name: {{ variable }} }"),
 //						Label: pulumi.String("Payload Template"),
 //					},
 //				},
@@ -166,6 +117,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -182,7 +135,7 @@ import (
 //							Name: pulumi.String("Log count"),
 //							Configurations: WorkflowEnrichmentsNrqlConfigurationArray{
 //								&WorkflowEnrichmentsNrqlConfigurationArgs{
-//									Query: pulumi.String("SELECT count(*) FROM Log"),
+//									Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM Log WHERE message like '%verror%v' since 10 minutes ago", "%", "%")),
 //								},
 //							},
 //						},
@@ -193,6 +146,13 @@ import (
 //					Type: pulumi.String("FILTER"),
 //					Predicates: WorkflowIssuesFilterPredicateArray{
 //						&WorkflowIssuesFilterPredicateArgs{
+//							Attribute: pulumi.String("accumulations.policyName"),
+//							Operator:  pulumi.String("EXACTLY_MATCHES"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("my_policy"),
+//							},
+//						},
+//						&WorkflowIssuesFilterPredicateArgs{
 //							Attribute: pulumi.String("accumulations.sources"),
 //							Operator:  pulumi.String("EXACTLY_MATCHES"),
 //							Values: pulumi.StringArray{
@@ -201,8 +161,8 @@ import (
 //						},
 //					},
 //				},
-//				DestinationConfigurations: WorkflowDestinationConfigurationArray{
-//					&WorkflowDestinationConfigurationArgs{
+//				Destinations: WorkflowDestinationArray{
+//					&WorkflowDestinationArgs{
 //						ChannelId: pulumi.Any(newrelic_notification_channel.Webhook - channel.Id),
 //					},
 //				},
@@ -219,15 +179,26 @@ import (
 // ## Additional Information
 //
 // More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
+//
+// ## v3.3 changes
+//
+// In version v3.3 we renamed the following arguments:
+//
+// - `workflowEnabled` changed to `enabled`.
+// - `destinationConfiguration` changed to `destination`.
+// - `predicates` changed to `predicate`.
+// - Enrichment's `configurations` changed to `configuration`.
 type Workflow struct {
 	pulumi.CustomResourceState
 
 	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
 	// A nested block that contains a channel id.
-	DestinationConfigurations WorkflowDestinationConfigurationArrayOutput `pulumi:"destinationConfigurations"`
+	Destinations WorkflowDestinationArrayOutput `pulumi:"destinations"`
 	// Whether destinations are enabled..
 	DestinationsEnabled pulumi.BoolPtrOutput `pulumi:"destinationsEnabled"`
+	// Whether workflow is enabled.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments WorkflowEnrichmentsPtrOutput `pulumi:"enrichments"`
 	// Whether enrichments are enabled..
@@ -240,8 +211,6 @@ type Workflow struct {
 	MutingRulesHandling pulumi.StringOutput `pulumi:"mutingRulesHandling"`
 	// A nrql enrichment name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether workflow is enabled.
-	WorkflowEnabled pulumi.BoolPtrOutput `pulumi:"workflowEnabled"`
 	// The id of the workflow.
 	WorkflowId pulumi.StringOutput `pulumi:"workflowId"`
 }
@@ -253,8 +222,8 @@ func NewWorkflow(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DestinationConfigurations == nil {
-		return nil, errors.New("invalid value for required argument 'DestinationConfigurations'")
+	if args.Destinations == nil {
+		return nil, errors.New("invalid value for required argument 'Destinations'")
 	}
 	if args.IssuesFilter == nil {
 		return nil, errors.New("invalid value for required argument 'IssuesFilter'")
@@ -287,9 +256,11 @@ type workflowState struct {
 	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
 	// A nested block that contains a channel id.
-	DestinationConfigurations []WorkflowDestinationConfiguration `pulumi:"destinationConfigurations"`
+	Destinations []WorkflowDestination `pulumi:"destinations"`
 	// Whether destinations are enabled..
 	DestinationsEnabled *bool `pulumi:"destinationsEnabled"`
+	// Whether workflow is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments *WorkflowEnrichments `pulumi:"enrichments"`
 	// Whether enrichments are enabled..
@@ -302,8 +273,6 @@ type workflowState struct {
 	MutingRulesHandling *string `pulumi:"mutingRulesHandling"`
 	// A nrql enrichment name.
 	Name *string `pulumi:"name"`
-	// Whether workflow is enabled.
-	WorkflowEnabled *bool `pulumi:"workflowEnabled"`
 	// The id of the workflow.
 	WorkflowId *string `pulumi:"workflowId"`
 }
@@ -312,9 +281,11 @@ type WorkflowState struct {
 	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
 	// A nested block that contains a channel id.
-	DestinationConfigurations WorkflowDestinationConfigurationArrayInput
+	Destinations WorkflowDestinationArrayInput
 	// Whether destinations are enabled..
 	DestinationsEnabled pulumi.BoolPtrInput
+	// Whether workflow is enabled.
+	Enabled pulumi.BoolPtrInput
 	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments WorkflowEnrichmentsPtrInput
 	// Whether enrichments are enabled..
@@ -327,8 +298,6 @@ type WorkflowState struct {
 	MutingRulesHandling pulumi.StringPtrInput
 	// A nrql enrichment name.
 	Name pulumi.StringPtrInput
-	// Whether workflow is enabled.
-	WorkflowEnabled pulumi.BoolPtrInput
 	// The id of the workflow.
 	WorkflowId pulumi.StringPtrInput
 }
@@ -341,9 +310,11 @@ type workflowArgs struct {
 	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
 	AccountId *int `pulumi:"accountId"`
 	// A nested block that contains a channel id.
-	DestinationConfigurations []WorkflowDestinationConfiguration `pulumi:"destinationConfigurations"`
+	Destinations []WorkflowDestination `pulumi:"destinations"`
 	// Whether destinations are enabled..
 	DestinationsEnabled *bool `pulumi:"destinationsEnabled"`
+	// Whether workflow is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments *WorkflowEnrichments `pulumi:"enrichments"`
 	// Whether enrichments are enabled..
@@ -354,8 +325,6 @@ type workflowArgs struct {
 	MutingRulesHandling string `pulumi:"mutingRulesHandling"`
 	// A nrql enrichment name.
 	Name *string `pulumi:"name"`
-	// Whether workflow is enabled.
-	WorkflowEnabled *bool `pulumi:"workflowEnabled"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -363,9 +332,11 @@ type WorkflowArgs struct {
 	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
 	AccountId pulumi.IntPtrInput
 	// A nested block that contains a channel id.
-	DestinationConfigurations WorkflowDestinationConfigurationArrayInput
+	Destinations WorkflowDestinationArrayInput
 	// Whether destinations are enabled..
 	DestinationsEnabled pulumi.BoolPtrInput
+	// Whether workflow is enabled.
+	Enabled pulumi.BoolPtrInput
 	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments WorkflowEnrichmentsPtrInput
 	// Whether enrichments are enabled..
@@ -376,8 +347,6 @@ type WorkflowArgs struct {
 	MutingRulesHandling pulumi.StringInput
 	// A nrql enrichment name.
 	Name pulumi.StringPtrInput
-	// Whether workflow is enabled.
-	WorkflowEnabled pulumi.BoolPtrInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -473,13 +442,18 @@ func (o WorkflowOutput) AccountId() pulumi.IntPtrOutput {
 }
 
 // A nested block that contains a channel id.
-func (o WorkflowOutput) DestinationConfigurations() WorkflowDestinationConfigurationArrayOutput {
-	return o.ApplyT(func(v *Workflow) WorkflowDestinationConfigurationArrayOutput { return v.DestinationConfigurations }).(WorkflowDestinationConfigurationArrayOutput)
+func (o WorkflowOutput) Destinations() WorkflowDestinationArrayOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowDestinationArrayOutput { return v.Destinations }).(WorkflowDestinationArrayOutput)
 }
 
 // Whether destinations are enabled..
 func (o WorkflowOutput) DestinationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.DestinationsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether workflow is enabled.
+func (o WorkflowOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
@@ -510,11 +484,6 @@ func (o WorkflowOutput) MutingRulesHandling() pulumi.StringOutput {
 // A nrql enrichment name.
 func (o WorkflowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Whether workflow is enabled.
-func (o WorkflowOutput) WorkflowEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.WorkflowEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The id of the workflow.

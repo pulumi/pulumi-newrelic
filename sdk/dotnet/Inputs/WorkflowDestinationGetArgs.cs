@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Inputs
 {
 
-    public sealed class WorkflowDestinationConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class WorkflowDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
@@ -23,14 +23,14 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicates`
+        /// * `predicate`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        public WorkflowDestinationConfigurationArgs()
+        public WorkflowDestinationGetArgs()
         {
         }
-        public static new WorkflowDestinationConfigurationArgs Empty => new WorkflowDestinationConfigurationArgs();
+        public static new WorkflowDestinationGetArgs Empty => new WorkflowDestinationGetArgs();
     }
 }

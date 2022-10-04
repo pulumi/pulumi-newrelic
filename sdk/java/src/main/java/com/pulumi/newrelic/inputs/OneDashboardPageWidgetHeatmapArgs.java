@@ -34,6 +34,13 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
         return this.column;
     }
 
+    @Import(name="filterCurrentDashboard")
+    private @Nullable Output<Boolean> filterCurrentDashboard;
+
+    public Optional<Output<Boolean>> filterCurrentDashboard() {
+        return Optional.ofNullable(this.filterCurrentDashboard);
+    }
+
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      * 
@@ -69,6 +76,13 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
      */
     public Optional<Output<Boolean>> ignoreTimeRange() {
         return Optional.ofNullable(this.ignoreTimeRange);
+    }
+
+    @Import(name="linkedEntityGuids")
+    private @Nullable Output<List<String>> linkedEntityGuids;
+
+    public Optional<Output<List<String>>> linkedEntityGuids() {
+        return Optional.ofNullable(this.linkedEntityGuids);
     }
 
     /**
@@ -139,9 +153,11 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
 
     private OneDashboardPageWidgetHeatmapArgs(OneDashboardPageWidgetHeatmapArgs $) {
         this.column = $.column;
+        this.filterCurrentDashboard = $.filterCurrentDashboard;
         this.height = $.height;
         this.id = $.id;
         this.ignoreTimeRange = $.ignoreTimeRange;
+        this.linkedEntityGuids = $.linkedEntityGuids;
         this.nrqlQueries = $.nrqlQueries;
         this.row = $.row;
         this.title = $.title;
@@ -185,6 +201,15 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
          */
         public Builder column(Integer column) {
             return column(Output.of(column));
+        }
+
+        public Builder filterCurrentDashboard(@Nullable Output<Boolean> filterCurrentDashboard) {
+            $.filterCurrentDashboard = filterCurrentDashboard;
+            return this;
+        }
+
+        public Builder filterCurrentDashboard(Boolean filterCurrentDashboard) {
+            return filterCurrentDashboard(Output.of(filterCurrentDashboard));
         }
 
         /**
@@ -236,6 +261,19 @@ public final class OneDashboardPageWidgetHeatmapArgs extends com.pulumi.resource
          */
         public Builder ignoreTimeRange(Boolean ignoreTimeRange) {
             return ignoreTimeRange(Output.of(ignoreTimeRange));
+        }
+
+        public Builder linkedEntityGuids(@Nullable Output<List<String>> linkedEntityGuids) {
+            $.linkedEntityGuids = linkedEntityGuids;
+            return this;
+        }
+
+        public Builder linkedEntityGuids(List<String> linkedEntityGuids) {
+            return linkedEntityGuids(Output.of(linkedEntityGuids));
+        }
+
+        public Builder linkedEntityGuids(String... linkedEntityGuids) {
+            return linkedEntityGuids(List.of(linkedEntityGuids));
         }
 
         /**

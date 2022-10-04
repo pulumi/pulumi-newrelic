@@ -9,6 +9,19 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.synthetics.AlertCondition("foo", {
+ *     policyId: newrelic_alert_policy.foo.id,
+ *     monitorId: newrelic_synthetics_monitor.foo.id,
+ *     runbookUrl: "https://www.example.com",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.

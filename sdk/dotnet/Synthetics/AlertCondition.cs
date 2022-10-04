@@ -14,6 +14,25 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new NewRelic.Synthetics.AlertCondition("foo", new()
+    ///     {
+    ///         PolicyId = newrelic_alert_policy.Foo.Id,
+    ///         MonitorId = newrelic_synthetics_monitor.Foo.Id,
+    ///         RunbookUrl = "https://www.example.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synthetics alert conditions can be imported using a composite ID of `&lt;policy_id&gt;:&lt;condition_id&gt;`, e.g.

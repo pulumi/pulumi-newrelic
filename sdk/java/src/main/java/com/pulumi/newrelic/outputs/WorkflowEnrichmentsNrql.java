@@ -32,7 +32,7 @@ public final class WorkflowEnrichmentsNrql {
     private String name;
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     private @Nullable String type;
@@ -64,7 +64,7 @@ public final class WorkflowEnrichmentsNrql {
     }
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     public Optional<String> type() {

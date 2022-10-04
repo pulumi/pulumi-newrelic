@@ -42,8 +42,8 @@ class MonitorArgs:
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
@@ -166,7 +166,7 @@ class MonitorArgs:
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -178,7 +178,7 @@ class MonitorArgs:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -334,8 +334,8 @@ class _MonitorState:
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
@@ -438,7 +438,7 @@ class _MonitorState:
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -450,7 +450,7 @@ class _MonitorState:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -657,7 +657,7 @@ class Monitor(pulumi.CustomResource):
         ```
         ##### Type: `SIMPLE BROWSER`
 
-        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
 
         ```python
         import pulumi
@@ -701,8 +701,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
@@ -752,7 +752,7 @@ class Monitor(pulumi.CustomResource):
         ```
         ##### Type: `SIMPLE BROWSER`
 
-        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
 
         ```python
         import pulumi
@@ -893,8 +893,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The human-readable identifier for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] runtime_type: The runtime type that the monitor will run.
@@ -968,7 +968,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -976,7 +976,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 

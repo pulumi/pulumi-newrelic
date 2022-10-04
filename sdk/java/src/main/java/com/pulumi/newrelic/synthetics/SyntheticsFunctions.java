@@ -21,7 +21,6 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -50,14 +49,12 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
      *             .build());
      * 
      *     }
      * }
      * ```
-     * 
-     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
      * 
      * ```java
      * package generated_program;
@@ -102,7 +99,6 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -131,14 +127,12 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
      *             .build());
      * 
      *     }
      * }
      * ```
-     * 
-     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
      * 
      * ```java
      * package generated_program;
@@ -183,7 +177,6 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -212,14 +205,12 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
      *             .build());
      * 
      *     }
      * }
      * ```
-     * 
-     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
      * 
      * ```java
      * package generated_program;
@@ -264,7 +255,6 @@ public final class SyntheticsFunctions {
      * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -293,14 +283,12 @@ public final class SyntheticsFunctions {
      *             .build());
      * 
      *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(data.newrelic_synthetics_monitor_location().example().id())
+     *             .locationsPrivates(data.newrelic_synthetics_monitor_location().example().id())
      *             .build());
      * 
      *     }
      * }
      * ```
-     * 
-     * &gt; This data source doesn&#39;t work for `scripted_api`, `scripted_browser` and `step` monitors which works with the latest script runtime.
      * 
      * ```java
      * package generated_program;

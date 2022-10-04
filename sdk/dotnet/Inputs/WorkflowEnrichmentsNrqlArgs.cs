@@ -41,7 +41,7 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicates`
+        /// * `predicate`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

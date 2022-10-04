@@ -72,14 +72,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "bar1", &synthetics.PrivateLocationArgs{
+//			_, err := synthetics.NewPrivateLocation(ctx, "privateLocation", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synthetics.NewBrokenLinksMonitor(ctx, "bar", &synthetics.BrokenLinksMonitorArgs{
+//			_, err = synthetics.NewBrokenLinksMonitor(ctx, "monitor", &synthetics.BrokenLinksMonitorArgs{
 //				LocationsPrivates: pulumi.StringArray{
 //					pulumi.String("newrelic_synthetics_private_location.private_location.id"),
 //				},
@@ -120,9 +120,9 @@ type BrokenLinksMonitor struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayOutput `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayOutput `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -130,7 +130,7 @@ type BrokenLinksMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayOutput `pulumi:"tags"`
 	// The uri the monitor runs against.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -178,9 +178,9 @@ type brokenLinksMonitorState struct {
 	AccountId *int `pulumi:"accountId"`
 	// The unique entity identifier of the monitor in New Relic.
 	Guid *string `pulumi:"guid"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
@@ -188,7 +188,7 @@ type brokenLinksMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status *string `pulumi:"status"`
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
 	// The uri the monitor runs against.
 	Uri *string `pulumi:"uri"`
@@ -199,9 +199,9 @@ type BrokenLinksMonitorState struct {
 	AccountId pulumi.IntPtrInput
 	// The unique entity identifier of the monitor in New Relic.
 	Guid pulumi.StringPtrInput
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
@@ -209,7 +209,7 @@ type BrokenLinksMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringPtrInput
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
 	// The uri the monitor runs against.
 	Uri pulumi.StringPtrInput
@@ -222,9 +222,9 @@ func (BrokenLinksMonitorState) ElementType() reflect.Type {
 type brokenLinksMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId *int `pulumi:"accountId"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
@@ -232,7 +232,7 @@ type brokenLinksMonitorArgs struct {
 	Period string `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status string `pulumi:"status"`
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
 	// The uri the monitor runs against.
 	Uri string `pulumi:"uri"`
@@ -242,9 +242,9 @@ type brokenLinksMonitorArgs struct {
 type BrokenLinksMonitorArgs struct {
 	// The account in which the Synthetics monitor will be created.
 	AccountId pulumi.IntPtrInput
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type BrokenLinksMonitorArgs struct {
 	Period pulumi.StringInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringInput
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
 	// The uri the monitor runs against.
 	Uri pulumi.StringInput
@@ -355,12 +355,12 @@ func (o BrokenLinksMonitorOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 func (o BrokenLinksMonitorOutput) LocationsPrivates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringArrayOutput { return v.LocationsPrivates }).(pulumi.StringArrayOutput)
 }
 
-// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 func (o BrokenLinksMonitorOutput) LocationsPublics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringArrayOutput { return v.LocationsPublics }).(pulumi.StringArrayOutput)
 }
@@ -380,7 +380,7 @@ func (o BrokenLinksMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+// The tags that will be associated with the monitor. See Nested tag blocks below for details
 func (o BrokenLinksMonitorOutput) Tags() BrokenLinksMonitorTagArrayOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) BrokenLinksMonitorTagArrayOutput { return v.Tags }).(BrokenLinksMonitorTagArrayOutput)
 }

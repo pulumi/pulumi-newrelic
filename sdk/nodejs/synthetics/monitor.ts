@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * ```
  * ##### Type: `SIMPLE BROWSER`
  *
- * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -105,8 +105,6 @@ import * as utilities from "../utilities";
  * ```
  * ##### Type: `BROWSER`
  *
- * > **NOTE:** Currently, it's only possible to use a private location with a monitor running on a legacy runtime. Leave `runtimeTypeVersion`, `runtimeType` & `scriptLanguage` empty to use legacy runtime. See example below.
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
@@ -121,11 +119,11 @@ import * as utilities from "../utilities";
  *         value: "simple_browser",
  *     }],
  *     enableScreenshotOnFailureAndScript: true,
- *     locationPrivate: ["newrelic_synthetics_private_location.bar1"],
+ *     locationsPrivates: ["newrelic_synthetics_private_location.private_location.id"],
  *     period: "EVERY_MINUTE",
- *     runtimeType: "",
- *     runtimeTypeVersion: "",
- *     scriptLanguage: "",
+ *     runtimeType: "CHROME_BROWSER",
+ *     runtimeTypeVersion: "100",
+ *     scriptLanguage: "JAVASCRIPT",
  *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
@@ -191,11 +189,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly enableScreenshotOnFailureAndScript!: pulumi.Output<boolean | undefined>;
     /**
-     * The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
     public readonly locationsPrivates!: pulumi.Output<string[] | undefined>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     public readonly locationsPublics!: pulumi.Output<string[] | undefined>;
     /**
@@ -331,11 +329,11 @@ export interface MonitorState {
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
-     * The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
     locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -409,11 +407,11 @@ export interface MonitorArgs {
      */
     enableScreenshotOnFailureAndScript?: pulumi.Input<boolean>;
     /**
-     * The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
      */
     locationsPrivates?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
      */
     locationsPublics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

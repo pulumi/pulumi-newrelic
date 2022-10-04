@@ -32,10 +32,10 @@ class CertCheckMonitorArgs:
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         pulumi.set(__self__, "certificate_expiration", certificate_expiration)
         pulumi.set(__self__, "domain", domain)
@@ -116,7 +116,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -128,7 +128,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -152,7 +152,7 @@ class CertCheckMonitorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]]:
         """
-        The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         return pulumi.get(self, "tags")
 
@@ -178,12 +178,12 @@ class _CertCheckMonitorState:
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -244,7 +244,7 @@ class _CertCheckMonitorState:
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -256,7 +256,7 @@ class _CertCheckMonitorState:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -304,7 +304,7 @@ class _CertCheckMonitorState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertCheckMonitorTagArgs']]]]:
         """
-        The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         return pulumi.get(self, "tags")
 
@@ -364,12 +364,12 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         ...
     @overload
@@ -487,12 +487,12 @@ class CertCheckMonitor(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[int] certificate_expiration: The desired number of remaining days until the certificate expires to trigger a monitor failure.
         :param pulumi.Input[str] domain: The domain of the host that will have its certificate checked.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -537,7 +537,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -545,7 +545,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -577,7 +577,7 @@ class CertCheckMonitor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CertCheckMonitorTag']]]:
         """
-        The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         return pulumi.get(self, "tags")
 

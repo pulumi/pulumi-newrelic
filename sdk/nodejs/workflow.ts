@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const foo = new newrelic.Workflow("foo", {
  *     accountId: 12345678,
- *     destinationConfigurations: [
+ *     destinations: [
  *         {
  *             channelId: "20d86999-169c-461a-9c16-3cf330f4b3aa",
  *         },
@@ -26,23 +26,24 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  *     destinationsEnabled: true,
+ *     enabled: true,
  *     enrichments: {
  *         nrqls: [
  *             {
  *                 configurations: [{
- *                     query: "SELECT * FROM Log",
+ *                     query: "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
  *                 }],
  *                 name: "Log",
  *             },
  *             {
  *                 configurations: [{
- *                     query: "SELECT * FROM Metric",
+ *                     query: "SELECT count(*) FROM Metric WHERE metricName = 'myMetric'",
  *                 }],
  *                 name: "Metric",
  *             },
  *         ],
  *     },
- *     enrichmentsEnabled: false,
+ *     enrichmentsEnabled: true,
  *     issuesFilter: {
  *         name: "filter-name",
  *         predicates: [{
@@ -56,12 +57,19 @@ import * as utilities from "./utilities";
  *         type: "FILTER",
  *     },
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
- *     workflowEnabled: true,
  * });
  * ```
  * ## Full Scenario Example
  *
  * Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
+ *
+ * ### Create a policy
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const collector_policy = new newrelic.AlertPolicy("collector-policy", {});
+ * ```
  *
  * ### Create a destination
  * ```typescript
@@ -76,7 +84,7 @@ import * as utilities from "./utilities";
  *     },
  *     properties: [{
  *         key: "url",
- *         value: "https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+ *         value: "https://webhook.mywebhook.com",
  *     }],
  *     type: "WEBHOOK",
  * });
@@ -94,7 +102,7 @@ import * as utilities from "./utilities";
  *     product: "IINT",
  *     properties: [{
  *         key: "payload",
- *         value: "{name: foo}",
+ *         value: "{name: {{ variable }} }",
  *         label: "Payload Template",
  *     }],
  * });
@@ -112,20 +120,27 @@ import * as utilities from "./utilities";
  *         nrqls: [{
  *             name: "Log count",
  *             configurations: [{
- *                 query: "SELECT count(*) FROM Log",
+ *                 query: `SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago`,
  *             }],
  *         }],
  *     },
  *     issuesFilter: {
  *         name: "Filter-name",
  *         type: "FILTER",
- *         predicates: [{
- *             attribute: "accumulations.sources",
- *             operator: "EXACTLY_MATCHES",
- *             values: ["newrelic"],
- *         }],
+ *         predicates: [
+ *             {
+ *                 attribute: "accumulations.policyName",
+ *                 operator: "EXACTLY_MATCHES",
+ *                 values: ["my_policy"],
+ *             },
+ *             {
+ *                 attribute: "accumulations.sources",
+ *                 operator: "EXACTLY_MATCHES",
+ *                 values: ["newrelic"],
+ *             },
+ *         ],
  *     },
- *     destinationConfigurations: [{
+ *     destinations: [{
  *         channelId: newrelic_notification_channel["webhook-channel"].id,
  *     }],
  * });
@@ -134,6 +149,15 @@ import * as utilities from "./utilities";
  * ## Additional Information
  *
  * More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
+ *
+ * ## v3.3 changes
+ *
+ * In version v3.3 we renamed the following arguments:
+ *
+ * - `workflowEnabled` changed to `enabled`.
+ * - `destinationConfiguration` changed to `destination`.
+ * - `predicates` changed to `predicate`.
+ * - Enrichment's `configurations` changed to `configuration`.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -170,11 +194,15 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * A nested block that contains a channel id.
      */
-    public readonly destinationConfigurations!: pulumi.Output<outputs.WorkflowDestinationConfiguration[]>;
+    public readonly destinations!: pulumi.Output<outputs.WorkflowDestination[]>;
     /**
      * Whether destinations are enabled..
      */
     public readonly destinationsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether workflow is enabled.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
      */
@@ -200,10 +228,6 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether workflow is enabled.
-     */
-    public readonly workflowEnabled!: pulumi.Output<boolean | undefined>;
-    /**
      * The id of the workflow.
      */
     public /*out*/ readonly workflowId!: pulumi.Output<string>;
@@ -222,20 +246,20 @@ export class Workflow extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["destinationConfigurations"] = state ? state.destinationConfigurations : undefined;
+            resourceInputs["destinations"] = state ? state.destinations : undefined;
             resourceInputs["destinationsEnabled"] = state ? state.destinationsEnabled : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["enrichments"] = state ? state.enrichments : undefined;
             resourceInputs["enrichmentsEnabled"] = state ? state.enrichmentsEnabled : undefined;
             resourceInputs["issuesFilter"] = state ? state.issuesFilter : undefined;
             resourceInputs["lastRun"] = state ? state.lastRun : undefined;
             resourceInputs["mutingRulesHandling"] = state ? state.mutingRulesHandling : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["workflowEnabled"] = state ? state.workflowEnabled : undefined;
             resourceInputs["workflowId"] = state ? state.workflowId : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if ((!args || args.destinationConfigurations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destinationConfigurations'");
+            if ((!args || args.destinations === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'destinations'");
             }
             if ((!args || args.issuesFilter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'issuesFilter'");
@@ -244,14 +268,14 @@ export class Workflow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'mutingRulesHandling'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["destinationConfigurations"] = args ? args.destinationConfigurations : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
             resourceInputs["destinationsEnabled"] = args ? args.destinationsEnabled : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["enrichments"] = args ? args.enrichments : undefined;
             resourceInputs["enrichmentsEnabled"] = args ? args.enrichmentsEnabled : undefined;
             resourceInputs["issuesFilter"] = args ? args.issuesFilter : undefined;
             resourceInputs["mutingRulesHandling"] = args ? args.mutingRulesHandling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["workflowEnabled"] = args ? args.workflowEnabled : undefined;
             resourceInputs["lastRun"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         }
@@ -271,11 +295,15 @@ export interface WorkflowState {
     /**
      * A nested block that contains a channel id.
      */
-    destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.WorkflowDestinationConfiguration>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.WorkflowDestination>[]>;
     /**
      * Whether destinations are enabled..
      */
     destinationsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether workflow is enabled.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
      */
@@ -301,10 +329,6 @@ export interface WorkflowState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether workflow is enabled.
-     */
-    workflowEnabled?: pulumi.Input<boolean>;
-    /**
      * The id of the workflow.
      */
     workflowId?: pulumi.Input<string>;
@@ -321,11 +345,15 @@ export interface WorkflowArgs {
     /**
      * A nested block that contains a channel id.
      */
-    destinationConfigurations: pulumi.Input<pulumi.Input<inputs.WorkflowDestinationConfiguration>[]>;
+    destinations: pulumi.Input<pulumi.Input<inputs.WorkflowDestination>[]>;
     /**
      * Whether destinations are enabled..
      */
     destinationsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether workflow is enabled.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
      */
@@ -346,8 +374,4 @@ export interface WorkflowArgs {
      * A nrql enrichment name.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Whether workflow is enabled.
-     */
-    workflowEnabled?: pulumi.Input<boolean>;
 }

@@ -5,7 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.newrelic.inputs.WorkflowDestinationConfigurationArgs;
+import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
 import com.pulumi.newrelic.inputs.WorkflowEnrichmentsArgs;
 import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
 import java.lang.Boolean;
@@ -40,15 +40,15 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
      * A nested block that contains a channel id.
      * 
      */
-    @Import(name="destinationConfigurations")
-    private @Nullable Output<List<WorkflowDestinationConfigurationArgs>> destinationConfigurations;
+    @Import(name="destinations")
+    private @Nullable Output<List<WorkflowDestinationArgs>> destinations;
 
     /**
      * @return A nested block that contains a channel id.
      * 
      */
-    public Optional<Output<List<WorkflowDestinationConfigurationArgs>>> destinationConfigurations() {
-        return Optional.ofNullable(this.destinationConfigurations);
+    public Optional<Output<List<WorkflowDestinationArgs>>> destinations() {
+        return Optional.ofNullable(this.destinations);
     }
 
     /**
@@ -64,6 +64,21 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> destinationsEnabled() {
         return Optional.ofNullable(this.destinationsEnabled);
+    }
+
+    /**
+     * Whether workflow is enabled.
+     * 
+     */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
+
+    /**
+     * @return Whether workflow is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     /**
@@ -157,21 +172,6 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether workflow is enabled.
-     * 
-     */
-    @Import(name="workflowEnabled")
-    private @Nullable Output<Boolean> workflowEnabled;
-
-    /**
-     * @return Whether workflow is enabled.
-     * 
-     */
-    public Optional<Output<Boolean>> workflowEnabled() {
-        return Optional.ofNullable(this.workflowEnabled);
-    }
-
-    /**
      * The id of the workflow.
      * 
      */
@@ -190,15 +190,15 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
 
     private WorkflowState(WorkflowState $) {
         this.accountId = $.accountId;
-        this.destinationConfigurations = $.destinationConfigurations;
+        this.destinations = $.destinations;
         this.destinationsEnabled = $.destinationsEnabled;
+        this.enabled = $.enabled;
         this.enrichments = $.enrichments;
         this.enrichmentsEnabled = $.enrichmentsEnabled;
         this.issuesFilter = $.issuesFilter;
         this.lastRun = $.lastRun;
         this.mutingRulesHandling = $.mutingRulesHandling;
         this.name = $.name;
-        this.workflowEnabled = $.workflowEnabled;
         this.workflowId = $.workflowId;
     }
 
@@ -242,34 +242,34 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationConfigurations A nested block that contains a channel id.
+         * @param destinations A nested block that contains a channel id.
          * 
          * @return builder
          * 
          */
-        public Builder destinationConfigurations(@Nullable Output<List<WorkflowDestinationConfigurationArgs>> destinationConfigurations) {
-            $.destinationConfigurations = destinationConfigurations;
+        public Builder destinations(@Nullable Output<List<WorkflowDestinationArgs>> destinations) {
+            $.destinations = destinations;
             return this;
         }
 
         /**
-         * @param destinationConfigurations A nested block that contains a channel id.
+         * @param destinations A nested block that contains a channel id.
          * 
          * @return builder
          * 
          */
-        public Builder destinationConfigurations(List<WorkflowDestinationConfigurationArgs> destinationConfigurations) {
-            return destinationConfigurations(Output.of(destinationConfigurations));
+        public Builder destinations(List<WorkflowDestinationArgs> destinations) {
+            return destinations(Output.of(destinations));
         }
 
         /**
-         * @param destinationConfigurations A nested block that contains a channel id.
+         * @param destinations A nested block that contains a channel id.
          * 
          * @return builder
          * 
          */
-        public Builder destinationConfigurations(WorkflowDestinationConfigurationArgs... destinationConfigurations) {
-            return destinationConfigurations(List.of(destinationConfigurations));
+        public Builder destinations(WorkflowDestinationArgs... destinations) {
+            return destinations(List.of(destinations));
         }
 
         /**
@@ -291,6 +291,27 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destinationsEnabled(Boolean destinationsEnabled) {
             return destinationsEnabled(Output.of(destinationsEnabled));
+        }
+
+        /**
+         * @param enabled Whether workflow is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
+            $.enabled = enabled;
+            return this;
+        }
+
+        /**
+         * @param enabled Whether workflow is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(Boolean enabled) {
+            return enabled(Output.of(enabled));
         }
 
         /**
@@ -417,27 +438,6 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param workflowEnabled Whether workflow is enabled.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder workflowEnabled(@Nullable Output<Boolean> workflowEnabled) {
-            $.workflowEnabled = workflowEnabled;
-            return this;
-        }
-
-        /**
-         * @param workflowEnabled Whether workflow is enabled.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder workflowEnabled(Boolean workflowEnabled) {
-            return workflowEnabled(Output.of(workflowEnabled));
         }
 
         /**

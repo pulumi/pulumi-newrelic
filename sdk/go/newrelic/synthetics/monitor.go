@@ -64,7 +64,7 @@ import (
 // ```
 // ##### Type: `SIMPLE BROWSER`
 //
-// > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+// > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
 //
 // ```go
 // package main
@@ -138,9 +138,9 @@ type Monitor struct {
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayOutput `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayOutput `pulumi:"locationsPublics"`
 	// The human-readable identifier for the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -211,9 +211,9 @@ type monitorState struct {
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The human-readable identifier for the monitor.
 	Name *string `pulumi:"name"`
@@ -250,9 +250,9 @@ type MonitorState struct {
 	CustomHeaders MonitorCustomHeaderArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The human-readable identifier for the monitor.
 	Name pulumi.StringPtrInput
@@ -293,9 +293,9 @@ type monitorArgs struct {
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The human-readable identifier for the monitor.
 	Name *string `pulumi:"name"`
@@ -333,9 +333,9 @@ type MonitorArgs struct {
 	CustomHeaders MonitorCustomHeaderArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The human-readable identifier for the monitor.
 	Name pulumi.StringPtrInput
@@ -470,12 +470,12 @@ func (o MonitorOutput) EnableScreenshotOnFailureAndScript() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.EnableScreenshotOnFailureAndScript }).(pulumi.BoolPtrOutput)
 }
 
-// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 func (o MonitorOutput) LocationsPrivates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.LocationsPrivates }).(pulumi.StringArrayOutput)
 }
 
-// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 func (o MonitorOutput) LocationsPublics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.LocationsPublics }).(pulumi.StringArrayOutput)
 }

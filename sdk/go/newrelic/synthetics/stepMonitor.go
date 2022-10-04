@@ -82,9 +82,9 @@ type StepMonitor struct {
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// The location the monitor will run from. Exactly one of `locationsPublic` or `locationsPrivate` is required. See Nested locationsPrivate blocks below for details.
+	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates StepMonitorLocationPrivateArrayOutput `pulumi:"locationPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locationsPublic` or `locationsPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayOutput `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -142,9 +142,9 @@ type stepMonitorState struct {
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid *string `pulumi:"guid"`
-	// The location the monitor will run from. Exactly one of `locationsPublic` or `locationsPrivate` is required. See Nested locationsPrivate blocks below for details.
+	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates []StepMonitorLocationPrivate `pulumi:"locationPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locationsPublic` or `locationsPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
@@ -165,9 +165,9 @@ type StepMonitorState struct {
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid pulumi.StringPtrInput
-	// The location the monitor will run from. Exactly one of `locationsPublic` or `locationsPrivate` is required. See Nested locationsPrivate blocks below for details.
+	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates StepMonitorLocationPrivateArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locationsPublic` or `locationsPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
@@ -190,9 +190,9 @@ type stepMonitorArgs struct {
 	AccountId *int `pulumi:"accountId"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
-	// The location the monitor will run from. Exactly one of `locationsPublic` or `locationsPrivate` is required. See Nested locationsPrivate blocks below for details.
+	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates []StepMonitorLocationPrivate `pulumi:"locationPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locationsPublic` or `locationsPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
@@ -212,9 +212,9 @@ type StepMonitorArgs struct {
 	AccountId pulumi.IntPtrInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
-	// The location the monitor will run from. Exactly one of `locationsPublic` or `locationsPrivate` is required. See Nested locationsPrivate blocks below for details.
+	// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 	LocationPrivates StepMonitorLocationPrivateArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locationsPublic` or `locationsPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
@@ -330,12 +330,12 @@ func (o StepMonitorOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// The location the monitor will run from. Exactly one of `locationsPublic` or `locationsPrivate` is required. See Nested locationsPrivate blocks below for details.
+// The location the monitor will run from. At least one of `locationsPublic` or `locationPrivate` is required. See Nested locationsPrivate blocks below for details.
 func (o StepMonitorOutput) LocationPrivates() StepMonitorLocationPrivateArrayOutput {
 	return o.ApplyT(func(v *StepMonitor) StepMonitorLocationPrivateArrayOutput { return v.LocationPrivates }).(StepMonitorLocationPrivateArrayOutput)
 }
 
-// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locationsPublic` or `locationsPrivate` is required.
+// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 func (o StepMonitorOutput) LocationsPublics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StepMonitor) pulumi.StringArrayOutput { return v.LocationsPublics }).(pulumi.StringArrayOutput)
 }

@@ -73,9 +73,9 @@ type CertCheckMonitor struct {
 	CertificateExpiration pulumi.IntOutput `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
 	Domain pulumi.StringOutput `pulumi:"domain"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayOutput `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayOutput `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -83,7 +83,7 @@ type CertCheckMonitor struct {
 	Period pulumi.StringOutput `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags CertCheckMonitorTagArrayOutput `pulumi:"tags"`
 }
 
@@ -134,9 +134,9 @@ type certCheckMonitorState struct {
 	CertificateExpiration *int `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
 	Domain *string `pulumi:"domain"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
@@ -144,7 +144,7 @@ type certCheckMonitorState struct {
 	Period *string `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status *string `pulumi:"status"`
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []CertCheckMonitorTag `pulumi:"tags"`
 }
 
@@ -155,9 +155,9 @@ type CertCheckMonitorState struct {
 	CertificateExpiration pulumi.IntPtrInput
 	// The domain of the host that will have its certificate checked.
 	Domain pulumi.StringPtrInput
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
@@ -165,7 +165,7 @@ type CertCheckMonitorState struct {
 	Period pulumi.StringPtrInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringPtrInput
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags CertCheckMonitorTagArrayInput
 }
 
@@ -180,9 +180,9 @@ type certCheckMonitorArgs struct {
 	CertificateExpiration int `pulumi:"certificateExpiration"`
 	// The domain of the host that will have its certificate checked.
 	Domain string `pulumi:"domain"`
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates []string `pulumi:"locationsPrivates"`
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics []string `pulumi:"locationsPublics"`
 	// The name for the monitor.
 	Name *string `pulumi:"name"`
@@ -190,7 +190,7 @@ type certCheckMonitorArgs struct {
 	Period string `pulumi:"period"`
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status string `pulumi:"status"`
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []CertCheckMonitorTag `pulumi:"tags"`
 }
 
@@ -202,9 +202,9 @@ type CertCheckMonitorArgs struct {
 	CertificateExpiration pulumi.IntInput
 	// The domain of the host that will have its certificate checked.
 	Domain pulumi.StringInput
-	// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 	LocationsPrivates pulumi.StringArrayInput
-	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+	// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 	LocationsPublics pulumi.StringArrayInput
 	// The name for the monitor.
 	Name pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type CertCheckMonitorArgs struct {
 	Period pulumi.StringInput
 	// The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
 	Status pulumi.StringInput
-	// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags CertCheckMonitorTagArrayInput
 }
 
@@ -318,12 +318,12 @@ func (o CertCheckMonitorOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The location the monitor will run from. At least one of either `locationsPublic` or `locationPrivate` is required.
+// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locationsPublic` or `locationsPrivate` is required.
 func (o CertCheckMonitorOutput) LocationsPrivates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringArrayOutput { return v.LocationsPrivates }).(pulumi.StringArrayOutput)
 }
 
-// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locationsPublic` or `locationPrivate` is required.
+// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locationsPublic` or `locationPrivate` is required.
 func (o CertCheckMonitorOutput) LocationsPublics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringArrayOutput { return v.LocationsPublics }).(pulumi.StringArrayOutput)
 }
@@ -343,7 +343,7 @@ func (o CertCheckMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+// The tags that will be associated with the monitor. See Nested tag blocks below for details
 func (o CertCheckMonitorOutput) Tags() CertCheckMonitorTagArrayOutput {
 	return o.ApplyT(func(v *CertCheckMonitor) CertCheckMonitorTagArrayOutput { return v.Tags }).(CertCheckMonitorTagArrayOutput)
 }

@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
+        [Input("filterCurrentDashboard")]
+        public Input<bool>? FilterCurrentDashboard { get; set; }
+
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         /// </summary>
@@ -32,6 +35,14 @@ namespace Pulumi.NewRelic.Inputs
         /// </summary>
         [Input("ignoreTimeRange")]
         public Input<bool>? IgnoreTimeRange { get; set; }
+
+        [Input("linkedEntityGuids")]
+        private InputList<string>? _linkedEntityGuids;
+        public InputList<string> LinkedEntityGuids
+        {
+            get => _linkedEntityGuids ?? (_linkedEntityGuids = new InputList<string>());
+            set => _linkedEntityGuids = value;
+        }
 
         [Input("nrqlQueries", required: true)]
         private InputList<Inputs.OneDashboardPageWidgetHeatmapNrqlQueryGetArgs>? _nrqlQueries;
