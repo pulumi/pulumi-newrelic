@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * ```
  * ##### Type: `SIMPLE BROWSER`
  * 
- * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  * ```java
  * package generated_program;
  * 
@@ -184,8 +184,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ##### Type: `BROWSER`
- * 
- * &gt; **NOTE:** Currently, it&#39;s only possible to use a private location with a monitor running on a legacy runtime. Leave `runtime_type_version`, `runtime_type` &amp; `script_language` empty to use legacy runtime. See example below.
  * ```java
  * package generated_program;
  * 
@@ -222,11 +220,11 @@ import javax.annotation.Nullable;
  *                 .value(&#34;simple_browser&#34;)
  *                 .build())
  *             .enableScreenshotOnFailureAndScript(true)
- *             .locationPrivate(&#34;newrelic_synthetics_private_location.bar1&#34;)
+ *             .locationsPrivates(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
- *             .runtimeType(&#34;&#34;)
- *             .runtimeTypeVersion(&#34;&#34;)
- *             .scriptLanguage(&#34;&#34;)
+ *             .runtimeType(&#34;CHROME_BROWSER&#34;)
+ *             .runtimeTypeVersion(&#34;100&#34;)
+ *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(MonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
@@ -310,28 +308,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableScreenshotOnFailureAndScript);
     }
     /**
-     * The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
     @Export(name="locationsPrivates", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> locationsPrivates;
 
     /**
-     * @return The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPrivates() {
         return Codegen.optional(this.locationsPrivates);
     }
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     @Export(name="locationsPublics", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {

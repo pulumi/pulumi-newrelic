@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string Name;
         /// <summary>
         /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicates`
+        /// * `predicate`
         /// </summary>
         public readonly string? Type;
 

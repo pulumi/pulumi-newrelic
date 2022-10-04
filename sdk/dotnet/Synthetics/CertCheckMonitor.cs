@@ -79,13 +79,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         /// </summary>
         [Output("locationsPrivates")]
         public Output<ImmutableArray<string>> LocationsPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         [Output("locationsPublics")]
         public Output<ImmutableArray<string>> LocationsPublics { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        /// The tags that will be associated with the monitor. See Nested tag blocks below for details
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.CertCheckMonitorTag>> Tags { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPrivates;
 
         /// <summary>
-        /// The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         /// </summary>
         public InputList<string> LocationsPrivates
         {
@@ -194,7 +194,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {
@@ -224,7 +224,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.CertCheckMonitorTagArgs>? _tags;
 
         /// <summary>
-        /// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        /// The tags that will be associated with the monitor. See Nested tag blocks below for details
         /// </summary>
         public InputList<Inputs.CertCheckMonitorTagArgs> Tags
         {
@@ -262,7 +262,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPrivates;
 
         /// <summary>
-        /// The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         /// </summary>
         public InputList<string> LocationsPrivates
         {
@@ -274,7 +274,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {
@@ -304,7 +304,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.CertCheckMonitorTagGetArgs>? _tags;
 
         /// <summary>
-        /// The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        /// The tags that will be associated with the monitor. See Nested tag blocks below for details
         /// </summary>
         public InputList<Inputs.CertCheckMonitorTagGetArgs> Tags
         {

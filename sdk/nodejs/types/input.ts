@@ -625,6 +625,7 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -634,6 +635,7 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -1168,7 +1170,7 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
     unit: pulumi.Input<string>;
 }
 
-export interface WorkflowDestinationConfiguration {
+export interface WorkflowDestination {
     channelId: pulumi.Input<string>;
     /**
      * A nrql enrichment name.
@@ -1176,7 +1178,7 @@ export interface WorkflowDestinationConfiguration {
     name?: pulumi.Input<string>;
     /**
      * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      */
     type?: pulumi.Input<string>;
 }
@@ -1201,7 +1203,7 @@ export interface WorkflowEnrichmentsNrql {
     name: pulumi.Input<string>;
     /**
      * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      */
     type?: pulumi.Input<string>;
 }
@@ -1222,18 +1224,18 @@ export interface WorkflowIssuesFilter {
     predicates?: pulumi.Input<pulumi.Input<inputs.WorkflowIssuesFilterPredicate>[]>;
     /**
      * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      */
     type: pulumi.Input<string>;
 }
 
 export interface WorkflowIssuesFilterPredicate {
     /**
-     * A predicates attribute.
+     * A predicate's attribute.
      */
     attribute: pulumi.Input<string>;
     /**
-     * A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
      */
     operator: pulumi.Input<string>;
     /**

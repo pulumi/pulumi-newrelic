@@ -21,7 +21,7 @@ namespace Pulumi.NewRelic.Outputs
         public readonly ImmutableArray<Outputs.WorkflowIssuesFilterPredicate> Predicates;
         /// <summary>
         /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicates`
+        /// * `predicate`
         /// </summary>
         public readonly string Type;
 

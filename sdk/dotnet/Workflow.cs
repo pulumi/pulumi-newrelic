@@ -12,9 +12,11 @@ namespace Pulumi.NewRelic
     /// <summary>
     /// Use this resource to create and manage New Relic workflow.
     /// 
-    /// ## Example Usage
+    /// ## Full Scenario Example
     /// 
-    /// ##### Workflow
+    /// Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
+    /// 
+    /// ### Create a policy
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -22,77 +24,10 @@ namespace Pulumi.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new NewRelic.Workflow("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         DestinationConfigurations = new[]
-    ///         {
-    ///             new NewRelic.Inputs.WorkflowDestinationConfigurationArgs
-    ///             {
-    ///                 ChannelId = "20d86999-169c-461a-9c16-3cf330f4b3aa",
-    ///             },
-    ///             new NewRelic.Inputs.WorkflowDestinationConfigurationArgs
-    ///             {
-    ///                 ChannelId = "e6af0870-cabb-453f-bf0d-fb2b6a14e05c",
-    ///             },
-    ///         },
-    ///         DestinationsEnabled = true,
-    ///         Enrichments = new NewRelic.Inputs.WorkflowEnrichmentsArgs
-    ///         {
-    ///             Nrqls = new[]
-    ///             {
-    ///                 new NewRelic.Inputs.WorkflowEnrichmentsNrqlArgs
-    ///                 {
-    ///                     Configurations = new[]
-    ///                     {
-    ///                         new NewRelic.Inputs.WorkflowEnrichmentsNrqlConfigurationArgs
-    ///                         {
-    ///                             Query = "SELECT * FROM Log",
-    ///                         },
-    ///                     },
-    ///                     Name = "Log",
-    ///                 },
-    ///                 new NewRelic.Inputs.WorkflowEnrichmentsNrqlArgs
-    ///                 {
-    ///                     Configurations = new[]
-    ///                     {
-    ///                         new NewRelic.Inputs.WorkflowEnrichmentsNrqlConfigurationArgs
-    ///                         {
-    ///                             Query = "SELECT * FROM Metric",
-    ///                         },
-    ///                     },
-    ///                     Name = "Metric",
-    ///                 },
-    ///             },
-    ///         },
-    ///         EnrichmentsEnabled = false,
-    ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
-    ///         {
-    ///             Name = "filter-name",
-    ///             Predicates = new[]
-    ///             {
-    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
-    ///                 {
-    ///                     Attribute = "accumulations.sources",
-    ///                     Operator = "EXACTLY_MATCHES",
-    ///                     Values = new[]
-    ///                     {
-    ///                         "newrelic",
-    ///                         "pagerduty",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Type = "FILTER",
-    ///         },
-    ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
-    ///         WorkflowEnabled = true,
-    ///     });
+    ///     var collector_policy = new NewRelic.AlertPolicy("collector-policy");
     /// 
     /// });
     /// ```
-    /// ## Full Scenario Example
-    /// 
-    /// Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
     /// 
     /// ### Create a destination
     /// ```csharp
@@ -115,7 +50,7 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
     ///             {
     ///                 Key = "url",
-    ///                 Value = "https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b",
+    ///                 Value = "https://webhook.mywebhook.com",
     ///             },
     ///         },
     ///         Type = "WEBHOOK",
@@ -143,7 +78,7 @@ namespace Pulumi.NewRelic
     ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
     ///             {
     ///                 Key = "payload",
-    ///                 Value = "{name: foo}",
+    ///                 Value = "{name: {{ variable }} }",
     ///                 Label = "Payload Template",
     ///             },
     ///         },
@@ -175,7 +110,7 @@ namespace Pulumi.NewRelic
     ///                     {
     ///                         new NewRelic.Inputs.WorkflowEnrichmentsNrqlConfigurationArgs
     ///                         {
-    ///                             Query = "SELECT count(*) FROM Log",
+    ///                             Query = "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
     ///                         },
     ///                     },
     ///                 },
@@ -189,6 +124,15 @@ namespace Pulumi.NewRelic
     ///             {
     ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
     ///                 {
+    ///                     Attribute = "accumulations.policyName",
+    ///                     Operator = "EXACTLY_MATCHES",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "my_policy",
+    ///                     },
+    ///                 },
+    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
+    ///                 {
     ///                     Attribute = "accumulations.sources",
     ///                     Operator = "EXACTLY_MATCHES",
     ///                     Values = new[]
@@ -198,9 +142,9 @@ namespace Pulumi.NewRelic
     ///                 },
     ///             },
     ///         },
-    ///         DestinationConfigurations = new[]
+    ///         Destinations = new[]
     ///         {
-    ///             new NewRelic.Inputs.WorkflowDestinationConfigurationArgs
+    ///             new NewRelic.Inputs.WorkflowDestinationArgs
     ///             {
     ///                 ChannelId = newrelic_notification_channel.Webhook_channel.Id,
     ///             },
@@ -213,6 +157,15 @@ namespace Pulumi.NewRelic
     /// ## Additional Information
     /// 
     /// More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
+    /// 
+    /// ## v3.3 changes
+    /// 
+    /// In version v3.3 we renamed the following arguments:
+    /// 
+    /// - `workflow_enabled` changed to `enabled`.
+    /// - `destination_configuration` changed to `destination`.
+    /// - `predicates` changed to `predicate`.
+    /// - Enrichment's `configurations` changed to `configuration`.
     /// </summary>
     [NewRelicResourceType("newrelic:index/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
@@ -226,14 +179,20 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// A nested block that contains a channel id.
         /// </summary>
-        [Output("destinationConfigurations")]
-        public Output<ImmutableArray<Outputs.WorkflowDestinationConfiguration>> DestinationConfigurations { get; private set; } = null!;
+        [Output("destinations")]
+        public Output<ImmutableArray<Outputs.WorkflowDestination>> Destinations { get; private set; } = null!;
 
         /// <summary>
         /// Whether destinations are enabled..
         /// </summary>
         [Output("destinationsEnabled")]
         public Output<bool?> DestinationsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether workflow is enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
@@ -270,12 +229,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether workflow is enabled.
-        /// </summary>
-        [Output("workflowEnabled")]
-        public Output<bool?> WorkflowEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The id of the workflow.
@@ -335,16 +288,16 @@ namespace Pulumi.NewRelic
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
-        [Input("destinationConfigurations", required: true)]
-        private InputList<Inputs.WorkflowDestinationConfigurationArgs>? _destinationConfigurations;
+        [Input("destinations", required: true)]
+        private InputList<Inputs.WorkflowDestinationArgs>? _destinations;
 
         /// <summary>
         /// A nested block that contains a channel id.
         /// </summary>
-        public InputList<Inputs.WorkflowDestinationConfigurationArgs> DestinationConfigurations
+        public InputList<Inputs.WorkflowDestinationArgs> Destinations
         {
-            get => _destinationConfigurations ?? (_destinationConfigurations = new InputList<Inputs.WorkflowDestinationConfigurationArgs>());
-            set => _destinationConfigurations = value;
+            get => _destinations ?? (_destinations = new InputList<Inputs.WorkflowDestinationArgs>());
+            set => _destinations = value;
         }
 
         /// <summary>
@@ -352,6 +305,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("destinationsEnabled")]
         public Input<bool>? DestinationsEnabled { get; set; }
+
+        /// <summary>
+        /// Whether workflow is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
@@ -383,12 +342,6 @@ namespace Pulumi.NewRelic
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Whether workflow is enabled.
-        /// </summary>
-        [Input("workflowEnabled")]
-        public Input<bool>? WorkflowEnabled { get; set; }
-
         public WorkflowArgs()
         {
         }
@@ -403,16 +356,16 @@ namespace Pulumi.NewRelic
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
-        [Input("destinationConfigurations")]
-        private InputList<Inputs.WorkflowDestinationConfigurationGetArgs>? _destinationConfigurations;
+        [Input("destinations")]
+        private InputList<Inputs.WorkflowDestinationGetArgs>? _destinations;
 
         /// <summary>
         /// A nested block that contains a channel id.
         /// </summary>
-        public InputList<Inputs.WorkflowDestinationConfigurationGetArgs> DestinationConfigurations
+        public InputList<Inputs.WorkflowDestinationGetArgs> Destinations
         {
-            get => _destinationConfigurations ?? (_destinationConfigurations = new InputList<Inputs.WorkflowDestinationConfigurationGetArgs>());
-            set => _destinationConfigurations = value;
+            get => _destinations ?? (_destinations = new InputList<Inputs.WorkflowDestinationGetArgs>());
+            set => _destinations = value;
         }
 
         /// <summary>
@@ -420,6 +373,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("destinationsEnabled")]
         public Input<bool>? DestinationsEnabled { get; set; }
+
+        /// <summary>
+        /// Whether workflow is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
@@ -456,12 +415,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Whether workflow is enabled.
-        /// </summary>
-        [Input("workflowEnabled")]
-        public Input<bool>? WorkflowEnabled { get; set; }
 
         /// <summary>
         /// The id of the workflow.

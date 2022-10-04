@@ -72,7 +72,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
 
     /**
      * the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     @Import(name="type")
@@ -80,7 +80,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
 
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     public Optional<Output<String>> type() {
@@ -199,7 +199,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
 
         /**
          * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicates`
+         * * `predicate`
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
 
         /**
          * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicates`
+         * * `predicate`
          * 
          * @return builder
          * 

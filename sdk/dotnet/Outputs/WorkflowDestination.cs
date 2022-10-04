@@ -11,7 +11,7 @@ namespace Pulumi.NewRelic.Outputs
 {
 
     [OutputType]
-    public sealed class WorkflowDestinationConfiguration
+    public sealed class WorkflowDestination
     {
         public readonly string ChannelId;
         /// <summary>
@@ -20,12 +20,12 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string? Name;
         /// <summary>
         /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicates`
+        /// * `predicate`
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
-        private WorkflowDestinationConfiguration(
+        private WorkflowDestination(
             string channelId,
 
             string? name,

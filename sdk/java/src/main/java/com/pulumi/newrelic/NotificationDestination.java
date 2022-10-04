@@ -20,262 +20,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Use this resource to create and manage New Relic notification destinations. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
- * 
- * ## Example Usage
- * 
- * ##### [Webhook](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#webhook)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.NotificationDestination;
- * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new NotificationDestination(&#34;foo&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .password(&#34;password&#34;)
- *                 .user(&#34;username&#34;)
- *                 .build())
- *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;url&#34;)
- *                 .value(&#34;https://webhook.site/&#34;)
- *                 .build())
- *             .type(&#34;WEBHOOK&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * See additional examples.
- * ## Additional Examples
- * 
- * ##### [ServiceNow](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#servicenow)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.NotificationDestination;
- * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new NotificationDestination(&#34;foo&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .password(&#34;password&#34;)
- *                 .user(&#34;username&#34;)
- *                 .build())
- *             .properties(            
- *                 NotificationDestinationPropertyArgs.builder()
- *                     .key(&#34;url&#34;)
- *                     .value(&#34;https://service-now.com/&#34;)
- *                     .build(),
- *                 NotificationDestinationPropertyArgs.builder()
- *                     .key(&#34;two_way_integration&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build())
- *             .type(&#34;SERVICE_NOW&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ##### [Email](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#email)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.NotificationDestination;
- * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new NotificationDestination(&#34;foo&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;email&#34;)
- *                 .value(&#34;email@email.com,email2@email.com&#34;)
- *                 .build())
- *             .type(&#34;EMAIL&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ##### [Jira](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#jira)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.NotificationDestination;
- * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new NotificationDestination(&#34;foo&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .password(&#34;password&#34;)
- *                 .user(&#34;example@email.com&#34;)
- *                 .build())
- *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;url&#34;)
- *                 .value(&#34;https://example.atlassian.net&#34;)
- *                 .build())
- *             .type(&#34;JIRA&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-sli)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.NotificationDestination;
- * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new NotificationDestination(&#34;foo&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .authToken(NotificationDestinationAuthTokenArgs.builder()
- *                 .prefix(&#34;Token token=&#34;)
- *                 .token(&#34;10567a689d984d03c021034b22a789e2&#34;)
- *                 .build())
- *             .type(&#34;PAGERDUTY_SERVICE_INTEGRATION&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-ali)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.NotificationDestination;
- * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthTokenArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new NotificationDestination(&#34;foo&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .authToken(NotificationDestinationAuthTokenArgs.builder()
- *                 .prefix(&#34;Token token=&#34;)
- *                 .token(&#34;u+E8EU3MhsZwLfZ1ic1A&#34;)
- *                 .build())
- *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;two_way_integration&#34;)
- *                 .value(&#34;true&#34;)
- *                 .build())
- *             .type(&#34;PAGERDUTY_ACCOUNT_INTEGRATION&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * &gt; **NOTE:** Sensitive data such as destination API keys, service keys, auth object, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
- * 
- * ## Additional Information
- * 
- * More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
- * More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
- * 
- */
 @ResourceType(type="newrelic:index/notificationDestination:NotificationDestination")
 public class NotificationDestination extends com.pulumi.resources.CustomResource {
     /**
@@ -335,20 +79,6 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.authToken);
     }
     /**
-     * Indicates whether the user is authenticated with the destination.
-     * 
-     */
-    @Export(name="isUserAuthenticated", type=Boolean.class, parameters={})
-    private Output<Boolean> isUserAuthenticated;
-
-    /**
-     * @return Indicates whether the user is authenticated with the destination.
-     * 
-     */
-    public Output<Boolean> isUserAuthenticated() {
-        return this.isUserAuthenticated;
-    }
-    /**
      * The last time a notification was sent.
      * 
      */
@@ -405,14 +135,16 @@ public class NotificationDestination extends com.pulumi.resources.CustomResource
         return this.status;
     }
     /**
-     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
     public Output<String> type() {

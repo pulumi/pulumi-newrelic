@@ -643,6 +643,7 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    filterCurrentDashboard?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -652,6 +653,7 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
+    linkedEntityGuids: string[];
     /**
      * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
      * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -1186,7 +1188,7 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
     unit: string;
 }
 
-export interface WorkflowDestinationConfiguration {
+export interface WorkflowDestination {
     channelId: string;
     /**
      * A nrql enrichment name.
@@ -1194,7 +1196,7 @@ export interface WorkflowDestinationConfiguration {
     name: string;
     /**
      * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      */
     type: string;
 }
@@ -1219,7 +1221,7 @@ export interface WorkflowEnrichmentsNrql {
     name: string;
     /**
      * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      */
     type: string;
 }
@@ -1240,18 +1242,18 @@ export interface WorkflowIssuesFilter {
     predicates?: outputs.WorkflowIssuesFilterPredicate[];
     /**
      * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      */
     type: string;
 }
 
 export interface WorkflowIssuesFilterPredicate {
     /**
-     * A predicates attribute.
+     * A predicate's attribute.
      */
     attribute: string;
     /**
-     * A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
      */
     operator: string;
     /**

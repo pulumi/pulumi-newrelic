@@ -281,6 +281,120 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * #### Mobile Push
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationChannel;
+ * import com.pulumi.newrelic.NotificationChannelArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *             .accountId(12345678)
+ *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
+ *             .product(&#34;IINT&#34;)
+ *             .type(&#34;MOBILE_PUSH&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * #### [AWS Event Bridge](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#eventBridge)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationChannel;
+ * import com.pulumi.newrelic.NotificationChannelArgs;
+ * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *             .accountId(12345678)
+ *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
+ *             .product(&#34;IINT&#34;)
+ *             .properties(            
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;eventSource&#34;)
+ *                     .value(&#34;aws.partner/mydomain/myaccountid/name&#34;)
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;eventContent&#34;)
+ *                     .value(&#34;{ id: {{ json issueId }} }&#34;)
+ *                     .build())
+ *             .type(&#34;EVENT_BRIDGE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * #### [SLACK](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#slack)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.NotificationChannel;
+ * import com.pulumi.newrelic.NotificationChannelArgs;
+ * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new NotificationChannel(&#34;foo&#34;, NotificationChannelArgs.builder()        
+ *             .accountId(12345678)
+ *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
+ *             .product(&#34;IINT&#34;)
+ *             .properties(NotificationChannelPropertyArgs.builder()
+ *                 .key(&#34;channelId&#34;)
+ *                 .value(&#34;123456&#34;)
+ *                 .build())
+ *             .type(&#34;SLACK&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * &gt; **NOTE:** Sensitive data such as channel API keys, service keys, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
  * 
  * ## Full Scenario Example
@@ -319,7 +433,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .properties(NotificationDestinationPropertyArgs.builder()
  *                 .key(&#34;url&#34;)
- *                 .value(&#34;https://webhook.site/94193c01-4a81-4782-8f1b-554d5230395b&#34;)
+ *                 .value(&#34;https://webhook.mywebhook.com&#34;)
  *                 .build())
  *             .type(&#34;WEBHOOK&#34;)
  *             .build());
@@ -473,14 +587,14 @@ public class NotificationChannel extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `JIRA_NEXTGEN`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * @return The type of channel.  One of: `EMAIL`, `SERVICENOW_INCIDENTS`, `WEBHOOK`, `JIRA_CLASSIC`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `SLACK` and `SLACK_COLLABORATION`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
      * 
      */
     public Output<String> type() {

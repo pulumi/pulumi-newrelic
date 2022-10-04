@@ -9,193 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    /// <summary>
-    /// Use this resource to create and manage New Relic notification destinations. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ##### [Webhook](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#webhook)
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
-    ///         {
-    ///             Password = "password",
-    ///             User = "username",
-    ///         },
-    ///         Properties = new[]
-    ///         {
-    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
-    ///             {
-    ///                 Key = "url",
-    ///                 Value = "https://webhook.site/",
-    ///             },
-    ///         },
-    ///         Type = "WEBHOOK",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// See additional examples.
-    /// ## Additional Examples
-    /// 
-    /// ##### [ServiceNow](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#servicenow)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
-    ///         {
-    ///             Password = "password",
-    ///             User = "username",
-    ///         },
-    ///         Properties = new[]
-    ///         {
-    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
-    ///             {
-    ///                 Key = "url",
-    ///                 Value = "https://service-now.com/",
-    ///             },
-    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
-    ///             {
-    ///                 Key = "two_way_integration",
-    ///                 Value = "true",
-    ///             },
-    ///         },
-    ///         Type = "SERVICE_NOW",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ##### [Email](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#email)
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         Properties = new[]
-    ///         {
-    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
-    ///             {
-    ///                 Key = "email",
-    ///                 Value = "email@email.com,email2@email.com",
-    ///             },
-    ///         },
-    ///         Type = "EMAIL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ##### [Jira](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#jira)
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         AuthBasic = new NewRelic.Inputs.NotificationDestinationAuthBasicArgs
-    ///         {
-    ///             Password = "password",
-    ///             User = "example@email.com",
-    ///         },
-    ///         Properties = new[]
-    ///         {
-    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
-    ///             {
-    ///                 Key = "url",
-    ///                 Value = "https://example.atlassian.net",
-    ///             },
-    ///         },
-    ///         Type = "JIRA",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-sli)
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         AuthToken = new NewRelic.Inputs.NotificationDestinationAuthTokenArgs
-    ///         {
-    ///             Prefix = "Token token=",
-    ///             Token = "10567a689d984d03c021034b22a789e2",
-    ///         },
-    ///         Type = "PAGERDUTY_SERVICE_INTEGRATION",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-ali)
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.NotificationDestination("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         AuthToken = new NewRelic.Inputs.NotificationDestinationAuthTokenArgs
-    ///         {
-    ///             Prefix = "Token token=",
-    ///             Token = "u+E8EU3MhsZwLfZ1ic1A",
-    ///         },
-    ///         Properties = new[]
-    ///         {
-    ///             new NewRelic.Inputs.NotificationDestinationPropertyArgs
-    ///             {
-    ///                 Key = "two_way_integration",
-    ///                 Value = "true",
-    ///             },
-    ///         },
-    ///         Type = "PAGERDUTY_ACCOUNT_INTEGRATION",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **NOTE:** Sensitive data such as destination API keys, service keys, auth object, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
-    /// 
-    /// ## Additional Information
-    /// 
-    /// More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
-    /// More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
-    /// </summary>
     [NewRelicResourceType("newrelic:index/notificationDestination:NotificationDestination")]
     public partial class NotificationDestination : global::Pulumi.CustomResource
     {
@@ -224,12 +37,6 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NotificationDestinationAuthToken?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the user is authenticated with the destination.
-        /// </summary>
-        [Output("isUserAuthenticated")]
-        public Output<bool> IsUserAuthenticated { get; private set; } = null!;
-
-        /// <summary>
         /// The last time a notification was sent.
         /// </summary>
         [Output("lastSent")]
@@ -254,7 +61,8 @@ namespace Pulumi.NewRelic
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+        /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -348,7 +156,8 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+        /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -386,12 +195,6 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NotificationDestinationAuthTokenGetArgs>? AuthToken { get; set; }
 
         /// <summary>
-        /// Indicates whether the user is authenticated with the destination.
-        /// </summary>
-        [Input("isUserAuthenticated")]
-        public Input<bool>? IsUserAuthenticated { get; set; }
-
-        /// <summary>
         /// The last time a notification was sent.
         /// </summary>
         [Input("lastSent")]
@@ -422,7 +225,8 @@ namespace Pulumi.NewRelic
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+        /// (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+        /// PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

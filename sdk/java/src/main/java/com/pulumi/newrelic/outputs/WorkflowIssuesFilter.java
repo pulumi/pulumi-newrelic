@@ -22,7 +22,7 @@ public final class WorkflowIssuesFilter {
     private @Nullable List<WorkflowIssuesFilterPredicate> predicates;
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     private String type;
@@ -43,7 +43,7 @@ public final class WorkflowIssuesFilter {
     }
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     public String type() {

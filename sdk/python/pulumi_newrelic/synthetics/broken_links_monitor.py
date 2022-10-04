@@ -30,10 +30,10 @@ class BrokenLinksMonitorArgs:
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[str] uri: The uri the monitor runs against.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
-        :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "status", status)
@@ -101,7 +101,7 @@ class BrokenLinksMonitorArgs:
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -113,7 +113,7 @@ class BrokenLinksMonitorArgs:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -137,7 +137,7 @@ class BrokenLinksMonitorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]]:
         """
-        The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         return pulumi.get(self, "tags")
 
@@ -162,12 +162,12 @@ class _BrokenLinksMonitorState:
         Input properties used for looking up and filtering BrokenLinksMonitor resources.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The uri the monitor runs against.
         """
         if account_id is not None:
@@ -217,7 +217,7 @@ class _BrokenLinksMonitorState:
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -229,7 +229,7 @@ class _BrokenLinksMonitorState:
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -277,7 +277,7 @@ class _BrokenLinksMonitorState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]]]:
         """
-        The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         return pulumi.get(self, "tags")
 
@@ -344,10 +344,10 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        bar1 = newrelic.synthetics.PrivateLocation("bar1",
+        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
             description="Test Description",
             verified_script_execution=False)
-        bar = newrelic.synthetics.BrokenLinksMonitor("bar",
+        monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
             locations_privates=["newrelic_synthetics_private_location.private_location.id"],
             period="EVERY_6_HOURS",
             status="ENABLED",
@@ -369,12 +369,12 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The uri the monitor runs against.
         """
         ...
@@ -415,10 +415,10 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        bar1 = newrelic.synthetics.PrivateLocation("bar1",
+        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
             description="Test Description",
             verified_script_execution=False)
-        bar = newrelic.synthetics.BrokenLinksMonitor("bar",
+        monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
             locations_privates=["newrelic_synthetics_private_location.private_location.id"],
             period="EVERY_6_HOURS",
             status="ENABLED",
@@ -512,12 +512,12 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[str] guid: The unique entity identifier of the monitor in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         :param pulumi.Input[str] name: The name for the monitor.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
         :param pulumi.Input[str] uri: The uri the monitor runs against.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -555,7 +555,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPrivates")
     def locations_privates(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         """
         return pulumi.get(self, "locations_privates")
 
@@ -563,7 +563,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     @pulumi.getter(name="locationsPublics")
     def locations_publics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         """
         return pulumi.get(self, "locations_publics")
 
@@ -595,7 +595,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BrokenLinksMonitorTag']]]:
         """
-        The tags that will be associated with the monitor. See See Nested tag blocks below for details
+        The tags that will be associated with the monitor. See Nested tag blocks below for details
         """
         return pulumi.get(self, "tags")
 

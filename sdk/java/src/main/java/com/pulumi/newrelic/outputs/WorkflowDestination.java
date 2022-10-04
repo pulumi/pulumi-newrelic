@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class WorkflowDestinationConfiguration {
+public final class WorkflowDestination {
     private String channelId;
     /**
      * @return A nrql enrichment name.
@@ -19,12 +19,12 @@ public final class WorkflowDestinationConfiguration {
     private @Nullable String name;
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     private @Nullable String type;
 
-    private WorkflowDestinationConfiguration() {}
+    private WorkflowDestination() {}
     public String channelId() {
         return this.channelId;
     }
@@ -37,7 +37,7 @@ public final class WorkflowDestinationConfiguration {
     }
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     public Optional<String> type() {
@@ -48,7 +48,7 @@ public final class WorkflowDestinationConfiguration {
         return new Builder();
     }
 
-    public static Builder builder(WorkflowDestinationConfiguration defaults) {
+    public static Builder builder(WorkflowDestination defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -57,7 +57,7 @@ public final class WorkflowDestinationConfiguration {
         private @Nullable String name;
         private @Nullable String type;
         public Builder() {}
-        public Builder(WorkflowDestinationConfiguration defaults) {
+        public Builder(WorkflowDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channelId = defaults.channelId;
     	      this.name = defaults.name;
@@ -79,8 +79,8 @@ public final class WorkflowDestinationConfiguration {
             this.type = type;
             return this;
         }
-        public WorkflowDestinationConfiguration build() {
-            final var o = new WorkflowDestinationConfiguration();
+        public WorkflowDestination build() {
+            final var o = new WorkflowDestination();
             o.channelId = channelId;
             o.name = name;
             o.type = type;

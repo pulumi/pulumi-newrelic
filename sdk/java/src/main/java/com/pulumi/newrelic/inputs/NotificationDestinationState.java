@@ -82,21 +82,6 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
     }
 
     /**
-     * Indicates whether the user is authenticated with the destination.
-     * 
-     */
-    @Import(name="isUserAuthenticated")
-    private @Nullable Output<Boolean> isUserAuthenticated;
-
-    /**
-     * @return Indicates whether the user is authenticated with the destination.
-     * 
-     */
-    public Optional<Output<Boolean>> isUserAuthenticated() {
-        return Optional.ofNullable(this.isUserAuthenticated);
-    }
-
-    /**
      * The last time a notification was sent.
      * 
      */
@@ -157,14 +142,16 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * @return (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      * 
      */
     public Optional<Output<String>> type() {
@@ -178,7 +165,6 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
         this.active = $.active;
         this.authBasic = $.authBasic;
         this.authToken = $.authToken;
-        this.isUserAuthenticated = $.isUserAuthenticated;
         this.lastSent = $.lastSent;
         this.name = $.name;
         this.properties = $.properties;
@@ -289,27 +275,6 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param isUserAuthenticated Indicates whether the user is authenticated with the destination.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder isUserAuthenticated(@Nullable Output<Boolean> isUserAuthenticated) {
-            $.isUserAuthenticated = isUserAuthenticated;
-            return this;
-        }
-
-        /**
-         * @param isUserAuthenticated Indicates whether the user is authenticated with the destination.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder isUserAuthenticated(Boolean isUserAuthenticated) {
-            return isUserAuthenticated(Output.of(isUserAuthenticated));
-        }
-
-        /**
          * @param lastSent The last time a notification was sent.
          * 
          * @return builder
@@ -404,7 +369,8 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+         * @param type (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+         * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
          * 
          * @return builder
          * 
@@ -415,7 +381,8 @@ public final class NotificationDestinationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+         * @param type (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+         * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
          * 
          * @return builder
          * 

@@ -15,6 +15,34 @@ import (
 //
 // > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewAlertCondition(ctx, "foo", &synthetics.AlertConditionArgs{
+//				PolicyId:   pulumi.Any(newrelic_alert_policy.Foo.Id),
+//				MonitorId:  pulumi.Any(newrelic_synthetics_monitor.Foo.Id),
+//				RunbookUrl: pulumi.String("https://www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.

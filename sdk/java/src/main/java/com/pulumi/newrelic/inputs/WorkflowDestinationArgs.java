@@ -11,9 +11,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resources.ResourceArgs {
+public final class WorkflowDestinationArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final WorkflowDestinationConfigurationArgs Empty = new WorkflowDestinationConfigurationArgs();
+    public static final WorkflowDestinationArgs Empty = new WorkflowDestinationArgs();
 
     @Import(name="channelId", required=true)
     private Output<String> channelId;
@@ -39,7 +39,7 @@ public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resou
 
     /**
      * the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     @Import(name="type")
@@ -47,16 +47,16 @@ public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resou
 
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    private WorkflowDestinationConfigurationArgs() {}
+    private WorkflowDestinationArgs() {}
 
-    private WorkflowDestinationConfigurationArgs(WorkflowDestinationConfigurationArgs $) {
+    private WorkflowDestinationArgs(WorkflowDestinationArgs $) {
         this.channelId = $.channelId;
         this.name = $.name;
         this.type = $.type;
@@ -65,19 +65,19 @@ public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resou
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(WorkflowDestinationConfigurationArgs defaults) {
+    public static Builder builder(WorkflowDestinationArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private WorkflowDestinationConfigurationArgs $;
+        private WorkflowDestinationArgs $;
 
         public Builder() {
-            $ = new WorkflowDestinationConfigurationArgs();
+            $ = new WorkflowDestinationArgs();
         }
 
-        public Builder(WorkflowDestinationConfigurationArgs defaults) {
-            $ = new WorkflowDestinationConfigurationArgs(Objects.requireNonNull(defaults));
+        public Builder(WorkflowDestinationArgs defaults) {
+            $ = new WorkflowDestinationArgs(Objects.requireNonNull(defaults));
         }
 
         public Builder channelId(Output<String> channelId) {
@@ -112,7 +112,7 @@ public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resou
 
         /**
          * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicates`
+         * * `predicate`
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resou
 
         /**
          * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicates`
+         * * `predicate`
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WorkflowDestinationConfigurationArgs extends com.pulumi.resou
             return type(Output.of(type));
         }
 
-        public WorkflowDestinationConfigurationArgs build() {
+        public WorkflowDestinationArgs build() {
             $.channelId = Objects.requireNonNull($.channelId, "expected parameter 'channelId' to be non-null");
             return $;
         }

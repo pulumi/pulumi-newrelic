@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
- *         var bar = new CertCheckMonitor(&#34;bar&#34;, CertCheckMonitorArgs.builder()        
+ *         var monitor = new CertCheckMonitor(&#34;monitor&#34;, CertCheckMonitorArgs.builder()        
  *             .locationsPrivates(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
@@ -164,28 +164,28 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
         return this.domain;
     }
     /**
-     * The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
     @Export(name="locationsPrivates", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> locationsPrivates;
 
     /**
-     * @return The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPrivates() {
         return Codegen.optional(this.locationsPrivates);
     }
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     @Export(name="locationsPublics", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {
@@ -234,14 +234,14 @@ public class CertCheckMonitor extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The tags that will be associated with the monitor. See See Nested tag blocks below for details
+     * The tags that will be associated with the monitor. See Nested tag blocks below for details
      * 
      */
     @Export(name="tags", type=List.class, parameters={CertCheckMonitorTag.class})
     private Output</* @Nullable */ List<CertCheckMonitorTag>> tags;
 
     /**
-     * @return The tags that will be associated with the monitor. See See Nested tag blocks below for details
+     * @return The tags that will be associated with the monitor. See Nested tag blocks below for details
      * 
      */
     public Output<Optional<List<CertCheckMonitorTag>>> tags() {

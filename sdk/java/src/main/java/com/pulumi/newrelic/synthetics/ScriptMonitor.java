@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * ##### Type: `SCRIPT_API`
  * 
- * &gt; **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * &gt; **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  * ```java
  * package generated_program;
  * 
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * ```
  * ##### Type: `SCRIPT_BROWSER`
  * 
- * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+ * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  * ```java
  * package generated_program;
  * 
@@ -106,10 +106,10 @@ import javax.annotation.Nullable;
  *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
  *             .status(&#34;DISABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
- *                 .key(&#34;Name&#34;)
+ *                 .key(&#34;some_key&#34;)
  *                 .values(                
- *                     &#34;scriptedMonitor&#34;,
- *                     &#34;hello&#34;)
+ *                     &#34;some_value1&#34;,
+ *                     &#34;some_value2&#34;)
  *                 .build())
  *             .type(&#34;SCRIPT_BROWSER&#34;)
  *             .build());
@@ -125,8 +125,6 @@ import javax.annotation.Nullable;
  * The below example shows how you can define a private location and attach it to a monitor.
  * 
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
- * 
- * &gt; **NOTE:** Currently, it&#39;s only possible to use a private location with a monitor running on a legacy runtime. Leave `runtime_type_version`, `runtime_type` &amp; `script_language` empty to use legacy runtime. See example below.
  * 
  * ##### Type: `SCRIPT_API`
  * ```java
@@ -165,10 +163,10 @@ import javax.annotation.Nullable;
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .period(&#34;EVERY_6_HOURS&#34;)
- *             .runtimeType(&#34;&#34;)
- *             .runtimeTypeVersion(&#34;&#34;)
+ *             .runtimeType(&#34;NODE_API&#34;)
+ *             .runtimeTypeVersion(&#34;16.10&#34;)
  *             .script(&#34;console.log(&#39;terraform integration test updated&#39;)&#34;)
- *             .scriptLanguage(&#34;&#34;)
+ *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
@@ -181,8 +179,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ##### Type: `SCRIPT_BROWSER`
- * 
- * &gt; **NOTE:** Currently, it&#39;s only possible to use a private location with a monitor running on a legacy runtime. Leave `runtime_type_version`, `runtime_type` &amp; `script_language` empty to use legacy runtime. See example below.
  * ```java
  * package generated_program;
  * 
@@ -220,10 +216,10 @@ import javax.annotation.Nullable;
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .period(&#34;EVERY_HOUR&#34;)
- *             .runtimeType(&#34;&#34;)
- *             .runtimeTypeVersion(&#34;&#34;)
+ *             .runtimeType(&#34;CHROME_BROWSER&#34;)
+ *             .runtimeTypeVersion(&#34;100&#34;)
  *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)
- *             .scriptLanguage(&#34;&#34;)
+ *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
  *             .status(&#34;DISABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
@@ -304,14 +300,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.locationPrivates);
     }
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     @Export(name="locationsPublics", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     public Output<Optional<List<String>>> locationsPublics() {

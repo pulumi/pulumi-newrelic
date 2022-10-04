@@ -49,14 +49,14 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
     @Import(name="locationsPrivates")
     private @Nullable Output<List<String>> locationsPrivates;
 
     /**
-     * @return The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
      * 
      */
     public Optional<Output<List<String>>> locationsPrivates() {
@@ -64,14 +64,14 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     @Import(name="locationsPublics")
     private @Nullable Output<List<String>> locationsPublics;
 
     /**
-     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+     * @return The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
      * 
      */
     public Optional<Output<List<String>>> locationsPublics() {
@@ -124,14 +124,14 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The tags that will be associated with the monitor. See See Nested tag blocks below for details
+     * The tags that will be associated with the monitor. See Nested tag blocks below for details
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<BrokenLinksMonitorTagArgs>> tags;
 
     /**
-     * @return The tags that will be associated with the monitor. See See Nested tag blocks below for details
+     * @return The tags that will be associated with the monitor. See Nested tag blocks below for details
      * 
      */
     public Optional<Output<List<BrokenLinksMonitorTagArgs>>> tags() {
@@ -228,7 +228,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param locationsPrivates The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param locationsPrivates The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param locationsPrivates The location the monitor will run from. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPrivates The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPublics The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPublics The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param locationsPublics The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+         * @param locationsPublics The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don&#39;t need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags The tags that will be associated with the monitor. See See Nested tag blocks below for details
+         * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags The tags that will be associated with the monitor. See See Nested tag blocks below for details
+         * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class BrokenLinksMonitorState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags The tags that will be associated with the monitor. See See Nested tag blocks below for details
+         * @param tags The tags that will be associated with the monitor. See Nested tag blocks below for details
          * 
          * @return builder
          * 

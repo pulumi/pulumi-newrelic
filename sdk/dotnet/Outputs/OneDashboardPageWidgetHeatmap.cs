@@ -17,6 +17,7 @@ namespace Pulumi.NewRelic.Outputs
         /// (Required) Column position of widget from top left, starting at `1`.
         /// </summary>
         public readonly int Column;
+        public readonly bool? FilterCurrentDashboard;
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         /// </summary>
@@ -26,6 +27,7 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         /// </summary>
         public readonly bool? IgnoreTimeRange;
+        public readonly ImmutableArray<string> LinkedEntityGuids;
         /// <summary>
         /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
         /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
@@ -49,11 +51,15 @@ namespace Pulumi.NewRelic.Outputs
         private OneDashboardPageWidgetHeatmap(
             int column,
 
+            bool? filterCurrentDashboard,
+
             int? height,
 
             string? id,
 
             bool? ignoreTimeRange,
+
+            ImmutableArray<string> linkedEntityGuids,
 
             ImmutableArray<Outputs.OneDashboardPageWidgetHeatmapNrqlQuery> nrqlQueries,
 
@@ -64,9 +70,11 @@ namespace Pulumi.NewRelic.Outputs
             int? width)
         {
             Column = column;
+            FilterCurrentDashboard = filterCurrentDashboard;
             Height = height;
             Id = id;
             IgnoreTimeRange = ignoreTimeRange;
+            LinkedEntityGuids = linkedEntityGuids;
             NrqlQueries = nrqlQueries;
             Row = row;
             Title = title;

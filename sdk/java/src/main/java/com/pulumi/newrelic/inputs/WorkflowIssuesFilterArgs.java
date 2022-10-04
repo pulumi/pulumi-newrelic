@@ -48,7 +48,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
 
     /**
      * the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     @Import(name="type", required=true)
@@ -56,7 +56,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicates`
+     * * `predicate`
      * 
      */
     public Output<String> type() {
@@ -135,7 +135,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicates`
+         * * `predicate`
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicates`
+         * * `predicate`
          * 
          * @return builder
          * 

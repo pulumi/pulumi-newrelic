@@ -201,6 +201,18 @@ class AlertCondition(pulumi.CustomResource):
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.AlertCondition("foo",
+            policy_id=newrelic_alert_policy["foo"]["id"],
+            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
+            runbook_url="https://www.example.com")
+        ```
+
         ## Import
 
         Synthetics alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>`, e.g.
@@ -227,6 +239,18 @@ class AlertCondition(pulumi.CustomResource):
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
         > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        foo = newrelic.synthetics.AlertCondition("foo",
+            policy_id=newrelic_alert_policy["foo"]["id"],
+            monitor_id=newrelic_synthetics_monitor["foo"]["id"],
+            runbook_url="https://www.example.com")
+        ```
 
         ## Import
 

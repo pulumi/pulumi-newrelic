@@ -4551,12 +4551,14 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryArrayOutput) Index(i pulumi.IntInpu
 
 type OneDashboardPageWidgetHeatmap struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column int `pulumi:"column"`
+	Column                 int   `pulumi:"column"`
+	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
-	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
+	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -4582,12 +4584,14 @@ type OneDashboardPageWidgetHeatmapInput interface {
 
 type OneDashboardPageWidgetHeatmapArgs struct {
 	// (Required) Column position of widget from top left, starting at `1`.
-	Column pulumi.IntInput `pulumi:"column"`
+	Column                 pulumi.IntInput     `pulumi:"column"`
+	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
-	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
+	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
 	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
@@ -4656,6 +4660,10 @@ func (o OneDashboardPageWidgetHeatmapOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) int { return v.Column }).(pulumi.IntOutput)
 }
 
+func (o OneDashboardPageWidgetHeatmapOutput) FilterCurrentDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.FilterCurrentDashboard }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 func (o OneDashboardPageWidgetHeatmapOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *int { return v.Height }).(pulumi.IntPtrOutput)
@@ -4668,6 +4676,10 @@ func (o OneDashboardPageWidgetHeatmapOutput) Id() pulumi.StringPtrOutput {
 // (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetHeatmapOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHeatmapOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
 // (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
@@ -8356,119 +8368,119 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-type WorkflowDestinationConfiguration struct {
+type WorkflowDestination struct {
 	ChannelId string `pulumi:"channelId"`
 	// A nrql enrichment name.
 	Name *string `pulumi:"name"`
 	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicates`
+	// * `predicate`
 	Type *string `pulumi:"type"`
 }
 
-// WorkflowDestinationConfigurationInput is an input type that accepts WorkflowDestinationConfigurationArgs and WorkflowDestinationConfigurationOutput values.
-// You can construct a concrete instance of `WorkflowDestinationConfigurationInput` via:
+// WorkflowDestinationInput is an input type that accepts WorkflowDestinationArgs and WorkflowDestinationOutput values.
+// You can construct a concrete instance of `WorkflowDestinationInput` via:
 //
-//	WorkflowDestinationConfigurationArgs{...}
-type WorkflowDestinationConfigurationInput interface {
+//	WorkflowDestinationArgs{...}
+type WorkflowDestinationInput interface {
 	pulumi.Input
 
-	ToWorkflowDestinationConfigurationOutput() WorkflowDestinationConfigurationOutput
-	ToWorkflowDestinationConfigurationOutputWithContext(context.Context) WorkflowDestinationConfigurationOutput
+	ToWorkflowDestinationOutput() WorkflowDestinationOutput
+	ToWorkflowDestinationOutputWithContext(context.Context) WorkflowDestinationOutput
 }
 
-type WorkflowDestinationConfigurationArgs struct {
+type WorkflowDestinationArgs struct {
 	ChannelId pulumi.StringInput `pulumi:"channelId"`
 	// A nrql enrichment name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicates`
+	// * `predicate`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (WorkflowDestinationConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowDestinationConfiguration)(nil)).Elem()
+func (WorkflowDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowDestination)(nil)).Elem()
 }
 
-func (i WorkflowDestinationConfigurationArgs) ToWorkflowDestinationConfigurationOutput() WorkflowDestinationConfigurationOutput {
-	return i.ToWorkflowDestinationConfigurationOutputWithContext(context.Background())
+func (i WorkflowDestinationArgs) ToWorkflowDestinationOutput() WorkflowDestinationOutput {
+	return i.ToWorkflowDestinationOutputWithContext(context.Background())
 }
 
-func (i WorkflowDestinationConfigurationArgs) ToWorkflowDestinationConfigurationOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationConfigurationOutput)
+func (i WorkflowDestinationArgs) ToWorkflowDestinationOutputWithContext(ctx context.Context) WorkflowDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationOutput)
 }
 
-// WorkflowDestinationConfigurationArrayInput is an input type that accepts WorkflowDestinationConfigurationArray and WorkflowDestinationConfigurationArrayOutput values.
-// You can construct a concrete instance of `WorkflowDestinationConfigurationArrayInput` via:
+// WorkflowDestinationArrayInput is an input type that accepts WorkflowDestinationArray and WorkflowDestinationArrayOutput values.
+// You can construct a concrete instance of `WorkflowDestinationArrayInput` via:
 //
-//	WorkflowDestinationConfigurationArray{ WorkflowDestinationConfigurationArgs{...} }
-type WorkflowDestinationConfigurationArrayInput interface {
+//	WorkflowDestinationArray{ WorkflowDestinationArgs{...} }
+type WorkflowDestinationArrayInput interface {
 	pulumi.Input
 
-	ToWorkflowDestinationConfigurationArrayOutput() WorkflowDestinationConfigurationArrayOutput
-	ToWorkflowDestinationConfigurationArrayOutputWithContext(context.Context) WorkflowDestinationConfigurationArrayOutput
+	ToWorkflowDestinationArrayOutput() WorkflowDestinationArrayOutput
+	ToWorkflowDestinationArrayOutputWithContext(context.Context) WorkflowDestinationArrayOutput
 }
 
-type WorkflowDestinationConfigurationArray []WorkflowDestinationConfigurationInput
+type WorkflowDestinationArray []WorkflowDestinationInput
 
-func (WorkflowDestinationConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkflowDestinationConfiguration)(nil)).Elem()
+func (WorkflowDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowDestination)(nil)).Elem()
 }
 
-func (i WorkflowDestinationConfigurationArray) ToWorkflowDestinationConfigurationArrayOutput() WorkflowDestinationConfigurationArrayOutput {
-	return i.ToWorkflowDestinationConfigurationArrayOutputWithContext(context.Background())
+func (i WorkflowDestinationArray) ToWorkflowDestinationArrayOutput() WorkflowDestinationArrayOutput {
+	return i.ToWorkflowDestinationArrayOutputWithContext(context.Background())
 }
 
-func (i WorkflowDestinationConfigurationArray) ToWorkflowDestinationConfigurationArrayOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationConfigurationArrayOutput)
+func (i WorkflowDestinationArray) ToWorkflowDestinationArrayOutputWithContext(ctx context.Context) WorkflowDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDestinationArrayOutput)
 }
 
-type WorkflowDestinationConfigurationOutput struct{ *pulumi.OutputState }
+type WorkflowDestinationOutput struct{ *pulumi.OutputState }
 
-func (WorkflowDestinationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowDestinationConfiguration)(nil)).Elem()
+func (WorkflowDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowDestination)(nil)).Elem()
 }
 
-func (o WorkflowDestinationConfigurationOutput) ToWorkflowDestinationConfigurationOutput() WorkflowDestinationConfigurationOutput {
+func (o WorkflowDestinationOutput) ToWorkflowDestinationOutput() WorkflowDestinationOutput {
 	return o
 }
 
-func (o WorkflowDestinationConfigurationOutput) ToWorkflowDestinationConfigurationOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationOutput {
+func (o WorkflowDestinationOutput) ToWorkflowDestinationOutputWithContext(ctx context.Context) WorkflowDestinationOutput {
 	return o
 }
 
-func (o WorkflowDestinationConfigurationOutput) ChannelId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkflowDestinationConfiguration) string { return v.ChannelId }).(pulumi.StringOutput)
+func (o WorkflowDestinationOutput) ChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowDestination) string { return v.ChannelId }).(pulumi.StringOutput)
 }
 
 // A nrql enrichment name.
-func (o WorkflowDestinationConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowDestinationConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o WorkflowDestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicates`
-func (o WorkflowDestinationConfigurationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowDestinationConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+// * `predicate`
+func (o WorkflowDestinationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowDestination) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type WorkflowDestinationConfigurationArrayOutput struct{ *pulumi.OutputState }
+type WorkflowDestinationArrayOutput struct{ *pulumi.OutputState }
 
-func (WorkflowDestinationConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkflowDestinationConfiguration)(nil)).Elem()
+func (WorkflowDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowDestination)(nil)).Elem()
 }
 
-func (o WorkflowDestinationConfigurationArrayOutput) ToWorkflowDestinationConfigurationArrayOutput() WorkflowDestinationConfigurationArrayOutput {
+func (o WorkflowDestinationArrayOutput) ToWorkflowDestinationArrayOutput() WorkflowDestinationArrayOutput {
 	return o
 }
 
-func (o WorkflowDestinationConfigurationArrayOutput) ToWorkflowDestinationConfigurationArrayOutputWithContext(ctx context.Context) WorkflowDestinationConfigurationArrayOutput {
+func (o WorkflowDestinationArrayOutput) ToWorkflowDestinationArrayOutputWithContext(ctx context.Context) WorkflowDestinationArrayOutput {
 	return o
 }
 
-func (o WorkflowDestinationConfigurationArrayOutput) Index(i pulumi.IntInput) WorkflowDestinationConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowDestinationConfiguration {
-		return vs[0].([]WorkflowDestinationConfiguration)[vs[1].(int)]
-	}).(WorkflowDestinationConfigurationOutput)
+func (o WorkflowDestinationArrayOutput) Index(i pulumi.IntInput) WorkflowDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowDestination {
+		return vs[0].([]WorkflowDestination)[vs[1].(int)]
+	}).(WorkflowDestinationOutput)
 }
 
 type WorkflowEnrichments struct {
@@ -8613,7 +8625,7 @@ type WorkflowEnrichmentsNrql struct {
 	// A nrql enrichment name.
 	Name string `pulumi:"name"`
 	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicates`
+	// * `predicate`
 	Type *string `pulumi:"type"`
 }
 
@@ -8637,7 +8649,7 @@ type WorkflowEnrichmentsNrqlArgs struct {
 	// A nrql enrichment name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicates`
+	// * `predicate`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8712,7 +8724,7 @@ func (o WorkflowEnrichmentsNrqlOutput) Name() pulumi.StringOutput {
 }
 
 // the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicates`
+// * `predicate`
 func (o WorkflowEnrichmentsNrqlOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8840,7 +8852,7 @@ type WorkflowIssuesFilter struct {
 	Name       string                          `pulumi:"name"`
 	Predicates []WorkflowIssuesFilterPredicate `pulumi:"predicates"`
 	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicates`
+	// * `predicate`
 	Type string `pulumi:"type"`
 }
 
@@ -8861,7 +8873,7 @@ type WorkflowIssuesFilterArgs struct {
 	Name       pulumi.StringInput                      `pulumi:"name"`
 	Predicates WorkflowIssuesFilterPredicateArrayInput `pulumi:"predicates"`
 	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicates`
+	// * `predicate`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8956,7 +8968,7 @@ func (o WorkflowIssuesFilterOutput) Predicates() WorkflowIssuesFilterPredicateAr
 }
 
 // the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicates`
+// * `predicate`
 func (o WorkflowIssuesFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9014,7 +9026,7 @@ func (o WorkflowIssuesFilterPtrOutput) Predicates() WorkflowIssuesFilterPredicat
 }
 
 // the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicates`
+// * `predicate`
 func (o WorkflowIssuesFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {
@@ -9025,9 +9037,9 @@ func (o WorkflowIssuesFilterPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WorkflowIssuesFilterPredicate struct {
-	// A predicates attribute.
+	// A predicate's attribute.
 	Attribute string `pulumi:"attribute"`
-	// A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+	// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
 	Operator string `pulumi:"operator"`
 	// A list of values.
 	Values []string `pulumi:"values"`
@@ -9045,9 +9057,9 @@ type WorkflowIssuesFilterPredicateInput interface {
 }
 
 type WorkflowIssuesFilterPredicateArgs struct {
-	// A predicates attribute.
+	// A predicate's attribute.
 	Attribute pulumi.StringInput `pulumi:"attribute"`
-	// A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+	// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// A list of values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -9104,12 +9116,12 @@ func (o WorkflowIssuesFilterPredicateOutput) ToWorkflowIssuesFilterPredicateOutp
 	return o
 }
 
-// A predicates attribute.
+// A predicate's attribute.
 func (o WorkflowIssuesFilterPredicateOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-// A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
 func (o WorkflowIssuesFilterPredicateOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -9557,8 +9569,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowRollingPtrInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowRollingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationConfigurationInput)(nil)).Elem(), WorkflowDestinationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationConfigurationArrayInput)(nil)).Elem(), WorkflowDestinationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationInput)(nil)).Elem(), WorkflowDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDestinationArrayInput)(nil)).Elem(), WorkflowDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsInput)(nil)).Elem(), WorkflowEnrichmentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsPtrInput)(nil)).Elem(), WorkflowEnrichmentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnrichmentsNrqlInput)(nil)).Elem(), WorkflowEnrichmentsNrqlArgs{})
@@ -9678,8 +9690,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowRollingPtrOutput{})
-	pulumi.RegisterOutputType(WorkflowDestinationConfigurationOutput{})
-	pulumi.RegisterOutputType(WorkflowDestinationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowDestinationOutput{})
+	pulumi.RegisterOutputType(WorkflowDestinationArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowEnrichmentsOutput{})
 	pulumi.RegisterOutputType(WorkflowEnrichmentsPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEnrichmentsNrqlOutput{})

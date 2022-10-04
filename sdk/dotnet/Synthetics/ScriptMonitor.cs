@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
-    /// &gt; **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+    /// &gt; **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -56,7 +56,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// ##### Type: `SCRIPT_BROWSER`
     /// 
-    /// &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. Other runtime may be deprecated in the future and receive fewer product updates.
+    /// &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -83,11 +83,11 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
     ///             {
-    ///                 Key = "Name",
+    ///                 Key = "some_key",
     ///                 Values = new[]
     ///                 {
-    ///                     "scriptedMonitor",
-    ///                     "hello",
+    ///                     "some_value1",
+    ///                     "some_value2",
     ///                 },
     ///             },
     ///         },
@@ -104,8 +104,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// The below example shows how you can define a private location and attach it to a monitor.
     /// 
     /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
-    /// 
-    /// &gt; **NOTE:** Currently, it's only possible to use a private location with a monitor running on a legacy runtime. Leave `runtime_type_version`, `runtime_type` &amp; `script_language` empty to use legacy runtime. See example below.
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
@@ -133,10 +131,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///             },
     ///         },
     ///         Period = "EVERY_6_HOURS",
-    ///         RuntimeType = "",
-    ///         RuntimeTypeVersion = "",
+    ///         RuntimeType = "NODE_API",
+    ///         RuntimeTypeVersion = "16.10",
     ///         Script = "console.log('terraform integration test updated')",
-    ///         ScriptLanguage = "",
+    ///         ScriptLanguage = "JAVASCRIPT",
     ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
@@ -155,8 +153,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// });
     /// ```
     /// ##### Type: `SCRIPT_BROWSER`
-    /// 
-    /// &gt; **NOTE:** Currently, it's only possible to use a private location with a monitor running on a legacy runtime. Leave `runtime_type_version`, `runtime_type` &amp; `script_language` empty to use legacy runtime. See example below.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -183,10 +179,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///             },
     ///         },
     ///         Period = "EVERY_HOUR",
-    ///         RuntimeType = "",
-    ///         RuntimeTypeVersion = "",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
     ///         Script = "$browser.get('https://one.newrelic.com')",
-    ///         ScriptLanguage = "",
+    ///         ScriptLanguage = "JAVASCRIPT",
     ///         Status = "DISABLED",
     ///         Tags = new[]
     ///         {
@@ -241,7 +237,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<Outputs.ScriptMonitorLocationPrivate>> LocationPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         [Output("locationsPublics")]
         public Output<ImmutableArray<string>> LocationsPublics { get; private set; } = null!;
@@ -374,7 +370,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {
@@ -484,7 +480,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. At least one of either `locations_public` or `location_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {

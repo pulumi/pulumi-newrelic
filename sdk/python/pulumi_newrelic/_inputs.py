@@ -63,7 +63,7 @@ __all__ = [
     'ServiceLevelObjectiveArgs',
     'ServiceLevelObjectiveTimeWindowArgs',
     'ServiceLevelObjectiveTimeWindowRollingArgs',
-    'WorkflowDestinationConfigurationArgs',
+    'WorkflowDestinationArgs',
     'WorkflowEnrichmentsArgs',
     'WorkflowEnrichmentsNrqlArgs',
     'WorkflowEnrichmentsNrqlConfigurationArgs',
@@ -2529,9 +2529,11 @@ class OneDashboardPageWidgetHeatmapArgs:
                  nrql_queries: pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]],
                  row: pulumi.Input[int],
                  title: pulumi.Input[str],
+                 filter_current_dashboard: Optional[pulumi.Input[bool]] = None,
                  height: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ignore_time_range: Optional[pulumi.Input[bool]] = None,
+                 linked_entity_guids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
@@ -2548,12 +2550,16 @@ class OneDashboardPageWidgetHeatmapArgs:
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if filter_current_dashboard is not None:
+            pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if linked_entity_guids is not None:
+            pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
         if width is not None:
             pulumi.set(__self__, "width", width)
 
@@ -2608,6 +2614,15 @@ class OneDashboardPageWidgetHeatmapArgs:
         pulumi.set(self, "title", value)
 
     @property
+    @pulumi.getter(name="filterCurrentDashboard")
+    def filter_current_dashboard(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "filter_current_dashboard")
+
+    @filter_current_dashboard.setter
+    def filter_current_dashboard(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "filter_current_dashboard", value)
+
+    @property
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2639,6 +2654,15 @@ class OneDashboardPageWidgetHeatmapArgs:
     @ignore_time_range.setter
     def ignore_time_range(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_time_range", value)
+
+    @property
+    @pulumi.getter(name="linkedEntityGuids")
+    def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "linked_entity_guids")
+
+    @linked_entity_guids.setter
+    def linked_entity_guids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_entity_guids", value)
 
     @property
     @pulumi.getter
@@ -4590,7 +4614,7 @@ class ServiceLevelObjectiveTimeWindowRollingArgs:
 
 
 @pulumi.input_type
-class WorkflowDestinationConfigurationArgs:
+class WorkflowDestinationArgs:
     def __init__(__self__, *,
                  channel_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -4598,7 +4622,7 @@ class WorkflowDestinationConfigurationArgs:
         """
         :param pulumi.Input[str] name: A nrql enrichment name.
         :param pulumi.Input[str] type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicates`
+               * `predicate`
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
@@ -4632,7 +4656,7 @@ class WorkflowDestinationConfigurationArgs:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicates`
+        * `predicate`
         """
         return pulumi.get(self, "type")
 
@@ -4670,7 +4694,7 @@ class WorkflowEnrichmentsNrqlArgs:
         :param pulumi.Input[str] name: A nrql enrichment name.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
         :param pulumi.Input[str] type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicates`
+               * `predicate`
         """
         pulumi.set(__self__, "configurations", configurations)
         pulumi.set(__self__, "name", name)
@@ -4731,7 +4755,7 @@ class WorkflowEnrichmentsNrqlArgs:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicates`
+        * `predicate`
         """
         return pulumi.get(self, "type")
 
@@ -4772,7 +4796,7 @@ class WorkflowIssuesFilterArgs:
         """
         :param pulumi.Input[str] name: A nrql enrichment name.
         :param pulumi.Input[str] type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicates`
+               * `predicate`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -4798,7 +4822,7 @@ class WorkflowIssuesFilterArgs:
     def type(self) -> pulumi.Input[str]:
         """
         the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicates`
+        * `predicate`
         """
         return pulumi.get(self, "type")
 
@@ -4832,8 +4856,8 @@ class WorkflowIssuesFilterPredicateArgs:
                  operator: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[str] attribute: A predicates attribute.
-        :param pulumi.Input[str] operator: A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        :param pulumi.Input[str] attribute: A predicate's attribute.
+        :param pulumi.Input[str] operator: A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -4844,7 +4868,7 @@ class WorkflowIssuesFilterPredicateArgs:
     @pulumi.getter
     def attribute(self) -> pulumi.Input[str]:
         """
-        A predicates attribute.
+        A predicate's attribute.
         """
         return pulumi.get(self, "attribute")
 
@@ -4856,7 +4880,7 @@ class WorkflowIssuesFilterPredicateArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        A predicates operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
         """
         return pulumi.get(self, "operator")
 

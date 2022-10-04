@@ -91,13 +91,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. Exactly one of `locations_public` or `locations_private` is required. See Nested locations_private blocks below for details.
+        /// The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         /// </summary>
         [Output("locationPrivates")]
         public Output<ImmutableArray<Outputs.StepMonitorLocationPrivate>> LocationPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locations_public` or `locations_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         [Output("locationsPublics")]
         public Output<ImmutableArray<string>> LocationsPublics { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.StepMonitorLocationPrivateArgs>? _locationPrivates;
 
         /// <summary>
-        /// The location the monitor will run from. Exactly one of `locations_public` or `locations_private` is required. See Nested locations_private blocks below for details.
+        /// The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         /// </summary>
         public InputList<Inputs.StepMonitorLocationPrivateArgs> LocationPrivates
         {
@@ -206,7 +206,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locations_public` or `locations_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {
@@ -286,7 +286,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.StepMonitorLocationPrivateGetArgs>? _locationPrivates;
 
         /// <summary>
-        /// The location the monitor will run from. Exactly one of `locations_public` or `locations_private` is required. See Nested locations_private blocks below for details.
+        /// The location the monitor will run from. At least one of `locations_public` or `location_private` is required. See Nested locations_private blocks below for details.
         /// </summary>
         public InputList<Inputs.StepMonitorLocationPrivateGetArgs> LocationPrivates
         {
@@ -298,7 +298,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<string>? _locationsPublics;
 
         /// <summary>
-        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. Exactly one of `locations_public` or `locations_private` is required.
+        /// The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
         /// </summary>
         public InputList<string> LocationsPublics
         {

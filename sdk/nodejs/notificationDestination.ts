@@ -5,133 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * Use this resource to create and manage New Relic notification destinations. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
- *
- * ## Example Usage
- *
- * ##### [Webhook](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#webhook)
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.NotificationDestination("foo", {
- *     accountId: 12345678,
- *     authBasic: {
- *         password: "password",
- *         user: "username",
- *     },
- *     properties: [{
- *         key: "url",
- *         value: "https://webhook.site/",
- *     }],
- *     type: "WEBHOOK",
- * });
- * ```
- * See additional examples.
- * ## Additional Examples
- *
- * ##### [ServiceNow](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#servicenow)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.NotificationDestination("foo", {
- *     accountId: 12345678,
- *     authBasic: {
- *         password: "password",
- *         user: "username",
- *     },
- *     properties: [
- *         {
- *             key: "url",
- *             value: "https://service-now.com/",
- *         },
- *         {
- *             key: "two_way_integration",
- *             value: "true",
- *         },
- *     ],
- *     type: "SERVICE_NOW",
- * });
- * ```
- *
- * ##### [Email](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#email)
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.NotificationDestination("foo", {
- *     accountId: 12345678,
- *     properties: [{
- *         key: "email",
- *         value: "email@email.com,email2@email.com",
- *     }],
- *     type: "EMAIL",
- * });
- * ```
- *
- * ##### [Jira](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#jira)
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.NotificationDestination("foo", {
- *     accountId: 12345678,
- *     authBasic: {
- *         password: "password",
- *         user: "example@email.com",
- *     },
- *     properties: [{
- *         key: "url",
- *         value: "https://example.atlassian.net",
- *     }],
- *     type: "JIRA",
- * });
- * ```
- *
- * ##### [PagerDuty with service integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-sli)
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.NotificationDestination("foo", {
- *     accountId: 12345678,
- *     authToken: {
- *         prefix: "Token token=",
- *         token: "10567a689d984d03c021034b22a789e2",
- *     },
- *     type: "PAGERDUTY_SERVICE_INTEGRATION",
- * });
- * ```
- *
- * ##### [PagerDuty with account integration](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/#pagerduty-ali)
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.NotificationDestination("foo", {
- *     accountId: 12345678,
- *     authToken: {
- *         prefix: "Token token=",
- *         token: "u+E8EU3MhsZwLfZ1ic1A",
- *     },
- *     properties: [{
- *         key: "two_way_integration",
- *         value: "true",
- *     }],
- *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
- * });
- * ```
- *
- * > **NOTE:** Sensitive data such as destination API keys, service keys, auth object, etc are not returned from the underlying API for security reasons and may not be set in state when importing.
- *
- * ## Additional Information
- *
- * More information about destinations integrations can be found in NewRelic [documentation](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/notification-integrations/).
- * More details about the destinations API can be found [here](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-destinations).
- */
 export class NotificationDestination extends pulumi.CustomResource {
     /**
      * Get an existing NotificationDestination resource's state with the given name, ID, and optional extra
@@ -177,10 +50,6 @@ export class NotificationDestination extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<outputs.NotificationDestinationAuthToken | undefined>;
     /**
-     * Indicates whether the user is authenticated with the destination.
-     */
-    public /*out*/ readonly isUserAuthenticated!: pulumi.Output<boolean>;
-    /**
      * The last time a notification was sent.
      */
     public /*out*/ readonly lastSent!: pulumi.Output<string>;
@@ -197,7 +66,8 @@ export class NotificationDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -218,7 +88,6 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["active"] = state ? state.active : undefined;
             resourceInputs["authBasic"] = state ? state.authBasic : undefined;
             resourceInputs["authToken"] = state ? state.authToken : undefined;
-            resourceInputs["isUserAuthenticated"] = state ? state.isUserAuthenticated : undefined;
             resourceInputs["lastSent"] = state ? state.lastSent : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
@@ -239,7 +108,6 @@ export class NotificationDestination extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["isUserAuthenticated"] = undefined /*out*/;
             resourceInputs["lastSent"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -269,10 +137,6 @@ export interface NotificationDestinationState {
      */
     authToken?: pulumi.Input<inputs.NotificationDestinationAuthToken>;
     /**
-     * Indicates whether the user is authenticated with the destination.
-     */
-    isUserAuthenticated?: pulumi.Input<boolean>;
-    /**
      * The last time a notification was sent.
      */
     lastSent?: pulumi.Input<string>;
@@ -289,7 +153,8 @@ export interface NotificationDestinationState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      */
     type?: pulumi.Input<string>;
 }
@@ -323,7 +188,8 @@ export interface NotificationDestinationArgs {
      */
     properties: pulumi.Input<pulumi.Input<inputs.NotificationDestinationProperty>[]>;
     /**
-     * The type of destination.  One of: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`.
+     * (Required) The type of the destination. One of: (WEBHOOK, EMAIL, SERVICE_NOW, PAGERDUTY_ACCOUNT_INTEGRATION,
+     * PAGERDUTY_SERVICE_INTEGRATION, JIRA, SLACK, SLACK_COLLABORATION, SLACK_LEGACY, MOBILE_PUSH, EVENT_BRIDGE).
      */
     type: pulumi.Input<string>;
 }

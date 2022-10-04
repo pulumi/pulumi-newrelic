@@ -4,14 +4,13 @@ go 1.18
 
 require (
 	github.com/newrelic/terraform-provider-newrelic/v2 v2.2.1
-	github.com/pulumi/pulumi-newrelic/provider/v4 v4.0.0-20220830183622-853a0ea8a491
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.30.0
 	github.com/pulumi/pulumi/sdk/v3 v3.39.0
 )
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
-	github.com/newrelic/terraform-provider-newrelic/v2 => github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20220908193619-3ee79a7e6a71
+	github.com/newrelic/terraform-provider-newrelic/v2 => github.com/pulumi/terraform-provider-newrelic/v2 v2.19.1-0.20221004050423-ff5767d64151
 )
 
 require (
@@ -149,7 +148,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/newrelic/go-insights v1.0.3 // indirect
-	github.com/newrelic/newrelic-client-go v0.90.0 // indirect
+	github.com/newrelic/newrelic-client-go v0.91.1 // indirect
 	github.com/oklog/run v1.0.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
