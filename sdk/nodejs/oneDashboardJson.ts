@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- * ### Create A New Relic One Dashboard From A JSON File
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as fs from "fs";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.OneDashboardJson("foo", {json: fs.readFileSync("dashboard.json")});
- * ```
- */
 export class OneDashboardJson extends pulumi.CustomResource {
     /**
      * Get an existing OneDashboardJson resource's state with the given name, ID, and optional extra
@@ -53,7 +41,7 @@ export class OneDashboardJson extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
-     * The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */
     public readonly json!: pulumi.Output<string>;
     /**
@@ -112,7 +100,7 @@ export interface OneDashboardJsonState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */
     json?: pulumi.Input<string>;
     /**
@@ -134,7 +122,7 @@ export interface OneDashboardJsonArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      */
     json: pulumi.Input<string>;
 }

@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete a synthetics certificate check monitor in New Relic.
+ * Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
  * 
  * ## Example Usage
  * ```java
@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cert_check_monitor = new CertCheckMonitor(&#34;cert-check-monitor&#34;, CertCheckMonitorArgs.builder()        
  *             .certificateExpiration(&#34;10&#34;)
- *             .domain(&#34;http://www.example.com&#34;)
+ *             .domain(&#34;www.example.com&#34;)
  *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
@@ -90,13 +90,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Test Description&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
  *         var monitor = new CertCheckMonitor(&#34;monitor&#34;, CertCheckMonitorArgs.builder()        
- *             .locationsPrivates(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *             .locationsPrivates(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(CertCheckMonitorTagArgs.builder()

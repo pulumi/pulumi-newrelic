@@ -34,9 +34,7 @@ public final class OneDashboardPageWidgetHeatmap {
     private @Nullable Boolean ignoreTimeRange;
     private @Nullable List<String> linkedEntityGuids;
     /**
-     * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
     private List<OneDashboardPageWidgetHeatmapNrqlQuery> nrqlQueries;
@@ -46,7 +44,7 @@ public final class OneDashboardPageWidgetHeatmap {
      */
     private Integer row;
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     private String title;
@@ -88,9 +86,7 @@ public final class OneDashboardPageWidgetHeatmap {
         return this.linkedEntityGuids == null ? List.of() : this.linkedEntityGuids;
     }
     /**
-     * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
     public List<OneDashboardPageWidgetHeatmapNrqlQuery> nrqlQueries() {
@@ -104,7 +100,7 @@ public final class OneDashboardPageWidgetHeatmap {
         return this.row;
     }
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     public String title() {

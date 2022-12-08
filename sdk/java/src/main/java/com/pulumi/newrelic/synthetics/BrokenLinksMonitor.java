@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete the synthetics broken links monitor in New Relic.
+ * Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
  * 
  * ## Example Usage
  * ```java
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Test Description&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
  *         var monitor = new BrokenLinksMonitor(&#34;monitor&#34;, BrokenLinksMonitorArgs.builder()        
- *             .locationsPrivates(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *             .locationsPrivates(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(BrokenLinksMonitorTagArgs.builder()
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor foo &lt;guid&gt;
+ *  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor &lt;guid&gt;
  * ```
  * 
  */
@@ -233,14 +233,14 @@ public class BrokenLinksMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      * 
      */
     @Export(name="uri", type=String.class, parameters={})
     private Output<String> uri;
 
     /**
-     * @return The uri the monitor runs against.
+     * @return The URI the monitor runs against.
      * 
      */
     public Output<String> uri() {

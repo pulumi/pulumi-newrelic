@@ -22,14 +22,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkflowArgs Empty = new WorkflowArgs();
 
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -37,14 +37,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A nested block that contains a channel id.
+     * Notification configuration. See Nested destination blocks below for details.
      * 
      */
     @Import(name="destinations", required=true)
     private Output<List<WorkflowDestinationArgs>> destinations;
 
     /**
-     * @return A nested block that contains a channel id.
+     * @return Notification configuration. See Nested destination blocks below for details.
      * 
      */
     public Output<List<WorkflowDestinationArgs>> destinations() {
@@ -52,29 +52,39 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether destinations are enabled..
+     * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
+     * 
+     * @deprecated
+     * Please use &#39;enabled&#39; instead
      * 
      */
+    @Deprecated /* Please use 'enabled' instead */
     @Import(name="destinationsEnabled")
     private @Nullable Output<Boolean> destinationsEnabled;
 
     /**
-     * @return Whether destinations are enabled..
+     * @return **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
+     * 
+     * @deprecated
+     * Please use &#39;enabled&#39; instead
      * 
      */
+    @Deprecated /* Please use 'enabled' instead */
     public Optional<Output<Boolean>> destinationsEnabled() {
         return Optional.ofNullable(this.destinationsEnabled);
     }
 
     /**
-     * Whether workflow is enabled.
+     * Whether workflow is enabled. Defaults to true.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether workflow is enabled.
+     * @return Whether workflow is enabled. Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -82,14 +92,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A nested block that describes a workflow&#39;s enrichments. See Nested enrichments blocks below for details.
+     * Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
      * 
      */
     @Import(name="enrichments")
     private @Nullable Output<WorkflowEnrichmentsArgs> enrichments;
 
     /**
-     * @return A nested block that describes a workflow&#39;s enrichments. See Nested enrichments blocks below for details.
+     * @return Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
      * 
      */
     public Optional<Output<WorkflowEnrichmentsArgs>> enrichments() {
@@ -97,14 +107,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether enrichments are enabled..
+     * Whether enrichments are enabled. Defaults to true.
      * 
      */
     @Import(name="enrichmentsEnabled")
     private @Nullable Output<Boolean> enrichmentsEnabled;
 
     /**
-     * @return Whether enrichments are enabled..
+     * @return Whether enrichments are enabled. Defaults to true.
      * 
      */
     public Optional<Output<Boolean>> enrichmentsEnabled() {
@@ -112,14 +122,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The issues filter.  See Nested issues_filter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */
     @Import(name="issuesFilter", required=true)
     private Output<WorkflowIssuesFilterArgs> issuesFilter;
 
     /**
-     * @return The issues filter.  See Nested issues_filter blocks below for details.
+     * @return A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */
     public Output<WorkflowIssuesFilterArgs> issuesFilter() {
@@ -127,14 +137,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Which muting rule handling this workflow has.
+     * How to handle muted issues. See Muting Rules below for details.
      * 
      */
     @Import(name="mutingRulesHandling", required=true)
     private Output<String> mutingRulesHandling;
 
     /**
-     * @return Which muting rule handling this workflow has.
+     * @return How to handle muted issues. See Muting Rules below for details.
      * 
      */
     public Output<String> mutingRulesHandling() {
@@ -142,14 +152,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public Optional<Output<String>> name() {
@@ -189,7 +199,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+         * @param accountId Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
          * 
          * @return builder
          * 
@@ -200,7 +210,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+         * @param accountId Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
          * 
          * @return builder
          * 
@@ -210,7 +220,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations A nested block that contains a channel id.
+         * @param destinations Notification configuration. See Nested destination blocks below for details.
          * 
          * @return builder
          * 
@@ -221,7 +231,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations A nested block that contains a channel id.
+         * @param destinations Notification configuration. See Nested destination blocks below for details.
          * 
          * @return builder
          * 
@@ -231,7 +241,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations A nested block that contains a channel id.
+         * @param destinations Notification configuration. See Nested destination blocks below for details.
          * 
          * @return builder
          * 
@@ -241,28 +251,38 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationsEnabled Whether destinations are enabled..
+         * @param destinationsEnabled **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+         * these two are different flags, but they are functionally identical. Defaults to true.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Please use &#39;enabled&#39; instead
+         * 
          */
+        @Deprecated /* Please use 'enabled' instead */
         public Builder destinationsEnabled(@Nullable Output<Boolean> destinationsEnabled) {
             $.destinationsEnabled = destinationsEnabled;
             return this;
         }
 
         /**
-         * @param destinationsEnabled Whether destinations are enabled..
+         * @param destinationsEnabled **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+         * these two are different flags, but they are functionally identical. Defaults to true.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Please use &#39;enabled&#39; instead
+         * 
          */
+        @Deprecated /* Please use 'enabled' instead */
         public Builder destinationsEnabled(Boolean destinationsEnabled) {
             return destinationsEnabled(Output.of(destinationsEnabled));
         }
 
         /**
-         * @param enabled Whether workflow is enabled.
+         * @param enabled Whether workflow is enabled. Defaults to true.
          * 
          * @return builder
          * 
@@ -273,7 +293,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether workflow is enabled.
+         * @param enabled Whether workflow is enabled. Defaults to true.
          * 
          * @return builder
          * 
@@ -283,7 +303,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enrichments A nested block that describes a workflow&#39;s enrichments. See Nested enrichments blocks below for details.
+         * @param enrichments Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
          * 
          * @return builder
          * 
@@ -294,7 +314,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enrichments A nested block that describes a workflow&#39;s enrichments. See Nested enrichments blocks below for details.
+         * @param enrichments Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
          * 
          * @return builder
          * 
@@ -304,7 +324,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enrichmentsEnabled Whether enrichments are enabled..
+         * @param enrichmentsEnabled Whether enrichments are enabled. Defaults to true.
          * 
          * @return builder
          * 
@@ -315,7 +335,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enrichmentsEnabled Whether enrichments are enabled..
+         * @param enrichmentsEnabled Whether enrichments are enabled. Defaults to true.
          * 
          * @return builder
          * 
@@ -325,7 +345,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuesFilter The issues filter.  See Nested issues_filter blocks below for details.
+         * @param issuesFilter A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
          * 
          * @return builder
          * 
@@ -336,7 +356,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuesFilter The issues filter.  See Nested issues_filter blocks below for details.
+         * @param issuesFilter A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
          * 
          * @return builder
          * 
@@ -346,7 +366,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mutingRulesHandling Which muting rule handling this workflow has.
+         * @param mutingRulesHandling How to handle muted issues. See Muting Rules below for details.
          * 
          * @return builder
          * 
@@ -357,7 +377,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mutingRulesHandling Which muting rule handling this workflow has.
+         * @param mutingRulesHandling How to handle muted issues. See Muting Rules below for details.
          * 
          * @return builder
          * 
@@ -367,7 +387,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -378,7 +398,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 

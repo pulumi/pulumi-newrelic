@@ -83,6 +83,17 @@ func NewAwsGovcloudLinkAccount(ctx *pulumi.Context,
 	if args.SecretAccessKey == nil {
 		return nil, errors.New("invalid value for required argument 'SecretAccessKey'")
 	}
+	if args.AccessKeyId != nil {
+		args.AccessKeyId = pulumi.ToSecret(args.AccessKeyId).(pulumi.StringOutput)
+	}
+	if args.SecretAccessKey != nil {
+		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessKeyId",
+		"secretAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource AwsGovcloudLinkAccount
 	err := ctx.RegisterResource("newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -5,28 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alertCondition";
-export * from "./brokenLinksMonitor";
-export * from "./certCheckMonitor";
-export * from "./getPrivateLocation";
-export * from "./getSecureCredential";
-export * from "./monitor";
-export * from "./multiLocationAlertCondition";
-export * from "./privateLocation";
-export * from "./scriptMonitor";
-export * from "./secureCredential";
-export * from "./stepMonitor";
+export { AlertConditionArgs, AlertConditionState } from "./alertCondition";
+export type AlertCondition = import("./alertCondition").AlertCondition;
+export const AlertCondition: typeof import("./alertCondition").AlertCondition = null as any;
+utilities.lazyLoad(exports, ["AlertCondition"], () => require("./alertCondition"));
 
-// Import resources to register:
-import { AlertCondition } from "./alertCondition";
-import { BrokenLinksMonitor } from "./brokenLinksMonitor";
-import { CertCheckMonitor } from "./certCheckMonitor";
-import { Monitor } from "./monitor";
-import { MultiLocationAlertCondition } from "./multiLocationAlertCondition";
-import { PrivateLocation } from "./privateLocation";
-import { ScriptMonitor } from "./scriptMonitor";
-import { SecureCredential } from "./secureCredential";
-import { StepMonitor } from "./stepMonitor";
+export { BrokenLinksMonitorArgs, BrokenLinksMonitorState } from "./brokenLinksMonitor";
+export type BrokenLinksMonitor = import("./brokenLinksMonitor").BrokenLinksMonitor;
+export const BrokenLinksMonitor: typeof import("./brokenLinksMonitor").BrokenLinksMonitor = null as any;
+utilities.lazyLoad(exports, ["BrokenLinksMonitor"], () => require("./brokenLinksMonitor"));
+
+export { CertCheckMonitorArgs, CertCheckMonitorState } from "./certCheckMonitor";
+export type CertCheckMonitor = import("./certCheckMonitor").CertCheckMonitor;
+export const CertCheckMonitor: typeof import("./certCheckMonitor").CertCheckMonitor = null as any;
+utilities.lazyLoad(exports, ["CertCheckMonitor"], () => require("./certCheckMonitor"));
+
+export { GetPrivateLocationArgs, GetPrivateLocationResult, GetPrivateLocationOutputArgs } from "./getPrivateLocation";
+export const getPrivateLocation: typeof import("./getPrivateLocation").getPrivateLocation = null as any;
+export const getPrivateLocationOutput: typeof import("./getPrivateLocation").getPrivateLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLocation","getPrivateLocationOutput"], () => require("./getPrivateLocation"));
+
+export { GetSecureCredentialArgs, GetSecureCredentialResult, GetSecureCredentialOutputArgs } from "./getSecureCredential";
+export const getSecureCredential: typeof import("./getSecureCredential").getSecureCredential = null as any;
+export const getSecureCredentialOutput: typeof import("./getSecureCredential").getSecureCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getSecureCredential","getSecureCredentialOutput"], () => require("./getSecureCredential"));
+
+export { MonitorArgs, MonitorState } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { MultiLocationAlertConditionArgs, MultiLocationAlertConditionState } from "./multiLocationAlertCondition";
+export type MultiLocationAlertCondition = import("./multiLocationAlertCondition").MultiLocationAlertCondition;
+export const MultiLocationAlertCondition: typeof import("./multiLocationAlertCondition").MultiLocationAlertCondition = null as any;
+utilities.lazyLoad(exports, ["MultiLocationAlertCondition"], () => require("./multiLocationAlertCondition"));
+
+export { PrivateLocationArgs, PrivateLocationState } from "./privateLocation";
+export type PrivateLocation = import("./privateLocation").PrivateLocation;
+export const PrivateLocation: typeof import("./privateLocation").PrivateLocation = null as any;
+utilities.lazyLoad(exports, ["PrivateLocation"], () => require("./privateLocation"));
+
+export { ScriptMonitorArgs, ScriptMonitorState } from "./scriptMonitor";
+export type ScriptMonitor = import("./scriptMonitor").ScriptMonitor;
+export const ScriptMonitor: typeof import("./scriptMonitor").ScriptMonitor = null as any;
+utilities.lazyLoad(exports, ["ScriptMonitor"], () => require("./scriptMonitor"));
+
+export { SecureCredentialArgs, SecureCredentialState } from "./secureCredential";
+export type SecureCredential = import("./secureCredential").SecureCredential;
+export const SecureCredential: typeof import("./secureCredential").SecureCredential = null as any;
+utilities.lazyLoad(exports, ["SecureCredential"], () => require("./secureCredential"));
+
+export { StepMonitorArgs, StepMonitorState } from "./stepMonitor";
+export type StepMonitor = import("./stepMonitor").StepMonitor;
+export const StepMonitor: typeof import("./stepMonitor").StepMonitor = null as any;
+utilities.lazyLoad(exports, ["StepMonitor"], () => require("./stepMonitor"));
+
 
 const _module = {
     version: utilities.getVersion(),

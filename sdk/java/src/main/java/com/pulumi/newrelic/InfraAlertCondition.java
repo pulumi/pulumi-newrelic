@@ -160,14 +160,14 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
     @Export(name="critical", type=InfraAlertConditionCritical.class, parameters={})
     private Output</* @Nullable */ InfraAlertConditionCritical> critical;
 
     /**
-     * @return Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * @return Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
     public Output<Optional<InfraAlertConditionCritical>> critical() {
@@ -328,28 +328,28 @@ public class InfraAlertCondition extends com.pulumi.resources.CustomResource {
         return this.updatedAt;
     }
     /**
-     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
      */
     @Export(name="violationCloseTimer", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
-     * @return Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {
         return Codegen.optional(this.violationCloseTimer);
     }
     /**
-     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
     @Export(name="warning", type=InfraAlertConditionWarning.class, parameters={})
     private Output</* @Nullable */ InfraAlertConditionWarning> warning;
 
     /**
-     * @return Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * @return Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
     public Output<Optional<InfraAlertConditionWarning>> warning() {

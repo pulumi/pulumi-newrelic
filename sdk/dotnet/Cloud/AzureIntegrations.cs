@@ -64,43 +64,43 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsCostManagement?> CostManagement { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Data Factory. See Integration blocks below for details.
+        /// Azure Data Factory. See Integration blocks below for details.
         /// </summary>
         [Output("dataFactory")]
         public Output<Outputs.AzureIntegrationsDataFactory?> DataFactory { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Event Hub. See Integration blocks below for details.
+        /// Azure Event Hub. See Integration blocks below for details.
         /// </summary>
         [Output("eventHub")]
         public Output<Outputs.AzureIntegrationsEventHub?> EventHub { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Express Route. See Integration blocks below for details.
+        /// Azure Express Route. See Integration blocks below for details.
         /// </summary>
         [Output("expressRoute")]
         public Output<Outputs.AzureIntegrationsExpressRoute?> ExpressRoute { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Firewalls. See Integration blocks below for details.
+        /// Azure Firewalls. See Integration blocks below for details.
         /// </summary>
         [Output("firewalls")]
         public Output<Outputs.AzureIntegrationsFirewalls?> Firewalls { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Front Door. See Integration blocks below for details.
+        /// Azure Front Door. See Integration blocks below for details.
         /// </summary>
         [Output("frontDoor")]
         public Output<Outputs.AzureIntegrationsFrontDoor?> FrontDoor { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Functions. See Integration blocks below for details.
+        /// Azure Functions. See Integration blocks below for details.
         /// </summary>
         [Output("functions")]
         public Output<Outputs.AzureIntegrationsFunctions?> Functions { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Key Vault. See Integration blocks below for details.
+        /// Azure Key Vault. See Integration blocks below for details.
         /// </summary>
         [Output("keyVault")]
         public Output<Outputs.AzureIntegrationsKeyVault?> KeyVault { get; private set; } = null!;
@@ -112,67 +112,79 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> LinkedAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Load Balancer. See Integration blocks below for details.
+        /// Azure Load Balancer. See Integration blocks below for details.
         /// </summary>
         [Output("loadBalancer")]
         public Output<Outputs.AzureIntegrationsLoadBalancer?> LoadBalancer { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Logic Apps. See Integration blocks below for details.
+        /// Azure Logic Apps. See Integration blocks below for details.
         /// </summary>
         [Output("logicApps")]
         public Output<Outputs.AzureIntegrationsLogicApps?> LogicApps { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Machine Learning. See Integration blocks below for details.
+        /// Azure Machine Learning. See Integration blocks below for details.
         /// </summary>
         [Output("machineLearning")]
         public Output<Outputs.AzureIntegrationsMachineLearning?> MachineLearning { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure MariaDB. See Integration blocks below for details.
+        /// Azure MariaDB. See Integration blocks below for details.
         /// </summary>
         [Output("mariaDb")]
         public Output<Outputs.AzureIntegrationsMariaDb?> MariaDb { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure MySQL. See Integration blocks below for details.
+        /// Azure MySQL. See Integration blocks below for details.
         /// </summary>
         [Output("mysql")]
         public Output<Outputs.AzureIntegrationsMysql?> Mysql { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure PostgreSQL. See Integration blocks below for details.
+        /// Azure MySQL Flexible Server. See Integration blocks below for details.
+        /// </summary>
+        [Output("mysqlFlexible")]
+        public Output<Outputs.AzureIntegrationsMysqlFlexible?> MysqlFlexible { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure PostgreSQL. See Integration blocks below for details.
         /// </summary>
         [Output("postgresql")]
         public Output<Outputs.AzureIntegrationsPostgresql?> Postgresql { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Power BI Dedicated. See Integration blocks below for details.
+        /// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        /// </summary>
+        [Output("postgresqlFlexible")]
+        public Output<Outputs.AzureIntegrationsPostgresqlFlexible?> PostgresqlFlexible { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Power BI Dedicated. See Integration blocks below for details.
         /// </summary>
         [Output("powerBiDedicated")]
         public Output<Outputs.AzureIntegrationsPowerBiDedicated?> PowerBiDedicated { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Redis Cache. See Integration blocks below for details.
+        /// Azure Redis Cache. See Integration blocks below for details.
         /// </summary>
         [Output("redisCache")]
         public Output<Outputs.AzureIntegrationsRedisCache?> RedisCache { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Service Bus. See Integration blocks below for details.
+        /// Azure Service Bus. See Integration blocks below for details.
         /// </summary>
         [Output("serviceBus")]
         public Output<Outputs.AzureIntegrationsServiceBus?> ServiceBus { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure SQL. See Integration blocks below for details.
+        /// Azure SQL. See Integration blocks below for details.
         /// </summary>
         [Output("sql")]
         public Output<Outputs.AzureIntegrationsSql?> Sql { get; private set; } = null!;
 
         /// <summary>
-        /// for SQL Managed. See Integration blocks below for details.
+        /// Azure SQL Managed. See Integration blocks below for details.
         /// </summary>
         [Output("sqlManaged")]
         public Output<Outputs.AzureIntegrationsSqlManaged?> SqlManaged { get; private set; } = null!;
@@ -184,7 +196,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsStorage?> Storage { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure Virtual machine. See Integration blocks below for details.
+        /// Azure Virtual machine. See Integration blocks below for details.
         /// </summary>
         [Output("virtualMachine")]
         public Output<Outputs.AzureIntegrationsVirtualMachine?> VirtualMachine { get; private set; } = null!;
@@ -196,13 +208,13 @@ namespace Pulumi.NewRelic.Cloud
         public Output<Outputs.AzureIntegrationsVirtualNetworks?> VirtualNetworks { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure VMs. See Integration blocks below for details.
+        /// Azure VMs. See Integration blocks below for details.
         /// </summary>
         [Output("vms")]
         public Output<Outputs.AzureIntegrationsVms?> Vms { get; private set; } = null!;
 
         /// <summary>
-        /// for Azure VPN Gateway. See Integration blocks below for details.
+        /// Azure VPN Gateway. See Integration blocks below for details.
         /// </summary>
         [Output("vpnGateway")]
         public Output<Outputs.AzureIntegrationsVpnGateway?> VpnGateway { get; private set; } = null!;
@@ -296,43 +308,43 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsCostManagementArgs>? CostManagement { get; set; }
 
         /// <summary>
-        /// for Azure Data Factory. See Integration blocks below for details.
+        /// Azure Data Factory. See Integration blocks below for details.
         /// </summary>
         [Input("dataFactory")]
         public Input<Inputs.AzureIntegrationsDataFactoryArgs>? DataFactory { get; set; }
 
         /// <summary>
-        /// for Azure Event Hub. See Integration blocks below for details.
+        /// Azure Event Hub. See Integration blocks below for details.
         /// </summary>
         [Input("eventHub")]
         public Input<Inputs.AzureIntegrationsEventHubArgs>? EventHub { get; set; }
 
         /// <summary>
-        /// for Azure Express Route. See Integration blocks below for details.
+        /// Azure Express Route. See Integration blocks below for details.
         /// </summary>
         [Input("expressRoute")]
         public Input<Inputs.AzureIntegrationsExpressRouteArgs>? ExpressRoute { get; set; }
 
         /// <summary>
-        /// for Azure Firewalls. See Integration blocks below for details.
+        /// Azure Firewalls. See Integration blocks below for details.
         /// </summary>
         [Input("firewalls")]
         public Input<Inputs.AzureIntegrationsFirewallsArgs>? Firewalls { get; set; }
 
         /// <summary>
-        /// for Azure Front Door. See Integration blocks below for details.
+        /// Azure Front Door. See Integration blocks below for details.
         /// </summary>
         [Input("frontDoor")]
         public Input<Inputs.AzureIntegrationsFrontDoorArgs>? FrontDoor { get; set; }
 
         /// <summary>
-        /// for Azure Functions. See Integration blocks below for details.
+        /// Azure Functions. See Integration blocks below for details.
         /// </summary>
         [Input("functions")]
         public Input<Inputs.AzureIntegrationsFunctionsArgs>? Functions { get; set; }
 
         /// <summary>
-        /// for Azure Key Vault. See Integration blocks below for details.
+        /// Azure Key Vault. See Integration blocks below for details.
         /// </summary>
         [Input("keyVault")]
         public Input<Inputs.AzureIntegrationsKeyVaultArgs>? KeyVault { get; set; }
@@ -344,67 +356,79 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int> LinkedAccountId { get; set; } = null!;
 
         /// <summary>
-        /// for Azure Load Balancer. See Integration blocks below for details.
+        /// Azure Load Balancer. See Integration blocks below for details.
         /// </summary>
         [Input("loadBalancer")]
         public Input<Inputs.AzureIntegrationsLoadBalancerArgs>? LoadBalancer { get; set; }
 
         /// <summary>
-        /// for Azure Logic Apps. See Integration blocks below for details.
+        /// Azure Logic Apps. See Integration blocks below for details.
         /// </summary>
         [Input("logicApps")]
         public Input<Inputs.AzureIntegrationsLogicAppsArgs>? LogicApps { get; set; }
 
         /// <summary>
-        /// for Azure Machine Learning. See Integration blocks below for details.
+        /// Azure Machine Learning. See Integration blocks below for details.
         /// </summary>
         [Input("machineLearning")]
         public Input<Inputs.AzureIntegrationsMachineLearningArgs>? MachineLearning { get; set; }
 
         /// <summary>
-        /// for Azure MariaDB. See Integration blocks below for details.
+        /// Azure MariaDB. See Integration blocks below for details.
         /// </summary>
         [Input("mariaDb")]
         public Input<Inputs.AzureIntegrationsMariaDbArgs>? MariaDb { get; set; }
 
         /// <summary>
-        /// for Azure MySQL. See Integration blocks below for details.
+        /// Azure MySQL. See Integration blocks below for details.
         /// </summary>
         [Input("mysql")]
         public Input<Inputs.AzureIntegrationsMysqlArgs>? Mysql { get; set; }
 
         /// <summary>
-        /// for Azure PostgreSQL. See Integration blocks below for details.
+        /// Azure MySQL Flexible Server. See Integration blocks below for details.
+        /// </summary>
+        [Input("mysqlFlexible")]
+        public Input<Inputs.AzureIntegrationsMysqlFlexibleArgs>? MysqlFlexible { get; set; }
+
+        /// <summary>
+        /// Azure PostgreSQL. See Integration blocks below for details.
         /// </summary>
         [Input("postgresql")]
         public Input<Inputs.AzureIntegrationsPostgresqlArgs>? Postgresql { get; set; }
 
         /// <summary>
-        /// for Azure Power BI Dedicated. See Integration blocks below for details.
+        /// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        /// </summary>
+        [Input("postgresqlFlexible")]
+        public Input<Inputs.AzureIntegrationsPostgresqlFlexibleArgs>? PostgresqlFlexible { get; set; }
+
+        /// <summary>
+        /// Azure Power BI Dedicated. See Integration blocks below for details.
         /// </summary>
         [Input("powerBiDedicated")]
         public Input<Inputs.AzureIntegrationsPowerBiDedicatedArgs>? PowerBiDedicated { get; set; }
 
         /// <summary>
-        /// for Azure Redis Cache. See Integration blocks below for details.
+        /// Azure Redis Cache. See Integration blocks below for details.
         /// </summary>
         [Input("redisCache")]
         public Input<Inputs.AzureIntegrationsRedisCacheArgs>? RedisCache { get; set; }
 
         /// <summary>
-        /// for Azure Service Bus. See Integration blocks below for details.
+        /// Azure Service Bus. See Integration blocks below for details.
         /// </summary>
         [Input("serviceBus")]
         public Input<Inputs.AzureIntegrationsServiceBusArgs>? ServiceBus { get; set; }
 
         /// <summary>
-        /// for Azure SQL. See Integration blocks below for details.
+        /// Azure SQL. See Integration blocks below for details.
         /// </summary>
         [Input("sql")]
         public Input<Inputs.AzureIntegrationsSqlArgs>? Sql { get; set; }
 
         /// <summary>
-        /// for SQL Managed. See Integration blocks below for details.
+        /// Azure SQL Managed. See Integration blocks below for details.
         /// </summary>
         [Input("sqlManaged")]
         public Input<Inputs.AzureIntegrationsSqlManagedArgs>? SqlManaged { get; set; }
@@ -416,7 +440,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsStorageArgs>? Storage { get; set; }
 
         /// <summary>
-        /// for Azure Virtual machine. See Integration blocks below for details.
+        /// Azure Virtual machine. See Integration blocks below for details.
         /// </summary>
         [Input("virtualMachine")]
         public Input<Inputs.AzureIntegrationsVirtualMachineArgs>? VirtualMachine { get; set; }
@@ -428,13 +452,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsVirtualNetworksArgs>? VirtualNetworks { get; set; }
 
         /// <summary>
-        /// for Azure VMs. See Integration blocks below for details.
+        /// Azure VMs. See Integration blocks below for details.
         /// </summary>
         [Input("vms")]
         public Input<Inputs.AzureIntegrationsVmsArgs>? Vms { get; set; }
 
         /// <summary>
-        /// for Azure VPN Gateway. See Integration blocks below for details.
+        /// Azure VPN Gateway. See Integration blocks below for details.
         /// </summary>
         [Input("vpnGateway")]
         public Input<Inputs.AzureIntegrationsVpnGatewayArgs>? VpnGateway { get; set; }
@@ -490,43 +514,43 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsCostManagementGetArgs>? CostManagement { get; set; }
 
         /// <summary>
-        /// for Azure Data Factory. See Integration blocks below for details.
+        /// Azure Data Factory. See Integration blocks below for details.
         /// </summary>
         [Input("dataFactory")]
         public Input<Inputs.AzureIntegrationsDataFactoryGetArgs>? DataFactory { get; set; }
 
         /// <summary>
-        /// for Azure Event Hub. See Integration blocks below for details.
+        /// Azure Event Hub. See Integration blocks below for details.
         /// </summary>
         [Input("eventHub")]
         public Input<Inputs.AzureIntegrationsEventHubGetArgs>? EventHub { get; set; }
 
         /// <summary>
-        /// for Azure Express Route. See Integration blocks below for details.
+        /// Azure Express Route. See Integration blocks below for details.
         /// </summary>
         [Input("expressRoute")]
         public Input<Inputs.AzureIntegrationsExpressRouteGetArgs>? ExpressRoute { get; set; }
 
         /// <summary>
-        /// for Azure Firewalls. See Integration blocks below for details.
+        /// Azure Firewalls. See Integration blocks below for details.
         /// </summary>
         [Input("firewalls")]
         public Input<Inputs.AzureIntegrationsFirewallsGetArgs>? Firewalls { get; set; }
 
         /// <summary>
-        /// for Azure Front Door. See Integration blocks below for details.
+        /// Azure Front Door. See Integration blocks below for details.
         /// </summary>
         [Input("frontDoor")]
         public Input<Inputs.AzureIntegrationsFrontDoorGetArgs>? FrontDoor { get; set; }
 
         /// <summary>
-        /// for Azure Functions. See Integration blocks below for details.
+        /// Azure Functions. See Integration blocks below for details.
         /// </summary>
         [Input("functions")]
         public Input<Inputs.AzureIntegrationsFunctionsGetArgs>? Functions { get; set; }
 
         /// <summary>
-        /// for Azure Key Vault. See Integration blocks below for details.
+        /// Azure Key Vault. See Integration blocks below for details.
         /// </summary>
         [Input("keyVault")]
         public Input<Inputs.AzureIntegrationsKeyVaultGetArgs>? KeyVault { get; set; }
@@ -538,67 +562,79 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? LinkedAccountId { get; set; }
 
         /// <summary>
-        /// for Azure Load Balancer. See Integration blocks below for details.
+        /// Azure Load Balancer. See Integration blocks below for details.
         /// </summary>
         [Input("loadBalancer")]
         public Input<Inputs.AzureIntegrationsLoadBalancerGetArgs>? LoadBalancer { get; set; }
 
         /// <summary>
-        /// for Azure Logic Apps. See Integration blocks below for details.
+        /// Azure Logic Apps. See Integration blocks below for details.
         /// </summary>
         [Input("logicApps")]
         public Input<Inputs.AzureIntegrationsLogicAppsGetArgs>? LogicApps { get; set; }
 
         /// <summary>
-        /// for Azure Machine Learning. See Integration blocks below for details.
+        /// Azure Machine Learning. See Integration blocks below for details.
         /// </summary>
         [Input("machineLearning")]
         public Input<Inputs.AzureIntegrationsMachineLearningGetArgs>? MachineLearning { get; set; }
 
         /// <summary>
-        /// for Azure MariaDB. See Integration blocks below for details.
+        /// Azure MariaDB. See Integration blocks below for details.
         /// </summary>
         [Input("mariaDb")]
         public Input<Inputs.AzureIntegrationsMariaDbGetArgs>? MariaDb { get; set; }
 
         /// <summary>
-        /// for Azure MySQL. See Integration blocks below for details.
+        /// Azure MySQL. See Integration blocks below for details.
         /// </summary>
         [Input("mysql")]
         public Input<Inputs.AzureIntegrationsMysqlGetArgs>? Mysql { get; set; }
 
         /// <summary>
-        /// for Azure PostgreSQL. See Integration blocks below for details.
+        /// Azure MySQL Flexible Server. See Integration blocks below for details.
+        /// </summary>
+        [Input("mysqlFlexible")]
+        public Input<Inputs.AzureIntegrationsMysqlFlexibleGetArgs>? MysqlFlexible { get; set; }
+
+        /// <summary>
+        /// Azure PostgreSQL. See Integration blocks below for details.
         /// </summary>
         [Input("postgresql")]
         public Input<Inputs.AzureIntegrationsPostgresqlGetArgs>? Postgresql { get; set; }
 
         /// <summary>
-        /// for Azure Power BI Dedicated. See Integration blocks below for details.
+        /// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        /// </summary>
+        [Input("postgresqlFlexible")]
+        public Input<Inputs.AzureIntegrationsPostgresqlFlexibleGetArgs>? PostgresqlFlexible { get; set; }
+
+        /// <summary>
+        /// Azure Power BI Dedicated. See Integration blocks below for details.
         /// </summary>
         [Input("powerBiDedicated")]
         public Input<Inputs.AzureIntegrationsPowerBiDedicatedGetArgs>? PowerBiDedicated { get; set; }
 
         /// <summary>
-        /// for Azure Redis Cache. See Integration blocks below for details.
+        /// Azure Redis Cache. See Integration blocks below for details.
         /// </summary>
         [Input("redisCache")]
         public Input<Inputs.AzureIntegrationsRedisCacheGetArgs>? RedisCache { get; set; }
 
         /// <summary>
-        /// for Azure Service Bus. See Integration blocks below for details.
+        /// Azure Service Bus. See Integration blocks below for details.
         /// </summary>
         [Input("serviceBus")]
         public Input<Inputs.AzureIntegrationsServiceBusGetArgs>? ServiceBus { get; set; }
 
         /// <summary>
-        /// for Azure SQL. See Integration blocks below for details.
+        /// Azure SQL. See Integration blocks below for details.
         /// </summary>
         [Input("sql")]
         public Input<Inputs.AzureIntegrationsSqlGetArgs>? Sql { get; set; }
 
         /// <summary>
-        /// for SQL Managed. See Integration blocks below for details.
+        /// Azure SQL Managed. See Integration blocks below for details.
         /// </summary>
         [Input("sqlManaged")]
         public Input<Inputs.AzureIntegrationsSqlManagedGetArgs>? SqlManaged { get; set; }
@@ -610,7 +646,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsStorageGetArgs>? Storage { get; set; }
 
         /// <summary>
-        /// for Azure Virtual machine. See Integration blocks below for details.
+        /// Azure Virtual machine. See Integration blocks below for details.
         /// </summary>
         [Input("virtualMachine")]
         public Input<Inputs.AzureIntegrationsVirtualMachineGetArgs>? VirtualMachine { get; set; }
@@ -622,13 +658,13 @@ namespace Pulumi.NewRelic.Cloud
         public Input<Inputs.AzureIntegrationsVirtualNetworksGetArgs>? VirtualNetworks { get; set; }
 
         /// <summary>
-        /// for Azure VMs. See Integration blocks below for details.
+        /// Azure VMs. See Integration blocks below for details.
         /// </summary>
         [Input("vms")]
         public Input<Inputs.AzureIntegrationsVmsGetArgs>? Vms { get; set; }
 
         /// <summary>
-        /// for Azure VPN Gateway. See Integration blocks below for details.
+        /// Azure VPN Gateway. See Integration blocks below for details.
         /// </summary>
         [Input("vpnGateway")]
         public Input<Inputs.AzureIntegrationsVpnGatewayGetArgs>? VpnGateway { get; set; }

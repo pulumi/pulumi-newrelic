@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.GetEntityTag;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,11 +62,19 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
-    @Import(name="tag")
-    private @Nullable GetEntityTag tag;
+    /**
+     * A tag applied to the entity. See Nested tag blocks below for details.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable List<GetEntityTag> tags;
 
-    public Optional<GetEntityTag> tag() {
-        return Optional.ofNullable(this.tag);
+    /**
+     * @return A tag applied to the entity. See Nested tag blocks below for details.
+     * 
+     */
+    public Optional<List<GetEntityTag>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     /**
@@ -89,7 +98,7 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.domain = $.domain;
         this.ignoreCase = $.ignoreCase;
         this.name = $.name;
-        this.tag = $.tag;
+        this.tags = $.tags;
         this.type = $.type;
     }
 
@@ -144,9 +153,25 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        public Builder tag(@Nullable GetEntityTag tag) {
-            $.tag = tag;
+        /**
+         * @param tags A tag applied to the entity. See Nested tag blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable List<GetEntityTag> tags) {
+            $.tags = tags;
             return this;
+        }
+
+        /**
+         * @param tags A tag applied to the entity. See Nested tag blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(GetEntityTag... tags) {
+            return tags(List.of(tags));
         }
 
         /**

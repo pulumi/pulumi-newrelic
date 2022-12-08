@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.ProviderArgs;
 import com.pulumi.newrelic.Utilities;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -29,10 +30,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.adminApiKey);
     }
     @Export(name="apiKey", type=String.class, parameters={})
-    private Output</* @Nullable */ String> apiKey;
+    private Output<String> apiKey;
 
-    public Output<Optional<String>> apiKey() {
-        return Codegen.optional(this.apiKey);
+    public Output<String> apiKey() {
+        return this.apiKey;
     }
     /**
      * @deprecated
@@ -133,7 +134,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Provider(String name, @Nullable ProviderArgs args) {
+    public Provider(String name, ProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,13 +143,18 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Provider(String name, @Nullable ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Provider(String name, ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("newrelic", name, args == null ? ProviderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "adminApiKey",
+                "apiKey",
+                "insightsInsertKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

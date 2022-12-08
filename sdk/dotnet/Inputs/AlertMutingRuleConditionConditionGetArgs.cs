@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class AlertMutingRuleConditionConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
+        /// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.&lt;NAME&gt;`, `targetId`, `targetName`
         /// </summary>
         [Input("attribute", required: true)]
         public Input<string> Attribute { get; set; } = null!;

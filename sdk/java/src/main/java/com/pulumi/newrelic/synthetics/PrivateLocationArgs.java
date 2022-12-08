@@ -18,14 +18,14 @@ public final class PrivateLocationArgs extends com.pulumi.resources.ResourceArgs
     public static final PrivateLocationArgs Empty = new PrivateLocationArgs();
 
     /**
-     * Account ID of the New Relic.
+     * The account in which the private location will be created.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return Account ID of the New Relic.
+     * @return The account in which the private location will be created.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -105,7 +105,7 @@ public final class PrivateLocationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId Account ID of the New Relic.
+         * @param accountId The account in which the private location will be created.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class PrivateLocationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId Account ID of the New Relic.
+         * @param accountId The account in which the private location will be created.
          * 
          * @return builder
          * 

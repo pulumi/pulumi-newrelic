@@ -41,7 +41,7 @@ public final class OneDashboardPageWidgetMarkdown {
      */
     private @Nullable String text;
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     private String title;
@@ -92,7 +92,7 @@ public final class OneDashboardPageWidgetMarkdown {
         return Optional.ofNullable(this.text);
     }
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     public String title() {

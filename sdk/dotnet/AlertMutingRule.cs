@@ -85,7 +85,7 @@ namespace Pulumi.NewRelic
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The condition that defines which violations to target. See Nested condition blocks below for details.
+        /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Output("condition")]
         public Output<Outputs.AlertMutingRuleCondition> Condition { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The condition that defines which violations to target. See Nested condition blocks below for details.
+        /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Inputs.AlertMutingRuleConditionArgs> Condition { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The condition that defines which violations to target. See Nested condition blocks below for details.
+        /// The condition that defines which incidents to target. See Nested condition blocks below for details.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.AlertMutingRuleConditionGetArgs>? Condition { get; set; }

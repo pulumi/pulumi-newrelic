@@ -28,7 +28,9 @@ import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsLogicApps;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMachineLearning;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMariaDb;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMysql;
+import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsMysqlFlexible;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsPostgresql;
+import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsPostgresqlFlexible;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsPowerBiDedicated;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsRedisCache;
 import com.pulumi.newrelic.cloud.outputs.AzureIntegrationsServiceBus;
@@ -154,98 +156,98 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.costManagement);
     }
     /**
-     * for Azure Data Factory. See Integration blocks below for details.
+     * Azure Data Factory. See Integration blocks below for details.
      * 
      */
     @Export(name="dataFactory", type=AzureIntegrationsDataFactory.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsDataFactory> dataFactory;
 
     /**
-     * @return for Azure Data Factory. See Integration blocks below for details.
+     * @return Azure Data Factory. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsDataFactory>> dataFactory() {
         return Codegen.optional(this.dataFactory);
     }
     /**
-     * for Azure Event Hub. See Integration blocks below for details.
+     * Azure Event Hub. See Integration blocks below for details.
      * 
      */
     @Export(name="eventHub", type=AzureIntegrationsEventHub.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsEventHub> eventHub;
 
     /**
-     * @return for Azure Event Hub. See Integration blocks below for details.
+     * @return Azure Event Hub. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsEventHub>> eventHub() {
         return Codegen.optional(this.eventHub);
     }
     /**
-     * for Azure Express Route. See Integration blocks below for details.
+     * Azure Express Route. See Integration blocks below for details.
      * 
      */
     @Export(name="expressRoute", type=AzureIntegrationsExpressRoute.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsExpressRoute> expressRoute;
 
     /**
-     * @return for Azure Express Route. See Integration blocks below for details.
+     * @return Azure Express Route. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsExpressRoute>> expressRoute() {
         return Codegen.optional(this.expressRoute);
     }
     /**
-     * for Azure Firewalls. See Integration blocks below for details.
+     * Azure Firewalls. See Integration blocks below for details.
      * 
      */
     @Export(name="firewalls", type=AzureIntegrationsFirewalls.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsFirewalls> firewalls;
 
     /**
-     * @return for Azure Firewalls. See Integration blocks below for details.
+     * @return Azure Firewalls. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsFirewalls>> firewalls() {
         return Codegen.optional(this.firewalls);
     }
     /**
-     * for Azure Front Door. See Integration blocks below for details.
+     * Azure Front Door. See Integration blocks below for details.
      * 
      */
     @Export(name="frontDoor", type=AzureIntegrationsFrontDoor.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsFrontDoor> frontDoor;
 
     /**
-     * @return for Azure Front Door. See Integration blocks below for details.
+     * @return Azure Front Door. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsFrontDoor>> frontDoor() {
         return Codegen.optional(this.frontDoor);
     }
     /**
-     * for Azure Functions. See Integration blocks below for details.
+     * Azure Functions. See Integration blocks below for details.
      * 
      */
     @Export(name="functions", type=AzureIntegrationsFunctions.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsFunctions> functions;
 
     /**
-     * @return for Azure Functions. See Integration blocks below for details.
+     * @return Azure Functions. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsFunctions>> functions() {
         return Codegen.optional(this.functions);
     }
     /**
-     * for Azure Key Vault. See Integration blocks below for details.
+     * Azure Key Vault. See Integration blocks below for details.
      * 
      */
     @Export(name="keyVault", type=AzureIntegrationsKeyVault.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsKeyVault> keyVault;
 
     /**
-     * @return for Azure Key Vault. See Integration blocks below for details.
+     * @return Azure Key Vault. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsKeyVault>> keyVault() {
@@ -266,154 +268,182 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
         return this.linkedAccountId;
     }
     /**
-     * for Azure Load Balancer. See Integration blocks below for details.
+     * Azure Load Balancer. See Integration blocks below for details.
      * 
      */
     @Export(name="loadBalancer", type=AzureIntegrationsLoadBalancer.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsLoadBalancer> loadBalancer;
 
     /**
-     * @return for Azure Load Balancer. See Integration blocks below for details.
+     * @return Azure Load Balancer. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsLoadBalancer>> loadBalancer() {
         return Codegen.optional(this.loadBalancer);
     }
     /**
-     * for Azure Logic Apps. See Integration blocks below for details.
+     * Azure Logic Apps. See Integration blocks below for details.
      * 
      */
     @Export(name="logicApps", type=AzureIntegrationsLogicApps.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsLogicApps> logicApps;
 
     /**
-     * @return for Azure Logic Apps. See Integration blocks below for details.
+     * @return Azure Logic Apps. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsLogicApps>> logicApps() {
         return Codegen.optional(this.logicApps);
     }
     /**
-     * for Azure Machine Learning. See Integration blocks below for details.
+     * Azure Machine Learning. See Integration blocks below for details.
      * 
      */
     @Export(name="machineLearning", type=AzureIntegrationsMachineLearning.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsMachineLearning> machineLearning;
 
     /**
-     * @return for Azure Machine Learning. See Integration blocks below for details.
+     * @return Azure Machine Learning. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsMachineLearning>> machineLearning() {
         return Codegen.optional(this.machineLearning);
     }
     /**
-     * for Azure MariaDB. See Integration blocks below for details.
+     * Azure MariaDB. See Integration blocks below for details.
      * 
      */
     @Export(name="mariaDb", type=AzureIntegrationsMariaDb.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsMariaDb> mariaDb;
 
     /**
-     * @return for Azure MariaDB. See Integration blocks below for details.
+     * @return Azure MariaDB. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsMariaDb>> mariaDb() {
         return Codegen.optional(this.mariaDb);
     }
     /**
-     * for Azure MySQL. See Integration blocks below for details.
+     * Azure MySQL. See Integration blocks below for details.
      * 
      */
     @Export(name="mysql", type=AzureIntegrationsMysql.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsMysql> mysql;
 
     /**
-     * @return for Azure MySQL. See Integration blocks below for details.
+     * @return Azure MySQL. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsMysql>> mysql() {
         return Codegen.optional(this.mysql);
     }
     /**
-     * for Azure PostgreSQL. See Integration blocks below for details.
+     * Azure MySQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="mysqlFlexible", type=AzureIntegrationsMysqlFlexible.class, parameters={})
+    private Output</* @Nullable */ AzureIntegrationsMysqlFlexible> mysqlFlexible;
+
+    /**
+     * @return Azure MySQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AzureIntegrationsMysqlFlexible>> mysqlFlexible() {
+        return Codegen.optional(this.mysqlFlexible);
+    }
+    /**
+     * Azure PostgreSQL. See Integration blocks below for details.
      * 
      */
     @Export(name="postgresql", type=AzureIntegrationsPostgresql.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsPostgresql> postgresql;
 
     /**
-     * @return for Azure PostgreSQL. See Integration blocks below for details.
+     * @return Azure PostgreSQL. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsPostgresql>> postgresql() {
         return Codegen.optional(this.postgresql);
     }
     /**
-     * for Azure Power BI Dedicated. See Integration blocks below for details.
+     * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="postgresqlFlexible", type=AzureIntegrationsPostgresqlFlexible.class, parameters={})
+    private Output</* @Nullable */ AzureIntegrationsPostgresqlFlexible> postgresqlFlexible;
+
+    /**
+     * @return Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<AzureIntegrationsPostgresqlFlexible>> postgresqlFlexible() {
+        return Codegen.optional(this.postgresqlFlexible);
+    }
+    /**
+     * Azure Power BI Dedicated. See Integration blocks below for details.
      * 
      */
     @Export(name="powerBiDedicated", type=AzureIntegrationsPowerBiDedicated.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsPowerBiDedicated> powerBiDedicated;
 
     /**
-     * @return for Azure Power BI Dedicated. See Integration blocks below for details.
+     * @return Azure Power BI Dedicated. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsPowerBiDedicated>> powerBiDedicated() {
         return Codegen.optional(this.powerBiDedicated);
     }
     /**
-     * for Azure Redis Cache. See Integration blocks below for details.
+     * Azure Redis Cache. See Integration blocks below for details.
      * 
      */
     @Export(name="redisCache", type=AzureIntegrationsRedisCache.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsRedisCache> redisCache;
 
     /**
-     * @return for Azure Redis Cache. See Integration blocks below for details.
+     * @return Azure Redis Cache. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsRedisCache>> redisCache() {
         return Codegen.optional(this.redisCache);
     }
     /**
-     * for Azure Service Bus. See Integration blocks below for details.
+     * Azure Service Bus. See Integration blocks below for details.
      * 
      */
     @Export(name="serviceBus", type=AzureIntegrationsServiceBus.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsServiceBus> serviceBus;
 
     /**
-     * @return for Azure Service Bus. See Integration blocks below for details.
+     * @return Azure Service Bus. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsServiceBus>> serviceBus() {
         return Codegen.optional(this.serviceBus);
     }
     /**
-     * for Azure SQL. See Integration blocks below for details.
+     * Azure SQL. See Integration blocks below for details.
      * 
      */
     @Export(name="sql", type=AzureIntegrationsSql.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsSql> sql;
 
     /**
-     * @return for Azure SQL. See Integration blocks below for details.
+     * @return Azure SQL. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsSql>> sql() {
         return Codegen.optional(this.sql);
     }
     /**
-     * for SQL Managed. See Integration blocks below for details.
+     * Azure SQL Managed. See Integration blocks below for details.
      * 
      */
     @Export(name="sqlManaged", type=AzureIntegrationsSqlManaged.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsSqlManaged> sqlManaged;
 
     /**
-     * @return for SQL Managed. See Integration blocks below for details.
+     * @return Azure SQL Managed. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsSqlManaged>> sqlManaged() {
@@ -434,14 +464,14 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storage);
     }
     /**
-     * for Azure Virtual machine. See Integration blocks below for details.
+     * Azure Virtual machine. See Integration blocks below for details.
      * 
      */
     @Export(name="virtualMachine", type=AzureIntegrationsVirtualMachine.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsVirtualMachine> virtualMachine;
 
     /**
-     * @return for Azure Virtual machine. See Integration blocks below for details.
+     * @return Azure Virtual machine. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsVirtualMachine>> virtualMachine() {
@@ -462,28 +492,28 @@ public class AzureIntegrations extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworks);
     }
     /**
-     * for Azure VMs. See Integration blocks below for details.
+     * Azure VMs. See Integration blocks below for details.
      * 
      */
     @Export(name="vms", type=AzureIntegrationsVms.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsVms> vms;
 
     /**
-     * @return for Azure VMs. See Integration blocks below for details.
+     * @return Azure VMs. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsVms>> vms() {
         return Codegen.optional(this.vms);
     }
     /**
-     * for Azure VPN Gateway. See Integration blocks below for details.
+     * Azure VPN Gateway. See Integration blocks below for details.
      * 
      */
     @Export(name="vpnGateway", type=AzureIntegrationsVpnGateway.class, parameters={})
     private Output</* @Nullable */ AzureIntegrationsVpnGateway> vpnGateway;
 
     /**
-     * @return for Azure VPN Gateway. See Integration blocks below for details.
+     * @return Azure VPN Gateway. See Integration blocks below for details.
      * 
      */
     public Output<Optional<AzureIntegrationsVpnGateway>> vpnGateway() {

@@ -101,6 +101,11 @@ namespace Pulumi.NewRelic.Cloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessKeyId",
+                    "secretAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -124,11 +129,21 @@ namespace Pulumi.NewRelic.Cloud
 
     public sealed class AwsGovcloudLinkAccountArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessKeyId", required: true)]
+        private Input<string>? _accessKeyId;
+
         /// <summary>
         /// The access key of the AwsGovCloud.
         /// </summary>
-        [Input("accessKeyId", required: true)]
-        public Input<string> AccessKeyId { get; set; } = null!;
+        public Input<string>? AccessKeyId
+        {
+            get => _accessKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -154,11 +169,21 @@ namespace Pulumi.NewRelic.Cloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("secretAccessKey", required: true)]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// The secret key of the AwsGovCloud.
         /// </summary>
-        [Input("secretAccessKey", required: true)]
-        public Input<string> SecretAccessKey { get; set; } = null!;
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public AwsGovcloudLinkAccountArgs()
         {
@@ -168,11 +193,21 @@ namespace Pulumi.NewRelic.Cloud
 
     public sealed class AwsGovcloudLinkAccountState : global::Pulumi.ResourceArgs
     {
+        [Input("accessKeyId")]
+        private Input<string>? _accessKeyId;
+
         /// <summary>
         /// The access key of the AwsGovCloud.
         /// </summary>
-        [Input("accessKeyId")]
-        public Input<string>? AccessKeyId { get; set; }
+        public Input<string>? AccessKeyId
+        {
+            get => _accessKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
@@ -198,11 +233,21 @@ namespace Pulumi.NewRelic.Cloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("secretAccessKey")]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// The secret key of the AwsGovCloud.
         /// </summary>
-        [Input("secretAccessKey")]
-        public Input<string>? SecretAccessKey { get; set; }
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public AwsGovcloudLinkAccountState()
         {

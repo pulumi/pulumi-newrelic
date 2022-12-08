@@ -54,14 +54,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+     * Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     @Import(name="aggregationMethod")
     private @Nullable Output<String> aggregationMethod;
 
     /**
-     * @return Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+     * @return Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
      * 
      */
     public Optional<Output<String>> aggregationMethod() {
@@ -114,14 +114,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether to close all open violations when the signal expires.
+     * Whether to close all open incidents when the signal expires.
      * 
      */
     @Import(name="closeViolationsOnExpiration")
     private @Nullable Output<Boolean> closeViolationsOnExpiration;
 
     /**
-     * @return Whether to close all open violations when the signal expires.
+     * @return Whether to close all open incidents when the signal expires.
      * 
      */
     public Optional<Output<Boolean>> closeViolationsOnExpiration() {
@@ -264,14 +264,14 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether to create a new violation to capture that the signal expired.
+     * Whether to create a new incident to capture that the signal expired.
      * 
      */
     @Import(name="openViolationOnExpiration")
     private @Nullable Output<Boolean> openViolationOnExpiration;
 
     /**
-     * @return Whether to create a new violation to capture that the signal expired.
+     * @return Whether to create a new incident to capture that the signal expired.
      * 
      */
     public Optional<Output<Boolean>> openViolationOnExpiration() {
@@ -385,7 +385,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+     * **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
      * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      * @deprecated
@@ -397,7 +397,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     private @Nullable Output<String> violationTimeLimit;
 
     /**
-     * @return **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+     * @return **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
      * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      * @deprecated
@@ -410,7 +410,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+     * Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
      * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      */
@@ -418,7 +418,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
     private @Nullable Output<Integer> violationTimeLimitSeconds;
 
     /**
-     * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+     * @return Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
      * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
      * 
      */
@@ -533,7 +533,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param aggregationMethod Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+         * @param aggregationMethod Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param aggregationMethod Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+         * @param aggregationMethod Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param closeViolationsOnExpiration Whether to close all open violations when the signal expires.
+         * @param closeViolationsOnExpiration Whether to close all open incidents when the signal expires.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param closeViolationsOnExpiration Whether to close all open violations when the signal expires.
+         * @param closeViolationsOnExpiration Whether to close all open incidents when the signal expires.
          * 
          * @return builder
          * 
@@ -827,7 +827,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param openViolationOnExpiration Whether to create a new violation to capture that the signal expired.
+         * @param openViolationOnExpiration Whether to create a new incident to capture that the signal expired.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param openViolationOnExpiration Whether to create a new violation to capture that the signal expired.
+         * @param openViolationOnExpiration Whether to create a new incident to capture that the signal expired.
          * 
          * @return builder
          * 
@@ -1004,7 +1004,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationTimeLimit **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+         * @param violationTimeLimit **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
          * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
@@ -1020,7 +1020,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationTimeLimit **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+         * @param violationTimeLimit **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
          * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
@@ -1035,7 +1035,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+         * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
          * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder
@@ -1047,7 +1047,7 @@ public final class NrqlAlertConditionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+         * @param violationTimeLimitSeconds Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
          * &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
          * 
          * @return builder

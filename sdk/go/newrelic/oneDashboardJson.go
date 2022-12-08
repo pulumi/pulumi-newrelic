@@ -11,42 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-// ### Create A New Relic One Dashboard From A JSON File
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewOneDashboardJson(ctx, "foo", &newrelic.OneDashboardJsonArgs{
-//				Json: readFileOrPanic("dashboard.json"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type OneDashboardJson struct {
 	pulumi.CustomResourceState
 
@@ -54,7 +18,7 @@ type OneDashboardJson struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The unique entity identifier of the dashboard in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json pulumi.StringOutput `pulumi:"json"`
 	// The URL for viewing the dashboard.
 	Permalink pulumi.StringOutput `pulumi:"permalink"`
@@ -98,7 +62,7 @@ type oneDashboardJsonState struct {
 	AccountId *int `pulumi:"accountId"`
 	// The unique entity identifier of the dashboard in New Relic.
 	Guid *string `pulumi:"guid"`
-	// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json *string `pulumi:"json"`
 	// The URL for viewing the dashboard.
 	Permalink *string `pulumi:"permalink"`
@@ -111,7 +75,7 @@ type OneDashboardJsonState struct {
 	AccountId pulumi.IntPtrInput
 	// The unique entity identifier of the dashboard in New Relic.
 	Guid pulumi.StringPtrInput
-	// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json pulumi.StringPtrInput
 	// The URL for viewing the dashboard.
 	Permalink pulumi.StringPtrInput
@@ -126,7 +90,7 @@ func (OneDashboardJsonState) ElementType() reflect.Type {
 type oneDashboardJsonArgs struct {
 	// The New Relic account ID where you want to create the dashboard.
 	AccountId *int `pulumi:"accountId"`
-	// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json string `pulumi:"json"`
 }
 
@@ -134,7 +98,7 @@ type oneDashboardJsonArgs struct {
 type OneDashboardJsonArgs struct {
 	// The New Relic account ID where you want to create the dashboard.
 	AccountId pulumi.IntPtrInput
-	// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+	// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 	Json pulumi.StringInput
 }
 
@@ -235,7 +199,7 @@ func (o OneDashboardJsonOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *OneDashboardJson) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
-// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
 func (o OneDashboardJsonOutput) Json() pulumi.StringOutput {
 	return o.ApplyT(func(v *OneDashboardJson) pulumi.StringOutput { return v.Json }).(pulumi.StringOutput)
 }

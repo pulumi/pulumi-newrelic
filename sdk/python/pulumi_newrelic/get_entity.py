@@ -23,7 +23,7 @@ class GetEntityResult:
     """
     A collection of values returned by getEntity.
     """
-    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, ignore_case=None, name=None, serving_apm_application_id=None, tag=None, type=None):
+    def __init__(__self__, account_id=None, application_id=None, domain=None, guid=None, id=None, ignore_case=None, name=None, serving_apm_application_id=None, tags=None, type=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
@@ -48,9 +48,9 @@ class GetEntityResult:
         if serving_apm_application_id and not isinstance(serving_apm_application_id, int):
             raise TypeError("Expected argument 'serving_apm_application_id' to be a int")
         pulumi.set(__self__, "serving_apm_application_id", serving_apm_application_id)
-        if tag and not isinstance(tag, dict):
-            raise TypeError("Expected argument 'tag' to be a dict")
-        pulumi.set(__self__, "tag", tag)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -105,12 +105,15 @@ class GetEntityResult:
     @property
     @pulumi.getter(name="servingApmApplicationId")
     def serving_apm_application_id(self) -> int:
+        """
+        The browser-specific ID of the backing APM entity. Only returned for Browser applications.
+        """
         return pulumi.get(self, "serving_apm_application_id")
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional['outputs.GetEntityTagResult']:
-        return pulumi.get(self, "tag")
+    def tags(self) -> Optional[Sequence['outputs.GetEntityTagResult']]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -132,14 +135,14 @@ class AwaitableGetEntityResult(GetEntityResult):
             ignore_case=self.ignore_case,
             name=self.name,
             serving_apm_application_id=self.serving_apm_application_id,
-            tag=self.tag,
+            tags=self.tags,
             type=self.type)
 
 
 def get_entity(domain: Optional[str] = None,
                ignore_case: Optional[bool] = None,
                name: Optional[str] = None,
-               tag: Optional[pulumi.InputType['GetEntityTagArgs']] = None,
+               tags: Optional[Sequence[pulumi.InputType['GetEntityTagArgs']]] = None,
                type: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityResult:
     """
@@ -149,13 +152,14 @@ def get_entity(domain: Optional[str] = None,
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
+    :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
     :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
     """
     __args__ = dict()
     __args__['domain'] = domain
     __args__['ignoreCase'] = ignore_case
     __args__['name'] = name
-    __args__['tag'] = tag
+    __args__['tags'] = tags
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getEntity:getEntity', __args__, opts=opts, typ=GetEntityResult).value
@@ -169,7 +173,7 @@ def get_entity(domain: Optional[str] = None,
         ignore_case=__ret__.ignore_case,
         name=__ret__.name,
         serving_apm_application_id=__ret__.serving_apm_application_id,
-        tag=__ret__.tag,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 
@@ -177,7 +181,7 @@ def get_entity(domain: Optional[str] = None,
 def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
                       ignore_case: Optional[pulumi.Input[Optional[bool]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
-                      tag: Optional[pulumi.Input[Optional[pulumi.InputType['GetEntityTagArgs']]]] = None,
+                      tags: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEntityTagArgs']]]]] = None,
                       type: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
     """
@@ -187,6 +191,7 @@ def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
+    :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
     :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
     """
     ...

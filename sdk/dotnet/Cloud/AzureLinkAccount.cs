@@ -80,6 +80,10 @@ namespace Pulumi.NewRelic.Cloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -115,11 +119,21 @@ namespace Pulumi.NewRelic.Cloud
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        [Input("clientSecret", required: true)]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// - Secret Value of the client.
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// - The name of the application in New Relic APM.
@@ -159,11 +173,21 @@ namespace Pulumi.NewRelic.Cloud
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
         /// <summary>
         /// - Secret Value of the client.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// - The name of the application in New Relic APM.

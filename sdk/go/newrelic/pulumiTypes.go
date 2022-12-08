@@ -818,7 +818,7 @@ func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 }
 
 type AlertMutingRuleConditionCondition struct {
-	// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+	// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 	Attribute string `pulumi:"attribute"`
 	// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 	Operator string `pulumi:"operator"`
@@ -838,7 +838,7 @@ type AlertMutingRuleConditionConditionInput interface {
 }
 
 type AlertMutingRuleConditionConditionArgs struct {
-	// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+	// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 	Attribute pulumi.StringInput `pulumi:"attribute"`
 	// The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -897,7 +897,7 @@ func (o AlertMutingRuleConditionConditionOutput) ToAlertMutingRuleConditionCondi
 	return o
 }
 
-// The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 func (o AlertMutingRuleConditionConditionOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Attribute }).(pulumi.StringOutput)
 }
@@ -1613,8 +1613,6 @@ func (o InfraAlertConditionWarningPtrOutput) Value() pulumi.Float64PtrOutput {
 
 type NotificationChannelProperty struct {
 	// The notification property display value.
-	// *
-	// Each notification channel type supports a specific set of arguments for the `property` block:
 	DisplayValue *string `pulumi:"displayValue"`
 	// The notification property key.
 	Key string `pulumi:"key"`
@@ -1637,8 +1635,6 @@ type NotificationChannelPropertyInput interface {
 
 type NotificationChannelPropertyArgs struct {
 	// The notification property display value.
-	// *
-	// Each notification channel type supports a specific set of arguments for the `property` block:
 	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
 	// The notification property key.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -1700,8 +1696,6 @@ func (o NotificationChannelPropertyOutput) ToNotificationChannelPropertyOutputWi
 }
 
 // The notification property display value.
-// *
-// Each notification channel type supports a specific set of arguments for the `property` block:
 func (o NotificationChannelPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
 }
@@ -2916,6 +2910,121 @@ func (o NrqlAlertConditionWarningPtrOutput) TimeFunction() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ObfuscationRuleAction struct {
+	// Attribute names for action. An empty list applies the action to all the attributes.
+	Attributes []string `pulumi:"attributes"`
+	// Expression Id for action.
+	ExpressionId string `pulumi:"expressionId"`
+	// Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+	Method string `pulumi:"method"`
+}
+
+// ObfuscationRuleActionInput is an input type that accepts ObfuscationRuleActionArgs and ObfuscationRuleActionOutput values.
+// You can construct a concrete instance of `ObfuscationRuleActionInput` via:
+//
+//	ObfuscationRuleActionArgs{...}
+type ObfuscationRuleActionInput interface {
+	pulumi.Input
+
+	ToObfuscationRuleActionOutput() ObfuscationRuleActionOutput
+	ToObfuscationRuleActionOutputWithContext(context.Context) ObfuscationRuleActionOutput
+}
+
+type ObfuscationRuleActionArgs struct {
+	// Attribute names for action. An empty list applies the action to all the attributes.
+	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
+	// Expression Id for action.
+	ExpressionId pulumi.StringInput `pulumi:"expressionId"`
+	// Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+	Method pulumi.StringInput `pulumi:"method"`
+}
+
+func (ObfuscationRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObfuscationRuleAction)(nil)).Elem()
+}
+
+func (i ObfuscationRuleActionArgs) ToObfuscationRuleActionOutput() ObfuscationRuleActionOutput {
+	return i.ToObfuscationRuleActionOutputWithContext(context.Background())
+}
+
+func (i ObfuscationRuleActionArgs) ToObfuscationRuleActionOutputWithContext(ctx context.Context) ObfuscationRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleActionOutput)
+}
+
+// ObfuscationRuleActionArrayInput is an input type that accepts ObfuscationRuleActionArray and ObfuscationRuleActionArrayOutput values.
+// You can construct a concrete instance of `ObfuscationRuleActionArrayInput` via:
+//
+//	ObfuscationRuleActionArray{ ObfuscationRuleActionArgs{...} }
+type ObfuscationRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToObfuscationRuleActionArrayOutput() ObfuscationRuleActionArrayOutput
+	ToObfuscationRuleActionArrayOutputWithContext(context.Context) ObfuscationRuleActionArrayOutput
+}
+
+type ObfuscationRuleActionArray []ObfuscationRuleActionInput
+
+func (ObfuscationRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObfuscationRuleAction)(nil)).Elem()
+}
+
+func (i ObfuscationRuleActionArray) ToObfuscationRuleActionArrayOutput() ObfuscationRuleActionArrayOutput {
+	return i.ToObfuscationRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i ObfuscationRuleActionArray) ToObfuscationRuleActionArrayOutputWithContext(ctx context.Context) ObfuscationRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObfuscationRuleActionArrayOutput)
+}
+
+type ObfuscationRuleActionOutput struct{ *pulumi.OutputState }
+
+func (ObfuscationRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObfuscationRuleAction)(nil)).Elem()
+}
+
+func (o ObfuscationRuleActionOutput) ToObfuscationRuleActionOutput() ObfuscationRuleActionOutput {
+	return o
+}
+
+func (o ObfuscationRuleActionOutput) ToObfuscationRuleActionOutputWithContext(ctx context.Context) ObfuscationRuleActionOutput {
+	return o
+}
+
+// Attribute names for action. An empty list applies the action to all the attributes.
+func (o ObfuscationRuleActionOutput) Attributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObfuscationRuleAction) []string { return v.Attributes }).(pulumi.StringArrayOutput)
+}
+
+// Expression Id for action.
+func (o ObfuscationRuleActionOutput) ExpressionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObfuscationRuleAction) string { return v.ExpressionId }).(pulumi.StringOutput)
+}
+
+// Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+func (o ObfuscationRuleActionOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v ObfuscationRuleAction) string { return v.Method }).(pulumi.StringOutput)
+}
+
+type ObfuscationRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ObfuscationRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObfuscationRuleAction)(nil)).Elem()
+}
+
+func (o ObfuscationRuleActionArrayOutput) ToObfuscationRuleActionArrayOutput() ObfuscationRuleActionArrayOutput {
+	return o
+}
+
+func (o ObfuscationRuleActionArrayOutput) ToObfuscationRuleActionArrayOutputWithContext(ctx context.Context) ObfuscationRuleActionArrayOutput {
+	return o
+}
+
+func (o ObfuscationRuleActionArrayOutput) Index(i pulumi.IntInput) ObfuscationRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObfuscationRuleAction {
+		return vs[0].([]ObfuscationRuleAction)[vs[1].(int)]
+	}).(ObfuscationRuleActionOutput)
+}
+
 type OneDashboardPage struct {
 	// Brief text describing the dashboard.
 	Description *string `pulumi:"description"`
@@ -3165,13 +3274,11 @@ type OneDashboardPageWidgetArea struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetAreaNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -3196,13 +3303,11 @@ type OneDashboardPageWidgetAreaArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetAreaNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -3278,9 +3383,7 @@ func (o OneDashboardPageWidgetAreaOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetAreaOutput) NrqlQueries() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
 }
@@ -3290,7 +3393,7 @@ func (o OneDashboardPageWidgetAreaOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetAreaOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -3436,13 +3539,11 @@ type OneDashboardPageWidgetBar struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -3469,13 +3570,11 @@ type OneDashboardPageWidgetBarArgs struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -3559,9 +3658,7 @@ func (o OneDashboardPageWidgetBarOutput) LinkedEntityGuids() pulumi.StringArrayO
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetBarOutput) NrqlQueries() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
 }
@@ -3571,7 +3668,7 @@ func (o OneDashboardPageWidgetBarOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetBarOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -3717,13 +3814,11 @@ type OneDashboardPageWidgetBillboard struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBillboardNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
 	// * `widgetBullet`
@@ -3753,13 +3848,11 @@ type OneDashboardPageWidgetBillboardArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBillboardNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
 	// * `widgetBullet`
@@ -3843,9 +3936,7 @@ func (o OneDashboardPageWidgetBillboardOutput) IgnoreTimeRange() pulumi.BoolPtrO
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetBillboardOutput) NrqlQueries() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNrqlQuery {
 		return v.NrqlQueries
@@ -3857,7 +3948,7 @@ func (o OneDashboardPageWidgetBillboardOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetBillboardOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -4010,13 +4101,11 @@ type OneDashboardPageWidgetBullet struct {
 	// (Required) Visualization limit for the widget.
 	// * `widgetFunnel`
 	Limit float64 `pulumi:"limit"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBulletNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -4044,13 +4133,11 @@ type OneDashboardPageWidgetBulletArgs struct {
 	// (Required) Visualization limit for the widget.
 	// * `widgetFunnel`
 	Limit pulumi.Float64Input `pulumi:"limit"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBulletNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -4132,9 +4219,7 @@ func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64Output {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) float64 { return v.Limit }).(pulumi.Float64Output)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetBulletOutput) NrqlQueries() OneDashboardPageWidgetBulletNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBulletNrqlQueryArrayOutput)
 }
@@ -4144,7 +4229,7 @@ func (o OneDashboardPageWidgetBulletOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetBulletOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -4288,13 +4373,11 @@ type OneDashboardPageWidgetFunnel struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetFunnelNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -4319,13 +4402,11 @@ type OneDashboardPageWidgetFunnelArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetFunnelNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -4401,9 +4482,7 @@ func (o OneDashboardPageWidgetFunnelOutput) IgnoreTimeRange() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetFunnelOutput) NrqlQueries() OneDashboardPageWidgetFunnelNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput)
 }
@@ -4413,7 +4492,7 @@ func (o OneDashboardPageWidgetFunnelOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetFunnelOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -4559,13 +4638,11 @@ type OneDashboardPageWidgetHeatmap struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetHeatmapNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -4592,13 +4669,11 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetHeatmapNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -4682,9 +4757,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) LinkedEntityGuids() pulumi.StringAr
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetHeatmapOutput) NrqlQueries() OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput)
 }
@@ -4694,7 +4767,7 @@ func (o OneDashboardPageWidgetHeatmapOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetHeatmapOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -4838,13 +4911,11 @@ type OneDashboardPageWidgetHistogram struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetHistogramNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -4869,13 +4940,11 @@ type OneDashboardPageWidgetHistogramArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetHistogramNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -4951,9 +5020,7 @@ func (o OneDashboardPageWidgetHistogramOutput) IgnoreTimeRange() pulumi.BoolPtrO
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetHistogramOutput) NrqlQueries() OneDashboardPageWidgetHistogramNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramNrqlQuery {
 		return v.NrqlQueries
@@ -4965,7 +5032,7 @@ func (o OneDashboardPageWidgetHistogramOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetHistogramOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -5109,13 +5176,11 @@ type OneDashboardPageWidgetJson struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetJsonNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -5140,13 +5205,11 @@ type OneDashboardPageWidgetJsonArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetJsonNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -5222,9 +5285,7 @@ func (o OneDashboardPageWidgetJsonOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetJsonOutput) NrqlQueries() OneDashboardPageWidgetJsonNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetJsonNrqlQueryArrayOutput)
 }
@@ -5234,7 +5295,7 @@ func (o OneDashboardPageWidgetJsonOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetJsonOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -5378,13 +5439,11 @@ type OneDashboardPageWidgetLine struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -5409,13 +5468,11 @@ type OneDashboardPageWidgetLineArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -5491,9 +5548,7 @@ func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetLineOutput) NrqlQueries() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
 }
@@ -5503,7 +5558,7 @@ func (o OneDashboardPageWidgetLineOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetLineOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -5647,13 +5702,11 @@ type OneDashboardPageWidgetLogTable struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetLogTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -5678,13 +5731,11 @@ type OneDashboardPageWidgetLogTableArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetLogTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -5760,9 +5811,7 @@ func (o OneDashboardPageWidgetLogTableOutput) IgnoreTimeRange() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetLogTableOutput) NrqlQueries() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput)
 }
@@ -5772,7 +5821,7 @@ func (o OneDashboardPageWidgetLogTableOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetLogTableOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -5921,7 +5970,7 @@ type OneDashboardPageWidgetMarkdown struct {
 	// (Required) The markdown source to be rendered in the widget.
 	// * `widgetStackedBar`
 	Text *string `pulumi:"text"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -5951,7 +6000,7 @@ type OneDashboardPageWidgetMarkdownArgs struct {
 	// (Required) The markdown source to be rendered in the widget.
 	// * `widgetStackedBar`
 	Text pulumi.StringPtrInput `pulumi:"text"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -6038,7 +6087,7 @@ func (o OneDashboardPageWidgetMarkdownOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetMarkdownOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -6078,13 +6127,11 @@ type OneDashboardPageWidgetPy struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -6111,13 +6158,11 @@ type OneDashboardPageWidgetPyArgs struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -6201,9 +6246,7 @@ func (o OneDashboardPageWidgetPyOutput) LinkedEntityGuids() pulumi.StringArrayOu
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetPyOutput) NrqlQueries() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
 }
@@ -6213,7 +6256,7 @@ func (o OneDashboardPageWidgetPyOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetPyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -6357,13 +6400,11 @@ type OneDashboardPageWidgetStackedBar struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetStackedBarNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -6388,13 +6429,11 @@ type OneDashboardPageWidgetStackedBarArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetStackedBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -6470,9 +6509,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) IgnoreTimeRange() pulumi.BoolPtr
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetStackedBarOutput) NrqlQueries() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNrqlQuery {
 		return v.NrqlQueries
@@ -6484,7 +6521,7 @@ func (o OneDashboardPageWidgetStackedBarOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetStackedBarOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -6630,13 +6667,11 @@ type OneDashboardPageWidgetTable struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   *bool    `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetTableNrqlQuery `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width *int `pulumi:"width"`
@@ -6663,13 +6698,11 @@ type OneDashboardPageWidgetTableArgs struct {
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange   pulumi.BoolPtrInput     `pulumi:"ignoreTimeRange"`
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
-	// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-	// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-	// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
-	// (Required) A title for the widget.
+	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 	Width pulumi.IntPtrInput `pulumi:"width"`
@@ -6753,9 +6786,7 @@ func (o OneDashboardPageWidgetTableOutput) LinkedEntityGuids() pulumi.StringArra
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-// * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-// * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetTableOutput) NrqlQueries() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
 }
@@ -6765,7 +6796,7 @@ func (o OneDashboardPageWidgetTableOutput) Row() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Row }).(pulumi.IntOutput)
 }
 
-// (Required) A title for the widget.
+// (Optional) A human-friendly display string for this value.
 func (o OneDashboardPageWidgetTableOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -7191,6 +7222,424 @@ func (o OneDashboardRawPageWidgetArrayOutput) Index(i pulumi.IntInput) OneDashbo
 	}).(OneDashboardRawPageWidgetOutput)
 }
 
+type OneDashboardVariable struct {
+	// (Optional) A list of default values for this variable.
+	DefaultValues []string `pulumi:"defaultValues"`
+	// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+	IsMultiSelection *bool `pulumi:"isMultiSelection"`
+	// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+	Items []OneDashboardVariableItem `pulumi:"items"`
+	// The title of the dashboard.
+	Name string `pulumi:"name"`
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	NrqlQuery *OneDashboardVariableNrqlQuery `pulumi:"nrqlQuery"`
+	// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+	ReplacementStrategy string `pulumi:"replacementStrategy"`
+	// (Optional) A human-friendly display string for this value.
+	Title string `pulumi:"title"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type string `pulumi:"type"`
+}
+
+// OneDashboardVariableInput is an input type that accepts OneDashboardVariableArgs and OneDashboardVariableOutput values.
+// You can construct a concrete instance of `OneDashboardVariableInput` via:
+//
+//	OneDashboardVariableArgs{...}
+type OneDashboardVariableInput interface {
+	pulumi.Input
+
+	ToOneDashboardVariableOutput() OneDashboardVariableOutput
+	ToOneDashboardVariableOutputWithContext(context.Context) OneDashboardVariableOutput
+}
+
+type OneDashboardVariableArgs struct {
+	// (Optional) A list of default values for this variable.
+	DefaultValues pulumi.StringArrayInput `pulumi:"defaultValues"`
+	// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+	IsMultiSelection pulumi.BoolPtrInput `pulumi:"isMultiSelection"`
+	// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+	Items OneDashboardVariableItemArrayInput `pulumi:"items"`
+	// The title of the dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+	NrqlQuery OneDashboardVariableNrqlQueryPtrInput `pulumi:"nrqlQuery"`
+	// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+	ReplacementStrategy pulumi.StringInput `pulumi:"replacementStrategy"`
+	// (Optional) A human-friendly display string for this value.
+	Title pulumi.StringInput `pulumi:"title"`
+	// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OneDashboardVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardVariable)(nil)).Elem()
+}
+
+func (i OneDashboardVariableArgs) ToOneDashboardVariableOutput() OneDashboardVariableOutput {
+	return i.ToOneDashboardVariableOutputWithContext(context.Background())
+}
+
+func (i OneDashboardVariableArgs) ToOneDashboardVariableOutputWithContext(ctx context.Context) OneDashboardVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableOutput)
+}
+
+// OneDashboardVariableArrayInput is an input type that accepts OneDashboardVariableArray and OneDashboardVariableArrayOutput values.
+// You can construct a concrete instance of `OneDashboardVariableArrayInput` via:
+//
+//	OneDashboardVariableArray{ OneDashboardVariableArgs{...} }
+type OneDashboardVariableArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardVariableArrayOutput() OneDashboardVariableArrayOutput
+	ToOneDashboardVariableArrayOutputWithContext(context.Context) OneDashboardVariableArrayOutput
+}
+
+type OneDashboardVariableArray []OneDashboardVariableInput
+
+func (OneDashboardVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardVariable)(nil)).Elem()
+}
+
+func (i OneDashboardVariableArray) ToOneDashboardVariableArrayOutput() OneDashboardVariableArrayOutput {
+	return i.ToOneDashboardVariableArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardVariableArray) ToOneDashboardVariableArrayOutputWithContext(ctx context.Context) OneDashboardVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableArrayOutput)
+}
+
+type OneDashboardVariableOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardVariable)(nil)).Elem()
+}
+
+func (o OneDashboardVariableOutput) ToOneDashboardVariableOutput() OneDashboardVariableOutput {
+	return o
+}
+
+func (o OneDashboardVariableOutput) ToOneDashboardVariableOutputWithContext(ctx context.Context) OneDashboardVariableOutput {
+	return o
+}
+
+// (Optional) A list of default values for this variable.
+func (o OneDashboardVariableOutput) DefaultValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OneDashboardVariable) []string { return v.DefaultValues }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+func (o OneDashboardVariableOutput) IsMultiSelection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardVariable) *bool { return v.IsMultiSelection }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+func (o OneDashboardVariableOutput) Items() OneDashboardVariableItemArrayOutput {
+	return o.ApplyT(func(v OneDashboardVariable) []OneDashboardVariableItem { return v.Items }).(OneDashboardVariableItemArrayOutput)
+}
+
+// The title of the dashboard.
+func (o OneDashboardVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+func (o OneDashboardVariableOutput) NrqlQuery() OneDashboardVariableNrqlQueryPtrOutput {
+	return o.ApplyT(func(v OneDashboardVariable) *OneDashboardVariableNrqlQuery { return v.NrqlQuery }).(OneDashboardVariableNrqlQueryPtrOutput)
+}
+
+// (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+func (o OneDashboardVariableOutput) ReplacementStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardVariable) string { return v.ReplacementStrategy }).(pulumi.StringOutput)
+}
+
+// (Optional) A human-friendly display string for this value.
+func (o OneDashboardVariableOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardVariable) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+func (o OneDashboardVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OneDashboardVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardVariable)(nil)).Elem()
+}
+
+func (o OneDashboardVariableArrayOutput) ToOneDashboardVariableArrayOutput() OneDashboardVariableArrayOutput {
+	return o
+}
+
+func (o OneDashboardVariableArrayOutput) ToOneDashboardVariableArrayOutputWithContext(ctx context.Context) OneDashboardVariableArrayOutput {
+	return o
+}
+
+func (o OneDashboardVariableArrayOutput) Index(i pulumi.IntInput) OneDashboardVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardVariable {
+		return vs[0].([]OneDashboardVariable)[vs[1].(int)]
+	}).(OneDashboardVariableOutput)
+}
+
+type OneDashboardVariableItem struct {
+	// (Optional) A human-friendly display string for this value.
+	Title *string `pulumi:"title"`
+	// (Required) A possible variable value
+	Value string `pulumi:"value"`
+}
+
+// OneDashboardVariableItemInput is an input type that accepts OneDashboardVariableItemArgs and OneDashboardVariableItemOutput values.
+// You can construct a concrete instance of `OneDashboardVariableItemInput` via:
+//
+//	OneDashboardVariableItemArgs{...}
+type OneDashboardVariableItemInput interface {
+	pulumi.Input
+
+	ToOneDashboardVariableItemOutput() OneDashboardVariableItemOutput
+	ToOneDashboardVariableItemOutputWithContext(context.Context) OneDashboardVariableItemOutput
+}
+
+type OneDashboardVariableItemArgs struct {
+	// (Optional) A human-friendly display string for this value.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// (Required) A possible variable value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (OneDashboardVariableItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardVariableItem)(nil)).Elem()
+}
+
+func (i OneDashboardVariableItemArgs) ToOneDashboardVariableItemOutput() OneDashboardVariableItemOutput {
+	return i.ToOneDashboardVariableItemOutputWithContext(context.Background())
+}
+
+func (i OneDashboardVariableItemArgs) ToOneDashboardVariableItemOutputWithContext(ctx context.Context) OneDashboardVariableItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableItemOutput)
+}
+
+// OneDashboardVariableItemArrayInput is an input type that accepts OneDashboardVariableItemArray and OneDashboardVariableItemArrayOutput values.
+// You can construct a concrete instance of `OneDashboardVariableItemArrayInput` via:
+//
+//	OneDashboardVariableItemArray{ OneDashboardVariableItemArgs{...} }
+type OneDashboardVariableItemArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardVariableItemArrayOutput() OneDashboardVariableItemArrayOutput
+	ToOneDashboardVariableItemArrayOutputWithContext(context.Context) OneDashboardVariableItemArrayOutput
+}
+
+type OneDashboardVariableItemArray []OneDashboardVariableItemInput
+
+func (OneDashboardVariableItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardVariableItem)(nil)).Elem()
+}
+
+func (i OneDashboardVariableItemArray) ToOneDashboardVariableItemArrayOutput() OneDashboardVariableItemArrayOutput {
+	return i.ToOneDashboardVariableItemArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardVariableItemArray) ToOneDashboardVariableItemArrayOutputWithContext(ctx context.Context) OneDashboardVariableItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableItemArrayOutput)
+}
+
+type OneDashboardVariableItemOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardVariableItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardVariableItem)(nil)).Elem()
+}
+
+func (o OneDashboardVariableItemOutput) ToOneDashboardVariableItemOutput() OneDashboardVariableItemOutput {
+	return o
+}
+
+func (o OneDashboardVariableItemOutput) ToOneDashboardVariableItemOutputWithContext(ctx context.Context) OneDashboardVariableItemOutput {
+	return o
+}
+
+// (Optional) A human-friendly display string for this value.
+func (o OneDashboardVariableItemOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardVariableItem) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// (Required) A possible variable value
+func (o OneDashboardVariableItemOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardVariableItem) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OneDashboardVariableItemArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardVariableItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardVariableItem)(nil)).Elem()
+}
+
+func (o OneDashboardVariableItemArrayOutput) ToOneDashboardVariableItemArrayOutput() OneDashboardVariableItemArrayOutput {
+	return o
+}
+
+func (o OneDashboardVariableItemArrayOutput) ToOneDashboardVariableItemArrayOutputWithContext(ctx context.Context) OneDashboardVariableItemArrayOutput {
+	return o
+}
+
+func (o OneDashboardVariableItemArrayOutput) Index(i pulumi.IntInput) OneDashboardVariableItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardVariableItem {
+		return vs[0].([]OneDashboardVariableItem)[vs[1].(int)]
+	}).(OneDashboardVariableItemOutput)
+}
+
+type OneDashboardVariableNrqlQuery struct {
+	AccountIds []int `pulumi:"accountIds"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Query string `pulumi:"query"`
+}
+
+// OneDashboardVariableNrqlQueryInput is an input type that accepts OneDashboardVariableNrqlQueryArgs and OneDashboardVariableNrqlQueryOutput values.
+// You can construct a concrete instance of `OneDashboardVariableNrqlQueryInput` via:
+//
+//	OneDashboardVariableNrqlQueryArgs{...}
+type OneDashboardVariableNrqlQueryInput interface {
+	pulumi.Input
+
+	ToOneDashboardVariableNrqlQueryOutput() OneDashboardVariableNrqlQueryOutput
+	ToOneDashboardVariableNrqlQueryOutputWithContext(context.Context) OneDashboardVariableNrqlQueryOutput
+}
+
+type OneDashboardVariableNrqlQueryArgs struct {
+	AccountIds pulumi.IntArrayInput `pulumi:"accountIds"`
+	// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (OneDashboardVariableNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardVariableNrqlQuery)(nil)).Elem()
+}
+
+func (i OneDashboardVariableNrqlQueryArgs) ToOneDashboardVariableNrqlQueryOutput() OneDashboardVariableNrqlQueryOutput {
+	return i.ToOneDashboardVariableNrqlQueryOutputWithContext(context.Background())
+}
+
+func (i OneDashboardVariableNrqlQueryArgs) ToOneDashboardVariableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableNrqlQueryOutput)
+}
+
+func (i OneDashboardVariableNrqlQueryArgs) ToOneDashboardVariableNrqlQueryPtrOutput() OneDashboardVariableNrqlQueryPtrOutput {
+	return i.ToOneDashboardVariableNrqlQueryPtrOutputWithContext(context.Background())
+}
+
+func (i OneDashboardVariableNrqlQueryArgs) ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableNrqlQueryOutput).ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx)
+}
+
+// OneDashboardVariableNrqlQueryPtrInput is an input type that accepts OneDashboardVariableNrqlQueryArgs, OneDashboardVariableNrqlQueryPtr and OneDashboardVariableNrqlQueryPtrOutput values.
+// You can construct a concrete instance of `OneDashboardVariableNrqlQueryPtrInput` via:
+//
+//	        OneDashboardVariableNrqlQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type OneDashboardVariableNrqlQueryPtrInput interface {
+	pulumi.Input
+
+	ToOneDashboardVariableNrqlQueryPtrOutput() OneDashboardVariableNrqlQueryPtrOutput
+	ToOneDashboardVariableNrqlQueryPtrOutputWithContext(context.Context) OneDashboardVariableNrqlQueryPtrOutput
+}
+
+type oneDashboardVariableNrqlQueryPtrType OneDashboardVariableNrqlQueryArgs
+
+func OneDashboardVariableNrqlQueryPtr(v *OneDashboardVariableNrqlQueryArgs) OneDashboardVariableNrqlQueryPtrInput {
+	return (*oneDashboardVariableNrqlQueryPtrType)(v)
+}
+
+func (*oneDashboardVariableNrqlQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardVariableNrqlQuery)(nil)).Elem()
+}
+
+func (i *oneDashboardVariableNrqlQueryPtrType) ToOneDashboardVariableNrqlQueryPtrOutput() OneDashboardVariableNrqlQueryPtrOutput {
+	return i.ToOneDashboardVariableNrqlQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *oneDashboardVariableNrqlQueryPtrType) ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardVariableNrqlQueryPtrOutput)
+}
+
+type OneDashboardVariableNrqlQueryOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardVariableNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardVariableNrqlQuery)(nil)).Elem()
+}
+
+func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryOutput() OneDashboardVariableNrqlQueryOutput {
+	return o
+}
+
+func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryOutput {
+	return o
+}
+
+func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrOutput() OneDashboardVariableNrqlQueryPtrOutput {
+	return o.ToOneDashboardVariableNrqlQueryPtrOutputWithContext(context.Background())
+}
+
+func (o OneDashboardVariableNrqlQueryOutput) ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OneDashboardVariableNrqlQuery) *OneDashboardVariableNrqlQuery {
+		return &v
+	}).(OneDashboardVariableNrqlQueryPtrOutput)
+}
+
+func (o OneDashboardVariableNrqlQueryOutput) AccountIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) []int { return v.AccountIds }).(pulumi.IntArrayOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardVariableNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v OneDashboardVariableNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type OneDashboardVariableNrqlQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardVariableNrqlQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OneDashboardVariableNrqlQuery)(nil)).Elem()
+}
+
+func (o OneDashboardVariableNrqlQueryPtrOutput) ToOneDashboardVariableNrqlQueryPtrOutput() OneDashboardVariableNrqlQueryPtrOutput {
+	return o
+}
+
+func (o OneDashboardVariableNrqlQueryPtrOutput) ToOneDashboardVariableNrqlQueryPtrOutputWithContext(ctx context.Context) OneDashboardVariableNrqlQueryPtrOutput {
+	return o
+}
+
+func (o OneDashboardVariableNrqlQueryPtrOutput) Elem() OneDashboardVariableNrqlQueryOutput {
+	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) OneDashboardVariableNrqlQuery {
+		if v != nil {
+			return *v
+		}
+		var ret OneDashboardVariableNrqlQuery
+		return ret
+	}).(OneDashboardVariableNrqlQueryOutput)
+}
+
+func (o OneDashboardVariableNrqlQueryPtrOutput) AccountIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) []int {
+		if v == nil {
+			return nil
+		}
+		return v.AccountIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+func (o OneDashboardVariableNrqlQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OneDashboardVariableNrqlQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceLevelEvents struct {
 	// The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
 	// and that contains the NRDB data for the SLI/SLO calculations. Note that changing the account ID will force a new resource.
@@ -7392,6 +7841,8 @@ func (o ServiceLevelEventsPtrOutput) ValidEvents() ServiceLevelEventsValidEvents
 type ServiceLevelEventsBadEvents struct {
 	// The event type where NRDB data will be fetched from.
 	From string `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
+	Select *ServiceLevelEventsBadEventsSelect `pulumi:"select"`
 	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	// a particular entity and were successful).
 	// a particular entity and returned an error).
@@ -7412,6 +7863,8 @@ type ServiceLevelEventsBadEventsInput interface {
 type ServiceLevelEventsBadEventsArgs struct {
 	// The event type where NRDB data will be fetched from.
 	From pulumi.StringInput `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
+	Select ServiceLevelEventsBadEventsSelectPtrInput `pulumi:"select"`
 	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	// a particular entity and were successful).
 	// a particular entity and returned an error).
@@ -7500,6 +7953,11 @@ func (o ServiceLevelEventsBadEventsOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEvents) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
+func (o ServiceLevelEventsBadEventsOutput) Select() ServiceLevelEventsBadEventsSelectPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEventsSelect { return v.Select }).(ServiceLevelEventsBadEventsSelectPtrOutput)
+}
+
 // A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 // a particular entity and were successful).
 // a particular entity and returned an error).
@@ -7541,6 +7999,16 @@ func (o ServiceLevelEventsBadEventsPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
+func (o ServiceLevelEventsBadEventsPtrOutput) Select() ServiceLevelEventsBadEventsSelectPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEvents) *ServiceLevelEventsBadEventsSelect {
+		if v == nil {
+			return nil
+		}
+		return v.Select
+	}).(ServiceLevelEventsBadEventsSelectPtrOutput)
+}
+
 // A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 // a particular entity and were successful).
 // a particular entity and returned an error).
@@ -7553,9 +8021,167 @@ func (o ServiceLevelEventsBadEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceLevelEventsBadEventsSelect struct {
+	// The event attribute to use in the SELECT clause.
+	Attribute *string `pulumi:"attribute"`
+	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+	Function string `pulumi:"function"`
+}
+
+// ServiceLevelEventsBadEventsSelectInput is an input type that accepts ServiceLevelEventsBadEventsSelectArgs and ServiceLevelEventsBadEventsSelectOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsBadEventsSelectInput` via:
+//
+//	ServiceLevelEventsBadEventsSelectArgs{...}
+type ServiceLevelEventsBadEventsSelectInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsBadEventsSelectOutput() ServiceLevelEventsBadEventsSelectOutput
+	ToServiceLevelEventsBadEventsSelectOutputWithContext(context.Context) ServiceLevelEventsBadEventsSelectOutput
+}
+
+type ServiceLevelEventsBadEventsSelectArgs struct {
+	// The event attribute to use in the SELECT clause.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+	Function pulumi.StringInput `pulumi:"function"`
+}
+
+func (ServiceLevelEventsBadEventsSelectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsBadEventsSelect)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsBadEventsSelectArgs) ToServiceLevelEventsBadEventsSelectOutput() ServiceLevelEventsBadEventsSelectOutput {
+	return i.ToServiceLevelEventsBadEventsSelectOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsBadEventsSelectArgs) ToServiceLevelEventsBadEventsSelectOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsSelectOutput)
+}
+
+func (i ServiceLevelEventsBadEventsSelectArgs) ToServiceLevelEventsBadEventsSelectPtrOutput() ServiceLevelEventsBadEventsSelectPtrOutput {
+	return i.ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsBadEventsSelectArgs) ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsSelectOutput).ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsBadEventsSelectPtrInput is an input type that accepts ServiceLevelEventsBadEventsSelectArgs, ServiceLevelEventsBadEventsSelectPtr and ServiceLevelEventsBadEventsSelectPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsBadEventsSelectPtrInput` via:
+//
+//	        ServiceLevelEventsBadEventsSelectArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelEventsBadEventsSelectPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsBadEventsSelectPtrOutput() ServiceLevelEventsBadEventsSelectPtrOutput
+	ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(context.Context) ServiceLevelEventsBadEventsSelectPtrOutput
+}
+
+type serviceLevelEventsBadEventsSelectPtrType ServiceLevelEventsBadEventsSelectArgs
+
+func ServiceLevelEventsBadEventsSelectPtr(v *ServiceLevelEventsBadEventsSelectArgs) ServiceLevelEventsBadEventsSelectPtrInput {
+	return (*serviceLevelEventsBadEventsSelectPtrType)(v)
+}
+
+func (*serviceLevelEventsBadEventsSelectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsBadEventsSelect)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsBadEventsSelectPtrType) ToServiceLevelEventsBadEventsSelectPtrOutput() ServiceLevelEventsBadEventsSelectPtrOutput {
+	return i.ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsBadEventsSelectPtrType) ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsBadEventsSelectPtrOutput)
+}
+
+type ServiceLevelEventsBadEventsSelectOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsBadEventsSelectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsBadEventsSelect)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsBadEventsSelectOutput) ToServiceLevelEventsBadEventsSelectOutput() ServiceLevelEventsBadEventsSelectOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsSelectOutput) ToServiceLevelEventsBadEventsSelectOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsSelectOutput) ToServiceLevelEventsBadEventsSelectPtrOutput() ServiceLevelEventsBadEventsSelectPtrOutput {
+	return o.ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsBadEventsSelectOutput) ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsBadEventsSelect) *ServiceLevelEventsBadEventsSelect {
+		return &v
+	}).(ServiceLevelEventsBadEventsSelectPtrOutput)
+}
+
+// The event attribute to use in the SELECT clause.
+func (o ServiceLevelEventsBadEventsSelectOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+func (o ServiceLevelEventsBadEventsSelectOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) string { return v.Function }).(pulumi.StringOutput)
+}
+
+type ServiceLevelEventsBadEventsSelectPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsBadEventsSelectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsBadEventsSelect)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) ToServiceLevelEventsBadEventsSelectPtrOutput() ServiceLevelEventsBadEventsSelectPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) ToServiceLevelEventsBadEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsBadEventsSelectPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) Elem() ServiceLevelEventsBadEventsSelectOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) ServiceLevelEventsBadEventsSelect {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEventsBadEventsSelect
+		return ret
+	}).(ServiceLevelEventsBadEventsSelectOutput)
+}
+
+// The event attribute to use in the SELECT clause.
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Function
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceLevelEventsGoodEvents struct {
 	// The event type where NRDB data will be fetched from.
 	From string `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
+	Select *ServiceLevelEventsGoodEventsSelect `pulumi:"select"`
 	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	// a particular entity and were successful).
 	// a particular entity and returned an error).
@@ -7576,6 +8202,8 @@ type ServiceLevelEventsGoodEventsInput interface {
 type ServiceLevelEventsGoodEventsArgs struct {
 	// The event type where NRDB data will be fetched from.
 	From pulumi.StringInput `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
+	Select ServiceLevelEventsGoodEventsSelectPtrInput `pulumi:"select"`
 	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	// a particular entity and were successful).
 	// a particular entity and returned an error).
@@ -7664,6 +8292,11 @@ func (o ServiceLevelEventsGoodEventsOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
+func (o ServiceLevelEventsGoodEventsOutput) Select() ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEventsSelect { return v.Select }).(ServiceLevelEventsGoodEventsSelectPtrOutput)
+}
+
 // A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 // a particular entity and were successful).
 // a particular entity and returned an error).
@@ -7705,6 +8338,16 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
+func (o ServiceLevelEventsGoodEventsPtrOutput) Select() ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEvents) *ServiceLevelEventsGoodEventsSelect {
+		if v == nil {
+			return nil
+		}
+		return v.Select
+	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
+}
+
 // A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 // a particular entity and were successful).
 // a particular entity and returned an error).
@@ -7717,9 +8360,167 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceLevelEventsGoodEventsSelect struct {
+	// The event attribute to use in the SELECT clause.
+	Attribute *string `pulumi:"attribute"`
+	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+	Function string `pulumi:"function"`
+}
+
+// ServiceLevelEventsGoodEventsSelectInput is an input type that accepts ServiceLevelEventsGoodEventsSelectArgs and ServiceLevelEventsGoodEventsSelectOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsGoodEventsSelectInput` via:
+//
+//	ServiceLevelEventsGoodEventsSelectArgs{...}
+type ServiceLevelEventsGoodEventsSelectInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsGoodEventsSelectOutput() ServiceLevelEventsGoodEventsSelectOutput
+	ToServiceLevelEventsGoodEventsSelectOutputWithContext(context.Context) ServiceLevelEventsGoodEventsSelectOutput
+}
+
+type ServiceLevelEventsGoodEventsSelectArgs struct {
+	// The event attribute to use in the SELECT clause.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+	Function pulumi.StringInput `pulumi:"function"`
+}
+
+func (ServiceLevelEventsGoodEventsSelectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsGoodEventsSelect)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsGoodEventsSelectArgs) ToServiceLevelEventsGoodEventsSelectOutput() ServiceLevelEventsGoodEventsSelectOutput {
+	return i.ToServiceLevelEventsGoodEventsSelectOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsGoodEventsSelectArgs) ToServiceLevelEventsGoodEventsSelectOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsSelectOutput)
+}
+
+func (i ServiceLevelEventsGoodEventsSelectArgs) ToServiceLevelEventsGoodEventsSelectPtrOutput() ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return i.ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsGoodEventsSelectArgs) ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsSelectOutput).ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsGoodEventsSelectPtrInput is an input type that accepts ServiceLevelEventsGoodEventsSelectArgs, ServiceLevelEventsGoodEventsSelectPtr and ServiceLevelEventsGoodEventsSelectPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsGoodEventsSelectPtrInput` via:
+//
+//	        ServiceLevelEventsGoodEventsSelectArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelEventsGoodEventsSelectPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsGoodEventsSelectPtrOutput() ServiceLevelEventsGoodEventsSelectPtrOutput
+	ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(context.Context) ServiceLevelEventsGoodEventsSelectPtrOutput
+}
+
+type serviceLevelEventsGoodEventsSelectPtrType ServiceLevelEventsGoodEventsSelectArgs
+
+func ServiceLevelEventsGoodEventsSelectPtr(v *ServiceLevelEventsGoodEventsSelectArgs) ServiceLevelEventsGoodEventsSelectPtrInput {
+	return (*serviceLevelEventsGoodEventsSelectPtrType)(v)
+}
+
+func (*serviceLevelEventsGoodEventsSelectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsGoodEventsSelect)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsGoodEventsSelectPtrType) ToServiceLevelEventsGoodEventsSelectPtrOutput() ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return i.ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsGoodEventsSelectPtrType) ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsGoodEventsSelectPtrOutput)
+}
+
+type ServiceLevelEventsGoodEventsSelectOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsGoodEventsSelectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsGoodEventsSelect)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsGoodEventsSelectOutput) ToServiceLevelEventsGoodEventsSelectOutput() ServiceLevelEventsGoodEventsSelectOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsSelectOutput) ToServiceLevelEventsGoodEventsSelectOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsSelectOutput) ToServiceLevelEventsGoodEventsSelectPtrOutput() ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return o.ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsGoodEventsSelectOutput) ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsGoodEventsSelect) *ServiceLevelEventsGoodEventsSelect {
+		return &v
+	}).(ServiceLevelEventsGoodEventsSelectPtrOutput)
+}
+
+// The event attribute to use in the SELECT clause.
+func (o ServiceLevelEventsGoodEventsSelectOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+func (o ServiceLevelEventsGoodEventsSelectOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) string { return v.Function }).(pulumi.StringOutput)
+}
+
+type ServiceLevelEventsGoodEventsSelectPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsGoodEventsSelectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsGoodEventsSelect)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) ToServiceLevelEventsGoodEventsSelectPtrOutput() ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) ToServiceLevelEventsGoodEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsGoodEventsSelectPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Elem() ServiceLevelEventsGoodEventsSelectOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) ServiceLevelEventsGoodEventsSelect {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEventsGoodEventsSelect
+		return ret
+	}).(ServiceLevelEventsGoodEventsSelectOutput)
+}
+
+// The event attribute to use in the SELECT clause.
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Function
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceLevelEventsValidEvents struct {
 	// The event type where NRDB data will be fetched from.
 	From string `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
+	Select *ServiceLevelEventsValidEventsSelect `pulumi:"select"`
 	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	// a particular entity and were successful).
 	// a particular entity and returned an error).
@@ -7740,6 +8541,8 @@ type ServiceLevelEventsValidEventsInput interface {
 type ServiceLevelEventsValidEventsArgs struct {
 	// The event type where NRDB data will be fetched from.
 	From pulumi.StringInput `pulumi:"from"`
+	// The NRQL SELECT clause to aggregate events.
+	Select ServiceLevelEventsValidEventsSelectPtrInput `pulumi:"select"`
 	// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 	// a particular entity and were successful).
 	// a particular entity and returned an error).
@@ -7828,6 +8631,11 @@ func (o ServiceLevelEventsValidEventsOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEvents) string { return v.From }).(pulumi.StringOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
+func (o ServiceLevelEventsValidEventsOutput) Select() ServiceLevelEventsValidEventsSelectPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEventsSelect { return v.Select }).(ServiceLevelEventsValidEventsSelectPtrOutput)
+}
+
 // A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 // a particular entity and were successful).
 // a particular entity and returned an error).
@@ -7869,6 +8677,16 @@ func (o ServiceLevelEventsValidEventsPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The NRQL SELECT clause to aggregate events.
+func (o ServiceLevelEventsValidEventsPtrOutput) Select() ServiceLevelEventsValidEventsSelectPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEvents) *ServiceLevelEventsValidEventsSelect {
+		if v == nil {
+			return nil
+		}
+		return v.Select
+	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
+}
+
 // A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
 // a particular entity and were successful).
 // a particular entity and returned an error).
@@ -7878,6 +8696,162 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Where
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelEventsValidEventsSelect struct {
+	// The event attribute to use in the SELECT clause.
+	Attribute *string `pulumi:"attribute"`
+	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+	Function string `pulumi:"function"`
+}
+
+// ServiceLevelEventsValidEventsSelectInput is an input type that accepts ServiceLevelEventsValidEventsSelectArgs and ServiceLevelEventsValidEventsSelectOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsValidEventsSelectInput` via:
+//
+//	ServiceLevelEventsValidEventsSelectArgs{...}
+type ServiceLevelEventsValidEventsSelectInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsValidEventsSelectOutput() ServiceLevelEventsValidEventsSelectOutput
+	ToServiceLevelEventsValidEventsSelectOutputWithContext(context.Context) ServiceLevelEventsValidEventsSelectOutput
+}
+
+type ServiceLevelEventsValidEventsSelectArgs struct {
+	// The event attribute to use in the SELECT clause.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+	Function pulumi.StringInput `pulumi:"function"`
+}
+
+func (ServiceLevelEventsValidEventsSelectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsValidEventsSelect)(nil)).Elem()
+}
+
+func (i ServiceLevelEventsValidEventsSelectArgs) ToServiceLevelEventsValidEventsSelectOutput() ServiceLevelEventsValidEventsSelectOutput {
+	return i.ToServiceLevelEventsValidEventsSelectOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsValidEventsSelectArgs) ToServiceLevelEventsValidEventsSelectOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsSelectOutput)
+}
+
+func (i ServiceLevelEventsValidEventsSelectArgs) ToServiceLevelEventsValidEventsSelectPtrOutput() ServiceLevelEventsValidEventsSelectPtrOutput {
+	return i.ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelEventsValidEventsSelectArgs) ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsSelectOutput).ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelEventsValidEventsSelectPtrInput is an input type that accepts ServiceLevelEventsValidEventsSelectArgs, ServiceLevelEventsValidEventsSelectPtr and ServiceLevelEventsValidEventsSelectPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelEventsValidEventsSelectPtrInput` via:
+//
+//	        ServiceLevelEventsValidEventsSelectArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelEventsValidEventsSelectPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelEventsValidEventsSelectPtrOutput() ServiceLevelEventsValidEventsSelectPtrOutput
+	ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(context.Context) ServiceLevelEventsValidEventsSelectPtrOutput
+}
+
+type serviceLevelEventsValidEventsSelectPtrType ServiceLevelEventsValidEventsSelectArgs
+
+func ServiceLevelEventsValidEventsSelectPtr(v *ServiceLevelEventsValidEventsSelectArgs) ServiceLevelEventsValidEventsSelectPtrInput {
+	return (*serviceLevelEventsValidEventsSelectPtrType)(v)
+}
+
+func (*serviceLevelEventsValidEventsSelectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsValidEventsSelect)(nil)).Elem()
+}
+
+func (i *serviceLevelEventsValidEventsSelectPtrType) ToServiceLevelEventsValidEventsSelectPtrOutput() ServiceLevelEventsValidEventsSelectPtrOutput {
+	return i.ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelEventsValidEventsSelectPtrType) ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelEventsValidEventsSelectPtrOutput)
+}
+
+type ServiceLevelEventsValidEventsSelectOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsValidEventsSelectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelEventsValidEventsSelect)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsValidEventsSelectOutput) ToServiceLevelEventsValidEventsSelectOutput() ServiceLevelEventsValidEventsSelectOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsSelectOutput) ToServiceLevelEventsValidEventsSelectOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsSelectOutput) ToServiceLevelEventsValidEventsSelectPtrOutput() ServiceLevelEventsValidEventsSelectPtrOutput {
+	return o.ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelEventsValidEventsSelectOutput) ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelEventsValidEventsSelect) *ServiceLevelEventsValidEventsSelect {
+		return &v
+	}).(ServiceLevelEventsValidEventsSelectPtrOutput)
+}
+
+// The event attribute to use in the SELECT clause.
+func (o ServiceLevelEventsValidEventsSelectOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+func (o ServiceLevelEventsValidEventsSelectOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) string { return v.Function }).(pulumi.StringOutput)
+}
+
+type ServiceLevelEventsValidEventsSelectPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelEventsValidEventsSelectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelEventsValidEventsSelect)(nil)).Elem()
+}
+
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) ToServiceLevelEventsValidEventsSelectPtrOutput() ServiceLevelEventsValidEventsSelectPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) ToServiceLevelEventsValidEventsSelectPtrOutputWithContext(ctx context.Context) ServiceLevelEventsValidEventsSelectPtrOutput {
+	return o
+}
+
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) Elem() ServiceLevelEventsValidEventsSelectOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) ServiceLevelEventsValidEventsSelect {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelEventsValidEventsSelect
+		return ret
+	}).(ServiceLevelEventsValidEventsSelectOutput)
+}
+
+// The event attribute to use in the SELECT clause.
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Function
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8369,11 +9343,12 @@ func (o ServiceLevelObjectiveTimeWindowRollingPtrOutput) Unit() pulumi.StringPtr
 }
 
 type WorkflowDestination struct {
+	// id of a notificationChannel to use for notifications. Please note that you have to use a
+	// **notification** channel, not an `alertChannel`.
 	ChannelId string `pulumi:"channelId"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name *string `pulumi:"name"`
-	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicate`
+	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 	Type *string `pulumi:"type"`
 }
 
@@ -8389,11 +9364,12 @@ type WorkflowDestinationInput interface {
 }
 
 type WorkflowDestinationArgs struct {
+	// id of a notificationChannel to use for notifications. Please note that you have to use a
+	// **notification** channel, not an `alertChannel`.
 	ChannelId pulumi.StringInput `pulumi:"channelId"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicate`
+	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8448,17 +9424,18 @@ func (o WorkflowDestinationOutput) ToWorkflowDestinationOutputWithContext(ctx co
 	return o
 }
 
+// id of a notificationChannel to use for notifications. Please note that you have to use a
+// **notification** channel, not an `alertChannel`.
 func (o WorkflowDestinationOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowDestination) string { return v.ChannelId }).(pulumi.StringOutput)
 }
 
-// A nrql enrichment name.
+// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 func (o WorkflowDestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicate`
+// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 func (o WorkflowDestinationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowDestination) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8484,6 +9461,7 @@ func (o WorkflowDestinationArrayOutput) Index(i pulumi.IntInput) WorkflowDestina
 }
 
 type WorkflowEnrichments struct {
+	// a wrapper block
 	Nrqls []WorkflowEnrichmentsNrql `pulumi:"nrqls"`
 }
 
@@ -8499,6 +9477,7 @@ type WorkflowEnrichmentsInput interface {
 }
 
 type WorkflowEnrichmentsArgs struct {
+	// a wrapper block
 	Nrqls WorkflowEnrichmentsNrqlArrayInput `pulumi:"nrqls"`
 }
 
@@ -8579,6 +9558,7 @@ func (o WorkflowEnrichmentsOutput) ToWorkflowEnrichmentsPtrOutputWithContext(ctx
 	}).(WorkflowEnrichmentsPtrOutput)
 }
 
+// a wrapper block
 func (o WorkflowEnrichmentsOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
 	return o.ApplyT(func(v WorkflowEnrichments) []WorkflowEnrichmentsNrql { return v.Nrqls }).(WorkflowEnrichmentsNrqlArrayOutput)
 }
@@ -8607,6 +9587,7 @@ func (o WorkflowEnrichmentsPtrOutput) Elem() WorkflowEnrichmentsOutput {
 	}).(WorkflowEnrichmentsOutput)
 }
 
+// a wrapper block
 func (o WorkflowEnrichmentsPtrOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput {
 	return o.ApplyT(func(v *WorkflowEnrichments) []WorkflowEnrichmentsNrql {
 		if v == nil {
@@ -8617,15 +9598,14 @@ func (o WorkflowEnrichmentsPtrOutput) Nrqls() WorkflowEnrichmentsNrqlArrayOutput
 }
 
 type WorkflowEnrichmentsNrql struct {
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId *int `pulumi:"accountId"`
-	// A list of nrql enrichments.
+	// Another wrapper block
 	Configurations []WorkflowEnrichmentsNrqlConfiguration `pulumi:"configurations"`
 	EnrichmentId   *string                                `pulumi:"enrichmentId"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name string `pulumi:"name"`
-	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicate`
+	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 	Type *string `pulumi:"type"`
 }
 
@@ -8641,15 +9621,14 @@ type WorkflowEnrichmentsNrqlInput interface {
 }
 
 type WorkflowEnrichmentsNrqlArgs struct {
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
-	// A list of nrql enrichments.
+	// Another wrapper block
 	Configurations WorkflowEnrichmentsNrqlConfigurationArrayInput `pulumi:"configurations"`
 	EnrichmentId   pulumi.StringPtrInput                          `pulumi:"enrichmentId"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name pulumi.StringInput `pulumi:"name"`
-	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicate`
+	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8704,12 +9683,12 @@ func (o WorkflowEnrichmentsNrqlOutput) ToWorkflowEnrichmentsNrqlOutputWithContex
 	return o
 }
 
-// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 func (o WorkflowEnrichmentsNrqlOutput) AccountId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *int { return v.AccountId }).(pulumi.IntPtrOutput)
 }
 
-// A list of nrql enrichments.
+// Another wrapper block
 func (o WorkflowEnrichmentsNrqlOutput) Configurations() WorkflowEnrichmentsNrqlConfigurationArrayOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) []WorkflowEnrichmentsNrqlConfiguration { return v.Configurations }).(WorkflowEnrichmentsNrqlConfigurationArrayOutput)
 }
@@ -8718,13 +9697,12 @@ func (o WorkflowEnrichmentsNrqlOutput) EnrichmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.EnrichmentId }).(pulumi.StringPtrOutput)
 }
 
-// A nrql enrichment name.
+// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 func (o WorkflowEnrichmentsNrqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicate`
+// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 func (o WorkflowEnrichmentsNrqlOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrql) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8750,7 +9728,7 @@ func (o WorkflowEnrichmentsNrqlArrayOutput) Index(i pulumi.IntInput) WorkflowEnr
 }
 
 type WorkflowEnrichmentsNrqlConfiguration struct {
-	// the nrql query.
+	// An NRQL query to run
 	Query string `pulumi:"query"`
 }
 
@@ -8766,7 +9744,7 @@ type WorkflowEnrichmentsNrqlConfigurationInput interface {
 }
 
 type WorkflowEnrichmentsNrqlConfigurationArgs struct {
-	// the nrql query.
+	// An NRQL query to run
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -8821,7 +9799,7 @@ func (o WorkflowEnrichmentsNrqlConfigurationOutput) ToWorkflowEnrichmentsNrqlCon
 	return o
 }
 
-// the nrql query.
+// An NRQL query to run
 func (o WorkflowEnrichmentsNrqlConfigurationOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowEnrichmentsNrqlConfiguration) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -8848,11 +9826,11 @@ func (o WorkflowEnrichmentsNrqlConfigurationArrayOutput) Index(i pulumi.IntInput
 
 type WorkflowIssuesFilter struct {
 	FilterId *string `pulumi:"filterId"`
-	// A nrql enrichment name.
-	Name       string                          `pulumi:"name"`
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	Name string `pulumi:"name"`
+	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates []WorkflowIssuesFilterPredicate `pulumi:"predicates"`
-	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicate`
+	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 	Type string `pulumi:"type"`
 }
 
@@ -8869,11 +9847,11 @@ type WorkflowIssuesFilterInput interface {
 
 type WorkflowIssuesFilterArgs struct {
 	FilterId pulumi.StringPtrInput `pulumi:"filterId"`
-	// A nrql enrichment name.
-	Name       pulumi.StringInput                      `pulumi:"name"`
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	Name pulumi.StringInput `pulumi:"name"`
+	// A condition an issue event should satisfy to be processed by the workflow
 	Predicates WorkflowIssuesFilterPredicateArrayInput `pulumi:"predicates"`
-	// the filter's type.   One of: `FILTER` or `VIEW`.
-	// * `predicate`
+	// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8958,17 +9936,17 @@ func (o WorkflowIssuesFilterOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) *string { return v.FilterId }).(pulumi.StringPtrOutput)
 }
 
-// A nrql enrichment name.
+// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 func (o WorkflowIssuesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A condition an issue event should satisfy to be processed by the workflow
 func (o WorkflowIssuesFilterOutput) Predicates() WorkflowIssuesFilterPredicateArrayOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) []WorkflowIssuesFilterPredicate { return v.Predicates }).(WorkflowIssuesFilterPredicateArrayOutput)
 }
 
-// the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicate`
+// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 func (o WorkflowIssuesFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9006,7 +9984,7 @@ func (o WorkflowIssuesFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A nrql enrichment name.
+// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 func (o WorkflowIssuesFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {
@@ -9016,6 +9994,7 @@ func (o WorkflowIssuesFilterPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A condition an issue event should satisfy to be processed by the workflow
 func (o WorkflowIssuesFilterPtrOutput) Predicates() WorkflowIssuesFilterPredicateArrayOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) []WorkflowIssuesFilterPredicate {
 		if v == nil {
@@ -9025,8 +10004,7 @@ func (o WorkflowIssuesFilterPtrOutput) Predicates() WorkflowIssuesFilterPredicat
 	}).(WorkflowIssuesFilterPredicateArrayOutput)
 }
 
-// the filter's type.   One of: `FILTER` or `VIEW`.
-// * `predicate`
+// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
 func (o WorkflowIssuesFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowIssuesFilter) *string {
 		if v == nil {
@@ -9037,11 +10015,13 @@ func (o WorkflowIssuesFilterPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WorkflowIssuesFilterPredicate struct {
-	// A predicate's attribute.
+	// Issue event attribute to check
 	Attribute string `pulumi:"attribute"`
-	// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+	// An operator to use to compare the attribute with the provided `values`.
+	// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+	// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
 	Operator string `pulumi:"operator"`
-	// A list of values.
+	// The `attribute` must match **any** of the values in this list
 	Values []string `pulumi:"values"`
 }
 
@@ -9057,11 +10037,13 @@ type WorkflowIssuesFilterPredicateInput interface {
 }
 
 type WorkflowIssuesFilterPredicateArgs struct {
-	// A predicate's attribute.
+	// Issue event attribute to check
 	Attribute pulumi.StringInput `pulumi:"attribute"`
-	// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+	// An operator to use to compare the attribute with the provided `values`.
+	// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+	// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A list of values.
+	// The `attribute` must match **any** of the values in this list
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9116,17 +10098,19 @@ func (o WorkflowIssuesFilterPredicateOutput) ToWorkflowIssuesFilterPredicateOutp
 	return o
 }
 
-// A predicate's attribute.
+// Issue event attribute to check
 func (o WorkflowIssuesFilterPredicateOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+// An operator to use to compare the attribute with the provided `values`.
+// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
 func (o WorkflowIssuesFilterPredicateOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A list of values.
+// The `attribute` must match **any** of the values in this list
 func (o WorkflowIssuesFilterPredicateOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -9315,7 +10299,9 @@ func (o GetAlertChannelConfigOutput) UserId() pulumi.StringPtrOutput {
 }
 
 type GetEntityTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -9331,7 +10317,9 @@ type GetEntityTagInput interface {
 }
 
 type GetEntityTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9347,45 +10335,29 @@ func (i GetEntityTagArgs) ToGetEntityTagOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagOutput)
 }
 
-func (i GetEntityTagArgs) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
-	return i.ToGetEntityTagPtrOutputWithContext(context.Background())
-}
-
-func (i GetEntityTagArgs) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagOutput).ToGetEntityTagPtrOutputWithContext(ctx)
-}
-
-// GetEntityTagPtrInput is an input type that accepts GetEntityTagArgs, GetEntityTagPtr and GetEntityTagPtrOutput values.
-// You can construct a concrete instance of `GetEntityTagPtrInput` via:
+// GetEntityTagArrayInput is an input type that accepts GetEntityTagArray and GetEntityTagArrayOutput values.
+// You can construct a concrete instance of `GetEntityTagArrayInput` via:
 //
-//	        GetEntityTagArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetEntityTagPtrInput interface {
+//	GetEntityTagArray{ GetEntityTagArgs{...} }
+type GetEntityTagArrayInput interface {
 	pulumi.Input
 
-	ToGetEntityTagPtrOutput() GetEntityTagPtrOutput
-	ToGetEntityTagPtrOutputWithContext(context.Context) GetEntityTagPtrOutput
+	ToGetEntityTagArrayOutput() GetEntityTagArrayOutput
+	ToGetEntityTagArrayOutputWithContext(context.Context) GetEntityTagArrayOutput
 }
 
-type getEntityTagPtrType GetEntityTagArgs
+type GetEntityTagArray []GetEntityTagInput
 
-func GetEntityTagPtr(v *GetEntityTagArgs) GetEntityTagPtrInput {
-	return (*getEntityTagPtrType)(v)
+func (GetEntityTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntityTag)(nil)).Elem()
 }
 
-func (*getEntityTagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetEntityTag)(nil)).Elem()
+func (i GetEntityTagArray) ToGetEntityTagArrayOutput() GetEntityTagArrayOutput {
+	return i.ToGetEntityTagArrayOutputWithContext(context.Background())
 }
 
-func (i *getEntityTagPtrType) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
-	return i.ToGetEntityTagPtrOutputWithContext(context.Background())
-}
-
-func (i *getEntityTagPtrType) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagPtrOutput)
+func (i GetEntityTagArray) ToGetEntityTagArrayOutputWithContext(ctx context.Context) GetEntityTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntityTagArrayOutput)
 }
 
 type GetEntityTagOutput struct{ *pulumi.OutputState }
@@ -9402,64 +10374,34 @@ func (o GetEntityTagOutput) ToGetEntityTagOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o GetEntityTagOutput) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
-	return o.ToGetEntityTagPtrOutputWithContext(context.Background())
-}
-
-func (o GetEntityTagOutput) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntityTag) *GetEntityTag {
-		return &v
-	}).(GetEntityTagPtrOutput)
-}
-
+// The tag key.
 func (o GetEntityTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o GetEntityTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetEntityTagPtrOutput struct{ *pulumi.OutputState }
+type GetEntityTagArrayOutput struct{ *pulumi.OutputState }
 
-func (GetEntityTagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetEntityTag)(nil)).Elem()
+func (GetEntityTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntityTag)(nil)).Elem()
 }
 
-func (o GetEntityTagPtrOutput) ToGetEntityTagPtrOutput() GetEntityTagPtrOutput {
+func (o GetEntityTagArrayOutput) ToGetEntityTagArrayOutput() GetEntityTagArrayOutput {
 	return o
 }
 
-func (o GetEntityTagPtrOutput) ToGetEntityTagPtrOutputWithContext(ctx context.Context) GetEntityTagPtrOutput {
+func (o GetEntityTagArrayOutput) ToGetEntityTagArrayOutputWithContext(ctx context.Context) GetEntityTagArrayOutput {
 	return o
 }
 
-func (o GetEntityTagPtrOutput) Elem() GetEntityTagOutput {
-	return o.ApplyT(func(v *GetEntityTag) GetEntityTag {
-		if v != nil {
-			return *v
-		}
-		var ret GetEntityTag
-		return ret
+func (o GetEntityTagArrayOutput) Index(i pulumi.IntInput) GetEntityTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntityTag {
+		return vs[0].([]GetEntityTag)[vs[1].(int)]
 	}).(GetEntityTagOutput)
-}
-
-func (o GetEntityTagPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetEntityTag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GetEntityTagPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetEntityTag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -9495,6 +10437,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionTermArrayInput)(nil)).Elem(), NrqlAlertConditionTermArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningInput)(nil)).Elem(), NrqlAlertConditionWarningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NrqlAlertConditionWarningPtrInput)(nil)).Elem(), NrqlAlertConditionWarningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObfuscationRuleActionInput)(nil)).Elem(), ObfuscationRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObfuscationRuleActionArrayInput)(nil)).Elem(), ObfuscationRuleActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageInput)(nil)).Elem(), OneDashboardPageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageArrayInput)(nil)).Elem(), OneDashboardPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInput)(nil)).Elem(), OneDashboardPageWidgetAreaArgs{})
@@ -9555,14 +10499,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageArrayInput)(nil)).Elem(), OneDashboardRawPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageWidgetInput)(nil)).Elem(), OneDashboardRawPageWidgetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageWidgetArrayInput)(nil)).Elem(), OneDashboardRawPageWidgetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableInput)(nil)).Elem(), OneDashboardVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableArrayInput)(nil)).Elem(), OneDashboardVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableItemInput)(nil)).Elem(), OneDashboardVariableItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableItemArrayInput)(nil)).Elem(), OneDashboardVariableItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableNrqlQueryInput)(nil)).Elem(), OneDashboardVariableNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardVariableNrqlQueryPtrInput)(nil)).Elem(), OneDashboardVariableNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsInput)(nil)).Elem(), ServiceLevelEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsPtrInput)(nil)).Elem(), ServiceLevelEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsInput)(nil)).Elem(), ServiceLevelEventsBadEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsPtrInput)(nil)).Elem(), ServiceLevelEventsBadEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsSelectInput)(nil)).Elem(), ServiceLevelEventsBadEventsSelectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsBadEventsSelectPtrInput)(nil)).Elem(), ServiceLevelEventsBadEventsSelectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsGoodEventsInput)(nil)).Elem(), ServiceLevelEventsGoodEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsGoodEventsPtrInput)(nil)).Elem(), ServiceLevelEventsGoodEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsGoodEventsSelectInput)(nil)).Elem(), ServiceLevelEventsGoodEventsSelectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsGoodEventsSelectPtrInput)(nil)).Elem(), ServiceLevelEventsGoodEventsSelectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsInput)(nil)).Elem(), ServiceLevelEventsValidEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsPtrInput)(nil)).Elem(), ServiceLevelEventsValidEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsSelectInput)(nil)).Elem(), ServiceLevelEventsValidEventsSelectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelEventsValidEventsSelectPtrInput)(nil)).Elem(), ServiceLevelEventsValidEventsSelectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveInput)(nil)).Elem(), ServiceLevelObjectiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectivePtrInput)(nil)).Elem(), ServiceLevelObjectiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveTimeWindowInput)(nil)).Elem(), ServiceLevelObjectiveTimeWindowArgs{})
@@ -9583,7 +10539,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIssuesFilterPredicateArrayInput)(nil)).Elem(), WorkflowIssuesFilterPredicateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertChannelConfigInput)(nil)).Elem(), GetAlertChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagInput)(nil)).Elem(), GetEntityTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagPtrInput)(nil)).Elem(), GetEntityTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagArrayInput)(nil)).Elem(), GetEntityTagArray{})
 	pulumi.RegisterOutputType(AlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(AlertChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(AlertConditionTermOutput{})
@@ -9616,6 +10572,8 @@ func init() {
 	pulumi.RegisterOutputType(NrqlAlertConditionTermArrayOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningOutput{})
 	pulumi.RegisterOutputType(NrqlAlertConditionWarningPtrOutput{})
+	pulumi.RegisterOutputType(ObfuscationRuleActionOutput{})
+	pulumi.RegisterOutputType(ObfuscationRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaOutput{})
@@ -9676,14 +10634,26 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardRawPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageWidgetOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageWidgetArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardVariableOutput{})
+	pulumi.RegisterOutputType(OneDashboardVariableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardVariableItemOutput{})
+	pulumi.RegisterOutputType(OneDashboardVariableItemArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardVariableNrqlQueryOutput{})
+	pulumi.RegisterOutputType(OneDashboardVariableNrqlQueryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsSelectOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsBadEventsSelectPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsGoodEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsGoodEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsGoodEventsSelectOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsGoodEventsSelectPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsOutput{})
 	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsSelectOutput{})
+	pulumi.RegisterOutputType(ServiceLevelEventsValidEventsSelectPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectivePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveTimeWindowOutput{})
@@ -9704,5 +10674,5 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowIssuesFilterPredicateArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
-	pulumi.RegisterOutputType(GetEntityTagPtrOutput{})
+	pulumi.RegisterOutputType(GetEntityTagArrayOutput{})
 }

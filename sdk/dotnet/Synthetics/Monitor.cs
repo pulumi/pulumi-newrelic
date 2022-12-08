@@ -28,8 +28,8 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
     ///             {
-    ///                 Name = "Name",
-    ///                 Value = "simpleMonitor",
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
     ///             },
     ///         },
     ///         LocationsPublics = new[]
@@ -60,8 +60,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// ```
     /// ##### Type: `SIMPLE BROWSER`
     /// 
-    /// &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -69,14 +67,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new NewRelic.Synthetics.Monitor("bar", new()
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
     ///             {
-    ///                 Name = "name",
-    ///                 Value = "simple_browser",
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
     ///             },
     ///         },
     ///         EnableScreenshotOnFailureAndScript = true,
@@ -85,18 +83,15 @@ namespace Pulumi.NewRelic.Synthetics
     ///             "AP_SOUTH_1",
     ///         },
     ///         Period = "EVERY_MINUTE",
-    ///         RuntimeType = "CHROME_BROWSER",
-    ///         RuntimeTypeVersion = "100",
-    ///         ScriptLanguage = "JAVASCRIPT",
     ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
     ///             {
-    ///                 Key = "name",
+    ///                 Key = "some_key",
     ///                 Values = new[]
     ///                 {
-    ///                     "SimpleBrowserMonitor",
+    ///                     "some_value",
     ///                 },
     ///             },
     ///         },
@@ -111,12 +106,125 @@ namespace Pulumi.NewRelic.Synthetics
     /// See additional examples.
     /// ## Additional Examples
     /// 
+    /// ### Create a monitor with a private location
+    /// 
+    /// The below example shows how you can define a private location and attach it to a monitor.
+    /// 
+    /// &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+    /// 
+    /// ##### Type: `SIMPLE`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Example private location",
+    ///         VerifiedScriptExecution = false,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         BypassHeadRequest = true,
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             "newrelic_synthetics_private_location.location.id",
+    ///         },
+    ///         Period = "EVERY_MINUTE",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///         TreatRedirectAsFailure = true,
+    ///         Type = "SIMPLE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ##### Type: `BROWSER`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
+    ///     {
+    ///         Description = "Example private location",
+    ///         VerifiedScriptExecution = false,
+    ///     });
+    /// 
+    ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
+    ///     {
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
+    ///             {
+    ///                 Name = "some_name",
+    ///                 Value = "some_value",
+    ///             },
+    ///         },
+    ///         EnableScreenshotOnFailureAndScript = true,
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             "newrelic_synthetics_private_location.location.id",
+    ///         },
+    ///         Period = "EVERY_MINUTE",
+    ///         RuntimeType = "CHROME_BROWSER",
+    ///         RuntimeTypeVersion = "100",
+    ///         ScriptLanguage = "JAVASCRIPT",
+    ///         Status = "ENABLED",
+    ///         Tags = new[]
+    ///         {
+    ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
+    ///             {
+    ///                 Key = "some_key",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "some_value",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "BROWSER",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synthetics monitor can be imported using the `guid`, e.g. bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/monitor:Monitor bar &lt;guid&gt;
+    ///  $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/monitor:Monitor")]
@@ -135,7 +243,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> BypassHeadRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        /// Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         /// </summary>
         [Output("customHeaders")]
         public Output<ImmutableArray<Outputs.MonitorCustomHeader>> CustomHeaders { get; private set; } = null!;
@@ -207,13 +315,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<bool?> TreatRedirectAsFailure { get; private set; } = null!;
 
         /// <summary>
-        /// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        /// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The uri the monitor runs against.
+        /// The URI the monitor runs against.
         /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
@@ -292,7 +400,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.MonitorCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        /// Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         /// </summary>
         public InputList<Inputs.MonitorCustomHeaderArgs> CustomHeaders
         {
@@ -385,13 +493,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? TreatRedirectAsFailure { get; set; }
 
         /// <summary>
-        /// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        /// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The uri the monitor runs against.
+        /// The URI the monitor runs against.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
@@ -432,7 +540,7 @@ namespace Pulumi.NewRelic.Synthetics
         private InputList<Inputs.MonitorCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
-        /// Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        /// Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         /// </summary>
         public InputList<Inputs.MonitorCustomHeaderGetArgs> CustomHeaders
         {
@@ -525,13 +633,13 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<bool>? TreatRedirectAsFailure { get; set; }
 
         /// <summary>
-        /// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        /// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The uri the monitor runs against.
+        /// The URI the monitor runs against.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

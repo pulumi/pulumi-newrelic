@@ -56,7 +56,9 @@ __all__ = [
     'AzureIntegrationsMachineLearning',
     'AzureIntegrationsMariaDb',
     'AzureIntegrationsMysql',
+    'AzureIntegrationsMysqlFlexible',
     'AzureIntegrationsPostgresql',
+    'AzureIntegrationsPostgresqlFlexible',
     'AzureIntegrationsPowerBiDedicated',
     'AzureIntegrationsRedisCache',
     'AzureIntegrationsServiceBus',
@@ -67,6 +69,7 @@ __all__ = [
     'AzureIntegrationsVirtualNetworks',
     'AzureIntegrationsVms',
     'AzureIntegrationsVpnGateway',
+    'GcpIntegrationsAlloyDb',
     'GcpIntegrationsAppEngine',
     'GcpIntegrationsBigQuery',
     'GcpIntegrationsBigTable',
@@ -3501,6 +3504,56 @@ class AzureIntegrationsMysql(dict):
 
 
 @pulumi.output_type
+class AzureIntegrationsMysqlFlexible(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIntegrationsMysqlFlexible. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIntegrationsMysqlFlexible.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIntegrationsMysqlFlexible.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[int] = None,
+                 resource_groups: Optional[Sequence[str]] = None):
+        """
+        :param int metrics_polling_interval: The data polling interval in seconds.
+        :param Sequence[str] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[int]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        return pulumi.get(self, "resource_groups")
+
+
+@pulumi.output_type
 class AzureIntegrationsPostgresql(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3519,6 +3572,56 @@ class AzureIntegrationsPostgresql(dict):
 
     def get(self, key: str, default = None) -> Any:
         AzureIntegrationsPostgresql.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[int] = None,
+                 resource_groups: Optional[Sequence[str]] = None):
+        """
+        :param int metrics_polling_interval: The data polling interval in seconds.
+        :param Sequence[str] resource_groups: Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[int]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+        """
+        return pulumi.get(self, "resource_groups")
+
+
+@pulumi.output_type
+class AzureIntegrationsPostgresqlFlexible(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIntegrationsPostgresqlFlexible. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIntegrationsPostgresqlFlexible.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIntegrationsPostgresqlFlexible.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -4048,6 +4151,42 @@ class AzureIntegrationsVpnGateway(dict):
         Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
         """
         return pulumi.get(self, "resource_groups")
+
+
+@pulumi.output_type
+class GcpIntegrationsAlloyDb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsPollingInterval":
+            suggest = "metrics_polling_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcpIntegrationsAlloyDb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcpIntegrationsAlloyDb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcpIntegrationsAlloyDb.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_polling_interval: Optional[int] = None):
+        """
+        :param int metrics_polling_interval: The data polling interval in seconds.
+        """
+        if metrics_polling_interval is not None:
+            pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
+
+    @property
+    @pulumi.getter(name="metricsPollingInterval")
+    def metrics_polling_interval(self) -> Optional[int]:
+        """
+        The data polling interval in seconds.
+        """
+        return pulumi.get(self, "metrics_polling_interval")
 
 
 @pulumi.output_type

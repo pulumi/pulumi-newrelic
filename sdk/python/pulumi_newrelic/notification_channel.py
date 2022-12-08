@@ -281,6 +281,8 @@ class NotificationChannel(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 
+        A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
+
         ## Example Usage
 
         ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
@@ -333,10 +335,16 @@ class NotificationChannel(pulumi.CustomResource):
             account_id=12345678,
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="ERROR_TRACKING",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="subject",
-                value="New Subject Title",
-            )],
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="subject",
+                    value="New Subject Title",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetailsEmail",
+                    value="issue id - {{issueId}}",
+                ),
+            ],
             type="EMAIL")
         ```
 
@@ -392,6 +400,24 @@ class NotificationChannel(pulumi.CustomResource):
                     key="email",
                     value="example@email.com",
                 ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetails",
+                    value=\"\"\"    {
+            "id":{{json issueId}},
+            "IssueURL":{{json issuePageUrl}},
+            "NewRelic priority":{{json priority}},
+            "Total Incidents":{{json totalIncidents}},
+            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "isCorrelated":{{json isCorrelated}},
+            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Workflow Name":{{json workflowName}}
+            }
+
+        \"\"\",
+                ),
             ],
             type="PAGERDUTY_ACCOUNT_INTEGRATION")
         ```
@@ -405,10 +431,30 @@ class NotificationChannel(pulumi.CustomResource):
             account_id=12345678,
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="summary",
-                value="General summary",
-            )],
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="summary",
+                    value="General summary",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetails",
+                    value=\"\"\"    {
+            "id":{{json issueId}},
+            "IssueURL":{{json issuePageUrl}},
+            "NewRelic priority":{{json priority}},
+            "Total Incidents":{{json totalIncidents}},
+            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "isCorrelated":{{json isCorrelated}},
+            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Workflow Name":{{json workflowName}}
+            }
+
+        \"\"\",
+                ),
+            ],
             type="PAGERDUTY_SERVICE_INTEGRATION")
         ```
 
@@ -455,10 +501,16 @@ class NotificationChannel(pulumi.CustomResource):
             account_id=12345678,
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="channelId",
-                value="123456",
-            )],
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="channelId",
+                    value="123456",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetailsSlack",
+                    value="issue id - {{issueId}}",
+                ),
+            ],
             type="SLACK")
         ```
 
@@ -526,6 +578,8 @@ class NotificationChannel(pulumi.CustomResource):
         """
         Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 
+        A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
+
         ## Example Usage
 
         ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
@@ -578,10 +632,16 @@ class NotificationChannel(pulumi.CustomResource):
             account_id=12345678,
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="ERROR_TRACKING",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="subject",
-                value="New Subject Title",
-            )],
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="subject",
+                    value="New Subject Title",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetailsEmail",
+                    value="issue id - {{issueId}}",
+                ),
+            ],
             type="EMAIL")
         ```
 
@@ -637,6 +697,24 @@ class NotificationChannel(pulumi.CustomResource):
                     key="email",
                     value="example@email.com",
                 ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetails",
+                    value=\"\"\"    {
+            "id":{{json issueId}},
+            "IssueURL":{{json issuePageUrl}},
+            "NewRelic priority":{{json priority}},
+            "Total Incidents":{{json totalIncidents}},
+            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "isCorrelated":{{json isCorrelated}},
+            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Workflow Name":{{json workflowName}}
+            }
+
+        \"\"\",
+                ),
             ],
             type="PAGERDUTY_ACCOUNT_INTEGRATION")
         ```
@@ -650,10 +728,30 @@ class NotificationChannel(pulumi.CustomResource):
             account_id=12345678,
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="summary",
-                value="General summary",
-            )],
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="summary",
+                    value="General summary",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetails",
+                    value=\"\"\"    {
+            "id":{{json issueId}},
+            "IssueURL":{{json issuePageUrl}},
+            "NewRelic priority":{{json priority}},
+            "Total Incidents":{{json totalIncidents}},
+            "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "isCorrelated":{{json isCorrelated}},
+            "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+            "Workflow Name":{{json workflowName}}
+            }
+
+        \"\"\",
+                ),
+            ],
             type="PAGERDUTY_SERVICE_INTEGRATION")
         ```
 
@@ -700,10 +798,16 @@ class NotificationChannel(pulumi.CustomResource):
             account_id=12345678,
             destination_id="00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
             product="IINT",
-            properties=[newrelic.NotificationChannelPropertyArgs(
-                key="channelId",
-                value="123456",
-            )],
+            properties=[
+                newrelic.NotificationChannelPropertyArgs(
+                    key="channelId",
+                    value="123456",
+                ),
+                newrelic.NotificationChannelPropertyArgs(
+                    key="customDetailsSlack",
+                    value="issue id - {{issueId}}",
+                ),
+            ],
             type="SLACK")
         ```
 

@@ -15,13 +15,15 @@ namespace Pulumi.NewRelic.Outputs
     {
         public readonly string? FilterId;
         /// <summary>
-        /// A nrql enrichment name.
+        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A condition an issue event should satisfy to be processed by the workflow
+        /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowIssuesFilterPredicate> Predicates;
         /// <summary>
-        /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicate`
+        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         /// </summary>
         public readonly string Type;
 

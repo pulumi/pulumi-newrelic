@@ -31,8 +31,8 @@ import (
 //				BypassHeadRequest: pulumi.Bool(true),
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
-//						Name:  pulumi.String("Name"),
-//						Value: pulumi.String("simpleMonitor"),
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
 //					},
 //				},
 //				LocationsPublics: pulumi.StringArray{
@@ -64,8 +64,6 @@ import (
 // ```
 // ##### Type: `SIMPLE BROWSER`
 //
-// > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-//
 // ```go
 // package main
 //
@@ -78,27 +76,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewMonitor(ctx, "bar", &synthetics.MonitorArgs{
+//			_, err := synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
-//						Name:  pulumi.String("name"),
-//						Value: pulumi.String("simple_browser"),
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
 //					},
 //				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},
-//				Period:             pulumi.String("EVERY_MINUTE"),
-//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
-//				RuntimeTypeVersion: pulumi.String("100"),
-//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Status: pulumi.String("ENABLED"),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
-//						Key: pulumi.String("name"),
+//						Key: pulumi.String("some_key"),
 //						Values: pulumi.StringArray{
-//							pulumi.String("SimpleBrowserMonitor"),
+//							pulumi.String("some_value"),
 //						},
 //					},
 //				},
@@ -118,13 +113,134 @@ import (
 // See additional examples.
 // ## Additional Examples
 //
+// ### Create a monitor with a private location
+//
+// The below example shows how you can define a private location and attach it to a monitor.
+//
+// > **NOTE:** It can take up to 10 minutes for a private location to become available.
+//
+// ##### Type: `SIMPLE`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Example private location"),
+//				VerifiedScriptExecution: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				BypassHeadRequest: pulumi.Bool(true),
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				LocationsPrivates: pulumi.StringArray{
+//					pulumi.String("newrelic_synthetics_private_location.location.id"),
+//				},
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Status: pulumi.String("ENABLED"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				Type:                   pulumi.String("SIMPLE"),
+//				Uri:                    pulumi.String("https://www.one.newrelic.com"),
+//				ValidationString:       pulumi.String("success"),
+//				VerifySsl:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ##### Type: `BROWSER`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Example private location"),
+//				VerifiedScriptExecution: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				CustomHeaders: synthetics.MonitorCustomHeaderArray{
+//					&synthetics.MonitorCustomHeaderArgs{
+//						Name:  pulumi.String("some_name"),
+//						Value: pulumi.String("some_value"),
+//					},
+//				},
+//				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
+//				LocationsPrivates: pulumi.StringArray{
+//					pulumi.String("newrelic_synthetics_private_location.location.id"),
+//				},
+//				Period:             pulumi.String("EVERY_MINUTE"),
+//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
+//				RuntimeTypeVersion: pulumi.String("100"),
+//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
+//				Status:             pulumi.String("ENABLED"),
+//				Tags: synthetics.MonitorTagArray{
+//					&synthetics.MonitorTagArgs{
+//						Key: pulumi.String("some_key"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("some_value"),
+//						},
+//					},
+//				},
+//				Type:             pulumi.String("BROWSER"),
+//				Uri:              pulumi.String("https://www.one.newrelic.com"),
+//				ValidationString: pulumi.String("success"),
+//				VerifySsl:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Synthetics monitor can be imported using the `guid`, e.g. bash
 //
 // ```sh
 //
-//	$ pulumi import newrelic:synthetics/monitor:Monitor bar <guid>
+//	$ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
 //
 // ```
 type Monitor struct {
@@ -134,7 +250,7 @@ type Monitor struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest pulumi.BoolPtrOutput `pulumi:"bypassHeadRequest"`
-	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrOutput `pulumi:"enableScreenshotOnFailureAndScript"`
@@ -158,9 +274,9 @@ type Monitor struct {
 	Tags MonitorTagArrayOutput `pulumi:"tags"`
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrOutput `pulumi:"treatRedirectAsFailure"`
-	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrOutput `pulumi:"validationString"`
@@ -207,7 +323,7 @@ type monitorState struct {
 	AccountId *int `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
-	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
@@ -231,9 +347,9 @@ type monitorState struct {
 	Tags []MonitorTag `pulumi:"tags"`
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
-	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type *string `pulumi:"type"`
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri *string `pulumi:"uri"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
@@ -246,7 +362,7 @@ type MonitorState struct {
 	AccountId pulumi.IntPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest pulumi.BoolPtrInput
-	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
@@ -270,9 +386,9 @@ type MonitorState struct {
 	Tags MonitorTagArrayInput
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
-	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringPtrInput
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri pulumi.StringPtrInput
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
@@ -289,7 +405,7 @@ type monitorArgs struct {
 	AccountId *int `pulumi:"accountId"`
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest *bool `pulumi:"bypassHeadRequest"`
-	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders []MonitorCustomHeader `pulumi:"customHeaders"`
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript *bool `pulumi:"enableScreenshotOnFailureAndScript"`
@@ -313,9 +429,9 @@ type monitorArgs struct {
 	Tags []MonitorTag `pulumi:"tags"`
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure *bool `pulumi:"treatRedirectAsFailure"`
-	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type string `pulumi:"type"`
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri *string `pulumi:"uri"`
 	// Validation text for monitor to search for at given URI.
 	ValidationString *string `pulumi:"validationString"`
@@ -329,7 +445,7 @@ type MonitorArgs struct {
 	AccountId pulumi.IntPtrInput
 	// Monitor should skip default HEAD request and instead use GET verb in check.
 	BypassHeadRequest pulumi.BoolPtrInput
-	// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+	// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 	CustomHeaders MonitorCustomHeaderArrayInput
 	// Capture a screenshot during job execution.
 	EnableScreenshotOnFailureAndScript pulumi.BoolPtrInput
@@ -353,9 +469,9 @@ type MonitorArgs struct {
 	Tags MonitorTagArrayInput
 	// Categorize redirects during a monitor job as a failure.
 	TreatRedirectAsFailure pulumi.BoolPtrInput
-	// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+	// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 	Type pulumi.StringInput
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri pulumi.StringPtrInput
 	// Validation text for monitor to search for at given URI.
 	ValidationString pulumi.StringPtrInput
@@ -460,7 +576,7 @@ func (o MonitorOutput) BypassHeadRequest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.BypassHeadRequest }).(pulumi.BoolPtrOutput)
 }
 
-// Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+// Custom headers to use in monitor job. See Nested customHeader blocks below for details.
 func (o MonitorOutput) CustomHeaders() MonitorCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorCustomHeaderArrayOutput { return v.CustomHeaders }).(MonitorCustomHeaderArrayOutput)
 }
@@ -520,12 +636,12 @@ func (o MonitorOutput) TreatRedirectAsFailure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.TreatRedirectAsFailure }).(pulumi.BoolPtrOutput)
 }
 
-// THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+// The monitor type. Valid values are `SIMPLE` and `BROWSER`.
 func (o MonitorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The uri the monitor runs against.
+// The URI the monitor runs against.
 func (o MonitorOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }

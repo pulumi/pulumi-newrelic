@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -44,9 +45,90 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Include entities with a set of tags.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     accountId: 12345678,
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
+ *     }],
+ *     scopeAccountIds: [12345678],
+ * });
+ * ```
+ *
+ * Include automatic status
+ *
+ * > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     accountId: 12345678,
+ *     description: "Description",
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: [12345678],
+ *     statusConfigAutomatic: {
+ *         enabled: true,
+ *         remainingEntitiesRule: {
+ *             remainingEntitiesRuleRollup: {
+ *                 groupBy: "ENTITY_TYPE",
+ *                 strategy: "BEST_STATUS_WINS",
+ *                 thresholdType: "FIXED",
+ *                 thresholdValue: 100,
+ *             },
+ *         },
+ *         rules: [{
+ *             entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *             nrqlQueries: [{
+ *                 query: "name like '%Example application2%'",
+ *             }],
+ *             rollup: {
+ *                 strategy: "BEST_STATUS_WINS",
+ *                 thresholdType: "FIXED",
+ *                 thresholdValue: 100,
+ *             },
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * Include static status
+ *
+ * > You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = new newrelic.plugins.Workload("foo", {
+ *     accountId: 12345678,
+ *     description: "Description",
+ *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
+ *     entitySearchQueries: [{
+ *         query: "name like '%Example application%'",
+ *     }],
+ *     scopeAccountIds: [12345678],
+ *     statusConfigStatic: {
+ *         description: "test",
+ *         enabled: true,
+ *         status: "OPERATIONAL",
+ *         summary: "summary of the status",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
- * New Relic One workloads can be imported using a concatenated string of the format
+ * New Relic workloads can be imported using a concatenated string of the format
  *
  * `<account_id>:<workload_id>:<guid>`, e.g. bash
  *
@@ -91,6 +173,10 @@ export class Workload extends pulumi.CustomResource {
      */
     public /*out*/ readonly compositeEntitySearchQuery!: pulumi.Output<string>;
     /**
+     * A description that provides additional details about the status of the workload.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * A list of entity GUIDs manually assigned to this workload.
      */
     public readonly entityGuids!: pulumi.Output<string[]>;
@@ -115,6 +201,14 @@ export class Workload extends pulumi.CustomResource {
      */
     public readonly scopeAccountIds!: pulumi.Output<number[]>;
     /**
+     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     */
+    public readonly statusConfigAutomatic!: pulumi.Output<outputs.plugins.WorkloadStatusConfigAutomatic | undefined>;
+    /**
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     */
+    public readonly statusConfigStatic!: pulumi.Output<outputs.plugins.WorkloadStatusConfigStatic | undefined>;
+    /**
      * The unique entity identifier of the workload.
      */
     public /*out*/ readonly workloadId!: pulumi.Output<number>;
@@ -134,20 +228,26 @@ export class Workload extends pulumi.CustomResource {
             const state = argsOrState as WorkloadState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["compositeEntitySearchQuery"] = state ? state.compositeEntitySearchQuery : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["entityGuids"] = state ? state.entityGuids : undefined;
             resourceInputs["entitySearchQueries"] = state ? state.entitySearchQueries : undefined;
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permalink"] = state ? state.permalink : undefined;
             resourceInputs["scopeAccountIds"] = state ? state.scopeAccountIds : undefined;
+            resourceInputs["statusConfigAutomatic"] = state ? state.statusConfigAutomatic : undefined;
+            resourceInputs["statusConfigStatic"] = state ? state.statusConfigStatic : undefined;
             resourceInputs["workloadId"] = state ? state.workloadId : undefined;
         } else {
             const args = argsOrState as WorkloadArgs | undefined;
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["entityGuids"] = args ? args.entityGuids : undefined;
             resourceInputs["entitySearchQueries"] = args ? args.entitySearchQueries : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["scopeAccountIds"] = args ? args.scopeAccountIds : undefined;
+            resourceInputs["statusConfigAutomatic"] = args ? args.statusConfigAutomatic : undefined;
+            resourceInputs["statusConfigStatic"] = args ? args.statusConfigStatic : undefined;
             resourceInputs["compositeEntitySearchQuery"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["permalink"] = undefined /*out*/;
@@ -170,6 +270,10 @@ export interface WorkloadState {
      * The composite query used to compose a dynamic workload.
      */
     compositeEntitySearchQuery?: pulumi.Input<string>;
+    /**
+     * A description that provides additional details about the status of the workload.
+     */
+    description?: pulumi.Input<string>;
     /**
      * A list of entity GUIDs manually assigned to this workload.
      */
@@ -195,6 +299,14 @@ export interface WorkloadState {
      */
     scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
+     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     */
+    statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic>;
+    /**
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     */
+    statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic>;
+    /**
      * The unique entity identifier of the workload.
      */
     workloadId?: pulumi.Input<number>;
@@ -208,6 +320,10 @@ export interface WorkloadArgs {
      * The New Relic account ID where you want to create the workload.
      */
     accountId?: pulumi.Input<number>;
+    /**
+     * A description that provides additional details about the status of the workload.
+     */
+    description?: pulumi.Input<string>;
     /**
      * A list of entity GUIDs manually assigned to this workload.
      */
@@ -224,4 +340,12 @@ export interface WorkloadArgs {
      * A list of account IDs that will be used to get entities from.
      */
     scopeAccountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * An input object used to represent an automatic status configuration.See Nested statusConfigAutomatic blocks below for details.
+     */
+    statusConfigAutomatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomatic>;
+    /**
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested statusConfigStatic blocks below for details.
+     */
+    statusConfigStatic?: pulumi.Input<inputs.plugins.WorkloadStatusConfigStatic>;
 }

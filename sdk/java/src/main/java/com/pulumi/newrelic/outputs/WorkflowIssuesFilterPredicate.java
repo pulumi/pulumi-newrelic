@@ -11,38 +11,42 @@ import java.util.Objects;
 @CustomType
 public final class WorkflowIssuesFilterPredicate {
     /**
-     * @return A predicate&#39;s attribute.
+     * @return Issue event attribute to check
      * 
      */
     private String attribute;
     /**
-     * @return A predicate&#39;s operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * @return An operator to use to compare the attribute with the provided `values`.
+     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
      * 
      */
     private String operator;
     /**
-     * @return A list of values.
+     * @return The `attribute` must match **any** of the values in this list
      * 
      */
     private List<String> values;
 
     private WorkflowIssuesFilterPredicate() {}
     /**
-     * @return A predicate&#39;s attribute.
+     * @return Issue event attribute to check
      * 
      */
     public String attribute() {
         return this.attribute;
     }
     /**
-     * @return A predicate&#39;s operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * @return An operator to use to compare the attribute with the provided `values`.
+     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
      * 
      */
     public String operator() {
         return this.operator;
     }
     /**
-     * @return A list of values.
+     * @return The `attribute` must match **any** of the values in this list
      * 
      */
     public List<String> values() {

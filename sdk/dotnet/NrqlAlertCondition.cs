@@ -18,7 +18,7 @@ namespace Pulumi.NewRelic
     /// The `nrql` block supports the following arguments:
     /// 
     /// - `query` - (Required) The NRQL query to execute for the condition.
-    /// - `evaluation_offset` - (Optional) **DEPRECATED:** Use `aggregation_method` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregation_window` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger violations sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 windows and an `aggregation_window` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluation_offset` cannot be set with `aggregation_method`, `aggregation_delay`, or `aggregation_timer`.&lt;br&gt;
+    /// - `evaluation_offset` - (Optional) **DEPRECATED:** Use `aggregation_method` instead. Represented in minutes and must be within 1-20 minutes (inclusive). NRQL queries are evaluated based on their `aggregation_window` size. The start time depends on this value. It's recommended to set this to 3 windows. An offset of less than 3 windows will trigger incidents sooner, but you may see more false positives and negatives due to data latency. With `evaluation_offset` set to 3 windows and an `aggregation_window` of 60 seconds, the NRQL time window applied to your query will be: `SINCE 3 minutes ago UNTIL 2 minutes ago`. `evaluation_offset` cannot be set with `aggregation_method`, `aggregation_delay`, or `aggregation_timer`.&lt;br&gt;
     /// - `since_value` - (Optional)  **DEPRECATED:** Use `aggregation_method` instead. The value to be used in the `SINCE &lt;X&gt; minutes ago` clause for the NRQL query. Must be between 1-20 (inclusive). &lt;br&gt;
     /// 
     /// ## Terms
@@ -31,15 +31,15 @@ namespace Pulumi.NewRelic
     /// 
     /// - `operator` - (Optional) Valid values are `above`, `above_or_equals`, `below`, `below_or_equals`, `equals`, or `not_equals` (case insensitive). Defaults to `equals`. Note that when using a `type` of `baseline`, the only valid option here is `above`.
     /// - `priority` - (Optional) `critical` or `warning`. Defaults to `critical`.
-    /// - `threshold` - (Required) The value which will trigger a violation.
-    /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create a violation.
-    /// - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create a violation. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
+    /// - `threshold` - (Required) The value which will trigger an incident.
+    /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
+    /// - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
     /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
     /// &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
     /// &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
     /// 
     /// - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
-    /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create a violation. Must be within 1-120 (inclusive).
+    /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
     /// - `time_function` - (Optional) **DEPRECATED:** Use `threshold_occurrences` instead. The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `any`.
     /// 
     /// ## Additional Examples
@@ -207,7 +207,7 @@ namespace Pulumi.NewRelic
         public Output<string?> AggregationDelay { get; private set; } = null!;
 
         /// <summary>
-        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Output("aggregationMethod")]
         public Output<string?> AggregationMethod { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.NewRelic
         public Output<string?> BaselineDirection { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to close all open violations when the signal expires.
+        /// Whether to close all open incidents when the signal expires.
         /// </summary>
         [Output("closeViolationsOnExpiration")]
         public Output<bool?> CloseViolationsOnExpiration { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.NewRelic
         public Output<Outputs.NrqlAlertConditionNrql> Nrql { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to create a new violation to capture that the signal expired.
+        /// Whether to create a new incident to capture that the signal expired.
         /// </summary>
         [Output("openViolationOnExpiration")]
         public Output<bool?> OpenViolationOnExpiration { get; private set; } = null!;
@@ -333,14 +333,14 @@ namespace Pulumi.NewRelic
         public Output<string?> ValueFunction { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimit")]
         public Output<string> ViolationTimeLimit { get; private set; } = null!;
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Output("violationTimeLimitSeconds")]
@@ -411,7 +411,7 @@ namespace Pulumi.NewRelic
         public Input<string>? AggregationDelay { get; set; }
 
         /// <summary>
-        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationMethod")]
         public Input<string>? AggregationMethod { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.NewRelic
         public Input<string>? BaselineDirection { get; set; }
 
         /// <summary>
-        /// Whether to close all open violations when the signal expires.
+        /// Whether to close all open incidents when the signal expires.
         /// </summary>
         [Input("closeViolationsOnExpiration")]
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NrqlAlertConditionNrqlArgs> Nrql { get; set; } = null!;
 
         /// <summary>
-        /// Whether to create a new violation to capture that the signal expired.
+        /// Whether to create a new incident to capture that the signal expired.
         /// </summary>
         [Input("openViolationOnExpiration")]
         public Input<bool>? OpenViolationOnExpiration { get; set; }
@@ -538,14 +538,14 @@ namespace Pulumi.NewRelic
         public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
-        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
         public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimitSeconds")]
@@ -578,7 +578,7 @@ namespace Pulumi.NewRelic
         public Input<string>? AggregationDelay { get; set; }
 
         /// <summary>
-        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for violations. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
+        /// Determines when we consider an aggregation window to be complete so that we can evaluate the signal for incidents. Possible values are `cadence`, `event_flow` or `event_timer`. Default is `event_flow`. `aggregation_method` cannot be set with `nrql.evaluation_offset`.
         /// </summary>
         [Input("aggregationMethod")]
         public Input<string>? AggregationMethod { get; set; }
@@ -602,7 +602,7 @@ namespace Pulumi.NewRelic
         public Input<string>? BaselineDirection { get; set; }
 
         /// <summary>
-        /// Whether to close all open violations when the signal expires.
+        /// Whether to close all open incidents when the signal expires.
         /// </summary>
         [Input("closeViolationsOnExpiration")]
         public Input<bool>? CloseViolationsOnExpiration { get; set; }
@@ -662,7 +662,7 @@ namespace Pulumi.NewRelic
         public Input<Inputs.NrqlAlertConditionNrqlGetArgs>? Nrql { get; set; }
 
         /// <summary>
-        /// Whether to create a new violation to capture that the signal expired.
+        /// Whether to create a new incident to capture that the signal expired.
         /// </summary>
         [Input("openViolationOnExpiration")]
         public Input<bool>? OpenViolationOnExpiration { get; set; }
@@ -711,14 +711,14 @@ namespace Pulumi.NewRelic
         public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
-        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting violation after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
+        /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimit")]
         public Input<string>? ViolationTimeLimit { get; set; }
 
         /// <summary>
-        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting violation after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
+        /// Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). &lt;br&gt;
         /// &lt;small&gt;\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.&lt;/small&gt;
         /// </summary>
         [Input("violationTimeLimitSeconds")]

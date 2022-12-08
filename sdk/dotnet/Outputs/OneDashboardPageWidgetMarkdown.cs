@@ -36,7 +36,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Text;
         /// <summary>
-        /// (Required) A title for the widget.
+        /// (Optional) A human-friendly display string for this value.
         /// </summary>
         public readonly string Title;
         /// <summary>

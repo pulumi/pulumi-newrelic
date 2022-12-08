@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .bypassHeadRequest(true)
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;Name&#34;)
- *                 .value(&#34;simpleMonitor&#34;)
+ *                 .name(&#34;some_name&#34;)
+ *                 .value(&#34;some_value&#34;)
  *                 .build())
  *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
@@ -70,8 +70,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ##### Type: `SIMPLE BROWSER`
- * 
- * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  * ```java
  * package generated_program;
  * 
@@ -95,21 +93,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Monitor(&#34;bar&#34;, MonitorArgs.builder()        
+ *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .value(&#34;simple_browser&#34;)
+ *                 .name(&#34;some_name&#34;)
+ *                 .value(&#34;some_value&#34;)
  *                 .build())
  *             .enableScreenshotOnFailureAndScript(true)
  *             .locationsPublics(&#34;AP_SOUTH_1&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
- *             .runtimeType(&#34;CHROME_BROWSER&#34;)
- *             .runtimeTypeVersion(&#34;100&#34;)
- *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(MonitorTagArgs.builder()
- *                 .key(&#34;name&#34;)
- *                 .values(&#34;SimpleBrowserMonitor&#34;)
+ *                 .key(&#34;some_key&#34;)
+ *                 .values(&#34;some_value&#34;)
  *                 .build())
  *             .type(&#34;BROWSER&#34;)
  *             .uri(&#34;https://www.one.newrelic.com&#34;)
@@ -155,18 +150,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Test Description&#34;)
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
+ *             .description(&#34;Example private location&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .bypassHeadRequest(true)
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .value(&#34;simple_browser&#34;)
+ *                 .name(&#34;some_name&#34;)
+ *                 .value(&#34;some_value&#34;)
  *                 .build())
- *             .locationPrivate(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *             .locationsPrivates(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(MonitorTagArgs.builder()
@@ -209,18 +204,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Test Description&#34;)
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
+ *             .description(&#34;Example private location&#34;)
  *             .verifiedScriptExecution(false)
  *             .build());
  * 
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
  *             .customHeaders(MonitorCustomHeaderArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .value(&#34;simple_browser&#34;)
+ *                 .name(&#34;some_name&#34;)
+ *                 .value(&#34;some_value&#34;)
  *                 .build())
  *             .enableScreenshotOnFailureAndScript(true)
- *             .locationsPrivates(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *             .locationsPrivates(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *             .period(&#34;EVERY_MINUTE&#34;)
  *             .runtimeType(&#34;CHROME_BROWSER&#34;)
  *             .runtimeTypeVersion(&#34;100&#34;)
@@ -245,7 +240,7 @@ import javax.annotation.Nullable;
  * Synthetics monitor can be imported using the `guid`, e.g. bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/monitor:Monitor bar &lt;guid&gt;
+ *  $ pulumi import newrelic:synthetics/monitor:Monitor monitor &lt;guid&gt;
  * ```
  * 
  */
@@ -280,14 +275,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bypassHeadRequest);
     }
     /**
-     * Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+     * Custom headers to use in monitor job. See Nested custom_header blocks below for details.
      * 
      */
     @Export(name="customHeaders", type=List.class, parameters={MonitorCustomHeader.class})
     private Output</* @Nullable */ List<MonitorCustomHeader>> customHeaders;
 
     /**
-     * @return Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+     * @return Custom headers to use in monitor job. See Nested custom_header blocks below for details.
      * 
      */
     public Output<Optional<List<MonitorCustomHeader>>> customHeaders() {
@@ -448,28 +443,28 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.treatRedirectAsFailure);
     }
     /**
-     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * @return The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      * 
      */
     @Export(name="uri", type=String.class, parameters={})
     private Output</* @Nullable */ String> uri;
 
     /**
-     * @return The uri the monitor runs against.
+     * @return The URI the monitor runs against.
      * 
      */
     public Output<Optional<String>> uri() {

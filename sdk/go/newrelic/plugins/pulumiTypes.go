@@ -107,9 +107,1031 @@ func (o WorkloadEntitySearchQueryArrayOutput) Index(i pulumi.IntInput) WorkloadE
 	}).(WorkloadEntitySearchQueryOutput)
 }
 
+type WorkloadStatusConfigAutomatic struct {
+	// Whether the static status configuration is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+	RemainingEntitiesRule *WorkloadStatusConfigAutomaticRemainingEntitiesRule `pulumi:"remainingEntitiesRule"`
+	// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+	Rules []WorkloadStatusConfigAutomaticRule `pulumi:"rules"`
+}
+
+// WorkloadStatusConfigAutomaticInput is an input type that accepts WorkloadStatusConfigAutomaticArgs and WorkloadStatusConfigAutomaticOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticInput` via:
+//
+//	WorkloadStatusConfigAutomaticArgs{...}
+type WorkloadStatusConfigAutomaticInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticOutput() WorkloadStatusConfigAutomaticOutput
+	ToWorkloadStatusConfigAutomaticOutputWithContext(context.Context) WorkloadStatusConfigAutomaticOutput
+}
+
+type WorkloadStatusConfigAutomaticArgs struct {
+	// Whether the static status configuration is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+	RemainingEntitiesRule WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput `pulumi:"remainingEntitiesRule"`
+	// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+	Rules WorkloadStatusConfigAutomaticRuleArrayInput `pulumi:"rules"`
+}
+
+func (WorkloadStatusConfigAutomaticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomatic)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticArgs) ToWorkloadStatusConfigAutomaticOutput() WorkloadStatusConfigAutomaticOutput {
+	return i.ToWorkloadStatusConfigAutomaticOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticArgs) ToWorkloadStatusConfigAutomaticOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticOutput)
+}
+
+func (i WorkloadStatusConfigAutomaticArgs) ToWorkloadStatusConfigAutomaticPtrOutput() WorkloadStatusConfigAutomaticPtrOutput {
+	return i.ToWorkloadStatusConfigAutomaticPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticArgs) ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticOutput).ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx)
+}
+
+// WorkloadStatusConfigAutomaticPtrInput is an input type that accepts WorkloadStatusConfigAutomaticArgs, WorkloadStatusConfigAutomaticPtr and WorkloadStatusConfigAutomaticPtrOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticPtrInput` via:
+//
+//	        WorkloadStatusConfigAutomaticArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadStatusConfigAutomaticPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticPtrOutput() WorkloadStatusConfigAutomaticPtrOutput
+	ToWorkloadStatusConfigAutomaticPtrOutputWithContext(context.Context) WorkloadStatusConfigAutomaticPtrOutput
+}
+
+type workloadStatusConfigAutomaticPtrType WorkloadStatusConfigAutomaticArgs
+
+func WorkloadStatusConfigAutomaticPtr(v *WorkloadStatusConfigAutomaticArgs) WorkloadStatusConfigAutomaticPtrInput {
+	return (*workloadStatusConfigAutomaticPtrType)(v)
+}
+
+func (*workloadStatusConfigAutomaticPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAutomatic)(nil)).Elem()
+}
+
+func (i *workloadStatusConfigAutomaticPtrType) ToWorkloadStatusConfigAutomaticPtrOutput() WorkloadStatusConfigAutomaticPtrOutput {
+	return i.ToWorkloadStatusConfigAutomaticPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadStatusConfigAutomaticPtrType) ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticPtrOutput)
+}
+
+type WorkloadStatusConfigAutomaticOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomatic)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticOutput) ToWorkloadStatusConfigAutomaticOutput() WorkloadStatusConfigAutomaticOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticOutput) ToWorkloadStatusConfigAutomaticOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticOutput) ToWorkloadStatusConfigAutomaticPtrOutput() WorkloadStatusConfigAutomaticPtrOutput {
+	return o.ToWorkloadStatusConfigAutomaticPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadStatusConfigAutomaticOutput) ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigAutomatic) *WorkloadStatusConfigAutomatic {
+		return &v
+	}).(WorkloadStatusConfigAutomaticPtrOutput)
+}
+
+// Whether the static status configuration is enabled or not.
+func (o WorkloadStatusConfigAutomaticOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+func (o WorkloadStatusConfigAutomaticOutput) RemainingEntitiesRule() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) *WorkloadStatusConfigAutomaticRemainingEntitiesRule {
+		return v.RemainingEntitiesRule
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
+}
+
+// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+func (o WorkloadStatusConfigAutomaticOutput) Rules() WorkloadStatusConfigAutomaticRuleArrayOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomatic) []WorkloadStatusConfigAutomaticRule { return v.Rules }).(WorkloadStatusConfigAutomaticRuleArrayOutput)
+}
+
+type WorkloadStatusConfigAutomaticPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAutomatic)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticPtrOutput) ToWorkloadStatusConfigAutomaticPtrOutput() WorkloadStatusConfigAutomaticPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticPtrOutput) ToWorkloadStatusConfigAutomaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticPtrOutput) Elem() WorkloadStatusConfigAutomaticOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) WorkloadStatusConfigAutomatic {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadStatusConfigAutomatic
+		return ret
+	}).(WorkloadStatusConfigAutomaticOutput)
+}
+
+// Whether the static status configuration is enabled or not.
+func (o WorkloadStatusConfigAutomaticPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+func (o WorkloadStatusConfigAutomaticPtrOutput) RemainingEntitiesRule() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) *WorkloadStatusConfigAutomaticRemainingEntitiesRule {
+		if v == nil {
+			return nil
+		}
+		return v.RemainingEntitiesRule
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
+}
+
+// The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+func (o WorkloadStatusConfigAutomaticPtrOutput) Rules() WorkloadStatusConfigAutomaticRuleArrayOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomatic) []WorkloadStatusConfigAutomaticRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(WorkloadStatusConfigAutomaticRuleArrayOutput)
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRule struct {
+	// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+	RemainingEntitiesRuleRollup WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup `pulumi:"remainingEntitiesRuleRollup"`
+}
+
+// WorkloadStatusConfigAutomaticRemainingEntitiesRuleInput is an input type that accepts WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs and WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRemainingEntitiesRuleInput` via:
+//
+//	WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs{...}
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs struct {
+	// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+	RemainingEntitiesRuleRollup WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupInput `pulumi:"remainingEntitiesRuleRollup"`
+}
+
+func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRule)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput {
+	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput)
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput).ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx)
+}
+
+// WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput is an input type that accepts WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs, WorkloadStatusConfigAutomaticRemainingEntitiesRulePtr and WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput` via:
+//
+//	        WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput
+}
+
+type workloadStatusConfigAutomaticRemainingEntitiesRulePtrType WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs
+
+func WorkloadStatusConfigAutomaticRemainingEntitiesRulePtr(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput {
+	return (*workloadStatusConfigAutomaticRemainingEntitiesRulePtrType)(v)
+}
+
+func (*workloadStatusConfigAutomaticRemainingEntitiesRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAutomaticRemainingEntitiesRule)(nil)).Elem()
+}
+
+func (i *workloadStatusConfigAutomaticRemainingEntitiesRulePtrType) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(context.Background())
+}
+
+func (i *workloadStatusConfigAutomaticRemainingEntitiesRulePtrType) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRule)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return o.ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigAutomaticRemainingEntitiesRule) *WorkloadStatusConfigAutomaticRemainingEntitiesRule {
+		return &v
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput)
+}
+
+// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput) RemainingEntitiesRuleRollup() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRule) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
+		return v.RemainingEntitiesRuleRollup
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput)
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAutomaticRemainingEntitiesRule)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) Elem() WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRule) WorkloadStatusConfigAutomaticRemainingEntitiesRule {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadStatusConfigAutomaticRemainingEntitiesRule
+		return ret
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput)
+}
+
+// The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput) RemainingEntitiesRuleRollup() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRule) *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
+		if v == nil {
+			return nil
+		}
+		return &v.RemainingEntitiesRuleRollup
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput)
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup struct {
+	// The grouping to be applied to the remaining entities.
+	GroupBy string `pulumi:"groupBy"`
+	// The rollup strategy that is applied to a group of entities.
+	Strategy string `pulumi:"strategy"`
+	// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+	ThresholdType *string `pulumi:"thresholdType"`
+	// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+	ThresholdValue *int `pulumi:"thresholdValue"`
+}
+
+// WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupInput is an input type that accepts WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs and WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupInput` via:
+//
+//	WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs{...}
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs struct {
+	// The grouping to be applied to the remaining entities.
+	GroupBy pulumi.StringInput `pulumi:"groupBy"`
+	// The rollup strategy that is applied to a group of entities.
+	Strategy pulumi.StringInput `pulumi:"strategy"`
+	// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+	// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
+}
+
+func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
+	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput)
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput).ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx)
+}
+
+// WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrInput is an input type that accepts WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs, WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtr and WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrInput` via:
+//
+//	        WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput
+	ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput
+}
+
+type workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrType WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs
+
+func WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtr(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrInput {
+	return (*workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrType)(v)
+}
+
+func (*workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup)(nil)).Elem()
+}
+
+func (i *workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrType) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return i.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrType) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput)
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return o.ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
+		return &v
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput)
+}
+
+// The grouping to be applied to the remaining entities.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) GroupBy() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) string {
+		return v.GroupBy
+	}).(pulumi.StringOutput)
+}
+
+// The rollup strategy that is applied to a group of entities.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) Strategy() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) string {
+		return v.Strategy
+	}).(pulumi.StringOutput)
+}
+
+// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *string {
+		return v.ThresholdType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput) ThresholdValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *int {
+		return v.ThresholdValue
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ToWorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) Elem() WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup
+		return ret
+	}).(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput)
+}
+
+// The grouping to be applied to the remaining entities.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) GroupBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rollup strategy that is applied to a group of entities.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+func (o WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput) ThresholdValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdValue
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadStatusConfigAutomaticRule struct {
+	// A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	EntityGuids []string `pulumi:"entityGuids"`
+	// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	NrqlQueries []WorkloadStatusConfigAutomaticRuleNrqlQuery `pulumi:"nrqlQueries"`
+	// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+	Rollup WorkloadStatusConfigAutomaticRuleRollup `pulumi:"rollup"`
+}
+
+// WorkloadStatusConfigAutomaticRuleInput is an input type that accepts WorkloadStatusConfigAutomaticRuleArgs and WorkloadStatusConfigAutomaticRuleOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleInput` via:
+//
+//	WorkloadStatusConfigAutomaticRuleArgs{...}
+type WorkloadStatusConfigAutomaticRuleInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRuleOutput() WorkloadStatusConfigAutomaticRuleOutput
+	ToWorkloadStatusConfigAutomaticRuleOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRuleOutput
+}
+
+type WorkloadStatusConfigAutomaticRuleArgs struct {
+	// A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	EntityGuids pulumi.StringArrayInput `pulumi:"entityGuids"`
+	// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+	NrqlQueries WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+	Rollup WorkloadStatusConfigAutomaticRuleRollupInput `pulumi:"rollup"`
+}
+
+func (WorkloadStatusConfigAutomaticRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRule)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRuleArgs) ToWorkloadStatusConfigAutomaticRuleOutput() WorkloadStatusConfigAutomaticRuleOutput {
+	return i.ToWorkloadStatusConfigAutomaticRuleOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRuleArgs) ToWorkloadStatusConfigAutomaticRuleOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleOutput)
+}
+
+// WorkloadStatusConfigAutomaticRuleArrayInput is an input type that accepts WorkloadStatusConfigAutomaticRuleArray and WorkloadStatusConfigAutomaticRuleArrayOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleArrayInput` via:
+//
+//	WorkloadStatusConfigAutomaticRuleArray{ WorkloadStatusConfigAutomaticRuleArgs{...} }
+type WorkloadStatusConfigAutomaticRuleArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRuleArrayOutput() WorkloadStatusConfigAutomaticRuleArrayOutput
+	ToWorkloadStatusConfigAutomaticRuleArrayOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRuleArrayOutput
+}
+
+type WorkloadStatusConfigAutomaticRuleArray []WorkloadStatusConfigAutomaticRuleInput
+
+func (WorkloadStatusConfigAutomaticRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadStatusConfigAutomaticRule)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRuleArray) ToWorkloadStatusConfigAutomaticRuleArrayOutput() WorkloadStatusConfigAutomaticRuleArrayOutput {
+	return i.ToWorkloadStatusConfigAutomaticRuleArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRuleArray) ToWorkloadStatusConfigAutomaticRuleArrayOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleArrayOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRule)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRuleOutput) ToWorkloadStatusConfigAutomaticRuleOutput() WorkloadStatusConfigAutomaticRuleOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleOutput) ToWorkloadStatusConfigAutomaticRuleOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleOutput {
+	return o
+}
+
+// A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+func (o WorkloadStatusConfigAutomaticRuleOutput) EntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRule) []string { return v.EntityGuids }).(pulumi.StringArrayOutput)
+}
+
+// A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+func (o WorkloadStatusConfigAutomaticRuleOutput) NrqlQueries() WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRule) []WorkloadStatusConfigAutomaticRuleNrqlQuery {
+		return v.NrqlQueries
+	}).(WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput)
+}
+
+// The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+func (o WorkloadStatusConfigAutomaticRuleOutput) Rollup() WorkloadStatusConfigAutomaticRuleRollupOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRule) WorkloadStatusConfigAutomaticRuleRollup { return v.Rollup }).(WorkloadStatusConfigAutomaticRuleRollupOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadStatusConfigAutomaticRule)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRuleArrayOutput) ToWorkloadStatusConfigAutomaticRuleArrayOutput() WorkloadStatusConfigAutomaticRuleArrayOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleArrayOutput) ToWorkloadStatusConfigAutomaticRuleArrayOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleArrayOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleArrayOutput) Index(i pulumi.IntInput) WorkloadStatusConfigAutomaticRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadStatusConfigAutomaticRule {
+		return vs[0].([]WorkloadStatusConfigAutomaticRule)[vs[1].(int)]
+	}).(WorkloadStatusConfigAutomaticRuleOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleNrqlQuery struct {
+	// The entity search query that is used to perform the search of a group of entities.
+	Query string `pulumi:"query"`
+}
+
+// WorkloadStatusConfigAutomaticRuleNrqlQueryInput is an input type that accepts WorkloadStatusConfigAutomaticRuleNrqlQueryArgs and WorkloadStatusConfigAutomaticRuleNrqlQueryOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleNrqlQueryInput` via:
+//
+//	WorkloadStatusConfigAutomaticRuleNrqlQueryArgs{...}
+type WorkloadStatusConfigAutomaticRuleNrqlQueryInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutput() WorkloadStatusConfigAutomaticRuleNrqlQueryOutput
+	ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryOutput
+}
+
+type WorkloadStatusConfigAutomaticRuleNrqlQueryArgs struct {
+	// The entity search query that is used to perform the search of a group of entities.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (WorkloadStatusConfigAutomaticRuleNrqlQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleNrqlQuery)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArgs) ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutput() WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
+	return i.ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArgs) ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleNrqlQueryOutput)
+}
+
+// WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput is an input type that accepts WorkloadStatusConfigAutomaticRuleNrqlQueryArray and WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput` via:
+//
+//	WorkloadStatusConfigAutomaticRuleNrqlQueryArray{ WorkloadStatusConfigAutomaticRuleNrqlQueryArgs{...} }
+type WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput() WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput
+	ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput
+}
+
+type WorkloadStatusConfigAutomaticRuleNrqlQueryArray []WorkloadStatusConfigAutomaticRuleNrqlQueryInput
+
+func (WorkloadStatusConfigAutomaticRuleNrqlQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadStatusConfigAutomaticRuleNrqlQuery)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArray) ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput() WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
+	return i.ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRuleNrqlQueryArray) ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleNrqlQueryOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleNrqlQuery)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutput() WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) ToWorkloadStatusConfigAutomaticRuleNrqlQueryOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
+	return o
+}
+
+// The entity search query that is used to perform the search of a group of entities.
+func (o WorkloadStatusConfigAutomaticRuleNrqlQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRuleNrqlQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadStatusConfigAutomaticRuleNrqlQuery)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput() WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) ToWorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput) Index(i pulumi.IntInput) WorkloadStatusConfigAutomaticRuleNrqlQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadStatusConfigAutomaticRuleNrqlQuery {
+		return vs[0].([]WorkloadStatusConfigAutomaticRuleNrqlQuery)[vs[1].(int)]
+	}).(WorkloadStatusConfigAutomaticRuleNrqlQueryOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleRollup struct {
+	// The rollup strategy that is applied to a group of entities.
+	Strategy string `pulumi:"strategy"`
+	// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+	ThresholdType *string `pulumi:"thresholdType"`
+	// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+	ThresholdValue *int `pulumi:"thresholdValue"`
+}
+
+// WorkloadStatusConfigAutomaticRuleRollupInput is an input type that accepts WorkloadStatusConfigAutomaticRuleRollupArgs and WorkloadStatusConfigAutomaticRuleRollupOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigAutomaticRuleRollupInput` via:
+//
+//	WorkloadStatusConfigAutomaticRuleRollupArgs{...}
+type WorkloadStatusConfigAutomaticRuleRollupInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigAutomaticRuleRollupOutput() WorkloadStatusConfigAutomaticRuleRollupOutput
+	ToWorkloadStatusConfigAutomaticRuleRollupOutputWithContext(context.Context) WorkloadStatusConfigAutomaticRuleRollupOutput
+}
+
+type WorkloadStatusConfigAutomaticRuleRollupArgs struct {
+	// The rollup strategy that is applied to a group of entities.
+	Strategy pulumi.StringInput `pulumi:"strategy"`
+	// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+	// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
+}
+
+func (WorkloadStatusConfigAutomaticRuleRollupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleRollup)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigAutomaticRuleRollupArgs) ToWorkloadStatusConfigAutomaticRuleRollupOutput() WorkloadStatusConfigAutomaticRuleRollupOutput {
+	return i.ToWorkloadStatusConfigAutomaticRuleRollupOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigAutomaticRuleRollupArgs) ToWorkloadStatusConfigAutomaticRuleRollupOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleRollupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigAutomaticRuleRollupOutput)
+}
+
+type WorkloadStatusConfigAutomaticRuleRollupOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigAutomaticRuleRollupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleRollup)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ToWorkloadStatusConfigAutomaticRuleRollupOutput() WorkloadStatusConfigAutomaticRuleRollupOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ToWorkloadStatusConfigAutomaticRuleRollupOutputWithContext(ctx context.Context) WorkloadStatusConfigAutomaticRuleRollupOutput {
+	return o
+}
+
+// The rollup strategy that is applied to a group of entities.
+func (o WorkloadStatusConfigAutomaticRuleRollupOutput) Strategy() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRuleRollup) string { return v.Strategy }).(pulumi.StringOutput)
+}
+
+// Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRuleRollup) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
+// Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+func (o WorkloadStatusConfigAutomaticRuleRollupOutput) ThresholdValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigAutomaticRuleRollup) *int { return v.ThresholdValue }).(pulumi.IntPtrOutput)
+}
+
+type WorkloadStatusConfigStatic struct {
+	// A description that provides additional details about the status of the workload.
+	Description *string `pulumi:"description"`
+	// Whether the static status configuration is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The status of the workload.
+	Status string `pulumi:"status"`
+	// A short description of the status of the workload.
+	Summary *string `pulumi:"summary"`
+}
+
+// WorkloadStatusConfigStaticInput is an input type that accepts WorkloadStatusConfigStaticArgs and WorkloadStatusConfigStaticOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigStaticInput` via:
+//
+//	WorkloadStatusConfigStaticArgs{...}
+type WorkloadStatusConfigStaticInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigStaticOutput() WorkloadStatusConfigStaticOutput
+	ToWorkloadStatusConfigStaticOutputWithContext(context.Context) WorkloadStatusConfigStaticOutput
+}
+
+type WorkloadStatusConfigStaticArgs struct {
+	// A description that provides additional details about the status of the workload.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether the static status configuration is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The status of the workload.
+	Status pulumi.StringInput `pulumi:"status"`
+	// A short description of the status of the workload.
+	Summary pulumi.StringPtrInput `pulumi:"summary"`
+}
+
+func (WorkloadStatusConfigStaticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigStatic)(nil)).Elem()
+}
+
+func (i WorkloadStatusConfigStaticArgs) ToWorkloadStatusConfigStaticOutput() WorkloadStatusConfigStaticOutput {
+	return i.ToWorkloadStatusConfigStaticOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigStaticArgs) ToWorkloadStatusConfigStaticOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigStaticOutput)
+}
+
+func (i WorkloadStatusConfigStaticArgs) ToWorkloadStatusConfigStaticPtrOutput() WorkloadStatusConfigStaticPtrOutput {
+	return i.ToWorkloadStatusConfigStaticPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadStatusConfigStaticArgs) ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigStaticOutput).ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx)
+}
+
+// WorkloadStatusConfigStaticPtrInput is an input type that accepts WorkloadStatusConfigStaticArgs, WorkloadStatusConfigStaticPtr and WorkloadStatusConfigStaticPtrOutput values.
+// You can construct a concrete instance of `WorkloadStatusConfigStaticPtrInput` via:
+//
+//	        WorkloadStatusConfigStaticArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadStatusConfigStaticPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadStatusConfigStaticPtrOutput() WorkloadStatusConfigStaticPtrOutput
+	ToWorkloadStatusConfigStaticPtrOutputWithContext(context.Context) WorkloadStatusConfigStaticPtrOutput
+}
+
+type workloadStatusConfigStaticPtrType WorkloadStatusConfigStaticArgs
+
+func WorkloadStatusConfigStaticPtr(v *WorkloadStatusConfigStaticArgs) WorkloadStatusConfigStaticPtrInput {
+	return (*workloadStatusConfigStaticPtrType)(v)
+}
+
+func (*workloadStatusConfigStaticPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigStatic)(nil)).Elem()
+}
+
+func (i *workloadStatusConfigStaticPtrType) ToWorkloadStatusConfigStaticPtrOutput() WorkloadStatusConfigStaticPtrOutput {
+	return i.ToWorkloadStatusConfigStaticPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadStatusConfigStaticPtrType) ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadStatusConfigStaticPtrOutput)
+}
+
+type WorkloadStatusConfigStaticOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigStaticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadStatusConfigStatic)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigStaticOutput) ToWorkloadStatusConfigStaticOutput() WorkloadStatusConfigStaticOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigStaticOutput) ToWorkloadStatusConfigStaticOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigStaticOutput) ToWorkloadStatusConfigStaticPtrOutput() WorkloadStatusConfigStaticPtrOutput {
+	return o.ToWorkloadStatusConfigStaticPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadStatusConfigStaticOutput) ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadStatusConfigStatic) *WorkloadStatusConfigStatic {
+		return &v
+	}).(WorkloadStatusConfigStaticPtrOutput)
+}
+
+// A description that provides additional details about the status of the workload.
+func (o WorkloadStatusConfigStaticOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigStatic) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the static status configuration is enabled or not.
+func (o WorkloadStatusConfigStaticOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigStatic) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The status of the workload.
+func (o WorkloadStatusConfigStaticOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigStatic) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A short description of the status of the workload.
+func (o WorkloadStatusConfigStaticOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadStatusConfigStatic) *string { return v.Summary }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadStatusConfigStaticPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadStatusConfigStaticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadStatusConfigStatic)(nil)).Elem()
+}
+
+func (o WorkloadStatusConfigStaticPtrOutput) ToWorkloadStatusConfigStaticPtrOutput() WorkloadStatusConfigStaticPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigStaticPtrOutput) ToWorkloadStatusConfigStaticPtrOutputWithContext(ctx context.Context) WorkloadStatusConfigStaticPtrOutput {
+	return o
+}
+
+func (o WorkloadStatusConfigStaticPtrOutput) Elem() WorkloadStatusConfigStaticOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigStatic) WorkloadStatusConfigStatic {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadStatusConfigStatic
+		return ret
+	}).(WorkloadStatusConfigStaticOutput)
+}
+
+// A description that provides additional details about the status of the workload.
+func (o WorkloadStatusConfigStaticPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigStatic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the static status configuration is enabled or not.
+func (o WorkloadStatusConfigStaticPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigStatic) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The status of the workload.
+func (o WorkloadStatusConfigStaticPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigStatic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// A short description of the status of the workload.
+func (o WorkloadStatusConfigStaticPtrOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadStatusConfigStatic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Summary
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryInput)(nil)).Elem(), WorkloadEntitySearchQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEntitySearchQueryArrayInput)(nil)).Elem(), WorkloadEntitySearchQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticInput)(nil)).Elem(), WorkloadStatusConfigAutomaticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticPtrInput)(nil)).Elem(), WorkloadStatusConfigAutomaticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRuleInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleArrayInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleNrqlQueryInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRuleNrqlQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleNrqlQueryArrayInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRuleNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigAutomaticRuleRollupInput)(nil)).Elem(), WorkloadStatusConfigAutomaticRuleRollupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigStaticInput)(nil)).Elem(), WorkloadStatusConfigStaticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadStatusConfigStaticPtrInput)(nil)).Elem(), WorkloadStatusConfigStaticArgs{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryOutput{})
 	pulumi.RegisterOutputType(WorkloadEntitySearchQueryArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRemainingEntitiesRuleOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRemainingEntitiesRulePtrOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRuleOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRuleArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRuleNrqlQueryOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRuleNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigAutomaticRuleRollupOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigStaticOutput{})
+	pulumi.RegisterOutputType(WorkloadStatusConfigStaticPtrOutput{})
 }

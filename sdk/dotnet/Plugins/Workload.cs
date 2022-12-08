@@ -16,73 +16,9 @@ namespace Pulumi.NewRelic.Plugins
     /// attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
     /// variable with your User API key.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Include entities with a certain string on the name.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         EntityGuids = new[]
-    ///         {
-    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
-    ///         },
-    ///         EntitySearchQueries = new[]
-    ///         {
-    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
-    ///             {
-    ///                 Query = "name like '%Example application%'",
-    ///             },
-    ///         },
-    ///         ScopeAccountIds = new[]
-    ///         {
-    ///             12345678,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Include entities with a set of tags.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.Plugins.Workload("foo", new()
-    ///     {
-    ///         AccountId = 12345678,
-    ///         EntityGuids = new[]
-    ///         {
-    ///             "MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1",
-    ///         },
-    ///         EntitySearchQueries = new[]
-    ///         {
-    ///             new NewRelic.Plugins.Inputs.WorkloadEntitySearchQueryArgs
-    ///             {
-    ///                 Query = "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
-    ///             },
-    ///         },
-    ///         ScopeAccountIds = new[]
-    ///         {
-    ///             12345678,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
-    /// New Relic One workloads can be imported using a concatenated string of the format
+    /// New Relic workloads can be imported using a concatenated string of the format
     /// 
     /// `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g. bash
     /// 
@@ -104,6 +40,12 @@ namespace Pulumi.NewRelic.Plugins
         /// </summary>
         [Output("compositeEntitySearchQuery")]
         public Output<string> CompositeEntitySearchQuery { get; private set; } = null!;
+
+        /// <summary>
+        /// A description that provides additional details about the status of the workload.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// A list of entity GUIDs manually assigned to this workload.
@@ -140,6 +82,18 @@ namespace Pulumi.NewRelic.Plugins
         /// </summary>
         [Output("scopeAccountIds")]
         public Output<ImmutableArray<int>> ScopeAccountIds { get; private set; } = null!;
+
+        /// <summary>
+        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// </summary>
+        [Output("statusConfigAutomatic")]
+        public Output<Outputs.WorkloadStatusConfigAutomatic?> StatusConfigAutomatic { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// </summary>
+        [Output("statusConfigStatic")]
+        public Output<Outputs.WorkloadStatusConfigStatic?> StatusConfigStatic { get; private set; } = null!;
 
         /// <summary>
         /// The unique entity identifier of the workload.
@@ -199,6 +153,12 @@ namespace Pulumi.NewRelic.Plugins
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
+        /// <summary>
+        /// A description that provides additional details about the status of the workload.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         [Input("entityGuids")]
         private InputList<string>? _entityGuids;
 
@@ -241,6 +201,18 @@ namespace Pulumi.NewRelic.Plugins
             set => _scopeAccountIds = value;
         }
 
+        /// <summary>
+        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// </summary>
+        [Input("statusConfigAutomatic")]
+        public Input<Inputs.WorkloadStatusConfigAutomaticArgs>? StatusConfigAutomatic { get; set; }
+
+        /// <summary>
+        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// </summary>
+        [Input("statusConfigStatic")]
+        public Input<Inputs.WorkloadStatusConfigStaticArgs>? StatusConfigStatic { get; set; }
+
         public WorkloadArgs()
         {
         }
@@ -260,6 +232,12 @@ namespace Pulumi.NewRelic.Plugins
         /// </summary>
         [Input("compositeEntitySearchQuery")]
         public Input<string>? CompositeEntitySearchQuery { get; set; }
+
+        /// <summary>
+        /// A description that provides additional details about the status of the workload.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         [Input("entityGuids")]
         private InputList<string>? _entityGuids;
@@ -314,6 +292,18 @@ namespace Pulumi.NewRelic.Plugins
             get => _scopeAccountIds ?? (_scopeAccountIds = new InputList<int>());
             set => _scopeAccountIds = value;
         }
+
+        /// <summary>
+        /// An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+        /// </summary>
+        [Input("statusConfigAutomatic")]
+        public Input<Inputs.WorkloadStatusConfigAutomaticGetArgs>? StatusConfigAutomatic { get; set; }
+
+        /// <summary>
+        /// A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+        /// </summary>
+        [Input("statusConfigStatic")]
+        public Input<Inputs.WorkloadStatusConfigStaticGetArgs>? StatusConfigStatic { get; set; }
 
         /// <summary>
         /// The unique entity identifier of the workload.

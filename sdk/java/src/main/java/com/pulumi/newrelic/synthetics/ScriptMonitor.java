@@ -25,8 +25,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ##### Type: `SCRIPT_API`
- * 
- * &gt; **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  * ```java
  * package generated_program;
  * 
@@ -56,7 +54,7 @@ import javax.annotation.Nullable;
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .runtimeType(&#34;NODE_API&#34;)
  *             .runtimeTypeVersion(&#34;16.10&#34;)
- *             .script(&#34;console.log(&#39;terraform integration test updated&#39;)&#34;)
+ *             .script(&#34;console.log(&#39;it works!&#39;)&#34;)
  *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
@@ -70,8 +68,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ##### Type: `SCRIPT_BROWSER`
- * 
- * &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  * ```java
  * package generated_program;
  * 
@@ -104,12 +100,10 @@ import javax.annotation.Nullable;
  *             .runtimeTypeVersion(&#34;100&#34;)
  *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)
  *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .status(&#34;DISABLED&#34;)
+ *             .status(&#34;ENABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
- *                 .values(                
- *                     &#34;some_value1&#34;,
- *                     &#34;some_value2&#34;)
+ *                 .values(&#34;some_value&#34;)
  *                 .build())
  *             .type(&#34;SCRIPT_BROWSER&#34;)
  *             .build());
@@ -152,14 +146,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
- *             .description(&#34;Test Description&#34;)
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
+ *             .description(&#34;Example private location&#34;)
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
  *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
  *             .locationPrivates(ScriptMonitorLocationPrivateArgs.builder()
- *                 .guid(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *                 .guid(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .period(&#34;EVERY_6_HOURS&#34;)
@@ -204,7 +198,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Test Description&#34;)
  *             .verifiedScriptExecution(true)
  *             .build());
@@ -212,7 +206,7 @@ import javax.annotation.Nullable;
  *         var monitor = new ScriptMonitor(&#34;monitor&#34;, ScriptMonitorArgs.builder()        
  *             .enableScreenshotOnFailureAndScript(false)
  *             .locationPrivates(ScriptMonitorLocationPrivateArgs.builder()
- *                 .guid(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *                 .guid(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .period(&#34;EVERY_HOUR&#34;)
@@ -220,7 +214,7 @@ import javax.annotation.Nullable;
  *             .runtimeTypeVersion(&#34;100&#34;)
  *             .script(&#34;$browser.get(&#39;https://one.newrelic.com&#39;)&#34;)
  *             .scriptLanguage(&#34;JAVASCRIPT&#34;)
- *             .status(&#34;DISABLED&#34;)
+ *             .status(&#34;ENABLED&#34;)
  *             .tags(ScriptMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
@@ -237,7 +231,7 @@ import javax.annotation.Nullable;
  * Synthetics monitor scripts can be imported using the `guid`, e.g. bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor bar &lt;guid&gt;
+ *  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
  * ```
  * 
  */
@@ -398,14 +392,14 @@ public class ScriptMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scriptLanguage);
     }
     /**
-     * The run state of the monitor.
+     * The run state of the monitor: `ENABLED` or `DISABLED`
      * 
      */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
     /**
-     * @return The run state of the monitor.
+     * @return The run state of the monitor: `ENABLED` or `DISABLED`
      * 
      */
     public Output<String> status() {

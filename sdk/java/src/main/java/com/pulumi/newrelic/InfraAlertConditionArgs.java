@@ -35,14 +35,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
     @Import(name="critical")
     private @Nullable Output<InfraAlertConditionCriticalArgs> critical;
 
     /**
-     * @return Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * @return Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      * 
      */
     public Optional<Output<InfraAlertConditionCriticalArgs>> critical() {
@@ -200,14 +200,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
      */
     @Import(name="violationCloseTimer")
     private @Nullable Output<Integer> violationCloseTimer;
 
     /**
-     * @return Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * @return Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -215,14 +215,14 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
     @Import(name="warning")
     private @Nullable Output<InfraAlertConditionWarningArgs> warning;
 
     /**
-     * @return Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * @return Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      * 
      */
     public Optional<Output<InfraAlertConditionWarningArgs>> warning() {
@@ -304,7 +304,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param critical Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+         * @param critical Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param critical Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+         * @param critical Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationCloseTimer Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+         * @param violationCloseTimer Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param violationCloseTimer Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+         * @param violationCloseTimer Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warning Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+         * @param warning Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class InfraAlertConditionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warning Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+         * @param warning Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
          * 
          * @return builder
          * 

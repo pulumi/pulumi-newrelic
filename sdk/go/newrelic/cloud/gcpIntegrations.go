@@ -25,6 +25,8 @@ type GcpIntegrations struct {
 
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// Alloy DB integration. See Integration blocks below for details.
+	AlloyDb GcpIntegrationsAlloyDbPtrOutput `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine GcpIntegrationsAppEnginePtrOutput `pulumi:"appEngine"`
 	// Biq Query integration. See Integration blocks below for details.
@@ -113,6 +115,8 @@ func GetGcpIntegrations(ctx *pulumi.Context,
 type gcpIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// Alloy DB integration. See Integration blocks below for details.
+	AlloyDb *GcpIntegrationsAlloyDb `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine *GcpIntegrationsAppEngine `pulumi:"appEngine"`
 	// Biq Query integration. See Integration blocks below for details.
@@ -170,6 +174,8 @@ type gcpIntegrationsState struct {
 type GcpIntegrationsState struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// Alloy DB integration. See Integration blocks below for details.
+	AlloyDb GcpIntegrationsAlloyDbPtrInput
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine GcpIntegrationsAppEnginePtrInput
 	// Biq Query integration. See Integration blocks below for details.
@@ -231,6 +237,8 @@ func (GcpIntegrationsState) ElementType() reflect.Type {
 type gcpIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
+	// Alloy DB integration. See Integration blocks below for details.
+	AlloyDb *GcpIntegrationsAlloyDb `pulumi:"alloyDb"`
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine *GcpIntegrationsAppEngine `pulumi:"appEngine"`
 	// Biq Query integration. See Integration blocks below for details.
@@ -289,6 +297,8 @@ type gcpIntegrationsArgs struct {
 type GcpIntegrationsArgs struct {
 	// The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput
+	// Alloy DB integration. See Integration blocks below for details.
+	AlloyDb GcpIntegrationsAlloyDbPtrInput
 	// App Engine integration. See Integration blocks below for details.
 	AppEngine GcpIntegrationsAppEnginePtrInput
 	// Biq Query integration. See Integration blocks below for details.
@@ -433,6 +443,11 @@ func (o GcpIntegrationsOutput) ToGcpIntegrationsOutputWithContext(ctx context.Co
 // The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 func (o GcpIntegrationsOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *GcpIntegrations) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
+}
+
+// Alloy DB integration. See Integration blocks below for details.
+func (o GcpIntegrationsOutput) AlloyDb() GcpIntegrationsAlloyDbPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrations) GcpIntegrationsAlloyDbPtrOutput { return v.AlloyDb }).(GcpIntegrationsAlloyDbPtrOutput)
 }
 
 // App Engine integration. See Integration blocks below for details.

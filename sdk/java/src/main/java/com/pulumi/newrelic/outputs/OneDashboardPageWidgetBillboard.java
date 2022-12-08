@@ -37,9 +37,7 @@ public final class OneDashboardPageWidgetBillboard {
      */
     private @Nullable Boolean ignoreTimeRange;
     /**
-     * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
     private List<OneDashboardPageWidgetBillboardNrqlQuery> nrqlQueries;
@@ -49,7 +47,7 @@ public final class OneDashboardPageWidgetBillboard {
      */
     private Integer row;
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     private String title;
@@ -98,9 +96,7 @@ public final class OneDashboardPageWidgetBillboard {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
     /**
-     * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
     public List<OneDashboardPageWidgetBillboardNrqlQuery> nrqlQueries() {
@@ -114,7 +110,7 @@ public final class OneDashboardPageWidgetBillboard {
         return this.row;
     }
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     public String title() {

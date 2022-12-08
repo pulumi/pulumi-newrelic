@@ -45,6 +45,7 @@ export interface GetSecureCredentialArgs {
  * A collection of values returned by getSecureCredential.
  */
 export interface GetSecureCredentialResult {
+    readonly accountId: number;
     /**
      * The secure credential's description.
      */

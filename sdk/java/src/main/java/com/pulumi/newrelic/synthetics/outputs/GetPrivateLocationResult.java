@@ -4,11 +4,15 @@
 package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPrivateLocationResult {
+    private @Nullable Integer accountId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -17,6 +21,9 @@ public final class GetPrivateLocationResult {
     private String name;
 
     private GetPrivateLocationResult() {}
+    public Optional<Integer> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -37,15 +44,22 @@ public final class GetPrivateLocationResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer accountId;
         private String id;
         private String name;
         public Builder() {}
         public Builder(GetPrivateLocationResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountId = defaults.accountId;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder accountId(@Nullable Integer accountId) {
+            this.accountId = accountId;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -58,6 +72,7 @@ public final class GetPrivateLocationResult {
         }
         public GetPrivateLocationResult build() {
             final var o = new GetPrivateLocationResult();
+            o.accountId = accountId;
             o.id = id;
             o.name = name;
             return o;

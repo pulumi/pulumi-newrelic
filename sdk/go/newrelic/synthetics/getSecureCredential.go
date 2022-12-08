@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.LookupSecureCredential(ctx, &synthetics.LookupSecureCredentialArgs{
+//			_, err = synthetics.LookupSecureCredential(ctx, &synthetics.LookupSecureCredentialArgs{
 //				Key: "MY_KEY",
 //			}, nil)
 //			if err != nil {
@@ -56,6 +56,7 @@ type LookupSecureCredentialArgs struct {
 
 // A collection of values returned by getSecureCredential.
 type LookupSecureCredentialResult struct {
+	AccountId int `pulumi:"accountId"`
 	// The secure credential's description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -101,6 +102,10 @@ func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutput
 
 func (o LookupSecureCredentialResultOutput) ToLookupSecureCredentialResultOutputWithContext(ctx context.Context) LookupSecureCredentialResultOutput {
 	return o
+}
+
+func (o LookupSecureCredentialResultOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSecureCredentialResult) int { return v.AccountId }).(pulumi.IntOutput)
 }
 
 // The secure credential's description.

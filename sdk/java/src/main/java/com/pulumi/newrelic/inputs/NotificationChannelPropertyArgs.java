@@ -17,8 +17,6 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
 
     /**
      * The notification property display value.
-     * *
-     * Each notification channel type supports a specific set of arguments for the `property` block:
      * 
      */
     @Import(name="displayValue")
@@ -26,8 +24,6 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
 
     /**
      * @return The notification property display value.
-     * *
-     * Each notification channel type supports a specific set of arguments for the `property` block:
      * 
      */
     public Optional<Output<String>> displayValue() {
@@ -108,8 +104,6 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
 
         /**
          * @param displayValue The notification property display value.
-         * *
-         * Each notification channel type supports a specific set of arguments for the `property` block:
          * 
          * @return builder
          * 
@@ -121,8 +115,6 @@ public final class NotificationChannelPropertyArgs extends com.pulumi.resources.
 
         /**
          * @param displayValue The notification property display value.
-         * *
-         * Each notification channel type supports a specific set of arguments for the `property` block:
          * 
          * @return builder
          * 

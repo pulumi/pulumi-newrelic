@@ -28,6 +28,12 @@ namespace Pulumi.NewRelic.Cloud
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Alloy DB integration. See Integration blocks below for details.
+        /// </summary>
+        [Output("alloyDb")]
+        public Output<Outputs.GcpIntegrationsAlloyDb?> AlloyDb { get; private set; } = null!;
+
+        /// <summary>
         /// App Engine integration. See Integration blocks below for details.
         /// </summary>
         [Output("appEngine")]
@@ -236,6 +242,12 @@ namespace Pulumi.NewRelic.Cloud
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
+        /// Alloy DB integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("alloyDb")]
+        public Input<Inputs.GcpIntegrationsAlloyDbArgs>? AlloyDb { get; set; }
+
+        /// <summary>
         /// App Engine integration. See Integration blocks below for details.
         /// </summary>
         [Input("appEngine")]
@@ -404,6 +416,12 @@ namespace Pulumi.NewRelic.Cloud
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
+
+        /// <summary>
+        /// Alloy DB integration. See Integration blocks below for details.
+        /// </summary>
+        [Input("alloyDb")]
+        public Input<Inputs.GcpIntegrationsAlloyDbGetArgs>? AlloyDb { get; set; }
 
         /// <summary>
         /// App Engine integration. See Integration blocks below for details.

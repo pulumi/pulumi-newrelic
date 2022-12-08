@@ -107,9 +107,11 @@ export class SecureCredential extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["value"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SecureCredential.__pulumiType, name, resourceInputs, opts);
     }
 }

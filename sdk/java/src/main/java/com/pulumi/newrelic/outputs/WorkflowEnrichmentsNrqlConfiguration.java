@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class WorkflowEnrichmentsNrqlConfiguration {
     /**
-     * @return the nrql query.
+     * @return An NRQL query to run
      * 
      */
     private String query;
 
     private WorkflowEnrichmentsNrqlConfiguration() {}
     /**
-     * @return the nrql query.
+     * @return An NRQL query to run
      * 
      */
     public String query() {

@@ -114,6 +114,8 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_alert_condition":          {Tok: makeResource(mainMod, "AlertCondition")},
 			"newrelic_alert_policy":             {Tok: makeResource(mainMod, "AlertPolicy")},
 			"newrelic_alert_policy_channel":     {Tok: makeResource(mainMod, "AlertPolicyChannel")},
+			"newrelic_obfuscation_expression":   {Tok: makeResource(mainMod, "ObfuscationExpression")},
+			"newrelic_obfuscation_rule":         {Tok: makeResource(mainMod, "ObfuscationRule")},
 			"newrelic_one_dashboard":            {Tok: makeResource(mainMod, "OneDashboard")},
 			"newrelic_one_dashboard_json":       {Tok: makeResource(mainMod, "OneDashboardJson")},
 			"newrelic_one_dashboard_raw":        {Tok: makeResource(mainMod, "OneDashboardRaw")},
@@ -188,6 +190,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_account":         {Tok: makeDataSource(mainMod, "getAccount")},
 			"newrelic_cloud_account":   {Tok: makeDataSource(mainMod, "getCloudAccount")},
 
+			"newrelic_obfuscation_expression":       {Tok: makeDataSource(mainMod, "getObfuscationExpression")},
 			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},
 			"newrelic_synthetics_private_location":  {Tok: makeDataSource(syntheticsMod, "getPrivateLocation")},
 		},

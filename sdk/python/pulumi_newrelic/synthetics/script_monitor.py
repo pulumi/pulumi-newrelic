@@ -32,7 +32,7 @@ class ScriptMonitorArgs:
         """
         The set of arguments for constructing a ScriptMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
-        :param pulumi.Input[str] status: The run state of the monitor.
+        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution
@@ -85,7 +85,7 @@ class ScriptMonitorArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The run state of the monitor.
+        The run state of the monitor: `ENABLED` or `DISABLED`
         """
         return pulumi.get(self, "status")
 
@@ -256,7 +256,7 @@ class _ScriptMonitorState:
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor.
+        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input['ScriptMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
@@ -425,7 +425,7 @@ class _ScriptMonitorState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The run state of the monitor.
+        The run state of the monitor: `ENABLED` or `DISABLED`
         """
         return pulumi.get(self, "status")
 
@@ -484,8 +484,6 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        > **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -498,7 +496,7 @@ class ScriptMonitor(pulumi.CustomResource):
             period="EVERY_6_HOURS",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            script="console.log('terraform integration test updated')",
+            script="console.log('it works!')",
             script_language="JAVASCRIPT",
             status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
@@ -508,8 +506,6 @@ class ScriptMonitor(pulumi.CustomResource):
             type="SCRIPT_API")
         ```
         ##### Type: `SCRIPT_BROWSER`
-
-        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
 
         ```python
         import pulumi
@@ -526,13 +522,10 @@ class ScriptMonitor(pulumi.CustomResource):
             runtime_type_version="100",
             script="$browser.get('https://one.newrelic.com')",
             script_language="JAVASCRIPT",
-            status="DISABLED",
+            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
-                values=[
-                    "some_value1",
-                    "some_value2",
-                ],
+                values=["some_value"],
             )],
             type="SCRIPT_BROWSER")
         ```
@@ -551,12 +544,12 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
-            description="Test Description",
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.private_location.id",
+                guid="newrelic_synthetics_private_location.location.id",
                 vse_password="secret",
             )],
             period="EVERY_6_HOURS",
@@ -577,13 +570,13 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
+        location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             enable_screenshot_on_failure_and_script=False,
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.private_location.id",
+                guid="newrelic_synthetics_private_location.location.id",
                 vse_password="secret",
             )],
             period="EVERY_HOUR",
@@ -591,7 +584,7 @@ class ScriptMonitor(pulumi.CustomResource):
             runtime_type_version="100",
             script="$browser.get('https://one.newrelic.com')",
             script_language="JAVASCRIPT",
-            status="DISABLED",
+            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
@@ -604,7 +597,7 @@ class ScriptMonitor(pulumi.CustomResource):
         Synthetics monitor scripts can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor bar <guid>
+         $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -619,7 +612,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor.
+        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
@@ -636,8 +629,6 @@ class ScriptMonitor(pulumi.CustomResource):
 
         ##### Type: `SCRIPT_API`
 
-        > **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
@@ -650,7 +641,7 @@ class ScriptMonitor(pulumi.CustomResource):
             period="EVERY_6_HOURS",
             runtime_type="NODE_API",
             runtime_type_version="16.10",
-            script="console.log('terraform integration test updated')",
+            script="console.log('it works!')",
             script_language="JAVASCRIPT",
             status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
@@ -660,8 +651,6 @@ class ScriptMonitor(pulumi.CustomResource):
             type="SCRIPT_API")
         ```
         ##### Type: `SCRIPT_BROWSER`
-
-        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
 
         ```python
         import pulumi
@@ -678,13 +667,10 @@ class ScriptMonitor(pulumi.CustomResource):
             runtime_type_version="100",
             script="$browser.get('https://one.newrelic.com')",
             script_language="JAVASCRIPT",
-            status="DISABLED",
+            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
-                values=[
-                    "some_value1",
-                    "some_value2",
-                ],
+                values=["some_value"],
             )],
             type="SCRIPT_BROWSER")
         ```
@@ -703,12 +689,12 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
-            description="Test Description",
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.private_location.id",
+                guid="newrelic_synthetics_private_location.location.id",
                 vse_password="secret",
             )],
             period="EVERY_6_HOURS",
@@ -729,13 +715,13 @@ class ScriptMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
+        location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
             enable_screenshot_on_failure_and_script=False,
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.private_location.id",
+                guid="newrelic_synthetics_private_location.location.id",
                 vse_password="secret",
             )],
             period="EVERY_HOUR",
@@ -743,7 +729,7 @@ class ScriptMonitor(pulumi.CustomResource):
             runtime_type_version="100",
             script="$browser.get('https://one.newrelic.com')",
             script_language="JAVASCRIPT",
-            status="DISABLED",
+            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
@@ -756,7 +742,7 @@ class ScriptMonitor(pulumi.CustomResource):
         Synthetics monitor scripts can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor bar <guid>
+         $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -858,7 +844,7 @@ class ScriptMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_type_version: The specific version of the runtime type selected.
         :param pulumi.Input[str] script: The script that the monitor runs.
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
-        :param pulumi.Input[str] status: The run state of the monitor.
+        :param pulumi.Input[str] status: The run state of the monitor: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[str] type: The plaintext representing the monitor script. Valid values are SCRIPT_BROWSER or SCRIPT_API
         """
@@ -974,7 +960,7 @@ class ScriptMonitor(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The run state of the monitor.
+        The run state of the monitor: `ENABLED` or `DISABLED`
         """
         return pulumi.get(self, "status")
 

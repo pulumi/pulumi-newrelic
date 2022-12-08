@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkflowEnrichments {
+    /**
+     * @return a wrapper block
+     * 
+     */
     private List<WorkflowEnrichmentsNrql> nrqls;
 
     private WorkflowEnrichments() {}
+    /**
+     * @return a wrapper block
+     * 
+     */
     public List<WorkflowEnrichmentsNrql> nrqls() {
         return this.nrqls;
     }

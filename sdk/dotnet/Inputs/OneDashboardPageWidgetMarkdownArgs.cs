@@ -47,7 +47,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Text { get; set; }
 
         /// <summary>
-        /// (Required) A title for the widget.
+        /// (Optional) A human-friendly display string for this value.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;

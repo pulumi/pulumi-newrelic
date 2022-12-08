@@ -232,6 +232,8 @@ class OneDashboardRaw(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+
         ## Example Usage
         ### Create A New Relic One Dashboard With RawConfiguration
 
@@ -322,6 +324,8 @@ class OneDashboardRaw(pulumi.CustomResource):
                  args: OneDashboardRawArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+
         ## Example Usage
         ### Create A New Relic One Dashboard With RawConfiguration
 

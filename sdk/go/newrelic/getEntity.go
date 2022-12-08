@@ -27,8 +27,9 @@ type GetEntityArgs struct {
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
 	// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
-	Name string        `pulumi:"name"`
-	Tag  *GetEntityTag `pulumi:"tag"`
+	Name string `pulumi:"name"`
+	// A tag applied to the entity. See Nested tag blocks below for details.
+	Tags []GetEntityTag `pulumi:"tags"`
 	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
 	Type *string `pulumi:"type"`
 }
@@ -43,12 +44,13 @@ type GetEntityResult struct {
 	// The unique GUID of the entity.
 	Guid string `pulumi:"guid"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                      string        `pulumi:"id"`
-	IgnoreCase              *bool         `pulumi:"ignoreCase"`
-	Name                    string        `pulumi:"name"`
-	ServingApmApplicationId int           `pulumi:"servingApmApplicationId"`
-	Tag                     *GetEntityTag `pulumi:"tag"`
-	Type                    string        `pulumi:"type"`
+	Id         string `pulumi:"id"`
+	IgnoreCase *bool  `pulumi:"ignoreCase"`
+	Name       string `pulumi:"name"`
+	// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
+	ServingApmApplicationId int            `pulumi:"servingApmApplicationId"`
+	Tags                    []GetEntityTag `pulumi:"tags"`
+	Type                    string         `pulumi:"type"`
 }
 
 func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulumi.InvokeOption) GetEntityResultOutput {
@@ -71,8 +73,9 @@ type GetEntityOutputArgs struct {
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
 	// The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
-	Name pulumi.StringInput   `pulumi:"name"`
-	Tag  GetEntityTagPtrInput `pulumi:"tag"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// A tag applied to the entity. See Nested tag blocks below for details.
+	Tags GetEntityTagArrayInput `pulumi:"tags"`
 	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -128,12 +131,13 @@ func (o GetEntityResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
 func (o GetEntityResultOutput) ServingApmApplicationId() pulumi.IntOutput {
 	return o.ApplyT(func(v GetEntityResult) int { return v.ServingApmApplicationId }).(pulumi.IntOutput)
 }
 
-func (o GetEntityResultOutput) Tag() GetEntityTagPtrOutput {
-	return o.ApplyT(func(v GetEntityResult) *GetEntityTag { return v.Tag }).(GetEntityTagPtrOutput)
+func (o GetEntityResultOutput) Tags() GetEntityTagArrayOutput {
+	return o.ApplyT(func(v GetEntityResult) []GetEntityTag { return v.Tags }).(GetEntityTagArrayOutput)
 }
 
 func (o GetEntityResultOutput) Type() pulumi.StringOutput {

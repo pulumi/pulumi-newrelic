@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create, update, and delete the synthetics broken links monitor in New Relic.
+// Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
 //
 // ## Example Usage
 //
@@ -72,7 +72,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "privateLocation", &synthetics.PrivateLocationArgs{
+//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
@@ -81,7 +81,7 @@ import (
 //			}
 //			_, err = synthetics.NewBrokenLinksMonitor(ctx, "monitor", &synthetics.BrokenLinksMonitorArgs{
 //				LocationsPrivates: pulumi.StringArray{
-//					pulumi.String("newrelic_synthetics_private_location.private_location.id"),
+//					pulumi.String("newrelic_synthetics_private_location.location.id"),
 //				},
 //				Period: pulumi.String("EVERY_6_HOURS"),
 //				Status: pulumi.String("ENABLED"),
@@ -110,7 +110,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor foo <guid>
+//	$ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
 //
 // ```
 type BrokenLinksMonitor struct {
@@ -132,7 +132,7 @@ type BrokenLinksMonitor struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayOutput `pulumi:"tags"`
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
@@ -190,7 +190,7 @@ type brokenLinksMonitorState struct {
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -211,7 +211,7 @@ type BrokenLinksMonitorState struct {
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri pulumi.StringPtrInput
 }
 
@@ -234,7 +234,7 @@ type brokenLinksMonitorArgs struct {
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags []BrokenLinksMonitorTag `pulumi:"tags"`
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri string `pulumi:"uri"`
 }
 
@@ -254,7 +254,7 @@ type BrokenLinksMonitorArgs struct {
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details
 	Tags BrokenLinksMonitorTagArrayInput
-	// The uri the monitor runs against.
+	// The URI the monitor runs against.
 	Uri pulumi.StringInput
 }
 
@@ -385,7 +385,7 @@ func (o BrokenLinksMonitorOutput) Tags() BrokenLinksMonitorTagArrayOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) BrokenLinksMonitorTagArrayOutput { return v.Tags }).(BrokenLinksMonitorTagArrayOutput)
 }
 
-// The uri the monitor runs against.
+// The URI the monitor runs against.
 func (o BrokenLinksMonitorOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrokenLinksMonitor) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
 }

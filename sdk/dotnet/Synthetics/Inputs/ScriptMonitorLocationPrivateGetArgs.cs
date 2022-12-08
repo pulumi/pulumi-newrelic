@@ -18,11 +18,21 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         [Input("guid", required: true)]
         public Input<string> Guid { get; set; } = null!;
 
+        [Input("vsePassword")]
+        private Input<string>? _vsePassword;
+
         /// <summary>
         /// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
         /// </summary>
-        [Input("vsePassword")]
-        public Input<string>? VsePassword { get; set; }
+        public Input<string>? VsePassword
+        {
+            get => _vsePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _vsePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ScriptMonitorLocationPrivateGetArgs()
         {

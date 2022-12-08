@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.GetCloudAccount(ctx, &GetCloudAccountArgs{
+//			_, err = newrelic.GetCloudAccount(ctx, &GetCloudAccountArgs{
 //				AccountId:     pulumi.IntRef(12345),
 //				CloudProvider: "aws",
 //				Name:          "my aws account",

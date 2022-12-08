@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create, update, and delete a synthetics step monitor in New Relic.
+// Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 //
 // ## Example Usage
 //
@@ -70,7 +70,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import newrelic:synthetics/stepMonitor:StepMonitor bar <guid>
+//	$ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
 //
 // ```
 type StepMonitor struct {

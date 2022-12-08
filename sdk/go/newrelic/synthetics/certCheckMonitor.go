@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create, update, and delete a synthetics certificate check monitor in New Relic.
+// Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 //
 // ## Example Usage
 //
@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewCertCheckMonitor(ctx, "cert-check-monitor", &synthetics.CertCheckMonitorArgs{
 //				CertificateExpiration: pulumi.Int(10),
-//				Domain:                pulumi.String("http://www.example.com"),
+//				Domain:                pulumi.String("www.example.com"),
 //				LocationsPublics: pulumi.StringArray{
 //					pulumi.String("AP_SOUTH_1"),
 //				},

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AlertChannelConfig {
     /**
@@ -114,7 +115,7 @@ export interface AlertMutingRuleCondition {
 
 export interface AlertMutingRuleConditionCondition {
     /**
-     * The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+     * The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
      */
     attribute: string;
     /**
@@ -190,7 +191,13 @@ export interface GetAlertChannelConfig {
 }
 
 export interface GetEntityTag {
+    /**
+     * The tag key.
+     */
     key: string;
+    /**
+     * The tag value.
+     */
     value: string;
 }
 
@@ -209,8 +216,6 @@ export interface InfraAlertConditionWarning {
 export interface NotificationChannelProperty {
     /**
      * The notification property display value.
-     * *
-     * Each notification channel type supports a specific set of arguments for the `property` block:
      */
     displayValue?: string;
     /**
@@ -326,6 +331,21 @@ export interface NrqlAlertConditionWarning {
     timeFunction?: string;
 }
 
+export interface ObfuscationRuleAction {
+    /**
+     * Attribute names for action. An empty list applies the action to all the attributes.
+     */
+    attributes: string[];
+    /**
+     * Expression Id for action.
+     */
+    expressionId: string;
+    /**
+     * Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+     */
+    method: string;
+}
+
 export interface OneDashboardPage {
     /**
      * Brief text describing the dashboard.
@@ -412,9 +432,7 @@ export interface OneDashboardPageWidgetArea {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetAreaNrqlQuery[];
     /**
@@ -422,7 +440,7 @@ export interface OneDashboardPageWidgetArea {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -459,9 +477,7 @@ export interface OneDashboardPageWidgetBar {
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBarNrqlQuery[];
     /**
@@ -469,7 +485,7 @@ export interface OneDashboardPageWidgetBar {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -508,9 +524,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBillboardNrqlQuery[];
     /**
@@ -518,7 +532,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -563,9 +577,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     limit: number;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBulletNrqlQuery[];
     /**
@@ -573,7 +585,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -608,9 +620,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetFunnelNrqlQuery[];
     /**
@@ -618,7 +628,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -655,9 +665,7 @@ export interface OneDashboardPageWidgetHeatmap {
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetHeatmapNrqlQuery[];
     /**
@@ -665,7 +673,7 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -700,9 +708,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetHistogramNrqlQuery[];
     /**
@@ -710,7 +716,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -745,9 +751,7 @@ export interface OneDashboardPageWidgetJson {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetJsonNrqlQuery[];
     /**
@@ -755,7 +759,7 @@ export interface OneDashboardPageWidgetJson {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -790,9 +794,7 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLineNrqlQuery[];
     /**
@@ -800,7 +802,7 @@ export interface OneDashboardPageWidgetLine {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -835,9 +837,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLogTableNrqlQuery[];
     /**
@@ -845,7 +845,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -889,7 +889,7 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     text?: string;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -915,9 +915,7 @@ export interface OneDashboardPageWidgetPy {
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetPyNrqlQuery[];
     /**
@@ -925,7 +923,7 @@ export interface OneDashboardPageWidgetPy {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -960,9 +958,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     ignoreTimeRange?: boolean;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetStackedBarNrqlQuery[];
     /**
@@ -970,7 +966,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -1007,9 +1003,7 @@ export interface OneDashboardPageWidgetTable {
     ignoreTimeRange?: boolean;
     linkedEntityGuids: string[];
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetTableNrqlQuery[];
     /**
@@ -1017,7 +1011,7 @@ export interface OneDashboardPageWidgetTable {
      */
     row: number;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: string;
     /**
@@ -1092,6 +1086,60 @@ export interface OneDashboardRawPageWidget {
     width?: number;
 }
 
+export interface OneDashboardVariable {
+    /**
+     * (Optional) A list of default values for this variable.
+     */
+    defaultValues?: string[];
+    /**
+     * (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+     */
+    isMultiSelection?: boolean;
+    /**
+     * (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+     */
+    items?: outputs.OneDashboardVariableItem[];
+    /**
+     * The title of the dashboard.
+     */
+    name: string;
+    /**
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     */
+    nrqlQuery?: outputs.OneDashboardVariableNrqlQuery;
+    /**
+     * (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+     */
+    replacementStrategy: string;
+    /**
+     * (Optional) A human-friendly display string for this value.
+     */
+    title: string;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: string;
+}
+
+export interface OneDashboardVariableItem {
+    /**
+     * (Optional) A human-friendly display string for this value.
+     */
+    title?: string;
+    /**
+     * (Required) A possible variable value
+     */
+    value: string;
+}
+
+export interface OneDashboardVariableNrqlQuery {
+    accountIds?: number[];
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: string;
+}
+
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -1118,11 +1166,26 @@ export interface ServiceLevelEventsBadEvents {
      */
     from: string;
     /**
+     * The NRQL SELECT clause to aggregate events.
+     */
+    select?: outputs.ServiceLevelEventsBadEventsSelect;
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
      */
     where?: string;
+}
+
+export interface ServiceLevelEventsBadEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
+    attribute?: string;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     */
+    function: string;
 }
 
 export interface ServiceLevelEventsGoodEvents {
@@ -1131,11 +1194,26 @@ export interface ServiceLevelEventsGoodEvents {
      */
     from: string;
     /**
+     * The NRQL SELECT clause to aggregate events.
+     */
+    select?: outputs.ServiceLevelEventsGoodEventsSelect;
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
      */
     where?: string;
+}
+
+export interface ServiceLevelEventsGoodEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
+    attribute?: string;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     */
+    function: string;
 }
 
 export interface ServiceLevelEventsValidEvents {
@@ -1144,11 +1222,26 @@ export interface ServiceLevelEventsValidEvents {
      */
     from: string;
     /**
+     * The NRQL SELECT clause to aggregate events.
+     */
+    select?: outputs.ServiceLevelEventsValidEventsSelect;
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
      */
     where?: string;
+}
+
+export interface ServiceLevelEventsValidEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
+    attribute?: string;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     */
+    function: string;
 }
 
 export interface ServiceLevelObjective {
@@ -1189,46 +1282,51 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
 }
 
 export interface WorkflowDestination {
+    /**
+     * id of a notificationChannel to use for notifications. Please note that you have to use a 
+     * **notification** channel, not an `alertChannel`.
+     */
     channelId: string;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name: string;
     /**
-     * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
     type: string;
 }
 
 export interface WorkflowEnrichments {
+    /**
+     * a wrapper block
+     */
     nrqls: outputs.WorkflowEnrichmentsNrql[];
 }
 
 export interface WorkflowEnrichmentsNrql {
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
     accountId: number;
     /**
-     * A list of nrql enrichments.
+     * Another wrapper block
      */
     configurations: outputs.WorkflowEnrichmentsNrqlConfiguration[];
     enrichmentId: string;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name: string;
     /**
-     * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
     type: string;
 }
 
 export interface WorkflowEnrichmentsNrqlConfiguration {
     /**
-     * the nrql query.
+     * An NRQL query to run
      */
     query: string;
 }
@@ -1236,28 +1334,32 @@ export interface WorkflowEnrichmentsNrqlConfiguration {
 export interface WorkflowIssuesFilter {
     filterId: string;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name: string;
+    /**
+     * A condition an issue event should satisfy to be processed by the workflow
+     */
     predicates?: outputs.WorkflowIssuesFilterPredicate[];
     /**
-     * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
     type: string;
 }
 
 export interface WorkflowIssuesFilterPredicate {
     /**
-     * A predicate's attribute.
+     * Issue event attribute to check
      */
     attribute: string;
     /**
-     * A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * An operator to use to compare the attribute with the provided `values`. 
+     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
      */
     operator: string;
     /**
-     * A list of values.
+     * The `attribute` must match **any** of the values in this list
      */
     values: string[];
 }
@@ -2193,7 +2295,29 @@ export namespace cloud {
         resourceGroups?: string[];
     }
 
+    export interface AzureIntegrationsMysqlFlexible {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
     export interface AzureIntegrationsPostgresql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: string[];
+    }
+
+    export interface AzureIntegrationsPostgresqlFlexible {
         /**
          * The data polling interval in seconds.
          */
@@ -2312,6 +2436,13 @@ export namespace cloud {
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
         resourceGroups?: string[];
+    }
+
+    export interface GcpIntegrationsAlloyDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: number;
     }
 
     export interface GcpIntegrationsAppEngine {
@@ -2528,6 +2659,103 @@ export namespace plugins {
          * The query.
          */
         query: string;
+    }
+
+    export interface WorkloadStatusConfigAutomatic {
+        /**
+         * Whether the static status configuration is enabled or not.
+         */
+        enabled: boolean;
+        /**
+         * An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+         */
+        remainingEntitiesRule?: outputs.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRule;
+        /**
+         * The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+         */
+        rules?: outputs.plugins.WorkloadStatusConfigAutomaticRule[];
+    }
+
+    export interface WorkloadStatusConfigAutomaticRemainingEntitiesRule {
+        /**
+         * The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+         */
+        remainingEntitiesRuleRollup: outputs.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
+        /**
+         * The grouping to be applied to the remaining entities.
+         */
+        groupBy: string;
+        /**
+         * The rollup strategy that is applied to a group of entities.
+         */
+        strategy: string;
+        /**
+         * Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+         */
+        thresholdType?: string;
+        /**
+         * Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+         */
+        thresholdValue?: number;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRule {
+        /**
+         * A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+         */
+        entityGuids: string[];
+        /**
+         * A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+         */
+        nrqlQueries?: outputs.plugins.WorkloadStatusConfigAutomaticRuleNrqlQuery[];
+        /**
+         * The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+         */
+        rollup: outputs.plugins.WorkloadStatusConfigAutomaticRuleRollup;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRuleNrqlQuery {
+        /**
+         * The entity search query that is used to perform the search of a group of entities.
+         */
+        query: string;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRuleRollup {
+        /**
+         * The rollup strategy that is applied to a group of entities.
+         */
+        strategy: string;
+        /**
+         * Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+         */
+        thresholdType?: string;
+        /**
+         * Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+         */
+        thresholdValue?: number;
+    }
+
+    export interface WorkloadStatusConfigStatic {
+        /**
+         * A description that provides additional details about the status of the workload.
+         */
+        description?: string;
+        /**
+         * Whether the static status configuration is enabled or not.
+         */
+        enabled: boolean;
+        /**
+         * The status of the workload.
+         */
+        status: string;
+        /**
+         * A short description of the status of the workload.
+         */
+        summary?: string;
     }
 
 }

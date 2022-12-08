@@ -45,6 +45,7 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
@@ -55,7 +56,6 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
-     * 
      * ```java
      * package generated_program;
      * 
@@ -64,8 +64,9 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
-     * import com.pulumi.newrelic.synthetics.Monitor;
-     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import com.pulumi.newrelic.synthetics.StepMonitor;
+     * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -80,11 +81,14 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
+     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -123,6 +127,7 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
@@ -133,7 +138,6 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
-     * 
      * ```java
      * package generated_program;
      * 
@@ -142,8 +146,9 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
-     * import com.pulumi.newrelic.synthetics.Monitor;
-     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import com.pulumi.newrelic.synthetics.StepMonitor;
+     * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -158,11 +163,14 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
+     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -201,6 +209,7 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
@@ -211,7 +220,6 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
-     * 
      * ```java
      * package generated_program;
      * 
@@ -220,8 +228,9 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
-     * import com.pulumi.newrelic.synthetics.Monitor;
-     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import com.pulumi.newrelic.synthetics.StepMonitor;
+     * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -236,11 +245,14 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
+     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -279,6 +291,7 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
@@ -289,7 +302,6 @@ public final class SyntheticsFunctions {
      *     }
      * }
      * ```
-     * 
      * ```java
      * package generated_program;
      * 
@@ -298,8 +310,9 @@ public final class SyntheticsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.newrelic.synthetics.SyntheticsFunctions;
      * import com.pulumi.newrelic.synthetics.inputs.GetPrivateLocationArgs;
-     * import com.pulumi.newrelic.synthetics.Monitor;
-     * import com.pulumi.newrelic.synthetics.MonitorArgs;
+     * import com.pulumi.newrelic.synthetics.StepMonitor;
+     * import com.pulumi.newrelic.synthetics.StepMonitorArgs;
+     * import com.pulumi.newrelic.synthetics.inputs.StepMonitorLocationPrivateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -314,11 +327,14 @@ public final class SyntheticsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SyntheticsFunctions.getPrivateLocation(GetPrivateLocationArgs.builder()
+     *             .accountId(123456)
      *             .name(&#34;My private location&#34;)
      *             .build());
      * 
-     *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
-     *             .locationPrivate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *         var foo = new StepMonitor(&#34;foo&#34;, StepMonitorArgs.builder()        
+     *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
+     *                 .guid(example.applyValue(getPrivateLocationResult -&gt; getPrivateLocationResult.id()))
+     *                 .build())
      *             .build());
      * 
      *     }

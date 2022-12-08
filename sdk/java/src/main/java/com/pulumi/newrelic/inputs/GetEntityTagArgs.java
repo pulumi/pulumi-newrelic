@@ -13,16 +13,32 @@ public final class GetEntityTagArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetEntityTagArgs Empty = new GetEntityTagArgs();
 
+    /**
+     * The tag key.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The tag key.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The tag value.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The tag value.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class GetEntityTagArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GetEntityTagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The tag key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The tag key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value The tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

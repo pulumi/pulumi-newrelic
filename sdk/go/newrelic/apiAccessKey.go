@@ -95,6 +95,10 @@ func NewApiAccessKey(ctx *pulumi.Context,
 	if args.KeyType == nil {
 		return nil, errors.New("invalid value for required argument 'KeyType'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"key",
+	})
+	opts = append(opts, secrets)
 	var resource ApiAccessKey
 	err := ctx.RegisterResource("newrelic:index/apiAccessKey:ApiAccessKey", name, args, &resource, opts...)
 	if err != nil {

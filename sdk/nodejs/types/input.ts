@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AlertChannelConfig {
     /**
@@ -114,7 +115,7 @@ export interface AlertMutingRuleCondition {
 
 export interface AlertMutingRuleConditionCondition {
     /**
-     * The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+     * The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
      */
     attribute: pulumi.Input<string>;
     /**
@@ -167,12 +168,24 @@ export interface EntityTagsTag {
 }
 
 export interface GetEntityTag {
+    /**
+     * The tag key.
+     */
     key: string;
+    /**
+     * The tag value.
+     */
     value: string;
 }
 
 export interface GetEntityTagArgs {
+    /**
+     * The tag key.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The tag value.
+     */
     value: pulumi.Input<string>;
 }
 
@@ -191,8 +204,6 @@ export interface InfraAlertConditionWarning {
 export interface NotificationChannelProperty {
     /**
      * The notification property display value.
-     * *
-     * Each notification channel type supports a specific set of arguments for the `property` block:
      */
     displayValue?: pulumi.Input<string>;
     /**
@@ -308,6 +319,21 @@ export interface NrqlAlertConditionWarning {
     timeFunction?: pulumi.Input<string>;
 }
 
+export interface ObfuscationRuleAction {
+    /**
+     * Attribute names for action. An empty list applies the action to all the attributes.
+     */
+    attributes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Expression Id for action.
+     */
+    expressionId: pulumi.Input<string>;
+    /**
+     * Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+     */
+    method: pulumi.Input<string>;
+}
+
 export interface OneDashboardPage {
     /**
      * Brief text describing the dashboard.
@@ -394,9 +420,7 @@ export interface OneDashboardPageWidgetArea {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNrqlQuery>[]>;
     /**
@@ -404,7 +428,7 @@ export interface OneDashboardPageWidgetArea {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -441,9 +465,7 @@ export interface OneDashboardPageWidgetBar {
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNrqlQuery>[]>;
     /**
@@ -451,7 +473,7 @@ export interface OneDashboardPageWidgetBar {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -490,9 +512,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNrqlQuery>[]>;
     /**
@@ -500,7 +520,7 @@ export interface OneDashboardPageWidgetBillboard {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -545,9 +565,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     limit: pulumi.Input<number>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNrqlQuery>[]>;
     /**
@@ -555,7 +573,7 @@ export interface OneDashboardPageWidgetBullet {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -590,9 +608,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNrqlQuery>[]>;
     /**
@@ -600,7 +616,7 @@ export interface OneDashboardPageWidgetFunnel {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -637,9 +653,7 @@ export interface OneDashboardPageWidgetHeatmap {
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNrqlQuery>[]>;
     /**
@@ -647,7 +661,7 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -682,9 +696,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNrqlQuery>[]>;
     /**
@@ -692,7 +704,7 @@ export interface OneDashboardPageWidgetHistogram {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -727,9 +739,7 @@ export interface OneDashboardPageWidgetJson {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNrqlQuery>[]>;
     /**
@@ -737,7 +747,7 @@ export interface OneDashboardPageWidgetJson {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -772,9 +782,7 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNrqlQuery>[]>;
     /**
@@ -782,7 +790,7 @@ export interface OneDashboardPageWidgetLine {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -817,9 +825,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNrqlQuery>[]>;
     /**
@@ -827,7 +833,7 @@ export interface OneDashboardPageWidgetLogTable {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -871,7 +877,7 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     text?: pulumi.Input<string>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -897,9 +903,7 @@ export interface OneDashboardPageWidgetPy {
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNrqlQuery>[]>;
     /**
@@ -907,7 +911,7 @@ export interface OneDashboardPageWidgetPy {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -942,9 +946,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNrqlQuery>[]>;
     /**
@@ -952,7 +954,7 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -989,9 +991,7 @@ export interface OneDashboardPageWidgetTable {
     ignoreTimeRange?: pulumi.Input<boolean>;
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linkedEntityGuids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filterCurrentDashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNrqlQuery>[]>;
     /**
@@ -999,7 +999,7 @@ export interface OneDashboardPageWidgetTable {
      */
     row: pulumi.Input<number>;
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      */
     title: pulumi.Input<string>;
     /**
@@ -1074,6 +1074,60 @@ export interface OneDashboardRawPageWidget {
     width?: pulumi.Input<number>;
 }
 
+export interface OneDashboardVariable {
+    /**
+     * (Optional) A list of default values for this variable.
+     */
+    defaultValues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+     */
+    isMultiSelection?: pulumi.Input<boolean>;
+    /**
+     * (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+     */
+    items?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariableItem>[]>;
+    /**
+     * The title of the dashboard.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
+     */
+    nrqlQuery?: pulumi.Input<inputs.OneDashboardVariableNrqlQuery>;
+    /**
+     * (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+     */
+    replacementStrategy: pulumi.Input<string>;
+    /**
+     * (Optional) A human-friendly display string for this value.
+     */
+    title: pulumi.Input<string>;
+    /**
+     * (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface OneDashboardVariableItem {
+    /**
+     * (Optional) A human-friendly display string for this value.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * (Required) A possible variable value
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface OneDashboardVariableNrqlQuery {
+    accountIds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface ServiceLevelEvents {
     /**
      * The ID of the account where the entity (e.g, APM Service, Browser application, Workload, etc.) belongs to,
@@ -1100,11 +1154,26 @@ export interface ServiceLevelEventsBadEvents {
      */
     from: pulumi.Input<string>;
     /**
+     * The NRQL SELECT clause to aggregate events.
+     */
+    select?: pulumi.Input<inputs.ServiceLevelEventsBadEventsSelect>;
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
      */
     where?: pulumi.Input<string>;
+}
+
+export interface ServiceLevelEventsBadEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
+    attribute?: pulumi.Input<string>;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     */
+    function: pulumi.Input<string>;
 }
 
 export interface ServiceLevelEventsGoodEvents {
@@ -1113,11 +1182,26 @@ export interface ServiceLevelEventsGoodEvents {
      */
     from: pulumi.Input<string>;
     /**
+     * The NRQL SELECT clause to aggregate events.
+     */
+    select?: pulumi.Input<inputs.ServiceLevelEventsGoodEventsSelect>;
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
      */
     where?: pulumi.Input<string>;
+}
+
+export interface ServiceLevelEventsGoodEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
+    attribute?: pulumi.Input<string>;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     */
+    function: pulumi.Input<string>;
 }
 
 export interface ServiceLevelEventsValidEvents {
@@ -1126,11 +1210,26 @@ export interface ServiceLevelEventsValidEvents {
      */
     from: pulumi.Input<string>;
     /**
+     * The NRQL SELECT clause to aggregate events.
+     */
+    select?: pulumi.Input<inputs.ServiceLevelEventsValidEventsSelect>;
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
      */
     where?: pulumi.Input<string>;
+}
+
+export interface ServiceLevelEventsValidEventsSelect {
+    /**
+     * The event attribute to use in the SELECT clause.
+     */
+    attribute?: pulumi.Input<string>;
+    /**
+     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     */
+    function: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjective {
@@ -1171,46 +1270,51 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
 }
 
 export interface WorkflowDestination {
+    /**
+     * id of a notificationChannel to use for notifications. Please note that you have to use a 
+     * **notification** channel, not an `alertChannel`.
+     */
     channelId: pulumi.Input<string>;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name?: pulumi.Input<string>;
     /**
-     * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
     type?: pulumi.Input<string>;
 }
 
 export interface WorkflowEnrichments {
+    /**
+     * a wrapper block
+     */
     nrqls: pulumi.Input<pulumi.Input<inputs.WorkflowEnrichmentsNrql>[]>;
 }
 
 export interface WorkflowEnrichmentsNrql {
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * A list of nrql enrichments.
+     * Another wrapper block
      */
     configurations: pulumi.Input<pulumi.Input<inputs.WorkflowEnrichmentsNrqlConfiguration>[]>;
     enrichmentId?: pulumi.Input<string>;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name: pulumi.Input<string>;
     /**
-     * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
     type?: pulumi.Input<string>;
 }
 
 export interface WorkflowEnrichmentsNrqlConfiguration {
     /**
-     * the nrql query.
+     * An NRQL query to run
      */
     query: pulumi.Input<string>;
 }
@@ -1218,28 +1322,32 @@ export interface WorkflowEnrichmentsNrqlConfiguration {
 export interface WorkflowIssuesFilter {
     filterId?: pulumi.Input<string>;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name: pulumi.Input<string>;
+    /**
+     * A condition an issue event should satisfy to be processed by the workflow
+     */
     predicates?: pulumi.Input<pulumi.Input<inputs.WorkflowIssuesFilterPredicate>[]>;
     /**
-     * the filter's type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
     type: pulumi.Input<string>;
 }
 
 export interface WorkflowIssuesFilterPredicate {
     /**
-     * A predicate's attribute.
+     * Issue event attribute to check
      */
     attribute: pulumi.Input<string>;
     /**
-     * A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * An operator to use to compare the attribute with the provided `values`. 
+     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
      */
     operator: pulumi.Input<string>;
     /**
-     * A list of values.
+     * The `attribute` must match **any** of the values in this list
      */
     values: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -2174,7 +2282,29 @@ export namespace cloud {
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface AzureIntegrationsMysqlFlexible {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface AzureIntegrationsPostgresql {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
+        /**
+         * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+         */
+        resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AzureIntegrationsPostgresqlFlexible {
         /**
          * The data polling interval in seconds.
          */
@@ -2293,6 +2423,13 @@ export namespace cloud {
          * Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
          */
         resourceGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GcpIntegrationsAlloyDb {
+        /**
+         * The data polling interval in seconds.
+         */
+        metricsPollingInterval?: pulumi.Input<number>;
     }
 
     export interface GcpIntegrationsAppEngine {
@@ -2507,6 +2644,103 @@ export namespace plugins {
          * The query.
          */
         query: pulumi.Input<string>;
+    }
+
+    export interface WorkloadStatusConfigAutomatic {
+        /**
+         * Whether the static status configuration is enabled or not.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remainingEntitiesRule blocks below for details.
+         */
+        remainingEntitiesRule?: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRule>;
+        /**
+         * The input object used to represent a rollup strategy. See Nested rule blocks below for details.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRule>[]>;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRemainingEntitiesRule {
+        /**
+         * The input object used to represent a rollup strategy. See Nested remainingEntitiesRuleRollup blocks below for details.
+         */
+        remainingEntitiesRuleRollup: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup>;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollup {
+        /**
+         * The grouping to be applied to the remaining entities.
+         */
+        groupBy: pulumi.Input<string>;
+        /**
+         * The rollup strategy that is applied to a group of entities.
+         */
+        strategy: pulumi.Input<string>;
+        /**
+         * Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+         */
+        thresholdType?: pulumi.Input<string>;
+        /**
+         * Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+         */
+        thresholdValue?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRule {
+        /**
+         * A list of entity GUIDs composing the rule. At least one of `entityGuids` or `nrqlQuery` must be defined.
+         */
+        entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of entity search queries used to retrieve the entities that compose the rule. See Nested nrqlQuery blocks below for details. At least one of `entityGuids` or `nrqlQuery` must be defined.
+         */
+        nrqlQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRuleNrqlQuery>[]>;
+        /**
+         * The input object used to represent a rollup strategy. See Nested rollup blocks below for details.
+         */
+        rollup: pulumi.Input<inputs.plugins.WorkloadStatusConfigAutomaticRuleRollup>;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRuleNrqlQuery {
+        /**
+         * The entity search query that is used to perform the search of a group of entities.
+         */
+        query: pulumi.Input<string>;
+    }
+
+    export interface WorkloadStatusConfigAutomaticRuleRollup {
+        /**
+         * The rollup strategy that is applied to a group of entities.
+         */
+        strategy: pulumi.Input<string>;
+        /**
+         * Type of threshold defined for the rule. This is an optional field that only applies when strategy is WORST_STATUS_WINS. Use a threshold to roll up the worst status only after a certain amount of entities are not operational.
+         */
+        thresholdType?: pulumi.Input<string>;
+        /**
+         * Threshold value defined for the rule. This optional field is used in combination with thresholdType. If the threshold type is null, the threshold value will be ignored.
+         */
+        thresholdValue?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadStatusConfigStatic {
+        /**
+         * A description that provides additional details about the status of the workload.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Whether the static status configuration is enabled or not.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The status of the workload.
+         */
+        status: pulumi.Input<string>;
+        /**
+         * A short description of the status of the workload.
+         */
+        summary?: pulumi.Input<string>;
     }
 }
 

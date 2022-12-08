@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class WorkflowEnrichmentsNrqlConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the nrql query.
+        /// An NRQL query to run
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;

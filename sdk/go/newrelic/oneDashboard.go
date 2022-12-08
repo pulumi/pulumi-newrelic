@@ -11,16 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+//
 // ## Example Usage
 // ## Additional Examples
 //
 // ## Import
 //
-// New Relic dashboards can be imported using their GUID, e.g.
+// New Relic dashboards can be imported using their GUID, e.g. bash
 //
 // ```sh
 //
-//	$ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <Dashboard GUID>
+//	$ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
 //
 // ```
 //
@@ -42,6 +44,8 @@ type OneDashboard struct {
 	Permalink pulumi.StringOutput `pulumi:"permalink"`
 	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+	Variables OneDashboardVariableArrayOutput `pulumi:"variables"`
 }
 
 // NewOneDashboard registers a new resource with the given unique name, arguments, and options.
@@ -90,6 +94,8 @@ type oneDashboardState struct {
 	Permalink *string `pulumi:"permalink"`
 	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions *string `pulumi:"permissions"`
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+	Variables []OneDashboardVariable `pulumi:"variables"`
 }
 
 type OneDashboardState struct {
@@ -107,6 +113,8 @@ type OneDashboardState struct {
 	Permalink pulumi.StringPtrInput
 	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions pulumi.StringPtrInput
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+	Variables OneDashboardVariableArrayInput
 }
 
 func (OneDashboardState) ElementType() reflect.Type {
@@ -124,6 +132,8 @@ type oneDashboardArgs struct {
 	Pages []OneDashboardPage `pulumi:"pages"`
 	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions *string `pulumi:"permissions"`
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+	Variables []OneDashboardVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a OneDashboard resource.
@@ -138,6 +148,8 @@ type OneDashboardArgs struct {
 	Pages OneDashboardPageArrayInput
 	// Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 	Permissions pulumi.StringPtrInput
+	// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+	Variables OneDashboardVariableArrayInput
 }
 
 func (OneDashboardArgs) ElementType() reflect.Type {
@@ -260,6 +272,11 @@ func (o OneDashboardOutput) Permalink() pulumi.StringOutput {
 // Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
 func (o OneDashboardOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OneDashboard) pulumi.StringPtrOutput { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+func (o OneDashboardOutput) Variables() OneDashboardVariableArrayOutput {
+	return o.ApplyT(func(v *OneDashboard) OneDashboardVariableArrayOutput { return v.Variables }).(OneDashboardVariableArrayOutput)
 }
 
 type OneDashboardArrayOutput struct{ *pulumi.OutputState }

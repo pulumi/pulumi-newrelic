@@ -17,8 +17,6 @@ import (
 //
 // ##### Type: `SCRIPT_API`
 //
-// > **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-//
 // ```go
 // package main
 //
@@ -39,7 +37,7 @@ import (
 //				Period:             pulumi.String("EVERY_6_HOURS"),
 //				RuntimeType:        pulumi.String("NODE_API"),
 //				RuntimeTypeVersion: pulumi.String("16.10"),
-//				Script:             pulumi.String("console.log('terraform integration test updated')"),
+//				Script:             pulumi.String("console.log('it works!')"),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
 //				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.ScriptMonitorTagArray{
@@ -61,8 +59,6 @@ import (
 //
 // ```
 // ##### Type: `SCRIPT_BROWSER`
-//
-// > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
 //
 // ```go
 // package main
@@ -89,13 +85,12 @@ import (
 //				RuntimeTypeVersion: pulumi.String("100"),
 //				Script:             pulumi.String(fmt.Sprintf("$browser.get('https://one.newrelic.com')")),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("DISABLED"),
+//				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
 //						Values: pulumi.StringArray{
-//							pulumi.String("some_value1"),
-//							pulumi.String("some_value2"),
+//							pulumi.String("some_value"),
 //						},
 //					},
 //				},
@@ -132,8 +127,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "privateLocation", &synthetics.PrivateLocationArgs{
-//				Description:             pulumi.String("Test Description"),
+//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//				Description:             pulumi.String("Example private location"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -142,7 +137,7 @@ import (
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
-//						Guid:        pulumi.String("newrelic_synthetics_private_location.private_location.id"),
+//						Guid:        pulumi.String("newrelic_synthetics_private_location.location.id"),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},
@@ -186,7 +181,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "privateLocation", &synthetics.PrivateLocationArgs{
+//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
@@ -197,7 +192,7 @@ import (
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
-//						Guid:        pulumi.String("newrelic_synthetics_private_location.private_location.id"),
+//						Guid:        pulumi.String("newrelic_synthetics_private_location.location.id"),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},
@@ -206,7 +201,7 @@ import (
 //				RuntimeTypeVersion: pulumi.String("100"),
 //				Script:             pulumi.String(fmt.Sprintf("$browser.get('https://one.newrelic.com')")),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("DISABLED"),
+//				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -232,7 +227,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor bar <guid>
+//	$ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
 //
 // ```
 type ScriptMonitor struct {
@@ -260,7 +255,7 @@ type ScriptMonitor struct {
 	Script pulumi.StringPtrOutput `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrOutput `pulumi:"scriptLanguage"`
-	// The run state of the monitor.
+	// The run state of the monitor: `ENABLED` or `DISABLED`
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	Tags ScriptMonitorTagArrayOutput `pulumi:"tags"`
@@ -328,7 +323,7 @@ type scriptMonitorState struct {
 	Script *string `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The run state of the monitor.
+	// The run state of the monitor: `ENABLED` or `DISABLED`
 	Status *string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	Tags []ScriptMonitorTag `pulumi:"tags"`
@@ -359,7 +354,7 @@ type ScriptMonitorState struct {
 	Script pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The run state of the monitor.
+	// The run state of the monitor: `ENABLED` or `DISABLED`
 	Status pulumi.StringPtrInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	Tags ScriptMonitorTagArrayInput
@@ -392,7 +387,7 @@ type scriptMonitorArgs struct {
 	Script *string `pulumi:"script"`
 	// The programing language that should execute the script.
 	ScriptLanguage *string `pulumi:"scriptLanguage"`
-	// The run state of the monitor.
+	// The run state of the monitor: `ENABLED` or `DISABLED`
 	Status string `pulumi:"status"`
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	Tags []ScriptMonitorTag `pulumi:"tags"`
@@ -422,7 +417,7 @@ type ScriptMonitorArgs struct {
 	Script pulumi.StringPtrInput
 	// The programing language that should execute the script.
 	ScriptLanguage pulumi.StringPtrInput
-	// The run state of the monitor.
+	// The run state of the monitor: `ENABLED` or `DISABLED`
 	Status pulumi.StringInput
 	// The tags that will be associated with the monitor. See Nested tag blocks below for details.
 	Tags ScriptMonitorTagArrayInput
@@ -572,7 +567,7 @@ func (o ScriptMonitorOutput) ScriptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringPtrOutput { return v.ScriptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The run state of the monitor.
+// The run state of the monitor: `ENABLED` or `DISABLED`
 func (o ScriptMonitorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScriptMonitor) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

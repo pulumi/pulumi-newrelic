@@ -6,6 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const example = newrelic.synthetics.getPrivateLocation({
+ *     accountId: 123456,
+ *     name: "My private location",
+ * });
+ * const foo = new newrelic.synthetics.Monitor("foo", {locationsPrivates: [data.newrelic_synthetics_monitor_location.example.id]});
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const example = newrelic.synthetics.getPrivateLocation({
+ *     accountId: 123456,
+ *     name: "My private location",
+ * });
+ * const foo = new newrelic.synthetics.StepMonitor("foo", {locationPrivates: [{
+ *     guid: example.then(example => example.id),
+ * }]});
+ * ```
  */
 export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLocationResult> {
     if (!opts) {
@@ -14,6 +40,7 @@ export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", {
+        "accountId": args.accountId,
         "name": args.name,
     }, opts);
 }
@@ -22,6 +49,10 @@ export function getPrivateLocation(args: GetPrivateLocationArgs, opts?: pulumi.I
  * A collection of arguments for invoking getPrivateLocation.
  */
 export interface GetPrivateLocationArgs {
+    /**
+     * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+     */
+    accountId?: number;
     /**
      * The name of the Synthetics monitor private location.
      */
@@ -32,6 +63,7 @@ export interface GetPrivateLocationArgs {
  * A collection of values returned by getPrivateLocation.
  */
 export interface GetPrivateLocationResult {
+    readonly accountId?: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -47,6 +79,10 @@ export function getPrivateLocationOutput(args: GetPrivateLocationOutputArgs, opt
  * A collection of arguments for invoking getPrivateLocation.
  */
 export interface GetPrivateLocationOutputArgs {
+    /**
+     * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * The name of the Synthetics monitor private location.
      */

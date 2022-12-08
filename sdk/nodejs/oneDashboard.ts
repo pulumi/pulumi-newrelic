@@ -2,19 +2,117 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+ *
  * ## Example Usage
+ * ### Create A New Relic One Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const exampledash = new newrelic.OneDashboard("exampledash", {
+ *     pages: [{
+ *         name: "New Relic Terraform Example",
+ *         variable: [{
+ *             defaultValues: ["value"],
+ *             isMultiSelection: true,
+ *             item: [{
+ *                 title: "item",
+ *                 value: "ITEM",
+ *             }],
+ *             name: "variable",
+ *             nrqlQuery: [{
+ *                 accountIds: [12345],
+ *                 query: "FROM Transaction SELECT average(duration) FACET appName",
+ *             }],
+ *             replacementStrategy: "default",
+ *             title: "title",
+ *             type: "nrql",
+ *         }],
+ *         widgetBars: [
+ *             {
+ *                 column: 7,
+ *                 height: 3,
+ *                 // Must be another dashboard GUID
+ *                 linkedEntityGuids: ["abc123"],
+ *                 nrqlQueries: [{
+ *                     accountId: 12345,
+ *                     query: "FROM Transaction SELECT average(duration) FACET appName",
+ *                 }],
+ *                 row: 1,
+ *                 title: "Average transaction duration, by application",
+ *                 width: 6,
+ *             },
+ *             {
+ *                 column: 1,
+ *                 // Must be another dashboard GUID
+ *                 filterCurrentDashboard: true,
+ *                 height: 3,
+ *                 nrqlQueries: [{
+ *                     accountId: 12345,
+ *                     query: "FROM Transaction SELECT average(duration) FACET appName",
+ *                 }],
+ *                 row: 4,
+ *                 title: "Average transaction duration, by application",
+ *                 width: 6,
+ *             },
+ *         ],
+ *         widgetBillboards: [{
+ *             column: 1,
+ *             height: 3,
+ *             nrqlQueries: [{
+ *                 query: "FROM Transaction SELECT rate(count(*), 1 minute)",
+ *             }],
+ *             row: 1,
+ *             title: "Requests per minute",
+ *             width: 6,
+ *         }],
+ *         widgetLines: [{
+ *             column: 7,
+ *             height: 3,
+ *             nrqlQueries: [
+ *                 {
+ *                     accountId: 12345,
+ *                     query: "FROM Transaction SELECT average(duration) FACET appName",
+ *                 },
+ *                 {
+ *                     query: "FROM Transaction SELECT rate(count(*), 1 minute)",
+ *                 },
+ *             ],
+ *             row: 4,
+ *             title: "Average transaction duration and the request per minute, by application",
+ *             width: 6,
+ *         }],
+ *         widgetMarkdowns: [{
+ *             column: 1,
+ *             height: 3,
+ *             row: 7,
+ *             text: `### Helpful Links
+ *
+ * * [New Relic One](https://one.newrelic.com)
+ * * [Developer Portal](https://developer.newrelic.com)`,
+ *             title: "Dashboard Note",
+ *             width: 12,
+ *         }],
+ *     }],
+ *     permissions: "public_read_only",
+ * });
+ * ```
+ * See additional examples.
  * ## Additional Examples
  *
  * ## Import
  *
- * New Relic dashboards can be imported using their GUID, e.g.
+ * New Relic dashboards can be imported using their GUID, e.g. bash
  *
  * ```sh
- *  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <Dashboard GUID>
+ *  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
  * ```
  *
  *  In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
@@ -75,6 +173,10 @@ export class OneDashboard extends pulumi.CustomResource {
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
     public readonly permissions!: pulumi.Output<string | undefined>;
+    /**
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     */
+    public readonly variables!: pulumi.Output<outputs.OneDashboardVariable[] | undefined>;
 
     /**
      * Create a OneDashboard resource with the given unique name, arguments, and options.
@@ -96,6 +198,7 @@ export class OneDashboard extends pulumi.CustomResource {
             resourceInputs["pages"] = state ? state.pages : undefined;
             resourceInputs["permalink"] = state ? state.permalink : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as OneDashboardArgs | undefined;
             if ((!args || args.pages === undefined) && !opts.urn) {
@@ -106,6 +209,7 @@ export class OneDashboard extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pages"] = args ? args.pages : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["permalink"] = undefined /*out*/;
         }
@@ -146,6 +250,10 @@ export interface OneDashboardState {
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
     permissions?: pulumi.Input<string>;
+    /**
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariable>[]>;
 }
 
 /**
@@ -172,4 +280,8 @@ export interface OneDashboardArgs {
      * Determines who can see the dashboard in an account. Valid values are `private`, `publicReadOnly`, or `publicReadWrite`.  Defaults to `publicReadOnly`.
      */
     permissions?: pulumi.Input<string>;
+    /**
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.OneDashboardVariable>[]>;
 }

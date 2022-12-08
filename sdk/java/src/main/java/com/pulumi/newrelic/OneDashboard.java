@@ -11,6 +11,7 @@ import com.pulumi.newrelic.OneDashboardArgs;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.inputs.OneDashboardState;
 import com.pulumi.newrelic.outputs.OneDashboardPage;
+import com.pulumi.newrelic.outputs.OneDashboardVariable;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -18,15 +19,102 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+ * 
  * ## Example Usage
+ * ### Create A New Relic One Dashboard
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.OneDashboard;
+ * import com.pulumi.newrelic.OneDashboardArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampledash = new OneDashboard(&#34;exampledash&#34;, OneDashboardArgs.builder()        
+ *             .pages(OneDashboardPageArgs.builder()
+ *                 .name(&#34;New Relic Terraform Example&#34;)
+ *                 .variable(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                 .widgetBars(                
+ *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .column(7)
+ *                         .height(3)
+ *                         .linkedEntityGuids(&#34;abc123&#34;)
+ *                         .nrqlQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .row(1)
+ *                         .title(&#34;Average transaction duration, by application&#34;)
+ *                         .width(6)
+ *                         .build(),
+ *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .column(1)
+ *                         .filterCurrentDashboard(true)
+ *                         .height(3)
+ *                         .nrqlQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .row(4)
+ *                         .title(&#34;Average transaction duration, by application&#34;)
+ *                         .width(6)
+ *                         .build())
+ *                 .widgetBillboards(OneDashboardPageWidgetBillboardArgs.builder()
+ *                     .column(1)
+ *                     .height(3)
+ *                     .nrqlQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .row(1)
+ *                     .title(&#34;Requests per minute&#34;)
+ *                     .width(6)
+ *                     .build())
+ *                 .widgetLines(OneDashboardPageWidgetLineArgs.builder()
+ *                     .column(7)
+ *                     .height(3)
+ *                     .nrqlQuery(                    
+ *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .row(4)
+ *                     .title(&#34;Average transaction duration and the request per minute, by application&#34;)
+ *                     .width(6)
+ *                     .build())
+ *                 .widgetMarkdowns(OneDashboardPageWidgetMarkdownArgs.builder()
+ *                     .column(1)
+ *                     .height(3)
+ *                     .row(7)
+ *                     .text(&#34;&#34;&#34;
+ * ### Helpful Links
+ * 
+ * * [New Relic One](https://one.newrelic.com)
+ * * [Developer Portal](https://developer.newrelic.com)
+ *                     &#34;&#34;&#34;)
+ *                     .title(&#34;Dashboard Note&#34;)
+ *                     .width(12)
+ *                     .build())
+ *                 .build())
+ *             .permissions(&#34;public_read_only&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * See additional examples.
  * ## Additional Examples
  * 
  * ## Import
  * 
- * New Relic dashboards can be imported using their GUID, e.g.
+ * New Relic dashboards can be imported using their GUID, e.g. bash
  * 
  * ```sh
- *  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;Dashboard GUID&gt;
+ *  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;dashboard GUID&gt;
  * ```
  * 
  *  In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
@@ -131,6 +219,20 @@ public class OneDashboard extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> permissions() {
         return Codegen.optional(this.permissions);
+    }
+    /**
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     * 
+     */
+    @Export(name="variables", type=List.class, parameters={OneDashboardVariable.class})
+    private Output</* @Nullable */ List<OneDashboardVariable>> variables;
+
+    /**
+     * @return A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     * 
+     */
+    public Output<Optional<List<OneDashboardVariable>>> variables() {
+        return Codegen.optional(this.variables);
     }
 
     /**

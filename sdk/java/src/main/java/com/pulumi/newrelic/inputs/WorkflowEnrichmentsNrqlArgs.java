@@ -19,14 +19,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     public static final WorkflowEnrichmentsNrqlArgs Empty = new WorkflowEnrichmentsNrqlArgs();
 
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -34,14 +34,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of nrql enrichments.
+     * Another wrapper block
      * 
      */
     @Import(name="configurations", required=true)
     private Output<List<WorkflowEnrichmentsNrqlConfigurationArgs>> configurations;
 
     /**
-     * @return A list of nrql enrichments.
+     * @return Another wrapper block
      * 
      */
     public Output<List<WorkflowEnrichmentsNrqlConfigurationArgs>> configurations() {
@@ -56,14 +56,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public Output<String> name() {
@@ -71,16 +71,14 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     public Optional<Output<String>> type() {
@@ -116,7 +114,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accountId Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+         * @param accountId Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
          * 
          * @return builder
          * 
@@ -127,7 +125,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accountId Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+         * @param accountId Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
          * 
          * @return builder
          * 
@@ -137,7 +135,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations A list of nrql enrichments.
+         * @param configurations Another wrapper block
          * 
          * @return builder
          * 
@@ -148,7 +146,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations A list of nrql enrichments.
+         * @param configurations Another wrapper block
          * 
          * @return builder
          * 
@@ -158,7 +156,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param configurations A list of nrql enrichments.
+         * @param configurations Another wrapper block
          * 
          * @return builder
          * 
@@ -177,7 +175,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -188,7 +186,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -198,8 +196,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicate`
+         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
          * 
          * @return builder
          * 
@@ -210,8 +207,7 @@ public final class WorkflowEnrichmentsNrqlArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicate`
+         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
          * 
          * @return builder
          * 

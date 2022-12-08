@@ -23,7 +23,9 @@ import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsLogicAppsArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMachineLearningArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMariaDbArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMysqlArgs;
+import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsMysqlFlexibleArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPostgresqlArgs;
+import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPostgresqlFlexibleArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsPowerBiDedicatedArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsRedisCacheArgs;
 import com.pulumi.newrelic.cloud.inputs.AzureIntegrationsServiceBusArgs;
@@ -150,14 +152,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Data Factory. See Integration blocks below for details.
+     * Azure Data Factory. See Integration blocks below for details.
      * 
      */
     @Import(name="dataFactory")
     private @Nullable Output<AzureIntegrationsDataFactoryArgs> dataFactory;
 
     /**
-     * @return for Azure Data Factory. See Integration blocks below for details.
+     * @return Azure Data Factory. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsDataFactoryArgs>> dataFactory() {
@@ -165,14 +167,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Event Hub. See Integration blocks below for details.
+     * Azure Event Hub. See Integration blocks below for details.
      * 
      */
     @Import(name="eventHub")
     private @Nullable Output<AzureIntegrationsEventHubArgs> eventHub;
 
     /**
-     * @return for Azure Event Hub. See Integration blocks below for details.
+     * @return Azure Event Hub. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsEventHubArgs>> eventHub() {
@@ -180,14 +182,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Express Route. See Integration blocks below for details.
+     * Azure Express Route. See Integration blocks below for details.
      * 
      */
     @Import(name="expressRoute")
     private @Nullable Output<AzureIntegrationsExpressRouteArgs> expressRoute;
 
     /**
-     * @return for Azure Express Route. See Integration blocks below for details.
+     * @return Azure Express Route. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsExpressRouteArgs>> expressRoute() {
@@ -195,14 +197,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Firewalls. See Integration blocks below for details.
+     * Azure Firewalls. See Integration blocks below for details.
      * 
      */
     @Import(name="firewalls")
     private @Nullable Output<AzureIntegrationsFirewallsArgs> firewalls;
 
     /**
-     * @return for Azure Firewalls. See Integration blocks below for details.
+     * @return Azure Firewalls. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsFirewallsArgs>> firewalls() {
@@ -210,14 +212,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Front Door. See Integration blocks below for details.
+     * Azure Front Door. See Integration blocks below for details.
      * 
      */
     @Import(name="frontDoor")
     private @Nullable Output<AzureIntegrationsFrontDoorArgs> frontDoor;
 
     /**
-     * @return for Azure Front Door. See Integration blocks below for details.
+     * @return Azure Front Door. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsFrontDoorArgs>> frontDoor() {
@@ -225,14 +227,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Functions. See Integration blocks below for details.
+     * Azure Functions. See Integration blocks below for details.
      * 
      */
     @Import(name="functions")
     private @Nullable Output<AzureIntegrationsFunctionsArgs> functions;
 
     /**
-     * @return for Azure Functions. See Integration blocks below for details.
+     * @return Azure Functions. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsFunctionsArgs>> functions() {
@@ -240,14 +242,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Key Vault. See Integration blocks below for details.
+     * Azure Key Vault. See Integration blocks below for details.
      * 
      */
     @Import(name="keyVault")
     private @Nullable Output<AzureIntegrationsKeyVaultArgs> keyVault;
 
     /**
-     * @return for Azure Key Vault. See Integration blocks below for details.
+     * @return Azure Key Vault. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsKeyVaultArgs>> keyVault() {
@@ -270,14 +272,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Load Balancer. See Integration blocks below for details.
+     * Azure Load Balancer. See Integration blocks below for details.
      * 
      */
     @Import(name="loadBalancer")
     private @Nullable Output<AzureIntegrationsLoadBalancerArgs> loadBalancer;
 
     /**
-     * @return for Azure Load Balancer. See Integration blocks below for details.
+     * @return Azure Load Balancer. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsLoadBalancerArgs>> loadBalancer() {
@@ -285,14 +287,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Logic Apps. See Integration blocks below for details.
+     * Azure Logic Apps. See Integration blocks below for details.
      * 
      */
     @Import(name="logicApps")
     private @Nullable Output<AzureIntegrationsLogicAppsArgs> logicApps;
 
     /**
-     * @return for Azure Logic Apps. See Integration blocks below for details.
+     * @return Azure Logic Apps. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsLogicAppsArgs>> logicApps() {
@@ -300,14 +302,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Machine Learning. See Integration blocks below for details.
+     * Azure Machine Learning. See Integration blocks below for details.
      * 
      */
     @Import(name="machineLearning")
     private @Nullable Output<AzureIntegrationsMachineLearningArgs> machineLearning;
 
     /**
-     * @return for Azure Machine Learning. See Integration blocks below for details.
+     * @return Azure Machine Learning. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsMachineLearningArgs>> machineLearning() {
@@ -315,14 +317,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure MariaDB. See Integration blocks below for details.
+     * Azure MariaDB. See Integration blocks below for details.
      * 
      */
     @Import(name="mariaDb")
     private @Nullable Output<AzureIntegrationsMariaDbArgs> mariaDb;
 
     /**
-     * @return for Azure MariaDB. See Integration blocks below for details.
+     * @return Azure MariaDB. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsMariaDbArgs>> mariaDb() {
@@ -330,14 +332,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure MySQL. See Integration blocks below for details.
+     * Azure MySQL. See Integration blocks below for details.
      * 
      */
     @Import(name="mysql")
     private @Nullable Output<AzureIntegrationsMysqlArgs> mysql;
 
     /**
-     * @return for Azure MySQL. See Integration blocks below for details.
+     * @return Azure MySQL. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsMysqlArgs>> mysql() {
@@ -345,14 +347,29 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure PostgreSQL. See Integration blocks below for details.
+     * Azure MySQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="mysqlFlexible")
+    private @Nullable Output<AzureIntegrationsMysqlFlexibleArgs> mysqlFlexible;
+
+    /**
+     * @return Azure MySQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AzureIntegrationsMysqlFlexibleArgs>> mysqlFlexible() {
+        return Optional.ofNullable(this.mysqlFlexible);
+    }
+
+    /**
+     * Azure PostgreSQL. See Integration blocks below for details.
      * 
      */
     @Import(name="postgresql")
     private @Nullable Output<AzureIntegrationsPostgresqlArgs> postgresql;
 
     /**
-     * @return for Azure PostgreSQL. See Integration blocks below for details.
+     * @return Azure PostgreSQL. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsPostgresqlArgs>> postgresql() {
@@ -360,14 +377,29 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Power BI Dedicated. See Integration blocks below for details.
+     * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="postgresqlFlexible")
+    private @Nullable Output<AzureIntegrationsPostgresqlFlexibleArgs> postgresqlFlexible;
+
+    /**
+     * @return Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<AzureIntegrationsPostgresqlFlexibleArgs>> postgresqlFlexible() {
+        return Optional.ofNullable(this.postgresqlFlexible);
+    }
+
+    /**
+     * Azure Power BI Dedicated. See Integration blocks below for details.
      * 
      */
     @Import(name="powerBiDedicated")
     private @Nullable Output<AzureIntegrationsPowerBiDedicatedArgs> powerBiDedicated;
 
     /**
-     * @return for Azure Power BI Dedicated. See Integration blocks below for details.
+     * @return Azure Power BI Dedicated. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsPowerBiDedicatedArgs>> powerBiDedicated() {
@@ -375,14 +407,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Redis Cache. See Integration blocks below for details.
+     * Azure Redis Cache. See Integration blocks below for details.
      * 
      */
     @Import(name="redisCache")
     private @Nullable Output<AzureIntegrationsRedisCacheArgs> redisCache;
 
     /**
-     * @return for Azure Redis Cache. See Integration blocks below for details.
+     * @return Azure Redis Cache. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsRedisCacheArgs>> redisCache() {
@@ -390,14 +422,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Service Bus. See Integration blocks below for details.
+     * Azure Service Bus. See Integration blocks below for details.
      * 
      */
     @Import(name="serviceBus")
     private @Nullable Output<AzureIntegrationsServiceBusArgs> serviceBus;
 
     /**
-     * @return for Azure Service Bus. See Integration blocks below for details.
+     * @return Azure Service Bus. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsServiceBusArgs>> serviceBus() {
@@ -405,14 +437,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure SQL. See Integration blocks below for details.
+     * Azure SQL. See Integration blocks below for details.
      * 
      */
     @Import(name="sql")
     private @Nullable Output<AzureIntegrationsSqlArgs> sql;
 
     /**
-     * @return for Azure SQL. See Integration blocks below for details.
+     * @return Azure SQL. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsSqlArgs>> sql() {
@@ -420,14 +452,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for SQL Managed. See Integration blocks below for details.
+     * Azure SQL Managed. See Integration blocks below for details.
      * 
      */
     @Import(name="sqlManaged")
     private @Nullable Output<AzureIntegrationsSqlManagedArgs> sqlManaged;
 
     /**
-     * @return for SQL Managed. See Integration blocks below for details.
+     * @return Azure SQL Managed. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsSqlManagedArgs>> sqlManaged() {
@@ -450,14 +482,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure Virtual machine. See Integration blocks below for details.
+     * Azure Virtual machine. See Integration blocks below for details.
      * 
      */
     @Import(name="virtualMachine")
     private @Nullable Output<AzureIntegrationsVirtualMachineArgs> virtualMachine;
 
     /**
-     * @return for Azure Virtual machine. See Integration blocks below for details.
+     * @return Azure Virtual machine. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsVirtualMachineArgs>> virtualMachine() {
@@ -480,14 +512,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure VMs. See Integration blocks below for details.
+     * Azure VMs. See Integration blocks below for details.
      * 
      */
     @Import(name="vms")
     private @Nullable Output<AzureIntegrationsVmsArgs> vms;
 
     /**
-     * @return for Azure VMs. See Integration blocks below for details.
+     * @return Azure VMs. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsVmsArgs>> vms() {
@@ -495,14 +527,14 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * for Azure VPN Gateway. See Integration blocks below for details.
+     * Azure VPN Gateway. See Integration blocks below for details.
      * 
      */
     @Import(name="vpnGateway")
     private @Nullable Output<AzureIntegrationsVpnGatewayArgs> vpnGateway;
 
     /**
-     * @return for Azure VPN Gateway. See Integration blocks below for details.
+     * @return Azure VPN Gateway. See Integration blocks below for details.
      * 
      */
     public Optional<Output<AzureIntegrationsVpnGatewayArgs>> vpnGateway() {
@@ -532,7 +564,9 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         this.machineLearning = $.machineLearning;
         this.mariaDb = $.mariaDb;
         this.mysql = $.mysql;
+        this.mysqlFlexible = $.mysqlFlexible;
         this.postgresql = $.postgresql;
+        this.postgresqlFlexible = $.postgresqlFlexible;
         this.powerBiDedicated = $.powerBiDedicated;
         this.redisCache = $.redisCache;
         this.serviceBus = $.serviceBus;
@@ -711,7 +745,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataFactory for Azure Data Factory. See Integration blocks below for details.
+         * @param dataFactory Azure Data Factory. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -722,7 +756,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dataFactory for Azure Data Factory. See Integration blocks below for details.
+         * @param dataFactory Azure Data Factory. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -732,7 +766,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventHub for Azure Event Hub. See Integration blocks below for details.
+         * @param eventHub Azure Event Hub. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -743,7 +777,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventHub for Azure Event Hub. See Integration blocks below for details.
+         * @param eventHub Azure Event Hub. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -753,7 +787,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param expressRoute for Azure Express Route. See Integration blocks below for details.
+         * @param expressRoute Azure Express Route. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -764,7 +798,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param expressRoute for Azure Express Route. See Integration blocks below for details.
+         * @param expressRoute Azure Express Route. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -774,7 +808,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param firewalls for Azure Firewalls. See Integration blocks below for details.
+         * @param firewalls Azure Firewalls. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -785,7 +819,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param firewalls for Azure Firewalls. See Integration blocks below for details.
+         * @param firewalls Azure Firewalls. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -795,7 +829,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param frontDoor for Azure Front Door. See Integration blocks below for details.
+         * @param frontDoor Azure Front Door. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -806,7 +840,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param frontDoor for Azure Front Door. See Integration blocks below for details.
+         * @param frontDoor Azure Front Door. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -816,7 +850,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param functions for Azure Functions. See Integration blocks below for details.
+         * @param functions Azure Functions. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -827,7 +861,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param functions for Azure Functions. See Integration blocks below for details.
+         * @param functions Azure Functions. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -837,7 +871,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVault for Azure Key Vault. See Integration blocks below for details.
+         * @param keyVault Azure Key Vault. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -848,7 +882,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVault for Azure Key Vault. See Integration blocks below for details.
+         * @param keyVault Azure Key Vault. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -879,7 +913,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param loadBalancer for Azure Load Balancer. See Integration blocks below for details.
+         * @param loadBalancer Azure Load Balancer. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -890,7 +924,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param loadBalancer for Azure Load Balancer. See Integration blocks below for details.
+         * @param loadBalancer Azure Load Balancer. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -900,7 +934,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logicApps for Azure Logic Apps. See Integration blocks below for details.
+         * @param logicApps Azure Logic Apps. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -911,7 +945,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logicApps for Azure Logic Apps. See Integration blocks below for details.
+         * @param logicApps Azure Logic Apps. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -921,7 +955,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param machineLearning for Azure Machine Learning. See Integration blocks below for details.
+         * @param machineLearning Azure Machine Learning. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -932,7 +966,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param machineLearning for Azure Machine Learning. See Integration blocks below for details.
+         * @param machineLearning Azure Machine Learning. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -942,7 +976,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mariaDb for Azure MariaDB. See Integration blocks below for details.
+         * @param mariaDb Azure MariaDB. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -953,7 +987,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mariaDb for Azure MariaDB. See Integration blocks below for details.
+         * @param mariaDb Azure MariaDB. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -963,7 +997,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mysql for Azure MySQL. See Integration blocks below for details.
+         * @param mysql Azure MySQL. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -974,7 +1008,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mysql for Azure MySQL. See Integration blocks below for details.
+         * @param mysql Azure MySQL. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -984,7 +1018,28 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param postgresql for Azure PostgreSQL. See Integration blocks below for details.
+         * @param mysqlFlexible Azure MySQL Flexible Server. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mysqlFlexible(@Nullable Output<AzureIntegrationsMysqlFlexibleArgs> mysqlFlexible) {
+            $.mysqlFlexible = mysqlFlexible;
+            return this;
+        }
+
+        /**
+         * @param mysqlFlexible Azure MySQL Flexible Server. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mysqlFlexible(AzureIntegrationsMysqlFlexibleArgs mysqlFlexible) {
+            return mysqlFlexible(Output.of(mysqlFlexible));
+        }
+
+        /**
+         * @param postgresql Azure PostgreSQL. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -995,7 +1050,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param postgresql for Azure PostgreSQL. See Integration blocks below for details.
+         * @param postgresql Azure PostgreSQL. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1005,7 +1060,28 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param powerBiDedicated for Azure Power BI Dedicated. See Integration blocks below for details.
+         * @param postgresqlFlexible Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder postgresqlFlexible(@Nullable Output<AzureIntegrationsPostgresqlFlexibleArgs> postgresqlFlexible) {
+            $.postgresqlFlexible = postgresqlFlexible;
+            return this;
+        }
+
+        /**
+         * @param postgresqlFlexible Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder postgresqlFlexible(AzureIntegrationsPostgresqlFlexibleArgs postgresqlFlexible) {
+            return postgresqlFlexible(Output.of(postgresqlFlexible));
+        }
+
+        /**
+         * @param powerBiDedicated Azure Power BI Dedicated. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1016,7 +1092,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param powerBiDedicated for Azure Power BI Dedicated. See Integration blocks below for details.
+         * @param powerBiDedicated Azure Power BI Dedicated. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1026,7 +1102,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param redisCache for Azure Redis Cache. See Integration blocks below for details.
+         * @param redisCache Azure Redis Cache. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1037,7 +1113,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param redisCache for Azure Redis Cache. See Integration blocks below for details.
+         * @param redisCache Azure Redis Cache. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1047,7 +1123,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceBus for Azure Service Bus. See Integration blocks below for details.
+         * @param serviceBus Azure Service Bus. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1058,7 +1134,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceBus for Azure Service Bus. See Integration blocks below for details.
+         * @param serviceBus Azure Service Bus. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1068,7 +1144,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sql for Azure SQL. See Integration blocks below for details.
+         * @param sql Azure SQL. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1079,7 +1155,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sql for Azure SQL. See Integration blocks below for details.
+         * @param sql Azure SQL. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1089,7 +1165,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sqlManaged for SQL Managed. See Integration blocks below for details.
+         * @param sqlManaged Azure SQL Managed. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1100,7 +1176,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sqlManaged for SQL Managed. See Integration blocks below for details.
+         * @param sqlManaged Azure SQL Managed. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1131,7 +1207,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualMachine for Azure Virtual machine. See Integration blocks below for details.
+         * @param virtualMachine Azure Virtual machine. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1142,7 +1218,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param virtualMachine for Azure Virtual machine. See Integration blocks below for details.
+         * @param virtualMachine Azure Virtual machine. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1173,7 +1249,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vms for Azure VMs. See Integration blocks below for details.
+         * @param vms Azure VMs. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1184,7 +1260,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vms for Azure VMs. See Integration blocks below for details.
+         * @param vms Azure VMs. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1194,7 +1270,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpnGateway for Azure VPN Gateway. See Integration blocks below for details.
+         * @param vpnGateway Azure VPN Gateway. See Integration blocks below for details.
          * 
          * @return builder
          * 
@@ -1205,7 +1281,7 @@ public final class AzureIntegrationsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpnGateway for Azure VPN Gateway. See Integration blocks below for details.
+         * @param vpnGateway Azure VPN Gateway. See Integration blocks below for details.
          * 
          * @return builder
          * 

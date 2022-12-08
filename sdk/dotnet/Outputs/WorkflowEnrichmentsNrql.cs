@@ -14,21 +14,20 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class WorkflowEnrichmentsNrql
     {
         /// <summary>
-        /// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+        /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         public readonly int? AccountId;
         /// <summary>
-        /// A list of nrql enrichments.
+        /// Another wrapper block
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowEnrichmentsNrqlConfiguration> Configurations;
         public readonly string? EnrichmentId;
         /// <summary>
-        /// A nrql enrichment name.
+        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicate`
+        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         /// </summary>
         public readonly string? Type;
 

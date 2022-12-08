@@ -12,16 +12,32 @@ public final class GetEntityTag extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEntityTag Empty = new GetEntityTag();
 
+    /**
+     * The tag key.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return The tag key.
+     * 
+     */
     public String key() {
         return this.key;
     }
 
+    /**
+     * The tag value.
+     * 
+     */
     @Import(name="value", required=true)
     private String value;
 
+    /**
+     * @return The tag value.
+     * 
+     */
     public String value() {
         return this.value;
     }
@@ -51,11 +67,23 @@ public final class GetEntityTag extends com.pulumi.resources.InvokeArgs {
             $ = new GetEntityTag(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The tag key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param value The tag value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             $.value = value;
             return this;

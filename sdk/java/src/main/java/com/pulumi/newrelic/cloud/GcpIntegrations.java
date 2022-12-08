@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.cloud.GcpIntegrationsArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsState;
+import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsAlloyDb;
 import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsAppEngine;
 import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsBigQuery;
 import com.pulumi.newrelic.cloud.outputs.GcpIntegrationsBigTable;
@@ -64,6 +65,20 @@ public class GcpIntegrations extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> accountId() {
         return this.accountId;
+    }
+    /**
+     * Alloy DB integration. See Integration blocks below for details.
+     * 
+     */
+    @Export(name="alloyDb", type=GcpIntegrationsAlloyDb.class, parameters={})
+    private Output</* @Nullable */ GcpIntegrationsAlloyDb> alloyDb;
+
+    /**
+     * @return Alloy DB integration. See Integration blocks below for details.
+     * 
+     */
+    public Output<Optional<GcpIntegrationsAlloyDb>> alloyDb() {
+        return Codegen.optional(this.alloyDb);
     }
     /**
      * App Engine integration. See Integration blocks below for details.

@@ -35,14 +35,14 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The condition that defines which violations to target. See Nested condition blocks below for details.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<AlertMutingRuleConditionArgs> condition;
 
     /**
-     * @return The condition that defines which violations to target. See Nested condition blocks below for details.
+     * @return The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     public Optional<Output<AlertMutingRuleConditionArgs>> condition() {
@@ -160,7 +160,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param condition The condition that defines which violations to target. See Nested condition blocks below for details.
+         * @param condition The condition that defines which incidents to target. See Nested condition blocks below for details.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class AlertMutingRuleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param condition The condition that defines which violations to target. See Nested condition blocks below for details.
+         * @param condition The condition that defines which incidents to target. See Nested condition blocks below for details.
          * 
          * @return builder
          * 

@@ -4,13 +4,31 @@
 package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPrivateLocationPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPrivateLocationPlainArgs Empty = new GetPrivateLocationPlainArgs();
+
+    /**
+     * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Integer accountId;
+
+    /**
+     * @return The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+     * 
+     */
+    public Optional<Integer> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
 
     /**
      * The name of the Synthetics monitor private location.
@@ -30,6 +48,7 @@ public final class GetPrivateLocationPlainArgs extends com.pulumi.resources.Invo
     private GetPrivateLocationPlainArgs() {}
 
     private GetPrivateLocationPlainArgs(GetPrivateLocationPlainArgs $) {
+        this.accountId = $.accountId;
         this.name = $.name;
     }
 
@@ -49,6 +68,17 @@ public final class GetPrivateLocationPlainArgs extends com.pulumi.resources.Invo
 
         public Builder(GetPrivateLocationPlainArgs defaults) {
             $ = new GetPrivateLocationPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Integer accountId) {
+            $.accountId = accountId;
+            return this;
         }
 
         /**

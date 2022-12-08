@@ -51,14 +51,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+     * Custom headers to use in monitor job. See Nested custom_header blocks below for details.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<MonitorCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+     * @return Custom headers to use in monitor job. See Nested custom_header blocks below for details.
      * 
      */
     public Optional<Output<List<MonitorCustomHeaderArgs>>> customHeaders() {
@@ -231,14 +231,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * @return The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -246,14 +246,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      * 
      */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
     /**
-     * @return The uri the monitor runs against.
+     * @return The URI the monitor runs against.
      * 
      */
     public Optional<Output<String>> uri() {
@@ -374,7 +374,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customHeaders Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+         * @param customHeaders Custom headers to use in monitor job. See Nested custom_header blocks below for details.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customHeaders Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+         * @param customHeaders Custom headers to use in monitor job. See Nested custom_header blocks below for details.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customHeaders Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+         * @param customHeaders Custom headers to use in monitor job. See Nested custom_header blocks below for details.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+         * @param type The monitor type. Valid values are `SIMPLE` and `BROWSER`.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+         * @param type The monitor type. Valid values are `SIMPLE` and `BROWSER`.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uri The uri the monitor runs against.
+         * @param uri The URI the monitor runs against.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uri The uri the monitor runs against.
+         * @param uri The URI the monitor runs against.
          * 
          * @return builder
          * 

@@ -21,7 +21,7 @@ class PrivateLocationArgs:
         """
         The set of arguments for constructing a PrivateLocation resource.
         :param pulumi.Input[str] description: The private location description.
-        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[int] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] name: The name of the private location.
         :param pulumi.Input[bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
         """
@@ -49,7 +49,7 @@ class PrivateLocationArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Account ID of the New Relic.
+        The account in which the private location will be created.
         """
         return pulumi.get(self, "account_id")
 
@@ -95,10 +95,10 @@ class _PrivateLocationState:
                  verified_script_execution: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering PrivateLocation resources.
-        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[int] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] description: The private location description.
         :param pulumi.Input[str] domain_id: The private location globally unique identifier.
-        :param pulumi.Input[str] guid: The unique client identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique client identifier for the private location in New Relic. Same as `id`.
         :param pulumi.Input[str] key: The private locations key.
         :param pulumi.Input[str] location_id: An alternate identifier based on name.
         :param pulumi.Input[str] name: The name of the private location.
@@ -125,7 +125,7 @@ class _PrivateLocationState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Account ID of the New Relic.
+        The account in which the private location will be created.
         """
         return pulumi.get(self, "account_id")
 
@@ -161,7 +161,7 @@ class _PrivateLocationState:
     @pulumi.getter
     def guid(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique client identifier for the Synthetics private location in New Relic.
+        The unique client identifier for the private location in New Relic. Same as `id`.
         """
         return pulumi.get(self, "guid")
 
@@ -237,9 +237,7 @@ class PrivateLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        bar = newrelic.synthetics.PrivateLocation("bar",
-            account_id="NewRelic account ID",
-            description="The private location description")
+        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
         ```
 
         ## Import
@@ -247,12 +245,12 @@ class PrivateLocation(pulumi.CustomResource):
         A Synthetics private location can be imported using the `guid`
 
         ```sh
-         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation bar GUID
+         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[int] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] description: The private location description.
         :param pulumi.Input[str] name: The name of the private location.
         :param pulumi.Input[bool] verified_script_execution: The private location requires a password to edit if value is true. Defaults to `false`
@@ -272,9 +270,7 @@ class PrivateLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        bar = newrelic.synthetics.PrivateLocation("bar",
-            account_id="NewRelic account ID",
-            description="The private location description")
+        location = newrelic.synthetics.PrivateLocation("location", description="The private location description")
         ```
 
         ## Import
@@ -282,7 +278,7 @@ class PrivateLocation(pulumi.CustomResource):
         A Synthetics private location can be imported using the `guid`
 
         ```sh
-         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation bar GUID
+         $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
         ```
 
         :param str resource_name: The name of the resource.
@@ -348,10 +344,10 @@ class PrivateLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[int] account_id: The account in which the private location will be created.
         :param pulumi.Input[str] description: The private location description.
         :param pulumi.Input[str] domain_id: The private location globally unique identifier.
-        :param pulumi.Input[str] guid: The unique client identifier for the Synthetics private location in New Relic.
+        :param pulumi.Input[str] guid: The unique client identifier for the private location in New Relic. Same as `id`.
         :param pulumi.Input[str] key: The private locations key.
         :param pulumi.Input[str] location_id: An alternate identifier based on name.
         :param pulumi.Input[str] name: The name of the private location.
@@ -375,7 +371,7 @@ class PrivateLocation(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[int]:
         """
-        Account ID of the New Relic.
+        The account in which the private location will be created.
         """
         return pulumi.get(self, "account_id")
 
@@ -399,7 +395,7 @@ class PrivateLocation(pulumi.CustomResource):
     @pulumi.getter
     def guid(self) -> pulumi.Output[str]:
         """
-        The unique client identifier for the Synthetics private location in New Relic.
+        The unique client identifier for the private location in New Relic. Same as `id`.
         """
         return pulumi.get(self, "guid")
 

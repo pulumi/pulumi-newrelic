@@ -13,6 +13,8 @@ import (
 
 // Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
 //
+// A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
+//
 // ## Example Usage
 //
 // ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
@@ -112,6 +114,10 @@ import (
 //						Key:   pulumi.String("subject"),
 //						Value: pulumi.String("New Subject Title"),
 //					},
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("customDetailsEmail"),
+//						Value: pulumi.String("issue id - {{issueId}}"),
+//					},
 //				},
 //				Type: pulumi.String("EMAIL"),
 //			})
@@ -176,6 +182,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -200,6 +208,25 @@ import (
 //						Key:   pulumi.String("email"),
 //						Value: pulumi.String("example@email.com"),
 //					},
+//					&NotificationChannelPropertyArgs{
+//						Key: pulumi.String("customDetails"),
+//						Value: pulumi.String(fmt.Sprintf(`    {
+//	    "id":{{json issueId}},
+//	    "IssueURL":{{json issuePageUrl}},
+//	    "NewRelic priority":{{json priority}},
+//	    "Total Incidents":{{json totalIncidents}},
+//	    "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "isCorrelated":{{json isCorrelated}},
+//	    "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Workflow Name":{{json workflowName}}
+//	    }
+//
+// `)),
+//
+//					},
 //				},
 //				Type: pulumi.String("PAGERDUTY_ACCOUNT_INTEGRATION"),
 //			})
@@ -218,6 +245,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -233,6 +262,25 @@ import (
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("summary"),
 //						Value: pulumi.String("General summary"),
+//					},
+//					&NotificationChannelPropertyArgs{
+//						Key: pulumi.String("customDetails"),
+//						Value: pulumi.String(fmt.Sprintf(`    {
+//	    "id":{{json issueId}},
+//	    "IssueURL":{{json issuePageUrl}},
+//	    "NewRelic priority":{{json priority}},
+//	    "Total Incidents":{{json totalIncidents}},
+//	    "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "isCorrelated":{{json isCorrelated}},
+//	    "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+//	    "Workflow Name":{{json workflowName}}
+//	    }
+//
+// `)),
+//
 //					},
 //				},
 //				Type: pulumi.String("PAGERDUTY_SERVICE_INTEGRATION"),
@@ -334,6 +382,10 @@ import (
 //						Key:   pulumi.String("channelId"),
 //						Value: pulumi.String("123456"),
 //					},
+//					&NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("customDetailsSlack"),
+//						Value: pulumi.String("issue id - {{issueId}}"),
+//					},
 //				},
 //				Type: pulumi.String("SLACK"),
 //			})
@@ -404,7 +456,7 @@ import (
 //			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
 //				AccountId:     pulumi.Int(12345678),
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: pulumi.Any(newrelic_notification_destination.Webhook - destination.Id),
+//				DestinationId: pulumi.Any(newrelic_notification_destination.WebhookDestination.Id),
 //				Product:       pulumi.String("IINT"),
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{

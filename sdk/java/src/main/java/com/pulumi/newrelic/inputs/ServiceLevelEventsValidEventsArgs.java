@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.inputs.ServiceLevelEventsValidEventsSelectArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +32,21 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
     }
 
     /**
+     * The NRQL SELECT clause to aggregate events.
+     * 
+     */
+    @Import(name="select")
+    private @Nullable Output<ServiceLevelEventsValidEventsSelectArgs> select;
+
+    /**
+     * @return The NRQL SELECT clause to aggregate events.
+     * 
+     */
+    public Optional<Output<ServiceLevelEventsValidEventsSelectArgs>> select() {
+        return Optional.ofNullable(this.select);
+    }
+
+    /**
      * A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
      * a particular entity and returned an error).
@@ -53,6 +69,7 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
 
     private ServiceLevelEventsValidEventsArgs(ServiceLevelEventsValidEventsArgs $) {
         this.from = $.from;
+        this.select = $.select;
         this.where = $.where;
     }
 
@@ -93,6 +110,27 @@ public final class ServiceLevelEventsValidEventsArgs extends com.pulumi.resource
          */
         public Builder from(String from) {
             return from(Output.of(from));
+        }
+
+        /**
+         * @param select The NRQL SELECT clause to aggregate events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder select(@Nullable Output<ServiceLevelEventsValidEventsSelectArgs> select) {
+            $.select = select;
+            return this;
+        }
+
+        /**
+         * @param select The NRQL SELECT clause to aggregate events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder select(ServiceLevelEventsValidEventsSelectArgs select) {
+            return select(Output.of(select));
         }
 
         /**

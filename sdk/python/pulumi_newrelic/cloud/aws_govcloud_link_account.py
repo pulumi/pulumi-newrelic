@@ -321,7 +321,7 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
 
             if access_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'access_key_id'")
-            __props__.__dict__["access_key_id"] = access_key_id
+            __props__.__dict__["access_key_id"] = None if access_key_id is None else pulumi.Output.secret(access_key_id)
             __props__.__dict__["account_id"] = account_id
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
@@ -330,7 +330,9 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if secret_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_access_key'")
-            __props__.__dict__["secret_access_key"] = secret_access_key
+            __props__.__dict__["secret_access_key"] = None if secret_access_key is None else pulumi.Output.secret(secret_access_key)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessKeyId", "secretAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AwsGovcloudLinkAccount, __self__).__init__(
             'newrelic:cloud/awsGovcloudLinkAccount:AwsGovcloudLinkAccount',
             resource_name,

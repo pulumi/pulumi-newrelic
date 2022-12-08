@@ -24,7 +24,7 @@ class AlertMutingRuleArgs:
                  schedule: Optional[pulumi.Input['AlertMutingRuleScheduleArgs']] = None):
         """
         The set of arguments for constructing a AlertMutingRule resource.
-        :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[int] account_id: The account id of the MutingRule.
         :param pulumi.Input[str] description: The description of the MutingRule.
@@ -46,7 +46,7 @@ class AlertMutingRuleArgs:
     @pulumi.getter
     def condition(self) -> pulumi.Input['AlertMutingRuleConditionArgs']:
         """
-        The condition that defines which violations to target. See Nested condition blocks below for details.
+        The condition that defines which incidents to target. See Nested condition blocks below for details.
         """
         return pulumi.get(self, "condition")
 
@@ -127,7 +127,7 @@ class _AlertMutingRuleState:
         """
         Input properties used for looking up and filtering AlertMutingRule resources.
         :param pulumi.Input[int] account_id: The account id of the MutingRule.
-        :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input['AlertMutingRuleConditionArgs'] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
@@ -162,7 +162,7 @@ class _AlertMutingRuleState:
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['AlertMutingRuleConditionArgs']]:
         """
-        The condition that defines which violations to target. See Nested condition blocks below for details.
+        The condition that defines which incidents to target. See Nested condition blocks below for details.
         """
         return pulumi.get(self, "condition")
 
@@ -281,7 +281,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account id of the MutingRule.
-        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
@@ -404,7 +404,7 @@ class AlertMutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account id of the MutingRule.
-        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which violations to target. See Nested condition blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AlertMutingRuleConditionArgs']] condition: The condition that defines which incidents to target. See Nested condition blocks below for details.
         :param pulumi.Input[str] description: The description of the MutingRule.
         :param pulumi.Input[bool] enabled: Whether the MutingRule is enabled.
         :param pulumi.Input[str] name: The name of the MutingRule.
@@ -434,7 +434,7 @@ class AlertMutingRule(pulumi.CustomResource):
     @pulumi.getter
     def condition(self) -> pulumi.Output['outputs.AlertMutingRuleCondition']:
         """
-        The condition that defines which violations to target. See Nested condition blocks below for details.
+        The condition that defines which incidents to target. See Nested condition blocks below for details.
         """
         return pulumi.get(self, "condition")
 

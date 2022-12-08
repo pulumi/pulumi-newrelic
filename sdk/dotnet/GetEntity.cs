@@ -15,13 +15,13 @@ namespace Pulumi.NewRelic
         /// Use this data source to get information about a specific entity in New Relic One that already exists.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific entity in New Relic One that already exists.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,8 +45,17 @@ namespace Pulumi.NewRelic
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        [Input("tag")]
-        public Inputs.GetEntityTagArgs? Tag { get; set; }
+        [Input("tags")]
+        private List<Inputs.GetEntityTagArgs>? _tags;
+
+        /// <summary>
+        /// A tag applied to the entity. See Nested tag blocks below for details.
+        /// </summary>
+        public List<Inputs.GetEntityTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new List<Inputs.GetEntityTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
@@ -80,8 +89,17 @@ namespace Pulumi.NewRelic
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("tag")]
-        public Input<Inputs.GetEntityTagInputArgs>? Tag { get; set; }
+        [Input("tags")]
+        private InputList<Inputs.GetEntityTagInputArgs>? _tags;
+
+        /// <summary>
+        /// A tag applied to the entity. See Nested tag blocks below for details.
+        /// </summary>
+        public InputList<Inputs.GetEntityTagInputArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.GetEntityTagInputArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
@@ -118,8 +136,11 @@ namespace Pulumi.NewRelic
         public readonly string Id;
         public readonly bool? IgnoreCase;
         public readonly string Name;
+        /// <summary>
+        /// The browser-specific ID of the backing APM entity. Only returned for Browser applications.
+        /// </summary>
         public readonly int ServingApmApplicationId;
-        public readonly Outputs.GetEntityTagResult? Tag;
+        public readonly ImmutableArray<Outputs.GetEntityTagResult> Tags;
         public readonly string Type;
 
         [OutputConstructor]
@@ -140,7 +161,7 @@ namespace Pulumi.NewRelic
 
             int servingApmApplicationId,
 
-            Outputs.GetEntityTagResult? tag,
+            ImmutableArray<Outputs.GetEntityTagResult> tags,
 
             string type)
         {
@@ -152,7 +173,7 @@ namespace Pulumi.NewRelic
             IgnoreCase = ignoreCase;
             Name = name;
             ServingApmApplicationId = servingApmApplicationId;
-            Tag = tag;
+            Tags = tags;
             Type = type;
         }
     }

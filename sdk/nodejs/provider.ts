@@ -26,7 +26,7 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     public readonly adminApiKey!: pulumi.Output<string | undefined>;
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    public readonly apiKey!: pulumi.Output<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */
@@ -59,18 +59,21 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["accountId"] = pulumi.output((args ? args.accountId : undefined) ?? utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
-            resourceInputs["adminApiKey"] = args ? args.adminApiKey : undefined;
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            if ((!args || args.apiKey === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'apiKey'");
+            }
+            resourceInputs["accountId"] = pulumi.output((args?.accountId ? pulumi.secret(args.accountId) : undefined) ?? utilities.getEnvNumber("NEW_RELIC_ACCOUNT_ID")).apply(JSON.stringify);
+            resourceInputs["adminApiKey"] = args?.adminApiKey ? pulumi.secret(args.adminApiKey) : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
             resourceInputs["cacertFile"] = args ? args.cacertFile : undefined;
             resourceInputs["infrastructureApiUrl"] = args ? args.infrastructureApiUrl : undefined;
             resourceInputs["insecureSkipVerify"] = pulumi.output(args ? args.insecureSkipVerify : undefined).apply(JSON.stringify);
-            resourceInputs["insightsInsertKey"] = args ? args.insightsInsertKey : undefined;
+            resourceInputs["insightsInsertKey"] = args?.insightsInsertKey ? pulumi.secret(args.insightsInsertKey) : undefined;
             resourceInputs["insightsInsertUrl"] = args ? args.insightsInsertUrl : undefined;
             resourceInputs["insightsQueryUrl"] = args ? args.insightsQueryUrl : undefined;
             resourceInputs["nerdgraphApiUrl"] = args ? args.nerdgraphApiUrl : undefined;
@@ -78,6 +81,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["syntheticsApiUrl"] = args ? args.syntheticsApiUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminApiKey", "apiKey", "insightsInsertKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -88,7 +93,7 @@ export class Provider extends pulumi.ProviderResource {
 export interface ProviderArgs {
     accountId?: pulumi.Input<number>;
     adminApiKey?: pulumi.Input<string>;
-    apiKey?: pulumi.Input<string>;
+    apiKey: pulumi.Input<string>;
     /**
      * @deprecated New Relic internal use only. API URLs are now configured based on the configured region.
      */

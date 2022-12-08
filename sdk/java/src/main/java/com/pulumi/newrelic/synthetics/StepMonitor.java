@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create, update, and delete a synthetics step monitor in New Relic.
+ * Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
  * 
  * ## Example Usage
  * ```java
@@ -102,14 +102,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new PrivateLocation(&#34;privateLocation&#34;, PrivateLocationArgs.builder()        
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;Test Description&#34;)
  *             .verifiedScriptExecution(true)
  *             .build());
  * 
  *         var bar = new StepMonitor(&#34;bar&#34;, StepMonitorArgs.builder()        
  *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
- *                 .guid(&#34;newrelic_synthetics_private_location.private_location.id&#34;)
+ *                 .guid(&#34;newrelic_synthetics_private_location.location.id&#34;)
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .period(&#34;EVERY_6_HOURS&#34;)
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  * Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor bar &lt;guid&gt;
+ *  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;
  * ```
  * 
  */

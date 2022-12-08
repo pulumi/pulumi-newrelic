@@ -15,22 +15,32 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
 
     public static final WorkflowDestinationArgs Empty = new WorkflowDestinationArgs();
 
+    /**
+     * id of a notification_channel to use for notifications. Please note that you have to use a
+     * **notification** channel, not an `alert_channel`.
+     * 
+     */
     @Import(name="channelId", required=true)
     private Output<String> channelId;
 
+    /**
+     * @return id of a notification_channel to use for notifications. Please note that you have to use a
+     * **notification** channel, not an `alert_channel`.
+     * 
+     */
     public Output<String> channelId() {
         return this.channelId;
     }
 
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public Optional<Output<String>> name() {
@@ -38,16 +48,14 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     public Optional<Output<String>> type() {
@@ -80,17 +88,31 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
             $ = new WorkflowDestinationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param channelId id of a notification_channel to use for notifications. Please note that you have to use a
+         * **notification** channel, not an `alert_channel`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelId(Output<String> channelId) {
             $.channelId = channelId;
             return this;
         }
 
+        /**
+         * @param channelId id of a notification_channel to use for notifications. Please note that you have to use a
+         * **notification** channel, not an `alert_channel`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelId(String channelId) {
             return channelId(Output.of(channelId));
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -101,7 +123,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -111,8 +133,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicate`
+         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
          * 
          * @return builder
          * 
@@ -123,8 +144,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicate`
+         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
          * 
          * @return builder
          * 

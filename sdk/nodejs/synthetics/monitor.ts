@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,8 +18,8 @@ import * as utilities from "../utilities";
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     bypassHeadRequest: true,
  *     customHeaders: [{
- *         name: "Name",
- *         value: "simpleMonitor",
+ *         name: "some_name",
+ *         value: "some_value",
  *     }],
  *     locationsPublics: ["AP_SOUTH_1"],
  *     period: "EVERY_MINUTE",
@@ -36,27 +37,22 @@ import * as utilities from "../utilities";
  * ```
  * ##### Type: `SIMPLE BROWSER`
  *
- * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const bar = new newrelic.synthetics.Monitor("bar", {
+ * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     customHeaders: [{
- *         name: "name",
- *         value: "simple_browser",
+ *         name: "some_name",
+ *         value: "some_value",
  *     }],
  *     enableScreenshotOnFailureAndScript: true,
  *     locationsPublics: ["AP_SOUTH_1"],
  *     period: "EVERY_MINUTE",
- *     runtimeType: "CHROME_BROWSER",
- *     runtimeTypeVersion: "100",
- *     scriptLanguage: "JAVASCRIPT",
  *     status: "ENABLED",
  *     tags: [{
- *         key: "name",
- *         values: ["SimpleBrowserMonitor"],
+ *         key: "some_key",
+ *         values: ["some_value"],
  *     }],
  *     type: "BROWSER",
  *     uri: "https://www.one.newrelic.com",
@@ -79,17 +75,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
- *     description: "Test Description",
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Example private location",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     bypassHeadRequest: true,
  *     customHeaders: [{
- *         name: "name",
- *         value: "simple_browser",
+ *         name: "some_name",
+ *         value: "some_value",
  *     }],
- *     locationPrivate: ["newrelic_synthetics_private_location.private_location.id"],
+ *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
  *     period: "EVERY_MINUTE",
  *     status: "ENABLED",
  *     tags: [{
@@ -109,17 +105,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
- *     description: "Test Description",
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Example private location",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
  *     customHeaders: [{
- *         name: "name",
- *         value: "simple_browser",
+ *         name: "some_name",
+ *         value: "some_value",
  *     }],
  *     enableScreenshotOnFailureAndScript: true,
- *     locationsPrivates: ["newrelic_synthetics_private_location.private_location.id"],
+ *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
  *     period: "EVERY_MINUTE",
  *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
@@ -141,7 +137,7 @@ import * as utilities from "../utilities";
  * Synthetics monitor can be imported using the `guid`, e.g. bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/monitor:Monitor bar <guid>
+ *  $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
  * ```
  */
 export class Monitor extends pulumi.CustomResource {
@@ -181,7 +177,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly bypassHeadRequest!: pulumi.Output<boolean | undefined>;
     /**
-     * Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+     * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      */
     public readonly customHeaders!: pulumi.Output<outputs.synthetics.MonitorCustomHeader[] | undefined>;
     /**
@@ -229,11 +225,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly treatRedirectAsFailure!: pulumi.Output<boolean | undefined>;
     /**
-     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      */
     public readonly uri!: pulumi.Output<string | undefined>;
     /**
@@ -321,7 +317,7 @@ export interface MonitorState {
      */
     bypassHeadRequest?: pulumi.Input<boolean>;
     /**
-     * Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+     * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
     /**
@@ -369,11 +365,11 @@ export interface MonitorState {
      */
     treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
     type?: pulumi.Input<string>;
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      */
     uri?: pulumi.Input<string>;
     /**
@@ -399,7 +395,7 @@ export interface MonitorArgs {
      */
     bypassHeadRequest?: pulumi.Input<boolean>;
     /**
-     * Custom headers to use in monitor job. See Nested customerHeader blocks below for details.
+     * Custom headers to use in monitor job. See Nested customHeader blocks below for details.
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.synthetics.MonitorCustomHeader>[]>;
     /**
@@ -447,11 +443,11 @@ export interface MonitorArgs {
      */
     treatRedirectAsFailure?: pulumi.Input<boolean>;
     /**
-     * THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+     * The monitor type. Valid values are `SIMPLE` and `BROWSER`.
      */
     type: pulumi.Input<string>;
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      */
     uri?: pulumi.Input<string>;
     /**

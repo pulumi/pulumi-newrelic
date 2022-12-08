@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
-    /// Use this resource to create, update, and delete the synthetics broken links monitor in New Relic.
+    /// Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
@@ -61,7 +61,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var privateLocation = new NewRelic.Synthetics.PrivateLocation("privateLocation", new()
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Test Description",
     ///         VerifiedScriptExecution = false,
@@ -71,7 +71,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///     {
     ///         LocationsPrivates = new[]
     ///         {
-    ///             "newrelic_synthetics_private_location.private_location.id",
+    ///             "newrelic_synthetics_private_location.location.id",
     ///         },
     ///         Period = "EVERY_6_HOURS",
     ///         Status = "ENABLED",
@@ -97,7 +97,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor foo &lt;guid&gt;
+    ///  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor")]
@@ -152,7 +152,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<ImmutableArray<Outputs.BrokenLinksMonitorTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The uri the monitor runs against.
+        /// The URI the monitor runs against.
         /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// The uri the monitor runs against.
+        /// The URI the monitor runs against.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.NewRelic.Synthetics
         }
 
         /// <summary>
-        /// The uri the monitor runs against.
+        /// The URI the monitor runs against.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

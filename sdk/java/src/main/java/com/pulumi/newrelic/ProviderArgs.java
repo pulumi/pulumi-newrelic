@@ -32,11 +32,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.adminApiKey);
     }
 
-    @Import(name="apiKey")
-    private @Nullable Output<String> apiKey;
+    @Import(name="apiKey", required=true)
+    private Output<String> apiKey;
 
-    public Optional<Output<String>> apiKey() {
-        return Optional.ofNullable(this.apiKey);
+    public Output<String> apiKey() {
+        return this.apiKey;
     }
 
     /**
@@ -219,7 +219,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return adminApiKey(Output.of(adminApiKey));
         }
 
-        public Builder apiKey(@Nullable Output<String> apiKey) {
+        public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
@@ -395,7 +395,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProviderArgs build() {
-            $.accountId = Codegen.integerProp("accountId").output().arg($.accountId).env("NEW_RELIC_ACCOUNT_ID").getNullable();
+            $.accountId = Codegen.integerProp("accountId").secret().arg($.accountId).env("NEW_RELIC_ACCOUNT_ID").getNullable();
+            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
             $.region = Codegen.stringProp("region").output().arg($.region).env("NEW_RELIC_REGION").def("US").getNullable();
             return $;
         }

@@ -28,7 +28,7 @@ class BrokenLinksMonitorArgs:
         The set of arguments for constructing a BrokenLinksMonitor resource.
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -77,7 +77,7 @@ class BrokenLinksMonitorArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
         """
-        The uri the monitor runs against.
+        The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
 
@@ -168,7 +168,7 @@ class _BrokenLinksMonitorState:
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[Sequence[pulumi.Input['BrokenLinksMonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -289,7 +289,7 @@ class _BrokenLinksMonitorState:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The uri the monitor runs against.
+        The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
 
@@ -313,7 +313,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Use this resource to create, update, and delete the synthetics broken links monitor in New Relic.
+        Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
 
         ## Example Usage
 
@@ -344,11 +344,11 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
+        location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
             verified_script_execution=False)
         monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            locations_privates=["newrelic_synthetics_private_location.private_location.id"],
+            locations_privates=["newrelic_synthetics_private_location.location.id"],
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
@@ -363,7 +363,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor foo <guid>
+         $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,7 +375,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         """
         ...
     @overload
@@ -384,7 +384,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
                  args: BrokenLinksMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create, update, and delete the synthetics broken links monitor in New Relic.
+        Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
 
         ## Example Usage
 
@@ -415,11 +415,11 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_newrelic as newrelic
 
-        private_location = newrelic.synthetics.PrivateLocation("privateLocation",
+        location = newrelic.synthetics.PrivateLocation("location",
             description="Test Description",
             verified_script_execution=False)
         monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            locations_privates=["newrelic_synthetics_private_location.private_location.id"],
+            locations_privates=["newrelic_synthetics_private_location.location.id"],
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
@@ -434,7 +434,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor foo <guid>
+         $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -518,7 +518,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] period: The interval at which this monitor should run. Valid values are EVERY_MINUTE, EVERY_5_MINUTES, EVERY_10_MINUTES, EVERY_15_MINUTES, EVERY_30_MINUTES, EVERY_HOUR, EVERY_6_HOURS, EVERY_12_HOURS, or EVERY_DAY.
         :param pulumi.Input[str] status: The run state of the monitor. (i.e. `ENABLED`, `DISABLED`, `MUTED`).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokenLinksMonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -603,7 +603,7 @@ class BrokenLinksMonitor(pulumi.CustomResource):
     @pulumi.getter
     def uri(self) -> pulumi.Output[str]:
         """
-        The uri the monitor runs against.
+        The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
 

@@ -296,7 +296,7 @@ class AzureLinkAccount(pulumi.CustomResource):
             __props__.__dict__["application_id"] = application_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["name"] = name
             if subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_id'")
@@ -304,6 +304,8 @@ class AzureLinkAccount(pulumi.CustomResource):
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AzureLinkAccount, __self__).__init__(
             'newrelic:cloud/azureLinkAccount:AzureLinkAccount',
             resource_name,

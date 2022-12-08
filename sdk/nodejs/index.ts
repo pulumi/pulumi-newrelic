@@ -5,32 +5,151 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./alertChannel";
-export * from "./alertCondition";
-export * from "./alertMutingRule";
-export * from "./alertPolicy";
-export * from "./alertPolicyChannel";
-export * from "./apiAccessKey";
-export * from "./entityTags";
-export * from "./eventsToMetricsRule";
-export * from "./getAccount";
-export * from "./getAlertChannel";
-export * from "./getAlertPolicy";
-export * from "./getApplication";
-export * from "./getCloudAccount";
-export * from "./getEntity";
-export * from "./getKeyTransaction";
-export * from "./infraAlertCondition";
-export * from "./notificationChannel";
-export * from "./notificationDestination";
-export * from "./nrqlAlertCondition";
-export * from "./nrqlDropRule";
-export * from "./oneDashboard";
-export * from "./oneDashboardJson";
-export * from "./oneDashboardRaw";
-export * from "./provider";
-export * from "./serviceLevel";
-export * from "./workflow";
+export { AlertChannelArgs, AlertChannelState } from "./alertChannel";
+export type AlertChannel = import("./alertChannel").AlertChannel;
+export const AlertChannel: typeof import("./alertChannel").AlertChannel = null as any;
+utilities.lazyLoad(exports, ["AlertChannel"], () => require("./alertChannel"));
+
+export { AlertConditionArgs, AlertConditionState } from "./alertCondition";
+export type AlertCondition = import("./alertCondition").AlertCondition;
+export const AlertCondition: typeof import("./alertCondition").AlertCondition = null as any;
+utilities.lazyLoad(exports, ["AlertCondition"], () => require("./alertCondition"));
+
+export { AlertMutingRuleArgs, AlertMutingRuleState } from "./alertMutingRule";
+export type AlertMutingRule = import("./alertMutingRule").AlertMutingRule;
+export const AlertMutingRule: typeof import("./alertMutingRule").AlertMutingRule = null as any;
+utilities.lazyLoad(exports, ["AlertMutingRule"], () => require("./alertMutingRule"));
+
+export { AlertPolicyArgs, AlertPolicyState } from "./alertPolicy";
+export type AlertPolicy = import("./alertPolicy").AlertPolicy;
+export const AlertPolicy: typeof import("./alertPolicy").AlertPolicy = null as any;
+utilities.lazyLoad(exports, ["AlertPolicy"], () => require("./alertPolicy"));
+
+export { AlertPolicyChannelArgs, AlertPolicyChannelState } from "./alertPolicyChannel";
+export type AlertPolicyChannel = import("./alertPolicyChannel").AlertPolicyChannel;
+export const AlertPolicyChannel: typeof import("./alertPolicyChannel").AlertPolicyChannel = null as any;
+utilities.lazyLoad(exports, ["AlertPolicyChannel"], () => require("./alertPolicyChannel"));
+
+export { ApiAccessKeyArgs, ApiAccessKeyState } from "./apiAccessKey";
+export type ApiAccessKey = import("./apiAccessKey").ApiAccessKey;
+export const ApiAccessKey: typeof import("./apiAccessKey").ApiAccessKey = null as any;
+utilities.lazyLoad(exports, ["ApiAccessKey"], () => require("./apiAccessKey"));
+
+export { EntityTagsArgs, EntityTagsState } from "./entityTags";
+export type EntityTags = import("./entityTags").EntityTags;
+export const EntityTags: typeof import("./entityTags").EntityTags = null as any;
+utilities.lazyLoad(exports, ["EntityTags"], () => require("./entityTags"));
+
+export { EventsToMetricsRuleArgs, EventsToMetricsRuleState } from "./eventsToMetricsRule";
+export type EventsToMetricsRule = import("./eventsToMetricsRule").EventsToMetricsRule;
+export const EventsToMetricsRule: typeof import("./eventsToMetricsRule").EventsToMetricsRule = null as any;
+utilities.lazyLoad(exports, ["EventsToMetricsRule"], () => require("./eventsToMetricsRule"));
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
+export { GetAlertChannelArgs, GetAlertChannelResult, GetAlertChannelOutputArgs } from "./getAlertChannel";
+export const getAlertChannel: typeof import("./getAlertChannel").getAlertChannel = null as any;
+export const getAlertChannelOutput: typeof import("./getAlertChannel").getAlertChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertChannel","getAlertChannelOutput"], () => require("./getAlertChannel"));
+
+export { GetAlertPolicyArgs, GetAlertPolicyResult, GetAlertPolicyOutputArgs } from "./getAlertPolicy";
+export const getAlertPolicy: typeof import("./getAlertPolicy").getAlertPolicy = null as any;
+export const getAlertPolicyOutput: typeof import("./getAlertPolicy").getAlertPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertPolicy","getAlertPolicyOutput"], () => require("./getAlertPolicy"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetCloudAccountArgs, GetCloudAccountResult, GetCloudAccountOutputArgs } from "./getCloudAccount";
+export const getCloudAccount: typeof import("./getCloudAccount").getCloudAccount = null as any;
+export const getCloudAccountOutput: typeof import("./getCloudAccount").getCloudAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudAccount","getCloudAccountOutput"], () => require("./getCloudAccount"));
+
+export { GetEntityArgs, GetEntityResult, GetEntityOutputArgs } from "./getEntity";
+export const getEntity: typeof import("./getEntity").getEntity = null as any;
+export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
+utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
+
+export { GetKeyTransactionArgs, GetKeyTransactionResult, GetKeyTransactionOutputArgs } from "./getKeyTransaction";
+export const getKeyTransaction: typeof import("./getKeyTransaction").getKeyTransaction = null as any;
+export const getKeyTransactionOutput: typeof import("./getKeyTransaction").getKeyTransactionOutput = null as any;
+utilities.lazyLoad(exports, ["getKeyTransaction","getKeyTransactionOutput"], () => require("./getKeyTransaction"));
+
+export { GetObfuscationExpressionArgs, GetObfuscationExpressionResult, GetObfuscationExpressionOutputArgs } from "./getObfuscationExpression";
+export const getObfuscationExpression: typeof import("./getObfuscationExpression").getObfuscationExpression = null as any;
+export const getObfuscationExpressionOutput: typeof import("./getObfuscationExpression").getObfuscationExpressionOutput = null as any;
+utilities.lazyLoad(exports, ["getObfuscationExpression","getObfuscationExpressionOutput"], () => require("./getObfuscationExpression"));
+
+export { InfraAlertConditionArgs, InfraAlertConditionState } from "./infraAlertCondition";
+export type InfraAlertCondition = import("./infraAlertCondition").InfraAlertCondition;
+export const InfraAlertCondition: typeof import("./infraAlertCondition").InfraAlertCondition = null as any;
+utilities.lazyLoad(exports, ["InfraAlertCondition"], () => require("./infraAlertCondition"));
+
+export { NotificationChannelArgs, NotificationChannelState } from "./notificationChannel";
+export type NotificationChannel = import("./notificationChannel").NotificationChannel;
+export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
+utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
+
+export { NotificationDestinationArgs, NotificationDestinationState } from "./notificationDestination";
+export type NotificationDestination = import("./notificationDestination").NotificationDestination;
+export const NotificationDestination: typeof import("./notificationDestination").NotificationDestination = null as any;
+utilities.lazyLoad(exports, ["NotificationDestination"], () => require("./notificationDestination"));
+
+export { NrqlAlertConditionArgs, NrqlAlertConditionState } from "./nrqlAlertCondition";
+export type NrqlAlertCondition = import("./nrqlAlertCondition").NrqlAlertCondition;
+export const NrqlAlertCondition: typeof import("./nrqlAlertCondition").NrqlAlertCondition = null as any;
+utilities.lazyLoad(exports, ["NrqlAlertCondition"], () => require("./nrqlAlertCondition"));
+
+export { NrqlDropRuleArgs, NrqlDropRuleState } from "./nrqlDropRule";
+export type NrqlDropRule = import("./nrqlDropRule").NrqlDropRule;
+export const NrqlDropRule: typeof import("./nrqlDropRule").NrqlDropRule = null as any;
+utilities.lazyLoad(exports, ["NrqlDropRule"], () => require("./nrqlDropRule"));
+
+export { ObfuscationExpressionArgs, ObfuscationExpressionState } from "./obfuscationExpression";
+export type ObfuscationExpression = import("./obfuscationExpression").ObfuscationExpression;
+export const ObfuscationExpression: typeof import("./obfuscationExpression").ObfuscationExpression = null as any;
+utilities.lazyLoad(exports, ["ObfuscationExpression"], () => require("./obfuscationExpression"));
+
+export { ObfuscationRuleArgs, ObfuscationRuleState } from "./obfuscationRule";
+export type ObfuscationRule = import("./obfuscationRule").ObfuscationRule;
+export const ObfuscationRule: typeof import("./obfuscationRule").ObfuscationRule = null as any;
+utilities.lazyLoad(exports, ["ObfuscationRule"], () => require("./obfuscationRule"));
+
+export { OneDashboardArgs, OneDashboardState } from "./oneDashboard";
+export type OneDashboard = import("./oneDashboard").OneDashboard;
+export const OneDashboard: typeof import("./oneDashboard").OneDashboard = null as any;
+utilities.lazyLoad(exports, ["OneDashboard"], () => require("./oneDashboard"));
+
+export { OneDashboardJsonArgs, OneDashboardJsonState } from "./oneDashboardJson";
+export type OneDashboardJson = import("./oneDashboardJson").OneDashboardJson;
+export const OneDashboardJson: typeof import("./oneDashboardJson").OneDashboardJson = null as any;
+utilities.lazyLoad(exports, ["OneDashboardJson"], () => require("./oneDashboardJson"));
+
+export { OneDashboardRawArgs, OneDashboardRawState } from "./oneDashboardRaw";
+export type OneDashboardRaw = import("./oneDashboardRaw").OneDashboardRaw;
+export const OneDashboardRaw: typeof import("./oneDashboardRaw").OneDashboardRaw = null as any;
+utilities.lazyLoad(exports, ["OneDashboardRaw"], () => require("./oneDashboardRaw"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { ServiceLevelArgs, ServiceLevelState } from "./serviceLevel";
+export type ServiceLevel = import("./serviceLevel").ServiceLevel;
+export const ServiceLevel: typeof import("./serviceLevel").ServiceLevel = null as any;
+utilities.lazyLoad(exports, ["ServiceLevel"], () => require("./serviceLevel"));
+
+export { WorkflowArgs, WorkflowState } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 // Export sub-modules:
 import * as cloud from "./cloud";
@@ -48,26 +167,6 @@ export {
     synthetics,
     types,
 };
-
-// Import resources to register:
-import { AlertChannel } from "./alertChannel";
-import { AlertCondition } from "./alertCondition";
-import { AlertMutingRule } from "./alertMutingRule";
-import { AlertPolicy } from "./alertPolicy";
-import { AlertPolicyChannel } from "./alertPolicyChannel";
-import { ApiAccessKey } from "./apiAccessKey";
-import { EntityTags } from "./entityTags";
-import { EventsToMetricsRule } from "./eventsToMetricsRule";
-import { InfraAlertCondition } from "./infraAlertCondition";
-import { NotificationChannel } from "./notificationChannel";
-import { NotificationDestination } from "./notificationDestination";
-import { NrqlAlertCondition } from "./nrqlAlertCondition";
-import { NrqlDropRule } from "./nrqlDropRule";
-import { OneDashboard } from "./oneDashboard";
-import { OneDashboardJson } from "./oneDashboardJson";
-import { OneDashboardRaw } from "./oneDashboardRaw";
-import { ServiceLevel } from "./serviceLevel";
-import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),
@@ -99,6 +198,10 @@ const _module = {
                 return new NrqlAlertCondition(name, <any>undefined, { urn })
             case "newrelic:index/nrqlDropRule:NrqlDropRule":
                 return new NrqlDropRule(name, <any>undefined, { urn })
+            case "newrelic:index/obfuscationExpression:ObfuscationExpression":
+                return new ObfuscationExpression(name, <any>undefined, { urn })
+            case "newrelic:index/obfuscationRule:ObfuscationRule":
+                return new ObfuscationRule(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboard:OneDashboard":
                 return new OneDashboard(name, <any>undefined, { urn })
             case "newrelic:index/oneDashboardJson:OneDashboardJson":
@@ -127,14 +230,13 @@ pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlDropRule", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/obfuscationExpression", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/obfuscationRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboard", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardJson", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/oneDashboardRaw", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/serviceLevel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/workflow", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("newrelic", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

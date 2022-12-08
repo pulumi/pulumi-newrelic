@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
-    /// Use this resource to create, update, and delete a synthetics certificate check monitor in New Relic.
+    /// Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
@@ -24,7 +24,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///     var cert_check_monitor = new NewRelic.Synthetics.CertCheckMonitor("cert-check-monitor", new()
     ///     {
     ///         CertificateExpiration = 10,
-    ///         Domain = "http://www.example.com",
+    ///         Domain = "www.example.com",
     ///         LocationsPublics = new[]
     ///         {
     ///             "AP_SOUTH_1",

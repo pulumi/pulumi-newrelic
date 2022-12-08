@@ -15,8 +15,6 @@ namespace Pulumi.NewRelic.Outputs
     {
         /// <summary>
         /// The notification property display value.
-        /// *
-        /// Each notification channel type supports a specific set of arguments for the `property` block:
         /// </summary>
         public readonly string? DisplayValue;
         /// <summary>
