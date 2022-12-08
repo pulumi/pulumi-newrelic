@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./event";
+export { EventArgs, EventState } from "./event";
+export type Event = import("./event").Event;
+export const Event: typeof import("./event").Event = null as any;
+utilities.lazyLoad(exports, ["Event"], () => require("./event"));
 
-// Import resources to register:
-import { Event } from "./event";
 
 const _module = {
     version: utilities.getVersion(),

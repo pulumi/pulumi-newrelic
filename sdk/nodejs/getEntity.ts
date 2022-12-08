@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -18,7 +19,7 @@ export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Pro
         "domain": args.domain,
         "ignoreCase": args.ignoreCase,
         "name": args.name,
-        "tag": args.tag,
+        "tags": args.tags,
         "type": args.type,
     }, opts);
 }
@@ -39,7 +40,10 @@ export interface GetEntityArgs {
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */
     name: string;
-    tag?: inputs.GetEntityTag;
+    /**
+     * A tag applied to the entity. See Nested tag blocks below for details.
+     */
+    tags?: inputs.GetEntityTag[];
     /**
      * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
      */
@@ -69,8 +73,11 @@ export interface GetEntityResult {
     readonly id: string;
     readonly ignoreCase?: boolean;
     readonly name: string;
+    /**
+     * The browser-specific ID of the backing APM entity. Only returned for Browser applications.
+     */
     readonly servingApmApplicationId: number;
-    readonly tag?: outputs.GetEntityTag;
+    readonly tags?: outputs.GetEntityTag[];
     readonly type: string;
 }
 
@@ -94,7 +101,10 @@ export interface GetEntityOutputArgs {
      * The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
      */
     name: pulumi.Input<string>;
-    tag?: pulumi.Input<inputs.GetEntityTagArgs>;
+    /**
+     * A tag applied to the entity. See Nested tag blocks below for details.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.GetEntityTagArgs>[]>;
     /**
      * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
      */

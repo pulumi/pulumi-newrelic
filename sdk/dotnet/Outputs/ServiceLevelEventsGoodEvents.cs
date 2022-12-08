@@ -18,6 +18,10 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string From;
         /// <summary>
+        /// The NRQL SELECT clause to aggregate events.
+        /// </summary>
+        public readonly Outputs.ServiceLevelEventsGoodEventsSelect? Select;
+        /// <summary>
         /// A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
         /// a particular entity and were successful).
         /// a particular entity and returned an error).
@@ -28,9 +32,12 @@ namespace Pulumi.NewRelic.Outputs
         private ServiceLevelEventsGoodEvents(
             string from,
 
+            Outputs.ServiceLevelEventsGoodEventsSelect? select,
+
             string? where)
         {
             From = from;
+            Select = select;
             Where = where;
         }
     }

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
  * 
+ * A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
+ * 
  * ## Example Usage
  * 
  * ##### [Webhook](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-api-notifications-channels/#webhook)
@@ -134,10 +136,15 @@ import javax.annotation.Nullable;
  *             .accountId(12345678)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;ERROR_TRACKING&#34;)
- *             .properties(NotificationChannelPropertyArgs.builder()
- *                 .key(&#34;subject&#34;)
- *                 .value(&#34;New Subject Title&#34;)
- *                 .build())
+ *             .properties(            
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;subject&#34;)
+ *                     .value(&#34;New Subject Title&#34;)
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;customDetailsEmail&#34;)
+ *                     .value(&#34;issue id - {{issueId}}&#34;)
+ *                     .build())
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 
@@ -235,6 +242,25 @@ import javax.annotation.Nullable;
  *                 NotificationChannelPropertyArgs.builder()
  *                     .key(&#34;email&#34;)
  *                     .value(&#34;example@email.com&#34;)
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;customDetails&#34;)
+ *                     .value(&#34;&#34;&#34;
+ *     {
+ *     &#34;id&#34;:{{json issueId}},
+ *     &#34;IssueURL&#34;:{{json issuePageUrl}},
+ *     &#34;NewRelic priority&#34;:{{json priority}},
+ *     &#34;Total Incidents&#34;:{{json totalIncidents}},
+ *     &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;isCorrelated&#34;:{{json isCorrelated}},
+ *     &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Workflow Name&#34;:{{json workflowName}}
+ *     }
+ * 
+ *                     &#34;&#34;&#34;)
  *                     .build())
  *             .type(&#34;PAGERDUTY_ACCOUNT_INTEGRATION&#34;)
  *             .build());
@@ -270,10 +296,30 @@ import javax.annotation.Nullable;
  *             .accountId(12345678)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
- *             .properties(NotificationChannelPropertyArgs.builder()
- *                 .key(&#34;summary&#34;)
- *                 .value(&#34;General summary&#34;)
- *                 .build())
+ *             .properties(            
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;summary&#34;)
+ *                     .value(&#34;General summary&#34;)
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;customDetails&#34;)
+ *                     .value(&#34;&#34;&#34;
+ *     {
+ *     &#34;id&#34;:{{json issueId}},
+ *     &#34;IssueURL&#34;:{{json issuePageUrl}},
+ *     &#34;NewRelic priority&#34;:{{json priority}},
+ *     &#34;Total Incidents&#34;:{{json totalIncidents}},
+ *     &#34;Impacted Entities&#34;:&#34;{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Runbook&#34;:&#34;{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Description&#34;:&#34;{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;isCorrelated&#34;:{{json isCorrelated}},
+ *     &#34;Alert Policy Names&#34;:&#34;{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Alert Condition Names&#34;:&#34;{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}&#34;,
+ *     &#34;Workflow Name&#34;:{{json workflowName}}
+ *     }
+ * 
+ *                     &#34;&#34;&#34;)
+ *                     .build())
  *             .type(&#34;PAGERDUTY_SERVICE_INTEGRATION&#34;)
  *             .build());
  * 
@@ -384,10 +430,15 @@ import javax.annotation.Nullable;
  *             .accountId(12345678)
  *             .destinationId(&#34;00b6bd1d-ac06-4d3d-bd72-49551e70f7a8&#34;)
  *             .product(&#34;IINT&#34;)
- *             .properties(NotificationChannelPropertyArgs.builder()
- *                 .key(&#34;channelId&#34;)
- *                 .value(&#34;123456&#34;)
- *                 .build())
+ *             .properties(            
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;channelId&#34;)
+ *                     .value(&#34;123456&#34;)
+ *                     .build(),
+ *                 NotificationChannelPropertyArgs.builder()
+ *                     .key(&#34;customDetailsSlack&#34;)
+ *                     .value(&#34;issue id - {{issueId}}&#34;)
+ *                     .build())
  *             .type(&#34;SLACK&#34;)
  *             .build());
  * 

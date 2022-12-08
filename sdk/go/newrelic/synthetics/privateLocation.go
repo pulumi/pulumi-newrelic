@@ -27,8 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "bar", &synthetics.PrivateLocationArgs{
-//				AccountId:   pulumi.Int("NewRelic account ID"),
+//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description: pulumi.String("The private location description"),
 //			})
 //			if err != nil {
@@ -46,19 +45,19 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import newrelic:synthetics/privateLocation:PrivateLocation bar GUID
+//	$ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
 //
 // ```
 type PrivateLocation struct {
 	pulumi.CustomResourceState
 
-	// Account ID of the New Relic.
+	// The account in which the private location will be created.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The private location description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The private location globally unique identifier.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// The unique client identifier for the Synthetics private location in New Relic.
+	// The unique client identifier for the private location in New Relic. Same as `id`.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The private locations key.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -102,13 +101,13 @@ func GetPrivateLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLocation resources.
 type privateLocationState struct {
-	// Account ID of the New Relic.
+	// The account in which the private location will be created.
 	AccountId *int `pulumi:"accountId"`
 	// The private location description.
 	Description *string `pulumi:"description"`
 	// The private location globally unique identifier.
 	DomainId *string `pulumi:"domainId"`
-	// The unique client identifier for the Synthetics private location in New Relic.
+	// The unique client identifier for the private location in New Relic. Same as `id`.
 	Guid *string `pulumi:"guid"`
 	// The private locations key.
 	Key *string `pulumi:"key"`
@@ -121,13 +120,13 @@ type privateLocationState struct {
 }
 
 type PrivateLocationState struct {
-	// Account ID of the New Relic.
+	// The account in which the private location will be created.
 	AccountId pulumi.IntPtrInput
 	// The private location description.
 	Description pulumi.StringPtrInput
 	// The private location globally unique identifier.
 	DomainId pulumi.StringPtrInput
-	// The unique client identifier for the Synthetics private location in New Relic.
+	// The unique client identifier for the private location in New Relic. Same as `id`.
 	Guid pulumi.StringPtrInput
 	// The private locations key.
 	Key pulumi.StringPtrInput
@@ -144,7 +143,7 @@ func (PrivateLocationState) ElementType() reflect.Type {
 }
 
 type privateLocationArgs struct {
-	// Account ID of the New Relic.
+	// The account in which the private location will be created.
 	AccountId *int `pulumi:"accountId"`
 	// The private location description.
 	Description string `pulumi:"description"`
@@ -156,7 +155,7 @@ type privateLocationArgs struct {
 
 // The set of arguments for constructing a PrivateLocation resource.
 type PrivateLocationArgs struct {
-	// Account ID of the New Relic.
+	// The account in which the private location will be created.
 	AccountId pulumi.IntPtrInput
 	// The private location description.
 	Description pulumi.StringInput
@@ -253,7 +252,7 @@ func (o PrivateLocationOutput) ToPrivateLocationOutputWithContext(ctx context.Co
 	return o
 }
 
-// Account ID of the New Relic.
+// The account in which the private location will be created.
 func (o PrivateLocationOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *PrivateLocation) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
@@ -268,7 +267,7 @@ func (o PrivateLocationOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLocation) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// The unique client identifier for the Synthetics private location in New Relic.
+// The unique client identifier for the private location in New Relic. Same as `id`.
 func (o PrivateLocationOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLocation) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }

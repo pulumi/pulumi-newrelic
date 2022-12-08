@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEntityTag {
+    /**
+     * @return The tag key.
+     * 
+     */
     private String key;
+    /**
+     * @return The tag value.
+     * 
+     */
     private String value;
 
     private GetEntityTag() {}
+    /**
+     * @return The tag key.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The tag value.
+     * 
+     */
     public String value() {
         return this.value;
     }

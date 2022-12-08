@@ -373,6 +373,8 @@ class ApiAccessKey(pulumi.CustomResource):
             __props__.__dict__["notes"] = notes
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiAccessKey, __self__).__init__(
             'newrelic:index/apiAccessKey:ApiAccessKey',
             resource_name,

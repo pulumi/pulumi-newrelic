@@ -37,9 +37,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.OneDashboardPageWidgetLogTableNrqlQueryArgs>? _nrqlQueries;
 
         /// <summary>
-        /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-        /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        /// * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
         /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLogTableNrqlQueryArgs> NrqlQueries
         {
@@ -54,7 +52,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<int> Row { get; set; } = null!;
 
         /// <summary>
-        /// (Required) A title for the widget.
+        /// (Optional) A human-friendly display string for this value.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;

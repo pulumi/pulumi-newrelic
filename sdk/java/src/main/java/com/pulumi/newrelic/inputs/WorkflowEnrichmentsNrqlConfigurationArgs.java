@@ -14,14 +14,14 @@ public final class WorkflowEnrichmentsNrqlConfigurationArgs extends com.pulumi.r
     public static final WorkflowEnrichmentsNrqlConfigurationArgs Empty = new WorkflowEnrichmentsNrqlConfigurationArgs();
 
     /**
-     * the nrql query.
+     * An NRQL query to run
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return the nrql query.
+     * @return An NRQL query to run
      * 
      */
     public Output<String> query() {
@@ -53,7 +53,7 @@ public final class WorkflowEnrichmentsNrqlConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param query the nrql query.
+         * @param query An NRQL query to run
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WorkflowEnrichmentsNrqlConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param query the nrql query.
+         * @param query An NRQL query to run
          * 
          * @return builder
          * 

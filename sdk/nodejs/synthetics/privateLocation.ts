@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const bar = new newrelic.synthetics.PrivateLocation("bar", {
- *     accountId: "NewRelic account ID",
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "The private location description",
  * });
  * ```
@@ -24,7 +23,7 @@ import * as utilities from "../utilities";
  * A Synthetics private location can be imported using the `guid`
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation bar GUID
+ *  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
  * ```
  */
 export class PrivateLocation extends pulumi.CustomResource {
@@ -56,7 +55,7 @@ export class PrivateLocation extends pulumi.CustomResource {
     }
 
     /**
-     * Account ID of the New Relic.
+     * The account in which the private location will be created.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
@@ -68,7 +67,7 @@ export class PrivateLocation extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainId!: pulumi.Output<string>;
     /**
-     * The unique client identifier for the Synthetics private location in New Relic.
+     * The unique client identifier for the private location in New Relic. Same as `id`.
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
@@ -133,7 +132,7 @@ export class PrivateLocation extends pulumi.CustomResource {
  */
 export interface PrivateLocationState {
     /**
-     * Account ID of the New Relic.
+     * The account in which the private location will be created.
      */
     accountId?: pulumi.Input<number>;
     /**
@@ -145,7 +144,7 @@ export interface PrivateLocationState {
      */
     domainId?: pulumi.Input<string>;
     /**
-     * The unique client identifier for the Synthetics private location in New Relic.
+     * The unique client identifier for the private location in New Relic. Same as `id`.
      */
     guid?: pulumi.Input<string>;
     /**
@@ -171,7 +170,7 @@ export interface PrivateLocationState {
  */
 export interface PrivateLocationArgs {
     /**
-     * Account ID of the New Relic.
+     * The account in which the private location will be created.
      */
     accountId?: pulumi.Input<number>;
     /**

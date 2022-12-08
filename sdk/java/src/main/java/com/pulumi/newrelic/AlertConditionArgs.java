@@ -269,14 +269,14 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      */
     @Import(name="userDefinedValueFunction")
     private @Nullable Output<String> userDefinedValueFunction;
 
     /**
-     * @return One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      */
     public Optional<Output<String>> userDefinedValueFunction() {
@@ -284,14 +284,14 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      * 
      */
     @Import(name="violationCloseTimer")
     private @Nullable Output<Integer> violationCloseTimer;
 
     /**
-     * @return Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      * 
      */
     public Optional<Output<Integer>> violationCloseTimer() {
@@ -670,7 +670,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, or `sample_size`.
+         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, or `sample_size`.
+         * @param userDefinedValueFunction One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param violationCloseTimer Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class AlertConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param violationCloseTimer Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+         * @param violationCloseTimer Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
          * 
          * @return builder
          * 

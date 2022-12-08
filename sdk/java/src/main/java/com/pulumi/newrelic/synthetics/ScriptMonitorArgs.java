@@ -171,14 +171,14 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The run state of the monitor.
+     * The run state of the monitor: `ENABLED` or `DISABLED`
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The run state of the monitor.
+     * @return The run state of the monitor: `ENABLED` or `DISABLED`
      * 
      */
     public Output<String> status() {
@@ -482,7 +482,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The run state of the monitor.
+         * @param status The run state of the monitor: `ENABLED` or `DISABLED`
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ScriptMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The run state of the monitor.
+         * @param status The run state of the monitor: `ENABLED` or `DISABLED`
          * 
          * @return builder
          * 

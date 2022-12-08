@@ -14,6 +14,10 @@ namespace Pulumi.NewRelic.Inputs
     {
         [Input("nrqls", required: true)]
         private InputList<Inputs.WorkflowEnrichmentsNrqlGetArgs>? _nrqls;
+
+        /// <summary>
+        /// a wrapper block
+        /// </summary>
         public InputList<Inputs.WorkflowEnrichmentsNrqlGetArgs> Nrqls
         {
             get => _nrqls ?? (_nrqls = new InputList<Inputs.WorkflowEnrichmentsNrqlGetArgs>());

@@ -18,6 +18,7 @@ class GcpIntegrationsArgs:
     def __init__(__self__, *,
                  linked_account_id: pulumi.Input[int],
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
                  app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
                  big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
                  big_table: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']] = None,
@@ -47,6 +48,7 @@ class GcpIntegrationsArgs:
         The set of arguments for constructing a GcpIntegrations resource.
         :param pulumi.Input[int] linked_account_id: The ID of the linked GCP account in New Relic.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigTableArgs'] big_table: Big Table. See Integration blocks below for details.
@@ -76,6 +78,8 @@ class GcpIntegrationsArgs:
         pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if alloy_db is not None:
+            pulumi.set(__self__, "alloy_db", alloy_db)
         if app_engine is not None:
             pulumi.set(__self__, "app_engine", app_engine)
         if big_query is not None:
@@ -150,6 +154,18 @@ class GcpIntegrationsArgs:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="alloyDb")
+    def alloy_db(self) -> Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]:
+        """
+        Alloy DB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "alloy_db")
+
+    @alloy_db.setter
+    def alloy_db(self, value: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]):
+        pulumi.set(self, "alloy_db", value)
 
     @property
     @pulumi.getter(name="appEngine")
@@ -456,6 +472,7 @@ class GcpIntegrationsArgs:
 class _GcpIntegrationsState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alloy_db: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']] = None,
                  app_engine: Optional[pulumi.Input['GcpIntegrationsAppEngineArgs']] = None,
                  big_query: Optional[pulumi.Input['GcpIntegrationsBigQueryArgs']] = None,
                  big_table: Optional[pulumi.Input['GcpIntegrationsBigTableArgs']] = None,
@@ -485,6 +502,7 @@ class _GcpIntegrationsState:
         """
         Input properties used for looking up and filtering GcpIntegrations resources.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input['GcpIntegrationsAlloyDbArgs'] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsAppEngineArgs'] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigQueryArgs'] big_query: Biq Query integration. See Integration blocks below for details.
         :param pulumi.Input['GcpIntegrationsBigTableArgs'] big_table: Big Table. See Integration blocks below for details.
@@ -514,6 +532,8 @@ class _GcpIntegrationsState:
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if alloy_db is not None:
+            pulumi.set(__self__, "alloy_db", alloy_db)
         if app_engine is not None:
             pulumi.set(__self__, "app_engine", app_engine)
         if big_query is not None:
@@ -578,6 +598,18 @@ class _GcpIntegrationsState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="alloyDb")
+    def alloy_db(self) -> Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]:
+        """
+        Alloy DB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "alloy_db")
+
+    @alloy_db.setter
+    def alloy_db(self, value: Optional[pulumi.Input['GcpIntegrationsAlloyDbArgs']]):
+        pulumi.set(self, "alloy_db", value)
 
     @property
     @pulumi.getter(name="appEngine")
@@ -898,6 +930,7 @@ class GcpIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
                  app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
                  big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
                  big_table: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']]] = None,
@@ -937,6 +970,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']] big_table: Big Table. See Integration blocks below for details.
@@ -995,6 +1029,7 @@ class GcpIntegrations(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[int]] = None,
+                 alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
                  app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
                  big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
                  big_table: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']]] = None,
@@ -1031,6 +1066,7 @@ class GcpIntegrations(pulumi.CustomResource):
             __props__ = GcpIntegrationsArgs.__new__(GcpIntegrationsArgs)
 
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["alloy_db"] = alloy_db
             __props__.__dict__["app_engine"] = app_engine
             __props__.__dict__["big_query"] = big_query
             __props__.__dict__["big_table"] = big_table
@@ -1070,6 +1106,7 @@ class GcpIntegrations(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[int]] = None,
+            alloy_db: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']]] = None,
             app_engine: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']]] = None,
             big_query: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']]] = None,
             big_table: Optional[pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']]] = None,
@@ -1104,6 +1141,7 @@ class GcpIntegrations(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
+        :param pulumi.Input[pulumi.InputType['GcpIntegrationsAlloyDbArgs']] alloy_db: Alloy DB integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsAppEngineArgs']] app_engine: App Engine integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigQueryArgs']] big_query: Biq Query integration. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['GcpIntegrationsBigTableArgs']] big_table: Big Table. See Integration blocks below for details.
@@ -1136,6 +1174,7 @@ class GcpIntegrations(pulumi.CustomResource):
         __props__ = _GcpIntegrationsState.__new__(_GcpIntegrationsState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["alloy_db"] = alloy_db
         __props__.__dict__["app_engine"] = app_engine
         __props__.__dict__["big_query"] = big_query
         __props__.__dict__["big_table"] = big_table
@@ -1171,6 +1210,14 @@ class GcpIntegrations(pulumi.CustomResource):
         The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="alloyDb")
+    def alloy_db(self) -> pulumi.Output[Optional['outputs.GcpIntegrationsAlloyDb']]:
+        """
+        Alloy DB integration. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "alloy_db")
 
     @property
     @pulumi.getter(name="appEngine")

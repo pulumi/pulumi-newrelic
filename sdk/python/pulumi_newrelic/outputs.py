@@ -27,6 +27,7 @@ __all__ = [
     'NrqlAlertConditionNrql',
     'NrqlAlertConditionTerm',
     'NrqlAlertConditionWarning',
+    'ObfuscationRuleAction',
     'OneDashboardPage',
     'OneDashboardPageWidgetArea',
     'OneDashboardPageWidgetAreaNrqlQuery',
@@ -57,10 +58,16 @@ __all__ = [
     'OneDashboardPageWidgetTableNrqlQuery',
     'OneDashboardRawPage',
     'OneDashboardRawPageWidget',
+    'OneDashboardVariable',
+    'OneDashboardVariableItem',
+    'OneDashboardVariableNrqlQuery',
     'ServiceLevelEvents',
     'ServiceLevelEventsBadEvents',
+    'ServiceLevelEventsBadEventsSelect',
     'ServiceLevelEventsGoodEvents',
+    'ServiceLevelEventsGoodEventsSelect',
     'ServiceLevelEventsValidEvents',
+    'ServiceLevelEventsValidEventsSelect',
     'ServiceLevelObjective',
     'ServiceLevelObjectiveTimeWindow',
     'ServiceLevelObjectiveTimeWindowRolling',
@@ -473,7 +480,7 @@ class AlertMutingRuleConditionCondition(dict):
                  operator: str,
                  values: Sequence[str]):
         """
-        :param str attribute: The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+        :param str attribute: The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
         :param str operator: The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
         :param Sequence[str] values: The value(s) to compare against the attribute's value.
         """
@@ -485,7 +492,7 @@ class AlertMutingRuleConditionCondition(dict):
     @pulumi.getter
     def attribute(self) -> str:
         """
-        The attribute on a violation. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
+        The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
         """
         return pulumi.get(self, "attribute")
 
@@ -766,8 +773,6 @@ class NotificationChannelProperty(dict):
         :param str key: The notification property key.
         :param str value: The notification property value.
         :param str display_value: The notification property display value.
-               *
-               Each notification channel type supports a specific set of arguments for the `property` block:
         :param str label: The notification property label.
         """
         pulumi.set(__self__, "key", key)
@@ -798,8 +803,6 @@ class NotificationChannelProperty(dict):
     def display_value(self) -> Optional[str]:
         """
         The notification property display value.
-        *
-        Each notification channel type supports a specific set of arguments for the `property` block:
         """
         return pulumi.get(self, "display_value")
 
@@ -1216,6 +1219,63 @@ class NrqlAlertConditionWarning(dict):
 
 
 @pulumi.output_type
+class ObfuscationRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expressionId":
+            suggest = "expression_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObfuscationRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObfuscationRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObfuscationRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attributes: Sequence[str],
+                 expression_id: str,
+                 method: str):
+        """
+        :param Sequence[str] attributes: Attribute names for action. An empty list applies the action to all the attributes.
+        :param str expression_id: Expression Id for action.
+        :param str method: Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "expression_id", expression_id)
+        pulumi.set(__self__, "method", method)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Sequence[str]:
+        """
+        Attribute names for action. An empty list applies the action to all the attributes.
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="expressionId")
+    def expression_id(self) -> str:
+        """
+        Expression Id for action.
+        """
+        return pulumi.get(self, "expression_id")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Obfuscation method to use. Methods for replacing obfuscated values are `HASH_SHA256` and `MASK`.
+        """
+        return pulumi.get(self, "method")
+
+
+@pulumi.output_type
 class OneDashboardPage(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1500,11 +1560,9 @@ class OneDashboardPageWidgetArea(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetAreaNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetAreaNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -1534,9 +1592,7 @@ class OneDashboardPageWidgetArea(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetAreaNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1552,7 +1608,7 @@ class OneDashboardPageWidgetArea(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -1671,11 +1727,9 @@ class OneDashboardPageWidgetBar(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetBarNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetBarNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -1709,9 +1763,7 @@ class OneDashboardPageWidgetBar(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1727,7 +1779,7 @@ class OneDashboardPageWidgetBar(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -1852,11 +1904,9 @@ class OneDashboardPageWidgetBillboard(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetBillboardNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetBillboardNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param str critical: (Optional) Threshold above which the displayed value will be styled with a red color.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
@@ -1893,9 +1943,7 @@ class OneDashboardPageWidgetBillboard(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -1911,7 +1959,7 @@ class OneDashboardPageWidgetBillboard(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -2044,11 +2092,9 @@ class OneDashboardPageWidgetBullet(dict):
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param float limit: (Required) Visualization limit for the widget.
                * `widget_funnel`
-        :param Sequence['OneDashboardPageWidgetBulletNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetBulletNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2088,9 +2134,7 @@ class OneDashboardPageWidgetBullet(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2106,7 +2150,7 @@ class OneDashboardPageWidgetBullet(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -2219,11 +2263,9 @@ class OneDashboardPageWidgetFunnel(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetFunnelNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetFunnelNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2253,9 +2295,7 @@ class OneDashboardPageWidgetFunnel(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2271,7 +2311,7 @@ class OneDashboardPageWidgetFunnel(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -2390,11 +2430,9 @@ class OneDashboardPageWidgetHeatmap(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetHeatmapNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetHeatmapNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2428,9 +2466,7 @@ class OneDashboardPageWidgetHeatmap(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2446,7 +2482,7 @@ class OneDashboardPageWidgetHeatmap(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -2569,11 +2605,9 @@ class OneDashboardPageWidgetHistogram(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetHistogramNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetHistogramNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2603,9 +2637,7 @@ class OneDashboardPageWidgetHistogram(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2621,7 +2653,7 @@ class OneDashboardPageWidgetHistogram(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -2734,11 +2766,9 @@ class OneDashboardPageWidgetJson(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetJsonNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetJsonNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2768,9 +2798,7 @@ class OneDashboardPageWidgetJson(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetJsonNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2786,7 +2814,7 @@ class OneDashboardPageWidgetJson(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -2899,11 +2927,9 @@ class OneDashboardPageWidgetLine(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetLineNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetLineNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -2933,9 +2959,7 @@ class OneDashboardPageWidgetLine(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -2951,7 +2975,7 @@ class OneDashboardPageWidgetLine(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -3064,11 +3088,9 @@ class OneDashboardPageWidgetLogTable(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetLogTableNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetLogTableNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -3098,9 +3120,7 @@ class OneDashboardPageWidgetLogTable(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetLogTableNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3116,7 +3136,7 @@ class OneDashboardPageWidgetLogTable(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -3228,7 +3248,7 @@ class OneDashboardPageWidgetMarkdown(dict):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param str text: (Required) The markdown source to be rendered in the widget.
@@ -3269,7 +3289,7 @@ class OneDashboardPageWidgetMarkdown(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -3350,11 +3370,9 @@ class OneDashboardPageWidgetPy(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetPyNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetPyNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -3388,9 +3406,7 @@ class OneDashboardPageWidgetPy(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3406,7 +3422,7 @@ class OneDashboardPageWidgetPy(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -3529,11 +3545,9 @@ class OneDashboardPageWidgetStackedBar(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetStackedBarNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetStackedBarNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -3563,9 +3577,7 @@ class OneDashboardPageWidgetStackedBar(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetStackedBarNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3581,7 +3593,7 @@ class OneDashboardPageWidgetStackedBar(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -3700,11 +3712,9 @@ class OneDashboardPageWidgetTable(dict):
                  width: Optional[int] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
-        :param Sequence['OneDashboardPageWidgetTableNrqlQueryArgs'] nrql_queries: (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-               * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-               * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        :param Sequence['OneDashboardPageWidgetTableNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
-        :param str title: (Required) A title for the widget.
+        :param str title: (Optional) A human-friendly display string for this value.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
@@ -3738,9 +3748,7 @@ class OneDashboardPageWidgetTable(dict):
     @pulumi.getter(name="nrqlQueries")
     def nrql_queries(self) -> Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery']:
         """
-        (Required) A nested block that describes a NRQL Query. See Nested nrql\\_query blocks below for details.
-        * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         """
         return pulumi.get(self, "nrql_queries")
 
@@ -3756,7 +3764,7 @@ class OneDashboardPageWidgetTable(dict):
     @pulumi.getter
     def title(self) -> str:
         """
-        (Required) A title for the widget.
+        (Optional) A human-friendly display string for this value.
         """
         return pulumi.get(self, "title")
 
@@ -4027,6 +4035,201 @@ class OneDashboardRawPageWidget(dict):
 
 
 @pulumi.output_type
+class OneDashboardVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replacementStrategy":
+            suggest = "replacement_strategy"
+        elif key == "defaultValues":
+            suggest = "default_values"
+        elif key == "isMultiSelection":
+            suggest = "is_multi_selection"
+        elif key == "nrqlQuery":
+            suggest = "nrql_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardVariable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 replacement_strategy: str,
+                 title: str,
+                 type: str,
+                 default_values: Optional[Sequence[str]] = None,
+                 is_multi_selection: Optional[bool] = None,
+                 items: Optional[Sequence['outputs.OneDashboardVariableItem']] = None,
+                 nrql_query: Optional['outputs.OneDashboardVariableNrqlQuery'] = None):
+        """
+        :param str name: The title of the dashboard.
+        :param str replacement_strategy: (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+        :param str title: (Optional) A human-friendly display string for this value.
+        :param str type: (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        :param Sequence[str] default_values: (Optional) A list of default values for this variable.
+        :param bool is_multi_selection: (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+        :param Sequence['OneDashboardVariableItemArgs'] items: (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+        :param 'OneDashboardVariableNrqlQueryArgs' nrql_query: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "type", type)
+        if default_values is not None:
+            pulumi.set(__self__, "default_values", default_values)
+        if is_multi_selection is not None:
+            pulumi.set(__self__, "is_multi_selection", is_multi_selection)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if nrql_query is not None:
+            pulumi.set(__self__, "nrql_query", nrql_query)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> str:
+        """
+        (Optional) Indicates the strategy to apply when replacing a variable in a NRQL query. One of `default`, `identifier`, `number` or `string`.
+        """
+        return pulumi.get(self, "replacement_strategy")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required) Specifies the data type of the variable and where its possible values may come from. One of `enum`, `nrql` or `string`
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="defaultValues")
+    def default_values(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) A list of default values for this variable.
+        """
+        return pulumi.get(self, "default_values")
+
+    @property
+    @pulumi.getter(name="isMultiSelection")
+    def is_multi_selection(self) -> Optional[bool]:
+        """
+        (Optional) Indicates whether this variable supports multiple selection or not. Only applies to variables of type `nrql` or `enum`.
+        """
+        return pulumi.get(self, "is_multi_selection")
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence['outputs.OneDashboardVariableItem']]:
+        """
+        (Optional) List of possible values for variables of type `enum`. See Nested item blocks below for details.
+        """
+        return pulumi.get(self, "items")
+
+    @property
+    @pulumi.getter(name="nrqlQuery")
+    def nrql_query(self) -> Optional['outputs.OneDashboardVariableNrqlQuery']:
+        """
+        (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
+        """
+        return pulumi.get(self, "nrql_query")
+
+
+@pulumi.output_type
+class OneDashboardVariableItem(dict):
+    def __init__(__self__, *,
+                 value: str,
+                 title: Optional[str] = None):
+        """
+        :param str value: (Required) A possible variable value
+        :param str title: (Optional) A human-friendly display string for this value.
+        """
+        pulumi.set(__self__, "value", value)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        (Required) A possible variable value
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        (Optional) A human-friendly display string for this value.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class OneDashboardVariableNrqlQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIds":
+            suggest = "account_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardVariableNrqlQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardVariableNrqlQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardVariableNrqlQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query: str,
+                 account_ids: Optional[Sequence[int]] = None):
+        """
+        :param str query: (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        pulumi.set(__self__, "query", query)
+        if account_ids is not None:
+            pulumi.set(__self__, "account_ids", account_ids)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> Optional[Sequence[int]]:
+        return pulumi.get(self, "account_ids")
+
+
+@pulumi.output_type
 class ServiceLevelEvents(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4125,14 +4328,18 @@ class ServiceLevelEventsBadEvents(dict):
 
     def __init__(__self__, *,
                  from_: str,
+                 select: Optional['outputs.ServiceLevelEventsBadEventsSelect'] = None,
                  where: Optional[str] = None):
         """
         :param str from_: The event type where NRDB data will be fetched from.
+        :param 'ServiceLevelEventsBadEventsSelectArgs' select: The NRQL SELECT clause to aggregate events.
         :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
                a particular entity and were successful).
                a particular entity and returned an error).
         """
         pulumi.set(__self__, "from_", from_)
+        if select is not None:
+            pulumi.set(__self__, "select", select)
         if where is not None:
             pulumi.set(__self__, "where", where)
 
@@ -4146,6 +4353,14 @@ class ServiceLevelEventsBadEvents(dict):
 
     @property
     @pulumi.getter
+    def select(self) -> Optional['outputs.ServiceLevelEventsBadEventsSelect']:
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
+        return pulumi.get(self, "select")
+
+    @property
+    @pulumi.getter
     def where(self) -> Optional[str]:
         """
         A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
@@ -4153,6 +4368,36 @@ class ServiceLevelEventsBadEvents(dict):
         a particular entity and returned an error).
         """
         return pulumi.get(self, "where")
+
+
+@pulumi.output_type
+class ServiceLevelEventsBadEventsSelect(dict):
+    def __init__(__self__, *,
+                 function: str,
+                 attribute: Optional[str] = None):
+        """
+        :param str function: The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        :param str attribute: The event attribute to use in the SELECT clause.
+        """
+        pulumi.set(__self__, "function", function)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional[str]:
+        """
+        The event attribute to use in the SELECT clause.
+        """
+        return pulumi.get(self, "attribute")
 
 
 @pulumi.output_type
@@ -4176,14 +4421,18 @@ class ServiceLevelEventsGoodEvents(dict):
 
     def __init__(__self__, *,
                  from_: str,
+                 select: Optional['outputs.ServiceLevelEventsGoodEventsSelect'] = None,
                  where: Optional[str] = None):
         """
         :param str from_: The event type where NRDB data will be fetched from.
+        :param 'ServiceLevelEventsGoodEventsSelectArgs' select: The NRQL SELECT clause to aggregate events.
         :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
                a particular entity and were successful).
                a particular entity and returned an error).
         """
         pulumi.set(__self__, "from_", from_)
+        if select is not None:
+            pulumi.set(__self__, "select", select)
         if where is not None:
             pulumi.set(__self__, "where", where)
 
@@ -4197,6 +4446,14 @@ class ServiceLevelEventsGoodEvents(dict):
 
     @property
     @pulumi.getter
+    def select(self) -> Optional['outputs.ServiceLevelEventsGoodEventsSelect']:
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
+        return pulumi.get(self, "select")
+
+    @property
+    @pulumi.getter
     def where(self) -> Optional[str]:
         """
         A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
@@ -4204,6 +4461,36 @@ class ServiceLevelEventsGoodEvents(dict):
         a particular entity and returned an error).
         """
         return pulumi.get(self, "where")
+
+
+@pulumi.output_type
+class ServiceLevelEventsGoodEventsSelect(dict):
+    def __init__(__self__, *,
+                 function: str,
+                 attribute: Optional[str] = None):
+        """
+        :param str function: The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        :param str attribute: The event attribute to use in the SELECT clause.
+        """
+        pulumi.set(__self__, "function", function)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional[str]:
+        """
+        The event attribute to use in the SELECT clause.
+        """
+        return pulumi.get(self, "attribute")
 
 
 @pulumi.output_type
@@ -4227,14 +4514,18 @@ class ServiceLevelEventsValidEvents(dict):
 
     def __init__(__self__, *,
                  from_: str,
+                 select: Optional['outputs.ServiceLevelEventsValidEventsSelect'] = None,
                  where: Optional[str] = None):
         """
         :param str from_: The event type where NRDB data will be fetched from.
+        :param 'ServiceLevelEventsValidEventsSelectArgs' select: The NRQL SELECT clause to aggregate events.
         :param str where: A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
                a particular entity and were successful).
                a particular entity and returned an error).
         """
         pulumi.set(__self__, "from_", from_)
+        if select is not None:
+            pulumi.set(__self__, "select", select)
         if where is not None:
             pulumi.set(__self__, "where", where)
 
@@ -4248,6 +4539,14 @@ class ServiceLevelEventsValidEvents(dict):
 
     @property
     @pulumi.getter
+    def select(self) -> Optional['outputs.ServiceLevelEventsValidEventsSelect']:
+        """
+        The NRQL SELECT clause to aggregate events.
+        """
+        return pulumi.get(self, "select")
+
+    @property
+    @pulumi.getter
     def where(self) -> Optional[str]:
         """
         A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
@@ -4255,6 +4554,36 @@ class ServiceLevelEventsValidEvents(dict):
         a particular entity and returned an error).
         """
         return pulumi.get(self, "where")
+
+
+@pulumi.output_type
+class ServiceLevelEventsValidEventsSelect(dict):
+    def __init__(__self__, *,
+                 function: str,
+                 attribute: Optional[str] = None):
+        """
+        :param str function: The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        :param str attribute: The event attribute to use in the SELECT clause.
+        """
+        pulumi.set(__self__, "function", function)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        """
+        The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        """
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional[str]:
+        """
+        The event attribute to use in the SELECT clause.
+        """
+        return pulumi.get(self, "attribute")
 
 
 @pulumi.output_type
@@ -4398,9 +4727,10 @@ class WorkflowDestination(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str name: A nrql enrichment name.
-        :param str type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicate`
+        :param str channel_id: id of a notification_channel to use for notifications. Please note that you have to use a 
+               **notification** channel, not an `alert_channel`.
+        :param str name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param str type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
@@ -4411,13 +4741,17 @@ class WorkflowDestination(dict):
     @property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> str:
+        """
+        id of a notification_channel to use for notifications. Please note that you have to use a 
+        **notification** channel, not an `alert_channel`.
+        """
         return pulumi.get(self, "channel_id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A nrql enrichment name.
+        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         """
         return pulumi.get(self, "name")
 
@@ -4425,8 +4759,7 @@ class WorkflowDestination(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicate`
+        Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         return pulumi.get(self, "type")
 
@@ -4435,11 +4768,17 @@ class WorkflowDestination(dict):
 class WorkflowEnrichments(dict):
     def __init__(__self__, *,
                  nrqls: Sequence['outputs.WorkflowEnrichmentsNrql']):
+        """
+        :param Sequence['WorkflowEnrichmentsNrqlArgs'] nrqls: a wrapper block
+        """
         pulumi.set(__self__, "nrqls", nrqls)
 
     @property
     @pulumi.getter
     def nrqls(self) -> Sequence['outputs.WorkflowEnrichmentsNrql']:
+        """
+        a wrapper block
+        """
         return pulumi.get(self, "nrqls")
 
 
@@ -4471,11 +4810,10 @@ class WorkflowEnrichmentsNrql(dict):
                  enrichment_id: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param Sequence['WorkflowEnrichmentsNrqlConfigurationArgs'] configurations: A list of nrql enrichments.
-        :param str name: A nrql enrichment name.
-        :param int account_id: Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
-        :param str type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicate`
+        :param Sequence['WorkflowEnrichmentsNrqlConfigurationArgs'] configurations: Another wrapper block
+        :param str name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param int account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+        :param str type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         pulumi.set(__self__, "configurations", configurations)
         pulumi.set(__self__, "name", name)
@@ -4490,7 +4828,7 @@ class WorkflowEnrichmentsNrql(dict):
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.WorkflowEnrichmentsNrqlConfiguration']:
         """
-        A list of nrql enrichments.
+        Another wrapper block
         """
         return pulumi.get(self, "configurations")
 
@@ -4498,7 +4836,7 @@ class WorkflowEnrichmentsNrql(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A nrql enrichment name.
+        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         """
         return pulumi.get(self, "name")
 
@@ -4506,7 +4844,7 @@ class WorkflowEnrichmentsNrql(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[int]:
         """
-        Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+        Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         """
         return pulumi.get(self, "account_id")
 
@@ -4519,8 +4857,7 @@ class WorkflowEnrichmentsNrql(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicate`
+        Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         return pulumi.get(self, "type")
 
@@ -4530,7 +4867,7 @@ class WorkflowEnrichmentsNrqlConfiguration(dict):
     def __init__(__self__, *,
                  query: str):
         """
-        :param str query: the nrql query.
+        :param str query: An NRQL query to run
         """
         pulumi.set(__self__, "query", query)
 
@@ -4538,7 +4875,7 @@ class WorkflowEnrichmentsNrqlConfiguration(dict):
     @pulumi.getter
     def query(self) -> str:
         """
-        the nrql query.
+        An NRQL query to run
         """
         return pulumi.get(self, "query")
 
@@ -4568,9 +4905,9 @@ class WorkflowIssuesFilter(dict):
                  filter_id: Optional[str] = None,
                  predicates: Optional[Sequence['outputs.WorkflowIssuesFilterPredicate']] = None):
         """
-        :param str name: A nrql enrichment name.
-        :param str type: the filter's type.   One of: `FILTER` or `VIEW`.
-               * `predicate`
+        :param str name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param str type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
+        :param Sequence['WorkflowIssuesFilterPredicateArgs'] predicates: A condition an issue event should satisfy to be processed by the workflow
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -4583,7 +4920,7 @@ class WorkflowIssuesFilter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A nrql enrichment name.
+        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         """
         return pulumi.get(self, "name")
 
@@ -4591,8 +4928,7 @@ class WorkflowIssuesFilter(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        the filter's type.   One of: `FILTER` or `VIEW`.
-        * `predicate`
+        Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         return pulumi.get(self, "type")
 
@@ -4604,6 +4940,9 @@ class WorkflowIssuesFilter(dict):
     @property
     @pulumi.getter
     def predicates(self) -> Optional[Sequence['outputs.WorkflowIssuesFilterPredicate']]:
+        """
+        A condition an issue event should satisfy to be processed by the workflow
+        """
         return pulumi.get(self, "predicates")
 
 
@@ -4614,9 +4953,11 @@ class WorkflowIssuesFilterPredicate(dict):
                  operator: str,
                  values: Sequence[str]):
         """
-        :param str attribute: A predicate's attribute.
-        :param str operator: A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
-        :param Sequence[str] values: A list of values.
+        :param str attribute: Issue event attribute to check
+        :param str operator: An operator to use to compare the attribute with the provided `values`. 
+               One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+               `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+        :param Sequence[str] values: The `attribute` must match **any** of the values in this list
         """
         pulumi.set(__self__, "attribute", attribute)
         pulumi.set(__self__, "operator", operator)
@@ -4626,7 +4967,7 @@ class WorkflowIssuesFilterPredicate(dict):
     @pulumi.getter
     def attribute(self) -> str:
         """
-        A predicate's attribute.
+        Issue event attribute to check
         """
         return pulumi.get(self, "attribute")
 
@@ -4634,7 +4975,9 @@ class WorkflowIssuesFilterPredicate(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        An operator to use to compare the attribute with the provided `values`. 
+        One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+        `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
         """
         return pulumi.get(self, "operator")
 
@@ -4642,7 +4985,7 @@ class WorkflowIssuesFilterPredicate(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        A list of values.
+        The `attribute` must match **any** of the values in this list
         """
         return pulumi.get(self, "values")
 
@@ -4817,17 +5160,27 @@ class GetEntityTagResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The tag key.
+        :param str value: The tag value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
 

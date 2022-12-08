@@ -8,6 +8,7 @@ import com.pulumi.newrelic.outputs.GetEntityTag;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,8 +38,12 @@ public final class GetEntityResult {
     private String id;
     private @Nullable Boolean ignoreCase;
     private String name;
+    /**
+     * @return The browser-specific ID of the backing APM entity. Only returned for Browser applications.
+     * 
+     */
     private Integer servingApmApplicationId;
-    private @Nullable GetEntityTag tag;
+    private @Nullable List<GetEntityTag> tags;
     private String type;
 
     private GetEntityResult() {}
@@ -79,11 +84,15 @@ public final class GetEntityResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The browser-specific ID of the backing APM entity. Only returned for Browser applications.
+     * 
+     */
     public Integer servingApmApplicationId() {
         return this.servingApmApplicationId;
     }
-    public Optional<GetEntityTag> tag() {
-        return Optional.ofNullable(this.tag);
+    public List<GetEntityTag> tags() {
+        return this.tags == null ? List.of() : this.tags;
     }
     public String type() {
         return this.type;
@@ -106,7 +115,7 @@ public final class GetEntityResult {
         private @Nullable Boolean ignoreCase;
         private String name;
         private Integer servingApmApplicationId;
-        private @Nullable GetEntityTag tag;
+        private @Nullable List<GetEntityTag> tags;
         private String type;
         public Builder() {}
         public Builder(GetEntityResult defaults) {
@@ -119,7 +128,7 @@ public final class GetEntityResult {
     	      this.ignoreCase = defaults.ignoreCase;
     	      this.name = defaults.name;
     	      this.servingApmApplicationId = defaults.servingApmApplicationId;
-    	      this.tag = defaults.tag;
+    	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
 
@@ -164,9 +173,12 @@ public final class GetEntityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tag(@Nullable GetEntityTag tag) {
-            this.tag = tag;
+        public Builder tags(@Nullable List<GetEntityTag> tags) {
+            this.tags = tags;
             return this;
+        }
+        public Builder tags(GetEntityTag... tags) {
+            return tags(List.of(tags));
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -183,7 +195,7 @@ public final class GetEntityResult {
             o.ignoreCase = ignoreCase;
             o.name = name;
             o.servingApmApplicationId = servingApmApplicationId;
-            o.tag = tag;
+            o.tags = tags;
             o.type = type;
             return o;
         }

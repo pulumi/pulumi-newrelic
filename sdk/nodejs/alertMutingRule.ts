@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -86,7 +87,7 @@ export class AlertMutingRule extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * The condition that defines which violations to target. See Nested condition blocks below for details.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     public readonly condition!: pulumi.Output<outputs.AlertMutingRuleCondition>;
     /**
@@ -154,7 +155,7 @@ export interface AlertMutingRuleState {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * The condition that defines which violations to target. See Nested condition blocks below for details.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     condition?: pulumi.Input<inputs.AlertMutingRuleCondition>;
     /**
@@ -184,7 +185,7 @@ export interface AlertMutingRuleArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * The condition that defines which violations to target. See Nested condition blocks below for details.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      */
     condition: pulumi.Input<inputs.AlertMutingRuleCondition>;
     /**

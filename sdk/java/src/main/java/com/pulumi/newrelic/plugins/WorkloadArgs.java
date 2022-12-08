@@ -6,6 +6,8 @@ package com.pulumi.newrelic.plugins;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
+import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticArgs;
+import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigStaticArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -31,6 +33,21 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> accountId() {
         return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * A description that provides additional details about the status of the workload.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return A description that provides additional details about the status of the workload.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
     }
 
     /**
@@ -93,14 +110,47 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.scopeAccountIds);
     }
 
+    /**
+     * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * 
+     */
+    @Import(name="statusConfigAutomatic")
+    private @Nullable Output<WorkloadStatusConfigAutomaticArgs> statusConfigAutomatic;
+
+    /**
+     * @return An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * 
+     */
+    public Optional<Output<WorkloadStatusConfigAutomaticArgs>> statusConfigAutomatic() {
+        return Optional.ofNullable(this.statusConfigAutomatic);
+    }
+
+    /**
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * 
+     */
+    @Import(name="statusConfigStatic")
+    private @Nullable Output<WorkloadStatusConfigStaticArgs> statusConfigStatic;
+
+    /**
+     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * 
+     */
+    public Optional<Output<WorkloadStatusConfigStaticArgs>> statusConfigStatic() {
+        return Optional.ofNullable(this.statusConfigStatic);
+    }
+
     private WorkloadArgs() {}
 
     private WorkloadArgs(WorkloadArgs $) {
         this.accountId = $.accountId;
+        this.description = $.description;
         this.entityGuids = $.entityGuids;
         this.entitySearchQueries = $.entitySearchQueries;
         this.name = $.name;
         this.scopeAccountIds = $.scopeAccountIds;
+        this.statusConfigAutomatic = $.statusConfigAutomatic;
+        this.statusConfigStatic = $.statusConfigStatic;
     }
 
     public static Builder builder() {
@@ -140,6 +190,27 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountId(Integer accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param description A description that provides additional details about the status of the workload.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description A description that provides additional details about the status of the workload.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
@@ -254,6 +325,48 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder scopeAccountIds(Integer... scopeAccountIds) {
             return scopeAccountIds(List.of(scopeAccountIds));
+        }
+
+        /**
+         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusConfigAutomatic(@Nullable Output<WorkloadStatusConfigAutomaticArgs> statusConfigAutomatic) {
+            $.statusConfigAutomatic = statusConfigAutomatic;
+            return this;
+        }
+
+        /**
+         * @param statusConfigAutomatic An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusConfigAutomatic(WorkloadStatusConfigAutomaticArgs statusConfigAutomatic) {
+            return statusConfigAutomatic(Output.of(statusConfigAutomatic));
+        }
+
+        /**
+         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusConfigStatic(@Nullable Output<WorkloadStatusConfigStaticArgs> statusConfigStatic) {
+            $.statusConfigStatic = statusConfigStatic;
+            return this;
+        }
+
+        /**
+         * @param statusConfigStatic A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusConfigStatic(WorkloadStatusConfigStaticArgs statusConfigStatic) {
+            return statusConfigStatic(Output.of(statusConfigStatic));
         }
 
         public WorkloadArgs build() {

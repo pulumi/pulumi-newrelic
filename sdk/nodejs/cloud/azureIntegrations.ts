@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,31 +72,31 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly costManagement!: pulumi.Output<outputs.cloud.AzureIntegrationsCostManagement | undefined>;
     /**
-     * for Azure Data Factory. See Integration blocks below for details.
+     * Azure Data Factory. See Integration blocks below for details.
      */
     public readonly dataFactory!: pulumi.Output<outputs.cloud.AzureIntegrationsDataFactory | undefined>;
     /**
-     * for Azure Event Hub. See Integration blocks below for details.
+     * Azure Event Hub. See Integration blocks below for details.
      */
     public readonly eventHub!: pulumi.Output<outputs.cloud.AzureIntegrationsEventHub | undefined>;
     /**
-     * for Azure Express Route. See Integration blocks below for details.
+     * Azure Express Route. See Integration blocks below for details.
      */
     public readonly expressRoute!: pulumi.Output<outputs.cloud.AzureIntegrationsExpressRoute | undefined>;
     /**
-     * for Azure Firewalls. See Integration blocks below for details.
+     * Azure Firewalls. See Integration blocks below for details.
      */
     public readonly firewalls!: pulumi.Output<outputs.cloud.AzureIntegrationsFirewalls | undefined>;
     /**
-     * for Azure Front Door. See Integration blocks below for details.
+     * Azure Front Door. See Integration blocks below for details.
      */
     public readonly frontDoor!: pulumi.Output<outputs.cloud.AzureIntegrationsFrontDoor | undefined>;
     /**
-     * for Azure Functions. See Integration blocks below for details.
+     * Azure Functions. See Integration blocks below for details.
      */
     public readonly functions!: pulumi.Output<outputs.cloud.AzureIntegrationsFunctions | undefined>;
     /**
-     * for Azure Key Vault. See Integration blocks below for details.
+     * Azure Key Vault. See Integration blocks below for details.
      */
     public readonly keyVault!: pulumi.Output<outputs.cloud.AzureIntegrationsKeyVault | undefined>;
     /**
@@ -103,47 +104,55 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly linkedAccountId!: pulumi.Output<number>;
     /**
-     * for Azure Load Balancer. See Integration blocks below for details.
+     * Azure Load Balancer. See Integration blocks below for details.
      */
     public readonly loadBalancer!: pulumi.Output<outputs.cloud.AzureIntegrationsLoadBalancer | undefined>;
     /**
-     * for Azure Logic Apps. See Integration blocks below for details.
+     * Azure Logic Apps. See Integration blocks below for details.
      */
     public readonly logicApps!: pulumi.Output<outputs.cloud.AzureIntegrationsLogicApps | undefined>;
     /**
-     * for Azure Machine Learning. See Integration blocks below for details.
+     * Azure Machine Learning. See Integration blocks below for details.
      */
     public readonly machineLearning!: pulumi.Output<outputs.cloud.AzureIntegrationsMachineLearning | undefined>;
     /**
-     * for Azure MariaDB. See Integration blocks below for details.
+     * Azure MariaDB. See Integration blocks below for details.
      */
     public readonly mariaDb!: pulumi.Output<outputs.cloud.AzureIntegrationsMariaDb | undefined>;
     /**
-     * for Azure MySQL. See Integration blocks below for details.
+     * Azure MySQL. See Integration blocks below for details.
      */
     public readonly mysql!: pulumi.Output<outputs.cloud.AzureIntegrationsMysql | undefined>;
     /**
-     * for Azure PostgreSQL. See Integration blocks below for details.
+     * Azure MySQL Flexible Server. See Integration blocks below for details.
+     */
+    public readonly mysqlFlexible!: pulumi.Output<outputs.cloud.AzureIntegrationsMysqlFlexible | undefined>;
+    /**
+     * Azure PostgreSQL. See Integration blocks below for details.
      */
     public readonly postgresql!: pulumi.Output<outputs.cloud.AzureIntegrationsPostgresql | undefined>;
     /**
-     * for Azure Power BI Dedicated. See Integration blocks below for details.
+     * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     */
+    public readonly postgresqlFlexible!: pulumi.Output<outputs.cloud.AzureIntegrationsPostgresqlFlexible | undefined>;
+    /**
+     * Azure Power BI Dedicated. See Integration blocks below for details.
      */
     public readonly powerBiDedicated!: pulumi.Output<outputs.cloud.AzureIntegrationsPowerBiDedicated | undefined>;
     /**
-     * for Azure Redis Cache. See Integration blocks below for details.
+     * Azure Redis Cache. See Integration blocks below for details.
      */
     public readonly redisCache!: pulumi.Output<outputs.cloud.AzureIntegrationsRedisCache | undefined>;
     /**
-     * for Azure Service Bus. See Integration blocks below for details.
+     * Azure Service Bus. See Integration blocks below for details.
      */
     public readonly serviceBus!: pulumi.Output<outputs.cloud.AzureIntegrationsServiceBus | undefined>;
     /**
-     * for Azure SQL. See Integration blocks below for details.
+     * Azure SQL. See Integration blocks below for details.
      */
     public readonly sql!: pulumi.Output<outputs.cloud.AzureIntegrationsSql | undefined>;
     /**
-     * for SQL Managed. See Integration blocks below for details.
+     * Azure SQL Managed. See Integration blocks below for details.
      */
     public readonly sqlManaged!: pulumi.Output<outputs.cloud.AzureIntegrationsSqlManaged | undefined>;
     /**
@@ -151,7 +160,7 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly storage!: pulumi.Output<outputs.cloud.AzureIntegrationsStorage | undefined>;
     /**
-     * for Azure Virtual machine. See Integration blocks below for details.
+     * Azure Virtual machine. See Integration blocks below for details.
      */
     public readonly virtualMachine!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualMachine | undefined>;
     /**
@@ -159,11 +168,11 @@ export class AzureIntegrations extends pulumi.CustomResource {
      */
     public readonly virtualNetworks!: pulumi.Output<outputs.cloud.AzureIntegrationsVirtualNetworks | undefined>;
     /**
-     * for Azure VMs. See Integration blocks below for details.
+     * Azure VMs. See Integration blocks below for details.
      */
     public readonly vms!: pulumi.Output<outputs.cloud.AzureIntegrationsVms | undefined>;
     /**
-     * for Azure VPN Gateway. See Integration blocks below for details.
+     * Azure VPN Gateway. See Integration blocks below for details.
      */
     public readonly vpnGateway!: pulumi.Output<outputs.cloud.AzureIntegrationsVpnGateway | undefined>;
 
@@ -200,7 +209,9 @@ export class AzureIntegrations extends pulumi.CustomResource {
             resourceInputs["machineLearning"] = state ? state.machineLearning : undefined;
             resourceInputs["mariaDb"] = state ? state.mariaDb : undefined;
             resourceInputs["mysql"] = state ? state.mysql : undefined;
+            resourceInputs["mysqlFlexible"] = state ? state.mysqlFlexible : undefined;
             resourceInputs["postgresql"] = state ? state.postgresql : undefined;
+            resourceInputs["postgresqlFlexible"] = state ? state.postgresqlFlexible : undefined;
             resourceInputs["powerBiDedicated"] = state ? state.powerBiDedicated : undefined;
             resourceInputs["redisCache"] = state ? state.redisCache : undefined;
             resourceInputs["serviceBus"] = state ? state.serviceBus : undefined;
@@ -236,7 +247,9 @@ export class AzureIntegrations extends pulumi.CustomResource {
             resourceInputs["machineLearning"] = args ? args.machineLearning : undefined;
             resourceInputs["mariaDb"] = args ? args.mariaDb : undefined;
             resourceInputs["mysql"] = args ? args.mysql : undefined;
+            resourceInputs["mysqlFlexible"] = args ? args.mysqlFlexible : undefined;
             resourceInputs["postgresql"] = args ? args.postgresql : undefined;
+            resourceInputs["postgresqlFlexible"] = args ? args.postgresqlFlexible : undefined;
             resourceInputs["powerBiDedicated"] = args ? args.powerBiDedicated : undefined;
             resourceInputs["redisCache"] = args ? args.redisCache : undefined;
             resourceInputs["serviceBus"] = args ? args.serviceBus : undefined;
@@ -286,31 +299,31 @@ export interface AzureIntegrationsState {
      */
     costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement>;
     /**
-     * for Azure Data Factory. See Integration blocks below for details.
+     * Azure Data Factory. See Integration blocks below for details.
      */
     dataFactory?: pulumi.Input<inputs.cloud.AzureIntegrationsDataFactory>;
     /**
-     * for Azure Event Hub. See Integration blocks below for details.
+     * Azure Event Hub. See Integration blocks below for details.
      */
     eventHub?: pulumi.Input<inputs.cloud.AzureIntegrationsEventHub>;
     /**
-     * for Azure Express Route. See Integration blocks below for details.
+     * Azure Express Route. See Integration blocks below for details.
      */
     expressRoute?: pulumi.Input<inputs.cloud.AzureIntegrationsExpressRoute>;
     /**
-     * for Azure Firewalls. See Integration blocks below for details.
+     * Azure Firewalls. See Integration blocks below for details.
      */
     firewalls?: pulumi.Input<inputs.cloud.AzureIntegrationsFirewalls>;
     /**
-     * for Azure Front Door. See Integration blocks below for details.
+     * Azure Front Door. See Integration blocks below for details.
      */
     frontDoor?: pulumi.Input<inputs.cloud.AzureIntegrationsFrontDoor>;
     /**
-     * for Azure Functions. See Integration blocks below for details.
+     * Azure Functions. See Integration blocks below for details.
      */
     functions?: pulumi.Input<inputs.cloud.AzureIntegrationsFunctions>;
     /**
-     * for Azure Key Vault. See Integration blocks below for details.
+     * Azure Key Vault. See Integration blocks below for details.
      */
     keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
     /**
@@ -318,47 +331,55 @@ export interface AzureIntegrationsState {
      */
     linkedAccountId?: pulumi.Input<number>;
     /**
-     * for Azure Load Balancer. See Integration blocks below for details.
+     * Azure Load Balancer. See Integration blocks below for details.
      */
     loadBalancer?: pulumi.Input<inputs.cloud.AzureIntegrationsLoadBalancer>;
     /**
-     * for Azure Logic Apps. See Integration blocks below for details.
+     * Azure Logic Apps. See Integration blocks below for details.
      */
     logicApps?: pulumi.Input<inputs.cloud.AzureIntegrationsLogicApps>;
     /**
-     * for Azure Machine Learning. See Integration blocks below for details.
+     * Azure Machine Learning. See Integration blocks below for details.
      */
     machineLearning?: pulumi.Input<inputs.cloud.AzureIntegrationsMachineLearning>;
     /**
-     * for Azure MariaDB. See Integration blocks below for details.
+     * Azure MariaDB. See Integration blocks below for details.
      */
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
     /**
-     * for Azure MySQL. See Integration blocks below for details.
+     * Azure MySQL. See Integration blocks below for details.
      */
     mysql?: pulumi.Input<inputs.cloud.AzureIntegrationsMysql>;
     /**
-     * for Azure PostgreSQL. See Integration blocks below for details.
+     * Azure MySQL Flexible Server. See Integration blocks below for details.
+     */
+    mysqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsMysqlFlexible>;
+    /**
+     * Azure PostgreSQL. See Integration blocks below for details.
      */
     postgresql?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresql>;
     /**
-     * for Azure Power BI Dedicated. See Integration blocks below for details.
+     * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     */
+    postgresqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresqlFlexible>;
+    /**
+     * Azure Power BI Dedicated. See Integration blocks below for details.
      */
     powerBiDedicated?: pulumi.Input<inputs.cloud.AzureIntegrationsPowerBiDedicated>;
     /**
-     * for Azure Redis Cache. See Integration blocks below for details.
+     * Azure Redis Cache. See Integration blocks below for details.
      */
     redisCache?: pulumi.Input<inputs.cloud.AzureIntegrationsRedisCache>;
     /**
-     * for Azure Service Bus. See Integration blocks below for details.
+     * Azure Service Bus. See Integration blocks below for details.
      */
     serviceBus?: pulumi.Input<inputs.cloud.AzureIntegrationsServiceBus>;
     /**
-     * for Azure SQL. See Integration blocks below for details.
+     * Azure SQL. See Integration blocks below for details.
      */
     sql?: pulumi.Input<inputs.cloud.AzureIntegrationsSql>;
     /**
-     * for SQL Managed. See Integration blocks below for details.
+     * Azure SQL Managed. See Integration blocks below for details.
      */
     sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged>;
     /**
@@ -366,7 +387,7 @@ export interface AzureIntegrationsState {
      */
     storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage>;
     /**
-     * for Azure Virtual machine. See Integration blocks below for details.
+     * Azure Virtual machine. See Integration blocks below for details.
      */
     virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
     /**
@@ -374,11 +395,11 @@ export interface AzureIntegrationsState {
      */
     virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
     /**
-     * for Azure VMs. See Integration blocks below for details.
+     * Azure VMs. See Integration blocks below for details.
      */
     vms?: pulumi.Input<inputs.cloud.AzureIntegrationsVms>;
     /**
-     * for Azure VPN Gateway. See Integration blocks below for details.
+     * Azure VPN Gateway. See Integration blocks below for details.
      */
     vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway>;
 }
@@ -416,31 +437,31 @@ export interface AzureIntegrationsArgs {
      */
     costManagement?: pulumi.Input<inputs.cloud.AzureIntegrationsCostManagement>;
     /**
-     * for Azure Data Factory. See Integration blocks below for details.
+     * Azure Data Factory. See Integration blocks below for details.
      */
     dataFactory?: pulumi.Input<inputs.cloud.AzureIntegrationsDataFactory>;
     /**
-     * for Azure Event Hub. See Integration blocks below for details.
+     * Azure Event Hub. See Integration blocks below for details.
      */
     eventHub?: pulumi.Input<inputs.cloud.AzureIntegrationsEventHub>;
     /**
-     * for Azure Express Route. See Integration blocks below for details.
+     * Azure Express Route. See Integration blocks below for details.
      */
     expressRoute?: pulumi.Input<inputs.cloud.AzureIntegrationsExpressRoute>;
     /**
-     * for Azure Firewalls. See Integration blocks below for details.
+     * Azure Firewalls. See Integration blocks below for details.
      */
     firewalls?: pulumi.Input<inputs.cloud.AzureIntegrationsFirewalls>;
     /**
-     * for Azure Front Door. See Integration blocks below for details.
+     * Azure Front Door. See Integration blocks below for details.
      */
     frontDoor?: pulumi.Input<inputs.cloud.AzureIntegrationsFrontDoor>;
     /**
-     * for Azure Functions. See Integration blocks below for details.
+     * Azure Functions. See Integration blocks below for details.
      */
     functions?: pulumi.Input<inputs.cloud.AzureIntegrationsFunctions>;
     /**
-     * for Azure Key Vault. See Integration blocks below for details.
+     * Azure Key Vault. See Integration blocks below for details.
      */
     keyVault?: pulumi.Input<inputs.cloud.AzureIntegrationsKeyVault>;
     /**
@@ -448,47 +469,55 @@ export interface AzureIntegrationsArgs {
      */
     linkedAccountId: pulumi.Input<number>;
     /**
-     * for Azure Load Balancer. See Integration blocks below for details.
+     * Azure Load Balancer. See Integration blocks below for details.
      */
     loadBalancer?: pulumi.Input<inputs.cloud.AzureIntegrationsLoadBalancer>;
     /**
-     * for Azure Logic Apps. See Integration blocks below for details.
+     * Azure Logic Apps. See Integration blocks below for details.
      */
     logicApps?: pulumi.Input<inputs.cloud.AzureIntegrationsLogicApps>;
     /**
-     * for Azure Machine Learning. See Integration blocks below for details.
+     * Azure Machine Learning. See Integration blocks below for details.
      */
     machineLearning?: pulumi.Input<inputs.cloud.AzureIntegrationsMachineLearning>;
     /**
-     * for Azure MariaDB. See Integration blocks below for details.
+     * Azure MariaDB. See Integration blocks below for details.
      */
     mariaDb?: pulumi.Input<inputs.cloud.AzureIntegrationsMariaDb>;
     /**
-     * for Azure MySQL. See Integration blocks below for details.
+     * Azure MySQL. See Integration blocks below for details.
      */
     mysql?: pulumi.Input<inputs.cloud.AzureIntegrationsMysql>;
     /**
-     * for Azure PostgreSQL. See Integration blocks below for details.
+     * Azure MySQL Flexible Server. See Integration blocks below for details.
+     */
+    mysqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsMysqlFlexible>;
+    /**
+     * Azure PostgreSQL. See Integration blocks below for details.
      */
     postgresql?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresql>;
     /**
-     * for Azure Power BI Dedicated. See Integration blocks below for details.
+     * Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+     */
+    postgresqlFlexible?: pulumi.Input<inputs.cloud.AzureIntegrationsPostgresqlFlexible>;
+    /**
+     * Azure Power BI Dedicated. See Integration blocks below for details.
      */
     powerBiDedicated?: pulumi.Input<inputs.cloud.AzureIntegrationsPowerBiDedicated>;
     /**
-     * for Azure Redis Cache. See Integration blocks below for details.
+     * Azure Redis Cache. See Integration blocks below for details.
      */
     redisCache?: pulumi.Input<inputs.cloud.AzureIntegrationsRedisCache>;
     /**
-     * for Azure Service Bus. See Integration blocks below for details.
+     * Azure Service Bus. See Integration blocks below for details.
      */
     serviceBus?: pulumi.Input<inputs.cloud.AzureIntegrationsServiceBus>;
     /**
-     * for Azure SQL. See Integration blocks below for details.
+     * Azure SQL. See Integration blocks below for details.
      */
     sql?: pulumi.Input<inputs.cloud.AzureIntegrationsSql>;
     /**
-     * for SQL Managed. See Integration blocks below for details.
+     * Azure SQL Managed. See Integration blocks below for details.
      */
     sqlManaged?: pulumi.Input<inputs.cloud.AzureIntegrationsSqlManaged>;
     /**
@@ -496,7 +525,7 @@ export interface AzureIntegrationsArgs {
      */
     storage?: pulumi.Input<inputs.cloud.AzureIntegrationsStorage>;
     /**
-     * for Azure Virtual machine. See Integration blocks below for details.
+     * Azure Virtual machine. See Integration blocks below for details.
      */
     virtualMachine?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualMachine>;
     /**
@@ -504,11 +533,11 @@ export interface AzureIntegrationsArgs {
      */
     virtualNetworks?: pulumi.Input<inputs.cloud.AzureIntegrationsVirtualNetworks>;
     /**
-     * for Azure VMs. See Integration blocks below for details.
+     * Azure VMs. See Integration blocks below for details.
      */
     vms?: pulumi.Input<inputs.cloud.AzureIntegrationsVms>;
     /**
-     * for Azure VPN Gateway. See Integration blocks below for details.
+     * Azure VPN Gateway. See Integration blocks below for details.
      */
     vpnGateway?: pulumi.Input<inputs.cloud.AzureIntegrationsVpnGateway>;
 }

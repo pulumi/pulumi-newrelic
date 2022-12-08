@@ -25,38 +25,44 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * A condition an issue event should satisfy to be processed by the workflow
+     * 
+     */
     @Import(name="predicates")
     private @Nullable Output<List<WorkflowIssuesFilterPredicateArgs>> predicates;
 
+    /**
+     * @return A condition an issue event should satisfy to be processed by the workflow
+     * 
+     */
     public Optional<Output<List<WorkflowIssuesFilterPredicateArgs>>> predicates() {
         return Optional.ofNullable(this.predicates);
     }
 
     /**
-     * the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     public Output<String> type() {
@@ -100,7 +106,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -111,7 +117,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A nrql enrichment name.
+         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
          * 
          * @return builder
          * 
@@ -120,22 +126,39 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
             return name(Output.of(name));
         }
 
+        /**
+         * @param predicates A condition an issue event should satisfy to be processed by the workflow
+         * 
+         * @return builder
+         * 
+         */
         public Builder predicates(@Nullable Output<List<WorkflowIssuesFilterPredicateArgs>> predicates) {
             $.predicates = predicates;
             return this;
         }
 
+        /**
+         * @param predicates A condition an issue event should satisfy to be processed by the workflow
+         * 
+         * @return builder
+         * 
+         */
         public Builder predicates(List<WorkflowIssuesFilterPredicateArgs> predicates) {
             return predicates(Output.of(predicates));
         }
 
+        /**
+         * @param predicates A condition an issue event should satisfy to be processed by the workflow
+         * 
+         * @return builder
+         * 
+         */
         public Builder predicates(WorkflowIssuesFilterPredicateArgs... predicates) {
             return predicates(List.of(predicates));
         }
 
         /**
-         * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicate`
+         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
          * 
          * @return builder
          * 
@@ -146,8 +169,7 @@ public final class WorkflowIssuesFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-         * * `predicate`
+         * @param type Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
          * 
          * @return builder
          * 

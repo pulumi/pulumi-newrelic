@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -126,7 +127,7 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<number>;
     /**
-     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      */
     public readonly critical!: pulumi.Output<outputs.InfraAlertConditionCritical | undefined>;
     /**
@@ -174,11 +175,11 @@ export class InfraAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<number>;
     /**
-     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
     /**
-     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      */
     public readonly warning!: pulumi.Output<outputs.InfraAlertConditionWarning | undefined>;
     /**
@@ -260,7 +261,7 @@ export interface InfraAlertConditionState {
      */
     createdAt?: pulumi.Input<number>;
     /**
-     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      */
     critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
@@ -308,11 +309,11 @@ export interface InfraAlertConditionState {
      */
     updatedAt?: pulumi.Input<number>;
     /**
-     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
-     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**
@@ -330,7 +331,7 @@ export interface InfraAlertConditionArgs {
      */
     comparison?: pulumi.Input<string>;
     /**
-     * Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
      */
     critical?: pulumi.Input<inputs.InfraAlertConditionCritical>;
     /**
@@ -374,11 +375,11 @@ export interface InfraAlertConditionArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+     * Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
      */
     violationCloseTimer?: pulumi.Input<number>;
     /**
-     * Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+     * Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
      */
     warning?: pulumi.Input<inputs.InfraAlertConditionWarning>;
     /**

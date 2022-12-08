@@ -20,7 +20,8 @@ class OneDashboardArgs:
                  account_id: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[str]] = None):
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         The set of arguments for constructing a OneDashboard resource.
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
@@ -28,6 +29,7 @@ class OneDashboardArgs:
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         pulumi.set(__self__, "pages", pages)
         if account_id is not None:
@@ -38,6 +40,8 @@ class OneDashboardArgs:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -99,6 +103,18 @@ class OneDashboardArgs:
     def permissions(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "permissions", value)
 
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
+        """
+        A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
 
 @pulumi.input_type
 class _OneDashboardState:
@@ -109,7 +125,8 @@ class _OneDashboardState:
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]]] = None,
                  permalink: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[str]] = None):
+                 permissions: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering OneDashboard resources.
         :param pulumi.Input[int] account_id: Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
@@ -119,6 +136,7 @@ class _OneDashboardState:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageArgs']]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -134,6 +152,8 @@ class _OneDashboardState:
             pulumi.set(__self__, "permalink", permalink)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter(name="accountId")
@@ -219,6 +239,18 @@ class _OneDashboardState:
     def permissions(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "permissions", value)
 
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]:
+        """
+        A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
 
 class OneDashboard(pulumi.CustomResource):
     @overload
@@ -230,17 +262,20 @@ class OneDashboard(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]]] = None,
                  __props__=None):
         """
+        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+
         ## Example Usage
         ## Additional Examples
 
         ## Import
 
-        New Relic dashboards can be imported using their GUID, e.g.
+        New Relic dashboards can be imported using their GUID, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <Dashboard GUID>
+         $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
         ```
 
          In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
@@ -252,6 +287,7 @@ class OneDashboard(pulumi.CustomResource):
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         ...
     @overload
@@ -260,15 +296,17 @@ class OneDashboard(pulumi.CustomResource):
                  args: OneDashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+
         ## Example Usage
         ## Additional Examples
 
         ## Import
 
-        New Relic dashboards can be imported using their GUID, e.g.
+        New Relic dashboards can be imported using their GUID, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <Dashboard GUID>
+         $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard <dashboard GUID>
         ```
 
          In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
@@ -293,6 +331,7 @@ class OneDashboard(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,6 +348,7 @@ class OneDashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'pages'")
             __props__.__dict__["pages"] = pages
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["variables"] = variables
             __props__.__dict__["guid"] = None
             __props__.__dict__["permalink"] = None
         super(OneDashboard, __self__).__init__(
@@ -327,7 +367,8 @@ class OneDashboard(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             pages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]]] = None,
             permalink: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[str]] = None) -> 'OneDashboard':
+            permissions: Optional[pulumi.Input[str]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]]] = None) -> 'OneDashboard':
         """
         Get an existing OneDashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -342,6 +383,7 @@ class OneDashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardPageArgs']]]] pages: A nested block that describes a page. See Nested page blocks below for details.
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[str] permissions: Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]] variables: A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,6 +396,7 @@ class OneDashboard(pulumi.CustomResource):
         __props__.__dict__["pages"] = pages
         __props__.__dict__["permalink"] = permalink
         __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["variables"] = variables
         return OneDashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -411,4 +454,12 @@ class OneDashboard(pulumi.CustomResource):
         Determines who can see the dashboard in an account. Valid values are `private`, `public_read_only`, or `public_read_write`.  Defaults to `public_read_only`.
         """
         return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> pulumi.Output[Optional[Sequence['outputs.OneDashboardVariable']]]:
+        """
+        A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        """
+        return pulumi.get(self, "variables")
 

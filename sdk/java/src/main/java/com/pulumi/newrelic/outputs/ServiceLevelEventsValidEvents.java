@@ -4,6 +4,7 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.newrelic.outputs.ServiceLevelEventsValidEventsSelect;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class ServiceLevelEventsValidEvents {
      * 
      */
     private String from;
+    /**
+     * @return The NRQL SELECT clause to aggregate events.
+     * 
+     */
+    private @Nullable ServiceLevelEventsValidEventsSelect select;
     /**
      * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
      * a particular entity and were successful).
@@ -31,6 +37,13 @@ public final class ServiceLevelEventsValidEvents {
      */
     public String from() {
         return this.from;
+    }
+    /**
+     * @return The NRQL SELECT clause to aggregate events.
+     * 
+     */
+    public Optional<ServiceLevelEventsValidEventsSelect> select() {
+        return Optional.ofNullable(this.select);
     }
     /**
      * @return A filter that specifies all the NRDB events that are considered in this SLI (e.g, those that refer to a particular entity).
@@ -52,17 +65,24 @@ public final class ServiceLevelEventsValidEvents {
     @CustomType.Builder
     public static final class Builder {
         private String from;
+        private @Nullable ServiceLevelEventsValidEventsSelect select;
         private @Nullable String where;
         public Builder() {}
         public Builder(ServiceLevelEventsValidEvents defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.from = defaults.from;
+    	      this.select = defaults.select;
     	      this.where = defaults.where;
         }
 
         @CustomType.Setter
         public Builder from(String from) {
             this.from = Objects.requireNonNull(from);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder select(@Nullable ServiceLevelEventsValidEventsSelect select) {
+            this.select = select;
             return this;
         }
         @CustomType.Setter
@@ -73,6 +93,7 @@ public final class ServiceLevelEventsValidEvents {
         public ServiceLevelEventsValidEvents build() {
             final var o = new ServiceLevelEventsValidEvents();
             o.from = from;
+            o.select = select;
             o.where = where;
             return o;
         }

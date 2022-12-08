@@ -111,14 +111,16 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
             if ((!args || args.secretAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretAccessKey'");
             }
-            resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
+            resourceInputs["accessKeyId"] = args?.accessKeyId ? pulumi.secret(args.accessKeyId) : undefined;
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["metricCollectionMode"] = args ? args.metricCollectionMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
+            resourceInputs["secretAccessKey"] = args?.secretAccessKey ? pulumi.secret(args.secretAccessKey) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessKeyId", "secretAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AwsGovcloudLinkAccount.__pulumiType, name, resourceInputs, opts);
     }
 }

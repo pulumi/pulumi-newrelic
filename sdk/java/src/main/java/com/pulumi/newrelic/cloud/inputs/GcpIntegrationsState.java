@@ -5,6 +5,7 @@ package com.pulumi.newrelic.cloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsAlloyDbArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsAppEngineArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsBigQueryArgs;
 import com.pulumi.newrelic.cloud.inputs.GcpIntegrationsBigTableArgs;
@@ -53,6 +54,21 @@ public final class GcpIntegrationsState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<Integer>> accountId() {
         return Optional.ofNullable(this.accountId);
+    }
+
+    /**
+     * Alloy DB integration. See Integration blocks below for details.
+     * 
+     */
+    @Import(name="alloyDb")
+    private @Nullable Output<GcpIntegrationsAlloyDbArgs> alloyDb;
+
+    /**
+     * @return Alloy DB integration. See Integration blocks below for details.
+     * 
+     */
+    public Optional<Output<GcpIntegrationsAlloyDbArgs>> alloyDb() {
+        return Optional.ofNullable(this.alloyDb);
     }
 
     /**
@@ -449,6 +465,7 @@ public final class GcpIntegrationsState extends com.pulumi.resources.ResourceArg
 
     private GcpIntegrationsState(GcpIntegrationsState $) {
         this.accountId = $.accountId;
+        this.alloyDb = $.alloyDb;
         this.appEngine = $.appEngine;
         this.bigQuery = $.bigQuery;
         this.bigTable = $.bigTable;
@@ -514,6 +531,27 @@ public final class GcpIntegrationsState extends com.pulumi.resources.ResourceArg
          */
         public Builder accountId(Integer accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param alloyDb Alloy DB integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alloyDb(@Nullable Output<GcpIntegrationsAlloyDbArgs> alloyDb) {
+            $.alloyDb = alloyDb;
+            return this;
+        }
+
+        /**
+         * @param alloyDb Alloy DB integration. See Integration blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alloyDb(GcpIntegrationsAlloyDbArgs alloyDb) {
+            return alloyDb(Output.of(alloyDb));
         }
 
         /**

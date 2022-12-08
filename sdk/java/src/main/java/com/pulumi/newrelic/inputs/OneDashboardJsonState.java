@@ -47,14 +47,14 @@ public final class OneDashboardJsonState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      * 
      */
     @Import(name="json")
     private @Nullable Output<String> json;
 
     /**
-     * @return The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * @return The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      * 
      */
     public Optional<Output<String>> json() {
@@ -162,7 +162,7 @@ public final class OneDashboardJsonState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param json The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+         * @param json The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class OneDashboardJsonState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param json The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+         * @param json The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
          * 
          * @return builder
          * 

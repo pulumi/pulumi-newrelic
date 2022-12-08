@@ -5,24 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./awsGovcloudIntegrations";
-export * from "./awsGovcloudLinkAccount";
-export * from "./awsIntegrations";
-export * from "./awsLinkAccount";
-export * from "./azureIntegrations";
-export * from "./azureLinkAccount";
-export * from "./gcpIntegrations";
-export * from "./gcpLinkAccount";
+export { AwsGovcloudIntegrationsArgs, AwsGovcloudIntegrationsState } from "./awsGovcloudIntegrations";
+export type AwsGovcloudIntegrations = import("./awsGovcloudIntegrations").AwsGovcloudIntegrations;
+export const AwsGovcloudIntegrations: typeof import("./awsGovcloudIntegrations").AwsGovcloudIntegrations = null as any;
+utilities.lazyLoad(exports, ["AwsGovcloudIntegrations"], () => require("./awsGovcloudIntegrations"));
 
-// Import resources to register:
-import { AwsGovcloudIntegrations } from "./awsGovcloudIntegrations";
-import { AwsGovcloudLinkAccount } from "./awsGovcloudLinkAccount";
-import { AwsIntegrations } from "./awsIntegrations";
-import { AwsLinkAccount } from "./awsLinkAccount";
-import { AzureIntegrations } from "./azureIntegrations";
-import { AzureLinkAccount } from "./azureLinkAccount";
-import { GcpIntegrations } from "./gcpIntegrations";
-import { GcpLinkAccount } from "./gcpLinkAccount";
+export { AwsGovcloudLinkAccountArgs, AwsGovcloudLinkAccountState } from "./awsGovcloudLinkAccount";
+export type AwsGovcloudLinkAccount = import("./awsGovcloudLinkAccount").AwsGovcloudLinkAccount;
+export const AwsGovcloudLinkAccount: typeof import("./awsGovcloudLinkAccount").AwsGovcloudLinkAccount = null as any;
+utilities.lazyLoad(exports, ["AwsGovcloudLinkAccount"], () => require("./awsGovcloudLinkAccount"));
+
+export { AwsIntegrationsArgs, AwsIntegrationsState } from "./awsIntegrations";
+export type AwsIntegrations = import("./awsIntegrations").AwsIntegrations;
+export const AwsIntegrations: typeof import("./awsIntegrations").AwsIntegrations = null as any;
+utilities.lazyLoad(exports, ["AwsIntegrations"], () => require("./awsIntegrations"));
+
+export { AwsLinkAccountArgs, AwsLinkAccountState } from "./awsLinkAccount";
+export type AwsLinkAccount = import("./awsLinkAccount").AwsLinkAccount;
+export const AwsLinkAccount: typeof import("./awsLinkAccount").AwsLinkAccount = null as any;
+utilities.lazyLoad(exports, ["AwsLinkAccount"], () => require("./awsLinkAccount"));
+
+export { AzureIntegrationsArgs, AzureIntegrationsState } from "./azureIntegrations";
+export type AzureIntegrations = import("./azureIntegrations").AzureIntegrations;
+export const AzureIntegrations: typeof import("./azureIntegrations").AzureIntegrations = null as any;
+utilities.lazyLoad(exports, ["AzureIntegrations"], () => require("./azureIntegrations"));
+
+export { AzureLinkAccountArgs, AzureLinkAccountState } from "./azureLinkAccount";
+export type AzureLinkAccount = import("./azureLinkAccount").AzureLinkAccount;
+export const AzureLinkAccount: typeof import("./azureLinkAccount").AzureLinkAccount = null as any;
+utilities.lazyLoad(exports, ["AzureLinkAccount"], () => require("./azureLinkAccount"));
+
+export { GcpIntegrationsArgs, GcpIntegrationsState } from "./gcpIntegrations";
+export type GcpIntegrations = import("./gcpIntegrations").GcpIntegrations;
+export const GcpIntegrations: typeof import("./gcpIntegrations").GcpIntegrations = null as any;
+utilities.lazyLoad(exports, ["GcpIntegrations"], () => require("./gcpIntegrations"));
+
+export { GcpLinkAccountArgs, GcpLinkAccountState } from "./gcpLinkAccount";
+export type GcpLinkAccount = import("./gcpLinkAccount").GcpLinkAccount;
+export const GcpLinkAccount: typeof import("./gcpLinkAccount").GcpLinkAccount = null as any;
+utilities.lazyLoad(exports, ["GcpLinkAccount"], () => require("./gcpLinkAccount"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -346,7 +346,7 @@ class StepMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepMonitorTagArgs']]]]] = None,
                  __props__=None):
         """
-        Use this resource to create, update, and delete a synthetics step monitor in New Relic.
+        Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
         ## Example Usage
 
@@ -380,7 +380,7 @@ class StepMonitor(pulumi.CustomResource):
         Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor bar <guid>
+         $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -402,7 +402,7 @@ class StepMonitor(pulumi.CustomResource):
                  args: StepMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create, update, and delete a synthetics step monitor in New Relic.
+        Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
 
         ## Example Usage
 
@@ -436,7 +436,7 @@ class StepMonitor(pulumi.CustomResource):
         Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor bar <guid>
+         $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.

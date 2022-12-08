@@ -12,18 +12,21 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class WorkflowDestinationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// id of a notification_channel to use for notifications. Please note that you have to use a 
+        /// **notification** channel, not an `alert_channel`.
+        /// </summary>
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 
         /// <summary>
-        /// A nrql enrichment name.
+        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicate`
+        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -188,13 +188,13 @@ namespace Pulumi.NewRelic
         public Output<string?> UserDefinedMetric { get; private set; } = null!;
 
         /// <summary>
-        /// One of: `average`, `min`, `max`, `total`, or `sample_size`.
+        /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
         /// </summary>
         [Output("userDefinedValueFunction")]
         public Output<string?> UserDefinedValueFunction { get; private set; } = null!;
 
         /// <summary>
-        /// Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         /// </summary>
         [Output("violationCloseTimer")]
         public Output<int?> ViolationCloseTimer { get; private set; } = null!;
@@ -366,13 +366,13 @@ namespace Pulumi.NewRelic
         public Input<string>? UserDefinedMetric { get; set; }
 
         /// <summary>
-        /// One of: `average`, `min`, `max`, `total`, or `sample_size`.
+        /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }
 
         /// <summary>
-        /// Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }
@@ -506,13 +506,13 @@ namespace Pulumi.NewRelic
         public Input<string>? UserDefinedMetric { get; set; }
 
         /// <summary>
-        /// One of: `average`, `min`, `max`, `total`, or `sample_size`.
+        /// One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
         /// </summary>
         [Input("userDefinedValueFunction")]
         public Input<string>? UserDefinedValueFunction { get; set; }
 
         /// <summary>
-        /// Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+        /// Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
         /// </summary>
         [Input("violationCloseTimer")]
         public Input<int>? ViolationCloseTimer { get; set; }

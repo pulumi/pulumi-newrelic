@@ -13,20 +13,140 @@ namespace Pulumi.NewRelic.Synthetics
     {
         /// <summary>
         /// Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+        ///     {
+        ///         LocationsPrivates = new[]
+        ///         {
+        ///             data.Newrelic_synthetics_monitor_location.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
+        ///     {
+        ///         LocationPrivates = new[]
+        ///         {
+        ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
+        ///             {
+        ///                 Guid = example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrivateLocationResult> InvokeAsync(GetPrivateLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.Monitor("foo", new()
+        ///     {
+        ///         LocationsPrivates = new[]
+        ///         {
+        ///             data.Newrelic_synthetics_monitor_location.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = NewRelic.Synthetics.GetPrivateLocation.Invoke(new()
+        ///     {
+        ///         AccountId = 123456,
+        ///         Name = "My private location",
+        ///     });
+        /// 
+        ///     var foo = new NewRelic.Synthetics.StepMonitor("foo", new()
+        ///     {
+        ///         LocationPrivates = new[]
+        ///         {
+        ///             new NewRelic.Synthetics.Inputs.StepMonitorLocationPrivateArgs
+        ///             {
+        ///                 Guid = example.Apply(getPrivateLocationResult =&gt; getPrivateLocationResult.Id),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrivateLocationResult> Invoke(GetPrivateLocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLocationResult>("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args ?? new GetPrivateLocationInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetPrivateLocationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+        /// </summary>
+        [Input("accountId")]
+        public int? AccountId { get; set; }
+
         /// <summary>
         /// The name of the Synthetics monitor private location.
         /// </summary>
@@ -41,6 +161,12 @@ namespace Pulumi.NewRelic.Synthetics
 
     public sealed class GetPrivateLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         /// <summary>
         /// The name of the Synthetics monitor private location.
         /// </summary>
@@ -57,6 +183,7 @@ namespace Pulumi.NewRelic.Synthetics
     [OutputType]
     public sealed class GetPrivateLocationResult
     {
+        public readonly int? AccountId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -65,10 +192,13 @@ namespace Pulumi.NewRelic.Synthetics
 
         [OutputConstructor]
         private GetPrivateLocationResult(
+            int? accountId,
+
             string id,
 
             string name)
         {
+            AccountId = accountId;
             Id = id;
             Name = name;
         }

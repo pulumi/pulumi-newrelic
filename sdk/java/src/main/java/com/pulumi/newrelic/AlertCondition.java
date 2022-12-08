@@ -336,28 +336,28 @@ public class AlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userDefinedMetric);
     }
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      */
     @Export(name="userDefinedValueFunction", type=String.class, parameters={})
     private Output</* @Nullable */ String> userDefinedValueFunction;
 
     /**
-     * @return One of: `average`, `min`, `max`, `total`, or `sample_size`.
+     * @return One of: `average`, `min`, `max`, `total`, `sample_size`, `rate` or `percent`.
      * 
      */
     public Output<Optional<String>> userDefinedValueFunction() {
         return Codegen.optional(this.userDefinedValueFunction);
     }
     /**
-     * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      * 
      */
     @Export(name="violationCloseTimer", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> violationCloseTimer;
 
     /**
-     * @return Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * @return Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      * 
      */
     public Output<Optional<Integer>> violationCloseTimer() {

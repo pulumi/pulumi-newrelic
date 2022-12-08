@@ -37,10 +37,10 @@ class MonitorArgs:
         """
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] status: The run state of the monitor.
-        :param pulumi.Input[str] type: THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -51,7 +51,7 @@ class MonitorArgs:
         :param pulumi.Input[str] script_language: The programing language that should execute the script.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
         :param pulumi.Input[bool] verify_ssl: Monitor should validate SSL certificate chain.
         """
@@ -106,7 +106,7 @@ class MonitorArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         """
         return pulumi.get(self, "type")
 
@@ -142,7 +142,7 @@ class MonitorArgs:
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]]:
         """
-        Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         """
         return pulumi.get(self, "custom_headers")
 
@@ -274,7 +274,7 @@ class MonitorArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The uri the monitor runs against.
+        The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
 
@@ -332,7 +332,7 @@ class _MonitorState:
         Input properties used for looking up and filtering Monitor resources.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -344,8 +344,8 @@ class _MonitorState:
         :param pulumi.Input[str] status: The run state of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
-        :param pulumi.Input[str] type: THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
         :param pulumi.Input[bool] verify_ssl: Monitor should validate SSL certificate chain.
         """
@@ -414,7 +414,7 @@ class _MonitorState:
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorCustomHeaderArgs']]]]:
         """
-        Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         """
         return pulumi.get(self, "custom_headers")
 
@@ -558,7 +558,7 @@ class _MonitorState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         """
         return pulumi.get(self, "type")
 
@@ -570,7 +570,7 @@ class _MonitorState:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The uri the monitor runs against.
+        The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
 
@@ -639,8 +639,8 @@ class Monitor(pulumi.CustomResource):
         monitor = newrelic.synthetics.Monitor("monitor",
             bypass_head_request=True,
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="Name",
-                value="simpleMonitor",
+                name="some_name",
+                value="some_value",
             )],
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_MINUTE",
@@ -657,27 +657,22 @@ class Monitor(pulumi.CustomResource):
         ```
         ##### Type: `SIMPLE BROWSER`
 
-        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        bar = newrelic.synthetics.Monitor("bar",
+        monitor = newrelic.synthetics.Monitor("monitor",
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="name",
-                value="simple_browser",
+                name="some_name",
+                value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_MINUTE",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
-            script_language="JAVASCRIPT",
             status="ENABLED",
             tags=[newrelic.synthetics.MonitorTagArgs(
-                key="name",
-                values=["SimpleBrowserMonitor"],
+                key="some_key",
+                values=["some_value"],
             )],
             type="BROWSER",
             uri="https://www.one.newrelic.com",
@@ -687,19 +682,84 @@ class Monitor(pulumi.CustomResource):
         See additional examples.
         ## Additional Examples
 
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ##### Type: `SIMPLE`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            bypass_head_request=True,
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            locations_privates=["newrelic_synthetics_private_location.location.id"],
+            period="EVERY_MINUTE",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            treat_redirect_as_failure=True,
+            type="SIMPLE",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+        ##### Type: `BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            enable_screenshot_on_failure_and_script=True,
+            locations_privates=["newrelic_synthetics_private_location.location.id"],
+            period="EVERY_MINUTE",
+            runtime_type="CHROME_BROWSER",
+            runtime_type_version="100",
+            script_language="JAVASCRIPT",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+
         ## Import
 
         Synthetics monitor can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/monitor:Monitor bar <guid>
+         $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -711,8 +771,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] status: The run state of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
-        :param pulumi.Input[str] type: THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
         :param pulumi.Input[bool] verify_ssl: Monitor should validate SSL certificate chain.
         """
@@ -734,8 +794,8 @@ class Monitor(pulumi.CustomResource):
         monitor = newrelic.synthetics.Monitor("monitor",
             bypass_head_request=True,
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="Name",
-                value="simpleMonitor",
+                name="some_name",
+                value="some_value",
             )],
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_MINUTE",
@@ -752,27 +812,22 @@ class Monitor(pulumi.CustomResource):
         ```
         ##### Type: `SIMPLE BROWSER`
 
-        > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SIMPLE_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-
         ```python
         import pulumi
         import pulumi_newrelic as newrelic
 
-        bar = newrelic.synthetics.Monitor("bar",
+        monitor = newrelic.synthetics.Monitor("monitor",
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
-                name="name",
-                value="simple_browser",
+                name="some_name",
+                value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_MINUTE",
-            runtime_type="CHROME_BROWSER",
-            runtime_type_version="100",
-            script_language="JAVASCRIPT",
             status="ENABLED",
             tags=[newrelic.synthetics.MonitorTagArgs(
-                key="name",
-                values=["SimpleBrowserMonitor"],
+                key="some_key",
+                values=["some_value"],
             )],
             type="BROWSER",
             uri="https://www.one.newrelic.com",
@@ -782,12 +837,77 @@ class Monitor(pulumi.CustomResource):
         See additional examples.
         ## Additional Examples
 
+        ### Create a monitor with a private location
+
+        The below example shows how you can define a private location and attach it to a monitor.
+
+        > **NOTE:** It can take up to 10 minutes for a private location to become available.
+
+        ##### Type: `SIMPLE`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            bypass_head_request=True,
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            locations_privates=["newrelic_synthetics_private_location.location.id"],
+            period="EVERY_MINUTE",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            treat_redirect_as_failure=True,
+            type="SIMPLE",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+        ##### Type: `BROWSER`
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        location = newrelic.synthetics.PrivateLocation("location",
+            description="Example private location",
+            verified_script_execution=False)
+        monitor = newrelic.synthetics.Monitor("monitor",
+            custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
+                name="some_name",
+                value="some_value",
+            )],
+            enable_screenshot_on_failure_and_script=True,
+            locations_privates=["newrelic_synthetics_private_location.location.id"],
+            period="EVERY_MINUTE",
+            runtime_type="CHROME_BROWSER",
+            runtime_type_version="100",
+            script_language="JAVASCRIPT",
+            status="ENABLED",
+            tags=[newrelic.synthetics.MonitorTagArgs(
+                key="some_key",
+                values=["some_value"],
+            )],
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            validation_string="success",
+            verify_ssl=True)
+        ```
+
         ## Import
 
         Synthetics monitor can be imported using the `guid`, e.g. bash
 
         ```sh
-         $ pulumi import newrelic:synthetics/monitor:Monitor bar <guid>
+         $ pulumi import newrelic:synthetics/monitor:Monitor monitor <guid>
         ```
 
         :param str resource_name: The name of the resource.
@@ -891,7 +1011,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The account in which the Synthetics monitor will be created.
         :param pulumi.Input[bool] bypass_head_request: Monitor should skip default HEAD request and instead use GET verb in check.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorCustomHeaderArgs']]]] custom_headers: Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         :param pulumi.Input[bool] enable_screenshot_on_failure_and_script: Capture a screenshot during job execution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_privates: The location the monitor will run from. Accepts a list of private location GUIDs. At least one of either `locations_public` or `locations_private` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations_publics: The location the monitor will run from. Valid public locations are https://docs.newrelic.com/docs/synthetics/synthetic-monitoring/administration/synthetic-public-minion-ips/. You don't need the `AWS_` prefix as the provider uses NerdGraph. At least one of either `locations_public` or `location_private` is required.
@@ -903,8 +1023,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] status: The run state of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagArgs']]]] tags: The tags that will be associated with the monitor. See Nested tag blocks below for details.
         :param pulumi.Input[bool] treat_redirect_as_failure: Categorize redirects during a monitor job as a failure.
-        :param pulumi.Input[str] type: THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
-        :param pulumi.Input[str] uri: The uri the monitor runs against.
+        :param pulumi.Input[str] type: The monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        :param pulumi.Input[str] uri: The URI the monitor runs against.
         :param pulumi.Input[str] validation_string: Validation text for monitor to search for at given URI.
         :param pulumi.Input[bool] verify_ssl: Monitor should validate SSL certificate chain.
         """
@@ -952,7 +1072,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorCustomHeader']]]:
         """
-        Custom headers to use in monitor job. See Nested customer_header blocks below for details.
+        Custom headers to use in monitor job. See Nested custom_header blocks below for details.
         """
         return pulumi.get(self, "custom_headers")
 
@@ -1048,7 +1168,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        THE monitor type. Valid values are `SIMPLE` and `BROWSER`.
+        The monitor type. Valid values are `SIMPLE` and `BROWSER`.
         """
         return pulumi.get(self, "type")
 
@@ -1056,7 +1176,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[str]]:
         """
-        The uri the monitor runs against.
+        The URI the monitor runs against.
         """
         return pulumi.get(self, "uri")
 

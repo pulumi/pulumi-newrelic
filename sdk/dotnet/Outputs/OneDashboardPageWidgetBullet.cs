@@ -32,9 +32,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly double Limit;
         /// <summary>
-        /// (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-        /// * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-        /// * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+        /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBulletNrqlQuery> NrqlQueries;
         /// <summary>
@@ -42,7 +40,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly int Row;
         /// <summary>
-        /// (Required) A title for the widget.
+        /// (Optional) A human-friendly display string for this value.
         /// </summary>
         public readonly string Title;
         /// <summary>

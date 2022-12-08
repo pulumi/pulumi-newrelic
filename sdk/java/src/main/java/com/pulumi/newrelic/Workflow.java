@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create and manage New Relic workflow.
+ * Use this resource to create and manage New Relic workflows.
  * 
  * ## Example Usage
  * 
@@ -34,9 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.Workflow;
  * import com.pulumi.newrelic.WorkflowArgs;
- * import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
- * import com.pulumi.newrelic.inputs.WorkflowEnrichmentsArgs;
  * import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
+ * import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,50 +50,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Workflow(&#34;foo&#34;, WorkflowArgs.builder()        
- *             .accountId(12345678)
- *             .destinations(            
- *                 WorkflowDestinationArgs.builder()
- *                     .channelId(&#34;20d86999-169c-461a-9c16-3cf330f4b3aa&#34;)
- *                     .build(),
- *                 WorkflowDestinationArgs.builder()
- *                     .channelId(&#34;e6af0870-cabb-453f-bf0d-fb2b6a14e05c&#34;)
- *                     .build())
- *             .destinationsEnabled(true)
- *             .enabled(true)
- *             .enrichments(WorkflowEnrichmentsArgs.builder()
- *                 .nrqls(                
- *                     WorkflowEnrichmentsNrqlArgs.builder()
- *                         .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .name(&#34;Log&#34;)
- *                         .build(),
- *                     WorkflowEnrichmentsNrqlArgs.builder()
- *                         .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .name(&#34;Metric&#34;)
- *                         .build())
- *                 .build())
- *             .enrichmentsEnabled(true)
+ *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
  *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
  *                 .name(&#34;filter-name&#34;)
- *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
- *                     .attribute(&#34;accumulations.sources&#34;)
- *                     .operator(&#34;EXACTLY_MATCHES&#34;)
- *                     .values(                    
- *                         &#34;newrelic&#34;,
- *                         &#34;pagerduty&#34;)
- *                     .build())
  *                 .type(&#34;FILTER&#34;)
+ *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
+ *                     .attribute(&#34;accumulations.tag.team&#34;)
+ *                     .operator(&#34;EXACTLY_MATCHES&#34;)
+ *                     .values(&#34;growth&#34;)
+ *                     .build())
  *                 .build())
- *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *             .destinations(WorkflowDestinationArgs.builder()
+ *                 .channelId(newrelic_notification_channel.some_channel().id())
+ *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
- * ## Full Scenario Example
+ * ## Policy-Based Workflow Example
  * 
- * Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
- * 
- * ### Create a policy
+ * This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
  * ```java
  * package generated_program;
  * 
@@ -102,76 +78,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.AlertPolicy;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var collector_policy = new AlertPolicy(&#34;collector-policy&#34;);
- * 
- *     }
- * }
- * ```
- * 
- * ### Create a destination
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.NotificationDestination;
  * import com.pulumi.newrelic.NotificationDestinationArgs;
- * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
  * import com.pulumi.newrelic.inputs.NotificationDestinationPropertyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
- *             .accountId(12345678)
- *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
- *                 .password(&#34;password&#34;)
- *                 .user(&#34;username&#34;)
- *                 .build())
- *             .properties(NotificationDestinationPropertyArgs.builder()
- *                 .key(&#34;url&#34;)
- *                 .value(&#34;https://webhook.mywebhook.com&#34;)
- *                 .build())
- *             .type(&#34;WEBHOOK&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ### Create a channel
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.inputs.NotificationDestinationAuthBasicArgs;
  * import com.pulumi.newrelic.NotificationChannel;
  * import com.pulumi.newrelic.NotificationChannelArgs;
  * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+ * import com.pulumi.newrelic.Workflow;
+ * import com.pulumi.newrelic.WorkflowArgs;
+ * import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
+ * import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -185,23 +102,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
- *             .accountId(12345678)
+ *         var my_policy = new AlertPolicy(&#34;my-policy&#34;);
+ * 
+ *         var webhook_destination = new NotificationDestination(&#34;webhook-destination&#34;, NotificationDestinationArgs.builder()        
  *             .type(&#34;WEBHOOK&#34;)
- *             .destinationId(newrelic_notification_destination.webhook-destination().id())
+ *             .properties(NotificationDestinationPropertyArgs.builder()
+ *                 .key(&#34;url&#34;)
+ *                 .value(&#34;https://example.com&#34;)
+ *                 .build())
+ *             .authBasic(NotificationDestinationAuthBasicArgs.builder()
+ *                 .user(&#34;username&#34;)
+ *                 .password(&#34;password&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var webhook_channel = new NotificationChannel(&#34;webhook-channel&#34;, NotificationChannelArgs.builder()        
+ *             .type(&#34;WEBHOOK&#34;)
+ *             .destinationId(webhook_destination.id())
  *             .product(&#34;IINT&#34;)
  *             .properties(NotificationChannelPropertyArgs.builder()
  *                 .key(&#34;payload&#34;)
- *                 .value(&#34;{name: {{ variable }} }&#34;)
+ *                 .value(&#34;{}&#34;)
  *                 .label(&#34;Payload Template&#34;)
  *                 .build())
  *             .build());
  * 
+ *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
+ *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
+ *                 .name(&#34;Filter-name&#34;)
+ *                 .type(&#34;FILTER&#34;)
+ *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
+ *                     .attribute(&#34;labels.policyIds&#34;)
+ *                     .operator(&#34;EXACTLY_MATCHES&#34;)
+ *                     .values(my_policy.id())
+ *                     .build())
+ *                 .build())
+ *             .destinations(WorkflowDestinationArgs.builder()
+ *                 .channelId(webhook_channel.id())
+ *                 .build())
+ *             .build());
+ * 
  *     }
  * }
  * ```
  * 
- * ### Create a workflow
+ * ### An example of a workflow with enrichments
  * ```java
  * package generated_program;
  * 
@@ -210,8 +156,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.newrelic.Workflow;
  * import com.pulumi.newrelic.WorkflowArgs;
- * import com.pulumi.newrelic.inputs.WorkflowEnrichmentsArgs;
  * import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
+ * import com.pulumi.newrelic.inputs.WorkflowEnrichmentsArgs;
  * import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -227,30 +173,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
- *             .accountId(12345678)
  *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
+ *                 .name(&#34;Filter-name&#34;)
+ *                 .type(&#34;FILTER&#34;)
+ *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
+ *                     .attribute(&#34;accumulations.tag.team&#34;)
+ *                     .operator(&#34;EXACTLY_MATCHES&#34;)
+ *                     .values(&#34;my_team&#34;)
+ *                     .build())
+ *                 .build())
  *             .enrichments(WorkflowEnrichmentsArgs.builder()
  *                 .nrqls(WorkflowEnrichmentsNrqlArgs.builder()
- *                     .name(&#34;Log count&#34;)
+ *                     .name(&#34;Log Count&#34;)
  *                     .configurations(WorkflowEnrichmentsNrqlConfigurationArgs.builder()
  *                         .query(&#34;SELECT count(*) FROM Log WHERE message like &#39;%error%&#39; since 10 minutes ago&#34;)
  *                         .build())
  *                     .build())
- *                 .build())
- *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
- *                 .name(&#34;Filter-name&#34;)
- *                 .type(&#34;FILTER&#34;)
- *                 .predicates(                
- *                     WorkflowIssuesFilterPredicateArgs.builder()
- *                         .attribute(&#34;accumulations.policyName&#34;)
- *                         .operator(&#34;EXACTLY_MATCHES&#34;)
- *                         .values(&#34;my_policy&#34;)
- *                         .build(),
- *                     WorkflowIssuesFilterPredicateArgs.builder()
- *                         .attribute(&#34;accumulations.sources&#34;)
- *                         .operator(&#34;EXACTLY_MATCHES&#34;)
- *                         .values(&#34;newrelic&#34;)
- *                         .build())
  *                 .build())
  *             .destinations(WorkflowDestinationArgs.builder()
  *                 .channelId(newrelic_notification_channel.webhook-channel().id())
@@ -274,102 +213,118 @@ import javax.annotation.Nullable;
  * - `predicates` changed to `predicate`.
  * - Enrichment&#39;s `configurations` changed to `configuration`.
  * 
+ * ## Import
+ * 
+ * Workflows can be imported using the `id`, e.g. bash
+ * 
+ * ```sh
+ *  $ pulumi import newrelic:index/workflow:Workflow foo &lt;id&gt;
+ * ```
+ * 
+ *  You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
+ * 
  */
 @ResourceType(type="newrelic:index/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     @Export(name="accountId", type=Integer.class, parameters={})
-    private Output</* @Nullable */ Integer> accountId;
+    private Output<Integer> accountId;
 
     /**
-     * @return Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
-    public Output<Optional<Integer>> accountId() {
-        return Codegen.optional(this.accountId);
+    public Output<Integer> accountId() {
+        return this.accountId;
     }
     /**
-     * A nested block that contains a channel id.
+     * Notification configuration. See Nested destination blocks below for details.
      * 
      */
     @Export(name="destinations", type=List.class, parameters={WorkflowDestination.class})
     private Output<List<WorkflowDestination>> destinations;
 
     /**
-     * @return A nested block that contains a channel id.
+     * @return Notification configuration. See Nested destination blocks below for details.
      * 
      */
     public Output<List<WorkflowDestination>> destinations() {
         return this.destinations;
     }
     /**
-     * Whether destinations are enabled..
+     * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
+     * 
+     * @deprecated
+     * Please use &#39;enabled&#39; instead
      * 
      */
+    @Deprecated /* Please use 'enabled' instead */
     @Export(name="destinationsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> destinationsEnabled;
 
     /**
-     * @return Whether destinations are enabled..
+     * @return **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> destinationsEnabled() {
         return Codegen.optional(this.destinationsEnabled);
     }
     /**
-     * Whether workflow is enabled.
+     * Whether workflow is enabled. Defaults to true.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether workflow is enabled.
+     * @return Whether workflow is enabled. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * A nested block that describes a workflow&#39;s enrichments. See Nested enrichments blocks below for details.
+     * Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
      * 
      */
     @Export(name="enrichments", type=WorkflowEnrichments.class, parameters={})
     private Output</* @Nullable */ WorkflowEnrichments> enrichments;
 
     /**
-     * @return A nested block that describes a workflow&#39;s enrichments. See Nested enrichments blocks below for details.
+     * @return Workflow&#39;s enrichments. See Nested enrichments blocks below for details.
      * 
      */
     public Output<Optional<WorkflowEnrichments>> enrichments() {
         return Codegen.optional(this.enrichments);
     }
     /**
-     * Whether enrichments are enabled..
+     * Whether enrichments are enabled. Defaults to true.
      * 
      */
     @Export(name="enrichmentsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enrichmentsEnabled;
 
     /**
-     * @return Whether enrichments are enabled..
+     * @return Whether enrichments are enabled. Defaults to true.
      * 
      */
     public Output<Optional<Boolean>> enrichmentsEnabled() {
         return Codegen.optional(this.enrichmentsEnabled);
     }
     /**
-     * The issues filter.  See Nested issues_filter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */
     @Export(name="issuesFilter", type=WorkflowIssuesFilter.class, parameters={})
     private Output<WorkflowIssuesFilter> issuesFilter;
 
     /**
-     * @return The issues filter.  See Nested issues_filter blocks below for details.
+     * @return A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */
     public Output<WorkflowIssuesFilter> issuesFilter() {
@@ -390,28 +345,28 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return this.lastRun;
     }
     /**
-     * Which muting rule handling this workflow has.
+     * How to handle muted issues. See Muting Rules below for details.
      * 
      */
     @Export(name="mutingRulesHandling", type=String.class, parameters={})
     private Output<String> mutingRulesHandling;
 
     /**
-     * @return Which muting rule handling this workflow has.
+     * @return How to handle muted issues. See Muting Rules below for details.
      * 
      */
     public Output<String> mutingRulesHandling() {
         return this.mutingRulesHandling;
     }
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public Output<String> name() {

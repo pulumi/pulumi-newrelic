@@ -4,11 +4,13 @@
 package com.pulumi.newrelic.synthetics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetSecureCredentialResult {
+    private Integer accountId;
     /**
      * @return The secure credential&#39;s description.
      * 
@@ -27,6 +29,9 @@ public final class GetSecureCredentialResult {
     private String lastUpdated;
 
     private GetSecureCredentialResult() {}
+    public Integer accountId() {
+        return this.accountId;
+    }
     /**
      * @return The secure credential&#39;s description.
      * 
@@ -61,6 +66,7 @@ public final class GetSecureCredentialResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer accountId;
         private String description;
         private String id;
         private String key;
@@ -68,12 +74,18 @@ public final class GetSecureCredentialResult {
         public Builder() {}
         public Builder(GetSecureCredentialResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountId = defaults.accountId;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.lastUpdated = defaults.lastUpdated;
         }
 
+        @CustomType.Setter
+        public Builder accountId(Integer accountId) {
+            this.accountId = Objects.requireNonNull(accountId);
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
@@ -96,6 +108,7 @@ public final class GetSecureCredentialResult {
         }
         public GetSecureCredentialResult build() {
             final var o = new GetSecureCredentialResult();
+            o.accountId = accountId;
             o.description = description;
             o.id = id;
             o.key = key;

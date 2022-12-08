@@ -56,6 +56,13 @@ func NewAzureLinkAccount(ctx *pulumi.Context,
 	if args.TenantId == nil {
 		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
 	var resource AzureLinkAccount
 	err := ctx.RegisterResource("newrelic:cloud/azureLinkAccount:AzureLinkAccount", name, args, &resource, opts...)
 	if err != nil {

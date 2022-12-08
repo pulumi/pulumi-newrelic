@@ -15,38 +15,37 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowEnrichmentsNrql {
     /**
-     * @return Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     private @Nullable Integer accountId;
     /**
-     * @return A list of nrql enrichments.
+     * @return Another wrapper block
      * 
      */
     private List<WorkflowEnrichmentsNrqlConfiguration> configurations;
     private @Nullable String enrichmentId;
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     private String name;
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     private @Nullable String type;
 
     private WorkflowEnrichmentsNrql() {}
     /**
-     * @return Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * @return Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      * 
      */
     public Optional<Integer> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return A list of nrql enrichments.
+     * @return Another wrapper block
      * 
      */
     public List<WorkflowEnrichmentsNrqlConfiguration> configurations() {
@@ -56,15 +55,14 @@ public final class WorkflowEnrichmentsNrql {
         return Optional.ofNullable(this.enrichmentId);
     }
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     public Optional<String> type() {

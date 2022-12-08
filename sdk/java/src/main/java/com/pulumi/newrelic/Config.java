@@ -18,8 +18,8 @@ public final class Config {
     public Optional<String> adminApiKey() {
         return Codegen.stringProp("adminApiKey").config(config).get();
     }
-    public Optional<String> apiKey() {
-        return Codegen.stringProp("apiKey").config(config).get();
+    public String apiKey() {
+        return Codegen.stringProp("apiKey").config(config).require();
     }
     public Optional<String> apiUrl() {
         return Codegen.stringProp("apiUrl").config(config).get();

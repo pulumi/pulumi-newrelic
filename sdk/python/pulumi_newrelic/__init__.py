@@ -20,11 +20,14 @@ from .get_application import *
 from .get_cloud_account import *
 from .get_entity import *
 from .get_key_transaction import *
+from .get_obfuscation_expression import *
 from .infra_alert_condition import *
 from .notification_channel import *
 from .notification_destination import *
 from .nrql_alert_condition import *
 from .nrql_drop_rule import *
+from .obfuscation_expression import *
+from .obfuscation_rule import *
 from .one_dashboard import *
 from .one_dashboard_json import *
 from .one_dashboard_raw import *
@@ -222,6 +225,22 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/nrqlDropRule:NrqlDropRule": "NrqlDropRule"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/obfuscationExpression",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/obfuscationExpression:ObfuscationExpression": "ObfuscationExpression"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/obfuscationRule",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/obfuscationRule:ObfuscationRule": "ObfuscationRule"
   }
  },
  {

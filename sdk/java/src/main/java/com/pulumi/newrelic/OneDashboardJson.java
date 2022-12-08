@@ -14,39 +14,6 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * ### Create A New Relic One Dashboard From A JSON File
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.newrelic.OneDashboardJson;
- * import com.pulumi.newrelic.OneDashboardJsonArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new OneDashboardJson(&#34;foo&#34;, OneDashboardJsonArgs.builder()        
- *             .json(Files.readString(Paths.get(&#34;dashboard.json&#34;)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="newrelic:index/oneDashboardJson:OneDashboardJson")
 public class OneDashboardJson extends com.pulumi.resources.CustomResource {
     /**
@@ -78,14 +45,14 @@ public class OneDashboardJson extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      * 
      */
     @Export(name="json", type=String.class, parameters={})
     private Output<String> json;
 
     /**
-     * @return The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+     * @return The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
      * 
      */
     public Output<String> json() {

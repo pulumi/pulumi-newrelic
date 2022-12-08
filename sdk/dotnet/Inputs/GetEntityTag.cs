@@ -12,9 +12,15 @@ namespace Pulumi.NewRelic.Inputs
 
     public sealed class GetEntityTagArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         [Input("value", required: true)]
         public string Value { get; set; } = null!;
 

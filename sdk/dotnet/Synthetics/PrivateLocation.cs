@@ -21,9 +21,8 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new NewRelic.Synthetics.PrivateLocation("bar", new()
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
-    ///         AccountId = "NewRelic account ID",
     ///         Description = "The private location description",
     ///     });
     /// 
@@ -35,14 +34,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// A Synthetics private location can be imported using the `guid`
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation bar GUID
+    ///  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/privateLocation:PrivateLocation")]
     public partial class PrivateLocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Account ID of the New Relic.
+        /// The account in which the private location will be created.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
@@ -60,7 +59,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique client identifier for the Synthetics private location in New Relic.
+        /// The unique client identifier for the private location in New Relic. Same as `id`.
         /// </summary>
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
@@ -136,7 +135,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class PrivateLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account ID of the New Relic.
+        /// The account in which the private location will be created.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -168,7 +167,7 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class PrivateLocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account ID of the New Relic.
+        /// The account in which the private location will be created.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -186,7 +185,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? DomainId { get; set; }
 
         /// <summary>
-        /// The unique client identifier for the Synthetics private location in New Relic.
+        /// The unique client identifier for the private location in New Relic. Same as `id`.
         /// </summary>
         [Input("guid")]
         public Input<string>? Guid { get; set; }

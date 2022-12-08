@@ -9011,6 +9011,162 @@ func (o AzureIntegrationsMysqlPtrOutput) ResourceGroups() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+type AzureIntegrationsMysqlFlexible struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups []string `pulumi:"resourceGroups"`
+}
+
+// AzureIntegrationsMysqlFlexibleInput is an input type that accepts AzureIntegrationsMysqlFlexibleArgs and AzureIntegrationsMysqlFlexibleOutput values.
+// You can construct a concrete instance of `AzureIntegrationsMysqlFlexibleInput` via:
+//
+//	AzureIntegrationsMysqlFlexibleArgs{...}
+type AzureIntegrationsMysqlFlexibleInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsMysqlFlexibleOutput() AzureIntegrationsMysqlFlexibleOutput
+	ToAzureIntegrationsMysqlFlexibleOutputWithContext(context.Context) AzureIntegrationsMysqlFlexibleOutput
+}
+
+type AzureIntegrationsMysqlFlexibleArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
+}
+
+func (AzureIntegrationsMysqlFlexibleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsMysqlFlexible)(nil)).Elem()
+}
+
+func (i AzureIntegrationsMysqlFlexibleArgs) ToAzureIntegrationsMysqlFlexibleOutput() AzureIntegrationsMysqlFlexibleOutput {
+	return i.ToAzureIntegrationsMysqlFlexibleOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsMysqlFlexibleArgs) ToAzureIntegrationsMysqlFlexibleOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexibleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlFlexibleOutput)
+}
+
+func (i AzureIntegrationsMysqlFlexibleArgs) ToAzureIntegrationsMysqlFlexiblePtrOutput() AzureIntegrationsMysqlFlexiblePtrOutput {
+	return i.ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsMysqlFlexibleArgs) ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexiblePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlFlexibleOutput).ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx)
+}
+
+// AzureIntegrationsMysqlFlexiblePtrInput is an input type that accepts AzureIntegrationsMysqlFlexibleArgs, AzureIntegrationsMysqlFlexiblePtr and AzureIntegrationsMysqlFlexiblePtrOutput values.
+// You can construct a concrete instance of `AzureIntegrationsMysqlFlexiblePtrInput` via:
+//
+//	        AzureIntegrationsMysqlFlexibleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AzureIntegrationsMysqlFlexiblePtrInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsMysqlFlexiblePtrOutput() AzureIntegrationsMysqlFlexiblePtrOutput
+	ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(context.Context) AzureIntegrationsMysqlFlexiblePtrOutput
+}
+
+type azureIntegrationsMysqlFlexiblePtrType AzureIntegrationsMysqlFlexibleArgs
+
+func AzureIntegrationsMysqlFlexiblePtr(v *AzureIntegrationsMysqlFlexibleArgs) AzureIntegrationsMysqlFlexiblePtrInput {
+	return (*azureIntegrationsMysqlFlexiblePtrType)(v)
+}
+
+func (*azureIntegrationsMysqlFlexiblePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsMysqlFlexible)(nil)).Elem()
+}
+
+func (i *azureIntegrationsMysqlFlexiblePtrType) ToAzureIntegrationsMysqlFlexiblePtrOutput() AzureIntegrationsMysqlFlexiblePtrOutput {
+	return i.ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(context.Background())
+}
+
+func (i *azureIntegrationsMysqlFlexiblePtrType) ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexiblePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsMysqlFlexiblePtrOutput)
+}
+
+type AzureIntegrationsMysqlFlexibleOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsMysqlFlexibleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsMysqlFlexible)(nil)).Elem()
+}
+
+func (o AzureIntegrationsMysqlFlexibleOutput) ToAzureIntegrationsMysqlFlexibleOutput() AzureIntegrationsMysqlFlexibleOutput {
+	return o
+}
+
+func (o AzureIntegrationsMysqlFlexibleOutput) ToAzureIntegrationsMysqlFlexibleOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexibleOutput {
+	return o
+}
+
+func (o AzureIntegrationsMysqlFlexibleOutput) ToAzureIntegrationsMysqlFlexiblePtrOutput() AzureIntegrationsMysqlFlexiblePtrOutput {
+	return o.ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(context.Background())
+}
+
+func (o AzureIntegrationsMysqlFlexibleOutput) ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexiblePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsMysqlFlexible) *AzureIntegrationsMysqlFlexible {
+		return &v
+	}).(AzureIntegrationsMysqlFlexiblePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o AzureIntegrationsMysqlFlexibleOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIntegrationsMysqlFlexible) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsMysqlFlexibleOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsMysqlFlexible) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+type AzureIntegrationsMysqlFlexiblePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsMysqlFlexiblePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsMysqlFlexible)(nil)).Elem()
+}
+
+func (o AzureIntegrationsMysqlFlexiblePtrOutput) ToAzureIntegrationsMysqlFlexiblePtrOutput() AzureIntegrationsMysqlFlexiblePtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsMysqlFlexiblePtrOutput) ToAzureIntegrationsMysqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsMysqlFlexiblePtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsMysqlFlexiblePtrOutput) Elem() AzureIntegrationsMysqlFlexibleOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMysqlFlexible) AzureIntegrationsMysqlFlexible {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIntegrationsMysqlFlexible
+		return ret
+	}).(AzureIntegrationsMysqlFlexibleOutput)
+}
+
+// The data polling interval in seconds.
+func (o AzureIntegrationsMysqlFlexiblePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMysqlFlexible) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsMysqlFlexiblePtrOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsMysqlFlexible) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroups
+	}).(pulumi.StringArrayOutput)
+}
+
 type AzureIntegrationsPostgresql struct {
 	// The data polling interval in seconds.
 	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
@@ -9160,6 +9316,162 @@ func (o AzureIntegrationsPostgresqlPtrOutput) MetricsPollingInterval() pulumi.In
 // Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
 func (o AzureIntegrationsPostgresqlPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureIntegrationsPostgresql) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+type AzureIntegrationsPostgresqlFlexible struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups []string `pulumi:"resourceGroups"`
+}
+
+// AzureIntegrationsPostgresqlFlexibleInput is an input type that accepts AzureIntegrationsPostgresqlFlexibleArgs and AzureIntegrationsPostgresqlFlexibleOutput values.
+// You can construct a concrete instance of `AzureIntegrationsPostgresqlFlexibleInput` via:
+//
+//	AzureIntegrationsPostgresqlFlexibleArgs{...}
+type AzureIntegrationsPostgresqlFlexibleInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsPostgresqlFlexibleOutput() AzureIntegrationsPostgresqlFlexibleOutput
+	ToAzureIntegrationsPostgresqlFlexibleOutputWithContext(context.Context) AzureIntegrationsPostgresqlFlexibleOutput
+}
+
+type AzureIntegrationsPostgresqlFlexibleArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+	// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
+}
+
+func (AzureIntegrationsPostgresqlFlexibleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsPostgresqlFlexible)(nil)).Elem()
+}
+
+func (i AzureIntegrationsPostgresqlFlexibleArgs) ToAzureIntegrationsPostgresqlFlexibleOutput() AzureIntegrationsPostgresqlFlexibleOutput {
+	return i.ToAzureIntegrationsPostgresqlFlexibleOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsPostgresqlFlexibleArgs) ToAzureIntegrationsPostgresqlFlexibleOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexibleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlFlexibleOutput)
+}
+
+func (i AzureIntegrationsPostgresqlFlexibleArgs) ToAzureIntegrationsPostgresqlFlexiblePtrOutput() AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return i.ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(context.Background())
+}
+
+func (i AzureIntegrationsPostgresqlFlexibleArgs) ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlFlexibleOutput).ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx)
+}
+
+// AzureIntegrationsPostgresqlFlexiblePtrInput is an input type that accepts AzureIntegrationsPostgresqlFlexibleArgs, AzureIntegrationsPostgresqlFlexiblePtr and AzureIntegrationsPostgresqlFlexiblePtrOutput values.
+// You can construct a concrete instance of `AzureIntegrationsPostgresqlFlexiblePtrInput` via:
+//
+//	        AzureIntegrationsPostgresqlFlexibleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AzureIntegrationsPostgresqlFlexiblePtrInput interface {
+	pulumi.Input
+
+	ToAzureIntegrationsPostgresqlFlexiblePtrOutput() AzureIntegrationsPostgresqlFlexiblePtrOutput
+	ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(context.Context) AzureIntegrationsPostgresqlFlexiblePtrOutput
+}
+
+type azureIntegrationsPostgresqlFlexiblePtrType AzureIntegrationsPostgresqlFlexibleArgs
+
+func AzureIntegrationsPostgresqlFlexiblePtr(v *AzureIntegrationsPostgresqlFlexibleArgs) AzureIntegrationsPostgresqlFlexiblePtrInput {
+	return (*azureIntegrationsPostgresqlFlexiblePtrType)(v)
+}
+
+func (*azureIntegrationsPostgresqlFlexiblePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsPostgresqlFlexible)(nil)).Elem()
+}
+
+func (i *azureIntegrationsPostgresqlFlexiblePtrType) ToAzureIntegrationsPostgresqlFlexiblePtrOutput() AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return i.ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(context.Background())
+}
+
+func (i *azureIntegrationsPostgresqlFlexiblePtrType) ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIntegrationsPostgresqlFlexiblePtrOutput)
+}
+
+type AzureIntegrationsPostgresqlFlexibleOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsPostgresqlFlexibleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIntegrationsPostgresqlFlexible)(nil)).Elem()
+}
+
+func (o AzureIntegrationsPostgresqlFlexibleOutput) ToAzureIntegrationsPostgresqlFlexibleOutput() AzureIntegrationsPostgresqlFlexibleOutput {
+	return o
+}
+
+func (o AzureIntegrationsPostgresqlFlexibleOutput) ToAzureIntegrationsPostgresqlFlexibleOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexibleOutput {
+	return o
+}
+
+func (o AzureIntegrationsPostgresqlFlexibleOutput) ToAzureIntegrationsPostgresqlFlexiblePtrOutput() AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return o.ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(context.Background())
+}
+
+func (o AzureIntegrationsPostgresqlFlexibleOutput) ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIntegrationsPostgresqlFlexible) *AzureIntegrationsPostgresqlFlexible {
+		return &v
+	}).(AzureIntegrationsPostgresqlFlexiblePtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o AzureIntegrationsPostgresqlFlexibleOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIntegrationsPostgresqlFlexible) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsPostgresqlFlexibleOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIntegrationsPostgresqlFlexible) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+type AzureIntegrationsPostgresqlFlexiblePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureIntegrationsPostgresqlFlexiblePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIntegrationsPostgresqlFlexible)(nil)).Elem()
+}
+
+func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) ToAzureIntegrationsPostgresqlFlexiblePtrOutput() AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) ToAzureIntegrationsPostgresqlFlexiblePtrOutputWithContext(ctx context.Context) AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return o
+}
+
+func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) Elem() AzureIntegrationsPostgresqlFlexibleOutput {
+	return o.ApplyT(func(v *AzureIntegrationsPostgresqlFlexible) AzureIntegrationsPostgresqlFlexible {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIntegrationsPostgresqlFlexible
+		return ret
+	}).(AzureIntegrationsPostgresqlFlexibleOutput)
+}
+
+// The data polling interval in seconds.
+func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureIntegrationsPostgresqlFlexible) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify each Resource group associated with the resources that you want to monitor. Filter values are case-sensitive
+func (o AzureIntegrationsPostgresqlFlexiblePtrOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureIntegrationsPostgresqlFlexible) []string {
 		if v == nil {
 			return nil
 		}
@@ -10725,6 +11037,143 @@ func (o AzureIntegrationsVpnGatewayPtrOutput) ResourceGroups() pulumi.StringArra
 		}
 		return v.ResourceGroups
 	}).(pulumi.StringArrayOutput)
+}
+
+type GcpIntegrationsAlloyDb struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval *int `pulumi:"metricsPollingInterval"`
+}
+
+// GcpIntegrationsAlloyDbInput is an input type that accepts GcpIntegrationsAlloyDbArgs and GcpIntegrationsAlloyDbOutput values.
+// You can construct a concrete instance of `GcpIntegrationsAlloyDbInput` via:
+//
+//	GcpIntegrationsAlloyDbArgs{...}
+type GcpIntegrationsAlloyDbInput interface {
+	pulumi.Input
+
+	ToGcpIntegrationsAlloyDbOutput() GcpIntegrationsAlloyDbOutput
+	ToGcpIntegrationsAlloyDbOutputWithContext(context.Context) GcpIntegrationsAlloyDbOutput
+}
+
+type GcpIntegrationsAlloyDbArgs struct {
+	// The data polling interval in seconds.
+	MetricsPollingInterval pulumi.IntPtrInput `pulumi:"metricsPollingInterval"`
+}
+
+func (GcpIntegrationsAlloyDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (i GcpIntegrationsAlloyDbArgs) ToGcpIntegrationsAlloyDbOutput() GcpIntegrationsAlloyDbOutput {
+	return i.ToGcpIntegrationsAlloyDbOutputWithContext(context.Background())
+}
+
+func (i GcpIntegrationsAlloyDbArgs) ToGcpIntegrationsAlloyDbOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAlloyDbOutput)
+}
+
+func (i GcpIntegrationsAlloyDbArgs) ToGcpIntegrationsAlloyDbPtrOutput() GcpIntegrationsAlloyDbPtrOutput {
+	return i.ToGcpIntegrationsAlloyDbPtrOutputWithContext(context.Background())
+}
+
+func (i GcpIntegrationsAlloyDbArgs) ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAlloyDbOutput).ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx)
+}
+
+// GcpIntegrationsAlloyDbPtrInput is an input type that accepts GcpIntegrationsAlloyDbArgs, GcpIntegrationsAlloyDbPtr and GcpIntegrationsAlloyDbPtrOutput values.
+// You can construct a concrete instance of `GcpIntegrationsAlloyDbPtrInput` via:
+//
+//	        GcpIntegrationsAlloyDbArgs{...}
+//
+//	or:
+//
+//	        nil
+type GcpIntegrationsAlloyDbPtrInput interface {
+	pulumi.Input
+
+	ToGcpIntegrationsAlloyDbPtrOutput() GcpIntegrationsAlloyDbPtrOutput
+	ToGcpIntegrationsAlloyDbPtrOutputWithContext(context.Context) GcpIntegrationsAlloyDbPtrOutput
+}
+
+type gcpIntegrationsAlloyDbPtrType GcpIntegrationsAlloyDbArgs
+
+func GcpIntegrationsAlloyDbPtr(v *GcpIntegrationsAlloyDbArgs) GcpIntegrationsAlloyDbPtrInput {
+	return (*gcpIntegrationsAlloyDbPtrType)(v)
+}
+
+func (*gcpIntegrationsAlloyDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (i *gcpIntegrationsAlloyDbPtrType) ToGcpIntegrationsAlloyDbPtrOutput() GcpIntegrationsAlloyDbPtrOutput {
+	return i.ToGcpIntegrationsAlloyDbPtrOutputWithContext(context.Background())
+}
+
+func (i *gcpIntegrationsAlloyDbPtrType) ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpIntegrationsAlloyDbPtrOutput)
+}
+
+type GcpIntegrationsAlloyDbOutput struct{ *pulumi.OutputState }
+
+func (GcpIntegrationsAlloyDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (o GcpIntegrationsAlloyDbOutput) ToGcpIntegrationsAlloyDbOutput() GcpIntegrationsAlloyDbOutput {
+	return o
+}
+
+func (o GcpIntegrationsAlloyDbOutput) ToGcpIntegrationsAlloyDbOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbOutput {
+	return o
+}
+
+func (o GcpIntegrationsAlloyDbOutput) ToGcpIntegrationsAlloyDbPtrOutput() GcpIntegrationsAlloyDbPtrOutput {
+	return o.ToGcpIntegrationsAlloyDbPtrOutputWithContext(context.Background())
+}
+
+func (o GcpIntegrationsAlloyDbOutput) ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcpIntegrationsAlloyDb) *GcpIntegrationsAlloyDb {
+		return &v
+	}).(GcpIntegrationsAlloyDbPtrOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpIntegrationsAlloyDbOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GcpIntegrationsAlloyDb) *int { return v.MetricsPollingInterval }).(pulumi.IntPtrOutput)
+}
+
+type GcpIntegrationsAlloyDbPtrOutput struct{ *pulumi.OutputState }
+
+func (GcpIntegrationsAlloyDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcpIntegrationsAlloyDb)(nil)).Elem()
+}
+
+func (o GcpIntegrationsAlloyDbPtrOutput) ToGcpIntegrationsAlloyDbPtrOutput() GcpIntegrationsAlloyDbPtrOutput {
+	return o
+}
+
+func (o GcpIntegrationsAlloyDbPtrOutput) ToGcpIntegrationsAlloyDbPtrOutputWithContext(ctx context.Context) GcpIntegrationsAlloyDbPtrOutput {
+	return o
+}
+
+func (o GcpIntegrationsAlloyDbPtrOutput) Elem() GcpIntegrationsAlloyDbOutput {
+	return o.ApplyT(func(v *GcpIntegrationsAlloyDb) GcpIntegrationsAlloyDb {
+		if v != nil {
+			return *v
+		}
+		var ret GcpIntegrationsAlloyDb
+		return ret
+	}).(GcpIntegrationsAlloyDbOutput)
+}
+
+// The data polling interval in seconds.
+func (o GcpIntegrationsAlloyDbPtrOutput) MetricsPollingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GcpIntegrationsAlloyDb) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsPollingInterval
+	}).(pulumi.IntPtrOutput)
 }
 
 type GcpIntegrationsAppEngine struct {
@@ -14321,8 +14770,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMariaDbPtrInput)(nil)).Elem(), AzureIntegrationsMariaDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlInput)(nil)).Elem(), AzureIntegrationsMysqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlPtrInput)(nil)).Elem(), AzureIntegrationsMysqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlFlexibleInput)(nil)).Elem(), AzureIntegrationsMysqlFlexibleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsMysqlFlexiblePtrInput)(nil)).Elem(), AzureIntegrationsMysqlFlexibleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsPostgresqlInput)(nil)).Elem(), AzureIntegrationsPostgresqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsPostgresqlPtrInput)(nil)).Elem(), AzureIntegrationsPostgresqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsPostgresqlFlexibleInput)(nil)).Elem(), AzureIntegrationsPostgresqlFlexibleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsPostgresqlFlexiblePtrInput)(nil)).Elem(), AzureIntegrationsPostgresqlFlexibleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsPowerBiDedicatedInput)(nil)).Elem(), AzureIntegrationsPowerBiDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsPowerBiDedicatedPtrInput)(nil)).Elem(), AzureIntegrationsPowerBiDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsRedisCacheInput)(nil)).Elem(), AzureIntegrationsRedisCacheArgs{})
@@ -14343,6 +14796,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsVmsPtrInput)(nil)).Elem(), AzureIntegrationsVmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsVpnGatewayInput)(nil)).Elem(), AzureIntegrationsVpnGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AzureIntegrationsVpnGatewayPtrInput)(nil)).Elem(), AzureIntegrationsVpnGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAlloyDbInput)(nil)).Elem(), GcpIntegrationsAlloyDbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAlloyDbPtrInput)(nil)).Elem(), GcpIntegrationsAlloyDbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAppEngineInput)(nil)).Elem(), GcpIntegrationsAppEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsAppEnginePtrInput)(nil)).Elem(), GcpIntegrationsAppEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GcpIntegrationsBigQueryInput)(nil)).Elem(), GcpIntegrationsBigQueryArgs{})
@@ -14485,8 +14940,12 @@ func init() {
 	pulumi.RegisterOutputType(AzureIntegrationsMariaDbPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMysqlOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsMysqlPtrOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsMysqlFlexibleOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsMysqlFlexiblePtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsPostgresqlOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsPostgresqlPtrOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsPostgresqlFlexibleOutput{})
+	pulumi.RegisterOutputType(AzureIntegrationsPostgresqlFlexiblePtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsPowerBiDedicatedOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsPowerBiDedicatedPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsRedisCacheOutput{})
@@ -14507,6 +14966,8 @@ func init() {
 	pulumi.RegisterOutputType(AzureIntegrationsVmsPtrOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsVpnGatewayOutput{})
 	pulumi.RegisterOutputType(AzureIntegrationsVpnGatewayPtrOutput{})
+	pulumi.RegisterOutputType(GcpIntegrationsAlloyDbOutput{})
+	pulumi.RegisterOutputType(GcpIntegrationsAlloyDbPtrOutput{})
 	pulumi.RegisterOutputType(GcpIntegrationsAppEngineOutput{})
 	pulumi.RegisterOutputType(GcpIntegrationsAppEnginePtrOutput{})
 	pulumi.RegisterOutputType(GcpIntegrationsBigQueryOutput{})

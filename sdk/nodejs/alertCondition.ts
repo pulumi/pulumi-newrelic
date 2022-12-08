@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -171,11 +172,11 @@ export class AlertCondition extends pulumi.CustomResource {
      */
     public readonly userDefinedMetric!: pulumi.Output<string | undefined>;
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      */
     public readonly userDefinedValueFunction!: pulumi.Output<string | undefined>;
     /**
-     * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      */
     public readonly violationCloseTimer!: pulumi.Output<number | undefined>;
 
@@ -332,11 +333,11 @@ export interface AlertConditionState {
      */
     userDefinedMetric?: pulumi.Input<string>;
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
-     * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      */
     violationCloseTimer?: pulumi.Input<number>;
 }
@@ -432,11 +433,11 @@ export interface AlertConditionArgs {
      */
     userDefinedMetric?: pulumi.Input<string>;
     /**
-     * One of: `average`, `min`, `max`, `total`, or `sampleSize`.
+     * One of: `average`, `min`, `max`, `total`, `sampleSize`, `rate` or `percent`.
      */
     userDefinedValueFunction?: pulumi.Input<string>;
     /**
-     * Automatically close instance-based violations, including JVM health metric violations, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
+     * Automatically close instance-based incidents, including JVM health metric incidents, after the number of hours specified. Must be: `1`, `2`, `4`, `8`, `12` or `24`.
      */
     violationCloseTimer?: pulumi.Input<number>;
 }

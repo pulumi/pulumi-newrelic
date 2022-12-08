@@ -86,18 +86,14 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+     * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
     @Import(name="nrqlQueries", required=true)
     private Output<List<OneDashboardPageWidgetPyNrqlQueryArgs>> nrqlQueries;
 
     /**
-     * @return (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-     * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-     * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+     * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      * 
      */
     public Output<List<OneDashboardPageWidgetPyNrqlQueryArgs>> nrqlQueries() {
@@ -120,14 +116,14 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     public Output<String> title() {
@@ -277,9 +273,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nrqlQueries (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-         * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-         * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
          * 
          * @return builder
          * 
@@ -290,9 +284,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nrqlQueries (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-         * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-         * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
          * 
          * @return builder
          * 
@@ -302,9 +294,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nrqlQueries (Required) A nested block that describes a NRQL Query. See Nested nrql\_query blocks below for details.
-         * * `linked_entity_guids`: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
-         * * `filter_current_dashboard`: (Optional) Use this item to filter the current dashboard.
+         * @param nrqlQueries (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
          * 
          * @return builder
          * 
@@ -335,7 +325,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param title (Required) A title for the widget.
+         * @param title (Optional) A human-friendly display string for this value.
          * 
          * @return builder
          * 
@@ -346,7 +336,7 @@ public final class OneDashboardPageWidgetPyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param title (Required) A title for the widget.
+         * @param title (Optional) A human-friendly display string for this value.
          * 
          * @return builder
          * 

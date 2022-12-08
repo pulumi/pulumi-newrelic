@@ -22,6 +22,8 @@ import com.pulumi.newrelic.inputs.GetEntityArgs;
 import com.pulumi.newrelic.inputs.GetEntityPlainArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionPlainArgs;
+import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
+import com.pulumi.newrelic.inputs.GetObfuscationExpressionPlainArgs;
 import com.pulumi.newrelic.outputs.GetAccountResult;
 import com.pulumi.newrelic.outputs.GetAlertChannelResult;
 import com.pulumi.newrelic.outputs.GetAlertPolicyResult;
@@ -29,6 +31,7 @@ import com.pulumi.newrelic.outputs.GetApplicationResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
+import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class NewrelicFunctions {
@@ -1317,5 +1320,213 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
+     * import com.pulumi.newrelic.ObfuscationRule;
+     * import com.pulumi.newrelic.ObfuscationRuleArgs;
+     * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
+     *             .accountId(123456)
+     *             .name(&#34;The expression&#34;)
+     *             .build());
+     * 
+     *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .description(&#34;description of the rule&#34;)
+     *             .filter(&#34;hostStatus=running&#34;)
+     *             .enabled(true)
+     *             .actions(ObfuscationRuleActionArgs.builder()
+     *                 .attributes(&#34;message&#34;)
+     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -&gt; getObfuscationExpressionResult.id()))
+     *                 .method(&#34;MASK&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetObfuscationExpressionResult> getObfuscationExpression(GetObfuscationExpressionArgs args) {
+        return getObfuscationExpression(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
+     * import com.pulumi.newrelic.ObfuscationRule;
+     * import com.pulumi.newrelic.ObfuscationRuleArgs;
+     * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
+     *             .accountId(123456)
+     *             .name(&#34;The expression&#34;)
+     *             .build());
+     * 
+     *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .description(&#34;description of the rule&#34;)
+     *             .filter(&#34;hostStatus=running&#34;)
+     *             .enabled(true)
+     *             .actions(ObfuscationRuleActionArgs.builder()
+     *                 .attributes(&#34;message&#34;)
+     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -&gt; getObfuscationExpressionResult.id()))
+     *                 .method(&#34;MASK&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetObfuscationExpressionResult> getObfuscationExpressionPlain(GetObfuscationExpressionPlainArgs args) {
+        return getObfuscationExpressionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
+     * import com.pulumi.newrelic.ObfuscationRule;
+     * import com.pulumi.newrelic.ObfuscationRuleArgs;
+     * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
+     *             .accountId(123456)
+     *             .name(&#34;The expression&#34;)
+     *             .build());
+     * 
+     *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .description(&#34;description of the rule&#34;)
+     *             .filter(&#34;hostStatus=running&#34;)
+     *             .enabled(true)
+     *             .actions(ObfuscationRuleActionArgs.builder()
+     *                 .attributes(&#34;message&#34;)
+     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -&gt; getObfuscationExpressionResult.id()))
+     *                 .method(&#34;MASK&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetObfuscationExpressionResult> getObfuscationExpression(GetObfuscationExpressionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
+     * import com.pulumi.newrelic.ObfuscationRule;
+     * import com.pulumi.newrelic.ObfuscationRuleArgs;
+     * import com.pulumi.newrelic.inputs.ObfuscationRuleActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var expression = NewrelicFunctions.getObfuscationExpression(GetObfuscationExpressionArgs.builder()
+     *             .accountId(123456)
+     *             .name(&#34;The expression&#34;)
+     *             .build());
+     * 
+     *         var rule = new ObfuscationRule(&#34;rule&#34;, ObfuscationRuleArgs.builder()        
+     *             .description(&#34;description of the rule&#34;)
+     *             .filter(&#34;hostStatus=running&#34;)
+     *             .enabled(true)
+     *             .actions(ObfuscationRuleActionArgs.builder()
+     *                 .attributes(&#34;message&#34;)
+     *                 .expressionId(expression.applyValue(getObfuscationExpressionResult -&gt; getObfuscationExpressionResult.id()))
+     *                 .method(&#34;MASK&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetObfuscationExpressionResult> getObfuscationExpressionPlain(GetObfuscationExpressionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
     }
 }

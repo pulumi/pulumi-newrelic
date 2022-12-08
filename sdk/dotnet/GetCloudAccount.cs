@@ -39,7 +39,7 @@ namespace Pulumi.NewRelic
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCloudAccountResult> InvokeAsync(GetCloudAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific cloud account linked to New Relic.
@@ -69,7 +69,7 @@ namespace Pulumi.NewRelic
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCloudAccountResult> Invoke(GetCloudAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudAccountResult>("newrelic:index/getCloudAccount:getCloudAccount", args ?? new GetCloudAccountInvokeArgs(), options.WithDefaults());
     }
 
 

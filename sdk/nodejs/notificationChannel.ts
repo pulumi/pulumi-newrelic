@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Use this resource to create and manage New Relic notification channels. Details regarding supported products and permissions can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/notifications/destinations).
+ *
+ * A channel is an entity that is used to configure notifications. It is also called a message template. It is a separate entity from workflows, but a channel is required in order to create a workflow.
  *
  * ## Example Usage
  *
@@ -19,6 +22,7 @@ import * as utilities from "./utilities";
  *     accountId: 12345678,
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT", // (Workflows)
+ *     // must be valid json
  *     properties: [{
  *         key: "payload",
  *         label: "Payload Template",
@@ -62,10 +66,16 @@ import * as utilities from "./utilities";
  *     accountId: 12345678,
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "ERROR_TRACKING",
- *     properties: [{
- *         key: "subject",
- *         value: "New Subject Title",
- *     }],
+ *     properties: [
+ *         {
+ *             key: "subject",
+ *             value: "New Subject Title",
+ *         },
+ *         {
+ *             key: "customDetailsEmail",
+ *             value: "issue id - {{issueId}}",
+ *         },
+ *     ],
  *     type: "EMAIL",
  * });
  * ```
@@ -123,6 +133,24 @@ import * as utilities from "./utilities";
  *             key: "email",
  *             value: "example@email.com",
  *         },
+ *         // must be valid json
+ *         {
+ *             key: "customDetails",
+ *             value: `    {
+ *     "id":{{json issueId}},
+ *     "IssueURL":{{json issuePageUrl}},
+ *     "NewRelic priority":{{json priority}},
+ *     "Total Incidents":{{json totalIncidents}},
+ *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "isCorrelated":{{json isCorrelated}},
+ *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Workflow Name":{{json workflowName}}
+ *     }
+ * `,
+ *         },
  *     ],
  *     type: "PAGERDUTY_ACCOUNT_INTEGRATION",
  * });
@@ -137,10 +165,30 @@ import * as utilities from "./utilities";
  *     accountId: 12345678,
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
- *     properties: [{
- *         key: "summary",
- *         value: "General summary",
- *     }],
+ *     properties: [
+ *         {
+ *             key: "summary",
+ *             value: "General summary",
+ *         },
+ *         // must be valid json
+ *         {
+ *             key: "customDetails",
+ *             value: `    {
+ *     "id":{{json issueId}},
+ *     "IssueURL":{{json issuePageUrl}},
+ *     "NewRelic priority":{{json priority}},
+ *     "Total Incidents":{{json totalIncidents}},
+ *     "Impacted Entities":"{{#each entitiesData.names}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Runbook":"{{#each accumulations.runbookUrl}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Description":"{{#each annotations.description}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "isCorrelated":{{json isCorrelated}},
+ *     "Alert Policy Names":"{{#each accumulations.policyName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Alert Condition Names":"{{#each accumulations.conditionName}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",
+ *     "Workflow Name":{{json workflowName}}
+ *     }
+ * `,
+ *         },
+ *     ],
  *     type: "PAGERDUTY_SERVICE_INTEGRATION",
  * });
  * ```
@@ -172,6 +220,7 @@ import * as utilities from "./utilities";
  *             key: "eventSource",
  *             value: "aws.partner/mydomain/myaccountid/name",
  *         },
+ *         // must be valid json
  *         {
  *             key: "eventContent",
  *             value: "{ id: {{ json issueId }} }",
@@ -190,10 +239,16 @@ import * as utilities from "./utilities";
  *     accountId: 12345678,
  *     destinationId: "00b6bd1d-ac06-4d3d-bd72-49551e70f7a8",
  *     product: "IINT",
- *     properties: [{
- *         key: "channelId",
- *         value: "123456",
- *     }],
+ *     properties: [
+ *         {
+ *             key: "channelId",
+ *             value: "123456",
+ *         },
+ *         {
+ *             key: "customDetailsSlack",
+ *             value: "issue id - {{issueId}}",
+ *         },
+ *     ],
  *     type: "SLACK",
  * });
  * ```

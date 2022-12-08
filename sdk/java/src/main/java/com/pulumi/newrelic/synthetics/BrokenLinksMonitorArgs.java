@@ -124,14 +124,14 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      * 
      */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
     /**
-     * @return The uri the monitor runs against.
+     * @return The URI the monitor runs against.
      * 
      */
     public Output<String> uri() {
@@ -347,7 +347,7 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param uri The uri the monitor runs against.
+         * @param uri The URI the monitor runs against.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class BrokenLinksMonitorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param uri The uri the monitor runs against.
+         * @param uri The URI the monitor runs against.
          * 
          * @return builder
          * 

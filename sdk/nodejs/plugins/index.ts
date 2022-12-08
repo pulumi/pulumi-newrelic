@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./applicationSettings";
-export * from "./workload";
+export { ApplicationSettingsArgs, ApplicationSettingsState } from "./applicationSettings";
+export type ApplicationSettings = import("./applicationSettings").ApplicationSettings;
+export const ApplicationSettings: typeof import("./applicationSettings").ApplicationSettings = null as any;
+utilities.lazyLoad(exports, ["ApplicationSettings"], () => require("./applicationSettings"));
 
-// Import resources to register:
-import { ApplicationSettings } from "./applicationSettings";
-import { Workload } from "./workload";
+export { WorkloadArgs, WorkloadState } from "./workload";
+export type Workload = import("./workload").Workload;
+export const Workload: typeof import("./workload").Workload = null as any;
+utilities.lazyLoad(exports, ["Workload"], () => require("./workload"));
+
 
 const _module = {
     version: utilities.getVersion(),

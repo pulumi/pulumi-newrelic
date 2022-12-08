@@ -21,7 +21,10 @@ class GetSecureCredentialResult:
     """
     A collection of values returned by getSecureCredential.
     """
-    def __init__(__self__, description=None, id=None, key=None, last_updated=None):
+    def __init__(__self__, account_id=None, description=None, id=None, key=None, last_updated=None):
+        if account_id and not isinstance(account_id, int):
+            raise TypeError("Expected argument 'account_id' to be a int")
+        pulumi.set(__self__, "account_id", account_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -34,6 +37,11 @@ class GetSecureCredentialResult:
         if last_updated and not isinstance(last_updated, str):
             raise TypeError("Expected argument 'last_updated' to be a str")
         pulumi.set(__self__, "last_updated", last_updated)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> int:
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
@@ -71,6 +79,7 @@ class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
         if False:
             yield self
         return GetSecureCredentialResult(
+            account_id=self.account_id,
             description=self.description,
             id=self.id,
             key=self.key,
@@ -102,6 +111,7 @@ def get_secure_credential(key: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getSecureCredential:getSecureCredential', __args__, opts=opts, typ=GetSecureCredentialResult).value
 
     return AwaitableGetSecureCredentialResult(
+        account_id=__ret__.account_id,
         description=__ret__.description,
         id=__ret__.id,
         key=__ret__.key,

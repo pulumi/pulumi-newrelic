@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to create, update, and delete a synthetics certificate check monitor in New Relic.
+ * Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
  *
  * ## Example Usage
  *
@@ -16,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const cert_check_monitor = new newrelic.synthetics.CertCheckMonitor("cert-check-monitor", {
  *     certificateExpiration: 10,
- *     domain: "http://www.example.com",
+ *     domain: "www.example.com",
  *     locationsPublics: ["AP_SOUTH_1"],
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
@@ -39,12 +40,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Test Description",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.CertCheckMonitor("monitor", {
- *     locationsPrivates: ["newrelic_synthetics_private_location.private_location.id"],
+ *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
  *     tags: [{

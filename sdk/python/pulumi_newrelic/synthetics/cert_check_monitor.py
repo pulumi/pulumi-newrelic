@@ -329,7 +329,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertCheckMonitorTagArgs']]]]] = None,
                  __props__=None):
         """
-        Use this resource to create, update, and delete a synthetics certificate check monitor in New Relic.
+        Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 
         ## Example Usage
 
@@ -339,7 +339,7 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         cert_check_monitor = newrelic.synthetics.CertCheckMonitor("cert-check-monitor",
             certificate_expiration=10,
-            domain="http://www.example.com",
+            domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_6_HOURS",
             status="ENABLED",
@@ -378,7 +378,7 @@ class CertCheckMonitor(pulumi.CustomResource):
                  args: CertCheckMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create, update, and delete a synthetics certificate check monitor in New Relic.
+        Use this resource to create, update, and delete a Synthetics Certificate Check monitor in New Relic.
 
         ## Example Usage
 
@@ -388,7 +388,7 @@ class CertCheckMonitor(pulumi.CustomResource):
 
         cert_check_monitor = newrelic.synthetics.CertCheckMonitor("cert-check-monitor",
             certificate_expiration=10,
-            domain="http://www.example.com",
+            domain="www.example.com",
             locations_publics=["AP_SOUTH_1"],
             period="EVERY_6_HOURS",
             status="ENABLED",

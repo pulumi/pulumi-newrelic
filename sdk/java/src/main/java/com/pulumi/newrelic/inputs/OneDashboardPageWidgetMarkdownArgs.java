@@ -102,14 +102,14 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
     }
 
     /**
-     * (Required) A title for the widget.
+     * (Optional) A human-friendly display string for this value.
      * 
      */
     @Import(name="title", required=true)
     private Output<String> title;
 
     /**
-     * @return (Required) A title for the widget.
+     * @return (Optional) A human-friendly display string for this value.
      * 
      */
     public Output<String> title() {
@@ -279,7 +279,7 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param title (Required) A title for the widget.
+         * @param title (Optional) A human-friendly display string for this value.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param title (Required) A title for the widget.
+         * @param title (Optional) A human-friendly display string for this value.
          * 
          * @return builder
          * 

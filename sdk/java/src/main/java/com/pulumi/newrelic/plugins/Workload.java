@@ -11,6 +11,8 @@ import com.pulumi.newrelic.Utilities;
 import com.pulumi.newrelic.plugins.WorkloadArgs;
 import com.pulumi.newrelic.plugins.inputs.WorkloadState;
 import com.pulumi.newrelic.plugins.outputs.WorkloadEntitySearchQuery;
+import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigAutomatic;
+import com.pulumi.newrelic.plugins.outputs.WorkloadStatusConfigStatic;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -98,9 +100,153 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * Include entities with a set of tags.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.plugins.Workload;
+ * import com.pulumi.newrelic.plugins.WorkloadArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .accountId(12345678)
+ *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
+ *                 .query(&#34;tags.accountId = &#39;12345678&#39; AND tags.environment=&#39;production&#39; AND tags.language=&#39;java&#39;&#34;)
+ *                 .build())
+ *             .scopeAccountIds(12345678)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Include automatic status
+ * 
+ * &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.plugins.Workload;
+ * import com.pulumi.newrelic.plugins.WorkloadArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .accountId(12345678)
+ *             .description(&#34;Description&#34;)
+ *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
+ *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
+ *                 .build())
+ *             .scopeAccountIds(12345678)
+ *             .statusConfigAutomatic(WorkloadStatusConfigAutomaticArgs.builder()
+ *                 .enabled(true)
+ *                 .remainingEntitiesRule(WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs.builder()
+ *                     .remainingEntitiesRuleRollup(WorkloadStatusConfigAutomaticRemainingEntitiesRuleRemainingEntitiesRuleRollupArgs.builder()
+ *                         .groupBy(&#34;ENTITY_TYPE&#34;)
+ *                         .strategy(&#34;BEST_STATUS_WINS&#34;)
+ *                         .thresholdType(&#34;FIXED&#34;)
+ *                         .thresholdValue(100)
+ *                         .build())
+ *                     .build())
+ *                 .rules(WorkloadStatusConfigAutomaticRuleArgs.builder()
+ *                     .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *                     .nrqlQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .rollup(WorkloadStatusConfigAutomaticRuleRollupArgs.builder()
+ *                         .strategy(&#34;BEST_STATUS_WINS&#34;)
+ *                         .thresholdType(&#34;FIXED&#34;)
+ *                         .thresholdValue(100)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Include static status
+ * 
+ * &gt; You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.plugins.Workload;
+ * import com.pulumi.newrelic.plugins.WorkloadArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadEntitySearchQueryArgs;
+ * import com.pulumi.newrelic.plugins.inputs.WorkloadStatusConfigStaticArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new Workload(&#34;foo&#34;, WorkloadArgs.builder()        
+ *             .accountId(12345678)
+ *             .description(&#34;Description&#34;)
+ *             .entityGuids(&#34;MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1&#34;)
+ *             .entitySearchQueries(WorkloadEntitySearchQueryArgs.builder()
+ *                 .query(&#34;name like &#39;%Example application%&#39;&#34;)
+ *                 .build())
+ *             .scopeAccountIds(12345678)
+ *             .statusConfigStatic(WorkloadStatusConfigStaticArgs.builder()
+ *                 .description(&#34;test&#34;)
+ *                 .enabled(true)
+ *                 .status(&#34;OPERATIONAL&#34;)
+ *                 .summary(&#34;summary of the status&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
- * New Relic One workloads can be imported using a concatenated string of the format
+ * New Relic workloads can be imported using a concatenated string of the format
  * 
  * `&lt;account_id&gt;:&lt;workload_id&gt;:&lt;guid&gt;`, e.g. bash
  * 
@@ -138,6 +284,20 @@ public class Workload extends com.pulumi.resources.CustomResource {
      */
     public Output<String> compositeEntitySearchQuery() {
         return this.compositeEntitySearchQuery;
+    }
+    /**
+     * A description that provides additional details about the status of the workload.
+     * 
+     */
+    @Export(name="description", type=String.class, parameters={})
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return A description that provides additional details about the status of the workload.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * A list of entity GUIDs manually assigned to this workload.
@@ -222,6 +382,34 @@ public class Workload extends com.pulumi.resources.CustomResource {
      */
     public Output<List<Integer>> scopeAccountIds() {
         return this.scopeAccountIds;
+    }
+    /**
+     * An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * 
+     */
+    @Export(name="statusConfigAutomatic", type=WorkloadStatusConfigAutomatic.class, parameters={})
+    private Output</* @Nullable */ WorkloadStatusConfigAutomatic> statusConfigAutomatic;
+
+    /**
+     * @return An input object used to represent an automatic status configuration.See Nested status_config_automatic blocks below for details.
+     * 
+     */
+    public Output<Optional<WorkloadStatusConfigAutomatic>> statusConfigAutomatic() {
+        return Codegen.optional(this.statusConfigAutomatic);
+    }
+    /**
+     * A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * 
+     */
+    @Export(name="statusConfigStatic", type=WorkloadStatusConfigStatic.class, parameters={})
+    private Output</* @Nullable */ WorkloadStatusConfigStatic> statusConfigStatic;
+
+    /**
+     * @return A list of static status configurations. You can only configure one static status for a workload.See Nested status_config_static blocks below for details.
+     * 
+     */
+    public Output<Optional<WorkloadStatusConfigStatic>> statusConfigStatic() {
+        return Codegen.optional(this.statusConfigStatic);
     }
     /**
      * The unique entity identifier of the workload.

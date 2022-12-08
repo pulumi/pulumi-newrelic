@@ -15,14 +15,14 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
     public static final WorkflowIssuesFilterPredicateArgs Empty = new WorkflowIssuesFilterPredicateArgs();
 
     /**
-     * A predicate&#39;s attribute.
+     * Issue event attribute to check
      * 
      */
     @Import(name="attribute", required=true)
     private Output<String> attribute;
 
     /**
-     * @return A predicate&#39;s attribute.
+     * @return Issue event attribute to check
      * 
      */
     public Output<String> attribute() {
@@ -30,14 +30,18 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
     }
 
     /**
-     * A predicate&#39;s operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * An operator to use to compare the attribute with the provided `values`.
+     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return A predicate&#39;s operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+     * @return An operator to use to compare the attribute with the provided `values`.
+     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
      * 
      */
     public Output<String> operator() {
@@ -45,14 +49,14 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
     }
 
     /**
-     * A list of values.
+     * The `attribute` must match **any** of the values in this list
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return A list of values.
+     * @return The `attribute` must match **any** of the values in this list
      * 
      */
     public Output<List<String>> values() {
@@ -86,7 +90,7 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param attribute A predicate&#39;s attribute.
+         * @param attribute Issue event attribute to check
          * 
          * @return builder
          * 
@@ -97,7 +101,7 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param attribute A predicate&#39;s attribute.
+         * @param attribute Issue event attribute to check
          * 
          * @return builder
          * 
@@ -107,7 +111,9 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param operator A predicate&#39;s operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+         * @param operator An operator to use to compare the attribute with the provided `values`.
+         * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+         * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
          * 
          * @return builder
          * 
@@ -118,7 +124,9 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param operator A predicate&#39;s operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+         * @param operator An operator to use to compare the attribute with the provided `values`.
+         * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+         * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
          * 
          * @return builder
          * 
@@ -128,7 +136,7 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param values A list of values.
+         * @param values The `attribute` must match **any** of the values in this list
          * 
          * @return builder
          * 
@@ -139,7 +147,7 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param values A list of values.
+         * @param values The `attribute` must match **any** of the values in this list
          * 
          * @return builder
          * 
@@ -149,7 +157,7 @@ public final class WorkflowIssuesFilterPredicateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param values A list of values.
+         * @param values The `attribute` must match **any** of the values in this list
          * 
          * @return builder
          * 

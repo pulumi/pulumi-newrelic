@@ -16,8 +16,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// ##### Type: `SCRIPT_API`
     /// 
-    /// &gt; **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;
@@ -35,7 +33,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         Period = "EVERY_6_HOURS",
     ///         RuntimeType = "NODE_API",
     ///         RuntimeTypeVersion = "16.10",
-    ///         Script = "console.log('terraform integration test updated')",
+    ///         Script = "console.log('it works!')",
     ///         ScriptLanguage = "JAVASCRIPT",
     ///         Status = "ENABLED",
     ///         Tags = new[]
@@ -55,8 +53,6 @@ namespace Pulumi.NewRelic.Synthetics
     /// });
     /// ```
     /// ##### Type: `SCRIPT_BROWSER`
-    /// 
-    /// &gt; **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtime_type`, `runtime_type_version` and `script_language` are required. Other runtime may be deprecated in the future and receive fewer product updates.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -78,7 +74,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         RuntimeTypeVersion = "100",
     ///         Script = "$browser.get('https://one.newrelic.com')",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "DISABLED",
+    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -86,8 +82,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 Key = "some_key",
     ///                 Values = new[]
     ///                 {
-    ///                     "some_value1",
-    ///                     "some_value2",
+    ///                     "some_value",
     ///                 },
     ///             },
     ///         },
@@ -114,9 +109,9 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var privateLocation = new NewRelic.Synthetics.PrivateLocation("privateLocation", new()
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
-    ///         Description = "Test Description",
+    ///         Description = "Example private location",
     ///         VerifiedScriptExecution = true,
     ///     });
     /// 
@@ -126,7 +121,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorLocationPrivateArgs
     ///             {
-    ///                 Guid = "newrelic_synthetics_private_location.private_location.id",
+    ///                 Guid = "newrelic_synthetics_private_location.location.id",
     ///                 VsePassword = "secret",
     ///             },
     ///         },
@@ -161,7 +156,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var privateLocation = new NewRelic.Synthetics.PrivateLocation("privateLocation", new()
+    ///     var location = new NewRelic.Synthetics.PrivateLocation("location", new()
     ///     {
     ///         Description = "Test Description",
     ///         VerifiedScriptExecution = true,
@@ -174,7 +169,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorLocationPrivateArgs
     ///             {
-    ///                 Guid = "newrelic_synthetics_private_location.private_location.id",
+    ///                 Guid = "newrelic_synthetics_private_location.location.id",
     ///                 VsePassword = "secret",
     ///             },
     ///         },
@@ -183,7 +178,7 @@ namespace Pulumi.NewRelic.Synthetics
     ///         RuntimeTypeVersion = "100",
     ///         Script = "$browser.get('https://one.newrelic.com')",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "DISABLED",
+    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.ScriptMonitorTagArgs
@@ -206,7 +201,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// Synthetics monitor scripts can be imported using the `guid`, e.g. bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor bar &lt;guid&gt;
+    ///  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/scriptMonitor:ScriptMonitor")]
@@ -279,7 +274,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Output<string?> ScriptLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// The run state of the monitor.
+        /// The run state of the monitor: `ENABLED` or `DISABLED`
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -415,7 +410,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The run state of the monitor.
+        /// The run state of the monitor: `ENABLED` or `DISABLED`
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -525,7 +520,7 @@ namespace Pulumi.NewRelic.Synthetics
         public Input<string>? ScriptLanguage { get; set; }
 
         /// <summary>
-        /// The run state of the monitor.
+        /// The run state of the monitor: `ENABLED` or `DISABLED`
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

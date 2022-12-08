@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Inputs
     public sealed class WorkflowEnrichmentsNrqlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+        /// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Inputs
         private InputList<Inputs.WorkflowEnrichmentsNrqlConfigurationArgs>? _configurations;
 
         /// <summary>
-        /// A list of nrql enrichments.
+        /// Another wrapper block
         /// </summary>
         public InputList<Inputs.WorkflowEnrichmentsNrqlConfigurationArgs> Configurations
         {
@@ -34,14 +34,13 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? EnrichmentId { get; set; }
 
         /// <summary>
-        /// A nrql enrichment name.
+        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicate`
+        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

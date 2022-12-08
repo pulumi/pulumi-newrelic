@@ -9,26 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.NewRelic
 {
-    /// <summary>
-    /// ## Example Usage
-    /// ### Create A New Relic One Dashboard From A JSON File
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new NewRelic.OneDashboardJson("foo", new()
-    ///     {
-    ///         Json = File.ReadAllText("dashboard.json"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [NewRelicResourceType("newrelic:index/oneDashboardJson:OneDashboardJson")]
     public partial class OneDashboardJson : global::Pulumi.CustomResource
     {
@@ -45,7 +25,7 @@ namespace Pulumi.NewRelic
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        /// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         /// </summary>
         [Output("json")]
         public Output<string> Json { get; private set; } = null!;
@@ -115,7 +95,7 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        /// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         /// </summary>
         [Input("json", required: true)]
         public Input<string> Json { get; set; } = null!;
@@ -141,7 +121,7 @@ namespace Pulumi.NewRelic
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        /// The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         /// </summary>
         [Input("json")]
         public Input<string>? Json { get; set; }

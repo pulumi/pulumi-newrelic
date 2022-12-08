@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create and manage New Relic workflow.
+// Use this resource to create and manage New Relic workflows.
 //
-// ## Full Scenario Example
+// ## Example Usage
 //
-// Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
-//
-// ### Create a policy
+// ##### Workflow
 // ```go
 // package main
 //
@@ -30,42 +28,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewAlertPolicy(ctx, "collector-policy", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Create a destination
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
-//				AccountId: pulumi.Int(12345678),
-//				AuthBasic: &NotificationDestinationAuthBasicArgs{
-//					Password: pulumi.String("password"),
-//					User:     pulumi.String("username"),
-//				},
-//				Properties: NotificationDestinationPropertyArray{
-//					&NotificationDestinationPropertyArgs{
-//						Key:   pulumi.String("url"),
-//						Value: pulumi.String("https://webhook.mywebhook.com"),
+//			_, err := newrelic.NewWorkflow(ctx, "foo", &newrelic.WorkflowArgs{
+//				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
+//				IssuesFilter: &WorkflowIssuesFilterArgs{
+//					Name: pulumi.String("filter-name"),
+//					Type: pulumi.String("FILTER"),
+//					Predicates: WorkflowIssuesFilterPredicateArray{
+//						&WorkflowIssuesFilterPredicateArgs{
+//							Attribute: pulumi.String("accumulations.tag.team"),
+//							Operator:  pulumi.String("EXACTLY_MATCHES"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("growth"),
+//							},
+//						},
 //					},
 //				},
-//				Type: pulumi.String("WEBHOOK"),
+//				Destinations: WorkflowDestinationArray{
+//					&WorkflowDestinationArgs{
+//						ChannelId: pulumi.Any(newrelic_notification_channel.Some_channel.Id),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -75,8 +57,10 @@ import (
 //	}
 //
 // ```
+// ## Policy-Based Workflow Example
 //
-// ### Create a channel
+// # This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
+//
 // ```go
 // package main
 //
@@ -89,15 +73,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
-//				AccountId:     pulumi.Int(12345678),
+//			_, err := newrelic.NewAlertPolicy(ctx, "my-policy", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
+//				Type: pulumi.String("WEBHOOK"),
+//				Properties: NotificationDestinationPropertyArray{
+//					&NotificationDestinationPropertyArgs{
+//						Key:   pulumi.String("url"),
+//						Value: pulumi.String("https://example.com"),
+//					},
+//				},
+//				AuthBasic: &NotificationDestinationAuthBasicArgs{
+//					User:     pulumi.String("username"),
+//					Password: pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNotificationChannel(ctx, "webhook-channel", &newrelic.NotificationChannelArgs{
 //				Type:          pulumi.String("WEBHOOK"),
-//				DestinationId: pulumi.Any(newrelic_notification_destination.Webhook - destination.Id),
+//				DestinationId: webhook_destination.ID(),
 //				Product:       pulumi.String("IINT"),
 //				Properties: NotificationChannelPropertyArray{
 //					&NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
-//						Value: pulumi.String("{name: {{ variable }} }"),
+//						Value: pulumi.String("{}"),
 //						Label: pulumi.String("Payload Template"),
 //					},
 //				},
@@ -105,13 +108,38 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
+//				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
+//				IssuesFilter: &WorkflowIssuesFilterArgs{
+//					Name: pulumi.String("Filter-name"),
+//					Type: pulumi.String("FILTER"),
+//					Predicates: WorkflowIssuesFilterPredicateArray{
+//						&WorkflowIssuesFilterPredicateArgs{
+//							Attribute: pulumi.String("labels.policyIds"),
+//							Operator:  pulumi.String("EXACTLY_MATCHES"),
+//							Values: pulumi.StringArray{
+//								my_policy.ID(),
+//							},
+//						},
+//					},
+//				},
+//				Destinations: WorkflowDestinationArray{
+//					&WorkflowDestinationArgs{
+//						ChannelId: webhook_channel.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
 //
 // ```
 //
-// ### Create a workflow
+// ### An example of a workflow with enrichments
+//
 // ```go
 // package main
 //
@@ -127,12 +155,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
-//				AccountId:           pulumi.Int(12345678),
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
+//				IssuesFilter: &WorkflowIssuesFilterArgs{
+//					Name: pulumi.String("Filter-name"),
+//					Type: pulumi.String("FILTER"),
+//					Predicates: WorkflowIssuesFilterPredicateArray{
+//						&WorkflowIssuesFilterPredicateArgs{
+//							Attribute: pulumi.String("accumulations.tag.team"),
+//							Operator:  pulumi.String("EXACTLY_MATCHES"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("my_team"),
+//							},
+//						},
+//					},
+//				},
 //				Enrichments: &WorkflowEnrichmentsArgs{
 //					Nrqls: WorkflowEnrichmentsNrqlArray{
 //						&WorkflowEnrichmentsNrqlArgs{
-//							Name: pulumi.String("Log count"),
+//							Name: pulumi.String("Log Count"),
 //							Configurations: WorkflowEnrichmentsNrqlConfigurationArray{
 //								&WorkflowEnrichmentsNrqlConfigurationArgs{
 //									Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM Log WHERE message like '%verror%v' since 10 minutes ago", "%", "%")),
@@ -141,29 +181,9 @@ import (
 //						},
 //					},
 //				},
-//				IssuesFilter: &WorkflowIssuesFilterArgs{
-//					Name: pulumi.String("Filter-name"),
-//					Type: pulumi.String("FILTER"),
-//					Predicates: WorkflowIssuesFilterPredicateArray{
-//						&WorkflowIssuesFilterPredicateArgs{
-//							Attribute: pulumi.String("accumulations.policyName"),
-//							Operator:  pulumi.String("EXACTLY_MATCHES"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("my_policy"),
-//							},
-//						},
-//						&WorkflowIssuesFilterPredicateArgs{
-//							Attribute: pulumi.String("accumulations.sources"),
-//							Operator:  pulumi.String("EXACTLY_MATCHES"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("newrelic"),
-//							},
-//						},
-//					},
-//				},
 //				Destinations: WorkflowDestinationArray{
 //					&WorkflowDestinationArgs{
-//						ChannelId: pulumi.Any(newrelic_notification_channel.Webhook - channel.Id),
+//						ChannelId: pulumi.Any(newrelic_notification_channel.WebhookChannel.Id),
 //					},
 //				},
 //			})
@@ -188,28 +208,43 @@ import (
 // - `destinationConfiguration` changed to `destination`.
 // - `predicates` changed to `predicate`.
 // - Enrichment's `configurations` changed to `configuration`.
+//
+// ## Import
+//
+// Workflows can be imported using the `id`, e.g. bash
+//
+// ```sh
+//
+//	$ pulumi import newrelic:index/workflow:Workflow foo <id>
+//
+// ```
+//
+//	You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
-	AccountId pulumi.IntPtrOutput `pulumi:"accountId"`
-	// A nested block that contains a channel id.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+	AccountId pulumi.IntOutput `pulumi:"accountId"`
+	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayOutput `pulumi:"destinations"`
-	// Whether destinations are enabled..
+	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+	// these two are different flags, but they are functionally identical. Defaults to true.
+	//
+	// Deprecated: Please use 'enabled' instead
 	DestinationsEnabled pulumi.BoolPtrOutput `pulumi:"destinationsEnabled"`
-	// Whether workflow is enabled.
+	// Whether workflow is enabled. Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+	// Workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments WorkflowEnrichmentsPtrOutput `pulumi:"enrichments"`
-	// Whether enrichments are enabled..
+	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled pulumi.BoolPtrOutput `pulumi:"enrichmentsEnabled"`
-	// The issues filter.  See Nested issuesFilter blocks below for details.
+	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter WorkflowIssuesFilterOutput `pulumi:"issuesFilter"`
 	// The last time notification was sent for this workflow.
 	LastRun pulumi.StringOutput `pulumi:"lastRun"`
-	// Which muting rule handling this workflow has.
+	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling pulumi.StringOutput `pulumi:"mutingRulesHandling"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The id of the workflow.
 	WorkflowId pulumi.StringOutput `pulumi:"workflowId"`
@@ -253,50 +288,56 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId *int `pulumi:"accountId"`
-	// A nested block that contains a channel id.
+	// Notification configuration. See Nested destination blocks below for details.
 	Destinations []WorkflowDestination `pulumi:"destinations"`
-	// Whether destinations are enabled..
+	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+	// these two are different flags, but they are functionally identical. Defaults to true.
+	//
+	// Deprecated: Please use 'enabled' instead
 	DestinationsEnabled *bool `pulumi:"destinationsEnabled"`
-	// Whether workflow is enabled.
+	// Whether workflow is enabled. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+	// Workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments *WorkflowEnrichments `pulumi:"enrichments"`
-	// Whether enrichments are enabled..
+	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled *bool `pulumi:"enrichmentsEnabled"`
-	// The issues filter.  See Nested issuesFilter blocks below for details.
+	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter *WorkflowIssuesFilter `pulumi:"issuesFilter"`
 	// The last time notification was sent for this workflow.
 	LastRun *string `pulumi:"lastRun"`
-	// Which muting rule handling this workflow has.
+	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling *string `pulumi:"mutingRulesHandling"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name *string `pulumi:"name"`
 	// The id of the workflow.
 	WorkflowId *string `pulumi:"workflowId"`
 }
 
 type WorkflowState struct {
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId pulumi.IntPtrInput
-	// A nested block that contains a channel id.
+	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayInput
-	// Whether destinations are enabled..
+	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+	// these two are different flags, but they are functionally identical. Defaults to true.
+	//
+	// Deprecated: Please use 'enabled' instead
 	DestinationsEnabled pulumi.BoolPtrInput
-	// Whether workflow is enabled.
+	// Whether workflow is enabled. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+	// Workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments WorkflowEnrichmentsPtrInput
-	// Whether enrichments are enabled..
+	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled pulumi.BoolPtrInput
-	// The issues filter.  See Nested issuesFilter blocks below for details.
+	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter WorkflowIssuesFilterPtrInput
 	// The last time notification was sent for this workflow.
 	LastRun pulumi.StringPtrInput
-	// Which muting rule handling this workflow has.
+	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling pulumi.StringPtrInput
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name pulumi.StringPtrInput
 	// The id of the workflow.
 	WorkflowId pulumi.StringPtrInput
@@ -307,45 +348,51 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId *int `pulumi:"accountId"`
-	// A nested block that contains a channel id.
+	// Notification configuration. See Nested destination blocks below for details.
 	Destinations []WorkflowDestination `pulumi:"destinations"`
-	// Whether destinations are enabled..
+	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+	// these two are different flags, but they are functionally identical. Defaults to true.
+	//
+	// Deprecated: Please use 'enabled' instead
 	DestinationsEnabled *bool `pulumi:"destinationsEnabled"`
-	// Whether workflow is enabled.
+	// Whether workflow is enabled. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
-	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+	// Workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments *WorkflowEnrichments `pulumi:"enrichments"`
-	// Whether enrichments are enabled..
+	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled *bool `pulumi:"enrichmentsEnabled"`
-	// The issues filter.  See Nested issuesFilter blocks below for details.
+	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter WorkflowIssuesFilter `pulumi:"issuesFilter"`
-	// Which muting rule handling this workflow has.
+	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling string `pulumi:"mutingRulesHandling"`
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+	// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
 	AccountId pulumi.IntPtrInput
-	// A nested block that contains a channel id.
+	// Notification configuration. See Nested destination blocks below for details.
 	Destinations WorkflowDestinationArrayInput
-	// Whether destinations are enabled..
+	// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+	// these two are different flags, but they are functionally identical. Defaults to true.
+	//
+	// Deprecated: Please use 'enabled' instead
 	DestinationsEnabled pulumi.BoolPtrInput
-	// Whether workflow is enabled.
+	// Whether workflow is enabled. Defaults to true.
 	Enabled pulumi.BoolPtrInput
-	// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+	// Workflow's enrichments. See Nested enrichments blocks below for details.
 	Enrichments WorkflowEnrichmentsPtrInput
-	// Whether enrichments are enabled..
+	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled pulumi.BoolPtrInput
-	// The issues filter.  See Nested issuesFilter blocks below for details.
+	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter WorkflowIssuesFilterInput
-	// Which muting rule handling this workflow has.
+	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling pulumi.StringInput
-	// A nrql enrichment name.
+	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 	Name pulumi.StringPtrInput
 }
 
@@ -436,37 +483,40 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
-// Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
-func (o WorkflowOutput) AccountId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.IntPtrOutput { return v.AccountId }).(pulumi.IntPtrOutput)
+// Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
+func (o WorkflowOutput) AccountId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// A nested block that contains a channel id.
+// Notification configuration. See Nested destination blocks below for details.
 func (o WorkflowOutput) Destinations() WorkflowDestinationArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowDestinationArrayOutput { return v.Destinations }).(WorkflowDestinationArrayOutput)
 }
 
-// Whether destinations are enabled..
+// **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+// these two are different flags, but they are functionally identical. Defaults to true.
+//
+// Deprecated: Please use 'enabled' instead
 func (o WorkflowOutput) DestinationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.DestinationsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether workflow is enabled.
+// Whether workflow is enabled. Defaults to true.
 func (o WorkflowOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+// Workflow's enrichments. See Nested enrichments blocks below for details.
 func (o WorkflowOutput) Enrichments() WorkflowEnrichmentsPtrOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowEnrichmentsPtrOutput { return v.Enrichments }).(WorkflowEnrichmentsPtrOutput)
 }
 
-// Whether enrichments are enabled..
+// Whether enrichments are enabled. Defaults to true.
 func (o WorkflowOutput) EnrichmentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.EnrichmentsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The issues filter.  See Nested issuesFilter blocks below for details.
+// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 func (o WorkflowOutput) IssuesFilter() WorkflowIssuesFilterOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowIssuesFilterOutput { return v.IssuesFilter }).(WorkflowIssuesFilterOutput)
 }
@@ -476,12 +526,12 @@ func (o WorkflowOutput) LastRun() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.LastRun }).(pulumi.StringOutput)
 }
 
-// Which muting rule handling this workflow has.
+// How to handle muted issues. See Muting Rules below for details.
 func (o WorkflowOutput) MutingRulesHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.MutingRulesHandling }).(pulumi.StringOutput)
 }
 
-// A nrql enrichment name.
+// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
 func (o WorkflowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

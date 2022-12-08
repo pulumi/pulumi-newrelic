@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.GetEntityTagArgs;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,11 +63,19 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
-    @Import(name="tag")
-    private @Nullable Output<GetEntityTagArgs> tag;
+    /**
+     * A tag applied to the entity. See Nested tag blocks below for details.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<GetEntityTagArgs>> tags;
 
-    public Optional<Output<GetEntityTagArgs>> tag() {
-        return Optional.ofNullable(this.tag);
+    /**
+     * @return A tag applied to the entity. See Nested tag blocks below for details.
+     * 
+     */
+    public Optional<Output<List<GetEntityTagArgs>>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     /**
@@ -90,7 +99,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         this.domain = $.domain;
         this.ignoreCase = $.ignoreCase;
         this.name = $.name;
-        this.tag = $.tag;
+        this.tags = $.tags;
         this.type = $.type;
     }
 
@@ -175,13 +184,35 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
             return name(Output.of(name));
         }
 
-        public Builder tag(@Nullable Output<GetEntityTagArgs> tag) {
-            $.tag = tag;
+        /**
+         * @param tags A tag applied to the entity. See Nested tag blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<GetEntityTagArgs>> tags) {
+            $.tags = tags;
             return this;
         }
 
-        public Builder tag(GetEntityTagArgs tag) {
-            return tag(Output.of(tag));
+        /**
+         * @param tags A tag applied to the entity. See Nested tag blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<GetEntityTagArgs> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags A tag applied to the entity. See Nested tag blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(GetEntityTagArgs... tags) {
+            return tags(List.of(tags));
         }
 
         /**

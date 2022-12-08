@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic.Synthetics
 {
     /// <summary>
-    /// Use this resource to create, update, and delete a synthetics step monitor in New Relic.
+    /// Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
     /// 
     /// ## Example Usage
     /// 
@@ -66,7 +66,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor bar &lt;guid&gt;
+    ///  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor &lt;guid&gt;
     /// ```
     /// </summary>
     [NewRelicResourceType("newrelic:synthetics/stepMonitor:StepMonitor")]

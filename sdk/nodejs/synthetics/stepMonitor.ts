@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to create, update, and delete a synthetics step monitor in New Relic.
+ * Use this resource to create, update, and delete a Synthetics Step monitor in New Relic.
  *
  * ## Example Usage
  *
@@ -46,13 +47,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Test Description",
  *     verifiedScriptExecution: true,
  * });
  * const bar = new newrelic.synthetics.StepMonitor("bar", {
  *     locationPrivates: [{
- *         guid: "newrelic_synthetics_private_location.private_location.id",
+ *         guid: "newrelic_synthetics_private_location.location.id",
  *         vsePassword: "secret",
  *     }],
  *     period: "EVERY_6_HOURS",
@@ -75,7 +76,7 @@ import * as utilities from "../utilities";
  * Synthetics step monitor scripts can be imported using the `guid`, e.g. bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor bar <guid>
+ *  $ pulumi import newrelic:synthetics/stepMonitor:StepMonitor monitor <guid>
  * ```
  */
 export class StepMonitor extends pulumi.CustomResource {

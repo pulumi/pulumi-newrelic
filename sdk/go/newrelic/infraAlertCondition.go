@@ -131,7 +131,7 @@ type InfraAlertCondition struct {
 	Comparison pulumi.StringPtrOutput `pulumi:"comparison"`
 	// The timestamp the alert condition was created.
 	CreatedAt pulumi.IntOutput `pulumi:"createdAt"`
-	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
 	Critical InfraAlertConditionCriticalPtrOutput `pulumi:"critical"`
 	// The description of the Infrastructure alert condition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -155,9 +155,9 @@ type InfraAlertCondition struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The timestamp the alert condition was last updated.
 	UpdatedAt pulumi.IntOutput `pulumi:"updatedAt"`
-	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer pulumi.IntPtrOutput `pulumi:"violationCloseTimer"`
-	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrOutput `pulumi:"warning"`
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrOutput `pulumi:"where"`
@@ -202,7 +202,7 @@ type infraAlertConditionState struct {
 	Comparison *string `pulumi:"comparison"`
 	// The timestamp the alert condition was created.
 	CreatedAt *int `pulumi:"createdAt"`
-	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
 	Critical *InfraAlertConditionCritical `pulumi:"critical"`
 	// The description of the Infrastructure alert condition.
 	Description *string `pulumi:"description"`
@@ -226,9 +226,9 @@ type infraAlertConditionState struct {
 	Type *string `pulumi:"type"`
 	// The timestamp the alert condition was last updated.
 	UpdatedAt *int `pulumi:"updatedAt"`
-	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
-	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where *string `pulumi:"where"`
@@ -239,7 +239,7 @@ type InfraAlertConditionState struct {
 	Comparison pulumi.StringPtrInput
 	// The timestamp the alert condition was created.
 	CreatedAt pulumi.IntPtrInput
-	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
 	Critical InfraAlertConditionCriticalPtrInput
 	// The description of the Infrastructure alert condition.
 	Description pulumi.StringPtrInput
@@ -263,9 +263,9 @@ type InfraAlertConditionState struct {
 	Type pulumi.StringPtrInput
 	// The timestamp the alert condition was last updated.
 	UpdatedAt pulumi.IntPtrInput
-	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer pulumi.IntPtrInput
-	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrInput
@@ -278,7 +278,7 @@ func (InfraAlertConditionState) ElementType() reflect.Type {
 type infraAlertConditionArgs struct {
 	// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
 	Comparison *string `pulumi:"comparison"`
-	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
 	Critical *InfraAlertConditionCritical `pulumi:"critical"`
 	// The description of the Infrastructure alert condition.
 	Description *string `pulumi:"description"`
@@ -300,9 +300,9 @@ type infraAlertConditionArgs struct {
 	Select *string `pulumi:"select"`
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type string `pulumi:"type"`
-	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer *int `pulumi:"violationCloseTimer"`
-	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning *InfraAlertConditionWarning `pulumi:"warning"`
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where *string `pulumi:"where"`
@@ -312,7 +312,7 @@ type infraAlertConditionArgs struct {
 type InfraAlertConditionArgs struct {
 	// The operator used to evaluate the threshold value.  Valid values are `above`, `below`, and `equal`.  Supported by the `infraMetric` and `infraProcessRunning` condition types.
 	Comparison pulumi.StringPtrInput
-	// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
 	Critical InfraAlertConditionCriticalPtrInput
 	// The description of the Infrastructure alert condition.
 	Description pulumi.StringPtrInput
@@ -334,9 +334,9 @@ type InfraAlertConditionArgs struct {
 	Select pulumi.StringPtrInput
 	// The type of Infrastructure alert condition.  Valid values are  `infraProcessRunning`, `infraMetric`, and `infraHostNotReporting`.
 	Type pulumi.StringInput
-	// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+	// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 	ViolationCloseTimer pulumi.IntPtrInput
-	// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+	// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 	Warning InfraAlertConditionWarningPtrInput
 	// If applicable, this identifies any Infrastructure host filters used; for example: `hostname LIKE '%cassandra%'`.
 	Where pulumi.StringPtrInput
@@ -439,7 +439,7 @@ func (o InfraAlertConditionOutput) CreatedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.CreatedAt }).(pulumi.IntOutput)
 }
 
-// Identifies the threshold parameters for opening a critical alert violation. See Thresholds below for details.
+// Identifies the threshold parameters for opening a critical alert incident. See Thresholds below for details.
 func (o InfraAlertConditionOutput) Critical() InfraAlertConditionCriticalPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionCriticalPtrOutput { return v.Critical }).(InfraAlertConditionCriticalPtrOutput)
 }
@@ -499,12 +499,12 @@ func (o InfraAlertConditionOutput) UpdatedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntOutput { return v.UpdatedAt }).(pulumi.IntOutput)
 }
 
-// Determines how much time will pass (in hours) before a violation is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
+// Determines how much time will pass (in hours) before an incident is automatically closed. Valid values are `1 2 4 8 12 24 48 72`. Defaults to 24. If `0` is provided, default of `24` is used and will have configuration drift during the apply phase until a valid value is provided.
 func (o InfraAlertConditionOutput) ViolationCloseTimer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) pulumi.IntPtrOutput { return v.ViolationCloseTimer }).(pulumi.IntPtrOutput)
 }
 
-// Identifies the threshold parameters for opening a warning alert violation. See Thresholds below for details.
+// Identifies the threshold parameters for opening a warning alert incident. See Thresholds below for details.
 func (o InfraAlertConditionOutput) Warning() InfraAlertConditionWarningPtrOutput {
 	return o.ApplyT(func(v *InfraAlertCondition) InfraAlertConditionWarningPtrOutput { return v.Warning }).(InfraAlertConditionWarningPtrOutput)
 }

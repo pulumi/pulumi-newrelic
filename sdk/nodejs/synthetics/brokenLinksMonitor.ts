@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this resource to create, update, and delete the synthetics broken links monitor in New Relic.
+ * Use this resource to create, update, and delete a Synthetics Broken Links monitor in New Relic.
  *
  * ## Example Usage
  *
@@ -38,12 +39,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Test Description",
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.BrokenLinksMonitor("monitor", {
- *     locationsPrivates: ["newrelic_synthetics_private_location.private_location.id"],
+ *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
  *     tags: [{
@@ -59,7 +60,7 @@ import * as utilities from "../utilities";
  * Synthetics broken links monitor scripts can be imported using the `guid`, e.g. bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor foo <guid>
+ *  $ pulumi import newrelic:synthetics/brokenLinksMonitor:BrokenLinksMonitor monitor <guid>
  * ```
  */
 export class BrokenLinksMonitor extends pulumi.CustomResource {
@@ -123,7 +124,7 @@ export class BrokenLinksMonitor extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.synthetics.BrokenLinksMonitorTag[] | undefined>;
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      */
     public readonly uri!: pulumi.Output<string>;
 
@@ -212,7 +213,7 @@ export interface BrokenLinksMonitorState {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.BrokenLinksMonitorTag>[]>;
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      */
     uri?: pulumi.Input<string>;
 }
@@ -250,7 +251,7 @@ export interface BrokenLinksMonitorArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.BrokenLinksMonitorTag>[]>;
     /**
-     * The uri the monitor runs against.
+     * The URI the monitor runs against.
      */
     uri: pulumi.Input<string>;
 }

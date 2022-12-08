@@ -18,14 +18,14 @@ public final class PrivateLocationState extends com.pulumi.resources.ResourceArg
     public static final PrivateLocationState Empty = new PrivateLocationState();
 
     /**
-     * Account ID of the New Relic.
+     * The account in which the private location will be created.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return Account ID of the New Relic.
+     * @return The account in which the private location will be created.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -63,14 +63,14 @@ public final class PrivateLocationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The unique client identifier for the Synthetics private location in New Relic.
+     * The unique client identifier for the private location in New Relic. Same as `id`.
      * 
      */
     @Import(name="guid")
     private @Nullable Output<String> guid;
 
     /**
-     * @return The unique client identifier for the Synthetics private location in New Relic.
+     * @return The unique client identifier for the private location in New Relic. Same as `id`.
      * 
      */
     public Optional<Output<String>> guid() {
@@ -169,7 +169,7 @@ public final class PrivateLocationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId Account ID of the New Relic.
+         * @param accountId The account in which the private location will be created.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PrivateLocationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId Account ID of the New Relic.
+         * @param accountId The account in which the private location will be created.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class PrivateLocationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param guid The unique client identifier for the Synthetics private location in New Relic.
+         * @param guid The unique client identifier for the private location in New Relic. Same as `id`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class PrivateLocationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param guid The unique client identifier for the Synthetics private location in New Relic.
+         * @param guid The unique client identifier for the private location in New Relic. Same as `id`.
          * 
          * @return builder
          * 

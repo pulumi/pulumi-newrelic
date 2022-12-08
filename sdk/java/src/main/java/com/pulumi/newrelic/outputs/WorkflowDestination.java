@@ -11,33 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowDestination {
+    /**
+     * @return id of a notification_channel to use for notifications. Please note that you have to use a
+     * **notification** channel, not an `alert_channel`.
+     * 
+     */
     private String channelId;
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     private @Nullable String name;
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     private @Nullable String type;
 
     private WorkflowDestination() {}
+    /**
+     * @return id of a notification_channel to use for notifications. Please note that you have to use a
+     * **notification** channel, not an `alert_channel`.
+     * 
+     */
     public String channelId() {
         return this.channelId;
     }
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     public Optional<String> type() {

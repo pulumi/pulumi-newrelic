@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -46,6 +47,10 @@ export class GcpIntegrations extends pulumi.CustomResource {
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     public readonly accountId!: pulumi.Output<number>;
+    /**
+     * Alloy DB integration. See Integration blocks below for details.
+     */
+    public readonly alloyDb!: pulumi.Output<outputs.cloud.GcpIntegrationsAlloyDb | undefined>;
     /**
      * App Engine integration. See Integration blocks below for details.
      */
@@ -165,6 +170,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GcpIntegrationsState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["alloyDb"] = state ? state.alloyDb : undefined;
             resourceInputs["appEngine"] = state ? state.appEngine : undefined;
             resourceInputs["bigQuery"] = state ? state.bigQuery : undefined;
             resourceInputs["bigTable"] = state ? state.bigTable : undefined;
@@ -197,6 +203,7 @@ export class GcpIntegrations extends pulumi.CustomResource {
                 throw new Error("Missing required property 'linkedAccountId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["alloyDb"] = args ? args.alloyDb : undefined;
             resourceInputs["appEngine"] = args ? args.appEngine : undefined;
             resourceInputs["bigQuery"] = args ? args.bigQuery : undefined;
             resourceInputs["bigTable"] = args ? args.bigTable : undefined;
@@ -237,6 +244,10 @@ export interface GcpIntegrationsState {
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     accountId?: pulumi.Input<number>;
+    /**
+     * Alloy DB integration. See Integration blocks below for details.
+     */
+    alloyDb?: pulumi.Input<inputs.cloud.GcpIntegrationsAlloyDb>;
     /**
      * App Engine integration. See Integration blocks below for details.
      */
@@ -351,6 +362,10 @@ export interface GcpIntegrationsArgs {
      * The New Relic account ID to operate on.  This allows the user to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
      */
     accountId?: pulumi.Input<number>;
+    /**
+     * Alloy DB integration. See Integration blocks below for details.
+     */
+    alloyDb?: pulumi.Input<inputs.cloud.GcpIntegrationsAlloyDb>;
     /**
      * App Engine integration. See Integration blocks below for details.
      */

@@ -11,6 +11,76 @@ import (
 )
 
 // Use this data source to get information about a specific Synthetics monitor private location in New Relic that already exists.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err = synthetics.LookupPrivateLocation(ctx, &synthetics.LookupPrivateLocationArgs{
+//				AccountId: pulumi.IntRef(123456),
+//				Name:      "My private location",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewMonitor(ctx, "foo", &synthetics.MonitorArgs{
+//				LocationsPrivates: pulumi.StringArray{
+//					pulumi.Any(data.Newrelic_synthetics_monitor_location.Example.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := synthetics.LookupPrivateLocation(ctx, &synthetics.LookupPrivateLocationArgs{
+//				AccountId: pulumi.IntRef(123456),
+//				Name:      "My private location",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synthetics.NewStepMonitor(ctx, "foo", &synthetics.StepMonitorArgs{
+//				LocationPrivates: synthetics.StepMonitorLocationPrivateArray{
+//					&synthetics.StepMonitorLocationPrivateArgs{
+//						Guid: pulumi.String(example.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupPrivateLocation(ctx *pulumi.Context, args *LookupPrivateLocationArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLocationResult, error) {
 	var rv LookupPrivateLocationResult
 	err := ctx.Invoke("newrelic:synthetics/getPrivateLocation:getPrivateLocation", args, &rv, opts...)
@@ -22,12 +92,15 @@ func LookupPrivateLocation(ctx *pulumi.Context, args *LookupPrivateLocationArgs,
 
 // A collection of arguments for invoking getPrivateLocation.
 type LookupPrivateLocationArgs struct {
+	// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+	AccountId *int `pulumi:"accountId"`
 	// The name of the Synthetics monitor private location.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getPrivateLocation.
 type LookupPrivateLocationResult struct {
+	AccountId *int `pulumi:"accountId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -48,6 +121,8 @@ func LookupPrivateLocationOutput(ctx *pulumi.Context, args LookupPrivateLocation
 
 // A collection of arguments for invoking getPrivateLocation.
 type LookupPrivateLocationOutputArgs struct {
+	// The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
 	// The name of the Synthetics monitor private location.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -69,6 +144,10 @@ func (o LookupPrivateLocationResultOutput) ToLookupPrivateLocationResultOutput()
 
 func (o LookupPrivateLocationResultOutput) ToLookupPrivateLocationResultOutputWithContext(ctx context.Context) LookupPrivateLocationResultOutput {
 	return o
+}
+
+func (o LookupPrivateLocationResultOutput) AccountId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupPrivateLocationResult) *int { return v.AccountId }).(pulumi.IntPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

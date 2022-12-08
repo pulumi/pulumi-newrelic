@@ -103,14 +103,14 @@ public class AlertMutingRule extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * The condition that defines which violations to target. See Nested condition blocks below for details.
+     * The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     @Export(name="condition", type=AlertMutingRuleCondition.class, parameters={})
     private Output<AlertMutingRuleCondition> condition;
 
     /**
-     * @return The condition that defines which violations to target. See Nested condition blocks below for details.
+     * @return The condition that defines which incidents to target. See Nested condition blocks below for details.
      * 
      */
     public Output<AlertMutingRuleCondition> condition() {

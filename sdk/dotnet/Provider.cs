@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic
         public Output<string?> AdminApiKey { get; private set; } = null!;
 
         [Output("apiKey")]
-        public Output<string?> ApiKey { get; private set; } = null!;
+        public Output<string> ApiKey { get; private set; } = null!;
 
         [Output("apiUrl")]
         public Output<string?> ApiUrl { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.NewRelic
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
             : base("newrelic", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -72,6 +72,12 @@ namespace Pulumi.NewRelic
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "adminApiKey",
+                    "apiKey",
+                    "insightsInsertKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -83,13 +89,40 @@ namespace Pulumi.NewRelic
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountId", json: true)]
-        public Input<int>? AccountId { get; set; }
+        private Input<int>? _accountId;
+        public Input<int>? AccountId
+        {
+            get => _accountId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accountId = Output.Tuple<Input<int>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("adminApiKey")]
-        public Input<string>? AdminApiKey { get; set; }
+        private Input<string>? _adminApiKey;
+        public Input<string>? AdminApiKey
+        {
+            get => _adminApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        [Input("apiKey", required: true)]
+        private Input<string>? _apiKey;
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("apiUrl")]
         public Input<string>? ApiUrl { get; set; }
@@ -104,7 +137,16 @@ namespace Pulumi.NewRelic
         public Input<bool>? InsecureSkipVerify { get; set; }
 
         [Input("insightsInsertKey")]
-        public Input<string>? InsightsInsertKey { get; set; }
+        private Input<string>? _insightsInsertKey;
+        public Input<string>? InsightsInsertKey
+        {
+            get => _insightsInsertKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _insightsInsertKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("insightsInsertUrl")]
         public Input<string>? InsightsInsertUrl { get; set; }

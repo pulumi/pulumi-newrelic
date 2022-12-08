@@ -14,15 +14,17 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class WorkflowIssuesFilterPredicate
     {
         /// <summary>
-        /// A predicate's attribute.
+        /// Issue event attribute to check
         /// </summary>
         public readonly string Attribute;
         /// <summary>
-        /// A predicate's operator. One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `ENDS_WITH`, `EQUAL`, `EXACTLY_MATCHES`, `GREATER_OR_EQUAL`, `GREATER_THAN`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN` or `STARTS_WITH` (workflows).
+        /// An operator to use to compare the attribute with the provided `values`. 
+        /// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
+        /// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// A list of values.
+        /// The `attribute` must match **any** of the values in this list
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -37,53 +37,57 @@ type AzureIntegrations struct {
 	CosmosDb AzureIntegrationsCosmosDbPtrOutput `pulumi:"cosmosDb"`
 	// Azure Cost Management. See Integration blocks below for details.
 	CostManagement AzureIntegrationsCostManagementPtrOutput `pulumi:"costManagement"`
-	// for Azure Data Factory. See Integration blocks below for details.
+	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory AzureIntegrationsDataFactoryPtrOutput `pulumi:"dataFactory"`
-	// for Azure Event Hub. See Integration blocks below for details.
+	// Azure Event Hub. See Integration blocks below for details.
 	EventHub AzureIntegrationsEventHubPtrOutput `pulumi:"eventHub"`
-	// for Azure Express Route. See Integration blocks below for details.
+	// Azure Express Route. See Integration blocks below for details.
 	ExpressRoute AzureIntegrationsExpressRoutePtrOutput `pulumi:"expressRoute"`
-	// for Azure Firewalls. See Integration blocks below for details.
+	// Azure Firewalls. See Integration blocks below for details.
 	Firewalls AzureIntegrationsFirewallsPtrOutput `pulumi:"firewalls"`
-	// for Azure Front Door. See Integration blocks below for details.
+	// Azure Front Door. See Integration blocks below for details.
 	FrontDoor AzureIntegrationsFrontDoorPtrOutput `pulumi:"frontDoor"`
-	// for Azure Functions. See Integration blocks below for details.
+	// Azure Functions. See Integration blocks below for details.
 	Functions AzureIntegrationsFunctionsPtrOutput `pulumi:"functions"`
-	// for Azure Key Vault. See Integration blocks below for details.
+	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault AzureIntegrationsKeyVaultPtrOutput `pulumi:"keyVault"`
 	// The ID of the linked Azure account in New Relic.
 	LinkedAccountId pulumi.IntOutput `pulumi:"linkedAccountId"`
-	// for Azure Load Balancer. See Integration blocks below for details.
+	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrOutput `pulumi:"loadBalancer"`
-	// for Azure Logic Apps. See Integration blocks below for details.
+	// Azure Logic Apps. See Integration blocks below for details.
 	LogicApps AzureIntegrationsLogicAppsPtrOutput `pulumi:"logicApps"`
-	// for Azure Machine Learning. See Integration blocks below for details.
+	// Azure Machine Learning. See Integration blocks below for details.
 	MachineLearning AzureIntegrationsMachineLearningPtrOutput `pulumi:"machineLearning"`
-	// for Azure MariaDB. See Integration blocks below for details.
+	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrOutput `pulumi:"mariaDb"`
-	// for Azure MySQL. See Integration blocks below for details.
+	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrOutput `pulumi:"mysql"`
-	// for Azure PostgreSQL. See Integration blocks below for details.
+	// Azure MySQL Flexible Server. See Integration blocks below for details.
+	MysqlFlexible AzureIntegrationsMysqlFlexiblePtrOutput `pulumi:"mysqlFlexible"`
+	// Azure PostgreSQL. See Integration blocks below for details.
 	Postgresql AzureIntegrationsPostgresqlPtrOutput `pulumi:"postgresql"`
-	// for Azure Power BI Dedicated. See Integration blocks below for details.
+	// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+	PostgresqlFlexible AzureIntegrationsPostgresqlFlexiblePtrOutput `pulumi:"postgresqlFlexible"`
+	// Azure Power BI Dedicated. See Integration blocks below for details.
 	PowerBiDedicated AzureIntegrationsPowerBiDedicatedPtrOutput `pulumi:"powerBiDedicated"`
-	// for Azure Redis Cache. See Integration blocks below for details.
+	// Azure Redis Cache. See Integration blocks below for details.
 	RedisCache AzureIntegrationsRedisCachePtrOutput `pulumi:"redisCache"`
-	// for Azure Service Bus. See Integration blocks below for details.
+	// Azure Service Bus. See Integration blocks below for details.
 	ServiceBus AzureIntegrationsServiceBusPtrOutput `pulumi:"serviceBus"`
-	// for Azure SQL. See Integration blocks below for details.
+	// Azure SQL. See Integration blocks below for details.
 	Sql AzureIntegrationsSqlPtrOutput `pulumi:"sql"`
-	// for SQL Managed. See Integration blocks below for details.
+	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged AzureIntegrationsSqlManagedPtrOutput `pulumi:"sqlManaged"`
 	// for Azure Storage. See Integration blocks below for details.
 	Storage AzureIntegrationsStoragePtrOutput `pulumi:"storage"`
-	// for Azure Virtual machine. See Integration blocks below for details.
+	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrOutput `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrOutput `pulumi:"virtualNetworks"`
-	// for Azure VMs. See Integration blocks below for details.
+	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrOutput `pulumi:"vms"`
-	// for Azure VPN Gateway. See Integration blocks below for details.
+	// Azure VPN Gateway. See Integration blocks below for details.
 	VpnGateway AzureIntegrationsVpnGatewayPtrOutput `pulumi:"vpnGateway"`
 }
 
@@ -133,53 +137,57 @@ type azureIntegrationsState struct {
 	CosmosDb *AzureIntegrationsCosmosDb `pulumi:"cosmosDb"`
 	// Azure Cost Management. See Integration blocks below for details.
 	CostManagement *AzureIntegrationsCostManagement `pulumi:"costManagement"`
-	// for Azure Data Factory. See Integration blocks below for details.
+	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory *AzureIntegrationsDataFactory `pulumi:"dataFactory"`
-	// for Azure Event Hub. See Integration blocks below for details.
+	// Azure Event Hub. See Integration blocks below for details.
 	EventHub *AzureIntegrationsEventHub `pulumi:"eventHub"`
-	// for Azure Express Route. See Integration blocks below for details.
+	// Azure Express Route. See Integration blocks below for details.
 	ExpressRoute *AzureIntegrationsExpressRoute `pulumi:"expressRoute"`
-	// for Azure Firewalls. See Integration blocks below for details.
+	// Azure Firewalls. See Integration blocks below for details.
 	Firewalls *AzureIntegrationsFirewalls `pulumi:"firewalls"`
-	// for Azure Front Door. See Integration blocks below for details.
+	// Azure Front Door. See Integration blocks below for details.
 	FrontDoor *AzureIntegrationsFrontDoor `pulumi:"frontDoor"`
-	// for Azure Functions. See Integration blocks below for details.
+	// Azure Functions. See Integration blocks below for details.
 	Functions *AzureIntegrationsFunctions `pulumi:"functions"`
-	// for Azure Key Vault. See Integration blocks below for details.
+	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault *AzureIntegrationsKeyVault `pulumi:"keyVault"`
 	// The ID of the linked Azure account in New Relic.
 	LinkedAccountId *int `pulumi:"linkedAccountId"`
-	// for Azure Load Balancer. See Integration blocks below for details.
+	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer *AzureIntegrationsLoadBalancer `pulumi:"loadBalancer"`
-	// for Azure Logic Apps. See Integration blocks below for details.
+	// Azure Logic Apps. See Integration blocks below for details.
 	LogicApps *AzureIntegrationsLogicApps `pulumi:"logicApps"`
-	// for Azure Machine Learning. See Integration blocks below for details.
+	// Azure Machine Learning. See Integration blocks below for details.
 	MachineLearning *AzureIntegrationsMachineLearning `pulumi:"machineLearning"`
-	// for Azure MariaDB. See Integration blocks below for details.
+	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
-	// for Azure MySQL. See Integration blocks below for details.
+	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
-	// for Azure PostgreSQL. See Integration blocks below for details.
+	// Azure MySQL Flexible Server. See Integration blocks below for details.
+	MysqlFlexible *AzureIntegrationsMysqlFlexible `pulumi:"mysqlFlexible"`
+	// Azure PostgreSQL. See Integration blocks below for details.
 	Postgresql *AzureIntegrationsPostgresql `pulumi:"postgresql"`
-	// for Azure Power BI Dedicated. See Integration blocks below for details.
+	// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+	PostgresqlFlexible *AzureIntegrationsPostgresqlFlexible `pulumi:"postgresqlFlexible"`
+	// Azure Power BI Dedicated. See Integration blocks below for details.
 	PowerBiDedicated *AzureIntegrationsPowerBiDedicated `pulumi:"powerBiDedicated"`
-	// for Azure Redis Cache. See Integration blocks below for details.
+	// Azure Redis Cache. See Integration blocks below for details.
 	RedisCache *AzureIntegrationsRedisCache `pulumi:"redisCache"`
-	// for Azure Service Bus. See Integration blocks below for details.
+	// Azure Service Bus. See Integration blocks below for details.
 	ServiceBus *AzureIntegrationsServiceBus `pulumi:"serviceBus"`
-	// for Azure SQL. See Integration blocks below for details.
+	// Azure SQL. See Integration blocks below for details.
 	Sql *AzureIntegrationsSql `pulumi:"sql"`
-	// for SQL Managed. See Integration blocks below for details.
+	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged *AzureIntegrationsSqlManaged `pulumi:"sqlManaged"`
 	// for Azure Storage. See Integration blocks below for details.
 	Storage *AzureIntegrationsStorage `pulumi:"storage"`
-	// for Azure Virtual machine. See Integration blocks below for details.
+	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
-	// for Azure VMs. See Integration blocks below for details.
+	// Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
-	// for Azure VPN Gateway. See Integration blocks below for details.
+	// Azure VPN Gateway. See Integration blocks below for details.
 	VpnGateway *AzureIntegrationsVpnGateway `pulumi:"vpnGateway"`
 }
 
@@ -198,53 +206,57 @@ type AzureIntegrationsState struct {
 	CosmosDb AzureIntegrationsCosmosDbPtrInput
 	// Azure Cost Management. See Integration blocks below for details.
 	CostManagement AzureIntegrationsCostManagementPtrInput
-	// for Azure Data Factory. See Integration blocks below for details.
+	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory AzureIntegrationsDataFactoryPtrInput
-	// for Azure Event Hub. See Integration blocks below for details.
+	// Azure Event Hub. See Integration blocks below for details.
 	EventHub AzureIntegrationsEventHubPtrInput
-	// for Azure Express Route. See Integration blocks below for details.
+	// Azure Express Route. See Integration blocks below for details.
 	ExpressRoute AzureIntegrationsExpressRoutePtrInput
-	// for Azure Firewalls. See Integration blocks below for details.
+	// Azure Firewalls. See Integration blocks below for details.
 	Firewalls AzureIntegrationsFirewallsPtrInput
-	// for Azure Front Door. See Integration blocks below for details.
+	// Azure Front Door. See Integration blocks below for details.
 	FrontDoor AzureIntegrationsFrontDoorPtrInput
-	// for Azure Functions. See Integration blocks below for details.
+	// Azure Functions. See Integration blocks below for details.
 	Functions AzureIntegrationsFunctionsPtrInput
-	// for Azure Key Vault. See Integration blocks below for details.
+	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault AzureIntegrationsKeyVaultPtrInput
 	// The ID of the linked Azure account in New Relic.
 	LinkedAccountId pulumi.IntPtrInput
-	// for Azure Load Balancer. See Integration blocks below for details.
+	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrInput
-	// for Azure Logic Apps. See Integration blocks below for details.
+	// Azure Logic Apps. See Integration blocks below for details.
 	LogicApps AzureIntegrationsLogicAppsPtrInput
-	// for Azure Machine Learning. See Integration blocks below for details.
+	// Azure Machine Learning. See Integration blocks below for details.
 	MachineLearning AzureIntegrationsMachineLearningPtrInput
-	// for Azure MariaDB. See Integration blocks below for details.
+	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
-	// for Azure MySQL. See Integration blocks below for details.
+	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
-	// for Azure PostgreSQL. See Integration blocks below for details.
+	// Azure MySQL Flexible Server. See Integration blocks below for details.
+	MysqlFlexible AzureIntegrationsMysqlFlexiblePtrInput
+	// Azure PostgreSQL. See Integration blocks below for details.
 	Postgresql AzureIntegrationsPostgresqlPtrInput
-	// for Azure Power BI Dedicated. See Integration blocks below for details.
+	// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+	PostgresqlFlexible AzureIntegrationsPostgresqlFlexiblePtrInput
+	// Azure Power BI Dedicated. See Integration blocks below for details.
 	PowerBiDedicated AzureIntegrationsPowerBiDedicatedPtrInput
-	// for Azure Redis Cache. See Integration blocks below for details.
+	// Azure Redis Cache. See Integration blocks below for details.
 	RedisCache AzureIntegrationsRedisCachePtrInput
-	// for Azure Service Bus. See Integration blocks below for details.
+	// Azure Service Bus. See Integration blocks below for details.
 	ServiceBus AzureIntegrationsServiceBusPtrInput
-	// for Azure SQL. See Integration blocks below for details.
+	// Azure SQL. See Integration blocks below for details.
 	Sql AzureIntegrationsSqlPtrInput
-	// for SQL Managed. See Integration blocks below for details.
+	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged AzureIntegrationsSqlManagedPtrInput
 	// for Azure Storage. See Integration blocks below for details.
 	Storage AzureIntegrationsStoragePtrInput
-	// for Azure Virtual machine. See Integration blocks below for details.
+	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
 	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
-	// for Azure VMs. See Integration blocks below for details.
+	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
-	// for Azure VPN Gateway. See Integration blocks below for details.
+	// Azure VPN Gateway. See Integration blocks below for details.
 	VpnGateway AzureIntegrationsVpnGatewayPtrInput
 }
 
@@ -267,53 +279,57 @@ type azureIntegrationsArgs struct {
 	CosmosDb *AzureIntegrationsCosmosDb `pulumi:"cosmosDb"`
 	// Azure Cost Management. See Integration blocks below for details.
 	CostManagement *AzureIntegrationsCostManagement `pulumi:"costManagement"`
-	// for Azure Data Factory. See Integration blocks below for details.
+	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory *AzureIntegrationsDataFactory `pulumi:"dataFactory"`
-	// for Azure Event Hub. See Integration blocks below for details.
+	// Azure Event Hub. See Integration blocks below for details.
 	EventHub *AzureIntegrationsEventHub `pulumi:"eventHub"`
-	// for Azure Express Route. See Integration blocks below for details.
+	// Azure Express Route. See Integration blocks below for details.
 	ExpressRoute *AzureIntegrationsExpressRoute `pulumi:"expressRoute"`
-	// for Azure Firewalls. See Integration blocks below for details.
+	// Azure Firewalls. See Integration blocks below for details.
 	Firewalls *AzureIntegrationsFirewalls `pulumi:"firewalls"`
-	// for Azure Front Door. See Integration blocks below for details.
+	// Azure Front Door. See Integration blocks below for details.
 	FrontDoor *AzureIntegrationsFrontDoor `pulumi:"frontDoor"`
-	// for Azure Functions. See Integration blocks below for details.
+	// Azure Functions. See Integration blocks below for details.
 	Functions *AzureIntegrationsFunctions `pulumi:"functions"`
-	// for Azure Key Vault. See Integration blocks below for details.
+	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault *AzureIntegrationsKeyVault `pulumi:"keyVault"`
 	// The ID of the linked Azure account in New Relic.
 	LinkedAccountId int `pulumi:"linkedAccountId"`
-	// for Azure Load Balancer. See Integration blocks below for details.
+	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer *AzureIntegrationsLoadBalancer `pulumi:"loadBalancer"`
-	// for Azure Logic Apps. See Integration blocks below for details.
+	// Azure Logic Apps. See Integration blocks below for details.
 	LogicApps *AzureIntegrationsLogicApps `pulumi:"logicApps"`
-	// for Azure Machine Learning. See Integration blocks below for details.
+	// Azure Machine Learning. See Integration blocks below for details.
 	MachineLearning *AzureIntegrationsMachineLearning `pulumi:"machineLearning"`
-	// for Azure MariaDB. See Integration blocks below for details.
+	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb *AzureIntegrationsMariaDb `pulumi:"mariaDb"`
-	// for Azure MySQL. See Integration blocks below for details.
+	// Azure MySQL. See Integration blocks below for details.
 	Mysql *AzureIntegrationsMysql `pulumi:"mysql"`
-	// for Azure PostgreSQL. See Integration blocks below for details.
+	// Azure MySQL Flexible Server. See Integration blocks below for details.
+	MysqlFlexible *AzureIntegrationsMysqlFlexible `pulumi:"mysqlFlexible"`
+	// Azure PostgreSQL. See Integration blocks below for details.
 	Postgresql *AzureIntegrationsPostgresql `pulumi:"postgresql"`
-	// for Azure Power BI Dedicated. See Integration blocks below for details.
+	// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+	PostgresqlFlexible *AzureIntegrationsPostgresqlFlexible `pulumi:"postgresqlFlexible"`
+	// Azure Power BI Dedicated. See Integration blocks below for details.
 	PowerBiDedicated *AzureIntegrationsPowerBiDedicated `pulumi:"powerBiDedicated"`
-	// for Azure Redis Cache. See Integration blocks below for details.
+	// Azure Redis Cache. See Integration blocks below for details.
 	RedisCache *AzureIntegrationsRedisCache `pulumi:"redisCache"`
-	// for Azure Service Bus. See Integration blocks below for details.
+	// Azure Service Bus. See Integration blocks below for details.
 	ServiceBus *AzureIntegrationsServiceBus `pulumi:"serviceBus"`
-	// for Azure SQL. See Integration blocks below for details.
+	// Azure SQL. See Integration blocks below for details.
 	Sql *AzureIntegrationsSql `pulumi:"sql"`
-	// for SQL Managed. See Integration blocks below for details.
+	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged *AzureIntegrationsSqlManaged `pulumi:"sqlManaged"`
 	// for Azure Storage. See Integration blocks below for details.
 	Storage *AzureIntegrationsStorage `pulumi:"storage"`
-	// for Azure Virtual machine. See Integration blocks below for details.
+	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine *AzureIntegrationsVirtualMachine `pulumi:"virtualMachine"`
 	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks *AzureIntegrationsVirtualNetworks `pulumi:"virtualNetworks"`
-	// for Azure VMs. See Integration blocks below for details.
+	// Azure VMs. See Integration blocks below for details.
 	Vms *AzureIntegrationsVms `pulumi:"vms"`
-	// for Azure VPN Gateway. See Integration blocks below for details.
+	// Azure VPN Gateway. See Integration blocks below for details.
 	VpnGateway *AzureIntegrationsVpnGateway `pulumi:"vpnGateway"`
 }
 
@@ -333,53 +349,57 @@ type AzureIntegrationsArgs struct {
 	CosmosDb AzureIntegrationsCosmosDbPtrInput
 	// Azure Cost Management. See Integration blocks below for details.
 	CostManagement AzureIntegrationsCostManagementPtrInput
-	// for Azure Data Factory. See Integration blocks below for details.
+	// Azure Data Factory. See Integration blocks below for details.
 	DataFactory AzureIntegrationsDataFactoryPtrInput
-	// for Azure Event Hub. See Integration blocks below for details.
+	// Azure Event Hub. See Integration blocks below for details.
 	EventHub AzureIntegrationsEventHubPtrInput
-	// for Azure Express Route. See Integration blocks below for details.
+	// Azure Express Route. See Integration blocks below for details.
 	ExpressRoute AzureIntegrationsExpressRoutePtrInput
-	// for Azure Firewalls. See Integration blocks below for details.
+	// Azure Firewalls. See Integration blocks below for details.
 	Firewalls AzureIntegrationsFirewallsPtrInput
-	// for Azure Front Door. See Integration blocks below for details.
+	// Azure Front Door. See Integration blocks below for details.
 	FrontDoor AzureIntegrationsFrontDoorPtrInput
-	// for Azure Functions. See Integration blocks below for details.
+	// Azure Functions. See Integration blocks below for details.
 	Functions AzureIntegrationsFunctionsPtrInput
-	// for Azure Key Vault. See Integration blocks below for details.
+	// Azure Key Vault. See Integration blocks below for details.
 	KeyVault AzureIntegrationsKeyVaultPtrInput
 	// The ID of the linked Azure account in New Relic.
 	LinkedAccountId pulumi.IntInput
-	// for Azure Load Balancer. See Integration blocks below for details.
+	// Azure Load Balancer. See Integration blocks below for details.
 	LoadBalancer AzureIntegrationsLoadBalancerPtrInput
-	// for Azure Logic Apps. See Integration blocks below for details.
+	// Azure Logic Apps. See Integration blocks below for details.
 	LogicApps AzureIntegrationsLogicAppsPtrInput
-	// for Azure Machine Learning. See Integration blocks below for details.
+	// Azure Machine Learning. See Integration blocks below for details.
 	MachineLearning AzureIntegrationsMachineLearningPtrInput
-	// for Azure MariaDB. See Integration blocks below for details.
+	// Azure MariaDB. See Integration blocks below for details.
 	MariaDb AzureIntegrationsMariaDbPtrInput
-	// for Azure MySQL. See Integration blocks below for details.
+	// Azure MySQL. See Integration blocks below for details.
 	Mysql AzureIntegrationsMysqlPtrInput
-	// for Azure PostgreSQL. See Integration blocks below for details.
+	// Azure MySQL Flexible Server. See Integration blocks below for details.
+	MysqlFlexible AzureIntegrationsMysqlFlexiblePtrInput
+	// Azure PostgreSQL. See Integration blocks below for details.
 	Postgresql AzureIntegrationsPostgresqlPtrInput
-	// for Azure Power BI Dedicated. See Integration blocks below for details.
+	// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+	PostgresqlFlexible AzureIntegrationsPostgresqlFlexiblePtrInput
+	// Azure Power BI Dedicated. See Integration blocks below for details.
 	PowerBiDedicated AzureIntegrationsPowerBiDedicatedPtrInput
-	// for Azure Redis Cache. See Integration blocks below for details.
+	// Azure Redis Cache. See Integration blocks below for details.
 	RedisCache AzureIntegrationsRedisCachePtrInput
-	// for Azure Service Bus. See Integration blocks below for details.
+	// Azure Service Bus. See Integration blocks below for details.
 	ServiceBus AzureIntegrationsServiceBusPtrInput
-	// for Azure SQL. See Integration blocks below for details.
+	// Azure SQL. See Integration blocks below for details.
 	Sql AzureIntegrationsSqlPtrInput
-	// for SQL Managed. See Integration blocks below for details.
+	// Azure SQL Managed. See Integration blocks below for details.
 	SqlManaged AzureIntegrationsSqlManagedPtrInput
 	// for Azure Storage. See Integration blocks below for details.
 	Storage AzureIntegrationsStoragePtrInput
-	// for Azure Virtual machine. See Integration blocks below for details.
+	// Azure Virtual machine. See Integration blocks below for details.
 	VirtualMachine AzureIntegrationsVirtualMachinePtrInput
 	// for Azure Virtual networks. See Integration blocks below for details.
 	VirtualNetworks AzureIntegrationsVirtualNetworksPtrInput
-	// for Azure VMs. See Integration blocks below for details.
+	// Azure VMs. See Integration blocks below for details.
 	Vms AzureIntegrationsVmsPtrInput
-	// for Azure VPN Gateway. See Integration blocks below for details.
+	// Azure VPN Gateway. See Integration blocks below for details.
 	VpnGateway AzureIntegrationsVpnGatewayPtrInput
 }
 
@@ -505,37 +525,37 @@ func (o AzureIntegrationsOutput) CostManagement() AzureIntegrationsCostManagemen
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsCostManagementPtrOutput { return v.CostManagement }).(AzureIntegrationsCostManagementPtrOutput)
 }
 
-// for Azure Data Factory. See Integration blocks below for details.
+// Azure Data Factory. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) DataFactory() AzureIntegrationsDataFactoryPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsDataFactoryPtrOutput { return v.DataFactory }).(AzureIntegrationsDataFactoryPtrOutput)
 }
 
-// for Azure Event Hub. See Integration blocks below for details.
+// Azure Event Hub. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) EventHub() AzureIntegrationsEventHubPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsEventHubPtrOutput { return v.EventHub }).(AzureIntegrationsEventHubPtrOutput)
 }
 
-// for Azure Express Route. See Integration blocks below for details.
+// Azure Express Route. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) ExpressRoute() AzureIntegrationsExpressRoutePtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsExpressRoutePtrOutput { return v.ExpressRoute }).(AzureIntegrationsExpressRoutePtrOutput)
 }
 
-// for Azure Firewalls. See Integration blocks below for details.
+// Azure Firewalls. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) Firewalls() AzureIntegrationsFirewallsPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsFirewallsPtrOutput { return v.Firewalls }).(AzureIntegrationsFirewallsPtrOutput)
 }
 
-// for Azure Front Door. See Integration blocks below for details.
+// Azure Front Door. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) FrontDoor() AzureIntegrationsFrontDoorPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsFrontDoorPtrOutput { return v.FrontDoor }).(AzureIntegrationsFrontDoorPtrOutput)
 }
 
-// for Azure Functions. See Integration blocks below for details.
+// Azure Functions. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) Functions() AzureIntegrationsFunctionsPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsFunctionsPtrOutput { return v.Functions }).(AzureIntegrationsFunctionsPtrOutput)
 }
 
-// for Azure Key Vault. See Integration blocks below for details.
+// Azure Key Vault. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) KeyVault() AzureIntegrationsKeyVaultPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsKeyVaultPtrOutput { return v.KeyVault }).(AzureIntegrationsKeyVaultPtrOutput)
 }
@@ -545,57 +565,67 @@ func (o AzureIntegrationsOutput) LinkedAccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AzureIntegrations) pulumi.IntOutput { return v.LinkedAccountId }).(pulumi.IntOutput)
 }
 
-// for Azure Load Balancer. See Integration blocks below for details.
+// Azure Load Balancer. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) LoadBalancer() AzureIntegrationsLoadBalancerPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsLoadBalancerPtrOutput { return v.LoadBalancer }).(AzureIntegrationsLoadBalancerPtrOutput)
 }
 
-// for Azure Logic Apps. See Integration blocks below for details.
+// Azure Logic Apps. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) LogicApps() AzureIntegrationsLogicAppsPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsLogicAppsPtrOutput { return v.LogicApps }).(AzureIntegrationsLogicAppsPtrOutput)
 }
 
-// for Azure Machine Learning. See Integration blocks below for details.
+// Azure Machine Learning. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) MachineLearning() AzureIntegrationsMachineLearningPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMachineLearningPtrOutput { return v.MachineLearning }).(AzureIntegrationsMachineLearningPtrOutput)
 }
 
-// for Azure MariaDB. See Integration blocks below for details.
+// Azure MariaDB. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) MariaDb() AzureIntegrationsMariaDbPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMariaDbPtrOutput { return v.MariaDb }).(AzureIntegrationsMariaDbPtrOutput)
 }
 
-// for Azure MySQL. See Integration blocks below for details.
+// Azure MySQL. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) Mysql() AzureIntegrationsMysqlPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMysqlPtrOutput { return v.Mysql }).(AzureIntegrationsMysqlPtrOutput)
 }
 
-// for Azure PostgreSQL. See Integration blocks below for details.
+// Azure MySQL Flexible Server. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) MysqlFlexible() AzureIntegrationsMysqlFlexiblePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsMysqlFlexiblePtrOutput { return v.MysqlFlexible }).(AzureIntegrationsMysqlFlexiblePtrOutput)
+}
+
+// Azure PostgreSQL. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) Postgresql() AzureIntegrationsPostgresqlPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsPostgresqlPtrOutput { return v.Postgresql }).(AzureIntegrationsPostgresqlPtrOutput)
 }
 
-// for Azure Power BI Dedicated. See Integration blocks below for details.
+// Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+func (o AzureIntegrationsOutput) PostgresqlFlexible() AzureIntegrationsPostgresqlFlexiblePtrOutput {
+	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsPostgresqlFlexiblePtrOutput { return v.PostgresqlFlexible }).(AzureIntegrationsPostgresqlFlexiblePtrOutput)
+}
+
+// Azure Power BI Dedicated. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) PowerBiDedicated() AzureIntegrationsPowerBiDedicatedPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsPowerBiDedicatedPtrOutput { return v.PowerBiDedicated }).(AzureIntegrationsPowerBiDedicatedPtrOutput)
 }
 
-// for Azure Redis Cache. See Integration blocks below for details.
+// Azure Redis Cache. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) RedisCache() AzureIntegrationsRedisCachePtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsRedisCachePtrOutput { return v.RedisCache }).(AzureIntegrationsRedisCachePtrOutput)
 }
 
-// for Azure Service Bus. See Integration blocks below for details.
+// Azure Service Bus. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) ServiceBus() AzureIntegrationsServiceBusPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsServiceBusPtrOutput { return v.ServiceBus }).(AzureIntegrationsServiceBusPtrOutput)
 }
 
-// for Azure SQL. See Integration blocks below for details.
+// Azure SQL. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) Sql() AzureIntegrationsSqlPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsSqlPtrOutput { return v.Sql }).(AzureIntegrationsSqlPtrOutput)
 }
 
-// for SQL Managed. See Integration blocks below for details.
+// Azure SQL Managed. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) SqlManaged() AzureIntegrationsSqlManagedPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsSqlManagedPtrOutput { return v.SqlManaged }).(AzureIntegrationsSqlManagedPtrOutput)
 }
@@ -605,7 +635,7 @@ func (o AzureIntegrationsOutput) Storage() AzureIntegrationsStoragePtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsStoragePtrOutput { return v.Storage }).(AzureIntegrationsStoragePtrOutput)
 }
 
-// for Azure Virtual machine. See Integration blocks below for details.
+// Azure Virtual machine. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) VirtualMachine() AzureIntegrationsVirtualMachinePtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualMachinePtrOutput { return v.VirtualMachine }).(AzureIntegrationsVirtualMachinePtrOutput)
 }
@@ -615,12 +645,12 @@ func (o AzureIntegrationsOutput) VirtualNetworks() AzureIntegrationsVirtualNetwo
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVirtualNetworksPtrOutput { return v.VirtualNetworks }).(AzureIntegrationsVirtualNetworksPtrOutput)
 }
 
-// for Azure VMs. See Integration blocks below for details.
+// Azure VMs. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) Vms() AzureIntegrationsVmsPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVmsPtrOutput { return v.Vms }).(AzureIntegrationsVmsPtrOutput)
 }
 
-// for Azure VPN Gateway. See Integration blocks below for details.
+// Azure VPN Gateway. See Integration blocks below for details.
 func (o AzureIntegrationsOutput) VpnGateway() AzureIntegrationsVpnGatewayPtrOutput {
 	return o.ApplyT(func(v *AzureIntegrations) AzureIntegrationsVpnGatewayPtrOutput { return v.VpnGateway }).(AzureIntegrationsVpnGatewayPtrOutput)
 }

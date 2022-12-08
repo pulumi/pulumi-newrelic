@@ -16,13 +16,17 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? FilterId { get; set; }
 
         /// <summary>
-        /// A nrql enrichment name.
+        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("predicates")]
         private InputList<Inputs.WorkflowIssuesFilterPredicateArgs>? _predicates;
+
+        /// <summary>
+        /// A condition an issue event should satisfy to be processed by the workflow
+        /// </summary>
         public InputList<Inputs.WorkflowIssuesFilterPredicateArgs> Predicates
         {
             get => _predicates ?? (_predicates = new InputList<Inputs.WorkflowIssuesFilterPredicateArgs>());
@@ -30,8 +34,7 @@ namespace Pulumi.NewRelic.Inputs
         }
 
         /// <summary>
-        /// the filter's type.   One of: `FILTER` or `VIEW`.
-        /// * `predicate`
+        /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

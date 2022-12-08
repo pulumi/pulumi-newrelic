@@ -41,8 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new PrivateLocation(&#34;bar&#34;, PrivateLocationArgs.builder()        
- *             .accountId(&#34;NewRelic account ID&#34;)
+ *         var location = new PrivateLocation(&#34;location&#34;, PrivateLocationArgs.builder()        
  *             .description(&#34;The private location description&#34;)
  *             .build());
  * 
@@ -55,21 +54,21 @@ import javax.annotation.Nullable;
  * A Synthetics private location can be imported using the `guid`
  * 
  * ```sh
- *  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation bar GUID
+ *  $ pulumi import newrelic:synthetics/privateLocation:PrivateLocation location GUID
  * ```
  * 
  */
 @ResourceType(type="newrelic:synthetics/privateLocation:PrivateLocation")
 public class PrivateLocation extends com.pulumi.resources.CustomResource {
     /**
-     * Account ID of the New Relic.
+     * The account in which the private location will be created.
      * 
      */
     @Export(name="accountId", type=Integer.class, parameters={})
     private Output<Integer> accountId;
 
     /**
-     * @return Account ID of the New Relic.
+     * @return The account in which the private location will be created.
      * 
      */
     public Output<Integer> accountId() {
@@ -104,14 +103,14 @@ public class PrivateLocation extends com.pulumi.resources.CustomResource {
         return this.domainId;
     }
     /**
-     * The unique client identifier for the Synthetics private location in New Relic.
+     * The unique client identifier for the private location in New Relic. Same as `id`.
      * 
      */
     @Export(name="guid", type=String.class, parameters={})
     private Output<String> guid;
 
     /**
-     * @return The unique client identifier for the Synthetics private location in New Relic.
+     * @return The unique client identifier for the private location in New Relic. Same as `id`.
      * 
      */
     public Output<String> guid() {

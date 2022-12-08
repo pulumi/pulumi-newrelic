@@ -10,15 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.NewRelic
 {
     /// <summary>
+    /// &gt; **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+    /// 
     /// ## Example Usage
     /// ## Additional Examples
     /// 
     /// ## Import
     /// 
-    /// New Relic dashboards can be imported using their GUID, e.g.
+    /// New Relic dashboards can be imported using their GUID, e.g. bash
     /// 
     /// ```sh
-    ///  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;Dashboard GUID&gt;
+    ///  $ pulumi import newrelic:index/oneDashboard:OneDashboard my_dashboard &lt;dashboard GUID&gt;
     /// ```
     /// 
     ///  In addition you can use the [New Relic CLI](https://github.com/newrelic/newrelic-cli#readme) to convert existing dashboards to HCL. [Copy your dashboards as JSON using the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/), save it as a file (for example `terraform.json`), and use the following command to convert it to HCL`cat terraform.json | newrelic utils terraform dashboard --label my_dashboard_resource`.
@@ -67,6 +69,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("permissions")]
         public Output<string?> Permissions { get; private set; } = null!;
+
+        /// <summary>
+        /// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        /// </summary>
+        [Output("variables")]
+        public Output<ImmutableArray<Outputs.OneDashboardVariable>> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,6 +158,18 @@ namespace Pulumi.NewRelic
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
+        [Input("variables")]
+        private InputList<Inputs.OneDashboardVariableArgs>? _variables;
+
+        /// <summary>
+        /// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardVariableArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.OneDashboardVariableArgs>());
+            set => _variables = value;
+        }
+
         public OneDashboardArgs()
         {
         }
@@ -205,6 +225,18 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
+
+        [Input("variables")]
+        private InputList<Inputs.OneDashboardVariableGetArgs>? _variables;
+
+        /// <summary>
+        /// A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+        /// </summary>
+        public InputList<Inputs.OneDashboardVariableGetArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.OneDashboardVariableGetArgs>());
+            set => _variables = value;
+        }
 
         public OneDashboardState()
         {

@@ -14,9 +14,9 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 api_key: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[int]] = None,
                  admin_api_key: Optional[pulumi.Input[str]] = None,
-                 api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  cacert_file: Optional[pulumi.Input[str]] = None,
                  infrastructure_api_url: Optional[pulumi.Input[str]] = None,
@@ -31,14 +31,13 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] region: The data center for which your New Relic account is configured. Only one region per provider block is permitted.
         """
+        pulumi.set(__self__, "api_key", api_key)
         if account_id is None:
             account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if admin_api_key is not None:
             pulumi.set(__self__, "admin_api_key", admin_api_key)
-        if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
         if api_url is not None:
             warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
             pulumi.log.warn("""api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
@@ -75,6 +74,15 @@ class ProviderArgs:
             pulumi.set(__self__, "synthetics_api_url", synthetics_api_url)
 
     @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key", value)
+
+    @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "account_id")
@@ -91,15 +99,6 @@ class ProviderArgs:
     @admin_api_key.setter
     def admin_api_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_api_key", value)
-
-    @property
-    @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "api_key")
-
-    @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "api_key", value)
 
     @property
     @pulumi.getter(name="apiUrl")
@@ -228,7 +227,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProviderArgs] = None,
+                 args: ProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the newrelic package. By default, resources use package-wide configuration
@@ -275,9 +274,11 @@ class Provider(pulumi.ProviderResource):
 
             if account_id is None:
                 account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
-            __props__.__dict__["account_id"] = pulumi.Output.from_input(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None
-            __props__.__dict__["admin_api_key"] = admin_api_key
-            __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["account_id"] = None if pulumi.Output.from_input(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None is None else pulumi.Output.secret(pulumi.Output.from_input(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None)
+            __props__.__dict__["admin_api_key"] = None if admin_api_key is None else pulumi.Output.secret(admin_api_key)
+            if api_key is None and not opts.urn:
+                raise TypeError("Missing required property 'api_key'")
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             if api_url is not None and not opts.urn:
                 warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
                 pulumi.log.warn("""api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
@@ -288,7 +289,7 @@ class Provider(pulumi.ProviderResource):
                 pulumi.log.warn("""infrastructure_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
             __props__.__dict__["infrastructure_api_url"] = infrastructure_api_url
             __props__.__dict__["insecure_skip_verify"] = pulumi.Output.from_input(insecure_skip_verify).apply(pulumi.runtime.to_json) if insecure_skip_verify is not None else None
-            __props__.__dict__["insights_insert_key"] = insights_insert_key
+            __props__.__dict__["insights_insert_key"] = None if insights_insert_key is None else pulumi.Output.secret(insights_insert_key)
             __props__.__dict__["insights_insert_url"] = insights_insert_url
             __props__.__dict__["insights_query_url"] = insights_query_url
             if nerdgraph_api_url is not None and not opts.urn:
@@ -302,6 +303,8 @@ class Provider(pulumi.ProviderResource):
                 warnings.warn("""New Relic internal use only. API URLs are now configured based on the configured region.""", DeprecationWarning)
                 pulumi.log.warn("""synthetics_api_url is deprecated: New Relic internal use only. API URLs are now configured based on the configured region.""")
             __props__.__dict__["synthetics_api_url"] = synthetics_api_url
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminApiKey", "apiKey", "insightsInsertKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'newrelic',
             resource_name,
@@ -315,7 +318,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Output[Optional[str]]:
+    def api_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_key")
 
     @property

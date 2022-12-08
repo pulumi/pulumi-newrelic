@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -11,8 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * ##### Type: `SCRIPT_API`
- *
- * > **NOTE:** The preferred runtime is `NODE_16.10.0` while configuring the `SCRIPT_API` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,7 +25,7 @@ import * as utilities from "../utilities";
  *     period: "EVERY_6_HOURS",
  *     runtimeType: "NODE_API",
  *     runtimeTypeVersion: "16.10",
- *     script: "console.log('terraform integration test updated')",
+ *     script: "console.log('it works!')",
  *     scriptLanguage: "JAVASCRIPT",
  *     status: "ENABLED",
  *     tags: [{
@@ -37,8 +36,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ##### Type: `SCRIPT_BROWSER`
- *
- * > **NOTE:** The preferred runtime is `CHROME_BROWSER_100` while configuring the `SCRIPT_BROWSER` monitor. The runtime fields `runtimeType`, `runtimeTypeVersion` and `scriptLanguage` are required. Other runtime may be deprecated in the future and receive fewer product updates.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,13 +52,10 @@ import * as utilities from "../utilities";
  *     runtimeTypeVersion: "100",
  *     script: "$browser.get('https://one.newrelic.com')",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "DISABLED",
+ *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
- *         values: [
- *             "some_value1",
- *             "some_value2",
- *         ],
+ *         values: ["some_value"],
  *     }],
  *     type: "SCRIPT_BROWSER",
  * });
@@ -81,13 +75,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
- *     description: "Test Description",
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
+ *     description: "Example private location",
  *     verifiedScriptExecution: true,
  * });
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
  *     locationPrivates: [{
- *         guid: "newrelic_synthetics_private_location.private_location.id",
+ *         guid: "newrelic_synthetics_private_location.location.id",
  *         vsePassword: "secret",
  *     }],
  *     period: "EVERY_6_HOURS",
@@ -109,14 +103,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const privateLocation = new newrelic.synthetics.PrivateLocation("private_location", {
+ * const location = new newrelic.synthetics.PrivateLocation("location", {
  *     description: "Test Description",
  *     verifiedScriptExecution: true,
  * });
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
  *     enableScreenshotOnFailureAndScript: false,
  *     locationPrivates: [{
- *         guid: "newrelic_synthetics_private_location.private_location.id",
+ *         guid: "newrelic_synthetics_private_location.location.id",
  *         vsePassword: "secret",
  *     }],
  *     period: "EVERY_HOUR",
@@ -124,7 +118,7 @@ import * as utilities from "../utilities";
  *     runtimeTypeVersion: "100",
  *     script: "$browser.get('https://one.newrelic.com')",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "DISABLED",
+ *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
@@ -138,7 +132,7 @@ import * as utilities from "../utilities";
  * Synthetics monitor scripts can be imported using the `guid`, e.g. bash
  *
  * ```sh
- *  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor bar <guid>
+ *  $ pulumi import newrelic:synthetics/scriptMonitor:ScriptMonitor monitor <guid>
  * ```
  */
 export class ScriptMonitor extends pulumi.CustomResource {
@@ -214,7 +208,7 @@ export class ScriptMonitor extends pulumi.CustomResource {
      */
     public readonly scriptLanguage!: pulumi.Output<string | undefined>;
     /**
-     * The run state of the monitor.
+     * The run state of the monitor: `ENABLED` or `DISABLED`
      */
     public readonly status!: pulumi.Output<string>;
     /**
@@ -333,7 +327,7 @@ export interface ScriptMonitorState {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The run state of the monitor.
+     * The run state of the monitor: `ENABLED` or `DISABLED`
      */
     status?: pulumi.Input<string>;
     /**
@@ -391,7 +385,7 @@ export interface ScriptMonitorArgs {
      */
     scriptLanguage?: pulumi.Input<string>;
     /**
-     * The run state of the monitor.
+     * The run state of the monitor: `ENABLED` or `DISABLED`
      */
     status: pulumi.Input<string>;
     /**

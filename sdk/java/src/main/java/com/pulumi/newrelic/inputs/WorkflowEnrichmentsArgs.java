@@ -14,9 +14,17 @@ public final class WorkflowEnrichmentsArgs extends com.pulumi.resources.Resource
 
     public static final WorkflowEnrichmentsArgs Empty = new WorkflowEnrichmentsArgs();
 
+    /**
+     * a wrapper block
+     * 
+     */
     @Import(name="nrqls", required=true)
     private Output<List<WorkflowEnrichmentsNrqlArgs>> nrqls;
 
+    /**
+     * @return a wrapper block
+     * 
+     */
     public Output<List<WorkflowEnrichmentsNrqlArgs>> nrqls() {
         return this.nrqls;
     }
@@ -45,15 +53,33 @@ public final class WorkflowEnrichmentsArgs extends com.pulumi.resources.Resource
             $ = new WorkflowEnrichmentsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param nrqls a wrapper block
+         * 
+         * @return builder
+         * 
+         */
         public Builder nrqls(Output<List<WorkflowEnrichmentsNrqlArgs>> nrqls) {
             $.nrqls = nrqls;
             return this;
         }
 
+        /**
+         * @param nrqls a wrapper block
+         * 
+         * @return builder
+         * 
+         */
         public Builder nrqls(List<WorkflowEnrichmentsNrqlArgs> nrqls) {
             return nrqls(Output.of(nrqls));
         }
 
+        /**
+         * @param nrqls a wrapper block
+         * 
+         * @return builder
+         * 
+         */
         public Builder nrqls(WorkflowEnrichmentsNrqlArgs... nrqls) {
             return nrqls(List.of(nrqls));
         }

@@ -36,7 +36,9 @@ class AzureIntegrationsArgs:
                  machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
                  maria_db: Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']] = None,
                  mysql: Optional[pulumi.Input['AzureIntegrationsMysqlArgs']] = None,
+                 mysql_flexible: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']] = None,
                  postgresql: Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']] = None,
+                 postgresql_flexible: Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']] = None,
                  power_bi_dedicated: Optional[pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs']] = None,
                  redis_cache: Optional[pulumi.Input['AzureIntegrationsRedisCacheArgs']] = None,
                  service_bus: Optional[pulumi.Input['AzureIntegrationsServiceBusArgs']] = None,
@@ -57,29 +59,31 @@ class AzureIntegrationsArgs:
         :param pulumi.Input['AzureIntegrationsContainersArgs'] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCosmosDbArgs'] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: Azure Cost Management. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsDataFactoryArgs'] data_factory: for Azure Data Factory. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsEventHubArgs'] event_hub: for Azure Event Hub. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsExpressRouteArgs'] express_route: for Azure Express Route. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsFirewallsArgs'] firewalls: for Azure Firewalls. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsFrontDoorArgs'] front_door: for Azure Front Door. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsFunctionsArgs'] functions: for Azure Functions. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: for Azure Key Vault. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: for Azure Load Balancer. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: for Azure Logic Apps. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: for Azure Machine Learning. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: for Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: for Azure MySQL. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: for Azure PostgreSQL. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs'] power_bi_dedicated: for Azure Power BI Dedicated. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsRedisCacheArgs'] redis_cache: for Azure Redis Cache. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsServiceBusArgs'] service_bus: for Azure Service Bus. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsSqlArgs'] sql: for Azure SQL. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: for SQL Managed. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsDataFactoryArgs'] data_factory: Azure Data Factory. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsEventHubArgs'] event_hub: Azure Event Hub. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsExpressRouteArgs'] express_route: Azure Express Route. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsFirewallsArgs'] firewalls: Azure Firewalls. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsFrontDoorArgs'] front_door: Azure Front Door. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsFunctionsArgs'] functions: Azure Functions. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: Azure Key Vault. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: Azure Load Balancer. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs'] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs'] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsRedisCacheArgs'] redis_cache: Azure Redis Cache. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsServiceBusArgs'] service_bus: Azure Service Bus. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsSqlArgs'] sql: Azure SQL. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsStorageArgs'] storage: for Azure Storage. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: for Azure VMs. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: Azure VMs. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
         """
         pulumi.set(__self__, "linked_account_id", linked_account_id)
         if account_id is not None:
@@ -120,8 +124,12 @@ class AzureIntegrationsArgs:
             pulumi.set(__self__, "maria_db", maria_db)
         if mysql is not None:
             pulumi.set(__self__, "mysql", mysql)
+        if mysql_flexible is not None:
+            pulumi.set(__self__, "mysql_flexible", mysql_flexible)
         if postgresql is not None:
             pulumi.set(__self__, "postgresql", postgresql)
+        if postgresql_flexible is not None:
+            pulumi.set(__self__, "postgresql_flexible", postgresql_flexible)
         if power_bi_dedicated is not None:
             pulumi.set(__self__, "power_bi_dedicated", power_bi_dedicated)
         if redis_cache is not None:
@@ -243,7 +251,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="dataFactory")
     def data_factory(self) -> Optional[pulumi.Input['AzureIntegrationsDataFactoryArgs']]:
         """
-        for Azure Data Factory. See Integration blocks below for details.
+        Azure Data Factory. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_factory")
 
@@ -255,7 +263,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="eventHub")
     def event_hub(self) -> Optional[pulumi.Input['AzureIntegrationsEventHubArgs']]:
         """
-        for Azure Event Hub. See Integration blocks below for details.
+        Azure Event Hub. See Integration blocks below for details.
         """
         return pulumi.get(self, "event_hub")
 
@@ -267,7 +275,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="expressRoute")
     def express_route(self) -> Optional[pulumi.Input['AzureIntegrationsExpressRouteArgs']]:
         """
-        for Azure Express Route. See Integration blocks below for details.
+        Azure Express Route. See Integration blocks below for details.
         """
         return pulumi.get(self, "express_route")
 
@@ -279,7 +287,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter
     def firewalls(self) -> Optional[pulumi.Input['AzureIntegrationsFirewallsArgs']]:
         """
-        for Azure Firewalls. See Integration blocks below for details.
+        Azure Firewalls. See Integration blocks below for details.
         """
         return pulumi.get(self, "firewalls")
 
@@ -291,7 +299,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="frontDoor")
     def front_door(self) -> Optional[pulumi.Input['AzureIntegrationsFrontDoorArgs']]:
         """
-        for Azure Front Door. See Integration blocks below for details.
+        Azure Front Door. See Integration blocks below for details.
         """
         return pulumi.get(self, "front_door")
 
@@ -303,7 +311,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter
     def functions(self) -> Optional[pulumi.Input['AzureIntegrationsFunctionsArgs']]:
         """
-        for Azure Functions. See Integration blocks below for details.
+        Azure Functions. See Integration blocks below for details.
         """
         return pulumi.get(self, "functions")
 
@@ -315,7 +323,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> Optional[pulumi.Input['AzureIntegrationsKeyVaultArgs']]:
         """
-        for Azure Key Vault. See Integration blocks below for details.
+        Azure Key Vault. See Integration blocks below for details.
         """
         return pulumi.get(self, "key_vault")
 
@@ -327,7 +335,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> Optional[pulumi.Input['AzureIntegrationsLoadBalancerArgs']]:
         """
-        for Azure Load Balancer. See Integration blocks below for details.
+        Azure Load Balancer. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancer")
 
@@ -339,7 +347,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="logicApps")
     def logic_apps(self) -> Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']]:
         """
-        for Azure Logic Apps. See Integration blocks below for details.
+        Azure Logic Apps. See Integration blocks below for details.
         """
         return pulumi.get(self, "logic_apps")
 
@@ -351,7 +359,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="machineLearning")
     def machine_learning(self) -> Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']]:
         """
-        for Azure Machine Learning. See Integration blocks below for details.
+        Azure Machine Learning. See Integration blocks below for details.
         """
         return pulumi.get(self, "machine_learning")
 
@@ -363,7 +371,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="mariaDb")
     def maria_db(self) -> Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']]:
         """
-        for Azure MariaDB. See Integration blocks below for details.
+        Azure MariaDB. See Integration blocks below for details.
         """
         return pulumi.get(self, "maria_db")
 
@@ -375,7 +383,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter
     def mysql(self) -> Optional[pulumi.Input['AzureIntegrationsMysqlArgs']]:
         """
-        for Azure MySQL. See Integration blocks below for details.
+        Azure MySQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "mysql")
 
@@ -384,10 +392,22 @@ class AzureIntegrationsArgs:
         pulumi.set(self, "mysql", value)
 
     @property
+    @pulumi.getter(name="mysqlFlexible")
+    def mysql_flexible(self) -> Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']]:
+        """
+        Azure MySQL Flexible Server. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "mysql_flexible")
+
+    @mysql_flexible.setter
+    def mysql_flexible(self, value: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']]):
+        pulumi.set(self, "mysql_flexible", value)
+
+    @property
     @pulumi.getter
     def postgresql(self) -> Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']]:
         """
-        for Azure PostgreSQL. See Integration blocks below for details.
+        Azure PostgreSQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "postgresql")
 
@@ -396,10 +416,22 @@ class AzureIntegrationsArgs:
         pulumi.set(self, "postgresql", value)
 
     @property
+    @pulumi.getter(name="postgresqlFlexible")
+    def postgresql_flexible(self) -> Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']]:
+        """
+        Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "postgresql_flexible")
+
+    @postgresql_flexible.setter
+    def postgresql_flexible(self, value: Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']]):
+        pulumi.set(self, "postgresql_flexible", value)
+
+    @property
     @pulumi.getter(name="powerBiDedicated")
     def power_bi_dedicated(self) -> Optional[pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs']]:
         """
-        for Azure Power BI Dedicated. See Integration blocks below for details.
+        Azure Power BI Dedicated. See Integration blocks below for details.
         """
         return pulumi.get(self, "power_bi_dedicated")
 
@@ -411,7 +443,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="redisCache")
     def redis_cache(self) -> Optional[pulumi.Input['AzureIntegrationsRedisCacheArgs']]:
         """
-        for Azure Redis Cache. See Integration blocks below for details.
+        Azure Redis Cache. See Integration blocks below for details.
         """
         return pulumi.get(self, "redis_cache")
 
@@ -423,7 +455,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="serviceBus")
     def service_bus(self) -> Optional[pulumi.Input['AzureIntegrationsServiceBusArgs']]:
         """
-        for Azure Service Bus. See Integration blocks below for details.
+        Azure Service Bus. See Integration blocks below for details.
         """
         return pulumi.get(self, "service_bus")
 
@@ -435,7 +467,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter
     def sql(self) -> Optional[pulumi.Input['AzureIntegrationsSqlArgs']]:
         """
-        for Azure SQL. See Integration blocks below for details.
+        Azure SQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql")
 
@@ -447,7 +479,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="sqlManaged")
     def sql_managed(self) -> Optional[pulumi.Input['AzureIntegrationsSqlManagedArgs']]:
         """
-        for SQL Managed. See Integration blocks below for details.
+        Azure SQL Managed. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql_managed")
 
@@ -471,7 +503,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="virtualMachine")
     def virtual_machine(self) -> Optional[pulumi.Input['AzureIntegrationsVirtualMachineArgs']]:
         """
-        for Azure Virtual machine. See Integration blocks below for details.
+        Azure Virtual machine. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_machine")
 
@@ -495,7 +527,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter
     def vms(self) -> Optional[pulumi.Input['AzureIntegrationsVmsArgs']]:
         """
-        for Azure VMs. See Integration blocks below for details.
+        Azure VMs. See Integration blocks below for details.
         """
         return pulumi.get(self, "vms")
 
@@ -507,7 +539,7 @@ class AzureIntegrationsArgs:
     @pulumi.getter(name="vpnGateway")
     def vpn_gateway(self) -> Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']]:
         """
-        for Azure VPN Gateway. See Integration blocks below for details.
+        Azure VPN Gateway. See Integration blocks below for details.
         """
         return pulumi.get(self, "vpn_gateway")
 
@@ -539,7 +571,9 @@ class _AzureIntegrationsState:
                  machine_learning: Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']] = None,
                  maria_db: Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']] = None,
                  mysql: Optional[pulumi.Input['AzureIntegrationsMysqlArgs']] = None,
+                 mysql_flexible: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']] = None,
                  postgresql: Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']] = None,
+                 postgresql_flexible: Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']] = None,
                  power_bi_dedicated: Optional[pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs']] = None,
                  redis_cache: Optional[pulumi.Input['AzureIntegrationsRedisCacheArgs']] = None,
                  service_bus: Optional[pulumi.Input['AzureIntegrationsServiceBusArgs']] = None,
@@ -559,30 +593,32 @@ class _AzureIntegrationsState:
         :param pulumi.Input['AzureIntegrationsContainersArgs'] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCosmosDbArgs'] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsCostManagementArgs'] cost_management: Azure Cost Management. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsDataFactoryArgs'] data_factory: for Azure Data Factory. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsEventHubArgs'] event_hub: for Azure Event Hub. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsExpressRouteArgs'] express_route: for Azure Express Route. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsFirewallsArgs'] firewalls: for Azure Firewalls. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsFrontDoorArgs'] front_door: for Azure Front Door. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsFunctionsArgs'] functions: for Azure Functions. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: for Azure Key Vault. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsDataFactoryArgs'] data_factory: Azure Data Factory. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsEventHubArgs'] event_hub: Azure Event Hub. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsExpressRouteArgs'] express_route: Azure Express Route. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsFirewallsArgs'] firewalls: Azure Firewalls. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsFrontDoorArgs'] front_door: Azure Front Door. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsFunctionsArgs'] functions: Azure Functions. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsKeyVaultArgs'] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
-        :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: for Azure Load Balancer. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: for Azure Logic Apps. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: for Azure Machine Learning. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: for Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: for Azure MySQL. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: for Azure PostgreSQL. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs'] power_bi_dedicated: for Azure Power BI Dedicated. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsRedisCacheArgs'] redis_cache: for Azure Redis Cache. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsServiceBusArgs'] service_bus: for Azure Service Bus. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsSqlArgs'] sql: for Azure SQL. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: for SQL Managed. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsLoadBalancerArgs'] load_balancer: Azure Load Balancer. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsLogicAppsArgs'] logic_apps: Azure Logic Apps. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMachineLearningArgs'] machine_learning: Azure Machine Learning. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMariaDbArgs'] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMysqlArgs'] mysql: Azure MySQL. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsMysqlFlexibleArgs'] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsPostgresqlArgs'] postgresql: Azure PostgreSQL. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs'] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs'] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsRedisCacheArgs'] redis_cache: Azure Redis Cache. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsServiceBusArgs'] service_bus: Azure Service Bus. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsSqlArgs'] sql: Azure SQL. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsSqlManagedArgs'] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsStorageArgs'] storage: for Azure Storage. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsVirtualMachineArgs'] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input['AzureIntegrationsVirtualNetworksArgs'] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: for Azure VMs. See Integration blocks below for details.
-        :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsVmsArgs'] vms: Azure VMs. See Integration blocks below for details.
+        :param pulumi.Input['AzureIntegrationsVpnGatewayArgs'] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -624,8 +660,12 @@ class _AzureIntegrationsState:
             pulumi.set(__self__, "maria_db", maria_db)
         if mysql is not None:
             pulumi.set(__self__, "mysql", mysql)
+        if mysql_flexible is not None:
+            pulumi.set(__self__, "mysql_flexible", mysql_flexible)
         if postgresql is not None:
             pulumi.set(__self__, "postgresql", postgresql)
+        if postgresql_flexible is not None:
+            pulumi.set(__self__, "postgresql_flexible", postgresql_flexible)
         if power_bi_dedicated is not None:
             pulumi.set(__self__, "power_bi_dedicated", power_bi_dedicated)
         if redis_cache is not None:
@@ -735,7 +775,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="dataFactory")
     def data_factory(self) -> Optional[pulumi.Input['AzureIntegrationsDataFactoryArgs']]:
         """
-        for Azure Data Factory. See Integration blocks below for details.
+        Azure Data Factory. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_factory")
 
@@ -747,7 +787,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="eventHub")
     def event_hub(self) -> Optional[pulumi.Input['AzureIntegrationsEventHubArgs']]:
         """
-        for Azure Event Hub. See Integration blocks below for details.
+        Azure Event Hub. See Integration blocks below for details.
         """
         return pulumi.get(self, "event_hub")
 
@@ -759,7 +799,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="expressRoute")
     def express_route(self) -> Optional[pulumi.Input['AzureIntegrationsExpressRouteArgs']]:
         """
-        for Azure Express Route. See Integration blocks below for details.
+        Azure Express Route. See Integration blocks below for details.
         """
         return pulumi.get(self, "express_route")
 
@@ -771,7 +811,7 @@ class _AzureIntegrationsState:
     @pulumi.getter
     def firewalls(self) -> Optional[pulumi.Input['AzureIntegrationsFirewallsArgs']]:
         """
-        for Azure Firewalls. See Integration blocks below for details.
+        Azure Firewalls. See Integration blocks below for details.
         """
         return pulumi.get(self, "firewalls")
 
@@ -783,7 +823,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="frontDoor")
     def front_door(self) -> Optional[pulumi.Input['AzureIntegrationsFrontDoorArgs']]:
         """
-        for Azure Front Door. See Integration blocks below for details.
+        Azure Front Door. See Integration blocks below for details.
         """
         return pulumi.get(self, "front_door")
 
@@ -795,7 +835,7 @@ class _AzureIntegrationsState:
     @pulumi.getter
     def functions(self) -> Optional[pulumi.Input['AzureIntegrationsFunctionsArgs']]:
         """
-        for Azure Functions. See Integration blocks below for details.
+        Azure Functions. See Integration blocks below for details.
         """
         return pulumi.get(self, "functions")
 
@@ -807,7 +847,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> Optional[pulumi.Input['AzureIntegrationsKeyVaultArgs']]:
         """
-        for Azure Key Vault. See Integration blocks below for details.
+        Azure Key Vault. See Integration blocks below for details.
         """
         return pulumi.get(self, "key_vault")
 
@@ -831,7 +871,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> Optional[pulumi.Input['AzureIntegrationsLoadBalancerArgs']]:
         """
-        for Azure Load Balancer. See Integration blocks below for details.
+        Azure Load Balancer. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancer")
 
@@ -843,7 +883,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="logicApps")
     def logic_apps(self) -> Optional[pulumi.Input['AzureIntegrationsLogicAppsArgs']]:
         """
-        for Azure Logic Apps. See Integration blocks below for details.
+        Azure Logic Apps. See Integration blocks below for details.
         """
         return pulumi.get(self, "logic_apps")
 
@@ -855,7 +895,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="machineLearning")
     def machine_learning(self) -> Optional[pulumi.Input['AzureIntegrationsMachineLearningArgs']]:
         """
-        for Azure Machine Learning. See Integration blocks below for details.
+        Azure Machine Learning. See Integration blocks below for details.
         """
         return pulumi.get(self, "machine_learning")
 
@@ -867,7 +907,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="mariaDb")
     def maria_db(self) -> Optional[pulumi.Input['AzureIntegrationsMariaDbArgs']]:
         """
-        for Azure MariaDB. See Integration blocks below for details.
+        Azure MariaDB. See Integration blocks below for details.
         """
         return pulumi.get(self, "maria_db")
 
@@ -879,7 +919,7 @@ class _AzureIntegrationsState:
     @pulumi.getter
     def mysql(self) -> Optional[pulumi.Input['AzureIntegrationsMysqlArgs']]:
         """
-        for Azure MySQL. See Integration blocks below for details.
+        Azure MySQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "mysql")
 
@@ -888,10 +928,22 @@ class _AzureIntegrationsState:
         pulumi.set(self, "mysql", value)
 
     @property
+    @pulumi.getter(name="mysqlFlexible")
+    def mysql_flexible(self) -> Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']]:
+        """
+        Azure MySQL Flexible Server. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "mysql_flexible")
+
+    @mysql_flexible.setter
+    def mysql_flexible(self, value: Optional[pulumi.Input['AzureIntegrationsMysqlFlexibleArgs']]):
+        pulumi.set(self, "mysql_flexible", value)
+
+    @property
     @pulumi.getter
     def postgresql(self) -> Optional[pulumi.Input['AzureIntegrationsPostgresqlArgs']]:
         """
-        for Azure PostgreSQL. See Integration blocks below for details.
+        Azure PostgreSQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "postgresql")
 
@@ -900,10 +952,22 @@ class _AzureIntegrationsState:
         pulumi.set(self, "postgresql", value)
 
     @property
+    @pulumi.getter(name="postgresqlFlexible")
+    def postgresql_flexible(self) -> Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']]:
+        """
+        Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "postgresql_flexible")
+
+    @postgresql_flexible.setter
+    def postgresql_flexible(self, value: Optional[pulumi.Input['AzureIntegrationsPostgresqlFlexibleArgs']]):
+        pulumi.set(self, "postgresql_flexible", value)
+
+    @property
     @pulumi.getter(name="powerBiDedicated")
     def power_bi_dedicated(self) -> Optional[pulumi.Input['AzureIntegrationsPowerBiDedicatedArgs']]:
         """
-        for Azure Power BI Dedicated. See Integration blocks below for details.
+        Azure Power BI Dedicated. See Integration blocks below for details.
         """
         return pulumi.get(self, "power_bi_dedicated")
 
@@ -915,7 +979,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="redisCache")
     def redis_cache(self) -> Optional[pulumi.Input['AzureIntegrationsRedisCacheArgs']]:
         """
-        for Azure Redis Cache. See Integration blocks below for details.
+        Azure Redis Cache. See Integration blocks below for details.
         """
         return pulumi.get(self, "redis_cache")
 
@@ -927,7 +991,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="serviceBus")
     def service_bus(self) -> Optional[pulumi.Input['AzureIntegrationsServiceBusArgs']]:
         """
-        for Azure Service Bus. See Integration blocks below for details.
+        Azure Service Bus. See Integration blocks below for details.
         """
         return pulumi.get(self, "service_bus")
 
@@ -939,7 +1003,7 @@ class _AzureIntegrationsState:
     @pulumi.getter
     def sql(self) -> Optional[pulumi.Input['AzureIntegrationsSqlArgs']]:
         """
-        for Azure SQL. See Integration blocks below for details.
+        Azure SQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql")
 
@@ -951,7 +1015,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="sqlManaged")
     def sql_managed(self) -> Optional[pulumi.Input['AzureIntegrationsSqlManagedArgs']]:
         """
-        for SQL Managed. See Integration blocks below for details.
+        Azure SQL Managed. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql_managed")
 
@@ -975,7 +1039,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="virtualMachine")
     def virtual_machine(self) -> Optional[pulumi.Input['AzureIntegrationsVirtualMachineArgs']]:
         """
-        for Azure Virtual machine. See Integration blocks below for details.
+        Azure Virtual machine. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_machine")
 
@@ -999,7 +1063,7 @@ class _AzureIntegrationsState:
     @pulumi.getter
     def vms(self) -> Optional[pulumi.Input['AzureIntegrationsVmsArgs']]:
         """
-        for Azure VMs. See Integration blocks below for details.
+        Azure VMs. See Integration blocks below for details.
         """
         return pulumi.get(self, "vms")
 
@@ -1011,7 +1075,7 @@ class _AzureIntegrationsState:
     @pulumi.getter(name="vpnGateway")
     def vpn_gateway(self) -> Optional[pulumi.Input['AzureIntegrationsVpnGatewayArgs']]:
         """
-        for Azure VPN Gateway. See Integration blocks below for details.
+        Azure VPN Gateway. See Integration blocks below for details.
         """
         return pulumi.get(self, "vpn_gateway")
 
@@ -1045,7 +1109,9 @@ class AzureIntegrations(pulumi.CustomResource):
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
                  maria_db: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']]] = None,
                  mysql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']]] = None,
+                 mysql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']]] = None,
                  postgresql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']]] = None,
+                 postgresql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlFlexibleArgs']]] = None,
                  power_bi_dedicated: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']]] = None,
                  redis_cache: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']]] = None,
                  service_bus: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']]] = None,
@@ -1075,30 +1141,32 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsContainersArgs']] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsCosmosDbArgs']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsCostManagementArgs']] cost_management: Azure Cost Management. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsDataFactoryArgs']] data_factory: for Azure Data Factory. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsEventHubArgs']] event_hub: for Azure Event Hub. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsExpressRouteArgs']] express_route: for Azure Express Route. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFirewallsArgs']] firewalls: for Azure Firewalls. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: for Azure Front Door. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: for Azure Functions. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: for Azure Key Vault. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsDataFactoryArgs']] data_factory: Azure Data Factory. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsEventHubArgs']] event_hub: Azure Event Hub. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsExpressRouteArgs']] express_route: Azure Express Route. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFirewallsArgs']] firewalls: Azure Firewalls. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: Azure Front Door. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: Azure Functions. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']] load_balancer: for Azure Load Balancer. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: for Azure Logic Apps. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: for Azure Machine Learning. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: for Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: for Azure MySQL. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: for Azure PostgreSQL. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']] power_bi_dedicated: for Azure Power BI Dedicated. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']] redis_cache: for Azure Redis Cache. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']] service_bus: for Azure Service Bus. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlArgs']] sql: for Azure SQL. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: for SQL Managed. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlFlexibleArgs']] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']] redis_cache: Azure Redis Cache. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']] service_bus: Azure Service Bus. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlArgs']] sql: Azure SQL. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsStorageArgs']] storage: for Azure Storage. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: for Azure VMs. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: Azure VMs. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
         """
         ...
     @overload
@@ -1150,7 +1218,9 @@ class AzureIntegrations(pulumi.CustomResource):
                  machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
                  maria_db: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']]] = None,
                  mysql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']]] = None,
+                 mysql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']]] = None,
                  postgresql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']]] = None,
+                 postgresql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlFlexibleArgs']]] = None,
                  power_bi_dedicated: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']]] = None,
                  redis_cache: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']]] = None,
                  service_bus: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']]] = None,
@@ -1192,7 +1262,9 @@ class AzureIntegrations(pulumi.CustomResource):
             __props__.__dict__["machine_learning"] = machine_learning
             __props__.__dict__["maria_db"] = maria_db
             __props__.__dict__["mysql"] = mysql
+            __props__.__dict__["mysql_flexible"] = mysql_flexible
             __props__.__dict__["postgresql"] = postgresql
+            __props__.__dict__["postgresql_flexible"] = postgresql_flexible
             __props__.__dict__["power_bi_dedicated"] = power_bi_dedicated
             __props__.__dict__["redis_cache"] = redis_cache
             __props__.__dict__["service_bus"] = service_bus
@@ -1233,7 +1305,9 @@ class AzureIntegrations(pulumi.CustomResource):
             machine_learning: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']]] = None,
             maria_db: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']]] = None,
             mysql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']]] = None,
+            mysql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']]] = None,
             postgresql: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']]] = None,
+            postgresql_flexible: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlFlexibleArgs']]] = None,
             power_bi_dedicated: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']]] = None,
             redis_cache: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']]] = None,
             service_bus: Optional[pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']]] = None,
@@ -1258,30 +1332,32 @@ class AzureIntegrations(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsContainersArgs']] containers: Azure Containers. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsCosmosDbArgs']] cosmos_db: Azure CosmosDB. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsCostManagementArgs']] cost_management: Azure Cost Management. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsDataFactoryArgs']] data_factory: for Azure Data Factory. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsEventHubArgs']] event_hub: for Azure Event Hub. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsExpressRouteArgs']] express_route: for Azure Express Route. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFirewallsArgs']] firewalls: for Azure Firewalls. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: for Azure Front Door. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: for Azure Functions. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: for Azure Key Vault. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsDataFactoryArgs']] data_factory: Azure Data Factory. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsEventHubArgs']] event_hub: Azure Event Hub. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsExpressRouteArgs']] express_route: Azure Express Route. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFirewallsArgs']] firewalls: Azure Firewalls. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFrontDoorArgs']] front_door: Azure Front Door. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsFunctionsArgs']] functions: Azure Functions. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsKeyVaultArgs']] key_vault: Azure Key Vault. See Integration blocks below for details.
         :param pulumi.Input[int] linked_account_id: The ID of the linked Azure account in New Relic.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']] load_balancer: for Azure Load Balancer. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: for Azure Logic Apps. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: for Azure Machine Learning. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: for Azure MariaDB. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: for Azure MySQL. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: for Azure PostgreSQL. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']] power_bi_dedicated: for Azure Power BI Dedicated. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']] redis_cache: for Azure Redis Cache. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']] service_bus: for Azure Service Bus. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlArgs']] sql: for Azure SQL. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: for SQL Managed. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLoadBalancerArgs']] load_balancer: Azure Load Balancer. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsLogicAppsArgs']] logic_apps: Azure Logic Apps. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMachineLearningArgs']] machine_learning: Azure Machine Learning. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMariaDbArgs']] maria_db: Azure MariaDB. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlArgs']] mysql: Azure MySQL. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsMysqlFlexibleArgs']] mysql_flexible: Azure MySQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlArgs']] postgresql: Azure PostgreSQL. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPostgresqlFlexibleArgs']] postgresql_flexible: Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsPowerBiDedicatedArgs']] power_bi_dedicated: Azure Power BI Dedicated. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsRedisCacheArgs']] redis_cache: Azure Redis Cache. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsServiceBusArgs']] service_bus: Azure Service Bus. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlArgs']] sql: Azure SQL. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsSqlManagedArgs']] sql_managed: Azure SQL Managed. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsStorageArgs']] storage: for Azure Storage. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: for Azure Virtual machine. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualMachineArgs']] virtual_machine: Azure Virtual machine. See Integration blocks below for details.
         :param pulumi.Input[pulumi.InputType['AzureIntegrationsVirtualNetworksArgs']] virtual_networks: for Azure Virtual networks. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: for Azure VMs. See Integration blocks below for details.
-        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: for Azure VPN Gateway. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVmsArgs']] vms: Azure VMs. See Integration blocks below for details.
+        :param pulumi.Input[pulumi.InputType['AzureIntegrationsVpnGatewayArgs']] vpn_gateway: Azure VPN Gateway. See Integration blocks below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1307,7 +1383,9 @@ class AzureIntegrations(pulumi.CustomResource):
         __props__.__dict__["machine_learning"] = machine_learning
         __props__.__dict__["maria_db"] = maria_db
         __props__.__dict__["mysql"] = mysql
+        __props__.__dict__["mysql_flexible"] = mysql_flexible
         __props__.__dict__["postgresql"] = postgresql
+        __props__.__dict__["postgresql_flexible"] = postgresql_flexible
         __props__.__dict__["power_bi_dedicated"] = power_bi_dedicated
         __props__.__dict__["redis_cache"] = redis_cache
         __props__.__dict__["service_bus"] = service_bus
@@ -1380,7 +1458,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="dataFactory")
     def data_factory(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsDataFactory']]:
         """
-        for Azure Data Factory. See Integration blocks below for details.
+        Azure Data Factory. See Integration blocks below for details.
         """
         return pulumi.get(self, "data_factory")
 
@@ -1388,7 +1466,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="eventHub")
     def event_hub(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsEventHub']]:
         """
-        for Azure Event Hub. See Integration blocks below for details.
+        Azure Event Hub. See Integration blocks below for details.
         """
         return pulumi.get(self, "event_hub")
 
@@ -1396,7 +1474,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="expressRoute")
     def express_route(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsExpressRoute']]:
         """
-        for Azure Express Route. See Integration blocks below for details.
+        Azure Express Route. See Integration blocks below for details.
         """
         return pulumi.get(self, "express_route")
 
@@ -1404,7 +1482,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def firewalls(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsFirewalls']]:
         """
-        for Azure Firewalls. See Integration blocks below for details.
+        Azure Firewalls. See Integration blocks below for details.
         """
         return pulumi.get(self, "firewalls")
 
@@ -1412,7 +1490,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="frontDoor")
     def front_door(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsFrontDoor']]:
         """
-        for Azure Front Door. See Integration blocks below for details.
+        Azure Front Door. See Integration blocks below for details.
         """
         return pulumi.get(self, "front_door")
 
@@ -1420,7 +1498,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def functions(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsFunctions']]:
         """
-        for Azure Functions. See Integration blocks below for details.
+        Azure Functions. See Integration blocks below for details.
         """
         return pulumi.get(self, "functions")
 
@@ -1428,7 +1506,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsKeyVault']]:
         """
-        for Azure Key Vault. See Integration blocks below for details.
+        Azure Key Vault. See Integration blocks below for details.
         """
         return pulumi.get(self, "key_vault")
 
@@ -1444,7 +1522,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancer")
     def load_balancer(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsLoadBalancer']]:
         """
-        for Azure Load Balancer. See Integration blocks below for details.
+        Azure Load Balancer. See Integration blocks below for details.
         """
         return pulumi.get(self, "load_balancer")
 
@@ -1452,7 +1530,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="logicApps")
     def logic_apps(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsLogicApps']]:
         """
-        for Azure Logic Apps. See Integration blocks below for details.
+        Azure Logic Apps. See Integration blocks below for details.
         """
         return pulumi.get(self, "logic_apps")
 
@@ -1460,7 +1538,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="machineLearning")
     def machine_learning(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMachineLearning']]:
         """
-        for Azure Machine Learning. See Integration blocks below for details.
+        Azure Machine Learning. See Integration blocks below for details.
         """
         return pulumi.get(self, "machine_learning")
 
@@ -1468,7 +1546,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="mariaDb")
     def maria_db(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMariaDb']]:
         """
-        for Azure MariaDB. See Integration blocks below for details.
+        Azure MariaDB. See Integration blocks below for details.
         """
         return pulumi.get(self, "maria_db")
 
@@ -1476,23 +1554,39 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def mysql(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMysql']]:
         """
-        for Azure MySQL. See Integration blocks below for details.
+        Azure MySQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "mysql")
+
+    @property
+    @pulumi.getter(name="mysqlFlexible")
+    def mysql_flexible(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsMysqlFlexible']]:
+        """
+        Azure MySQL Flexible Server. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "mysql_flexible")
 
     @property
     @pulumi.getter
     def postgresql(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsPostgresql']]:
         """
-        for Azure PostgreSQL. See Integration blocks below for details.
+        Azure PostgreSQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "postgresql")
+
+    @property
+    @pulumi.getter(name="postgresqlFlexible")
+    def postgresql_flexible(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsPostgresqlFlexible']]:
+        """
+        Azure PostgreSQL Flexible Server. See Integration blocks below for details.
+        """
+        return pulumi.get(self, "postgresql_flexible")
 
     @property
     @pulumi.getter(name="powerBiDedicated")
     def power_bi_dedicated(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsPowerBiDedicated']]:
         """
-        for Azure Power BI Dedicated. See Integration blocks below for details.
+        Azure Power BI Dedicated. See Integration blocks below for details.
         """
         return pulumi.get(self, "power_bi_dedicated")
 
@@ -1500,7 +1594,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="redisCache")
     def redis_cache(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsRedisCache']]:
         """
-        for Azure Redis Cache. See Integration blocks below for details.
+        Azure Redis Cache. See Integration blocks below for details.
         """
         return pulumi.get(self, "redis_cache")
 
@@ -1508,7 +1602,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="serviceBus")
     def service_bus(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsServiceBus']]:
         """
-        for Azure Service Bus. See Integration blocks below for details.
+        Azure Service Bus. See Integration blocks below for details.
         """
         return pulumi.get(self, "service_bus")
 
@@ -1516,7 +1610,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def sql(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsSql']]:
         """
-        for Azure SQL. See Integration blocks below for details.
+        Azure SQL. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql")
 
@@ -1524,7 +1618,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="sqlManaged")
     def sql_managed(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsSqlManaged']]:
         """
-        for SQL Managed. See Integration blocks below for details.
+        Azure SQL Managed. See Integration blocks below for details.
         """
         return pulumi.get(self, "sql_managed")
 
@@ -1540,7 +1634,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachine")
     def virtual_machine(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsVirtualMachine']]:
         """
-        for Azure Virtual machine. See Integration blocks below for details.
+        Azure Virtual machine. See Integration blocks below for details.
         """
         return pulumi.get(self, "virtual_machine")
 
@@ -1556,7 +1650,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter
     def vms(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsVms']]:
         """
-        for Azure VMs. See Integration blocks below for details.
+        Azure VMs. See Integration blocks below for details.
         """
         return pulumi.get(self, "vms")
 
@@ -1564,7 +1658,7 @@ class AzureIntegrations(pulumi.CustomResource):
     @pulumi.getter(name="vpnGateway")
     def vpn_gateway(self) -> pulumi.Output[Optional['outputs.AzureIntegrationsVpnGateway']]:
         """
-        for Azure VPN Gateway. See Integration blocks below for details.
+        Azure VPN Gateway. See Integration blocks below for details.
         """
         return pulumi.get(self, "vpn_gateway")
 

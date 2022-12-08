@@ -13,6 +13,9 @@ namespace Pulumi.NewRelic.Outputs
     [OutputType]
     public sealed class WorkflowEnrichments
     {
+        /// <summary>
+        /// a wrapper block
+        /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowEnrichmentsNrql> Nrqls;
 
         [OutputConstructor]

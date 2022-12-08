@@ -18,7 +18,7 @@ class OneDashboardJsonArgs:
                  account_id: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a OneDashboardJson resource.
-        :param pulumi.Input[str] json: The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        :param pulumi.Input[str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
         """
         pulumi.set(__self__, "json", json)
@@ -29,7 +29,7 @@ class OneDashboardJsonArgs:
     @pulumi.getter
     def json(self) -> pulumi.Input[str]:
         """
-        The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         """
         return pulumi.get(self, "json")
 
@@ -62,7 +62,7 @@ class _OneDashboardJsonState:
         Input properties used for looking up and filtering OneDashboardJson resources.
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard in New Relic.
-        :param pulumi.Input[str] json: The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        :param pulumi.Input[str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[str] updated_at: The date and time when the dashboard was last updated.
         """
@@ -105,7 +105,7 @@ class _OneDashboardJsonState:
     @pulumi.getter
     def json(self) -> Optional[pulumi.Input[str]]:
         """
-        The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         """
         return pulumi.get(self, "json")
 
@@ -147,20 +147,11 @@ class OneDashboardJson(pulumi.CustomResource):
                  json: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-        ### Create A New Relic One Dashboard From A JSON File
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.OneDashboardJson("foo", json=(lambda path: open(path).read())("dashboard.json"))
-        ```
-
+        Create a OneDashboardJson resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
-        :param pulumi.Input[str] json: The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        :param pulumi.Input[str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         """
         ...
     @overload
@@ -169,16 +160,7 @@ class OneDashboardJson(pulumi.CustomResource):
                  args: OneDashboardJsonArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-        ### Create A New Relic One Dashboard From A JSON File
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        foo = newrelic.OneDashboardJson("foo", json=(lambda path: open(path).read())("dashboard.json"))
-        ```
-
+        Create a OneDashboardJson resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OneDashboardJsonArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +218,7 @@ class OneDashboardJson(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] account_id: The New Relic account ID where you want to create the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard in New Relic.
-        :param pulumi.Input[str] json: The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        :param pulumi.Input[str] json: The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         :param pulumi.Input[str] permalink: The URL for viewing the dashboard.
         :param pulumi.Input[str] updated_at: The date and time when the dashboard was last updated.
         """
@@ -271,7 +253,7 @@ class OneDashboardJson(pulumi.CustomResource):
     @pulumi.getter
     def json(self) -> pulumi.Output[str]:
         """
-        The JSON exporet of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
+        The JSON export of a dashboard. [The JSON can be exported from the UI](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/dashboards-charts-import-export-data/#dashboards)
         """
         return pulumi.get(self, "json")
 

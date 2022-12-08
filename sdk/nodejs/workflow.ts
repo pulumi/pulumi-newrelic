@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create and manage New Relic workflow.
+ * Use this resource to create and manage New Relic workflows.
  *
  * ## Example Usage
  *
@@ -16,129 +17,96 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const foo = new newrelic.Workflow("foo", {
- *     accountId: 12345678,
- *     destinations: [
- *         {
- *             channelId: "20d86999-169c-461a-9c16-3cf330f4b3aa",
- *         },
- *         {
- *             channelId: "e6af0870-cabb-453f-bf0d-fb2b6a14e05c",
- *         },
- *     ],
- *     destinationsEnabled: true,
- *     enabled: true,
- *     enrichments: {
- *         nrqls: [
- *             {
- *                 configurations: [{
- *                     query: "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
- *                 }],
- *                 name: "Log",
- *             },
- *             {
- *                 configurations: [{
- *                     query: "SELECT count(*) FROM Metric WHERE metricName = 'myMetric'",
- *                 }],
- *                 name: "Metric",
- *             },
- *         ],
- *     },
- *     enrichmentsEnabled: true,
+ *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
  *     issuesFilter: {
  *         name: "filter-name",
- *         predicates: [{
- *             attribute: "accumulations.sources",
- *             operator: "EXACTLY_MATCHES",
- *             values: [
- *                 "newrelic",
- *                 "pagerduty",
- *             ],
- *         }],
  *         type: "FILTER",
+ *         predicates: [{
+ *             attribute: "accumulations.tag.team",
+ *             operator: "EXACTLY_MATCHES",
+ *             values: ["growth"],
+ *         }],
  *     },
- *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
+ *     destinations: [{
+ *         channelId: newrelic_notification_channel.some_channel.id,
+ *     }],
  * });
  * ```
- * ## Full Scenario Example
+ * ## Policy-Based Workflow Example
  *
- * Create a destination resource and reference that destination to the channel resource. Then create a workflow and reference the channel resource to it.
+ * This scenario describes one of most common ways of using workflows by defining a set of policies the workflow handles
  *
- * ### Create a policy
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const collector_policy = new newrelic.AlertPolicy("collector-policy", {});
- * ```
- *
- * ### Create a destination
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
+ * // Create a policy to track
+ * const my_policy = new newrelic.AlertPolicy("my-policy", {});
+ * // Create a reusable notification destination
  * const webhook_destination = new newrelic.NotificationDestination("webhook-destination", {
- *     accountId: 12345678,
- *     authBasic: {
- *         password: "password",
- *         user: "username",
- *     },
+ *     type: "WEBHOOK",
  *     properties: [{
  *         key: "url",
- *         value: "https://webhook.mywebhook.com",
+ *         value: "https://example.com",
  *     }],
- *     type: "WEBHOOK",
+ *     authBasic: {
+ *         user: "username",
+ *         password: "password",
+ *     },
  * });
- * ```
- *
- * ### Create a channel
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
+ * // Create a notification channel to use in the workflow
  * const webhook_channel = new newrelic.NotificationChannel("webhook-channel", {
- *     accountId: 12345678,
  *     type: "WEBHOOK",
- *     destinationId: newrelic_notification_destination["webhook-destination"].id,
+ *     destinationId: webhook_destination.id,
  *     product: "IINT",
  *     properties: [{
  *         key: "payload",
- *         value: "{name: {{ variable }} }",
+ *         value: "{}",
  *         label: "Payload Template",
+ *     }],
+ * });
+ * // A workflow that matches issues that include incidents triggered by the policy
+ * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
+ *     issuesFilter: {
+ *         name: "Filter-name",
+ *         type: "FILTER",
+ *         predicates: [{
+ *             attribute: "labels.policyIds",
+ *             operator: "EXACTLY_MATCHES",
+ *             values: [my_policy.id],
+ *         }],
+ *     },
+ *     destinations: [{
+ *         channelId: webhook_channel.id,
  *     }],
  * });
  * ```
  *
- * ### Create a workflow
+ * ### An example of a workflow with enrichments
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const workflow_example = new newrelic.Workflow("workflow-example", {
- *     accountId: 12345678,
  *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
+ *     issuesFilter: {
+ *         name: "Filter-name",
+ *         type: "FILTER",
+ *         predicates: [{
+ *             attribute: "accumulations.tag.team",
+ *             operator: "EXACTLY_MATCHES",
+ *             values: ["my_team"],
+ *         }],
+ *     },
  *     enrichments: {
  *         nrqls: [{
- *             name: "Log count",
+ *             name: "Log Count",
  *             configurations: [{
  *                 query: `SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago`,
  *             }],
  *         }],
- *     },
- *     issuesFilter: {
- *         name: "Filter-name",
- *         type: "FILTER",
- *         predicates: [
- *             {
- *                 attribute: "accumulations.policyName",
- *                 operator: "EXACTLY_MATCHES",
- *                 values: ["my_policy"],
- *             },
- *             {
- *                 attribute: "accumulations.sources",
- *                 operator: "EXACTLY_MATCHES",
- *                 values: ["newrelic"],
- *             },
- *         ],
  *     },
  *     destinations: [{
  *         channelId: newrelic_notification_channel["webhook-channel"].id,
@@ -158,6 +126,16 @@ import * as utilities from "./utilities";
  * - `destinationConfiguration` changed to `destination`.
  * - `predicates` changed to `predicate`.
  * - Enrichment's `configurations` changed to `configuration`.
+ *
+ * ## Import
+ *
+ * Workflows can be imported using the `id`, e.g. bash
+ *
+ * ```sh
+ *  $ pulumi import newrelic:index/workflow:Workflow foo <id>
+ * ```
+ *
+ *  You can find the workflow ID from the workflow table by clicking on ... at the end of the row and choosing `Copy workflow id to clipboard`.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -188,31 +166,34 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
-    public readonly accountId!: pulumi.Output<number | undefined>;
+    public readonly accountId!: pulumi.Output<number>;
     /**
-     * A nested block that contains a channel id.
+     * Notification configuration. See Nested destination blocks below for details.
      */
     public readonly destinations!: pulumi.Output<outputs.WorkflowDestination[]>;
     /**
-     * Whether destinations are enabled..
+     * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
+     *
+     * @deprecated Please use 'enabled' instead
      */
     public readonly destinationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether workflow is enabled.
+     * Whether workflow is enabled. Defaults to true.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+     * Workflow's enrichments. See Nested enrichments blocks below for details.
      */
     public readonly enrichments!: pulumi.Output<outputs.WorkflowEnrichments | undefined>;
     /**
-     * Whether enrichments are enabled..
+     * Whether enrichments are enabled. Defaults to true.
      */
     public readonly enrichmentsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The issues filter.  See Nested issuesFilter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
     public readonly issuesFilter!: pulumi.Output<outputs.WorkflowIssuesFilter>;
     /**
@@ -220,11 +201,11 @@ export class Workflow extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastRun!: pulumi.Output<string>;
     /**
-     * Which muting rule handling this workflow has.
+     * How to handle muted issues. See Muting Rules below for details.
      */
     public readonly mutingRulesHandling!: pulumi.Output<string>;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -289,31 +270,34 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * A nested block that contains a channel id.
+     * Notification configuration. See Nested destination blocks below for details.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.WorkflowDestination>[]>;
     /**
-     * Whether destinations are enabled..
+     * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
+     *
+     * @deprecated Please use 'enabled' instead
      */
     destinationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether workflow is enabled.
+     * Whether workflow is enabled. Defaults to true.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+     * Workflow's enrichments. See Nested enrichments blocks below for details.
      */
     enrichments?: pulumi.Input<inputs.WorkflowEnrichments>;
     /**
-     * Whether enrichments are enabled..
+     * Whether enrichments are enabled. Defaults to true.
      */
     enrichmentsEnabled?: pulumi.Input<boolean>;
     /**
-     * The issues filter.  See Nested issuesFilter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
     issuesFilter?: pulumi.Input<inputs.WorkflowIssuesFilter>;
     /**
@@ -321,11 +305,11 @@ export interface WorkflowState {
      */
     lastRun?: pulumi.Input<string>;
     /**
-     * Which muting rule handling this workflow has.
+     * How to handle muted issues. See Muting Rules below for details.
      */
     mutingRulesHandling?: pulumi.Input<string>;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name?: pulumi.Input<string>;
     /**
@@ -339,39 +323,42 @@ export interface WorkflowState {
  */
 export interface WorkflowArgs {
     /**
-     * Determines the New Relic account where the workflow will be created. Defaults to the account associated with the API key used.
+     * Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * A nested block that contains a channel id.
+     * Notification configuration. See Nested destination blocks below for details.
      */
     destinations: pulumi.Input<pulumi.Input<inputs.WorkflowDestination>[]>;
     /**
-     * Whether destinations are enabled..
+     * **DEPRECATED** Whether destinations are enabled. Please use `enabled` instead:
+     * these two are different flags, but they are functionally identical. Defaults to true.
+     *
+     * @deprecated Please use 'enabled' instead
      */
     destinationsEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether workflow is enabled.
+     * Whether workflow is enabled. Defaults to true.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * A nested block that describes a workflow's enrichments. See Nested enrichments blocks below for details.
+     * Workflow's enrichments. See Nested enrichments blocks below for details.
      */
     enrichments?: pulumi.Input<inputs.WorkflowEnrichments>;
     /**
-     * Whether enrichments are enabled..
+     * Whether enrichments are enabled. Defaults to true.
      */
     enrichmentsEnabled?: pulumi.Input<boolean>;
     /**
-     * The issues filter.  See Nested issuesFilter blocks below for details.
+     * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
     issuesFilter: pulumi.Input<inputs.WorkflowIssuesFilter>;
     /**
-     * Which muting rule handling this workflow has.
+     * How to handle muted issues. See Muting Rules below for details.
      */
     mutingRulesHandling: pulumi.Input<string>;
     /**
-     * A nrql enrichment name.
+     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
      */
     name?: pulumi.Input<string>;
 }

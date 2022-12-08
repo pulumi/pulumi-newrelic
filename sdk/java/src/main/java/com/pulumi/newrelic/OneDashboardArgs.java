@@ -6,6 +6,7 @@ package com.pulumi.newrelic;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
+import com.pulumi.newrelic.inputs.OneDashboardVariableArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -93,6 +94,21 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.permissions);
     }
 
+    /**
+     * A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     * 
+     */
+    @Import(name="variables")
+    private @Nullable Output<List<OneDashboardVariableArgs>> variables;
+
+    /**
+     * @return A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+     * 
+     */
+    public Optional<Output<List<OneDashboardVariableArgs>>> variables() {
+        return Optional.ofNullable(this.variables);
+    }
+
     private OneDashboardArgs() {}
 
     private OneDashboardArgs(OneDashboardArgs $) {
@@ -101,6 +117,7 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.pages = $.pages;
         this.permissions = $.permissions;
+        this.variables = $.variables;
     }
 
     public static Builder builder() {
@@ -234,6 +251,37 @@ public final class OneDashboardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder permissions(String permissions) {
             return permissions(Output.of(permissions));
+        }
+
+        /**
+         * @param variables A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(@Nullable Output<List<OneDashboardVariableArgs>> variables) {
+            $.variables = variables;
+            return this;
+        }
+
+        /**
+         * @param variables A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(List<OneDashboardVariableArgs> variables) {
+            return variables(Output.of(variables));
+        }
+
+        /**
+         * @param variables A nested block that describes a dashboard-local variable. See Nested variable blocks below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(OneDashboardVariableArgs... variables) {
+            return variables(List.of(variables));
         }
 
         public OneDashboardArgs build() {

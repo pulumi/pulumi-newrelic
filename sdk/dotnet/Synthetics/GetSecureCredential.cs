@@ -38,7 +38,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecureCredentialResult> InvokeAsync(GetSecureCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
@@ -67,7 +67,7 @@ namespace Pulumi.NewRelic.Synthetics
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecureCredentialResult> Invoke(GetSecureCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecureCredentialResult>("newrelic:synthetics/getSecureCredential:getSecureCredential", args ?? new GetSecureCredentialInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -103,6 +103,7 @@ namespace Pulumi.NewRelic.Synthetics
     [OutputType]
     public sealed class GetSecureCredentialResult
     {
+        public readonly int AccountId;
         /// <summary>
         /// The secure credential's description.
         /// </summary>
@@ -119,6 +120,8 @@ namespace Pulumi.NewRelic.Synthetics
 
         [OutputConstructor]
         private GetSecureCredentialResult(
+            int accountId,
+
             string description,
 
             string id,
@@ -127,6 +130,7 @@ namespace Pulumi.NewRelic.Synthetics
 
             string lastUpdated)
         {
+            AccountId = accountId;
             Description = description;
             Id = id;
             Key = key;

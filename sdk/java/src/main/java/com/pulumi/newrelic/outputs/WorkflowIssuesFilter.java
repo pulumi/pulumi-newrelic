@@ -15,14 +15,17 @@ import javax.annotation.Nullable;
 public final class WorkflowIssuesFilter {
     private @Nullable String filterId;
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     private String name;
+    /**
+     * @return A condition an issue event should satisfy to be processed by the workflow
+     * 
+     */
     private @Nullable List<WorkflowIssuesFilterPredicate> predicates;
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     private String type;
@@ -32,18 +35,21 @@ public final class WorkflowIssuesFilter {
         return Optional.ofNullable(this.filterId);
     }
     /**
-     * @return A nrql enrichment name.
+     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return A condition an issue event should satisfy to be processed by the workflow
+     * 
+     */
     public List<WorkflowIssuesFilterPredicate> predicates() {
         return this.predicates == null ? List.of() : this.predicates;
     }
     /**
-     * @return the filter&#39;s type.   One of: `FILTER` or `VIEW`.
-     * * `predicate`
+     * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
      */
     public String type() {

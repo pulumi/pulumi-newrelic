@@ -5,13 +5,31 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPrivateLocationArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPrivateLocationArgs Empty = new GetPrivateLocationArgs();
+
+    /**
+     * The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Output<Integer> accountId;
+
+    /**
+     * @return The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+     * 
+     */
+    public Optional<Output<Integer>> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
 
     /**
      * The name of the Synthetics monitor private location.
@@ -31,6 +49,7 @@ public final class GetPrivateLocationArgs extends com.pulumi.resources.InvokeArg
     private GetPrivateLocationArgs() {}
 
     private GetPrivateLocationArgs(GetPrivateLocationArgs $) {
+        this.accountId = $.accountId;
         this.name = $.name;
     }
 
@@ -50,6 +69,27 @@ public final class GetPrivateLocationArgs extends com.pulumi.resources.InvokeArg
 
         public Builder(GetPrivateLocationArgs defaults) {
             $ = new GetPrivateLocationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Output<Integer> accountId) {
+            $.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * @param accountId The New Relic account ID of the associated private location. If left empty will default to account ID specified in provider level configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(Integer accountId) {
+            return accountId(Output.of(accountId));
         }
 
         /**

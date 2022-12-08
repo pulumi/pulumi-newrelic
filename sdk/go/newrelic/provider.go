@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +19,7 @@ type Provider struct {
 	pulumi.ProviderResourceState
 
 	AdminApiKey pulumi.StringPtrOutput `pulumi:"adminApiKey"`
-	ApiKey      pulumi.StringPtrOutput `pulumi:"apiKey"`
+	ApiKey      pulumi.StringOutput    `pulumi:"apiKey"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	ApiUrl     pulumi.StringPtrOutput `pulumi:"apiUrl"`
 	CacertFile pulumi.StringPtrOutput `pulumi:"cacertFile"`
@@ -39,15 +40,36 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		args = &ProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ApiKey == nil {
+		return nil, errors.New("invalid value for required argument 'ApiKey'")
+	}
 	if isZero(args.AccountId) {
 		args.AccountId = pulumi.IntPtr(getEnvOrDefault(0, parseEnvInt, "NEW_RELIC_ACCOUNT_ID").(int))
 	}
 	if isZero(args.Region) {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string))
 	}
+	if args.AccountId != nil {
+		args.AccountId = pulumi.ToSecret(args.AccountId).(pulumi.IntPtrOutput)
+	}
+	if args.AdminApiKey != nil {
+		args.AdminApiKey = pulumi.ToSecret(args.AdminApiKey).(pulumi.StringPtrOutput)
+	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringOutput)
+	}
+	if args.InsightsInsertKey != nil {
+		args.InsightsInsertKey = pulumi.ToSecret(args.InsightsInsertKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminApiKey",
+		"apiKey",
+		"insightsInsertKey",
+	})
+	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:newrelic", name, args, &resource, opts...)
 	if err != nil {
@@ -59,7 +81,7 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	AccountId   *int    `pulumi:"accountId"`
 	AdminApiKey *string `pulumi:"adminApiKey"`
-	ApiKey      *string `pulumi:"apiKey"`
+	ApiKey      string  `pulumi:"apiKey"`
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	ApiUrl     *string `pulumi:"apiUrl"`
 	CacertFile *string `pulumi:"cacertFile"`
@@ -81,7 +103,7 @@ type providerArgs struct {
 type ProviderArgs struct {
 	AccountId   pulumi.IntPtrInput
 	AdminApiKey pulumi.StringPtrInput
-	ApiKey      pulumi.StringPtrInput
+	ApiKey      pulumi.StringInput
 	// Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.
 	ApiUrl     pulumi.StringPtrInput
 	CacertFile pulumi.StringPtrInput
@@ -140,8 +162,8 @@ func (o ProviderOutput) AdminApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AdminApiKey }).(pulumi.StringPtrOutput)
 }
 
-func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
+func (o ProviderOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }
 
 // Deprecated: New Relic internal use only. API URLs are now configured based on the configured region.

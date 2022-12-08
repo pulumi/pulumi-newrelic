@@ -83,7 +83,7 @@ type AlertMutingRule struct {
 
 	// The account id of the MutingRule.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// The condition that defines which violations to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleConditionOutput `pulumi:"condition"`
 	// The description of the MutingRule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -132,7 +132,7 @@ func GetAlertMutingRule(ctx *pulumi.Context,
 type alertMutingRuleState struct {
 	// The account id of the MutingRule.
 	AccountId *int `pulumi:"accountId"`
-	// The condition that defines which violations to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition *AlertMutingRuleCondition `pulumi:"condition"`
 	// The description of the MutingRule.
 	Description *string `pulumi:"description"`
@@ -147,7 +147,7 @@ type alertMutingRuleState struct {
 type AlertMutingRuleState struct {
 	// The account id of the MutingRule.
 	AccountId pulumi.IntPtrInput
-	// The condition that defines which violations to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleConditionPtrInput
 	// The description of the MutingRule.
 	Description pulumi.StringPtrInput
@@ -166,7 +166,7 @@ func (AlertMutingRuleState) ElementType() reflect.Type {
 type alertMutingRuleArgs struct {
 	// The account id of the MutingRule.
 	AccountId *int `pulumi:"accountId"`
-	// The condition that defines which violations to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleCondition `pulumi:"condition"`
 	// The description of the MutingRule.
 	Description *string `pulumi:"description"`
@@ -182,7 +182,7 @@ type alertMutingRuleArgs struct {
 type AlertMutingRuleArgs struct {
 	// The account id of the MutingRule.
 	AccountId pulumi.IntPtrInput
-	// The condition that defines which violations to target. See Nested condition blocks below for details.
+	// The condition that defines which incidents to target. See Nested condition blocks below for details.
 	Condition AlertMutingRuleConditionInput
 	// The description of the MutingRule.
 	Description pulumi.StringPtrInput
@@ -286,7 +286,7 @@ func (o AlertMutingRuleOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *AlertMutingRule) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// The condition that defines which violations to target. See Nested condition blocks below for details.
+// The condition that defines which incidents to target. See Nested condition blocks below for details.
 func (o AlertMutingRuleOutput) Condition() AlertMutingRuleConditionOutput {
 	return o.ApplyT(func(v *AlertMutingRule) AlertMutingRuleConditionOutput { return v.Condition }).(AlertMutingRuleConditionOutput)
 }
