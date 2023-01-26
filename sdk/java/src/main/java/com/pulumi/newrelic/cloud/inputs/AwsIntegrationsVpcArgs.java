@@ -20,7 +20,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     @Import(name="awsRegions")
@@ -28,7 +27,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -97,7 +95,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `x_ray`
      * 
      */
     @Import(name="tagValue")
@@ -105,7 +102,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `x_ray`
      * 
      */
     public Optional<Output<String>> tagValue() {
@@ -143,7 +139,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          * 
          * @return builder
          * 
@@ -155,7 +150,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          * 
          * @return builder
          * 
@@ -166,7 +160,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          * 
          * @return builder
          * 
@@ -261,7 +254,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `x_ray`
          * 
          * @return builder
          * 
@@ -273,7 +265,6 @@ public final class AwsIntegrationsVpcArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `x_ray`
          * 
          * @return builder
          * 

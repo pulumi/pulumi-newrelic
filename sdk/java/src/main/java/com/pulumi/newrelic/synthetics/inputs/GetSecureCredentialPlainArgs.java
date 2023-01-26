@@ -4,13 +4,31 @@
 package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecureCredentialPlainArgs Empty = new GetSecureCredentialPlainArgs();
+
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Integer accountId;
+
+    /**
+     * @return The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
+    public Optional<Integer> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
 
     /**
      * The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -30,6 +48,7 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
     private GetSecureCredentialPlainArgs() {}
 
     private GetSecureCredentialPlainArgs(GetSecureCredentialPlainArgs $) {
+        this.accountId = $.accountId;
         this.key = $.key;
     }
 
@@ -49,6 +68,17 @@ public final class GetSecureCredentialPlainArgs extends com.pulumi.resources.Inv
 
         public Builder(GetSecureCredentialPlainArgs defaults) {
             $ = new GetSecureCredentialPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Integer accountId) {
+            $.accountId = accountId;
+            return this;
         }
 
         /**

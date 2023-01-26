@@ -294,14 +294,14 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
     @Import(name="slideBy")
     private @Nullable Output<Integer> slideBy;
 
     /**
-     * @return Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+     * @return Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
     public Optional<Output<Integer>> slideBy() {
@@ -344,29 +344,6 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
-    }
-
-    /**
-     * **DEPRECATED** Use `signal.slide_by` instead.
-     * 
-     * @deprecated
-     * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
-     * 
-     */
-    @Deprecated /* 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'. */
-    @Import(name="valueFunction")
-    private @Nullable Output<String> valueFunction;
-
-    /**
-     * @return **DEPRECATED** Use `signal.slide_by` instead.
-     * 
-     * @deprecated
-     * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
-     * 
-     */
-    @Deprecated /* 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'. */
-    public Optional<Output<String>> valueFunction() {
-        return Optional.ofNullable(this.valueFunction);
     }
 
     /**
@@ -450,7 +427,6 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         this.slideBy = $.slideBy;
         this.terms = $.terms;
         this.type = $.type;
-        this.valueFunction = $.valueFunction;
         this.violationTimeLimit = $.violationTimeLimit;
         this.violationTimeLimitSeconds = $.violationTimeLimitSeconds;
         this.warning = $.warning;
@@ -853,7 +829,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param slideBy Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+         * @param slideBy Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
          * 
          * @return builder
          * 
@@ -864,7 +840,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param slideBy Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+         * @param slideBy Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
          * 
          * @return builder
          * 
@@ -935,35 +911,6 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          */
         public Builder type(String type) {
             return type(Output.of(type));
-        }
-
-        /**
-         * @param valueFunction **DEPRECATED** Use `signal.slide_by` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
-         * 
-         */
-        @Deprecated /* 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'. */
-        public Builder valueFunction(@Nullable Output<String> valueFunction) {
-            $.valueFunction = valueFunction;
-            return this;
-        }
-
-        /**
-         * @param valueFunction **DEPRECATED** Use `signal.slide_by` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
-         * 
-         */
-        @Deprecated /* 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'. */
-        public Builder valueFunction(String valueFunction) {
-            return valueFunction(Output.of(valueFunction));
         }
 
         /**

@@ -15,7 +15,6 @@ import javax.annotation.Nullable;
 public final class AwsIntegrationsXRay {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -28,7 +27,6 @@ public final class AwsIntegrationsXRay {
     private AwsIntegrationsXRay() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     public List<String> awsRegions() {

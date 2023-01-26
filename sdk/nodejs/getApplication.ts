@@ -36,11 +36,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getApplication:getApplication", {
         "name": args.name,
     }, opts);
@@ -74,9 +71,39 @@ export interface GetApplicationResult {
     readonly instanceIds: number[];
     readonly name: string;
 }
-
+/**
+ * #### DEPRECATED! Use at your own risk. Use the `newrelic.getEntity` data source instead. This feature may be removed in the next major release
+ *
+ * Use this data source to get information about a specific application in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getApplication({
+ *     name: "my-app",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apm_app_metric",
+ *     entities: [app.then(app => app.id)],
+ *     metric: "apdex",
+ *     runbookUrl: "https://www.example.com",
+ *     terms: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: 0.75,
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 /**

@@ -70,14 +70,14 @@ public class AwsLinkAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.metricCollectionMode);
     }
     /**
-     * - The linked account name
+     * The linked account name
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return - The linked account name
+     * @return The linked account name
      * 
      */
     public Output<String> name() {

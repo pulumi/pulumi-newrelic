@@ -348,14 +348,14 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             description="Test Description",
             verified_script_execution=False)
         monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            locations_privates=["newrelic_synthetics_private_location.location.id"],
+            uri="https://www.one.example.com",
+            locations_privates=[location.id],
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            uri="https://www.one.example.com")
+            )])
         ```
 
         ## Import
@@ -419,14 +419,14 @@ class BrokenLinksMonitor(pulumi.CustomResource):
             description="Test Description",
             verified_script_execution=False)
         monitor = newrelic.synthetics.BrokenLinksMonitor("monitor",
-            locations_privates=["newrelic_synthetics_private_location.location.id"],
+            uri="https://www.one.example.com",
+            locations_privates=[location.id],
             period="EVERY_6_HOURS",
             status="ENABLED",
             tags=[newrelic.synthetics.BrokenLinksMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            uri="https://www.one.example.com")
+            )])
         ```
 
         ## Import

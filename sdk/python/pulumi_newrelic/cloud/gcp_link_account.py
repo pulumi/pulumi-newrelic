@@ -19,9 +19,9 @@ class GcpLinkAccountArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GcpLinkAccount resource.
-        :param pulumi.Input[str] project_id: - Project ID of the GCP account.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic account.
-        :param pulumi.Input[str] name: - The name of the GCP account in New Relic.
+        :param pulumi.Input[str] project_id: Project ID of the GCP account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
         """
         pulumi.set(__self__, "project_id", project_id)
         if account_id is not None:
@@ -33,7 +33,7 @@ class GcpLinkAccountArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        - Project ID of the GCP account.
+        Project ID of the GCP account.
         """
         return pulumi.get(self, "project_id")
 
@@ -45,7 +45,7 @@ class GcpLinkAccountArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        - Account ID of the New Relic account.
+        Account ID of the New Relic account.
         """
         return pulumi.get(self, "account_id")
 
@@ -57,7 +57,7 @@ class GcpLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The name of the GCP account in New Relic.
+        The name of the GCP account in New Relic.
         """
         return pulumi.get(self, "name")
 
@@ -74,9 +74,9 @@ class _GcpLinkAccountState:
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GcpLinkAccount resources.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic account.
-        :param pulumi.Input[str] name: - The name of the GCP account in New Relic.
-        :param pulumi.Input[str] project_id: - Project ID of the GCP account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] project_id: Project ID of the GCP account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -89,7 +89,7 @@ class _GcpLinkAccountState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        - Account ID of the New Relic account.
+        Account ID of the New Relic account.
         """
         return pulumi.get(self, "account_id")
 
@@ -101,7 +101,7 @@ class _GcpLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The name of the GCP account in New Relic.
+        The name of the GCP account in New Relic.
         """
         return pulumi.get(self, "name")
 
@@ -113,7 +113,7 @@ class _GcpLinkAccountState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        - Project ID of the GCP account.
+        Project ID of the GCP account.
         """
         return pulumi.get(self, "project_id")
 
@@ -142,9 +142,9 @@ class GcpLinkAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic account.
-        :param pulumi.Input[str] name: - The name of the GCP account in New Relic.
-        :param pulumi.Input[str] project_id: - Project ID of the GCP account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] project_id: Project ID of the GCP account.
         """
         ...
     @overload
@@ -213,9 +213,9 @@ class GcpLinkAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic account.
-        :param pulumi.Input[str] name: - The name of the GCP account in New Relic.
-        :param pulumi.Input[str] project_id: - Project ID of the GCP account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic account.
+        :param pulumi.Input[str] name: The name of the GCP account in New Relic.
+        :param pulumi.Input[str] project_id: Project ID of the GCP account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,7 +230,7 @@ class GcpLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[int]:
         """
-        - Account ID of the New Relic account.
+        Account ID of the New Relic account.
         """
         return pulumi.get(self, "account_id")
 
@@ -238,7 +238,7 @@ class GcpLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        - The name of the GCP account in New Relic.
+        The name of the GCP account in New Relic.
         """
         return pulumi.get(self, "name")
 
@@ -246,7 +246,7 @@ class GcpLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        - Project ID of the GCP account.
+        Project ID of the GCP account.
         """
         return pulumi.get(self, "project_id")
 

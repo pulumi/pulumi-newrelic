@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     period: "EVERY_HOUR",
  *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
- *     script: "$browser.get('https://one.newrelic.com')",
+ *     script: `$browser.get('https://one.newrelic.com')`,
  *     scriptLanguage: "JAVASCRIPT",
  *     status: "ENABLED",
  *     tags: [{
@@ -80,21 +80,21 @@ import * as utilities from "../utilities";
  *     verifiedScriptExecution: true,
  * });
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     status: "ENABLED",
+ *     type: "SCRIPT_API",
  *     locationPrivates: [{
- *         guid: "newrelic_synthetics_private_location.location.id",
+ *         guid: location.id,
  *         vsePassword: "secret",
  *     }],
  *     period: "EVERY_6_HOURS",
- *     runtimeType: "NODE_API",
- *     runtimeTypeVersion: "16.10",
  *     script: "console.log('terraform integration test updated')",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "ENABLED",
+ *     runtimeType: "NODE_API",
+ *     runtimeTypeVersion: "16.10",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "SCRIPT_API",
  * });
  * ```
  * ##### Type: `SCRIPT_BROWSER`
@@ -108,22 +108,22 @@ import * as utilities from "../utilities";
  *     verifiedScriptExecution: true,
  * });
  * const monitor = new newrelic.synthetics.ScriptMonitor("monitor", {
+ *     status: "ENABLED",
+ *     type: "SCRIPT_BROWSER",
+ *     period: "EVERY_HOUR",
+ *     script: `$browser.get('https://one.newrelic.com')`,
  *     enableScreenshotOnFailureAndScript: false,
  *     locationPrivates: [{
- *         guid: "newrelic_synthetics_private_location.location.id",
+ *         guid: location.id,
  *         vsePassword: "secret",
  *     }],
- *     period: "EVERY_HOUR",
- *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
- *     script: "$browser.get('https://one.newrelic.com')",
+ *     runtimeType: "CHROME_BROWSER",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "SCRIPT_BROWSER",
  * });
  * ```
  *

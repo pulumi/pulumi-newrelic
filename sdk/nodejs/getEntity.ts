@@ -10,11 +10,8 @@ import * as utilities from "./utilities";
  * Use this data source to get information about a specific entity in New Relic One that already exists.
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getEntity:getEntity", {
         "domain": args.domain,
         "ignoreCase": args.ignoreCase,
@@ -80,9 +77,11 @@ export interface GetEntityResult {
     readonly tags?: outputs.GetEntityTag[];
     readonly type: string;
 }
-
+/**
+ * Use this data source to get information about a specific entity in New Relic One that already exists.
+ */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
-    return pulumi.output(args).apply(a => getEntity(a, opts))
+    return pulumi.output(args).apply((a: any) => getEntity(a, opts))
 }
 
 /**

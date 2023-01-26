@@ -35,7 +35,6 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// (Required) Visualization limit for the widget.
-        /// * `widget_funnel`
         /// </summary>
         [Input("limit", required: true)]
         public Input<double> Limit { get; set; } = null!;

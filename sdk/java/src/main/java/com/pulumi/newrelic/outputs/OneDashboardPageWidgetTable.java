@@ -20,6 +20,10 @@ public final class OneDashboardPageWidgetTable {
      * 
      */
     private Integer column;
+    /**
+     * @return (Optional) Use this item to filter the current dashboard.
+     * 
+     */
     private @Nullable Boolean filterCurrentDashboard;
     /**
      * @return (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -32,6 +36,10 @@ public final class OneDashboardPageWidgetTable {
      * 
      */
     private @Nullable Boolean ignoreTimeRange;
+    /**
+     * @return (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * 
+     */
     private @Nullable List<String> linkedEntityGuids;
     /**
      * @return (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -62,6 +70,10 @@ public final class OneDashboardPageWidgetTable {
     public Integer column() {
         return this.column;
     }
+    /**
+     * @return (Optional) Use this item to filter the current dashboard.
+     * 
+     */
     public Optional<Boolean> filterCurrentDashboard() {
         return Optional.ofNullable(this.filterCurrentDashboard);
     }
@@ -82,6 +94,10 @@ public final class OneDashboardPageWidgetTable {
     public Optional<Boolean> ignoreTimeRange() {
         return Optional.ofNullable(this.ignoreTimeRange);
     }
+    /**
+     * @return (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * 
+     */
     public List<String> linkedEntityGuids() {
         return this.linkedEntityGuids == null ? List.of() : this.linkedEntityGuids;
     }

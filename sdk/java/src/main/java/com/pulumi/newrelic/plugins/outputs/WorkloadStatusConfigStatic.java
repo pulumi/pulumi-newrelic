@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkloadStatusConfigStatic {
     /**
-     * @return A description that provides additional details about the status of the workload.
+     * @return Relevant information about the workload.
      * 
      */
     private @Nullable String description;
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     private Boolean enabled;
@@ -35,14 +35,14 @@ public final class WorkloadStatusConfigStatic {
 
     private WorkloadStatusConfigStatic() {}
     /**
-     * @return A description that provides additional details about the status of the workload.
+     * @return Relevant information about the workload.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     public Boolean enabled() {

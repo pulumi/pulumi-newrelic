@@ -15,18 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = pulumi.output(newrelic.synthetics.getSecureCredential({
+ * const foo = newrelic.synthetics.getSecureCredential({
  *     key: "MY_KEY",
- * }));
+ * });
  * ```
  */
 export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSecureCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:synthetics/getSecureCredential:getSecureCredential", {
+        "accountId": args.accountId,
         "key": args.key,
     }, opts);
 }
@@ -35,6 +33,10 @@ export function getSecureCredential(args: GetSecureCredentialArgs, opts?: pulumi
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialArgs {
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     */
+    accountId?: number;
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */
@@ -60,15 +62,34 @@ export interface GetSecureCredentialResult {
      */
     readonly lastUpdated: string;
 }
-
+/**
+ * Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
+ *
+ * Note that the secure credential's value is not returned as an attribute for security reasons.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.synthetics.getSecureCredential({
+ *     key: "MY_KEY",
+ * });
+ * ```
+ */
 export function getSecureCredentialOutput(args: GetSecureCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecureCredentialResult> {
-    return pulumi.output(args).apply(a => getSecureCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecureCredential(a, opts))
 }
 
 /**
  * A collection of arguments for invoking getSecureCredential.
  */
 export interface GetSecureCredentialOutputArgs {
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     */
+    accountId?: pulumi.Input<number>;
     /**
      * The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
      */

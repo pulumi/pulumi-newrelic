@@ -80,23 +80,23 @@ import * as utilities from "../utilities";
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
- *     bypassHeadRequest: true,
+ *     status: "ENABLED",
+ *     period: "EVERY_MINUTE",
+ *     uri: "https://www.one.newrelic.com",
+ *     type: "SIMPLE",
+ *     locationsPrivates: [location.id],
  *     customHeaders: [{
  *         name: "some_name",
  *         value: "some_value",
  *     }],
- *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
- *     period: "EVERY_MINUTE",
- *     status: "ENABLED",
+ *     treatRedirectAsFailure: true,
+ *     validationString: "success",
+ *     bypassHeadRequest: true,
+ *     verifySsl: true,
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     treatRedirectAsFailure: true,
- *     type: "SIMPLE",
- *     uri: "https://www.one.newrelic.com",
- *     validationString: "success",
- *     verifySsl: true,
  * });
  * ```
  * ##### Type: `BROWSER`
@@ -110,25 +110,25 @@ import * as utilities from "../utilities";
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.Monitor("monitor", {
+ *     status: "ENABLED",
+ *     type: "BROWSER",
+ *     uri: "https://www.one.newrelic.com",
+ *     period: "EVERY_MINUTE",
+ *     locationsPrivates: [location.id],
  *     customHeaders: [{
  *         name: "some_name",
  *         value: "some_value",
  *     }],
  *     enableScreenshotOnFailureAndScript: true,
- *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
- *     period: "EVERY_MINUTE",
- *     runtimeType: "CHROME_BROWSER",
+ *     validationString: "success",
+ *     verifySsl: true,
  *     runtimeTypeVersion: "100",
+ *     runtimeType: "CHROME_BROWSER",
  *     scriptLanguage: "JAVASCRIPT",
- *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     type: "BROWSER",
- *     uri: "https://www.one.newrelic.com",
- *     validationString: "success",
- *     verifySsl: true,
  * });
  * ```
  *

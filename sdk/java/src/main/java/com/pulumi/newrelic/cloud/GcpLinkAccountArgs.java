@@ -17,14 +17,14 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     public static final GcpLinkAccountArgs Empty = new GcpLinkAccountArgs();
 
     /**
-     * - Account ID of the New Relic account.
+     * Account ID of the New Relic account.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return - Account ID of the New Relic account.
+     * @return Account ID of the New Relic account.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -32,14 +32,14 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * - The name of the GCP account in New Relic.
+     * The name of the GCP account in New Relic.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return - The name of the GCP account in New Relic.
+     * @return The name of the GCP account in New Relic.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * - Project ID of the GCP account.
+     * Project ID of the GCP account.
      * 
      */
     @Import(name="projectId", required=true)
     private Output<String> projectId;
 
     /**
-     * @return - Project ID of the GCP account.
+     * @return Project ID of the GCP account.
      * 
      */
     public Output<String> projectId() {
@@ -88,7 +88,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountId - Account ID of the New Relic account.
+         * @param accountId Account ID of the New Relic account.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountId - Account ID of the New Relic account.
+         * @param accountId Account ID of the New Relic account.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name - The name of the GCP account in New Relic.
+         * @param name The name of the GCP account in New Relic.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name - The name of the GCP account in New Relic.
+         * @param name The name of the GCP account in New Relic.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param projectId - Project ID of the GCP account.
+         * @param projectId Project ID of the GCP account.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GcpLinkAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param projectId - Project ID of the GCP account.
+         * @param projectId Project ID of the GCP account.
          * 
          * @return builder
          * 

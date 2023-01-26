@@ -19,7 +19,6 @@ public final class AwsIntegrationsXRayArgs extends com.pulumi.resources.Resource
 
     /**
      * Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     @Import(name="awsRegions")
@@ -27,7 +26,6 @@ public final class AwsIntegrationsXRayArgs extends com.pulumi.resources.Resource
 
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -76,7 +74,6 @@ public final class AwsIntegrationsXRayArgs extends com.pulumi.resources.Resource
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          * 
          * @return builder
          * 
@@ -88,7 +85,6 @@ public final class AwsIntegrationsXRayArgs extends com.pulumi.resources.Resource
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          * 
          * @return builder
          * 
@@ -99,7 +95,6 @@ public final class AwsIntegrationsXRayArgs extends com.pulumi.resources.Resource
 
         /**
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          * 
          * @return builder
          * 

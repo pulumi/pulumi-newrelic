@@ -86,7 +86,8 @@ class AwaitableGetSecureCredentialResult(GetSecureCredentialResult):
             last_updated=self.last_updated)
 
 
-def get_secure_credential(key: Optional[str] = None,
+def get_secure_credential(account_id: Optional[int] = None,
+                          key: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecureCredentialResult:
     """
     Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
@@ -103,9 +104,11 @@ def get_secure_credential(key: Optional[str] = None,
     ```
 
 
+    :param int account_id: The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
     :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """
     __args__ = dict()
+    __args__['accountId'] = account_id
     __args__['key'] = key
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:synthetics/getSecureCredential:getSecureCredential', __args__, opts=opts, typ=GetSecureCredentialResult).value
@@ -119,7 +122,8 @@ def get_secure_credential(key: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_secure_credential)
-def get_secure_credential_output(key: Optional[pulumi.Input[str]] = None,
+def get_secure_credential_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
+                                 key: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecureCredentialResult]:
     """
     Use this data source to get information about a specific Synthetics secure credential in New Relic that already exists.
@@ -136,6 +140,7 @@ def get_secure_credential_output(key: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param int account_id: The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
     :param str key: The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
     """
     ...

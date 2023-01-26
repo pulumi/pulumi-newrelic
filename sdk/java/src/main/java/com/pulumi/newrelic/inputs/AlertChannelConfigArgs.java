@@ -93,7 +93,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * The Slack channel to send notifications to.
-     * * `opsgenie`
      * 
      */
     @Import(name="channel")
@@ -101,7 +100,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return The Slack channel to send notifications to.
-     * * `opsgenie`
      * 
      */
     public Optional<Output<String>> channel() {
@@ -140,7 +138,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-     * * `webhook`
      * 
      */
     @Import(name="includeJsonAttachment")
@@ -148,7 +145,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-     * * `webhook`
      * 
      */
     public Optional<Output<String>> includeJsonAttachment() {
@@ -202,7 +198,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-     * * `pagerduty`
      * 
      */
     @Import(name="payloadType")
@@ -210,7 +205,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-     * * `pagerduty`
      * 
      */
     public Optional<Output<String>> payloadType() {
@@ -218,14 +212,14 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * Comma delimited list of email addresses.
      * 
      */
     @Import(name="recipients")
     private @Nullable Output<String> recipients;
 
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return Comma delimited list of email addresses.
      * 
      */
     public Optional<Output<String>> recipients() {
@@ -249,7 +243,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * The route key for integrating with VictorOps.
-     * * `slack`
      * 
      */
     @Import(name="routeKey")
@@ -257,7 +250,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return The route key for integrating with VictorOps.
-     * * `slack`
      * 
      */
     public Optional<Output<String>> routeKey() {
@@ -266,7 +258,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specifies the service key for integrating with Pagerduty.
-     * * `victorops`
      * 
      */
     @Import(name="serviceKey")
@@ -274,7 +265,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specifies the service key for integrating with Pagerduty.
-     * * `victorops`
      * 
      */
     public Optional<Output<String>> serviceKey() {
@@ -484,7 +474,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param channel The Slack channel to send notifications to.
-         * * `opsgenie`
          * 
          * @return builder
          * 
@@ -496,7 +485,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param channel The Slack channel to send notifications to.
-         * * `opsgenie`
          * 
          * @return builder
          * 
@@ -549,7 +537,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param includeJsonAttachment `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-         * * `webhook`
          * 
          * @return builder
          * 
@@ -561,7 +548,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param includeJsonAttachment `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-         * * `webhook`
          * 
          * @return builder
          * 
@@ -635,7 +621,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param payloadType Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-         * * `pagerduty`
          * 
          * @return builder
          * 
@@ -647,7 +632,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param payloadType Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-         * * `pagerduty`
          * 
          * @return builder
          * 
@@ -657,7 +641,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
+         * @param recipients Comma delimited list of email addresses.
          * 
          * @return builder
          * 
@@ -668,7 +652,7 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param recipients A set of recipients for targeting notifications.  Multiple values are comma separated.
+         * @param recipients Comma delimited list of email addresses.
          * 
          * @return builder
          * 
@@ -700,7 +684,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param routeKey The route key for integrating with VictorOps.
-         * * `slack`
          * 
          * @return builder
          * 
@@ -712,7 +695,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param routeKey The route key for integrating with VictorOps.
-         * * `slack`
          * 
          * @return builder
          * 
@@ -723,7 +705,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param serviceKey Specifies the service key for integrating with Pagerduty.
-         * * `victorops`
          * 
          * @return builder
          * 
@@ -735,7 +716,6 @@ public final class AlertChannelConfigArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param serviceKey Specifies the service key for integrating with Pagerduty.
-         * * `victorops`
          * 
          * @return builder
          * 

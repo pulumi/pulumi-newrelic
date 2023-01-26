@@ -17,7 +17,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
-        /// * `vpc`
         /// </summary>
         public InputList<string> AwsRegions
         {
@@ -51,7 +50,6 @@ namespace Pulumi.NewRelic.Cloud.Inputs
 
         /// <summary>
         /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        /// * `x_ray`
         /// </summary>
         [Input("tagValue")]
         public Input<string>? TagValue { get; set; }

@@ -13,7 +13,7 @@ import (
 
 // Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 //
-// > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+// > **WARNING:** The  AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
 //
 // ## Example Usage
 //
@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := newrelic.GetEntity(ctx, &GetEntityArgs{
+//			app, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
 //				Name:   "my-app",
 //				Type:   pulumi.StringRef("APPLICATION"),
 //				Domain: pulumi.StringRef("APM"),
@@ -45,13 +45,13 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
-//					pulumi.Int(app.ApplicationId),
+//					*pulumi.Int(app.ApplicationId),
 //				},
 //				Metric:         pulumi.String("apdex"),
 //				RunbookUrl:     pulumi.String("https://www.example.com"),
 //				ConditionScope: pulumi.String("application"),
-//				Terms: AlertConditionTermArray{
-//					&AlertConditionTermArgs{
+//				Terms: newrelic.AlertConditionTermArray{
+//					&newrelic.AlertConditionTermArgs{
 //						Duration:     pulumi.Int(5),
 //						Operator:     pulumi.String("below"),
 //						Priority:     pulumi.String("critical"),
@@ -99,48 +99,6 @@ type AlertCondition struct {
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrOutput `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-	// * `apmAppMetric`
-	// * `apdex`
-	// * `errorPercentage`
-	// * `responseTimeBackground`
-	// * `responseTimeWeb`
-	// * `throughputBackground`
-	// * `throughputWeb`
-	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
-	// * `apmKtMetric`
-	// * `apdex`
-	// * `errorCount`
-	// * `errorPercentage`
-	// * `responseTime`
-	// * `throughput`
-	// * `browserMetric`
-	// * `ajaxResponseTime`
-	// * `ajaxThroughput`
-	// * `domProcessing`
-	// * `endUserApdex`
-	// * `network`
-	// * `pageRendering`
-	// * `pageViewThroughput`
-	// * `pageViewsWithJsErrors`
-	// * `requestQueuing`
-	// * `totalPageLoad`
-	// * `userDefined`
-	// * `webApplication`
-	// * `mobileMetric`
-	// * `database`
-	// * `images`
-	// * `json`
-	// * `mobileCrashRate`
-	// * `networkErrorPercentage`
-	// * `network`
-	// * `statusErrorPercentage`
-	// * `userDefined`
-	// * `viewLoading`
 	Metric pulumi.StringOutput `pulumi:"metric"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -213,48 +171,6 @@ type alertConditionState struct {
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-	// * `apmAppMetric`
-	// * `apdex`
-	// * `errorPercentage`
-	// * `responseTimeBackground`
-	// * `responseTimeWeb`
-	// * `throughputBackground`
-	// * `throughputWeb`
-	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
-	// * `apmKtMetric`
-	// * `apdex`
-	// * `errorCount`
-	// * `errorPercentage`
-	// * `responseTime`
-	// * `throughput`
-	// * `browserMetric`
-	// * `ajaxResponseTime`
-	// * `ajaxThroughput`
-	// * `domProcessing`
-	// * `endUserApdex`
-	// * `network`
-	// * `pageRendering`
-	// * `pageViewThroughput`
-	// * `pageViewsWithJsErrors`
-	// * `requestQueuing`
-	// * `totalPageLoad`
-	// * `userDefined`
-	// * `webApplication`
-	// * `mobileMetric`
-	// * `database`
-	// * `images`
-	// * `json`
-	// * `mobileCrashRate`
-	// * `networkErrorPercentage`
-	// * `network`
-	// * `statusErrorPercentage`
-	// * `userDefined`
-	// * `viewLoading`
 	Metric *string `pulumi:"metric"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
@@ -284,48 +200,6 @@ type AlertConditionState struct {
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-	// * `apmAppMetric`
-	// * `apdex`
-	// * `errorPercentage`
-	// * `responseTimeBackground`
-	// * `responseTimeWeb`
-	// * `throughputBackground`
-	// * `throughputWeb`
-	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
-	// * `apmKtMetric`
-	// * `apdex`
-	// * `errorCount`
-	// * `errorPercentage`
-	// * `responseTime`
-	// * `throughput`
-	// * `browserMetric`
-	// * `ajaxResponseTime`
-	// * `ajaxThroughput`
-	// * `domProcessing`
-	// * `endUserApdex`
-	// * `network`
-	// * `pageRendering`
-	// * `pageViewThroughput`
-	// * `pageViewsWithJsErrors`
-	// * `requestQueuing`
-	// * `totalPageLoad`
-	// * `userDefined`
-	// * `webApplication`
-	// * `mobileMetric`
-	// * `database`
-	// * `images`
-	// * `json`
-	// * `mobileCrashRate`
-	// * `networkErrorPercentage`
-	// * `network`
-	// * `statusErrorPercentage`
-	// * `userDefined`
-	// * `viewLoading`
 	Metric pulumi.StringPtrInput
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
@@ -359,48 +233,6 @@ type alertConditionArgs struct {
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric *string `pulumi:"gcMetric"`
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-	// * `apmAppMetric`
-	// * `apdex`
-	// * `errorPercentage`
-	// * `responseTimeBackground`
-	// * `responseTimeWeb`
-	// * `throughputBackground`
-	// * `throughputWeb`
-	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
-	// * `apmKtMetric`
-	// * `apdex`
-	// * `errorCount`
-	// * `errorPercentage`
-	// * `responseTime`
-	// * `throughput`
-	// * `browserMetric`
-	// * `ajaxResponseTime`
-	// * `ajaxThroughput`
-	// * `domProcessing`
-	// * `endUserApdex`
-	// * `network`
-	// * `pageRendering`
-	// * `pageViewThroughput`
-	// * `pageViewsWithJsErrors`
-	// * `requestQueuing`
-	// * `totalPageLoad`
-	// * `userDefined`
-	// * `webApplication`
-	// * `mobileMetric`
-	// * `database`
-	// * `images`
-	// * `json`
-	// * `mobileCrashRate`
-	// * `networkErrorPercentage`
-	// * `network`
-	// * `statusErrorPercentage`
-	// * `userDefined`
-	// * `viewLoading`
 	Metric string `pulumi:"metric"`
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name *string `pulumi:"name"`
@@ -431,48 +263,6 @@ type AlertConditionArgs struct {
 	// A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
 	GcMetric pulumi.StringPtrInput
 	// The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-	// * `apmAppMetric`
-	// * `apdex`
-	// * `errorPercentage`
-	// * `responseTimeBackground`
-	// * `responseTimeWeb`
-	// * `throughputBackground`
-	// * `throughputWeb`
-	// * `userDefined`
-	// * `apmJvmMetric`
-	// * `cpuUtilizationTime`
-	// * `deadlockedThreads`
-	// * `gcCpuTime`
-	// * `heapMemoryUsage`
-	// * `apmKtMetric`
-	// * `apdex`
-	// * `errorCount`
-	// * `errorPercentage`
-	// * `responseTime`
-	// * `throughput`
-	// * `browserMetric`
-	// * `ajaxResponseTime`
-	// * `ajaxThroughput`
-	// * `domProcessing`
-	// * `endUserApdex`
-	// * `network`
-	// * `pageRendering`
-	// * `pageViewThroughput`
-	// * `pageViewsWithJsErrors`
-	// * `requestQueuing`
-	// * `totalPageLoad`
-	// * `userDefined`
-	// * `webApplication`
-	// * `mobileMetric`
-	// * `database`
-	// * `images`
-	// * `json`
-	// * `mobileCrashRate`
-	// * `networkErrorPercentage`
-	// * `network`
-	// * `statusErrorPercentage`
-	// * `userDefined`
-	// * `viewLoading`
 	Metric pulumi.StringInput
 	// The title of the condition. Must be between 1 and 64 characters, inclusive.
 	Name pulumi.StringPtrInput
@@ -600,48 +390,6 @@ func (o AlertConditionOutput) GcMetric() pulumi.StringPtrOutput {
 }
 
 // The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-// * `apmAppMetric`
-// * `apdex`
-// * `errorPercentage`
-// * `responseTimeBackground`
-// * `responseTimeWeb`
-// * `throughputBackground`
-// * `throughputWeb`
-// * `userDefined`
-// * `apmJvmMetric`
-// * `cpuUtilizationTime`
-// * `deadlockedThreads`
-// * `gcCpuTime`
-// * `heapMemoryUsage`
-// * `apmKtMetric`
-// * `apdex`
-// * `errorCount`
-// * `errorPercentage`
-// * `responseTime`
-// * `throughput`
-// * `browserMetric`
-// * `ajaxResponseTime`
-// * `ajaxThroughput`
-// * `domProcessing`
-// * `endUserApdex`
-// * `network`
-// * `pageRendering`
-// * `pageViewThroughput`
-// * `pageViewsWithJsErrors`
-// * `requestQueuing`
-// * `totalPageLoad`
-// * `userDefined`
-// * `webApplication`
-// * `mobileMetric`
-// * `database`
-// * `images`
-// * `json`
-// * `mobileCrashRate`
-// * `networkErrorPercentage`
-// * `network`
-// * `statusErrorPercentage`
-// * `userDefined`
-// * `viewLoading`
 func (o AlertConditionOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertCondition) pulumi.StringOutput { return v.Metric }).(pulumi.StringOutput)
 }

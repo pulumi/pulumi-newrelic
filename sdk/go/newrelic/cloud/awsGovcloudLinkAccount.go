@@ -61,7 +61,7 @@ type AwsGovcloudLinkAccount struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrOutput `pulumi:"metricCollectionMode"`
-	// - The linked account name
+	// The linked account name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The secret key of the AwsGovCloud.
 	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
@@ -84,10 +84,10 @@ func NewAwsGovcloudLinkAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SecretAccessKey'")
 	}
 	if args.AccessKeyId != nil {
-		args.AccessKeyId = pulumi.ToSecret(args.AccessKeyId).(pulumi.StringOutput)
+		args.AccessKeyId = pulumi.ToSecret(args.AccessKeyId).(pulumi.StringInput)
 	}
 	if args.SecretAccessKey != nil {
-		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringOutput)
+		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessKeyId",
@@ -124,7 +124,7 @@ type awsGovcloudLinkAccountState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
-	// - The linked account name
+	// The linked account name
 	Name *string `pulumi:"name"`
 	// The secret key of the AwsGovCloud.
 	SecretAccessKey *string `pulumi:"secretAccessKey"`
@@ -139,7 +139,7 @@ type AwsGovcloudLinkAccountState struct {
 	AwsAccountId pulumi.StringPtrInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrInput
-	// - The linked account name
+	// The linked account name
 	Name pulumi.StringPtrInput
 	// The secret key of the AwsGovCloud.
 	SecretAccessKey pulumi.StringPtrInput
@@ -158,7 +158,7 @@ type awsGovcloudLinkAccountArgs struct {
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode *string `pulumi:"metricCollectionMode"`
-	// - The linked account name
+	// The linked account name
 	Name *string `pulumi:"name"`
 	// The secret key of the AwsGovCloud.
 	SecretAccessKey string `pulumi:"secretAccessKey"`
@@ -174,7 +174,7 @@ type AwsGovcloudLinkAccountArgs struct {
 	AwsAccountId pulumi.StringInput
 	// How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
 	MetricCollectionMode pulumi.StringPtrInput
-	// - The linked account name
+	// The linked account name
 	Name pulumi.StringPtrInput
 	// The secret key of the AwsGovCloud.
 	SecretAccessKey pulumi.StringInput
@@ -287,7 +287,7 @@ func (o AwsGovcloudLinkAccountOutput) MetricCollectionMode() pulumi.StringPtrOut
 	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringPtrOutput { return v.MetricCollectionMode }).(pulumi.StringPtrOutput)
 }
 
-// - The linked account name
+// The linked account name
 func (o AwsGovcloudLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AwsGovcloudLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

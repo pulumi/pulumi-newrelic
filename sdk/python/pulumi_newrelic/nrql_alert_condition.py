@@ -37,7 +37,6 @@ class NrqlAlertConditionArgs:
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 value_function: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
@@ -61,10 +60,9 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input[str] name: The title of the condition.
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -114,11 +112,6 @@ class NrqlAlertConditionArgs:
             pulumi.set(__self__, "terms", terms)
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if value_function is not None:
-            warnings.warn("""'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""", DeprecationWarning)
-            pulumi.log.warn("""value_function is deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""")
-        if value_function is not None:
-            pulumi.set(__self__, "value_function", value_function)
         if violation_time_limit is not None:
             warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
@@ -349,7 +342,7 @@ class NrqlAlertConditionArgs:
     @pulumi.getter(name="slideBy")
     def slide_by(self) -> Optional[pulumi.Input[int]]:
         """
-        Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         """
         return pulumi.get(self, "slide_by")
 
@@ -380,18 +373,6 @@ class NrqlAlertConditionArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="valueFunction")
-    def value_function(self) -> Optional[pulumi.Input[str]]:
-        """
-        **DEPRECATED** Use `signal.slide_by` instead.
-        """
-        return pulumi.get(self, "value_function")
-
-    @value_function.setter
-    def value_function(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value_function", value)
 
     @property
     @pulumi.getter(name="violationTimeLimit")
@@ -457,7 +438,6 @@ class _NrqlAlertConditionState:
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 value_function: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input['NrqlAlertConditionWarningArgs']] = None):
@@ -482,10 +462,9 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input['NrqlAlertConditionTermArgs']]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -539,11 +518,6 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "terms", terms)
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if value_function is not None:
-            warnings.warn("""'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""", DeprecationWarning)
-            pulumi.log.warn("""value_function is deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""")
-        if value_function is not None:
-            pulumi.set(__self__, "value_function", value_function)
         if violation_time_limit is not None:
             warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
@@ -786,7 +760,7 @@ class _NrqlAlertConditionState:
     @pulumi.getter(name="slideBy")
     def slide_by(self) -> Optional[pulumi.Input[int]]:
         """
-        Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         """
         return pulumi.get(self, "slide_by")
 
@@ -817,18 +791,6 @@ class _NrqlAlertConditionState:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="valueFunction")
-    def value_function(self) -> Optional[pulumi.Input[str]]:
-        """
-        **DEPRECATED** Use `signal.slide_by` instead.
-        """
-        return pulumi.get(self, "value_function")
-
-    @value_function.setter
-    def value_function(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value_function", value)
 
     @property
     @pulumi.getter(name="violationTimeLimit")
@@ -895,7 +857,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 value_function: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']]] = None,
@@ -926,8 +887,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
         <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
 
         - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
         - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -979,62 +939,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             ))
         ```
 
-        ## Upgrade from 1.x to 2.x
-
-        There have been several deprecations in the `NrqlAlertCondition`
-        resource.  Users will need to make some updates in order to have a smooth
-        upgrade.
-
-        An example resource from 1.x might look like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            value_function="sum",
-            violation_time_limit="TWENTY_FOUR_HOURS",
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold_duration=120,
-                threshold=3,
-                threshold_occurrences="AT_LEAST_ONCE",
-            ),
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
-        After making the appropriate adjustments mentioned in the deprecation warnings,
-        the resource now looks like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            value_function="sum",
-            violation_time_limit_seconds=86400,
-            terms=[newrelic.NrqlAlertConditionTermArgs(
-                priority="critical",
-                operator="above",
-                threshold=3,
-                duration=5,
-                time_function="any",
-            )],
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -1069,10 +973,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -1111,8 +1014,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
         <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
 
         - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
         - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -1161,62 +1063,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 threshold=3.5,
                 threshold_duration=600,
                 threshold_occurrences="ALL",
-            ))
-        ```
-
-        ## Upgrade from 1.x to 2.x
-
-        There have been several deprecations in the `NrqlAlertCondition`
-        resource.  Users will need to make some updates in order to have a smooth
-        upgrade.
-
-        An example resource from 1.x might look like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            value_function="sum",
-            violation_time_limit="TWENTY_FOUR_HOURS",
-            critical=newrelic.NrqlAlertConditionCriticalArgs(
-                operator="above",
-                threshold_duration=120,
-                threshold=3,
-                threshold_occurrences="AT_LEAST_ONCE",
-            ),
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-            ))
-        ```
-
-        After making the appropriate adjustments mentioned in the deprecation warnings,
-        the resource now looks like the following.
-
-        ```python
-        import pulumi
-        import pulumi_newrelic as newrelic
-
-        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
-            policy_id=newrelic_alert_policy["z"]["id"],
-            type="static",
-            runbook_url="https://localhost",
-            enabled=True,
-            value_function="sum",
-            violation_time_limit_seconds=86400,
-            terms=[newrelic.NrqlAlertConditionTermArgs(
-                priority="critical",
-                operator="above",
-                threshold=3,
-                duration=5,
-                time_function="any",
-            )],
-            nrql=newrelic.NrqlAlertConditionNrqlArgs(
-                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
             ))
         ```
 
@@ -1270,7 +1116,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  slide_by: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 value_function: Optional[pulumi.Input[str]] = None,
                  violation_time_limit: Optional[pulumi.Input[str]] = None,
                  violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
                  warning: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']]] = None,
@@ -1311,10 +1156,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
                 pulumi.log.warn("""terms is deprecated: use `critical` and `warning` attributes instead""")
             __props__.__dict__["terms"] = terms
             __props__.__dict__["type"] = type
-            if value_function is not None and not opts.urn:
-                warnings.warn("""'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""", DeprecationWarning)
-                pulumi.log.warn("""value_function is deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.""")
-            __props__.__dict__["value_function"] = value_function
             if violation_time_limit is not None and not opts.urn:
                 warnings.warn("""use `violation_time_limit_seconds` attribute instead""", DeprecationWarning)
                 pulumi.log.warn("""violation_time_limit is deprecated: use `violation_time_limit_seconds` attribute instead""")
@@ -1354,7 +1195,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
             slide_by: Optional[pulumi.Input[int]] = None,
             terms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            value_function: Optional[pulumi.Input[str]] = None,
             violation_time_limit: Optional[pulumi.Input[str]] = None,
             violation_time_limit_seconds: Optional[pulumi.Input[int]] = None,
             warning: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionWarningArgs']]] = None) -> 'NrqlAlertCondition':
@@ -1384,10 +1224,9 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[bool] open_violation_on_expiration: Whether to create a new incident to capture that the signal expired.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
-        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        :param pulumi.Input[int] slide_by: Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NrqlAlertConditionTermArgs']]]] terms: **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
-        :param pulumi.Input[str] value_function: **DEPRECATED** Use `signal.slide_by` instead.
         :param pulumi.Input[str] violation_time_limit: **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
                <small>\\***Note**: One of `violation_time_limit` _or_ `violation_time_limit_seconds` must be set, but not both.</small>
         :param pulumi.Input[int] violation_time_limit_seconds: Sets a time limit, in seconds, that will automatically force-close a long-lasting incident after the time limit you select. The value must be between 300 seconds (5 minutes) to 2592000 seconds (30 days) (inclusive). <br>
@@ -1420,7 +1259,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["slide_by"] = slide_by
         __props__.__dict__["terms"] = terms
         __props__.__dict__["type"] = type
-        __props__.__dict__["value_function"] = value_function
         __props__.__dict__["violation_time_limit"] = violation_time_limit
         __props__.__dict__["violation_time_limit_seconds"] = violation_time_limit_seconds
         __props__.__dict__["warning"] = warning
@@ -1582,7 +1420,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
     @pulumi.getter(name="slideBy")
     def slide_by(self) -> pulumi.Output[Optional[int]]:
         """
-        Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         """
         return pulumi.get(self, "slide_by")
 
@@ -1601,14 +1439,6 @@ class NrqlAlertCondition(pulumi.CustomResource):
         The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="valueFunction")
-    def value_function(self) -> pulumi.Output[Optional[str]]:
-        """
-        **DEPRECATED** Use `signal.slide_by` instead.
-        """
-        return pulumi.get(self, "value_function")
 
     @property
     @pulumi.getter(name="violationTimeLimit")

@@ -15,7 +15,6 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     {
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
-        /// * `vpc`
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>

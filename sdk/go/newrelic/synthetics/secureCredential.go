@@ -79,7 +79,7 @@ func NewSecureCredential(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	if args.Value != nil {
-		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringOutput)
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"value",

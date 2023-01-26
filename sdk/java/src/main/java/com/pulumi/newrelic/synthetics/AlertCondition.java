@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create and manage synthetics alert conditions in New Relic.
  * 
- * &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+ * &gt; **WARNING:** The  newrelic.synthetics.AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the newrelic.NrqlAlertCondition resource to avoid being impacted by these changes.
  * 
  * ## Example Usage
  * ```java

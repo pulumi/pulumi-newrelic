@@ -27,42 +27,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/gcpLinkAccount:GcpLinkAccount")
 public class GcpLinkAccount extends com.pulumi.resources.CustomResource {
     /**
-     * - Account ID of the New Relic account.
+     * Account ID of the New Relic account.
      * 
      */
     @Export(name="accountId", type=Integer.class, parameters={})
     private Output<Integer> accountId;
 
     /**
-     * @return - Account ID of the New Relic account.
+     * @return Account ID of the New Relic account.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * - The name of the GCP account in New Relic.
+     * The name of the GCP account in New Relic.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return - The name of the GCP account in New Relic.
+     * @return The name of the GCP account in New Relic.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * - Project ID of the GCP account.
+     * Project ID of the GCP account.
      * 
      */
     @Export(name="projectId", type=String.class, parameters={})
     private Output<String> projectId;
 
     /**
-     * @return - Project ID of the GCP account.
+     * @return Project ID of the GCP account.
      * 
      */
     public Output<String> projectId() {

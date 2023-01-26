@@ -37,22 +37,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewServiceLevel(ctx, "foo", &newrelic.ServiceLevelArgs{
 //				Description: pulumi.String("Proportion of requests that are served faster than a threshold."),
-//				Events: &ServiceLevelEventsArgs{
+//				Events: &newrelic.ServiceLevelEventsArgs{
 //					AccountId: pulumi.Int(12345678),
-//					GoodEvents: &ServiceLevelEventsGoodEventsArgs{
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType= 'Web') AND duration < 0.1"),
 //					},
-//					ValidEvents: &ServiceLevelEventsValidEventsArgs{
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("Transaction"),
 //						Where: pulumi.String("appName = 'Example application' AND (transactionType='Web')"),
 //					},
 //				},
 //				Guid: pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
-//				Objective: &ServiceLevelObjectiveArgs{
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
 //					Target: pulumi.Float64(99),
-//					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
-//						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
 //							Count: pulumi.Int(7),
 //							Unit:  pulumi.String("DAY"),
 //						},
@@ -86,21 +86,21 @@ import (
 //			mySyntheticMonitorServiceLevel, err := newrelic.NewServiceLevel(ctx, "mySyntheticMonitorServiceLevel", &newrelic.ServiceLevelArgs{
 //				Guid:        pulumi.String("MXxBUE18QVBQTElDQVRJT058MQ"),
 //				Description: pulumi.String("Proportion of successful synthetic checks."),
-//				Events: &ServiceLevelEventsArgs{
+//				Events: &newrelic.ServiceLevelEventsArgs{
 //					AccountId: pulumi.Int(12345678),
-//					ValidEvents: &ServiceLevelEventsValidEventsArgs{
+//					ValidEvents: &newrelic.ServiceLevelEventsValidEventsArgs{
 //						From:  pulumi.String("SyntheticCheck"),
 //						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ'"),
 //					},
-//					GoodEvents: &ServiceLevelEventsGoodEventsArgs{
+//					GoodEvents: &newrelic.ServiceLevelEventsGoodEventsArgs{
 //						From:  pulumi.String("SyntheticCheck"),
 //						Where: pulumi.String("entityGuid = 'MXxBUE18QVBQTElDQVRJT058MQ' AND result='SUCCESS'"),
 //					},
 //				},
-//				Objective: &ServiceLevelObjectiveArgs{
+//				Objective: &newrelic.ServiceLevelObjectiveArgs{
 //					Target: pulumi.Float64(99),
-//					TimeWindow: &ServiceLevelObjectiveTimeWindowArgs{
-//						Rolling: &ServiceLevelObjectiveTimeWindowRollingArgs{
+//					TimeWindow: &newrelic.ServiceLevelObjectiveTimeWindowArgs{
+//						Rolling: &newrelic.ServiceLevelObjectiveTimeWindowRollingArgs{
 //							Count: pulumi.Int(7),
 //							Unit:  pulumi.String("DAY"),
 //						},
@@ -112,15 +112,15 @@ import (
 //			}
 //			_, err = newrelic.NewEntityTags(ctx, "mySyntheticMonitorServiceLevelTags", &newrelic.EntityTagsArgs{
 //				Guid: mySyntheticMonitorServiceLevel.SliGuid,
-//				Tags: EntityTagsTagArray{
-//					&EntityTagsTagArgs{
+//				Tags: newrelic.EntityTagsTagArray{
+//					&newrelic.EntityTagsTagArgs{
 //						Key: pulumi.String("user_journey"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("authentication"),
 //							pulumi.String("sso"),
 //						},
 //					},
-//					&EntityTagsTagArgs{
+//					&newrelic.EntityTagsTagArgs{
 //						Key: pulumi.String("owner"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("identityTeam"),

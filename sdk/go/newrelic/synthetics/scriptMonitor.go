@@ -127,7 +127,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
@@ -135,18 +135,19 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Type:   pulumi.String("SCRIPT_API"),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
-//						Guid:        pulumi.String("newrelic_synthetics_private_location.location.id"),
+//						Guid:        location.ID(),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},
 //				Period:             pulumi.String("EVERY_6_HOURS"),
-//				RuntimeType:        pulumi.String("NODE_API"),
-//				RuntimeTypeVersion: pulumi.String("16.10"),
 //				Script:             pulumi.String("console.log('terraform integration test updated')"),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				RuntimeType:        pulumi.String("NODE_API"),
+//				RuntimeTypeVersion: pulumi.String("16.10"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -155,7 +156,6 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("SCRIPT_API"),
 //			})
 //			if err != nil {
 //				return err
@@ -181,7 +181,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
 //				VerifiedScriptExecution: pulumi.Bool(true),
 //			})
@@ -189,19 +189,20 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewScriptMonitor(ctx, "monitor", &synthetics.ScriptMonitorArgs{
+//				Status:                             pulumi.String("ENABLED"),
+//				Type:                               pulumi.String("SCRIPT_BROWSER"),
+//				Period:                             pulumi.String("EVERY_HOUR"),
+//				Script:                             pulumi.String(fmt.Sprintf("$browser.get('https://one.newrelic.com')")),
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{
-//						Guid:        pulumi.String("newrelic_synthetics_private_location.location.id"),
+//						Guid:        location.ID(),
 //						VsePassword: pulumi.String("secret"),
 //					},
 //				},
-//				Period:             pulumi.String("EVERY_HOUR"),
-//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
 //				RuntimeTypeVersion: pulumi.String("100"),
-//				Script:             pulumi.String(fmt.Sprintf("$browser.get('https://one.newrelic.com')")),
+//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.ScriptMonitorTagArray{
 //					&synthetics.ScriptMonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -210,7 +211,6 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("SCRIPT_BROWSER"),
 //			})
 //			if err != nil {
 //				return err

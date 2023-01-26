@@ -34,11 +34,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKeyTransaction(args: GetKeyTransactionArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyTransactionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getKeyTransaction:getKeyTransaction", {
         "name": args.name,
     }, opts);
@@ -64,9 +61,37 @@ export interface GetKeyTransactionResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * Use this data source to get information about a specific key transaction in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const txn = newrelic.getKeyTransaction({
+ *     name: "txn",
+ * });
+ * const fooAlertPolicy = new newrelic.AlertPolicy("fooAlertPolicy", {});
+ * const fooAlertCondition = new newrelic.AlertCondition("fooAlertCondition", {
+ *     policyId: fooAlertPolicy.id,
+ *     type: "apm_kt_metric",
+ *     entities: [txn.then(txn => txn.id)],
+ *     metric: "error_percentage",
+ *     runbookUrl: "https://www.example.com",
+ *     terms: [{
+ *         duration: 5,
+ *         operator: "below",
+ *         priority: "critical",
+ *         threshold: 0.75,
+ *         timeFunction: "all",
+ *     }],
+ * });
+ * ```
+ */
 export function getKeyTransactionOutput(args: GetKeyTransactionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyTransactionResult> {
-    return pulumi.output(args).apply(a => getKeyTransaction(a, opts))
+    return pulumi.output(args).apply((a: any) => getKeyTransaction(a, opts))
 }
 
 /**

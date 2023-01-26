@@ -72,7 +72,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Test Description"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
@@ -80,8 +80,9 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewBrokenLinksMonitor(ctx, "monitor", &synthetics.BrokenLinksMonitorArgs{
+//				Uri: pulumi.String("https://www.one.example.com"),
 //				LocationsPrivates: pulumi.StringArray{
-//					pulumi.String("newrelic_synthetics_private_location.location.id"),
+//					location.ID(),
 //				},
 //				Period: pulumi.String("EVERY_6_HOURS"),
 //				Status: pulumi.String("ENABLED"),
@@ -93,7 +94,6 @@ import (
 //						},
 //					},
 //				},
-//				Uri: pulumi.String("https://www.one.example.com"),
 //			})
 //			if err != nil {
 //				return err

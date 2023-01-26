@@ -28,7 +28,6 @@ export interface AlertChannelConfig {
     baseUrl?: pulumi.Input<string>;
     /**
      * The Slack channel to send notifications to.
-     * * `opsgenie`
      */
     channel?: pulumi.Input<string>;
     /**
@@ -41,7 +40,6 @@ export interface AlertChannelConfig {
     headersString?: pulumi.Input<string>;
     /**
      * `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-     * * `webhook`
      */
     includeJsonAttachment?: pulumi.Input<string>;
     /**
@@ -58,11 +56,10 @@ export interface AlertChannelConfig {
     payloadString?: pulumi.Input<string>;
     /**
      * Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
-     * * `pagerduty`
      */
     payloadType?: pulumi.Input<string>;
     /**
-     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * Comma delimited list of email addresses.
      */
     recipients?: pulumi.Input<string>;
     /**
@@ -71,12 +68,10 @@ export interface AlertChannelConfig {
     region?: pulumi.Input<string>;
     /**
      * The route key for integrating with VictorOps.
-     * * `slack`
      */
     routeKey?: pulumi.Input<string>;
     /**
      * Specifies the service key for integrating with Pagerduty.
-     * * `victorops`
      */
     serviceKey?: pulumi.Input<string>;
     /**
@@ -119,7 +114,7 @@ export interface AlertMutingRuleConditionCondition {
      */
     attribute: pulumi.Input<string>;
     /**
-     * The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+     * The operator used to combine all the MutingRuleConditions within the group.
      */
     operator: pulumi.Input<string>;
     /**
@@ -347,61 +342,19 @@ export interface OneDashboardPage {
      * The title of the dashboard.
      */
     name: pulumi.Input<string>;
-    /**
-     * (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-     */
     widgetAreas?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetArea>[]>;
-    /**
-     * (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-     */
     widgetBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBar>[]>;
-    /**
-     * (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-     */
     widgetBillboards?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboard>[]>;
-    /**
-     * (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-     */
     widgetBullets?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBullet>[]>;
-    /**
-     * (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-     */
     widgetFunnels?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnel>[]>;
-    /**
-     * (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-     */
     widgetHeatmaps?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmap>[]>;
-    /**
-     * (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-     */
     widgetHistograms?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogram>[]>;
-    /**
-     * (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-     */
     widgetJsons?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJson>[]>;
-    /**
-     * (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-     */
     widgetLines?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLine>[]>;
-    /**
-     * (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-     */
     widgetLogTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTable>[]>;
-    /**
-     * (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-     */
     widgetMarkdowns?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdown>[]>;
-    /**
-     * (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-     */
     widgetPies?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPy>[]>;
-    /**
-     * (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-     */
     widgetStackedBars?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBar>[]>;
-    /**
-     * (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-     */
     widgetTables?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTable>[]>;
 }
 
@@ -453,6 +406,9 @@ export interface OneDashboardPageWidgetBar {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -463,6 +419,9 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -525,7 +484,6 @@ export interface OneDashboardPageWidgetBillboard {
     title: pulumi.Input<string>;
     /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widgetBullet`
      */
     warning?: pulumi.Input<string>;
     /**
@@ -561,7 +519,6 @@ export interface OneDashboardPageWidgetBullet {
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
      * (Required) Visualization limit for the widget.
-     * * `widgetFunnel`
      */
     limit: pulumi.Input<number>;
     /**
@@ -641,6 +598,9 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -651,6 +611,9 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -873,7 +836,6 @@ export interface OneDashboardPageWidgetMarkdown {
     row: pulumi.Input<number>;
     /**
      * (Required) The markdown source to be rendered in the widget.
-     * * `widgetStackedBar`
      */
     text?: pulumi.Input<string>;
     /**
@@ -891,6 +853,9 @@ export interface OneDashboardPageWidgetPy {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -901,6 +866,9 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -979,6 +947,9 @@ export interface OneDashboardPageWidgetTable {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -989,6 +960,9 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -1271,14 +1245,18 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
 
 export interface WorkflowDestination {
     /**
-     * id of a notificationChannel to use for notifications. Please note that you have to use a 
+     * Id of a notificationChannel to use for notifications. Please note that you have to use a 
      * **notification** channel, not an `alertChannel`.
      */
     channelId: pulumi.Input<string>;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     */
+    notificationTriggers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
@@ -1303,7 +1281,7 @@ export interface WorkflowEnrichmentsNrql {
     configurations: pulumi.Input<pulumi.Input<inputs.WorkflowEnrichmentsNrqlConfiguration>[]>;
     enrichmentId?: pulumi.Input<string>;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name: pulumi.Input<string>;
     /**
@@ -1322,7 +1300,7 @@ export interface WorkflowEnrichmentsNrqlConfiguration {
 export interface WorkflowIssuesFilter {
     filterId?: pulumi.Input<string>;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name: pulumi.Input<string>;
     /**
@@ -1357,19 +1335,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1388,16 +1361,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1407,8 +1371,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1427,16 +1389,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1446,8 +1399,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1461,8 +1412,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1476,8 +1425,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1491,8 +1438,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1506,19 +1451,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1533,16 +1473,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1552,14 +1483,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
@@ -1574,16 +1501,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1593,8 +1511,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1613,16 +1529,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1632,8 +1539,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1652,16 +1557,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1671,19 +1567,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1697,13 +1588,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<string>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1718,16 +1606,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1745,16 +1624,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1764,13 +1634,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1785,16 +1652,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1804,13 +1662,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1825,16 +1680,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1844,8 +1690,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1860,16 +1704,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1877,8 +1712,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsRoute53 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
@@ -1890,13 +1723,10 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsS3 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1911,16 +1741,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -1930,14 +1751,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
@@ -1951,19 +1768,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: pulumi.Input<boolean>;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: pulumi.Input<boolean>;
         /**
@@ -1982,16 +1794,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -2006,7 +1809,6 @@ export namespace cloud {
     export interface AwsIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -2046,7 +1848,6 @@ export namespace cloud {
     export interface AwsIntegrationsVpc {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -2067,7 +1868,6 @@ export namespace cloud {
         tagKey?: pulumi.Input<string>;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `xRay`
          */
         tagValue?: pulumi.Input<string>;
     }
@@ -2075,7 +1875,6 @@ export namespace cloud {
     export interface AwsIntegrationsXRay {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          */
         awsRegions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -2648,7 +2447,7 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigAutomatic {
         /**
-         * Whether the static status configuration is enabled or not.
+         * Whether the automatic status configuration is enabled or not.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -2726,11 +2525,11 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigStatic {
         /**
-         * A description that provides additional details about the status of the workload.
+         * Relevant information about the workload.
          */
         description?: pulumi.Input<string>;
         /**
-         * Whether the static status configuration is enabled or not.
+         * Whether the automatic status configuration is enabled or not.
          */
         enabled: pulumi.Input<boolean>;
         /**

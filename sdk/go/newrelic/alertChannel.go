@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to create and manage New Relic alert channels.
-//
 // ## Example Usage
 // ### Email
 // ```go
@@ -28,7 +26,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					IncludeJsonAttachment: pulumi.String("true"),
 //					Recipients:            pulumi.String("foo@example.com"),
 //				},
@@ -58,7 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					Channel: pulumi.String("example-alerts-channel"),
 //					Url:     pulumi.String("https://hooks.slack.com/services/XXXXXXX/XXXXXXX/XXXXXXXXXX"),
 //				},
@@ -87,7 +85,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					ApiKey:     pulumi.String("abc123"),
 //					Recipients: pulumi.String("user1@domain.com, user2@domain.com"),
 //					Tags:       pulumi.String("tag1, tag2"),
@@ -118,7 +116,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					ServiceKey: pulumi.String("abc123"),
 //				},
 //				Type: pulumi.String("pagerduty"),
@@ -146,7 +144,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					Key:      pulumi.String("abc123"),
 //					RouteKey: pulumi.String("/example"),
 //				},
@@ -178,7 +176,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("webhook"),
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					BaseUrl:     pulumi.String("http://www.test.com"),
 //					PayloadType: pulumi.String("application/json"),
 //					Payload: pulumi.StringMap{
@@ -216,7 +214,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					BaseUrl: pulumi.String("http://www.test.com"),
 //					PayloadString: pulumi.String(fmt.Sprintf(`{
 //	  "my_custom_values": {

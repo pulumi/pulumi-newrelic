@@ -42,19 +42,19 @@ namespace Pulumi.NewRelic.Plugins
         public Output<string> CompositeEntitySearchQuery { get; private set; } = null!;
 
         /// <summary>
-        /// A description that provides additional details about the status of the workload.
+        /// Relevant information about the workload.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         /// </summary>
         [Output("entityGuids")]
         public Output<ImmutableArray<string>> EntityGuids { get; private set; } = null!;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         /// </summary>
         [Output("entitySearchQueries")]
         public Output<ImmutableArray<Outputs.WorkloadEntitySearchQuery>> EntitySearchQueries { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.NewRelic.Plugins
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// A description that provides additional details about the status of the workload.
+        /// Relevant information about the workload.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -175,7 +175,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryArgs> EntitySearchQueries
         {
@@ -234,7 +234,7 @@ namespace Pulumi.NewRelic.Plugins
         public Input<string>? CompositeEntitySearchQuery { get; set; }
 
         /// <summary>
-        /// A description that provides additional details about the status of the workload.
+        /// Relevant information about the workload.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<string>? _entityGuids;
 
         /// <summary>
-        /// A list of entity GUIDs manually assigned to this workload.
+        /// A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
         /// </summary>
         public InputList<string> EntityGuids
         {
@@ -255,7 +255,7 @@ namespace Pulumi.NewRelic.Plugins
         private InputList<Inputs.WorkloadEntitySearchQueryGetArgs>? _entitySearchQueries;
 
         /// <summary>
-        /// A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+        /// A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
         /// </summary>
         public InputList<Inputs.WorkloadEntitySearchQueryGetArgs> EntitySearchQueries
         {

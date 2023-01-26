@@ -15,7 +15,6 @@ namespace Pulumi.NewRelic.Cloud.Outputs
     {
         /// <summary>
         /// Specify each AWS region that includes the resources that you want to monitor.
-        /// * `vpc`
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
@@ -36,7 +35,6 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         public readonly string? TagKey;
         /// <summary>
         /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        /// * `x_ray`
         /// </summary>
         public readonly string? TagValue;
 

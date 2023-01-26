@@ -36,7 +36,7 @@ class WorkflowArgs:
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
         :param pulumi.Input['WorkflowEnrichmentsArgs'] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "issues_filter", issues_filter)
@@ -158,7 +158,7 @@ class WorkflowArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        The name of the workflow.
         """
         return pulumi.get(self, "name")
 
@@ -193,7 +193,7 @@ class _WorkflowState:
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[str] workflow_id: The id of the workflow.
         """
         if account_id is not None:
@@ -335,7 +335,7 @@ class _WorkflowState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        The name of the workflow.
         """
         return pulumi.get(self, "name")
 
@@ -474,6 +474,29 @@ class Workflow(pulumi.CustomResource):
             )])
         ```
 
+        ### An example of a workflow with notification triggers
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["my_team"],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                notification_triggers=["ACTIVATED"],
+            )])
+        ```
+
         ## Additional Information
 
         More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
@@ -508,7 +531,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
         :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
         """
         ...
     @overload
@@ -616,6 +639,29 @@ class Workflow(pulumi.CustomResource):
             ),
             destinations=[newrelic.WorkflowDestinationArgs(
                 channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+            )])
+        ```
+
+        ### An example of a workflow with notification triggers
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        workflow_example = newrelic.Workflow("workflow-example",
+            muting_rules_handling="NOTIFY_ALL_ISSUES",
+            issues_filter=newrelic.WorkflowIssuesFilterArgs(
+                name="Filter-name",
+                type="FILTER",
+                predicates=[newrelic.WorkflowIssuesFilterPredicateArgs(
+                    attribute="accumulations.tag.team",
+                    operator="EXACTLY_MATCHES",
+                    values=["my_team"],
+                )],
+            ),
+            destinations=[newrelic.WorkflowDestinationArgs(
+                channel_id=newrelic_notification_channel["webhook-channel"]["id"],
+                notification_triggers=["ACTIVATED"],
             )])
         ```
 
@@ -733,7 +779,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[str] workflow_id: The id of the workflow.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -830,7 +876,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        The name of the workflow.
         """
         return pulumi.get(self, "name")
 

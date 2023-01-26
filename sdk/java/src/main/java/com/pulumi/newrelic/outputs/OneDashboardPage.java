@@ -41,75 +41,19 @@ public final class OneDashboardPage {
      * 
      */
     private String name;
-    /**
-     * @return (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetArea> widgetAreas;
-    /**
-     * @return (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetBar> widgetBars;
-    /**
-     * @return (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetBillboard> widgetBillboards;
-    /**
-     * @return (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetBullet> widgetBullets;
-    /**
-     * @return (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetFunnel> widgetFunnels;
-    /**
-     * @return (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetHeatmap> widgetHeatmaps;
-    /**
-     * @return (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetHistogram> widgetHistograms;
-    /**
-     * @return (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetJson> widgetJsons;
-    /**
-     * @return (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetLine> widgetLines;
-    /**
-     * @return (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetLogTable> widgetLogTables;
-    /**
-     * @return (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetMarkdown> widgetMarkdowns;
-    /**
-     * @return (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetPy> widgetPies;
-    /**
-     * @return (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetStackedBar> widgetStackedBars;
-    /**
-     * @return (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-     * 
-     */
     private @Nullable List<OneDashboardPageWidgetTable> widgetTables;
 
     private OneDashboardPage() {}
@@ -134,101 +78,45 @@ public final class OneDashboardPage {
     public String name() {
         return this.name;
     }
-    /**
-     * @return (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetArea> widgetAreas() {
         return this.widgetAreas == null ? List.of() : this.widgetAreas;
     }
-    /**
-     * @return (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetBar> widgetBars() {
         return this.widgetBars == null ? List.of() : this.widgetBars;
     }
-    /**
-     * @return (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetBillboard> widgetBillboards() {
         return this.widgetBillboards == null ? List.of() : this.widgetBillboards;
     }
-    /**
-     * @return (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetBullet> widgetBullets() {
         return this.widgetBullets == null ? List.of() : this.widgetBullets;
     }
-    /**
-     * @return (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetFunnel> widgetFunnels() {
         return this.widgetFunnels == null ? List.of() : this.widgetFunnels;
     }
-    /**
-     * @return (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetHeatmap> widgetHeatmaps() {
         return this.widgetHeatmaps == null ? List.of() : this.widgetHeatmaps;
     }
-    /**
-     * @return (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetHistogram> widgetHistograms() {
         return this.widgetHistograms == null ? List.of() : this.widgetHistograms;
     }
-    /**
-     * @return (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetJson> widgetJsons() {
         return this.widgetJsons == null ? List.of() : this.widgetJsons;
     }
-    /**
-     * @return (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetLine> widgetLines() {
         return this.widgetLines == null ? List.of() : this.widgetLines;
     }
-    /**
-     * @return (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetLogTable> widgetLogTables() {
         return this.widgetLogTables == null ? List.of() : this.widgetLogTables;
     }
-    /**
-     * @return (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetMarkdown> widgetMarkdowns() {
         return this.widgetMarkdowns == null ? List.of() : this.widgetMarkdowns;
     }
-    /**
-     * @return (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetPy> widgetPies() {
         return this.widgetPies == null ? List.of() : this.widgetPies;
     }
-    /**
-     * @return (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetStackedBar> widgetStackedBars() {
         return this.widgetStackedBars == null ? List.of() : this.widgetStackedBars;
     }
-    /**
-     * @return (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-     * 
-     */
     public List<OneDashboardPageWidgetTable> widgetTables() {
         return this.widgetTables == null ? List.of() : this.widgetTables;
     }

@@ -28,7 +28,6 @@ export interface AlertChannelConfig {
     baseUrl?: string;
     /**
      * The Slack channel to send notifications to.
-     * * `opsgenie`
      */
     channel?: string;
     /**
@@ -41,7 +40,6 @@ export interface AlertChannelConfig {
     headersString?: string;
     /**
      * `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-     * * `webhook`
      */
     includeJsonAttachment?: string;
     /**
@@ -58,11 +56,10 @@ export interface AlertChannelConfig {
     payloadString?: string;
     /**
      * Can either be `application/json` or `application/x-www-form-urlencoded`. The `payloadType` argument is _required_ if `payload` is set.
-     * * `pagerduty`
      */
     payloadType?: string;
     /**
-     * A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * Comma delimited list of email addresses.
      */
     recipients?: string;
     /**
@@ -71,12 +68,10 @@ export interface AlertChannelConfig {
     region?: string;
     /**
      * The route key for integrating with VictorOps.
-     * * `slack`
      */
     routeKey?: string;
     /**
      * Specifies the service key for integrating with Pagerduty.
-     * * `victorops`
      */
     serviceKey?: string;
     /**
@@ -119,7 +114,7 @@ export interface AlertMutingRuleConditionCondition {
      */
     attribute: string;
     /**
-     * The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+     * The operator used to combine all the MutingRuleConditions within the group.
      */
     operator: string;
     /**
@@ -197,6 +192,32 @@ export interface GetEntityTag {
     key: string;
     /**
      * The tag value.
+     */
+    value: string;
+}
+
+export interface GetTestGrokPatternTestGrok {
+    /**
+     * Nested list containing information about any attributes that were extracted.
+     */
+    attributes: outputs.GetTestGrokPatternTestGrokAttribute[];
+    /**
+     * The log line that was tested against.
+     */
+    logLine: string;
+    /**
+     * Whether the Grok pattern matched.
+     */
+    matched: boolean;
+}
+
+export interface GetTestGrokPatternTestGrokAttribute {
+    /**
+     * The attribute name.
+     */
+    name: string;
+    /**
+     * A string representation of the extracted value (which might not be a String).
      */
     value: string;
 }
@@ -359,61 +380,19 @@ export interface OneDashboardPage {
      * The title of the dashboard.
      */
     name: string;
-    /**
-     * (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-     */
     widgetAreas?: outputs.OneDashboardPageWidgetArea[];
-    /**
-     * (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-     */
     widgetBars?: outputs.OneDashboardPageWidgetBar[];
-    /**
-     * (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-     */
     widgetBillboards?: outputs.OneDashboardPageWidgetBillboard[];
-    /**
-     * (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-     */
     widgetBullets?: outputs.OneDashboardPageWidgetBullet[];
-    /**
-     * (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-     */
     widgetFunnels?: outputs.OneDashboardPageWidgetFunnel[];
-    /**
-     * (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-     */
     widgetHeatmaps?: outputs.OneDashboardPageWidgetHeatmap[];
-    /**
-     * (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-     */
     widgetHistograms?: outputs.OneDashboardPageWidgetHistogram[];
-    /**
-     * (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-     */
     widgetJsons?: outputs.OneDashboardPageWidgetJson[];
-    /**
-     * (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-     */
     widgetLines?: outputs.OneDashboardPageWidgetLine[];
-    /**
-     * (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-     */
     widgetLogTables?: outputs.OneDashboardPageWidgetLogTable[];
-    /**
-     * (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-     */
     widgetMarkdowns?: outputs.OneDashboardPageWidgetMarkdown[];
-    /**
-     * (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-     */
     widgetPies?: outputs.OneDashboardPageWidgetPy[];
-    /**
-     * (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-     */
     widgetStackedBars?: outputs.OneDashboardPageWidgetStackedBar[];
-    /**
-     * (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-     */
     widgetTables?: outputs.OneDashboardPageWidgetTable[];
 }
 
@@ -465,6 +444,9 @@ export interface OneDashboardPageWidgetBar {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -475,6 +457,9 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids: string[];
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -537,7 +522,6 @@ export interface OneDashboardPageWidgetBillboard {
     title: string;
     /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widgetBullet`
      */
     warning?: string;
     /**
@@ -573,7 +557,6 @@ export interface OneDashboardPageWidgetBullet {
     ignoreTimeRange?: boolean;
     /**
      * (Required) Visualization limit for the widget.
-     * * `widgetFunnel`
      */
     limit: number;
     /**
@@ -653,6 +636,9 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -663,6 +649,9 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids: string[];
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -885,7 +874,6 @@ export interface OneDashboardPageWidgetMarkdown {
     row: number;
     /**
      * (Required) The markdown source to be rendered in the widget.
-     * * `widgetStackedBar`
      */
     text?: string;
     /**
@@ -903,6 +891,9 @@ export interface OneDashboardPageWidgetPy {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -913,6 +904,9 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids: string[];
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -991,6 +985,9 @@ export interface OneDashboardPageWidgetTable {
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     */
     filterCurrentDashboard?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -1001,6 +998,9 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     */
     linkedEntityGuids: string[];
     /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
@@ -1283,14 +1283,18 @@ export interface ServiceLevelObjectiveTimeWindowRolling {
 
 export interface WorkflowDestination {
     /**
-     * id of a notificationChannel to use for notifications. Please note that you have to use a 
+     * Id of a notificationChannel to use for notifications. Please note that you have to use a 
      * **notification** channel, not an `alertChannel`.
      */
     channelId: string;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name: string;
+    /**
+     * Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     */
+    notificationTriggers: string[];
     /**
      * Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      */
@@ -1315,7 +1319,7 @@ export interface WorkflowEnrichmentsNrql {
     configurations: outputs.WorkflowEnrichmentsNrqlConfiguration[];
     enrichmentId: string;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name: string;
     /**
@@ -1334,7 +1338,7 @@ export interface WorkflowEnrichmentsNrqlConfiguration {
 export interface WorkflowIssuesFilter {
     filterId: string;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name: string;
     /**
@@ -1370,19 +1374,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1401,16 +1400,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1420,8 +1410,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1440,16 +1428,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1459,8 +1438,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1474,8 +1451,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1489,8 +1464,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1504,8 +1477,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1519,19 +1490,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1546,16 +1512,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1565,14 +1522,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
@@ -1587,16 +1540,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1606,8 +1550,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1626,16 +1568,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1645,8 +1578,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1665,16 +1596,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1684,19 +1606,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1710,13 +1627,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1731,16 +1645,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1758,16 +1663,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1777,13 +1673,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1798,16 +1691,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1817,13 +1701,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1838,16 +1719,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1857,8 +1729,6 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
@@ -1873,16 +1743,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1890,8 +1751,6 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsRoute53 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
@@ -1903,13 +1762,10 @@ export namespace cloud {
     export interface AwsGovcloudIntegrationsS3 {
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1924,16 +1780,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -1943,14 +1790,10 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
@@ -1964,19 +1807,14 @@ export namespace cloud {
          * Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          */
         awsRegions?: string[];
         /**
          * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          */
         fetchExtendedInventory?: boolean;
         /**
          * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          */
         fetchTags?: boolean;
         /**
@@ -1995,16 +1833,7 @@ export namespace cloud {
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          */
         tagValue?: string;
     }
@@ -2019,7 +1848,6 @@ export namespace cloud {
     export interface AwsIntegrationsCloudtrail {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          */
         awsRegions?: string[];
         /**
@@ -2059,7 +1887,6 @@ export namespace cloud {
     export interface AwsIntegrationsVpc {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          */
         awsRegions?: string[];
         /**
@@ -2080,7 +1907,6 @@ export namespace cloud {
         tagKey?: string;
         /**
          * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-         * * `xRay`
          */
         tagValue?: string;
     }
@@ -2088,7 +1914,6 @@ export namespace cloud {
     export interface AwsIntegrationsXRay {
         /**
          * Specify each AWS region that includes the resources that you want to monitor.
-         * * `vpc`
          */
         awsRegions?: string[];
         /**
@@ -2663,7 +2488,7 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigAutomatic {
         /**
-         * Whether the static status configuration is enabled or not.
+         * Whether the automatic status configuration is enabled or not.
          */
         enabled: boolean;
         /**
@@ -2741,11 +2566,11 @@ export namespace plugins {
 
     export interface WorkloadStatusConfigStatic {
         /**
-         * A description that provides additional details about the status of the workload.
+         * Relevant information about the workload.
          */
         description?: string;
         /**
-         * Whether the static status configuration is enabled or not.
+         * Whether the automatic status configuration is enabled or not.
          */
         enabled: boolean;
         /**

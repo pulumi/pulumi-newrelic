@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = newrelic.GetAccount(ctx, &GetAccountArgs{
+//			_, err := newrelic.GetAccount(ctx, &newrelic.GetAccountArgs{
 //				Scope: pulumi.StringRef("global"),
 //			}, nil)
 //			if err != nil {

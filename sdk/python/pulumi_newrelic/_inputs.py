@@ -110,22 +110,17 @@ class AlertChannelConfigArgs:
         :param pulumi.Input[str] auth_username: Specifies an authentication username for use with a channel.  Supported by the `webhook` channel type.
         :param pulumi.Input[str] base_url: The base URL of the webhook destination.
         :param pulumi.Input[str] channel: The Slack channel to send notifications to.
-               * `opsgenie`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: A map of key/value pairs that represents extra HTTP headers to be sent along with the webhook payload.
         :param pulumi.Input[str] headers_string: Use instead of `headers` if the desired payload is more complex than a list of key/value pairs (e.g. a set of headers that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `headers`.
         :param pulumi.Input[str] include_json_attachment: `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-               * `webhook`
         :param pulumi.Input[str] key: The key for integrating with VictorOps.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] payload: A map of key/value pairs that represents the webhook payload.  Must provide `payload_type` if setting this argument.
         :param pulumi.Input[str] payload_string: Use instead of `payload` if the desired payload is more complex than a list of key/value pairs (e.g. a payload that makes use of nested objects).  The value provided should be a valid JSON string with escaped double quotes. Conflicts with `payload`.
         :param pulumi.Input[str] payload_type: Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-               * `pagerduty`
-        :param pulumi.Input[str] recipients: A set of recipients for targeting notifications.  Multiple values are comma separated.
+        :param pulumi.Input[str] recipients: Comma delimited list of email addresses.
         :param pulumi.Input[str] region: The data center region to store your data.  Valid values are `US` and `EU`.  Default is `US`.
         :param pulumi.Input[str] route_key: The route key for integrating with VictorOps.
-               * `slack`
         :param pulumi.Input[str] service_key: Specifies the service key for integrating with Pagerduty.
-               * `victorops`
         :param pulumi.Input[str] tags: A set of tags for targeting notifications. Multiple values are comma separated.
         :param pulumi.Input[str] teams: A set of teams for targeting notifications. Multiple values are comma separated.
         :param pulumi.Input[str] url: [Slack Webhook URL](https://slack.com/intl/en-es/help/articles/115005265063-Incoming-webhooks-for-Slack).
@@ -238,7 +233,6 @@ class AlertChannelConfigArgs:
     def channel(self) -> Optional[pulumi.Input[str]]:
         """
         The Slack channel to send notifications to.
-        * `opsgenie`
         """
         return pulumi.get(self, "channel")
 
@@ -275,7 +269,6 @@ class AlertChannelConfigArgs:
     def include_json_attachment(self) -> Optional[pulumi.Input[str]]:
         """
         `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-        * `webhook`
         """
         return pulumi.get(self, "include_json_attachment")
 
@@ -324,7 +317,6 @@ class AlertChannelConfigArgs:
     def payload_type(self) -> Optional[pulumi.Input[str]]:
         """
         Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-        * `pagerduty`
         """
         return pulumi.get(self, "payload_type")
 
@@ -336,7 +328,7 @@ class AlertChannelConfigArgs:
     @pulumi.getter
     def recipients(self) -> Optional[pulumi.Input[str]]:
         """
-        A set of recipients for targeting notifications.  Multiple values are comma separated.
+        Comma delimited list of email addresses.
         """
         return pulumi.get(self, "recipients")
 
@@ -361,7 +353,6 @@ class AlertChannelConfigArgs:
     def route_key(self) -> Optional[pulumi.Input[str]]:
         """
         The route key for integrating with VictorOps.
-        * `slack`
         """
         return pulumi.get(self, "route_key")
 
@@ -374,7 +365,6 @@ class AlertChannelConfigArgs:
     def service_key(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the service key for integrating with Pagerduty.
-        * `victorops`
         """
         return pulumi.get(self, "service_key")
 
@@ -535,7 +525,7 @@ class AlertMutingRuleConditionConditionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] attribute: The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
-        :param pulumi.Input[str] operator: The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -558,7 +548,7 @@ class AlertMutingRuleConditionConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        The operator used to compare the attribute's value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+        The operator used to combine all the MutingRuleConditions within the group.
         """
         return pulumi.get(self, "operator")
 
@@ -1403,20 +1393,6 @@ class OneDashboardPageArgs:
         :param pulumi.Input[str] name: The title of the dashboard.
         :param pulumi.Input[str] description: Brief text describing the dashboard.
         :param pulumi.Input[str] guid: The unique entity identifier of the dashboard page in New Relic.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]] widget_areas: (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]] widget_bars: (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]] widget_billboards: (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgs']]] widget_bullets: (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgs']]] widget_funnels: (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgs']]] widget_heatmaps: (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]] widget_histograms: (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgs']]] widget_jsons: (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]] widget_lines: (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgs']]] widget_log_tables: (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgs']]] widget_markdowns: (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]] widget_pies: (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]] widget_stacked_bars: (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]] widget_tables: (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -1491,9 +1467,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetAreas")
     def widget_areas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetAreaArgs']]]]:
-        """
-        (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_areas")
 
     @widget_areas.setter
@@ -1503,9 +1476,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetBars")
     def widget_bars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarArgs']]]]:
-        """
-        (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_bars")
 
     @widget_bars.setter
@@ -1515,9 +1485,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetBillboards")
     def widget_billboards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBillboardArgs']]]]:
-        """
-        (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_billboards")
 
     @widget_billboards.setter
@@ -1527,9 +1494,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetBullets")
     def widget_bullets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletArgs']]]]:
-        """
-        (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_bullets")
 
     @widget_bullets.setter
@@ -1539,9 +1503,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetFunnels")
     def widget_funnels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetFunnelArgs']]]]:
-        """
-        (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_funnels")
 
     @widget_funnels.setter
@@ -1551,9 +1512,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetHeatmaps")
     def widget_heatmaps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapArgs']]]]:
-        """
-        (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_heatmaps")
 
     @widget_heatmaps.setter
@@ -1563,9 +1521,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetHistograms")
     def widget_histograms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHistogramArgs']]]]:
-        """
-        (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_histograms")
 
     @widget_histograms.setter
@@ -1575,9 +1530,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetJsons")
     def widget_jsons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetJsonArgs']]]]:
-        """
-        (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_jsons")
 
     @widget_jsons.setter
@@ -1587,9 +1539,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetLines")
     def widget_lines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLineArgs']]]]:
-        """
-        (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_lines")
 
     @widget_lines.setter
@@ -1599,9 +1548,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetLogTables")
     def widget_log_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetLogTableArgs']]]]:
-        """
-        (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_log_tables")
 
     @widget_log_tables.setter
@@ -1611,9 +1557,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetMarkdowns")
     def widget_markdowns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetMarkdownArgs']]]]:
-        """
-        (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_markdowns")
 
     @widget_markdowns.setter
@@ -1623,9 +1566,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetPies")
     def widget_pies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyArgs']]]]:
-        """
-        (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_pies")
 
     @widget_pies.setter
@@ -1635,9 +1575,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetStackedBars")
     def widget_stacked_bars(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetStackedBarArgs']]]]:
-        """
-        (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_stacked_bars")
 
     @widget_stacked_bars.setter
@@ -1647,9 +1584,6 @@ class OneDashboardPageArgs:
     @property
     @pulumi.getter(name="widgetTables")
     def widget_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableArgs']]]]:
-        """
-        (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-        """
         return pulumi.get(self, "widget_tables")
 
     @widget_tables.setter
@@ -1840,8 +1774,10 @@ class OneDashboardPageWidgetBarArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBarNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -1912,6 +1848,9 @@ class OneDashboardPageWidgetBarArgs:
     @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
         return pulumi.get(self, "filter_current_dashboard")
 
     @filter_current_dashboard.setter
@@ -1954,6 +1893,9 @@ class OneDashboardPageWidgetBarArgs:
     @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
         return pulumi.get(self, "linked_entity_guids")
 
     @linked_entity_guids.setter
@@ -2033,7 +1975,6 @@ class OneDashboardPageWidgetBillboardArgs:
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[str] warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
-               * `widget_bullet`
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2151,7 +2092,6 @@ class OneDashboardPageWidgetBillboardArgs:
     def warning(self) -> Optional[pulumi.Input[str]]:
         """
         (Optional) Threshold above which the displayed value will be styled with a yellow color.
-        * `widget_bullet`
         """
         return pulumi.get(self, "warning")
 
@@ -2225,7 +2165,6 @@ class OneDashboardPageWidgetBulletArgs:
         """
         :param pulumi.Input[int] column: (Required) Column position of widget from top left, starting at `1`.
         :param pulumi.Input[float] limit: (Required) Visualization limit for the widget.
-               * `widget_funnel`
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetBulletNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
@@ -2264,7 +2203,6 @@ class OneDashboardPageWidgetBulletArgs:
     def limit(self) -> pulumi.Input[float]:
         """
         (Required) Visualization limit for the widget.
-        * `widget_funnel`
         """
         return pulumi.get(self, "limit")
 
@@ -2575,8 +2513,10 @@ class OneDashboardPageWidgetHeatmapArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetHeatmapNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -2647,6 +2587,9 @@ class OneDashboardPageWidgetHeatmapArgs:
     @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
         return pulumi.get(self, "filter_current_dashboard")
 
     @filter_current_dashboard.setter
@@ -2689,6 +2632,9 @@ class OneDashboardPageWidgetHeatmapArgs:
     @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
         return pulumi.get(self, "linked_entity_guids")
 
     @linked_entity_guids.setter
@@ -3424,7 +3370,6 @@ class OneDashboardPageWidgetMarkdownArgs:
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         :param pulumi.Input[str] text: (Required) The markdown source to be rendered in the widget.
-               * `widget_stacked_bar`
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3515,7 +3460,6 @@ class OneDashboardPageWidgetMarkdownArgs:
     def text(self) -> Optional[pulumi.Input[str]]:
         """
         (Required) The markdown source to be rendered in the widget.
-        * `widget_stacked_bar`
         """
         return pulumi.get(self, "text")
 
@@ -3554,8 +3498,10 @@ class OneDashboardPageWidgetPyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetPyNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3626,6 +3572,9 @@ class OneDashboardPageWidgetPyArgs:
     @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
         return pulumi.get(self, "filter_current_dashboard")
 
     @filter_current_dashboard.setter
@@ -3668,6 +3617,9 @@ class OneDashboardPageWidgetPyArgs:
     @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
         return pulumi.get(self, "linked_entity_guids")
 
     @linked_entity_guids.setter
@@ -3908,8 +3860,10 @@ class OneDashboardPageWidgetTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OneDashboardPageWidgetTableNrqlQueryArgs']]] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param pulumi.Input[int] row: (Required) Row position of widget from top left, starting at `1`.
         :param pulumi.Input[str] title: (Optional) A human-friendly display string for this value.
+        :param pulumi.Input[bool] filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param pulumi.Input[int] height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param pulumi.Input[bool] ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
         :param pulumi.Input[int] width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         pulumi.set(__self__, "column", column)
@@ -3980,6 +3934,9 @@ class OneDashboardPageWidgetTableArgs:
     @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Use this item to filter the current dashboard.
+        """
         return pulumi.get(self, "filter_current_dashboard")
 
     @filter_current_dashboard.setter
@@ -4022,6 +3979,9 @@ class OneDashboardPageWidgetTableArgs:
     @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        """
         return pulumi.get(self, "linked_entity_guids")
 
     @linked_entity_guids.setter
@@ -4986,16 +4946,20 @@ class WorkflowDestinationArgs:
     def __init__(__self__, *,
                  channel_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
+                 notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] channel_id: id of a notification_channel to use for notifications. Please note that you have to use a 
+        :param pulumi.Input[str] channel_id: Id of a notification_channel to use for notifications. Please note that you have to use a 
                **notification** channel, not an `alert_channel`.
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_triggers: Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
         :param pulumi.Input[str] type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notification_triggers is not None:
+            pulumi.set(__self__, "notification_triggers", notification_triggers)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -5003,7 +4967,7 @@ class WorkflowDestinationArgs:
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Input[str]:
         """
-        id of a notification_channel to use for notifications. Please note that you have to use a 
+        Id of a notification_channel to use for notifications. Please note that you have to use a 
         **notification** channel, not an `alert_channel`.
         """
         return pulumi.get(self, "channel_id")
@@ -5016,13 +4980,25 @@ class WorkflowDestinationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        The name of the workflow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notificationTriggers")
+    def notification_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+        """
+        return pulumi.get(self, "notification_triggers")
+
+    @notification_triggers.setter
+    def notification_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notification_triggers", value)
 
     @property
     @pulumi.getter
@@ -5069,7 +5045,7 @@ class WorkflowEnrichmentsNrqlArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowEnrichmentsNrqlConfigurationArgs']]] configurations: Another wrapper block
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[int] account_id: Determines the New Relic account in which the workflow is created. Defaults to the account defined in the provider section.
         :param pulumi.Input[str] type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         """
@@ -5098,7 +5074,7 @@ class WorkflowEnrichmentsNrqlArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        The name of the workflow.
         """
         return pulumi.get(self, "name")
 
@@ -5170,7 +5146,7 @@ class WorkflowIssuesFilterArgs:
                  filter_id: Optional[pulumi.Input[str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[str] type: Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowIssuesFilterPredicateArgs']]] predicates: A condition an issue event should satisfy to be processed by the workflow
         """
@@ -5185,7 +5161,7 @@ class WorkflowIssuesFilterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        The name of the workflow.
         """
         return pulumi.get(self, "name")
 

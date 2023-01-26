@@ -14,19 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const account = pulumi.output(newrelic.getCloudAccount({
+ * const account = newrelic.getCloudAccount({
  *     accountId: 12345,
  *     cloudProvider: "aws",
  *     name: "my aws account",
- * }));
+ * });
  * ```
  */
 export function getCloudAccount(args: GetCloudAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getCloudAccount:getCloudAccount", {
         "accountId": args.accountId,
         "cloudProvider": args.cloudProvider,
@@ -64,9 +61,25 @@ export interface GetCloudAccountResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * Use this data source to get information about a specific cloud account linked to New Relic.
+ * Accounts can be located by a combination of New Relic Account ID, name and cloud provider (aws, gcp, azure, etc). Name and cloud provider are required attributes. If no accountId is specified on the resource the provider level accountId will be used.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const account = newrelic.getCloudAccount({
+ *     accountId: 12345,
+ *     cloudProvider: "aws",
+ *     name: "my aws account",
+ * });
+ * ```
+ */
 export function getCloudAccountOutput(args: GetCloudAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudAccountResult> {
-    return pulumi.output(args).apply(a => getCloudAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getCloudAccount(a, opts))
 }
 
 /**

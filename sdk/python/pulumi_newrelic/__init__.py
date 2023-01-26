@@ -21,7 +21,9 @@ from .get_cloud_account import *
 from .get_entity import *
 from .get_key_transaction import *
 from .get_obfuscation_expression import *
+from .get_test_grok_pattern import *
 from .infra_alert_condition import *
+from .log_parsing_rule import *
 from .notification_channel import *
 from .notification_destination import *
 from .nrql_alert_condition import *
@@ -193,6 +195,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/infraAlertCondition:InfraAlertCondition": "InfraAlertCondition"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/logParsingRule",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/logParsingRule:LogParsingRule": "LogParsingRule"
   }
  },
  {

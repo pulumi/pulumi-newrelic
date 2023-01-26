@@ -15,14 +15,11 @@ import javax.annotation.Nullable;
 public final class AwsGovcloudIntegrationsS3 {
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     private @Nullable Boolean fetchExtendedInventory;
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     private @Nullable Boolean fetchTags;
@@ -40,16 +37,7 @@ public final class AwsGovcloudIntegrationsS3 {
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     private @Nullable String tagValue;
@@ -57,8 +45,6 @@ public final class AwsGovcloudIntegrationsS3 {
     private AwsGovcloudIntegrationsS3() {}
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     public Optional<Boolean> fetchExtendedInventory() {
@@ -66,7 +52,6 @@ public final class AwsGovcloudIntegrationsS3 {
     }
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     public Optional<Boolean> fetchTags() {
@@ -90,16 +75,7 @@ public final class AwsGovcloudIntegrationsS3 {
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     public Optional<String> tagValue() {

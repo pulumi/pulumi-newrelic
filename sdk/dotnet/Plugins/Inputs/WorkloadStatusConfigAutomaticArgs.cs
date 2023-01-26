@@ -13,7 +13,7 @@ namespace Pulumi.NewRelic.Plugins.Inputs
     public sealed class WorkloadStatusConfigAutomaticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the static status configuration is enabled or not.
+        /// Whether the automatic status configuration is enabled or not.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * const foo = new newrelic.cloud.AwsGovcloudLinkAccount("foo", {
  *     accessKeyId: "access-key-id of aws govcloud account",
- *     accountId: Number.parseFloat("The New Relic account ID where you want to link the AWS GovCloud account"),
+ *     accountId: "The New Relic account ID where you want to link the AWS GovCloud account",
  *     awsAccountId: "aws govcloud account id",
  *     metricCollectionMode: "PULL",
  *     secretAccessKey: "secret access key of the aws govcloud account",
@@ -73,7 +73,7 @@ export class AwsGovcloudLinkAccount extends pulumi.CustomResource {
      */
     public readonly metricCollectionMode!: pulumi.Output<string | undefined>;
     /**
-     * - The linked account name
+     * The linked account name
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface AwsGovcloudLinkAccountState {
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * - The linked account name
+     * The linked account name
      */
     name?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface AwsGovcloudLinkAccountArgs {
      */
     metricCollectionMode?: pulumi.Input<string>;
     /**
-     * - The linked account name
+     * The linked account name
      */
     name?: pulumi.Input<string>;
     /**

@@ -84,7 +84,6 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// The Slack channel to send notifications to.
-        /// * `opsgenie`
         /// </summary>
         [Input("channel")]
         public Input<string>? Channel { get; set; }
@@ -123,7 +122,6 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-        /// * `webhook`
         /// </summary>
         [Input("includeJsonAttachment")]
         public Input<string>? IncludeJsonAttachment { get; set; }
@@ -178,13 +176,12 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-        /// * `pagerduty`
         /// </summary>
         [Input("payloadType")]
         public Input<string>? PayloadType { get; set; }
 
         /// <summary>
-        /// A set of recipients for targeting notifications.  Multiple values are comma separated.
+        /// Comma delimited list of email addresses.
         /// </summary>
         [Input("recipients")]
         public Input<string>? Recipients { get; set; }
@@ -200,7 +197,6 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// The route key for integrating with VictorOps.
-        /// * `slack`
         /// </summary>
         public Input<string>? RouteKey
         {
@@ -217,7 +213,6 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// Specifies the service key for integrating with Pagerduty.
-        /// * `victorops`
         /// </summary>
         public Input<string>? ServiceKey
         {

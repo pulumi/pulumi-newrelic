@@ -22,8 +22,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
      * Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     @Import(name="awsRegions")
@@ -33,8 +31,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -43,7 +39,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
 
     /**
      * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     @Import(name="fetchTags")
@@ -51,7 +46,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
 
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     public Optional<Output<Boolean>> fetchTags() {
@@ -92,16 +86,7 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
      * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     @Import(name="tagValue")
@@ -111,16 +96,7 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     public Optional<Output<String>> tagValue() {
@@ -159,8 +135,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -174,8 +148,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -188,8 +160,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -200,7 +170,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
 
         /**
          * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          * 
          * @return builder
          * 
@@ -212,7 +181,6 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
 
         /**
          * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          * 
          * @return builder
          * 
@@ -267,16 +235,7 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          * 
          * @return builder
          * 
@@ -290,16 +249,7 @@ public final class AwsGovcloudIntegrationsLambdaArgs extends com.pulumi.resource
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          * 
          * @return builder
          * 

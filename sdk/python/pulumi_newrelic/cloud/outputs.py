@@ -140,29 +140,15 @@ class AwsGovcloudIntegrationsAlb(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param Sequence[str] load_balancer_prefixes: Specify each name or prefix for the LBs that you want to monitor. Filter values are case-sensitive.
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -186,8 +172,6 @@ class AwsGovcloudIntegrationsAlb(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -196,8 +180,6 @@ class AwsGovcloudIntegrationsAlb(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -206,7 +188,6 @@ class AwsGovcloudIntegrationsAlb(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -241,16 +222,7 @@ class AwsGovcloudIntegrationsAlb(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -292,24 +264,13 @@ class AwsGovcloudIntegrationsApiGateway(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param Sequence[str] stage_prefixes: Specify each name or prefix for the Stages that you want to monitor. Filter values are case-sensitive.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -329,8 +290,6 @@ class AwsGovcloudIntegrationsApiGateway(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -365,16 +324,7 @@ class AwsGovcloudIntegrationsApiGateway(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -407,8 +357,6 @@ class AwsGovcloudIntegrationsAutoScaling(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -423,8 +371,6 @@ class AwsGovcloudIntegrationsAutoScaling(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -465,8 +411,6 @@ class AwsGovcloudIntegrationsAwsDirectConnect(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -481,8 +425,6 @@ class AwsGovcloudIntegrationsAwsDirectConnect(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -523,8 +465,6 @@ class AwsGovcloudIntegrationsAwsStates(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -539,8 +479,6 @@ class AwsGovcloudIntegrationsAwsStates(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -581,8 +519,6 @@ class AwsGovcloudIntegrationsCloudtrail(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -597,8 +533,6 @@ class AwsGovcloudIntegrationsCloudtrail(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -651,28 +585,14 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -694,8 +614,6 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -704,8 +622,6 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -714,7 +630,6 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -741,16 +656,7 @@ class AwsGovcloudIntegrationsDynamoDb(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -792,26 +698,13 @@ class AwsGovcloudIntegrationsEbs(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -831,8 +724,6 @@ class AwsGovcloudIntegrationsEbs(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -841,8 +732,6 @@ class AwsGovcloudIntegrationsEbs(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -869,16 +758,7 @@ class AwsGovcloudIntegrationsEbs(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -920,24 +800,13 @@ class AwsGovcloudIntegrationsEc2(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_ip_addresses: Specify if IP addresses of ec2 instance should be collected
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -957,8 +826,6 @@ class AwsGovcloudIntegrationsEc2(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -993,16 +860,7 @@ class AwsGovcloudIntegrationsEc2(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1044,24 +902,13 @@ class AwsGovcloudIntegrationsElasticSearch(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_nodes: Specify if metrics should be collected for nodes. Turning it on will increase the number of API calls made to CloudWatch.
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1081,8 +928,6 @@ class AwsGovcloudIntegrationsElasticSearch(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1117,16 +962,7 @@ class AwsGovcloudIntegrationsElasticSearch(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1165,13 +1001,8 @@ class AwsGovcloudIntegrationsElb(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -1190,8 +1021,6 @@ class AwsGovcloudIntegrationsElb(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1200,8 +1029,6 @@ class AwsGovcloudIntegrationsElb(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -1210,7 +1037,6 @@ class AwsGovcloudIntegrationsElb(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -1260,25 +1086,13 @@ class AwsGovcloudIntegrationsEmr(dict):
         :param str aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1298,8 +1112,6 @@ class AwsGovcloudIntegrationsEmr(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1308,7 +1120,6 @@ class AwsGovcloudIntegrationsEmr(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -1335,16 +1146,7 @@ class AwsGovcloudIntegrationsEmr(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1382,16 +1184,7 @@ class AwsGovcloudIntegrationsIam(dict):
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if metrics_polling_interval is not None:
             pulumi.set(__self__, "metrics_polling_interval", metrics_polling_interval)
@@ -1423,16 +1216,7 @@ class AwsGovcloudIntegrationsIam(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1474,25 +1258,13 @@ class AwsGovcloudIntegrationsLambda(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1512,8 +1284,6 @@ class AwsGovcloudIntegrationsLambda(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1522,7 +1292,6 @@ class AwsGovcloudIntegrationsLambda(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -1549,16 +1318,7 @@ class AwsGovcloudIntegrationsLambda(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1600,25 +1360,13 @@ class AwsGovcloudIntegrationsRds(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1638,8 +1386,6 @@ class AwsGovcloudIntegrationsRds(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1648,7 +1394,6 @@ class AwsGovcloudIntegrationsRds(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -1675,16 +1420,7 @@ class AwsGovcloudIntegrationsRds(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1723,23 +1459,12 @@ class AwsGovcloudIntegrationsRedShift(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -1757,8 +1482,6 @@ class AwsGovcloudIntegrationsRedShift(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -1785,16 +1508,7 @@ class AwsGovcloudIntegrationsRedShift(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -1825,8 +1539,6 @@ class AwsGovcloudIntegrationsRoute53(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if fetch_extended_inventory is not None:
@@ -1839,8 +1551,6 @@ class AwsGovcloudIntegrationsRoute53(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -1888,25 +1598,13 @@ class AwsGovcloudIntegrationsS3(dict):
                  tag_value: Optional[str] = None):
         """
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if fetch_extended_inventory is not None:
             pulumi.set(__self__, "fetch_extended_inventory", fetch_extended_inventory)
@@ -1924,8 +1622,6 @@ class AwsGovcloudIntegrationsS3(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -1934,7 +1630,6 @@ class AwsGovcloudIntegrationsS3(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -1961,16 +1656,7 @@ class AwsGovcloudIntegrationsS3(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -2006,11 +1692,7 @@ class AwsGovcloudIntegrationsSns(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -2027,8 +1709,6 @@ class AwsGovcloudIntegrationsSns(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2037,8 +1717,6 @@ class AwsGovcloudIntegrationsSns(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -2094,29 +1772,15 @@ class AwsGovcloudIntegrationsSqs(dict):
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
                * `direct connect`
                * `aws states`
-               * `cloudtrail`
-               * `dynamoDB`
         :param bool fetch_extended_inventory: Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `s3`
-               * `sqs`
         :param bool fetch_tags: Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-               * `emr`
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param Sequence[str] queue_prefixes: Specify each name or prefix for the Queues that you want to monitor. Filter values are case-sensitive.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
                * `api Gateway`
                * `auto scaling`
-               * `ebs`
-               * `ec2`
                * `elastic search`
-               * `elb`
-               * `iam`
-               * `lambda`
-               * `rds`
-               * `redshift`
-               * `route53`
-               * `sns`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2140,8 +1804,6 @@ class AwsGovcloudIntegrationsSqs(dict):
         Specify each AWS region that includes the resources that you want to monitor.
         * `direct connect`
         * `aws states`
-        * `cloudtrail`
-        * `dynamoDB`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2150,8 +1812,6 @@ class AwsGovcloudIntegrationsSqs(dict):
     def fetch_extended_inventory(self) -> Optional[bool]:
         """
         Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `s3`
-        * `sqs`
         """
         return pulumi.get(self, "fetch_extended_inventory")
 
@@ -2160,7 +1820,6 @@ class AwsGovcloudIntegrationsSqs(dict):
     def fetch_tags(self) -> Optional[bool]:
         """
         Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        * `emr`
         """
         return pulumi.get(self, "fetch_tags")
 
@@ -2195,16 +1854,7 @@ class AwsGovcloudIntegrationsSqs(dict):
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         * `api Gateway`
         * `auto scaling`
-        * `ebs`
-        * `ec2`
         * `elastic search`
-        * `elb`
-        * `iam`
-        * `lambda`
-        * `rds`
-        * `redshift`
-        * `route53`
-        * `sns`
         """
         return pulumi.get(self, "tag_value")
 
@@ -2271,7 +1921,6 @@ class AwsIntegrationsCloudtrail(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `vpc`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -2284,7 +1933,6 @@ class AwsIntegrationsCloudtrail(dict):
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `vpc`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2479,13 +2127,11 @@ class AwsIntegrationsVpc(dict):
                  tag_value: Optional[str] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `vpc`
         :param bool fetch_nat_gateway: Specify if NAT gateway should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param bool fetch_vpn: Specify if VPN should be monitored. May affect total data collection time and contribute to the Cloud provider API rate limit.
         :param int metrics_polling_interval: The data polling interval in seconds.
         :param str tag_key: Specify a Tag key associated with the resources that you want to monitor. Filter values are case-sensitive.
         :param str tag_value: Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-               * `x_ray`
         """
         if aws_regions is not None:
             pulumi.set(__self__, "aws_regions", aws_regions)
@@ -2505,7 +2151,6 @@ class AwsIntegrationsVpc(dict):
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `vpc`
         """
         return pulumi.get(self, "aws_regions")
 
@@ -2546,7 +2191,6 @@ class AwsIntegrationsVpc(dict):
     def tag_value(self) -> Optional[str]:
         """
         Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-        * `x_ray`
         """
         return pulumi.get(self, "tag_value")
 
@@ -2577,7 +2221,6 @@ class AwsIntegrationsXRay(dict):
                  metrics_polling_interval: Optional[int] = None):
         """
         :param Sequence[str] aws_regions: Specify each AWS region that includes the resources that you want to monitor.
-               * `vpc`
         :param int metrics_polling_interval: The data polling interval in seconds.
         """
         if aws_regions is not None:
@@ -2590,7 +2233,6 @@ class AwsIntegrationsXRay(dict):
     def aws_regions(self) -> Optional[Sequence[str]]:
         """
         Specify each AWS region that includes the resources that you want to monitor.
-        * `vpc`
         """
         return pulumi.get(self, "aws_regions")
 

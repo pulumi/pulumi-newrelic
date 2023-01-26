@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			txn, err := newrelic.GetKeyTransaction(ctx, &GetKeyTransactionArgs{
+//			txn, err := newrelic.GetKeyTransaction(ctx, &newrelic.GetKeyTransactionArgs{
 //				Name: "txn",
 //			}, nil)
 //			if err != nil {
@@ -40,12 +40,12 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_kt_metric"),
 //				Entities: pulumi.IntArray{
-//					pulumi.String(txn.Id),
+//					*pulumi.String(txn.Id),
 //				},
 //				Metric:     pulumi.String("error_percentage"),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
-//				Terms: AlertConditionTermArray{
-//					&AlertConditionTermArgs{
+//				Terms: newrelic.AlertConditionTermArray{
+//					&newrelic.AlertConditionTermArgs{
 //						Duration:     pulumi.Int(5),
 //						Operator:     pulumi.String("below"),
 //						Priority:     pulumi.String("critical"),

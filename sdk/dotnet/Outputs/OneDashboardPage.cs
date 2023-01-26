@@ -25,61 +25,19 @@ namespace Pulumi.NewRelic.Outputs
         /// The title of the dashboard.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetArea> WidgetAreas;
-        /// <summary>
-        /// (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBar> WidgetBars;
-        /// <summary>
-        /// (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBillboard> WidgetBillboards;
-        /// <summary>
-        /// (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetBullet> WidgetBullets;
-        /// <summary>
-        /// (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetFunnel> WidgetFunnels;
-        /// <summary>
-        /// (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHeatmap> WidgetHeatmaps;
-        /// <summary>
-        /// (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetHistogram> WidgetHistograms;
-        /// <summary>
-        /// (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetJson> WidgetJsons;
-        /// <summary>
-        /// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLine> WidgetLines;
-        /// <summary>
-        /// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetLogTable> WidgetLogTables;
-        /// <summary>
-        /// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetMarkdown> WidgetMarkdowns;
-        /// <summary>
-        /// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetPy> WidgetPies;
-        /// <summary>
-        /// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetStackedBar> WidgetStackedBars;
-        /// <summary>
-        /// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OneDashboardPageWidgetTable> WidgetTables;
 
         [OutputConstructor]

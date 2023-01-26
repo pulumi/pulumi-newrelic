@@ -22,19 +22,19 @@ namespace Pulumi.NewRelic.Cloud
     public partial class GcpLinkAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// - Account ID of the New Relic account.
+        /// Account ID of the New Relic account.
         /// </summary>
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// - The name of the GCP account in New Relic.
+        /// The name of the GCP account in New Relic.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// - Project ID of the GCP account.
+        /// Project ID of the GCP account.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -86,19 +86,19 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class GcpLinkAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Account ID of the New Relic account.
+        /// Account ID of the New Relic account.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// - The name of the GCP account in New Relic.
+        /// The name of the GCP account in New Relic.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// - Project ID of the GCP account.
+        /// Project ID of the GCP account.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -112,19 +112,19 @@ namespace Pulumi.NewRelic.Cloud
     public sealed class GcpLinkAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Account ID of the New Relic account.
+        /// Account ID of the New Relic account.
         /// </summary>
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// - The name of the GCP account in New Relic.
+        /// The name of the GCP account in New Relic.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// - Project ID of the GCP account.
+        /// Project ID of the GCP account.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

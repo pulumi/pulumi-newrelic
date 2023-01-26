@@ -22,8 +22,6 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
      * Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     @Import(name="awsRegions")
@@ -33,8 +31,6 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -90,16 +86,7 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
      * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     @Import(name="tagValue")
@@ -109,16 +96,7 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     public Optional<Output<String>> tagValue() {
@@ -157,8 +135,6 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -172,8 +148,6 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -186,8 +160,6 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -263,16 +235,7 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          * 
          * @return builder
          * 
@@ -286,16 +249,7 @@ public final class AwsGovcloudIntegrationsEc2Args extends com.pulumi.resources.R
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          * 
          * @return builder
          * 

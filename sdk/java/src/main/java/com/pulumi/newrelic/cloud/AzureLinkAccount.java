@@ -28,84 +28,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="newrelic:cloud/azureLinkAccount:AzureLinkAccount")
 public class AzureLinkAccount extends com.pulumi.resources.CustomResource {
     /**
-     * - Account ID of the New Relic.
+     * Account ID of the New Relic.
      * 
      */
     @Export(name="accountId", type=Integer.class, parameters={})
     private Output<Integer> accountId;
 
     /**
-     * @return - Account ID of the New Relic.
+     * @return Account ID of the New Relic.
      * 
      */
     public Output<Integer> accountId() {
         return this.accountId;
     }
     /**
-     * - Application ID of the App.
+     * Application ID of the App.
      * 
      */
     @Export(name="applicationId", type=String.class, parameters={})
     private Output<String> applicationId;
 
     /**
-     * @return - Application ID of the App.
+     * @return Application ID of the App.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * - Secret Value of the client.
+     * Secret Value of the client.
      * 
      */
     @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
-     * @return - Secret Value of the client.
+     * @return Secret Value of the client.
      * 
      */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
     /**
-     * - The name of the application in New Relic APM.
+     * The name of the application in New Relic APM.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return - The name of the application in New Relic APM.
+     * @return The name of the application in New Relic APM.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * - Subscription ID of the Azure cloud account.
+     * Subscription ID of the Azure cloud account.
      * 
      */
     @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
-     * @return - Subscription ID of the Azure cloud account.
+     * @return Subscription ID of the Azure cloud account.
      * 
      */
     public Output<String> subscriptionId() {
         return this.subscriptionId;
     }
     /**
-     * - Tenant ID of the Azure cloud account.
+     * Tenant ID of the Azure cloud account.
      * 
      */
     @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**
-     * @return - Tenant ID of the Azure cloud account.
+     * @return Tenant ID of the Azure cloud account.
      * 
      */
     public Output<String> tenantId() {

@@ -30,14 +30,14 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
     }
 
     /**
-     * The operator used to compare the attribute&#39;s value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+     * The operator used to combine all the MutingRuleConditions within the group.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return The operator used to compare the attribute&#39;s value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+     * @return The operator used to combine all the MutingRuleConditions within the group.
      * 
      */
     public Output<String> operator() {
@@ -107,7 +107,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param operator The operator used to compare the attribute&#39;s value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+         * @param operator The operator used to combine all the MutingRuleConditions within the group.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param operator The operator used to compare the attribute&#39;s value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+         * @param operator The operator used to combine all the MutingRuleConditions within the group.
          * 
          * @return builder
          * 

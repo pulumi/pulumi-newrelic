@@ -274,7 +274,7 @@ class Provider(pulumi.ProviderResource):
 
             if account_id is None:
                 account_id = _utilities.get_env_int('NEW_RELIC_ACCOUNT_ID')
-            __props__.__dict__["account_id"] = None if pulumi.Output.from_input(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None is None else pulumi.Output.secret(pulumi.Output.from_input(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None)
+            __props__.__dict__["account_id"] = pulumi.Output.secret(account_id).apply(pulumi.runtime.to_json) if account_id is not None else None
             __props__.__dict__["admin_api_key"] = None if admin_api_key is None else pulumi.Output.secret(admin_api_key)
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")

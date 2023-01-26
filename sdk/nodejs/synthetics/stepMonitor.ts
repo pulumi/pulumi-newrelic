@@ -37,40 +37,6 @@ import * as utilities from "../utilities";
  * See additional examples.
  * ## Additional Examples
  *
- * ### Create a monitor with a private location
- *
- * The below example shows how you can define a private location and attach it to a monitor.
- *
- * > **NOTE:** It can take up to 10 minutes for a private location to become available.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const location = new newrelic.synthetics.PrivateLocation("location", {
- *     description: "Test Description",
- *     verifiedScriptExecution: true,
- * });
- * const bar = new newrelic.synthetics.StepMonitor("bar", {
- *     locationPrivates: [{
- *         guid: "newrelic_synthetics_private_location.location.id",
- *         vsePassword: "secret",
- *     }],
- *     period: "EVERY_6_HOURS",
- *     status: "ENABLED",
- *     steps: [{
- *         ordinal: 0,
- *         type: "NAVIGATE",
- *         values: ["https://google.com"],
- *     }],
- *     tags: [{
- *         key: "some_key",
- *         values: ["some_value"],
- *     }],
- *     uri: "https://www.one.example.com",
- * });
- * ```
- *
  * ## Import
  *
  * Synthetics step monitor scripts can be imported using the `guid`, e.g. bash

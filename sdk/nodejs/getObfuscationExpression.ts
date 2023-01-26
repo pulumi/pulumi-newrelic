@@ -30,11 +30,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getObfuscationExpression(args: GetObfuscationExpressionArgs, opts?: pulumi.InvokeOptions): Promise<GetObfuscationExpressionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getObfuscationExpression:getObfuscationExpression", {
         "accountId": args.accountId,
         "name": args.name,
@@ -66,9 +63,33 @@ export interface GetObfuscationExpressionResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const expression = newrelic.getObfuscationExpression({
+ *     accountId: 123456,
+ *     name: "The expression",
+ * });
+ * const rule = new newrelic.ObfuscationRule("rule", {
+ *     description: "description of the rule",
+ *     filter: "hostStatus=running",
+ *     enabled: true,
+ *     actions: [{
+ *         attributes: ["message"],
+ *         expressionId: expression.then(expression => expression.id),
+ *         method: "MASK",
+ *     }],
+ * });
+ * ```
+ */
 export function getObfuscationExpressionOutput(args: GetObfuscationExpressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObfuscationExpressionResult> {
-    return pulumi.output(args).apply(a => getObfuscationExpression(a, opts))
+    return pulumi.output(args).apply((a: any) => getObfuscationExpression(a, opts))
 }
 
 /**

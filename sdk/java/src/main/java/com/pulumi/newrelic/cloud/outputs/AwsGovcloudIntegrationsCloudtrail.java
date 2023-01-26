@@ -17,8 +17,6 @@ public final class AwsGovcloudIntegrationsCloudtrail {
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -33,8 +31,6 @@ public final class AwsGovcloudIntegrationsCloudtrail {
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     public List<String> awsRegions() {

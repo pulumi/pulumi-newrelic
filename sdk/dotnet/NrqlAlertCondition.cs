@@ -35,8 +35,7 @@ namespace Pulumi.NewRelic
     /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
     /// - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
     /// &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-    /// &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-    /// &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+    /// &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
     /// 
     /// - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
     /// - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -94,83 +93,6 @@ namespace Pulumi.NewRelic
     ///             Threshold = 3.5,
     ///             ThresholdDuration = 600,
     ///             ThresholdOccurrences = "ALL",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Upgrade from 1.x to 2.x
-    /// 
-    /// There have been several deprecations in the `newrelic.NrqlAlertCondition`
-    /// resource.  Users will need to make some updates in order to have a smooth
-    /// upgrade.
-    /// 
-    /// An example resource from 1.x might look like the following.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
-    ///     {
-    ///         PolicyId = newrelic_alert_policy.Z.Id,
-    ///         Type = "static",
-    ///         RunbookUrl = "https://localhost",
-    ///         Enabled = true,
-    ///         ValueFunction = "sum",
-    ///         ViolationTimeLimit = "TWENTY_FOUR_HOURS",
-    ///         Critical = new NewRelic.Inputs.NrqlAlertConditionCriticalArgs
-    ///         {
-    ///             Operator = "above",
-    ///             ThresholdDuration = 120,
-    ///             Threshold = 3,
-    ///             ThresholdOccurrences = "AT_LEAST_ONCE",
-    ///         },
-    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-    ///         {
-    ///             Query = "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// After making the appropriate adjustments mentioned in the deprecation warnings,
-    /// the resource now looks like the following.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using NewRelic = Pulumi.NewRelic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var nrqlAlertCondition = new NewRelic.NrqlAlertCondition("nrqlAlertCondition", new()
-    ///     {
-    ///         PolicyId = newrelic_alert_policy.Z.Id,
-    ///         Type = "static",
-    ///         RunbookUrl = "https://localhost",
-    ///         Enabled = true,
-    ///         ValueFunction = "sum",
-    ///         ViolationTimeLimitSeconds = 86400,
-    ///         Terms = new[]
-    ///         {
-    ///             new NewRelic.Inputs.NrqlAlertConditionTermArgs
-    ///             {
-    ///                 Priority = "critical",
-    ///                 Operator = "above",
-    ///                 Threshold = 3,
-    ///                 Duration = 5,
-    ///                 TimeFunction = "any",
-    ///             },
-    ///         },
-    ///         Nrql = new NewRelic.Inputs.NrqlAlertConditionNrqlArgs
-    ///         {
-    ///             Query = "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
     ///         },
     ///     });
     /// 
@@ -309,7 +231,7 @@ namespace Pulumi.NewRelic
         public Output<string?> RunbookUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         /// </summary>
         [Output("slideBy")]
         public Output<int?> SlideBy { get; private set; } = null!;
@@ -325,12 +247,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED** Use `signal.slide_by` instead.
-        /// </summary>
-        [Output("valueFunction")]
-        public Output<string?> ValueFunction { get; private set; } = null!;
 
         /// <summary>
         /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
@@ -507,7 +423,7 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         /// </summary>
         [Input("slideBy")]
         public Input<int>? SlideBy { get; set; }
@@ -530,12 +446,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED** Use `signal.slide_by` instead.
-        /// </summary>
-        [Input("valueFunction")]
-        public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
         /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;
@@ -680,7 +590,7 @@ namespace Pulumi.NewRelic
         public Input<string>? RunbookUrl { get; set; }
 
         /// <summary>
-        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+        /// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
         /// </summary>
         [Input("slideBy")]
         public Input<int>? SlideBy { get; set; }
@@ -703,12 +613,6 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED** Use `signal.slide_by` instead.
-        /// </summary>
-        [Input("valueFunction")]
-        public Input<string>? ValueFunction { get; set; }
 
         /// <summary>
         /// **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;

@@ -17,6 +17,9 @@ namespace Pulumi.NewRelic.Outputs
         /// (Required) Column position of widget from top left, starting at `1`.
         /// </summary>
         public readonly int Column;
+        /// <summary>
+        /// (Optional) Use this item to filter the current dashboard.
+        /// </summary>
         public readonly bool? FilterCurrentDashboard;
         /// <summary>
         /// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -27,6 +30,9 @@ namespace Pulumi.NewRelic.Outputs
         /// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
         /// </summary>
         public readonly bool? IgnoreTimeRange;
+        /// <summary>
+        /// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        /// </summary>
         public readonly ImmutableArray<string> LinkedEntityGuids;
         /// <summary>
         /// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.

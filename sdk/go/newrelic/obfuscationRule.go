@@ -38,8 +38,8 @@ import (
 //				Description: pulumi.String("description of the rule"),
 //				Filter:      pulumi.String("hostStatus=running"),
 //				Enabled:     pulumi.Bool(true),
-//				Actions: ObfuscationRuleActionArray{
-//					&ObfuscationRuleActionArgs{
+//				Actions: newrelic.ObfuscationRuleActionArray{
+//					&newrelic.ObfuscationRuleActionArgs{
 //						Attributes: pulumi.StringArray{
 //							pulumi.String("message"),
 //						},

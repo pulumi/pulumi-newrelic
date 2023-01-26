@@ -49,7 +49,7 @@ class WorkloadStatusConfigAutomaticArgs:
                  remaining_entities_rule: Optional[pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the static status configuration is enabled or not.
+        :param pulumi.Input[bool] enabled: Whether the automatic status configuration is enabled or not.
         :param pulumi.Input['WorkloadStatusConfigAutomaticRemainingEntitiesRuleArgs'] remaining_entities_rule: An additional meta-rule that can consider all entities that haven't been evaluated by any other rule. See Nested remaining_entities_rule blocks below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WorkloadStatusConfigAutomaticRuleArgs']]] rules: The input object used to represent a rollup strategy. See Nested rule blocks below for details.
         """
@@ -63,7 +63,7 @@ class WorkloadStatusConfigAutomaticArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the static status configuration is enabled or not.
+        Whether the automatic status configuration is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
@@ -325,9 +325,9 @@ class WorkloadStatusConfigStaticArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  summary: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the static status configuration is enabled or not.
+        :param pulumi.Input[bool] enabled: Whether the automatic status configuration is enabled or not.
         :param pulumi.Input[str] status: The status of the workload.
-        :param pulumi.Input[str] description: A description that provides additional details about the status of the workload.
+        :param pulumi.Input[str] description: Relevant information about the workload.
         :param pulumi.Input[str] summary: A short description of the status of the workload.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -341,7 +341,7 @@ class WorkloadStatusConfigStaticArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the static status configuration is enabled or not.
+        Whether the automatic status configuration is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
@@ -365,7 +365,7 @@ class WorkloadStatusConfigStaticArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description that provides additional details about the status of the workload.
+        Relevant information about the workload.
         """
         return pulumi.get(self, "description")
 

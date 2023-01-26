@@ -42,15 +42,15 @@ export class GcpLinkAccount extends pulumi.CustomResource {
     }
 
     /**
-     * - Account ID of the New Relic account.
+     * Account ID of the New Relic account.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * - The name of the GCP account in New Relic.
+     * The name of the GCP account in New Relic.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * - Project ID of the GCP account.
+     * Project ID of the GCP account.
      */
     public readonly projectId!: pulumi.Output<string>;
 
@@ -89,15 +89,15 @@ export class GcpLinkAccount extends pulumi.CustomResource {
  */
 export interface GcpLinkAccountState {
     /**
-     * - Account ID of the New Relic account.
+     * Account ID of the New Relic account.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * - The name of the GCP account in New Relic.
+     * The name of the GCP account in New Relic.
      */
     name?: pulumi.Input<string>;
     /**
-     * - Project ID of the GCP account.
+     * Project ID of the GCP account.
      */
     projectId?: pulumi.Input<string>;
 }
@@ -107,15 +107,15 @@ export interface GcpLinkAccountState {
  */
 export interface GcpLinkAccountArgs {
     /**
-     * - Account ID of the New Relic account.
+     * Account ID of the New Relic account.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * - The name of the GCP account in New Relic.
+     * The name of the GCP account in New Relic.
      */
     name?: pulumi.Input<string>;
     /**
-     * - Project ID of the GCP account.
+     * Project ID of the GCP account.
      */
     projectId: pulumi.Input<string>;
 }

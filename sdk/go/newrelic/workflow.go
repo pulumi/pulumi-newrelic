@@ -30,11 +30,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewWorkflow(ctx, "foo", &newrelic.WorkflowArgs{
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
-//				IssuesFilter: &WorkflowIssuesFilterArgs{
+//				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("filter-name"),
 //					Type: pulumi.String("FILTER"),
-//					Predicates: WorkflowIssuesFilterPredicateArray{
-//						&WorkflowIssuesFilterPredicateArgs{
+//					Predicates: newrelic.WorkflowIssuesFilterPredicateArray{
+//						&newrelic.WorkflowIssuesFilterPredicateArgs{
 //							Attribute: pulumi.String("accumulations.tag.team"),
 //							Operator:  pulumi.String("EXACTLY_MATCHES"),
 //							Values: pulumi.StringArray{
@@ -43,8 +43,8 @@ import (
 //						},
 //					},
 //				},
-//				Destinations: WorkflowDestinationArray{
-//					&WorkflowDestinationArgs{
+//				Destinations: newrelic.WorkflowDestinationArray{
+//					&newrelic.WorkflowDestinationArgs{
 //						ChannelId: pulumi.Any(newrelic_notification_channel.Some_channel.Id),
 //					},
 //				},
@@ -79,13 +79,13 @@ import (
 //			}
 //			_, err = newrelic.NewNotificationDestination(ctx, "webhook-destination", &newrelic.NotificationDestinationArgs{
 //				Type: pulumi.String("WEBHOOK"),
-//				Properties: NotificationDestinationPropertyArray{
-//					&NotificationDestinationPropertyArgs{
+//				Properties: newrelic.NotificationDestinationPropertyArray{
+//					&newrelic.NotificationDestinationPropertyArgs{
 //						Key:   pulumi.String("url"),
 //						Value: pulumi.String("https://example.com"),
 //					},
 //				},
-//				AuthBasic: &NotificationDestinationAuthBasicArgs{
+//				AuthBasic: &newrelic.NotificationDestinationAuthBasicArgs{
 //					User:     pulumi.String("username"),
 //					Password: pulumi.String("password"),
 //				},
@@ -97,8 +97,8 @@ import (
 //				Type:          pulumi.String("WEBHOOK"),
 //				DestinationId: webhook_destination.ID(),
 //				Product:       pulumi.String("IINT"),
-//				Properties: NotificationChannelPropertyArray{
-//					&NotificationChannelPropertyArgs{
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
 //						Key:   pulumi.String("payload"),
 //						Value: pulumi.String("{}"),
 //						Label: pulumi.String("Payload Template"),
@@ -110,11 +110,11 @@ import (
 //			}
 //			_, err = newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
-//				IssuesFilter: &WorkflowIssuesFilterArgs{
+//				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("Filter-name"),
 //					Type: pulumi.String("FILTER"),
-//					Predicates: WorkflowIssuesFilterPredicateArray{
-//						&WorkflowIssuesFilterPredicateArgs{
+//					Predicates: newrelic.WorkflowIssuesFilterPredicateArray{
+//						&newrelic.WorkflowIssuesFilterPredicateArgs{
 //							Attribute: pulumi.String("labels.policyIds"),
 //							Operator:  pulumi.String("EXACTLY_MATCHES"),
 //							Values: pulumi.StringArray{
@@ -123,8 +123,8 @@ import (
 //						},
 //					},
 //				},
-//				Destinations: WorkflowDestinationArray{
-//					&WorkflowDestinationArgs{
+//				Destinations: newrelic.WorkflowDestinationArray{
+//					&newrelic.WorkflowDestinationArgs{
 //						ChannelId: webhook_channel.ID(),
 //					},
 //				},
@@ -156,11 +156,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
 //				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
-//				IssuesFilter: &WorkflowIssuesFilterArgs{
+//				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
 //					Name: pulumi.String("Filter-name"),
 //					Type: pulumi.String("FILTER"),
-//					Predicates: WorkflowIssuesFilterPredicateArray{
-//						&WorkflowIssuesFilterPredicateArgs{
+//					Predicates: newrelic.WorkflowIssuesFilterPredicateArray{
+//						&newrelic.WorkflowIssuesFilterPredicateArgs{
 //							Attribute: pulumi.String("accumulations.tag.team"),
 //							Operator:  pulumi.String("EXACTLY_MATCHES"),
 //							Values: pulumi.StringArray{
@@ -169,21 +169,68 @@ import (
 //						},
 //					},
 //				},
-//				Enrichments: &WorkflowEnrichmentsArgs{
-//					Nrqls: WorkflowEnrichmentsNrqlArray{
-//						&WorkflowEnrichmentsNrqlArgs{
+//				Enrichments: &newrelic.WorkflowEnrichmentsArgs{
+//					Nrqls: newrelic.WorkflowEnrichmentsNrqlArray{
+//						&newrelic.WorkflowEnrichmentsNrqlArgs{
 //							Name: pulumi.String("Log Count"),
-//							Configurations: WorkflowEnrichmentsNrqlConfigurationArray{
-//								&WorkflowEnrichmentsNrqlConfigurationArgs{
+//							Configurations: newrelic.WorkflowEnrichmentsNrqlConfigurationArray{
+//								&newrelic.WorkflowEnrichmentsNrqlConfigurationArgs{
 //									Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM Log WHERE message like '%verror%v' since 10 minutes ago", "%", "%")),
 //								},
 //							},
 //						},
 //					},
 //				},
-//				Destinations: WorkflowDestinationArray{
-//					&WorkflowDestinationArgs{
+//				Destinations: newrelic.WorkflowDestinationArray{
+//					&newrelic.WorkflowDestinationArgs{
 //						ChannelId: pulumi.Any(newrelic_notification_channel.WebhookChannel.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### An example of a workflow with notification triggers
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewWorkflow(ctx, "workflow-example", &newrelic.WorkflowArgs{
+//				MutingRulesHandling: pulumi.String("NOTIFY_ALL_ISSUES"),
+//				IssuesFilter: &newrelic.WorkflowIssuesFilterArgs{
+//					Name: pulumi.String("Filter-name"),
+//					Type: pulumi.String("FILTER"),
+//					Predicates: newrelic.WorkflowIssuesFilterPredicateArray{
+//						&newrelic.WorkflowIssuesFilterPredicateArgs{
+//							Attribute: pulumi.String("accumulations.tag.team"),
+//							Operator:  pulumi.String("EXACTLY_MATCHES"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("my_team"),
+//							},
+//						},
+//					},
+//				},
+//				Destinations: newrelic.WorkflowDestinationArray{
+//					&newrelic.WorkflowDestinationArgs{
+//						ChannelId: pulumi.Any(newrelic_notification_channel.WebhookChannel.Id),
+//						NotificationTriggers: pulumi.StringArray{
+//							pulumi.String("ACTIVATED"),
+//						},
 //					},
 //				},
 //			})
@@ -244,7 +291,7 @@ type Workflow struct {
 	LastRun pulumi.StringOutput `pulumi:"lastRun"`
 	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling pulumi.StringOutput `pulumi:"mutingRulesHandling"`
-	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	// The name of the workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The id of the workflow.
 	WorkflowId pulumi.StringOutput `pulumi:"workflowId"`
@@ -309,7 +356,7 @@ type workflowState struct {
 	LastRun *string `pulumi:"lastRun"`
 	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling *string `pulumi:"mutingRulesHandling"`
-	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	// The name of the workflow.
 	Name *string `pulumi:"name"`
 	// The id of the workflow.
 	WorkflowId *string `pulumi:"workflowId"`
@@ -337,7 +384,7 @@ type WorkflowState struct {
 	LastRun pulumi.StringPtrInput
 	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling pulumi.StringPtrInput
-	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	// The name of the workflow.
 	Name pulumi.StringPtrInput
 	// The id of the workflow.
 	WorkflowId pulumi.StringPtrInput
@@ -367,7 +414,7 @@ type workflowArgs struct {
 	IssuesFilter WorkflowIssuesFilter `pulumi:"issuesFilter"`
 	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling string `pulumi:"mutingRulesHandling"`
-	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	// The name of the workflow.
 	Name *string `pulumi:"name"`
 }
 
@@ -392,7 +439,7 @@ type WorkflowArgs struct {
 	IssuesFilter WorkflowIssuesFilterInput
 	// How to handle muted issues. See Muting Rules below for details.
 	MutingRulesHandling pulumi.StringInput
-	// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+	// The name of the workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -531,7 +578,7 @@ func (o WorkflowOutput) MutingRulesHandling() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.MutingRulesHandling }).(pulumi.StringOutput)
 }
 
-// A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+// The name of the workflow.
 func (o WorkflowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

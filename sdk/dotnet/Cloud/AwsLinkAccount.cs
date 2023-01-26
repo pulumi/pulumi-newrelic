@@ -40,7 +40,7 @@ namespace Pulumi.NewRelic.Cloud
         public Output<string?> MetricCollectionMode { get; private set; } = null!;
 
         /// <summary>
-        /// - The linked account name
+        /// The linked account name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? MetricCollectionMode { get; set; }
 
         /// <summary>
-        /// - The linked account name
+        /// The linked account name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.NewRelic.Cloud
         public Input<string>? MetricCollectionMode { get; set; }
 
         /// <summary>
-        /// - The linked account name
+        /// The linked account name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

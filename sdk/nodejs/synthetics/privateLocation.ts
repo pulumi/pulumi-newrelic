@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const location = new newrelic.synthetics.PrivateLocation("location", {
- *     description: "The private location description",
- * });
+ * const location = new newrelic.synthetics.PrivateLocation("location", {description: "The private location description"});
  * ```
  *
  * ## Import

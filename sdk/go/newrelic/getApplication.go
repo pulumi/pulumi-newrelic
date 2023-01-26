@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := newrelic.GetApplication(ctx, &GetApplicationArgs{
+//			app, err := newrelic.GetApplication(ctx, &newrelic.GetApplicationArgs{
 //				Name: "my-app",
 //			}, nil)
 //			if err != nil {
@@ -42,12 +42,12 @@ import (
 //				PolicyId: fooAlertPolicy.ID(),
 //				Type:     pulumi.String("apm_app_metric"),
 //				Entities: pulumi.IntArray{
-//					pulumi.String(app.Id),
+//					*pulumi.String(app.Id),
 //				},
 //				Metric:     pulumi.String("apdex"),
 //				RunbookUrl: pulumi.String("https://www.example.com"),
-//				Terms: AlertConditionTermArray{
-//					&AlertConditionTermArgs{
+//				Terms: newrelic.AlertConditionTermArray{
+//					&newrelic.AlertConditionTermArgs{
 //						Duration:     pulumi.Int(5),
 //						Operator:     pulumi.String("below"),
 //						Priority:     pulumi.String("critical"),

@@ -77,14 +77,14 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * - The linked account name
+     * The linked account name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return - The linked account name
+     * @return The linked account name
      * 
      */
     public Optional<Output<String>> name() {
@@ -220,7 +220,7 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name - The linked account name
+         * @param name The linked account name
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class AwsGovcloudLinkAccountArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name - The linked account name
+         * @param name The linked account name
          * 
          * @return builder
          * 

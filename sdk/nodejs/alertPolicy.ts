@@ -14,9 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.AlertPolicy("foo", {
- *     incidentPreference: "PER_POLICY", // PER_POLICY is default
- * });
+ * const foo = new newrelic.AlertPolicy("foo", {incidentPreference: "PER_POLICY"});
  * ```
  * ### Provision multiple notification channels and add those channels to a policy
  *

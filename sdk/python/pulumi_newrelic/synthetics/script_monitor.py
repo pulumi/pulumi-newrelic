@@ -548,21 +548,21 @@ class ScriptMonitor(pulumi.CustomResource):
             description="Example private location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_API",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.location.id",
+                guid=location.id,
                 vse_password="secret",
             )],
             period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
             script="console.log('terraform integration test updated')",
             script_language="JAVASCRIPT",
-            status="ENABLED",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_API")
+            )])
         ```
         ##### Type: `SCRIPT_BROWSER`
 
@@ -574,22 +574,22 @@ class ScriptMonitor(pulumi.CustomResource):
             description="Test Description",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_BROWSER",
+            period="EVERY_HOUR",
+            script="$browser.get('https://one.newrelic.com')",
             enable_screenshot_on_failure_and_script=False,
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.location.id",
+                guid=location.id,
                 vse_password="secret",
             )],
-            period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            script="$browser.get('https://one.newrelic.com')",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
+            )])
         ```
 
         ## Import
@@ -693,21 +693,21 @@ class ScriptMonitor(pulumi.CustomResource):
             description="Example private location",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_API",
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.location.id",
+                guid=location.id,
                 vse_password="secret",
             )],
             period="EVERY_6_HOURS",
-            runtime_type="NODE_API",
-            runtime_type_version="16.10",
             script="console.log('terraform integration test updated')",
             script_language="JAVASCRIPT",
-            status="ENABLED",
+            runtime_type="NODE_API",
+            runtime_type_version="16.10",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_API")
+            )])
         ```
         ##### Type: `SCRIPT_BROWSER`
 
@@ -719,22 +719,22 @@ class ScriptMonitor(pulumi.CustomResource):
             description="Test Description",
             verified_script_execution=True)
         monitor = newrelic.synthetics.ScriptMonitor("monitor",
+            status="ENABLED",
+            type="SCRIPT_BROWSER",
+            period="EVERY_HOUR",
+            script="$browser.get('https://one.newrelic.com')",
             enable_screenshot_on_failure_and_script=False,
             location_privates=[newrelic.synthetics.ScriptMonitorLocationPrivateArgs(
-                guid="newrelic_synthetics_private_location.location.id",
+                guid=location.id,
                 vse_password="secret",
             )],
-            period="EVERY_HOUR",
-            runtime_type="CHROME_BROWSER",
             runtime_type_version="100",
-            script="$browser.get('https://one.newrelic.com')",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.ScriptMonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="SCRIPT_BROWSER")
+            )])
         ```
 
         ## Import

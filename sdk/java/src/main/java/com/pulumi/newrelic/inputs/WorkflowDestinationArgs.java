@@ -6,6 +6,7 @@ package com.pulumi.newrelic.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,7 +17,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     public static final WorkflowDestinationArgs Empty = new WorkflowDestinationArgs();
 
     /**
-     * id of a notification_channel to use for notifications. Please note that you have to use a
+     * Id of a notification_channel to use for notifications. Please note that you have to use a
      * **notification** channel, not an `alert_channel`.
      * 
      */
@@ -24,7 +25,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     private Output<String> channelId;
 
     /**
-     * @return id of a notification_channel to use for notifications. Please note that you have to use a
+     * @return Id of a notification_channel to use for notifications. Please note that you have to use a
      * **notification** channel, not an `alert_channel`.
      * 
      */
@@ -33,18 +34,33 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * The name of the workflow.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * 
+     */
+    @Import(name="notificationTriggers")
+    private @Nullable Output<List<String>> notificationTriggers;
+
+    /**
+     * @return Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * 
+     */
+    public Optional<Output<List<String>>> notificationTriggers() {
+        return Optional.ofNullable(this.notificationTriggers);
     }
 
     /**
@@ -67,6 +83,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
     private WorkflowDestinationArgs(WorkflowDestinationArgs $) {
         this.channelId = $.channelId;
         this.name = $.name;
+        this.notificationTriggers = $.notificationTriggers;
         this.type = $.type;
     }
 
@@ -89,7 +106,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param channelId id of a notification_channel to use for notifications. Please note that you have to use a
+         * @param channelId Id of a notification_channel to use for notifications. Please note that you have to use a
          * **notification** channel, not an `alert_channel`.
          * 
          * @return builder
@@ -101,7 +118,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param channelId id of a notification_channel to use for notifications. Please note that you have to use a
+         * @param channelId Id of a notification_channel to use for notifications. Please note that you have to use a
          * **notification** channel, not an `alert_channel`.
          * 
          * @return builder
@@ -112,7 +129,7 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+         * @param name The name of the workflow.
          * 
          * @return builder
          * 
@@ -123,13 +140,44 @@ public final class WorkflowDestinationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+         * @param name The name of the workflow.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param notificationTriggers Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationTriggers(@Nullable Output<List<String>> notificationTriggers) {
+            $.notificationTriggers = notificationTriggers;
+            return this;
+        }
+
+        /**
+         * @param notificationTriggers Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationTriggers(List<String> notificationTriggers) {
+            return notificationTriggers(Output.of(notificationTriggers));
+        }
+
+        /**
+         * @param notificationTriggers Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationTriggers(String... notificationTriggers) {
+            return notificationTriggers(List.of(notificationTriggers));
         }
 
         /**
