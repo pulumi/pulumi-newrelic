@@ -16,7 +16,6 @@ import javax.annotation.Nullable;
 public final class AwsIntegrationsVpc {
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     private @Nullable List<String> awsRegions;
@@ -42,7 +41,6 @@ public final class AwsIntegrationsVpc {
     private @Nullable String tagKey;
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `x_ray`
      * 
      */
     private @Nullable String tagValue;
@@ -50,7 +48,6 @@ public final class AwsIntegrationsVpc {
     private AwsIntegrationsVpc() {}
     /**
      * @return Specify each AWS region that includes the resources that you want to monitor.
-     * * `vpc`
      * 
      */
     public List<String> awsRegions() {
@@ -86,7 +83,6 @@ public final class AwsIntegrationsVpc {
     }
     /**
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
-     * * `x_ray`
      * 
      */
     public Optional<String> tagValue() {

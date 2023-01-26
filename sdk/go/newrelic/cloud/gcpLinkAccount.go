@@ -23,11 +23,11 @@ import (
 type GcpLinkAccount struct {
 	pulumi.CustomResourceState
 
-	// - Account ID of the New Relic account.
+	// Account ID of the New Relic account.
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
-	// - The name of the GCP account in New Relic.
+	// The name of the GCP account in New Relic.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// - Project ID of the GCP account.
+	// Project ID of the GCP account.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 }
 
@@ -63,20 +63,20 @@ func GetGcpLinkAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GcpLinkAccount resources.
 type gcpLinkAccountState struct {
-	// - Account ID of the New Relic account.
+	// Account ID of the New Relic account.
 	AccountId *int `pulumi:"accountId"`
-	// - The name of the GCP account in New Relic.
+	// The name of the GCP account in New Relic.
 	Name *string `pulumi:"name"`
-	// - Project ID of the GCP account.
+	// Project ID of the GCP account.
 	ProjectId *string `pulumi:"projectId"`
 }
 
 type GcpLinkAccountState struct {
-	// - Account ID of the New Relic account.
+	// Account ID of the New Relic account.
 	AccountId pulumi.IntPtrInput
-	// - The name of the GCP account in New Relic.
+	// The name of the GCP account in New Relic.
 	Name pulumi.StringPtrInput
-	// - Project ID of the GCP account.
+	// Project ID of the GCP account.
 	ProjectId pulumi.StringPtrInput
 }
 
@@ -85,21 +85,21 @@ func (GcpLinkAccountState) ElementType() reflect.Type {
 }
 
 type gcpLinkAccountArgs struct {
-	// - Account ID of the New Relic account.
+	// Account ID of the New Relic account.
 	AccountId *int `pulumi:"accountId"`
-	// - The name of the GCP account in New Relic.
+	// The name of the GCP account in New Relic.
 	Name *string `pulumi:"name"`
-	// - Project ID of the GCP account.
+	// Project ID of the GCP account.
 	ProjectId string `pulumi:"projectId"`
 }
 
 // The set of arguments for constructing a GcpLinkAccount resource.
 type GcpLinkAccountArgs struct {
-	// - Account ID of the New Relic account.
+	// Account ID of the New Relic account.
 	AccountId pulumi.IntPtrInput
-	// - The name of the GCP account in New Relic.
+	// The name of the GCP account in New Relic.
 	Name pulumi.StringPtrInput
-	// - Project ID of the GCP account.
+	// Project ID of the GCP account.
 	ProjectId pulumi.StringInput
 }
 
@@ -190,17 +190,17 @@ func (o GcpLinkAccountOutput) ToGcpLinkAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// - Account ID of the New Relic account.
+// Account ID of the New Relic account.
 func (o GcpLinkAccountOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-// - The name of the GCP account in New Relic.
+// The name of the GCP account in New Relic.
 func (o GcpLinkAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// - Project ID of the GCP account.
+// Project ID of the GCP account.
 func (o GcpLinkAccountOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcpLinkAccount) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }

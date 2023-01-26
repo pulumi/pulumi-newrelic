@@ -36,8 +36,7 @@ import (
 // <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
 // - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
 // <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions with the `singleValue` value function, the value must be within 60-7200 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
 //
 // - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 // - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -86,114 +85,20 @@ import (
 //				OpenViolationOnExpiration:   pulumi.Bool(true),
 //				CloseViolationsOnExpiration: pulumi.Bool(true),
 //				SlideBy:                     pulumi.Int(30),
-//				Nrql: &NrqlAlertConditionNrqlArgs{
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
 //					Query: pulumi.String("SELECT average(duration) FROM Transaction where appName = 'Your App'"),
 //				},
-//				Critical: &NrqlAlertConditionCriticalArgs{
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
 //					Operator:             pulumi.String("above"),
 //					Threshold:            pulumi.Float64(5.5),
 //					ThresholdDuration:    pulumi.Int(300),
 //					ThresholdOccurrences: pulumi.String("ALL"),
 //				},
-//				Warning: &NrqlAlertConditionWarningArgs{
+//				Warning: &newrelic.NrqlAlertConditionWarningArgs{
 //					Operator:             pulumi.String("above"),
 //					Threshold:            pulumi.Float64(3.5),
 //					ThresholdDuration:    pulumi.Int(600),
 //					ThresholdOccurrences: pulumi.String("ALL"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Upgrade from 1.x to 2.x
-//
-// There have been several deprecations in the `NrqlAlertCondition`
-// resource.  Users will need to make some updates in order to have a smooth
-// upgrade.
-//
-// An example resource from 1.x might look like the following.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
-//				Type:               pulumi.String("static"),
-//				RunbookUrl:         pulumi.String("https://localhost"),
-//				Enabled:            pulumi.Bool(true),
-//				ValueFunction:      pulumi.String("sum"),
-//				ViolationTimeLimit: pulumi.String("TWENTY_FOUR_HOURS"),
-//				Critical: &NrqlAlertConditionCriticalArgs{
-//					Operator:             pulumi.String("above"),
-//					ThresholdDuration:    pulumi.Int(120),
-//					Threshold:            pulumi.Float64(3),
-//					ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
-//				},
-//				Nrql: &NrqlAlertConditionNrqlArgs{
-//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// After making the appropriate adjustments mentioned in the deprecation warnings,
-// the resource now looks like the following.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
-//				PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
-//				Type:                      pulumi.String("static"),
-//				RunbookUrl:                pulumi.String("https://localhost"),
-//				Enabled:                   pulumi.Bool(true),
-//				ValueFunction:             pulumi.String("sum"),
-//				ViolationTimeLimitSeconds: pulumi.Int(86400),
-//				Terms: NrqlAlertConditionTermArray{
-//					&NrqlAlertConditionTermArgs{
-//						Priority:     pulumi.String("critical"),
-//						Operator:     pulumi.String("above"),
-//						Threshold:    pulumi.Float64(3),
-//						Duration:     pulumi.Int(5),
-//						TimeFunction: pulumi.String("any"),
-//					},
-//				},
-//				Nrql: &NrqlAlertConditionNrqlArgs{
-//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
 //				},
 //			})
 //			if err != nil {
@@ -263,7 +168,7 @@ type NrqlAlertCondition struct {
 	PolicyId pulumi.IntOutput `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrOutput `pulumi:"runbookUrl"`
-	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrOutput `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
@@ -271,10 +176,6 @@ type NrqlAlertCondition struct {
 	Terms NrqlAlertConditionTermArrayOutput `pulumi:"terms"`
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// **DEPRECATED** Use `signal.slide_by` instead.
-	//
-	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
-	ValueFunction pulumi.StringPtrOutput `pulumi:"valueFunction"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
@@ -360,7 +261,7 @@ type nrqlAlertConditionState struct {
 	PolicyId *int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
@@ -368,10 +269,6 @@ type nrqlAlertConditionState struct {
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type *string `pulumi:"type"`
-	// **DEPRECATED** Use `signal.slide_by` instead.
-	//
-	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
-	ValueFunction *string `pulumi:"valueFunction"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
@@ -423,7 +320,7 @@ type NrqlAlertConditionState struct {
 	PolicyId pulumi.IntPtrInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
@@ -431,10 +328,6 @@ type NrqlAlertConditionState struct {
 	Terms NrqlAlertConditionTermArrayInput
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrInput
-	// **DEPRECATED** Use `signal.slide_by` instead.
-	//
-	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
-	ValueFunction pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
@@ -488,7 +381,7 @@ type nrqlAlertConditionArgs struct {
 	PolicyId int `pulumi:"policyId"`
 	// Runbook URL to display in notifications.
 	RunbookUrl *string `pulumi:"runbookUrl"`
-	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy *int `pulumi:"slideBy"`
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
@@ -496,10 +389,6 @@ type nrqlAlertConditionArgs struct {
 	Terms []NrqlAlertConditionTerm `pulumi:"terms"`
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type *string `pulumi:"type"`
-	// **DEPRECATED** Use `signal.slide_by` instead.
-	//
-	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
-	ValueFunction *string `pulumi:"valueFunction"`
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
@@ -550,7 +439,7 @@ type NrqlAlertConditionArgs struct {
 	PolicyId pulumi.IntInput
 	// Runbook URL to display in notifications.
 	RunbookUrl pulumi.StringPtrInput
-	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
+	// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 	SlideBy pulumi.IntPtrInput
 	// **DEPRECATED** Use `critical`, and `warning` instead.  A list of terms for this condition. See Terms below for details.
 	//
@@ -558,10 +447,6 @@ type NrqlAlertConditionArgs struct {
 	Terms NrqlAlertConditionTermArrayInput
 	// The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 	Type pulumi.StringPtrInput
-	// **DEPRECATED** Use `signal.slide_by` instead.
-	//
-	// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
-	ValueFunction pulumi.StringPtrInput
 	// **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>
 	// <small>\***Note**: One of `violationTimeLimit` _or_ `violationTimeLimitSeconds` must be set, but not both.</small>
 	//
@@ -756,7 +641,7 @@ func (o NrqlAlertConditionOutput) RunbookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.RunbookUrl }).(pulumi.StringPtrOutput)
 }
 
-// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`. `slideBy` cannot be used with `static` NRQL conditions using the `sum` `valueFunction`.
+// Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slideBy` value is specified in seconds and must be smaller than and a factor of the `aggregationWindow`.
 func (o NrqlAlertConditionOutput) SlideBy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.SlideBy }).(pulumi.IntPtrOutput)
 }
@@ -771,13 +656,6 @@ func (o NrqlAlertConditionOutput) Terms() NrqlAlertConditionTermArrayOutput {
 // The type of the condition. Valid values are `static` or `baseline`. Defaults to `static`.
 func (o NrqlAlertConditionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// **DEPRECATED** Use `signal.slide_by` instead.
-//
-// Deprecated: 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'.
-func (o NrqlAlertConditionOutput) ValueFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringPtrOutput { return v.ValueFunction }).(pulumi.StringPtrOutput)
 }
 
 // **DEPRECATED:** Use `violationTimeLimitSeconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).<br>

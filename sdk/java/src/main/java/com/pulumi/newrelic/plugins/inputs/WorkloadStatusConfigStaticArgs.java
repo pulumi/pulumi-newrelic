@@ -17,14 +17,14 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
     public static final WorkloadStatusConfigStaticArgs Empty = new WorkloadStatusConfigStaticArgs();
 
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description that provides additional details about the status of the workload.
+     * @return Relevant information about the workload.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Whether the static status configuration is enabled or not.
+     * Whether the automatic status configuration is enabled or not.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether the static status configuration is enabled or not.
+     * @return Whether the automatic status configuration is enabled or not.
      * 
      */
     public Output<Boolean> enabled() {
@@ -104,7 +104,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param description A description that provides additional details about the status of the workload.
+         * @param description Relevant information about the workload.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param description A description that provides additional details about the status of the workload.
+         * @param description Relevant information about the workload.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param enabled Whether the static status configuration is enabled or not.
+         * @param enabled Whether the automatic status configuration is enabled or not.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class WorkloadStatusConfigStaticArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param enabled Whether the static status configuration is enabled or not.
+         * @param enabled Whether the automatic status configuration is enabled or not.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     public static final AzureLinkAccountArgs Empty = new AzureLinkAccountArgs();
 
     /**
-     * - Account ID of the New Relic.
+     * Account ID of the New Relic.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<Integer> accountId;
 
     /**
-     * @return - Account ID of the New Relic.
+     * @return Account ID of the New Relic.
      * 
      */
     public Optional<Output<Integer>> accountId() {
@@ -32,14 +32,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * - Application ID of the App.
+     * Application ID of the App.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return - Application ID of the App.
+     * @return Application ID of the App.
      * 
      */
     public Output<String> applicationId() {
@@ -47,14 +47,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * - Secret Value of the client.
+     * Secret Value of the client.
      * 
      */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
     /**
-     * @return - Secret Value of the client.
+     * @return Secret Value of the client.
      * 
      */
     public Output<String> clientSecret() {
@@ -62,14 +62,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * - The name of the application in New Relic APM.
+     * The name of the application in New Relic APM.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return - The name of the application in New Relic APM.
+     * @return The name of the application in New Relic APM.
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,14 +77,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * - Subscription ID of the Azure cloud account.
+     * Subscription ID of the Azure cloud account.
      * 
      */
     @Import(name="subscriptionId", required=true)
     private Output<String> subscriptionId;
 
     /**
-     * @return - Subscription ID of the Azure cloud account.
+     * @return Subscription ID of the Azure cloud account.
      * 
      */
     public Output<String> subscriptionId() {
@@ -92,14 +92,14 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * - Tenant ID of the Azure cloud account.
+     * Tenant ID of the Azure cloud account.
      * 
      */
     @Import(name="tenantId", required=true)
     private Output<String> tenantId;
 
     /**
-     * @return - Tenant ID of the Azure cloud account.
+     * @return Tenant ID of the Azure cloud account.
      * 
      */
     public Output<String> tenantId() {
@@ -136,7 +136,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId - Account ID of the New Relic.
+         * @param accountId Account ID of the New Relic.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId - Account ID of the New Relic.
+         * @param accountId Account ID of the New Relic.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param applicationId - Application ID of the App.
+         * @param applicationId Application ID of the App.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param applicationId - Application ID of the App.
+         * @param applicationId Application ID of the App.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clientSecret - Secret Value of the client.
+         * @param clientSecret Secret Value of the client.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clientSecret - Secret Value of the client.
+         * @param clientSecret Secret Value of the client.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name - The name of the application in New Relic APM.
+         * @param name The name of the application in New Relic APM.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name - The name of the application in New Relic APM.
+         * @param name The name of the application in New Relic APM.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subscriptionId - Subscription ID of the Azure cloud account.
+         * @param subscriptionId Subscription ID of the Azure cloud account.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subscriptionId - Subscription ID of the Azure cloud account.
+         * @param subscriptionId Subscription ID of the Azure cloud account.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tenantId - Tenant ID of the Azure cloud account.
+         * @param tenantId Tenant ID of the Azure cloud account.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AzureLinkAccountArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tenantId - Tenant ID of the Azure cloud account.
+         * @param tenantId Tenant ID of the Azure cloud account.
          * 
          * @return builder
          * 

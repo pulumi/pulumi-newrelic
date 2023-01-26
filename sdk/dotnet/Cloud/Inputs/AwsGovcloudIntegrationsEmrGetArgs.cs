@@ -16,15 +16,12 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         /// Specify each AWS region that includes the resources that you want to monitor.
         /// * `direct connect`
         /// * `aws states`
-        /// * `cloudtrail`
-        /// * `dynamoDB`
         /// </summary>
         [Input("awsRegions")]
         public Input<string>? AwsRegions { get; set; }
 
         /// <summary>
         /// Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        /// * `emr`
         /// </summary>
         [Input("fetchTags")]
         public Input<bool>? FetchTags { get; set; }
@@ -45,16 +42,7 @@ namespace Pulumi.NewRelic.Cloud.Inputs
         /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         /// * `api Gateway`
         /// * `auto scaling`
-        /// * `ebs`
-        /// * `ec2`
         /// * `elastic search`
-        /// * `elb`
-        /// * `iam`
-        /// * `lambda`
-        /// * `rds`
-        /// * `redshift`
-        /// * `route53`
-        /// * `sns`
         /// </summary>
         [Input("tagValue")]
         public Input<string>? TagValue { get; set; }

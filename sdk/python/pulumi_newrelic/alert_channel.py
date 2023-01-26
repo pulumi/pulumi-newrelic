@@ -167,8 +167,6 @@ class AlertChannel(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Use this resource to create and manage New Relic alert channels.
-
         ## Example Usage
         ### Email
         ```python
@@ -301,8 +299,6 @@ class AlertChannel(pulumi.CustomResource):
                  args: AlertChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to create and manage New Relic alert channels.
-
         ## Example Usage
         ### Email
         ```python

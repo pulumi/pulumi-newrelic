@@ -16,7 +16,7 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? FilterId { get; set; }
 
         /// <summary>
-        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        /// The name of the workflow.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

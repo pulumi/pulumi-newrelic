@@ -5,13 +5,31 @@ package com.pulumi.newrelic.synthetics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecureCredentialArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecureCredentialArgs Empty = new GetSecureCredentialArgs();
+
+    /**
+     * The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Output<Integer> accountId;
+
+    /**
+     * @return The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+     * 
+     */
+    public Optional<Output<Integer>> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
 
     /**
      * The secure credential&#39;s key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
@@ -31,6 +49,7 @@ public final class GetSecureCredentialArgs extends com.pulumi.resources.InvokeAr
     private GetSecureCredentialArgs() {}
 
     private GetSecureCredentialArgs(GetSecureCredentialArgs $) {
+        this.accountId = $.accountId;
         this.key = $.key;
     }
 
@@ -50,6 +69,27 @@ public final class GetSecureCredentialArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetSecureCredentialArgs defaults) {
             $ = new GetSecureCredentialArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Output<Integer> accountId) {
+            $.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * @param accountId The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(Integer accountId) {
+            return accountId(Output.of(accountId));
         }
 
         /**

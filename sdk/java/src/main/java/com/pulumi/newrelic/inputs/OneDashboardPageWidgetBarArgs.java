@@ -34,9 +34,17 @@ public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.Re
         return this.column;
     }
 
+    /**
+     * (Optional) Use this item to filter the current dashboard.
+     * 
+     */
     @Import(name="filterCurrentDashboard")
     private @Nullable Output<Boolean> filterCurrentDashboard;
 
+    /**
+     * @return (Optional) Use this item to filter the current dashboard.
+     * 
+     */
     public Optional<Output<Boolean>> filterCurrentDashboard() {
         return Optional.ofNullable(this.filterCurrentDashboard);
     }
@@ -78,9 +86,17 @@ public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.ignoreTimeRange);
     }
 
+    /**
+     * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * 
+     */
     @Import(name="linkedEntityGuids")
     private @Nullable Output<List<String>> linkedEntityGuids;
 
+    /**
+     * @return (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+     * 
+     */
     public Optional<Output<List<String>>> linkedEntityGuids() {
         return Optional.ofNullable(this.linkedEntityGuids);
     }
@@ -199,11 +215,23 @@ public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.Re
             return column(Output.of(column));
         }
 
+        /**
+         * @param filterCurrentDashboard (Optional) Use this item to filter the current dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterCurrentDashboard(@Nullable Output<Boolean> filterCurrentDashboard) {
             $.filterCurrentDashboard = filterCurrentDashboard;
             return this;
         }
 
+        /**
+         * @param filterCurrentDashboard (Optional) Use this item to filter the current dashboard.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterCurrentDashboard(Boolean filterCurrentDashboard) {
             return filterCurrentDashboard(Output.of(filterCurrentDashboard));
         }
@@ -259,15 +287,33 @@ public final class OneDashboardPageWidgetBarArgs extends com.pulumi.resources.Re
             return ignoreTimeRange(Output.of(ignoreTimeRange));
         }
 
+        /**
+         * @param linkedEntityGuids (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linkedEntityGuids(@Nullable Output<List<String>> linkedEntityGuids) {
             $.linkedEntityGuids = linkedEntityGuids;
             return this;
         }
 
+        /**
+         * @param linkedEntityGuids (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linkedEntityGuids(List<String> linkedEntityGuids) {
             return linkedEntityGuids(Output.of(linkedEntityGuids));
         }
 
+        /**
+         * @param linkedEntityGuids (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linkedEntityGuids(String... linkedEntityGuids) {
             return linkedEntityGuids(List.of(linkedEntityGuids));
         }

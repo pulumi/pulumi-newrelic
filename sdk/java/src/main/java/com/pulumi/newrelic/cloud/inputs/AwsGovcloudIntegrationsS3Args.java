@@ -19,8 +19,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
     /**
      * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     @Import(name="fetchExtendedInventory")
@@ -28,8 +26,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
@@ -38,7 +34,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
     /**
      * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     @Import(name="fetchTags")
@@ -46,7 +41,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     public Optional<Output<Boolean>> fetchTags() {
@@ -87,16 +81,7 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
      * Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     @Import(name="tagValue")
@@ -106,16 +91,7 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     public Optional<Output<String>> tagValue() {
@@ -152,8 +128,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          * 
          * @return builder
          * 
@@ -165,8 +139,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          * 
          * @return builder
          * 
@@ -177,7 +149,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
         /**
          * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          * 
          * @return builder
          * 
@@ -189,7 +160,6 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
 
         /**
          * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          * 
          * @return builder
          * 
@@ -244,16 +214,7 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          * 
          * @return builder
          * 
@@ -267,16 +228,7 @@ public final class AwsGovcloudIntegrationsS3Args extends com.pulumi.resources.Re
          * @param tagValue Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
          * * `api Gateway`
          * * `auto scaling`
-         * * `ebs`
-         * * `ec2`
          * * `elastic search`
-         * * `elb`
-         * * `iam`
-         * * `lambda`
-         * * `rds`
-         * * `redshift`
-         * * `route53`
-         * * `sns`
          * 
          * @return builder
          * 

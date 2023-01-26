@@ -17,14 +17,10 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         /// Specify each AWS region that includes the resources that you want to monitor.
         /// * `direct connect`
         /// * `aws states`
-        /// * `cloudtrail`
-        /// * `dynamoDB`
         /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
         /// <summary>
         /// Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-        /// * `s3`
-        /// * `sqs`
         /// </summary>
         public readonly bool? FetchExtendedInventory;
         /// <summary>
@@ -39,16 +35,7 @@ namespace Pulumi.NewRelic.Cloud.Outputs
         /// Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
         /// * `api Gateway`
         /// * `auto scaling`
-        /// * `ebs`
-        /// * `ec2`
         /// * `elastic search`
-        /// * `elb`
-        /// * `iam`
-        /// * `lambda`
-        /// * `rds`
-        /// * `redshift`
-        /// * `route53`
-        /// * `sns`
         /// </summary>
         public readonly string? TagValue;
 

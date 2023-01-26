@@ -85,10 +85,20 @@ export const getObfuscationExpression: typeof import("./getObfuscationExpression
 export const getObfuscationExpressionOutput: typeof import("./getObfuscationExpression").getObfuscationExpressionOutput = null as any;
 utilities.lazyLoad(exports, ["getObfuscationExpression","getObfuscationExpressionOutput"], () => require("./getObfuscationExpression"));
 
+export { GetTestGrokPatternArgs, GetTestGrokPatternResult, GetTestGrokPatternOutputArgs } from "./getTestGrokPattern";
+export const getTestGrokPattern: typeof import("./getTestGrokPattern").getTestGrokPattern = null as any;
+export const getTestGrokPatternOutput: typeof import("./getTestGrokPattern").getTestGrokPatternOutput = null as any;
+utilities.lazyLoad(exports, ["getTestGrokPattern","getTestGrokPatternOutput"], () => require("./getTestGrokPattern"));
+
 export { InfraAlertConditionArgs, InfraAlertConditionState } from "./infraAlertCondition";
 export type InfraAlertCondition = import("./infraAlertCondition").InfraAlertCondition;
 export const InfraAlertCondition: typeof import("./infraAlertCondition").InfraAlertCondition = null as any;
 utilities.lazyLoad(exports, ["InfraAlertCondition"], () => require("./infraAlertCondition"));
+
+export { LogParsingRuleArgs, LogParsingRuleState } from "./logParsingRule";
+export type LogParsingRule = import("./logParsingRule").LogParsingRule;
+export const LogParsingRule: typeof import("./logParsingRule").LogParsingRule = null as any;
+utilities.lazyLoad(exports, ["LogParsingRule"], () => require("./logParsingRule"));
 
 export { NotificationChannelArgs, NotificationChannelState } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
@@ -190,6 +200,8 @@ const _module = {
                 return new EventsToMetricsRule(name, <any>undefined, { urn })
             case "newrelic:index/infraAlertCondition:InfraAlertCondition":
                 return new InfraAlertCondition(name, <any>undefined, { urn })
+            case "newrelic:index/logParsingRule:LogParsingRule":
+                return new LogParsingRule(name, <any>undefined, { urn })
             case "newrelic:index/notificationChannel:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "newrelic:index/notificationDestination:NotificationDestination":
@@ -226,6 +238,7 @@ pulumi.runtime.registerResourceModule("newrelic", "index/apiAccessKey", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/logParsingRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/notificationDestination", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/nrqlAlertCondition", _module)

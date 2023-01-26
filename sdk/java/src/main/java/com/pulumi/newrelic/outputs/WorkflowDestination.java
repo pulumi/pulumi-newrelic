@@ -5,6 +5,7 @@ package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,16 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowDestination {
     /**
-     * @return id of a notification_channel to use for notifications. Please note that you have to use a
+     * @return Id of a notification_channel to use for notifications. Please note that you have to use a
      * **notification** channel, not an `alert_channel`.
      * 
      */
     private String channelId;
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * 
+     */
+    private @Nullable List<String> notificationTriggers;
     /**
      * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
      * 
@@ -30,7 +36,7 @@ public final class WorkflowDestination {
 
     private WorkflowDestination() {}
     /**
-     * @return id of a notification_channel to use for notifications. Please note that you have to use a
+     * @return Id of a notification_channel to use for notifications. Please note that you have to use a
      * **notification** channel, not an `alert_channel`.
      * 
      */
@@ -38,11 +44,18 @@ public final class WorkflowDestination {
         return this.channelId;
     }
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+    /**
+     * @return Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+     * 
+     */
+    public List<String> notificationTriggers() {
+        return this.notificationTriggers == null ? List.of() : this.notificationTriggers;
     }
     /**
      * @return Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
@@ -63,12 +76,14 @@ public final class WorkflowDestination {
     public static final class Builder {
         private String channelId;
         private @Nullable String name;
+        private @Nullable List<String> notificationTriggers;
         private @Nullable String type;
         public Builder() {}
         public Builder(WorkflowDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channelId = defaults.channelId;
     	      this.name = defaults.name;
+    	      this.notificationTriggers = defaults.notificationTriggers;
     	      this.type = defaults.type;
         }
 
@@ -83,6 +98,14 @@ public final class WorkflowDestination {
             return this;
         }
         @CustomType.Setter
+        public Builder notificationTriggers(@Nullable List<String> notificationTriggers) {
+            this.notificationTriggers = notificationTriggers;
+            return this;
+        }
+        public Builder notificationTriggers(String... notificationTriggers) {
+            return notificationTriggers(List.of(notificationTriggers));
+        }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
@@ -91,6 +114,7 @@ public final class WorkflowDestination {
             final var o = new WorkflowDestination();
             o.channelId = channelId;
             o.name = name;
+            o.notificationTriggers = notificationTriggers;
             o.type = type;
             return o;
         }

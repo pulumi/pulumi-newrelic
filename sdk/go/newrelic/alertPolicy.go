@@ -54,7 +54,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("slack"),
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					Url:     pulumi.String("https://hooks.slack.com/services/xxxxxxx/yyyyyyyy"),
 //					Channel: pulumi.String("example-alerts-channel"),
 //				},
@@ -64,7 +64,7 @@ import (
 //			}
 //			emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("email"),
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					Recipients:            pulumi.String("example@testing.com"),
 //					IncludeJsonAttachment: pulumi.String("1"),
 //				},
@@ -100,13 +100,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			slackChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
+//			slackChannel, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
 //				Name: "slack-channel-notification",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			emailChannel, err := newrelic.LookupAlertChannel(ctx, &GetAlertChannelArgs{
+//			emailChannel, err := newrelic.LookupAlertChannel(ctx, &newrelic.LookupAlertChannelArgs{
 //				Name: "test@example.com",
 //			}, nil)
 //			if err != nil {
@@ -115,8 +115,8 @@ import (
 //			_, err = newrelic.NewAlertPolicy(ctx, "policyWithChannels", &newrelic.AlertPolicyArgs{
 //				IncidentPreference: pulumi.String("PER_CONDITION"),
 //				ChannelIds: pulumi.IntArray{
-//					pulumi.String(slackChannel.Id),
-//					pulumi.String(emailChannel.Id),
+//					*pulumi.String(slackChannel.Id),
+//					*pulumi.String(emailChannel.Id),
 //				},
 //			})
 //			if err != nil {

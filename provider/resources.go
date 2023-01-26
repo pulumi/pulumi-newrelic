@@ -125,6 +125,7 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_entity_tags":              {Tok: makeResource(mainMod, "EntityTags")},
 			"newrelic_events_to_metrics_rule":   {Tok: makeResource(mainMod, "EventsToMetricsRule")},
 			"newrelic_alert_muting_rule":        {Tok: makeResource(mainMod, "AlertMutingRule")},
+			"newrelic_log_parsing_rule":         {Tok: makeResource(mainMod, "LogParsingRule")},
 			"newrelic_api_access_key":           {Tok: makeResource(mainMod, "ApiAccessKey")},
 			"newrelic_service_level":            {Tok: makeResource(mainMod, "ServiceLevel")},
 			"newrelic_notification_channel":     {Tok: makeResource(mainMod, "NotificationChannel")},
@@ -193,6 +194,12 @@ func Provider() tfbridge.ProviderInfo {
 			"newrelic_obfuscation_expression":       {Tok: makeDataSource(mainMod, "getObfuscationExpression")},
 			"newrelic_synthetics_secure_credential": {Tok: makeDataSource(syntheticsMod, "getSecureCredential")},
 			"newrelic_synthetics_private_location":  {Tok: makeDataSource(syntheticsMod, "getPrivateLocation")},
+
+			"newrelic_test_grok_pattern": {
+				Tok: makeDataSource(mainMod, "getTestGrokPattern"),
+				Docs: &tfbridge.DocInfo{
+					Source: "log_test_grok.html.markdown",
+				}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

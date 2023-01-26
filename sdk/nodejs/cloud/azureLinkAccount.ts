@@ -42,27 +42,27 @@ export class AzureLinkAccount extends pulumi.CustomResource {
     }
 
     /**
-     * - Account ID of the New Relic.
+     * Account ID of the New Relic.
      */
     public readonly accountId!: pulumi.Output<number>;
     /**
-     * - Application ID of the App.
+     * Application ID of the App.
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
-     * - Secret Value of the client.
+     * Secret Value of the client.
      */
     public readonly clientSecret!: pulumi.Output<string>;
     /**
-     * - The name of the application in New Relic APM.
+     * The name of the application in New Relic APM.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * - Subscription ID of the Azure cloud account.
+     * Subscription ID of the Azure cloud account.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
-     * - Tenant ID of the Azure cloud account.
+     * Tenant ID of the Azure cloud account.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -118,27 +118,27 @@ export class AzureLinkAccount extends pulumi.CustomResource {
  */
 export interface AzureLinkAccountState {
     /**
-     * - Account ID of the New Relic.
+     * Account ID of the New Relic.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * - Application ID of the App.
+     * Application ID of the App.
      */
     applicationId?: pulumi.Input<string>;
     /**
-     * - Secret Value of the client.
+     * Secret Value of the client.
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * - The name of the application in New Relic APM.
+     * The name of the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
     /**
-     * - Subscription ID of the Azure cloud account.
+     * Subscription ID of the Azure cloud account.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
-     * - Tenant ID of the Azure cloud account.
+     * Tenant ID of the Azure cloud account.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -148,27 +148,27 @@ export interface AzureLinkAccountState {
  */
 export interface AzureLinkAccountArgs {
     /**
-     * - Account ID of the New Relic.
+     * Account ID of the New Relic.
      */
     accountId?: pulumi.Input<number>;
     /**
-     * - Application ID of the App.
+     * Application ID of the App.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * - Secret Value of the client.
+     * Secret Value of the client.
      */
     clientSecret: pulumi.Input<string>;
     /**
-     * - The name of the application in New Relic APM.
+     * The name of the application in New Relic APM.
      */
     name?: pulumi.Input<string>;
     /**
-     * - Subscription ID of the Azure cloud account.
+     * Subscription ID of the Azure cloud account.
      */
     subscriptionId: pulumi.Input<string>;
     /**
-     * - Tenant ID of the Azure cloud account.
+     * Tenant ID of the Azure cloud account.
      */
     tenantId: pulumi.Input<string>;
 }

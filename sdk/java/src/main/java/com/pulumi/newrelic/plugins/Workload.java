@@ -139,6 +139,7 @@ import javax.annotation.Nullable;
  * Include automatic status
  * 
  * &gt; The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
+ * 
  * ```java
  * package generated_program;
  * 
@@ -286,42 +287,42 @@ public class Workload extends com.pulumi.resources.CustomResource {
         return this.compositeEntitySearchQuery;
     }
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description that provides additional details about the status of the workload.
+     * @return Relevant information about the workload.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A list of entity GUIDs manually assigned to this workload.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
     @Export(name="entityGuids", type=List.class, parameters={String.class})
     private Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload.
+     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
     public Output<List<String>> entityGuids() {
         return this.entityGuids;
     }
     /**
-     * A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
     @Export(name="entitySearchQueries", type=List.class, parameters={WorkloadEntitySearchQuery.class})
     private Output</* @Nullable */ List<WorkloadEntitySearchQuery>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+     * @return A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
     public Output<Optional<List<WorkloadEntitySearchQuery>>> entitySearchQueries() {

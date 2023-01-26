@@ -698,23 +698,23 @@ class Monitor(pulumi.CustomResource):
             description="Example private location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
+            status="ENABLED",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
-            locations_privates=["newrelic_synthetics_private_location.location.id"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
         ##### Type: `BROWSER`
 
@@ -726,25 +726,25 @@ class Monitor(pulumi.CustomResource):
             description="Example private location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            period="EVERY_MINUTE",
+            locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
-            locations_privates=["newrelic_synthetics_private_location.location.id"],
-            period="EVERY_MINUTE",
-            runtime_type="CHROME_BROWSER",
+            validation_string="success",
+            verify_ssl=True,
             runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
 
         ## Import
@@ -853,23 +853,23 @@ class Monitor(pulumi.CustomResource):
             description="Example private location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
-            bypass_head_request=True,
+            status="ENABLED",
+            period="EVERY_MINUTE",
+            uri="https://www.one.newrelic.com",
+            type="SIMPLE",
+            locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
-            locations_privates=["newrelic_synthetics_private_location.location.id"],
-            period="EVERY_MINUTE",
-            status="ENABLED",
+            treat_redirect_as_failure=True,
+            validation_string="success",
+            bypass_head_request=True,
+            verify_ssl=True,
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            treat_redirect_as_failure=True,
-            type="SIMPLE",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
         ##### Type: `BROWSER`
 
@@ -881,25 +881,25 @@ class Monitor(pulumi.CustomResource):
             description="Example private location",
             verified_script_execution=False)
         monitor = newrelic.synthetics.Monitor("monitor",
+            status="ENABLED",
+            type="BROWSER",
+            uri="https://www.one.newrelic.com",
+            period="EVERY_MINUTE",
+            locations_privates=[location.id],
             custom_headers=[newrelic.synthetics.MonitorCustomHeaderArgs(
                 name="some_name",
                 value="some_value",
             )],
             enable_screenshot_on_failure_and_script=True,
-            locations_privates=["newrelic_synthetics_private_location.location.id"],
-            period="EVERY_MINUTE",
-            runtime_type="CHROME_BROWSER",
+            validation_string="success",
+            verify_ssl=True,
             runtime_type_version="100",
+            runtime_type="CHROME_BROWSER",
             script_language="JAVASCRIPT",
-            status="ENABLED",
             tags=[newrelic.synthetics.MonitorTagArgs(
                 key="some_key",
                 values=["some_value"],
-            )],
-            type="BROWSER",
-            uri="https://www.one.newrelic.com",
-            validation_string="success",
-            verify_ssl=True)
+            )])
         ```
 
         ## Import

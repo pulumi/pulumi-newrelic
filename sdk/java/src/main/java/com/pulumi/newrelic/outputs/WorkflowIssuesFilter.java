@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public final class WorkflowIssuesFilter {
     private @Nullable String filterId;
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     private String name;
@@ -35,7 +35,7 @@ public final class WorkflowIssuesFilter {
         return Optional.ofNullable(this.filterId);
     }
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     public String name() {

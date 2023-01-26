@@ -86,7 +86,6 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
 
     /**
      * (Required) The markdown source to be rendered in the widget.
-     * * `widget_stacked_bar`
      * 
      */
     @Import(name="text")
@@ -94,7 +93,6 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
 
     /**
      * @return (Required) The markdown source to be rendered in the widget.
-     * * `widget_stacked_bar`
      * 
      */
     public Optional<Output<String>> text() {
@@ -257,7 +255,6 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
 
         /**
          * @param text (Required) The markdown source to be rendered in the widget.
-         * * `widget_stacked_bar`
          * 
          * @return builder
          * 
@@ -269,7 +266,6 @@ public final class OneDashboardPageWidgetMarkdownArgs extends com.pulumi.resourc
 
         /**
          * @param text (Required) The markdown source to be rendered in the widget.
-         * * `widget_stacked_bar`
          * 
          * @return builder
          * 

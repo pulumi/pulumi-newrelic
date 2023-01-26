@@ -114,6 +114,30 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### An example of a workflow with notification triggers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const workflow_example = new newrelic.Workflow("workflow-example", {
+ *     mutingRulesHandling: "NOTIFY_ALL_ISSUES",
+ *     issuesFilter: {
+ *         name: "Filter-name",
+ *         type: "FILTER",
+ *         predicates: [{
+ *             attribute: "accumulations.tag.team",
+ *             operator: "EXACTLY_MATCHES",
+ *             values: ["my_team"],
+ *         }],
+ *     },
+ *     destinations: [{
+ *         channelId: newrelic_notification_channel["webhook-channel"].id,
+ *         notificationTriggers: ["ACTIVATED"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Additional Information
  *
  * More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
@@ -205,7 +229,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly mutingRulesHandling!: pulumi.Output<string>;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -309,7 +333,7 @@ export interface WorkflowState {
      */
     mutingRulesHandling?: pulumi.Input<string>;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name?: pulumi.Input<string>;
     /**
@@ -358,7 +382,7 @@ export interface WorkflowArgs {
      */
     mutingRulesHandling: pulumi.Input<string>;
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notificationChannel documentation)
+     * The name of the workflow.
      */
     name?: pulumi.Input<string>;
 }

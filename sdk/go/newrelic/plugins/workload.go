@@ -34,11 +34,11 @@ type Workload struct {
 	AccountId pulumi.IntOutput `pulumi:"accountId"`
 	// The composite query used to compose a dynamic workload.
 	CompositeEntitySearchQuery pulumi.StringOutput `pulumi:"compositeEntitySearchQuery"`
-	// A description that provides additional details about the status of the workload.
+	// Relevant information about the workload.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A list of entity GUIDs manually assigned to this workload.
+	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
 	EntityGuids pulumi.StringArrayOutput `pulumi:"entityGuids"`
-	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+	// A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
 	EntitySearchQueries WorkloadEntitySearchQueryArrayOutput `pulumi:"entitySearchQueries"`
 	// The unique entity identifier of the workload in New Relic.
 	Guid pulumi.StringOutput `pulumi:"guid"`
@@ -89,11 +89,11 @@ type workloadState struct {
 	AccountId *int `pulumi:"accountId"`
 	// The composite query used to compose a dynamic workload.
 	CompositeEntitySearchQuery *string `pulumi:"compositeEntitySearchQuery"`
-	// A description that provides additional details about the status of the workload.
+	// Relevant information about the workload.
 	Description *string `pulumi:"description"`
-	// A list of entity GUIDs manually assigned to this workload.
+	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
 	EntityGuids []string `pulumi:"entityGuids"`
-	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+	// A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
 	EntitySearchQueries []WorkloadEntitySearchQuery `pulumi:"entitySearchQueries"`
 	// The unique entity identifier of the workload in New Relic.
 	Guid *string `pulumi:"guid"`
@@ -116,11 +116,11 @@ type WorkloadState struct {
 	AccountId pulumi.IntPtrInput
 	// The composite query used to compose a dynamic workload.
 	CompositeEntitySearchQuery pulumi.StringPtrInput
-	// A description that provides additional details about the status of the workload.
+	// Relevant information about the workload.
 	Description pulumi.StringPtrInput
-	// A list of entity GUIDs manually assigned to this workload.
+	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
 	EntityGuids pulumi.StringArrayInput
-	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+	// A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
 	EntitySearchQueries WorkloadEntitySearchQueryArrayInput
 	// The unique entity identifier of the workload in New Relic.
 	Guid pulumi.StringPtrInput
@@ -145,11 +145,11 @@ func (WorkloadState) ElementType() reflect.Type {
 type workloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
 	AccountId *int `pulumi:"accountId"`
-	// A description that provides additional details about the status of the workload.
+	// Relevant information about the workload.
 	Description *string `pulumi:"description"`
-	// A list of entity GUIDs manually assigned to this workload.
+	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
 	EntityGuids []string `pulumi:"entityGuids"`
-	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+	// A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
 	EntitySearchQueries []WorkloadEntitySearchQuery `pulumi:"entitySearchQueries"`
 	// The workload's name.
 	Name *string `pulumi:"name"`
@@ -165,11 +165,11 @@ type workloadArgs struct {
 type WorkloadArgs struct {
 	// The New Relic account ID where you want to create the workload.
 	AccountId pulumi.IntPtrInput
-	// A description that provides additional details about the status of the workload.
+	// Relevant information about the workload.
 	Description pulumi.StringPtrInput
-	// A list of entity GUIDs manually assigned to this workload.
+	// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
 	EntityGuids pulumi.StringArrayInput
-	// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+	// A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
 	EntitySearchQueries WorkloadEntitySearchQueryArrayInput
 	// The workload's name.
 	Name pulumi.StringPtrInput
@@ -278,17 +278,17 @@ func (o WorkloadOutput) CompositeEntitySearchQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.CompositeEntitySearchQuery }).(pulumi.StringOutput)
 }
 
-// A description that provides additional details about the status of the workload.
+// Relevant information about the workload.
 func (o WorkloadOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workload) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of entity GUIDs manually assigned to this workload.
+// A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
 func (o WorkloadOutput) EntityGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workload) pulumi.StringArrayOutput { return v.EntityGuids }).(pulumi.StringArrayOutput)
 }
 
-// A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+// A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
 func (o WorkloadOutput) EntitySearchQueries() WorkloadEntitySearchQueryArrayOutput {
 	return o.ApplyT(func(v *Workload) WorkloadEntitySearchQueryArrayOutput { return v.EntitySearchQueries }).(WorkloadEntitySearchQueryArrayOutput)
 }

@@ -69,9 +69,10 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     ///     var monitor = new NewRelic.Synthetics.BrokenLinksMonitor("monitor", new()
     ///     {
+    ///         Uri = "https://www.one.example.com",
     ///         LocationsPrivates = new[]
     ///         {
-    ///             "newrelic_synthetics_private_location.location.id",
+    ///             location.Id,
     ///         },
     ///         Period = "EVERY_6_HOURS",
     ///         Status = "ENABLED",
@@ -86,7 +87,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Uri = "https://www.one.example.com",
     ///     });
     /// 
     /// });

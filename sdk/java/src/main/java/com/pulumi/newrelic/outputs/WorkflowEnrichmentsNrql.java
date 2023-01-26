@@ -26,7 +26,7 @@ public final class WorkflowEnrichmentsNrql {
     private List<WorkflowEnrichmentsNrqlConfiguration> configurations;
     private @Nullable String enrichmentId;
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     private String name;
@@ -55,7 +55,7 @@ public final class WorkflowEnrichmentsNrql {
         return Optional.ofNullable(this.enrichmentId);
     }
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     public String name() {

@@ -265,7 +265,7 @@ class OneDashboard(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OneDashboardVariableArgs']]]]] = None,
                  __props__=None):
         """
-        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 
         ## Example Usage
         ## Additional Examples
@@ -296,7 +296,7 @@ class OneDashboard(pulumi.CustomResource):
                  args: OneDashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+        > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 
         ## Example Usage
         ## Additional Examples

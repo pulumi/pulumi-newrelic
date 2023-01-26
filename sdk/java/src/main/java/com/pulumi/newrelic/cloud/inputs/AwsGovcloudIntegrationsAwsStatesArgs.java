@@ -21,8 +21,6 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
      * Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     @Import(name="awsRegions")
@@ -32,8 +30,6 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -84,8 +80,6 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -99,8 +93,6 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -113,8 +105,6 @@ public final class AwsGovcloudIntegrationsAwsStatesArgs extends com.pulumi.resou
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 

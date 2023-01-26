@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this resource to create and manage New Relic alert channels.
- *
  * ## Example Usage
  * ### Email
  * ```typescript
@@ -118,6 +116,7 @@ import * as utilities from "./utilities";
  *     "policy_name": "$POLICY_NAME"
  *   }
  * }
+ *
  * `,
  *         payloadType: "application/json",
  *     },

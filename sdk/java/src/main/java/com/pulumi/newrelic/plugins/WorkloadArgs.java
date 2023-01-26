@@ -36,14 +36,14 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description that provides additional details about the status of the workload.
+     * @return Relevant information about the workload.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,14 +51,14 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of entity GUIDs manually assigned to this workload.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
     @Import(name="entityGuids")
     private @Nullable Output<List<String>> entityGuids;
 
     /**
-     * @return A list of entity GUIDs manually assigned to this workload.
+     * @return A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
      * 
      */
     public Optional<Output<List<String>>> entityGuids() {
@@ -66,14 +66,14 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
     @Import(name="entitySearchQueries")
     private @Nullable Output<List<WorkloadEntitySearchQueryArgs>> entitySearchQueries;
 
     /**
-     * @return A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+     * @return A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
      * 
      */
     public Optional<Output<List<WorkloadEntitySearchQueryArgs>>> entitySearchQueries() {
@@ -193,7 +193,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description that provides additional details about the status of the workload.
+         * @param description Relevant information about the workload.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description that provides additional details about the status of the workload.
+         * @param description Relevant information about the workload.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityGuids A list of entity GUIDs manually assigned to this workload.
+         * @param entityGuids A list of entity GUIDs manually assigned to this workload. At least one of either `entity_guids` or `entity_search_query` is required.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class WorkloadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entitySearchQueries A list of search queries that define a dynamic workload.  See Nested entity_search_query blocks below for details.
+         * @param entitySearchQueries A list of search queries that define a dynamic workload. At least one of either `entity_guids` or `entity_search_query` is required. See Nested entity_search_query blocks below for details.
          * 
          * @return builder
          * 

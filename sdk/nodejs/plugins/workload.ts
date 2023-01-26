@@ -13,119 +13,6 @@ import * as utilities from "../utilities";
  * attribute in the `provider` block or the `NEW_RELIC_API_KEY` environment
  * variable with your User API key.
  *
- * ## Example Usage
- *
- * Include entities with a certain string on the name.
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
- *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
- *     entitySearchQueries: [{
- *         query: "name like '%Example application%'",
- *     }],
- *     scopeAccountIds: [12345678],
- * });
- * ```
- *
- * Include entities with a set of tags.
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
- *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
- *     entitySearchQueries: [{
- *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
- *     }],
- *     scopeAccountIds: [12345678],
- * });
- * ```
- *
- * Include entities with a set of tags.
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
- *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
- *     entitySearchQueries: [{
- *         query: "tags.accountId = '12345678' AND tags.environment='production' AND tags.language='java'",
- *     }],
- *     scopeAccountIds: [12345678],
- * });
- * ```
- *
- * Include automatic status
- *
- * > The global status of your workload is a quick indicator of the workload health. You can configure it to be calculated automatically, and you can also set an alert and get a notification whenever the workload stops being operational. Alternatively, you can communicate a certain status of the workload by setting up a static value and a description. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
- *     description: "Description",
- *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
- *     entitySearchQueries: [{
- *         query: "name like '%Example application%'",
- *     }],
- *     scopeAccountIds: [12345678],
- *     statusConfigAutomatic: {
- *         enabled: true,
- *         remainingEntitiesRule: {
- *             remainingEntitiesRuleRollup: {
- *                 groupBy: "ENTITY_TYPE",
- *                 strategy: "BEST_STATUS_WINS",
- *                 thresholdType: "FIXED",
- *                 thresholdValue: 100,
- *             },
- *         },
- *         rules: [{
- *             entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
- *             nrqlQueries: [{
- *                 query: "name like '%Example application2%'",
- *             }],
- *             rollup: {
- *                 strategy: "BEST_STATUS_WINS",
- *                 thresholdType: "FIXED",
- *                 thresholdValue: 100,
- *             },
- *         }],
- *     },
- * });
- * ```
- *
- * Include static status
- *
- * > You can use this during maintenance tasks or any other time you want to provide a fixed status for your workload. This overrides all automatic rules. [See our docs](https://docs.newrelic.com/docs/workloads/use-workloads/workloads/workload-status#configure-static)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as newrelic from "@pulumi/newrelic";
- *
- * const foo = new newrelic.plugins.Workload("foo", {
- *     accountId: 12345678,
- *     description: "Description",
- *     entityGuids: ["MjUyMDUyOHxBUE18QVBQTElDQVRJT058MjE1MDM3Nzk1"],
- *     entitySearchQueries: [{
- *         query: "name like '%Example application%'",
- *     }],
- *     scopeAccountIds: [12345678],
- *     statusConfigStatic: {
- *         description: "test",
- *         enabled: true,
- *         status: "OPERATIONAL",
- *         summary: "summary of the status",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * New Relic workloads can be imported using a concatenated string of the format
@@ -173,15 +60,15 @@ export class Workload extends pulumi.CustomResource {
      */
     public /*out*/ readonly compositeEntitySearchQuery!: pulumi.Output<string>;
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A list of entity GUIDs manually assigned to this workload.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      */
     public readonly entityGuids!: pulumi.Output<string[]>;
     /**
-     * A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      */
     public readonly entitySearchQueries!: pulumi.Output<outputs.plugins.WorkloadEntitySearchQuery[] | undefined>;
     /**
@@ -271,15 +158,15 @@ export interface WorkloadState {
      */
     compositeEntitySearchQuery?: pulumi.Input<string>;
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      */
     description?: pulumi.Input<string>;
     /**
-     * A list of entity GUIDs manually assigned to this workload.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      */
     entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      */
     entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
     /**
@@ -321,15 +208,15 @@ export interface WorkloadArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * A description that provides additional details about the status of the workload.
+     * Relevant information about the workload.
      */
     description?: pulumi.Input<string>;
     /**
-     * A list of entity GUIDs manually assigned to this workload.
+     * A list of entity GUIDs manually assigned to this workload. At least one of either `entityGuids` or `entitySearchQuery` is required.
      */
     entityGuids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of search queries that define a dynamic workload.  See Nested entitySearchQuery blocks below for details.
+     * A list of search queries that define a dynamic workload. At least one of either `entityGuids` or `entitySearchQuery` is required. See Nested entitySearchQuery blocks below for details.
      */
     entitySearchQueries?: pulumi.Input<pulumi.Input<inputs.plugins.WorkloadEntitySearchQuery>[]>;
     /**

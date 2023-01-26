@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to map alert policies to alert channels in New Relic.
-//
 // ## Example Usage
 //
 // The example below will apply multiple alert channels to an existing New Relic alert policy.
@@ -29,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicy, err := newrelic.LookupAlertPolicy(ctx, &GetAlertPolicyArgs{
+//			examplePolicy, err := newrelic.LookupAlertPolicy(ctx, &newrelic.LookupAlertPolicyArgs{
 //				Name: "my-alert-policy",
 //			}, nil)
 //			if err != nil {
@@ -37,7 +35,7 @@ import (
 //			}
 //			emailChannel, err := newrelic.NewAlertChannel(ctx, "emailChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("email"),
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					Recipients:            pulumi.String("foo@example.com"),
 //					IncludeJsonAttachment: pulumi.String("1"),
 //				},
@@ -47,7 +45,7 @@ import (
 //			}
 //			slackChannel, err := newrelic.NewAlertChannel(ctx, "slackChannel", &newrelic.AlertChannelArgs{
 //				Type: pulumi.String("slack"),
-//				Config: &AlertChannelConfigArgs{
+//				Config: &newrelic.AlertChannelConfigArgs{
 //					Channel: pulumi.String("#example-channel"),
 //					Url:     pulumi.String("http://example-org.slack.com"),
 //				},
@@ -56,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewAlertPolicyChannel(ctx, "foo", &newrelic.AlertPolicyChannelArgs{
-//				PolicyId: pulumi.String(examplePolicy.Id),
+//				PolicyId: *pulumi.String(examplePolicy.Id),
 //				ChannelIds: pulumi.IntArray{
 //					emailChannel.ID(),
 //					slackChannel.ID(),

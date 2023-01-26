@@ -76,6 +76,7 @@ import javax.annotation.Nullable;
  * The below example shows how you can define a private location and attach it to a monitor.
  * 
  * &gt; **NOTE:** It can take up to 10 minutes for a private location to become available.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -108,8 +109,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new StepMonitor(&#34;bar&#34;, StepMonitorArgs.builder()        
+ *             .uri(&#34;https://www.one.example.com&#34;)
  *             .locationPrivates(StepMonitorLocationPrivateArgs.builder()
- *                 .guid(&#34;newrelic_synthetics_private_location.location.id&#34;)
+ *                 .guid(location.id())
  *                 .vsePassword(&#34;secret&#34;)
  *                 .build())
  *             .period(&#34;EVERY_6_HOURS&#34;)
@@ -123,7 +125,6 @@ import javax.annotation.Nullable;
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
  *                 .build())
- *             .uri(&#34;https://www.one.example.com&#34;)
  *             .build());
  * 
  *     }

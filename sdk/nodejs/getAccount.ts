@@ -15,18 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const acc = pulumi.output(newrelic.getAccount({
+ * const acc = newrelic.getAccount({
  *     scope: "global",
- * }));
+ * });
  * ```
  */
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getAccount:getAccount", {
         "accountId": args.accountId,
         "name": args.name,
@@ -64,9 +61,24 @@ export interface GetAccountResult {
     readonly name?: string;
     readonly scope?: string;
 }
-
+/**
+ * Use this data source to get information about a specific account in New Relic.
+ * Accounts can be located by ID or name.  Exactly one of the two attributes is
+ * required.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const acc = newrelic.getAccount({
+ *     scope: "global",
+ * });
+ * ```
+ */
 export function getAccountOutput(args?: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 /**

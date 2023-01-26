@@ -39,7 +39,6 @@ public final class AlertChannelConfig {
     private @Nullable String baseUrl;
     /**
      * @return The Slack channel to send notifications to.
-     * * `opsgenie`
      * 
      */
     private @Nullable String channel;
@@ -55,7 +54,6 @@ public final class AlertChannelConfig {
     private @Nullable String headersString;
     /**
      * @return `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-     * * `webhook`
      * 
      */
     private @Nullable String includeJsonAttachment;
@@ -76,12 +74,11 @@ public final class AlertChannelConfig {
     private @Nullable String payloadString;
     /**
      * @return Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-     * * `pagerduty`
      * 
      */
     private @Nullable String payloadType;
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return Comma delimited list of email addresses.
      * 
      */
     private @Nullable String recipients;
@@ -92,13 +89,11 @@ public final class AlertChannelConfig {
     private @Nullable String region;
     /**
      * @return The route key for integrating with VictorOps.
-     * * `slack`
      * 
      */
     private @Nullable String routeKey;
     /**
      * @return Specifies the service key for integrating with Pagerduty.
-     * * `victorops`
      * 
      */
     private @Nullable String serviceKey;
@@ -157,7 +152,6 @@ public final class AlertChannelConfig {
     }
     /**
      * @return The Slack channel to send notifications to.
-     * * `opsgenie`
      * 
      */
     public Optional<String> channel() {
@@ -179,7 +173,6 @@ public final class AlertChannelConfig {
     }
     /**
      * @return `true` or `false`. Flag for whether or not to attach a JSON document containing information about the associated alert to the email that is sent to recipients.
-     * * `webhook`
      * 
      */
     public Optional<String> includeJsonAttachment() {
@@ -208,14 +201,13 @@ public final class AlertChannelConfig {
     }
     /**
      * @return Can either be `application/json` or `application/x-www-form-urlencoded`. The `payload_type` argument is _required_ if `payload` is set.
-     * * `pagerduty`
      * 
      */
     public Optional<String> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @return A set of recipients for targeting notifications.  Multiple values are comma separated.
+     * @return Comma delimited list of email addresses.
      * 
      */
     public Optional<String> recipients() {
@@ -230,7 +222,6 @@ public final class AlertChannelConfig {
     }
     /**
      * @return The route key for integrating with VictorOps.
-     * * `slack`
      * 
      */
     public Optional<String> routeKey() {
@@ -238,7 +229,6 @@ public final class AlertChannelConfig {
     }
     /**
      * @return Specifies the service key for integrating with Pagerduty.
-     * * `victorops`
      * 
      */
     public Optional<String> serviceKey() {

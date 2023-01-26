@@ -133,7 +133,6 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
 
     /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widget_bullet`
      * 
      */
     @Import(name="warning")
@@ -141,7 +140,6 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
 
     /**
      * @return (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widget_bullet`
      * 
      */
     public Optional<Output<String>> warning() {
@@ -364,7 +362,6 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
 
         /**
          * @param warning (Optional) Threshold above which the displayed value will be styled with a yellow color.
-         * * `widget_bullet`
          * 
          * @return builder
          * 
@@ -376,7 +373,6 @@ public final class OneDashboardPageWidgetBillboardArgs extends com.pulumi.resour
 
         /**
          * @param warning (Optional) Threshold above which the displayed value will be styled with a yellow color.
-         * * `widget_bullet`
          * 
          * @return builder
          * 

@@ -48,8 +48,7 @@ import javax.annotation.Nullable;
  * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
  * - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
  * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
- * &lt;br&gt;For _static_ NRQL alert conditions with the `sum` value function, the value must be within 120-7200 seconds (inclusive).
- * &lt;br&gt;For _static_ NRQL alert conditions with the `single_value` value function, the value must be within 60-7200 seconds (inclusive).
+ * &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
  * 
  * - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -134,6 +133,7 @@ import javax.annotation.Nullable;
  * upgrade.
  * 
  * An example resource from 1.x might look like the following.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -181,6 +181,7 @@ import javax.annotation.Nullable;
  * 
  * After making the appropriate adjustments mentioned in the deprecation warnings,
  * the resource now looks like the following.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -511,14 +512,14 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runbookUrl);
     }
     /**
-     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+     * Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
     @Export(name="slideBy", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> slideBy;
 
     /**
-     * @return Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`. `slide_by` cannot be used with `static` NRQL conditions using the `sum` `value_function`.
+     * @return Gathers data in overlapping time windows to smooth the chart line, making it easier to spot trends. The `slide_by` value is specified in seconds and must be smaller than and a factor of the `aggregation_window`.
      * 
      */
     public Output<Optional<Integer>> slideBy() {
@@ -555,24 +556,6 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
-    }
-    /**
-     * **DEPRECATED** Use `signal.slide_by` instead.
-     * 
-     * @deprecated
-     * &#39;value_function&#39; is deprecated.  Remove this field and condition will evaluate as &#39;single_value&#39; by default.  To replicate &#39;sum&#39; behavior, use &#39;slide_by&#39;.
-     * 
-     */
-    @Deprecated /* 'value_function' is deprecated.  Remove this field and condition will evaluate as 'single_value' by default.  To replicate 'sum' behavior, use 'slide_by'. */
-    @Export(name="valueFunction", type=String.class, parameters={})
-    private Output</* @Nullable */ String> valueFunction;
-
-    /**
-     * @return **DEPRECATED** Use `signal.slide_by` instead.
-     * 
-     */
-    public Output<Optional<String>> valueFunction() {
-        return Codegen.optional(this.valueFunction);
     }
     /**
      * **DEPRECATED:** Use `violation_time_limit_seconds` instead. Sets a time limit, in hours, that will automatically force-close a long-lasting incident after the time limit you select. Possible values are `ONE_HOUR`, `TWO_HOURS`, `FOUR_HOURS`, `EIGHT_HOURS`, `TWELVE_HOURS`, `TWENTY_FOUR_HOURS`, `THIRTY_DAYS` (case insensitive).&lt;br&gt;

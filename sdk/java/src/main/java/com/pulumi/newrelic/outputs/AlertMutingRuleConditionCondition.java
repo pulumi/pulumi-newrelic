@@ -16,7 +16,7 @@ public final class AlertMutingRuleConditionCondition {
      */
     private String attribute;
     /**
-     * @return The operator used to compare the attribute&#39;s value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+     * @return The operator used to combine all the MutingRuleConditions within the group.
      * 
      */
     private String operator;
@@ -35,7 +35,7 @@ public final class AlertMutingRuleConditionCondition {
         return this.attribute;
     }
     /**
-     * @return The operator used to compare the attribute&#39;s value with the supplied value(s). Valid values are `ANY`, `CONTAINS`, `ENDS_WITH`, `EQUALS`, `IN`, `IS_BLANK`, `IS_NOT_BLANK`, `NOT_CONTAINS`, `NOT_ENDS_WITH`, `NOT_EQUALS`, `NOT_IN`, `NOT_STARTS_WITH`, `STARTS_WITH`
+     * @return The operator used to combine all the MutingRuleConditions within the group.
      * 
      */
     public String operator() {

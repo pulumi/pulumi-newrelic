@@ -133,7 +133,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
@@ -141,18 +141,23 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
-//				BypassHeadRequest: pulumi.Bool(true),
+//				Status: pulumi.String("ENABLED"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Type:   pulumi.String("SIMPLE"),
+//				LocationsPrivates: pulumi.StringArray{
+//					location.ID(),
+//				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
 //						Name:  pulumi.String("some_name"),
 //						Value: pulumi.String("some_value"),
 //					},
 //				},
-//				LocationsPrivates: pulumi.StringArray{
-//					pulumi.String("newrelic_synthetics_private_location.location.id"),
-//				},
-//				Period: pulumi.String("EVERY_MINUTE"),
-//				Status: pulumi.String("ENABLED"),
+//				TreatRedirectAsFailure: pulumi.Bool(true),
+//				ValidationString:       pulumi.String("success"),
+//				BypassHeadRequest:      pulumi.Bool(true),
+//				VerifySsl:              pulumi.Bool(true),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -161,11 +166,6 @@ import (
 //						},
 //					},
 //				},
-//				TreatRedirectAsFailure: pulumi.Bool(true),
-//				Type:                   pulumi.String("SIMPLE"),
-//				Uri:                    pulumi.String("https://www.one.newrelic.com"),
-//				ValidationString:       pulumi.String("success"),
-//				VerifySsl:              pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -189,7 +189,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
+//			location, err := synthetics.NewPrivateLocation(ctx, "location", &synthetics.PrivateLocationArgs{
 //				Description:             pulumi.String("Example private location"),
 //				VerifiedScriptExecution: pulumi.Bool(false),
 //			})
@@ -197,6 +197,13 @@ import (
 //				return err
 //			}
 //			_, err = synthetics.NewMonitor(ctx, "monitor", &synthetics.MonitorArgs{
+//				Status: pulumi.String("ENABLED"),
+//				Type:   pulumi.String("BROWSER"),
+//				Uri:    pulumi.String("https://www.one.newrelic.com"),
+//				Period: pulumi.String("EVERY_MINUTE"),
+//				LocationsPrivates: pulumi.StringArray{
+//					location.ID(),
+//				},
 //				CustomHeaders: synthetics.MonitorCustomHeaderArray{
 //					&synthetics.MonitorCustomHeaderArgs{
 //						Name:  pulumi.String("some_name"),
@@ -204,14 +211,11 @@ import (
 //					},
 //				},
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(true),
-//				LocationsPrivates: pulumi.StringArray{
-//					pulumi.String("newrelic_synthetics_private_location.location.id"),
-//				},
-//				Period:             pulumi.String("EVERY_MINUTE"),
-//				RuntimeType:        pulumi.String("CHROME_BROWSER"),
-//				RuntimeTypeVersion: pulumi.String("100"),
-//				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
-//				Status:             pulumi.String("ENABLED"),
+//				ValidationString:                   pulumi.String("success"),
+//				VerifySsl:                          pulumi.Bool(true),
+//				RuntimeTypeVersion:                 pulumi.String("100"),
+//				RuntimeType:                        pulumi.String("CHROME_BROWSER"),
+//				ScriptLanguage:                     pulumi.String("JAVASCRIPT"),
 //				Tags: synthetics.MonitorTagArray{
 //					&synthetics.MonitorTagArgs{
 //						Key: pulumi.String("some_key"),
@@ -220,10 +224,6 @@ import (
 //						},
 //					},
 //				},
-//				Type:             pulumi.String("BROWSER"),
-//				Uri:              pulumi.String("https://www.one.newrelic.com"),
-//				ValidationString: pulumi.String("success"),
-//				VerifySsl:        pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

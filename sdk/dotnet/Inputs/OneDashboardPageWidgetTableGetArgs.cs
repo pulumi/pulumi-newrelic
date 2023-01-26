@@ -18,6 +18,9 @@ namespace Pulumi.NewRelic.Inputs
         [Input("column", required: true)]
         public Input<int> Column { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional) Use this item to filter the current dashboard.
+        /// </summary>
         [Input("filterCurrentDashboard")]
         public Input<bool>? FilterCurrentDashboard { get; set; }
 
@@ -38,6 +41,10 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("linkedEntityGuids")]
         private InputList<string>? _linkedEntityGuids;
+
+        /// <summary>
+        /// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        /// </summary>
         public InputList<string> LinkedEntityGuids
         {
             get => _linkedEntityGuids ?? (_linkedEntityGuids = new InputList<string>());

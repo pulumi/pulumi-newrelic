@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			expression, err := newrelic.LookupObfuscationExpression(ctx, &GetObfuscationExpressionArgs{
+//			expression, err := newrelic.LookupObfuscationExpression(ctx, &newrelic.LookupObfuscationExpressionArgs{
 //				AccountId: pulumi.IntRef(123456),
 //				Name:      "The expression",
 //			}, nil)
@@ -37,12 +37,12 @@ import (
 //				Description: pulumi.String("description of the rule"),
 //				Filter:      pulumi.String("hostStatus=running"),
 //				Enabled:     pulumi.Bool(true),
-//				Actions: ObfuscationRuleActionArray{
-//					&ObfuscationRuleActionArgs{
+//				Actions: newrelic.ObfuscationRuleActionArray{
+//					&newrelic.ObfuscationRuleActionArgs{
 //						Attributes: pulumi.StringArray{
 //							pulumi.String("message"),
 //						},
-//						ExpressionId: pulumi.String(expression.Id),
+//						ExpressionId: *pulumi.String(expression.Id),
 //						Method:       pulumi.String("MASK"),
 //					},
 //				},

@@ -15,7 +15,7 @@ namespace Pulumi.NewRelic.Outputs
     {
         public readonly string? FilterId;
         /// <summary>
-        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        /// The name of the workflow.
         /// </summary>
         public readonly string Name;
         /// <summary>

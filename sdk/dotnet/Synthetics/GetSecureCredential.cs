@@ -74,6 +74,12 @@ namespace Pulumi.NewRelic.Synthetics
     public sealed class GetSecureCredentialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+        /// </summary>
+        [Input("accountId")]
+        public int? AccountId { get; set; }
+
+        /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         /// </summary>
         [Input("key", required: true)]
@@ -87,6 +93,12 @@ namespace Pulumi.NewRelic.Synthetics
 
     public sealed class GetSecureCredentialInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+        /// </summary>
+        [Input("accountId")]
+        public Input<int>? AccountId { get; set; }
+
         /// <summary>
         /// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
         /// </summary>

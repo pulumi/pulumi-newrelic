@@ -27,7 +27,7 @@ class AwsGovcloudLinkAccountArgs:
         :param pulumi.Input[str] secret_access_key: The secret key of the AwsGovCloud.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -103,7 +103,7 @@ class AwsGovcloudLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The linked account name
+        The linked account name
         """
         return pulumi.get(self, "name")
 
@@ -127,7 +127,7 @@ class _AwsGovcloudLinkAccountState:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aws_account_id: The AwsGovCloud account ID.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         :param pulumi.Input[str] secret_access_key: The secret key of the AwsGovCloud.
         """
         if access_key_id is not None:
@@ -195,7 +195,7 @@ class _AwsGovcloudLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The linked account name
+        The linked account name
         """
         return pulumi.get(self, "name")
 
@@ -257,7 +257,7 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aws_account_id: The AwsGovCloud account ID.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         :param pulumi.Input[str] secret_access_key: The secret key of the AwsGovCloud.
         """
         ...
@@ -360,7 +360,7 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on. This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] aws_account_id: The AwsGovCloud account ID.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         :param pulumi.Input[str] secret_access_key: The secret key of the AwsGovCloud.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -411,7 +411,7 @@ class AwsGovcloudLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        - The linked account name
+        The linked account name
         """
         return pulumi.get(self, "name")
 

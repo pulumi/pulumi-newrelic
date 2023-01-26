@@ -22,12 +22,12 @@ class AzureLinkAccountArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AzureLinkAccount resource.
-        :param pulumi.Input[str] application_id: - Application ID of the App.
-        :param pulumi.Input[str] client_secret: - Secret Value of the client.
-        :param pulumi.Input[str] subscription_id: - Subscription ID of the Azure cloud account.
-        :param pulumi.Input[str] tenant_id: - Tenant ID of the Azure cloud account.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic.
-        :param pulumi.Input[str] name: - The name of the application in New Relic APM.
+        :param pulumi.Input[str] application_id: Application ID of the App.
+        :param pulumi.Input[str] client_secret: Secret Value of the client.
+        :param pulumi.Input[str] subscription_id: Subscription ID of the Azure cloud account.
+        :param pulumi.Input[str] tenant_id: Tenant ID of the Azure cloud account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[str] name: The name of the application in New Relic APM.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -42,7 +42,7 @@ class AzureLinkAccountArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
         """
-        - Application ID of the App.
+        Application ID of the App.
         """
         return pulumi.get(self, "application_id")
 
@@ -54,7 +54,7 @@ class AzureLinkAccountArgs:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
         """
-        - Secret Value of the client.
+        Secret Value of the client.
         """
         return pulumi.get(self, "client_secret")
 
@@ -66,7 +66,7 @@ class AzureLinkAccountArgs:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Input[str]:
         """
-        - Subscription ID of the Azure cloud account.
+        Subscription ID of the Azure cloud account.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -78,7 +78,7 @@ class AzureLinkAccountArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
         """
-        - Tenant ID of the Azure cloud account.
+        Tenant ID of the Azure cloud account.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -90,7 +90,7 @@ class AzureLinkAccountArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        - Account ID of the New Relic.
+        Account ID of the New Relic.
         """
         return pulumi.get(self, "account_id")
 
@@ -102,7 +102,7 @@ class AzureLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The name of the application in New Relic APM.
+        The name of the application in New Relic APM.
         """
         return pulumi.get(self, "name")
 
@@ -122,12 +122,12 @@ class _AzureLinkAccountState:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AzureLinkAccount resources.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic.
-        :param pulumi.Input[str] application_id: - Application ID of the App.
-        :param pulumi.Input[str] client_secret: - Secret Value of the client.
-        :param pulumi.Input[str] name: - The name of the application in New Relic APM.
-        :param pulumi.Input[str] subscription_id: - Subscription ID of the Azure cloud account.
-        :param pulumi.Input[str] tenant_id: - Tenant ID of the Azure cloud account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[str] application_id: Application ID of the App.
+        :param pulumi.Input[str] client_secret: Secret Value of the client.
+        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        :param pulumi.Input[str] subscription_id: Subscription ID of the Azure cloud account.
+        :param pulumi.Input[str] tenant_id: Tenant ID of the Azure cloud account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -146,7 +146,7 @@ class _AzureLinkAccountState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[int]]:
         """
-        - Account ID of the New Relic.
+        Account ID of the New Relic.
         """
         return pulumi.get(self, "account_id")
 
@@ -158,7 +158,7 @@ class _AzureLinkAccountState:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
         """
-        - Application ID of the App.
+        Application ID of the App.
         """
         return pulumi.get(self, "application_id")
 
@@ -170,7 +170,7 @@ class _AzureLinkAccountState:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        - Secret Value of the client.
+        Secret Value of the client.
         """
         return pulumi.get(self, "client_secret")
 
@@ -182,7 +182,7 @@ class _AzureLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The name of the application in New Relic APM.
+        The name of the application in New Relic APM.
         """
         return pulumi.get(self, "name")
 
@@ -194,7 +194,7 @@ class _AzureLinkAccountState:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
-        - Subscription ID of the Azure cloud account.
+        Subscription ID of the Azure cloud account.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -206,7 +206,7 @@ class _AzureLinkAccountState:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        - Tenant ID of the Azure cloud account.
+        Tenant ID of the Azure cloud account.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -238,12 +238,12 @@ class AzureLinkAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic.
-        :param pulumi.Input[str] application_id: - Application ID of the App.
-        :param pulumi.Input[str] client_secret: - Secret Value of the client.
-        :param pulumi.Input[str] name: - The name of the application in New Relic APM.
-        :param pulumi.Input[str] subscription_id: - Subscription ID of the Azure cloud account.
-        :param pulumi.Input[str] tenant_id: - Tenant ID of the Azure cloud account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[str] application_id: Application ID of the App.
+        :param pulumi.Input[str] client_secret: Secret Value of the client.
+        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        :param pulumi.Input[str] subscription_id: Subscription ID of the Azure cloud account.
+        :param pulumi.Input[str] tenant_id: Tenant ID of the Azure cloud account.
         """
         ...
     @overload
@@ -329,12 +329,12 @@ class AzureLinkAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] account_id: - Account ID of the New Relic.
-        :param pulumi.Input[str] application_id: - Application ID of the App.
-        :param pulumi.Input[str] client_secret: - Secret Value of the client.
-        :param pulumi.Input[str] name: - The name of the application in New Relic APM.
-        :param pulumi.Input[str] subscription_id: - Subscription ID of the Azure cloud account.
-        :param pulumi.Input[str] tenant_id: - Tenant ID of the Azure cloud account.
+        :param pulumi.Input[int] account_id: Account ID of the New Relic.
+        :param pulumi.Input[str] application_id: Application ID of the App.
+        :param pulumi.Input[str] client_secret: Secret Value of the client.
+        :param pulumi.Input[str] name: The name of the application in New Relic APM.
+        :param pulumi.Input[str] subscription_id: Subscription ID of the Azure cloud account.
+        :param pulumi.Input[str] tenant_id: Tenant ID of the Azure cloud account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -352,7 +352,7 @@ class AzureLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[int]:
         """
-        - Account ID of the New Relic.
+        Account ID of the New Relic.
         """
         return pulumi.get(self, "account_id")
 
@@ -360,7 +360,7 @@ class AzureLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         """
-        - Application ID of the App.
+        Application ID of the App.
         """
         return pulumi.get(self, "application_id")
 
@@ -368,7 +368,7 @@ class AzureLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[str]:
         """
-        - Secret Value of the client.
+        Secret Value of the client.
         """
         return pulumi.get(self, "client_secret")
 
@@ -376,7 +376,7 @@ class AzureLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        - The name of the application in New Relic APM.
+        The name of the application in New Relic APM.
         """
         return pulumi.get(self, "name")
 
@@ -384,7 +384,7 @@ class AzureLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Output[str]:
         """
-        - Subscription ID of the Azure cloud account.
+        Subscription ID of the Azure cloud account.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -392,7 +392,7 @@ class AzureLinkAccount(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[str]:
         """
-        - Tenant ID of the Azure cloud account.
+        Tenant ID of the Azure cloud account.
         """
         return pulumi.get(self, "tenant_id")
 

@@ -17,14 +17,11 @@ public final class AwsGovcloudIntegrationsEmr {
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     private @Nullable String awsRegions;
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     private @Nullable Boolean fetchTags;
@@ -42,16 +39,7 @@ public final class AwsGovcloudIntegrationsEmr {
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     private @Nullable String tagValue;
@@ -61,8 +49,6 @@ public final class AwsGovcloudIntegrationsEmr {
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     public Optional<String> awsRegions() {
@@ -70,7 +56,6 @@ public final class AwsGovcloudIntegrationsEmr {
     }
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     public Optional<Boolean> fetchTags() {
@@ -94,16 +79,7 @@ public final class AwsGovcloudIntegrationsEmr {
      * @return Specify a Tag value associated with the resources that you want to monitor. Filter values are case-sensitive.
      * * `api Gateway`
      * * `auto scaling`
-     * * `ebs`
-     * * `ec2`
      * * `elastic search`
-     * * `elb`
-     * * `iam`
-     * * `lambda`
-     * * `rds`
-     * * `redshift`
-     * * `route53`
-     * * `sns`
      * 
      */
     public Optional<String> tagValue() {

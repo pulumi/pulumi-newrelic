@@ -26,16 +26,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertMutingRule(ctx, "foo", &newrelic.AlertMutingRuleArgs{
-//				Condition: &AlertMutingRuleConditionArgs{
-//					Conditions: AlertMutingRuleConditionConditionArray{
-//						&AlertMutingRuleConditionConditionArgs{
+//				Condition: &newrelic.AlertMutingRuleConditionArgs{
+//					Conditions: newrelic.AlertMutingRuleConditionConditionArray{
+//						&newrelic.AlertMutingRuleConditionConditionArgs{
 //							Attribute: pulumi.String("product"),
 //							Operator:  pulumi.String("EQUALS"),
 //							Values: pulumi.StringArray{
 //								pulumi.String("APM"),
 //							},
 //						},
-//						&AlertMutingRuleConditionConditionArgs{
+//						&newrelic.AlertMutingRuleConditionConditionArgs{
 //							Attribute: pulumi.String("targetId"),
 //							Operator:  pulumi.String("EQUALS"),
 //							Values: pulumi.StringArray{
@@ -47,7 +47,7 @@ import (
 //				},
 //				Description: pulumi.String("muting rule test."),
 //				Enabled:     pulumi.Bool(true),
-//				Schedule: &AlertMutingRuleScheduleArgs{
+//				Schedule: &newrelic.AlertMutingRuleScheduleArgs{
 //					EndTime:     pulumi.String("2021-01-28T16:30:00"),
 //					Repeat:      pulumi.String("WEEKLY"),
 //					RepeatCount: pulumi.Int(42),

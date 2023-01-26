@@ -19,10 +19,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+ * &gt; **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
  * 
  * ## Example Usage
  * ### Create A New Relic One Dashboard
+ * 
  * ```java
  * package generated_program;
  * 
@@ -32,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.newrelic.OneDashboard;
  * import com.pulumi.newrelic.OneDashboardArgs;
  * import com.pulumi.newrelic.inputs.OneDashboardPageArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardVariableArgs;
+ * import com.pulumi.newrelic.inputs.OneDashboardVariableNrqlQueryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,7 +51,6 @@ import javax.annotation.Nullable;
  *         var exampledash = new OneDashboard(&#34;exampledash&#34;, OneDashboardArgs.builder()        
  *             .pages(OneDashboardPageArgs.builder()
  *                 .name(&#34;New Relic Terraform Example&#34;)
- *                 .variable(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .widgetBars(                
  *                     OneDashboardPageWidgetBarArgs.builder()
  *                         .column(7)
@@ -101,6 +103,22 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .permissions(&#34;public_read_only&#34;)
+ *             .variables(OneDashboardVariableArgs.builder()
+ *                 .defaultValues(&#34;value&#34;)
+ *                 .isMultiSelection(true)
+ *                 .items(OneDashboardVariableItemArgs.builder()
+ *                     .title(&#34;item&#34;)
+ *                     .value(&#34;ITEM&#34;)
+ *                     .build())
+ *                 .name(&#34;variable&#34;)
+ *                 .nrqlQuery(OneDashboardVariableNrqlQueryArgs.builder()
+ *                     .accountIds(12345)
+ *                     .query(&#34;FROM Transaction SELECT average(duration) FACET appName&#34;)
+ *                     .build())
+ *                 .replacementStrategy(&#34;default&#34;)
+ *                 .title(&#34;title&#34;)
+ *                 .type(&#34;nrql&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }

@@ -23,7 +23,7 @@ class AwsLinkAccountArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         """
         pulumi.set(__self__, "arn", arn)
         if account_id is not None:
@@ -73,7 +73,7 @@ class AwsLinkAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The linked account name
+        The linked account name
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +94,7 @@ class _AwsLinkAccountState:
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -145,7 +145,7 @@ class _AwsLinkAccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        - The linked account name
+        The linked account name
         """
         return pulumi.get(self, "name")
 
@@ -178,7 +178,7 @@ class AwsLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         """
         ...
     @overload
@@ -253,7 +253,7 @@ class AwsLinkAccount(pulumi.CustomResource):
         :param pulumi.Input[int] account_id: The New Relic account ID to operate on.  This allows the user to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[str] metric_collection_mode: How metrics will be collected. Use `PUSH` for a metric stream or `PULL` to integrate with individual services.
-        :param pulumi.Input[str] name: - The linked account name
+        :param pulumi.Input[str] name: The linked account name
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,7 +293,7 @@ class AwsLinkAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        - The linked account name
+        The linked account name
         """
         return pulumi.get(self, "name")
 

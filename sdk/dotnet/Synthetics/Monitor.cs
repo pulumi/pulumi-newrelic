@@ -129,7 +129,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
-    ///         BypassHeadRequest = true,
+    ///         Status = "ENABLED",
+    ///         Period = "EVERY_MINUTE",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Type = "SIMPLE",
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             location.Id,
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -138,12 +145,10 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 Value = "some_value",
     ///             },
     ///         },
-    ///         LocationsPrivates = new[]
-    ///         {
-    ///             "newrelic_synthetics_private_location.location.id",
-    ///         },
-    ///         Period = "EVERY_MINUTE",
-    ///         Status = "ENABLED",
+    ///         TreatRedirectAsFailure = true,
+    ///         ValidationString = "success",
+    ///         BypassHeadRequest = true,
+    ///         VerifySsl = true,
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -155,11 +160,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         TreatRedirectAsFailure = true,
-    ///         Type = "SIMPLE",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
     ///     });
     /// 
     /// });
@@ -181,6 +181,14 @@ namespace Pulumi.NewRelic.Synthetics
     /// 
     ///     var monitor = new NewRelic.Synthetics.Monitor("monitor", new()
     ///     {
+    ///         Status = "ENABLED",
+    ///         Type = "BROWSER",
+    ///         Uri = "https://www.one.newrelic.com",
+    ///         Period = "EVERY_MINUTE",
+    ///         LocationsPrivates = new[]
+    ///         {
+    ///             location.Id,
+    ///         },
     ///         CustomHeaders = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorCustomHeaderArgs
@@ -190,15 +198,11 @@ namespace Pulumi.NewRelic.Synthetics
     ///             },
     ///         },
     ///         EnableScreenshotOnFailureAndScript = true,
-    ///         LocationsPrivates = new[]
-    ///         {
-    ///             "newrelic_synthetics_private_location.location.id",
-    ///         },
-    ///         Period = "EVERY_MINUTE",
-    ///         RuntimeType = "CHROME_BROWSER",
+    ///         ValidationString = "success",
+    ///         VerifySsl = true,
     ///         RuntimeTypeVersion = "100",
+    ///         RuntimeType = "CHROME_BROWSER",
     ///         ScriptLanguage = "JAVASCRIPT",
-    ///         Status = "ENABLED",
     ///         Tags = new[]
     ///         {
     ///             new NewRelic.Synthetics.Inputs.MonitorTagArgs
@@ -210,10 +214,6 @@ namespace Pulumi.NewRelic.Synthetics
     ///                 },
     ///             },
     ///         },
-    ///         Type = "BROWSER",
-    ///         Uri = "https://www.one.newrelic.com",
-    ///         ValidationString = "success",
-    ///         VerifySsl = true,
     ///     });
     /// 
     /// });

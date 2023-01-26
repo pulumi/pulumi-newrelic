@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will be deprecated in the future.
+// > **NOTE:** The OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
 //
 // ## Example Usage
 // ### Create A New Relic One Dashboard With RawConfiguration
@@ -47,11 +47,11 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = newrelic.NewOneDashboardRaw(ctx, "exampledash", &newrelic.OneDashboardRawArgs{
-//				Pages: OneDashboardRawPageArray{
-//					&OneDashboardRawPageArgs{
+//				Pages: newrelic.OneDashboardRawPageArray{
+//					&newrelic.OneDashboardRawPageArgs{
 //						Name: pulumi.String("Page Name"),
-//						Widgets: OneDashboardRawPageWidgetArray{
-//							&OneDashboardRawPageWidgetArgs{
+//						Widgets: newrelic.OneDashboardRawPageWidgetArray{
+//							&newrelic.OneDashboardRawPageWidgetArgs{
 //								Title:           pulumi.String("Custom widget"),
 //								Row:             pulumi.Int(1),
 //								Column:          pulumi.Int(1),
@@ -60,7 +60,7 @@ import (
 //								VisualizationId: pulumi.String("viz.custom"),
 //								Configuration:   pulumi.String(fmt.Sprintf("      {\n        \"legend\": {\n          \"enabled\": false\n        },\n        \"nrqlQueries\": [\n          {\n            \"accountId\": ` + accountID + `,\n            \"query\": \"SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES\"\n          }\n        ],\n        \"yAxisLeft\": {\n          \"max\": 100,\n          \"min\": 50,\n          \"zero\": false\n        }\n      }\n")),
 //							},
-//							&OneDashboardRawPageWidgetArgs{
+//							&newrelic.OneDashboardRawPageWidgetArgs{
 //								Title:           pulumi.String("Server CPU"),
 //								Row:             pulumi.Int(1),
 //								Column:          pulumi.Int(2),
@@ -69,7 +69,7 @@ import (
 //								VisualizationId: pulumi.String("viz.testing"),
 //								Configuration:   pulumi.String(fmt.Sprintf("      {\n        \"nrqlQueries\": [\n          {\n            \"accountId\": ` + accountID + `,\n            \"query\": \"SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400\"\n          }\n        ]\n      }\n")),
 //							},
-//							&OneDashboardRawPageWidgetArgs{
+//							&newrelic.OneDashboardRawPageWidgetArgs{
 //								Title:           pulumi.String("Docker Server CPU"),
 //								Row:             pulumi.Int(1),
 //								Column:          pulumi.Int(3),

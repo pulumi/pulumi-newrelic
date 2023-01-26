@@ -33,48 +33,6 @@ class AlertConditionArgs:
         The set of arguments for constructing a AlertCondition resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-               * `apm_app_metric`
-               * `apdex`
-               * `error_percentage`
-               * `response_time_background`
-               * `response_time_web`
-               * `throughput_background`
-               * `throughput_web`
-               * `user_defined`
-               * `apm_jvm_metric`
-               * `cpu_utilization_time`
-               * `deadlocked_threads`
-               * `gc_cpu_time`
-               * `heap_memory_usage`
-               * `apm_kt_metric`
-               * `apdex`
-               * `error_count`
-               * `error_percentage`
-               * `response_time`
-               * `throughput`
-               * `browser_metric`
-               * `ajax_response_time`
-               * `ajax_throughput`
-               * `dom_processing`
-               * `end_user_apdex`
-               * `network`
-               * `page_rendering`
-               * `page_view_throughput`
-               * `page_views_with_js_errors`
-               * `request_queuing`
-               * `total_page_load`
-               * `user_defined`
-               * `web_application`
-               * `mobile_metric`
-               * `database`
-               * `images`
-               * `json`
-               * `mobile_crash_rate`
-               * `network_error_percentage`
-               * `network`
-               * `status_error_percentage`
-               * `user_defined`
-               * `view_loading`
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[Sequence[pulumi.Input['AlertConditionTermArgs']]] terms: A list of terms for this condition. See Terms below for details.
         :param pulumi.Input[str] type: The type of condition. One of: `apm_app_metric`, `apm_jvm_metric`, `apm_kt_metric`, `browser_metric`, `mobile_metric`
@@ -126,48 +84,6 @@ class AlertConditionArgs:
     def metric(self) -> pulumi.Input[str]:
         """
         The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-        * `apm_app_metric`
-        * `apdex`
-        * `error_percentage`
-        * `response_time_background`
-        * `response_time_web`
-        * `throughput_background`
-        * `throughput_web`
-        * `user_defined`
-        * `apm_jvm_metric`
-        * `cpu_utilization_time`
-        * `deadlocked_threads`
-        * `gc_cpu_time`
-        * `heap_memory_usage`
-        * `apm_kt_metric`
-        * `apdex`
-        * `error_count`
-        * `error_percentage`
-        * `response_time`
-        * `throughput`
-        * `browser_metric`
-        * `ajax_response_time`
-        * `ajax_throughput`
-        * `dom_processing`
-        * `end_user_apdex`
-        * `network`
-        * `page_rendering`
-        * `page_view_throughput`
-        * `page_views_with_js_errors`
-        * `request_queuing`
-        * `total_page_load`
-        * `user_defined`
-        * `web_application`
-        * `mobile_metric`
-        * `database`
-        * `images`
-        * `json`
-        * `mobile_crash_rate`
-        * `network_error_percentage`
-        * `network`
-        * `status_error_percentage`
-        * `user_defined`
-        * `view_loading`
         """
         return pulumi.get(self, "metric")
 
@@ -331,48 +247,6 @@ class _AlertConditionState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-               * `apm_app_metric`
-               * `apdex`
-               * `error_percentage`
-               * `response_time_background`
-               * `response_time_web`
-               * `throughput_background`
-               * `throughput_web`
-               * `user_defined`
-               * `apm_jvm_metric`
-               * `cpu_utilization_time`
-               * `deadlocked_threads`
-               * `gc_cpu_time`
-               * `heap_memory_usage`
-               * `apm_kt_metric`
-               * `apdex`
-               * `error_count`
-               * `error_percentage`
-               * `response_time`
-               * `throughput`
-               * `browser_metric`
-               * `ajax_response_time`
-               * `ajax_throughput`
-               * `dom_processing`
-               * `end_user_apdex`
-               * `network`
-               * `page_rendering`
-               * `page_view_throughput`
-               * `page_views_with_js_errors`
-               * `request_queuing`
-               * `total_page_load`
-               * `user_defined`
-               * `web_application`
-               * `mobile_metric`
-               * `database`
-               * `images`
-               * `json`
-               * `mobile_crash_rate`
-               * `network_error_percentage`
-               * `network`
-               * `status_error_percentage`
-               * `user_defined`
-               * `view_loading`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -462,48 +336,6 @@ class _AlertConditionState:
     def metric(self) -> Optional[pulumi.Input[str]]:
         """
         The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-        * `apm_app_metric`
-        * `apdex`
-        * `error_percentage`
-        * `response_time_background`
-        * `response_time_web`
-        * `throughput_background`
-        * `throughput_web`
-        * `user_defined`
-        * `apm_jvm_metric`
-        * `cpu_utilization_time`
-        * `deadlocked_threads`
-        * `gc_cpu_time`
-        * `heap_memory_usage`
-        * `apm_kt_metric`
-        * `apdex`
-        * `error_count`
-        * `error_percentage`
-        * `response_time`
-        * `throughput`
-        * `browser_metric`
-        * `ajax_response_time`
-        * `ajax_throughput`
-        * `dom_processing`
-        * `end_user_apdex`
-        * `network`
-        * `page_rendering`
-        * `page_view_throughput`
-        * `page_views_with_js_errors`
-        * `request_queuing`
-        * `total_page_load`
-        * `user_defined`
-        * `web_application`
-        * `mobile_metric`
-        * `database`
-        * `images`
-        * `json`
-        * `mobile_crash_rate`
-        * `network_error_percentage`
-        * `network`
-        * `status_error_percentage`
-        * `user_defined`
-        * `view_loading`
         """
         return pulumi.get(self, "metric")
 
@@ -630,7 +462,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 
-        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+        > **WARNING:** The  AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
 
         ## Example Usage
 
@@ -682,48 +514,6 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-               * `apm_app_metric`
-               * `apdex`
-               * `error_percentage`
-               * `response_time_background`
-               * `response_time_web`
-               * `throughput_background`
-               * `throughput_web`
-               * `user_defined`
-               * `apm_jvm_metric`
-               * `cpu_utilization_time`
-               * `deadlocked_threads`
-               * `gc_cpu_time`
-               * `heap_memory_usage`
-               * `apm_kt_metric`
-               * `apdex`
-               * `error_count`
-               * `error_percentage`
-               * `response_time`
-               * `throughput`
-               * `browser_metric`
-               * `ajax_response_time`
-               * `ajax_throughput`
-               * `dom_processing`
-               * `end_user_apdex`
-               * `network`
-               * `page_rendering`
-               * `page_view_throughput`
-               * `page_views_with_js_errors`
-               * `request_queuing`
-               * `total_page_load`
-               * `user_defined`
-               * `web_application`
-               * `mobile_metric`
-               * `database`
-               * `images`
-               * `json`
-               * `mobile_crash_rate`
-               * `network_error_percentage`
-               * `network`
-               * `status_error_percentage`
-               * `user_defined`
-               * `view_loading`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -742,7 +532,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage alert conditions for APM, Browser, and Mobile in New Relic.
 
-        > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+        > **WARNING:** The  AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
 
         ## Example Usage
 
@@ -882,48 +672,6 @@ class AlertCondition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] entities: The instance IDs associated with this condition.
         :param pulumi.Input[str] gc_metric: A valid Garbage Collection metric e.g. `GC/G1 Young Generation`.
         :param pulumi.Input[str] metric: The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-               * `apm_app_metric`
-               * `apdex`
-               * `error_percentage`
-               * `response_time_background`
-               * `response_time_web`
-               * `throughput_background`
-               * `throughput_web`
-               * `user_defined`
-               * `apm_jvm_metric`
-               * `cpu_utilization_time`
-               * `deadlocked_threads`
-               * `gc_cpu_time`
-               * `heap_memory_usage`
-               * `apm_kt_metric`
-               * `apdex`
-               * `error_count`
-               * `error_percentage`
-               * `response_time`
-               * `throughput`
-               * `browser_metric`
-               * `ajax_response_time`
-               * `ajax_throughput`
-               * `dom_processing`
-               * `end_user_apdex`
-               * `network`
-               * `page_rendering`
-               * `page_view_throughput`
-               * `page_views_with_js_errors`
-               * `request_queuing`
-               * `total_page_load`
-               * `user_defined`
-               * `web_application`
-               * `mobile_metric`
-               * `database`
-               * `images`
-               * `json`
-               * `mobile_crash_rate`
-               * `network_error_percentage`
-               * `network`
-               * `status_error_percentage`
-               * `user_defined`
-               * `view_loading`
         :param pulumi.Input[str] name: The title of the condition. Must be between 1 and 64 characters, inclusive.
         :param pulumi.Input[int] policy_id: The ID of the policy where this condition should be used.
         :param pulumi.Input[str] runbook_url: Runbook URL to display in notifications.
@@ -989,48 +737,6 @@ class AlertCondition(pulumi.CustomResource):
     def metric(self) -> pulumi.Output[str]:
         """
         The metric field accepts parameters based on the `type` set. One of these metrics based on `type`:
-        * `apm_app_metric`
-        * `apdex`
-        * `error_percentage`
-        * `response_time_background`
-        * `response_time_web`
-        * `throughput_background`
-        * `throughput_web`
-        * `user_defined`
-        * `apm_jvm_metric`
-        * `cpu_utilization_time`
-        * `deadlocked_threads`
-        * `gc_cpu_time`
-        * `heap_memory_usage`
-        * `apm_kt_metric`
-        * `apdex`
-        * `error_count`
-        * `error_percentage`
-        * `response_time`
-        * `throughput`
-        * `browser_metric`
-        * `ajax_response_time`
-        * `ajax_throughput`
-        * `dom_processing`
-        * `end_user_apdex`
-        * `network`
-        * `page_rendering`
-        * `page_view_throughput`
-        * `page_views_with_js_errors`
-        * `request_queuing`
-        * `total_page_load`
-        * `user_defined`
-        * `web_application`
-        * `mobile_metric`
-        * `database`
-        * `images`
-        * `json`
-        * `mobile_crash_rate`
-        * `network_error_percentage`
-        * `network`
-        * `status_error_percentage`
-        * `user_defined`
-        * `view_loading`
         """
         return pulumi.get(self, "metric")
 

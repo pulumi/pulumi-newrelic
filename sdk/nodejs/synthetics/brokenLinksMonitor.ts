@@ -44,14 +44,14 @@ import * as utilities from "../utilities";
  *     verifiedScriptExecution: false,
  * });
  * const monitor = new newrelic.synthetics.BrokenLinksMonitor("monitor", {
- *     locationsPrivates: ["newrelic_synthetics_private_location.location.id"],
+ *     uri: "https://www.one.example.com",
+ *     locationsPrivates: [location.id],
  *     period: "EVERY_6_HOURS",
  *     status: "ENABLED",
  *     tags: [{
  *         key: "some_key",
  *         values: ["some_value"],
  *     }],
- *     uri: "https://www.one.example.com",
  * });
  * ```
  *

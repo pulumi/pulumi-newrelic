@@ -17,8 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to create and manage New Relic alert channels.
- * 
  * ## Example Usage
  * ### Email
  * ```java

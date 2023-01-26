@@ -15,28 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as newrelic from "@pulumi/newrelic";
  *
- * const foo = new newrelic.insights.Event("foo", {
- *     events: [{
- *         attributes: [
- *             {
- *                 key: "a_string_attribute",
- *                 value: "a string",
- *             },
- *             {
- *                 key: "an_integer_attribute",
- *                 type: "int",
- *                 value: "42",
- *             },
- *             {
- *                 key: "a_float_attribute",
- *                 type: "float",
- *                 value: "101.1",
- *             },
- *         ],
- *         timestamp: 1232471100,
- *         type: "MyEvent",
- *     }],
- * });
+ * const foo = new newrelic.insights.Event("foo", {events: [{
+ *     attributes: [
+ *         {
+ *             key: "a_string_attribute",
+ *             value: "a string",
+ *         },
+ *         {
+ *             key: "an_integer_attribute",
+ *             type: "int",
+ *             value: "42",
+ *         },
+ *         {
+ *             key: "a_float_attribute",
+ *             type: "float",
+ *             value: "101.1",
+ *         },
+ *     ],
+ *     timestamp: 1232471100,
+ *     type: "MyEvent",
+ * }]});
  * ```
  * ## Events
  *

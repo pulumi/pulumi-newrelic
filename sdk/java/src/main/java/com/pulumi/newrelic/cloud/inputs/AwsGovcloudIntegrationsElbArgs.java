@@ -22,8 +22,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
      * Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     @Import(name="awsRegions")
@@ -33,8 +31,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
      * @return Specify each AWS region that includes the resources that you want to monitor.
      * * `direct connect`
      * * `aws states`
-     * * `cloudtrail`
-     * * `dynamoDB`
      * 
      */
     public Optional<Output<List<String>>> awsRegions() {
@@ -43,8 +39,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
     /**
      * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     @Import(name="fetchExtendedInventory")
@@ -52,8 +46,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
@@ -62,7 +54,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
     /**
      * Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     @Import(name="fetchTags")
@@ -70,7 +61,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
     /**
      * @return Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `emr`
      * 
      */
     public Optional<Output<Boolean>> fetchTags() {
@@ -123,8 +113,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -138,8 +126,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -152,8 +138,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
          * @param awsRegions Specify each AWS region that includes the resources that you want to monitor.
          * * `direct connect`
          * * `aws states`
-         * * `cloudtrail`
-         * * `dynamoDB`
          * 
          * @return builder
          * 
@@ -164,8 +148,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          * 
          * @return builder
          * 
@@ -177,8 +159,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          * 
          * @return builder
          * 
@@ -189,7 +169,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
         /**
          * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          * 
          * @return builder
          * 
@@ -201,7 +180,6 @@ public final class AwsGovcloudIntegrationsElbArgs extends com.pulumi.resources.R
 
         /**
          * @param fetchTags Specify if tags should be collected. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `emr`
          * 
          * @return builder
          * 

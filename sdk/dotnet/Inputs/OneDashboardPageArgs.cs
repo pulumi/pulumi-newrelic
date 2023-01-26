@@ -32,10 +32,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetAreas")]
         private InputList<Inputs.OneDashboardPageWidgetAreaArgs>? _widgetAreas;
-
-        /// <summary>
-        /// (Optional) A nested block that describes an Area widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetAreaArgs> WidgetAreas
         {
             get => _widgetAreas ?? (_widgetAreas = new InputList<Inputs.OneDashboardPageWidgetAreaArgs>());
@@ -44,10 +40,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetBars")]
         private InputList<Inputs.OneDashboardPageWidgetBarArgs>? _widgetBars;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Bar widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBarArgs> WidgetBars
         {
             get => _widgetBars ?? (_widgetBars = new InputList<Inputs.OneDashboardPageWidgetBarArgs>());
@@ -56,10 +48,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetBillboards")]
         private InputList<Inputs.OneDashboardPageWidgetBillboardArgs>? _widgetBillboards;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Billboard widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBillboardArgs> WidgetBillboards
         {
             get => _widgetBillboards ?? (_widgetBillboards = new InputList<Inputs.OneDashboardPageWidgetBillboardArgs>());
@@ -68,10 +56,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetBullets")]
         private InputList<Inputs.OneDashboardPageWidgetBulletArgs>? _widgetBullets;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Bullet widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetBulletArgs> WidgetBullets
         {
             get => _widgetBullets ?? (_widgetBullets = new InputList<Inputs.OneDashboardPageWidgetBulletArgs>());
@@ -80,10 +64,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetFunnels")]
         private InputList<Inputs.OneDashboardPageWidgetFunnelArgs>? _widgetFunnels;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Funnel widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetFunnelArgs> WidgetFunnels
         {
             get => _widgetFunnels ?? (_widgetFunnels = new InputList<Inputs.OneDashboardPageWidgetFunnelArgs>());
@@ -92,10 +72,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetHeatmaps")]
         private InputList<Inputs.OneDashboardPageWidgetHeatmapArgs>? _widgetHeatmaps;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Heatmap widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHeatmapArgs> WidgetHeatmaps
         {
             get => _widgetHeatmaps ?? (_widgetHeatmaps = new InputList<Inputs.OneDashboardPageWidgetHeatmapArgs>());
@@ -104,10 +80,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetHistograms")]
         private InputList<Inputs.OneDashboardPageWidgetHistogramArgs>? _widgetHistograms;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Histogram widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetHistogramArgs> WidgetHistograms
         {
             get => _widgetHistograms ?? (_widgetHistograms = new InputList<Inputs.OneDashboardPageWidgetHistogramArgs>());
@@ -116,10 +88,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetJsons")]
         private InputList<Inputs.OneDashboardPageWidgetJsonArgs>? _widgetJsons;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a JSON widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetJsonArgs> WidgetJsons
         {
             get => _widgetJsons ?? (_widgetJsons = new InputList<Inputs.OneDashboardPageWidgetJsonArgs>());
@@ -128,10 +96,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetLines")]
         private InputList<Inputs.OneDashboardPageWidgetLineArgs>? _widgetLines;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Line widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLineArgs> WidgetLines
         {
             get => _widgetLines ?? (_widgetLines = new InputList<Inputs.OneDashboardPageWidgetLineArgs>());
@@ -140,10 +104,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetLogTables")]
         private InputList<Inputs.OneDashboardPageWidgetLogTableArgs>? _widgetLogTables;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Log Table widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetLogTableArgs> WidgetLogTables
         {
             get => _widgetLogTables ?? (_widgetLogTables = new InputList<Inputs.OneDashboardPageWidgetLogTableArgs>());
@@ -152,10 +112,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetMarkdowns")]
         private InputList<Inputs.OneDashboardPageWidgetMarkdownArgs>? _widgetMarkdowns;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Markdown widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetMarkdownArgs> WidgetMarkdowns
         {
             get => _widgetMarkdowns ?? (_widgetMarkdowns = new InputList<Inputs.OneDashboardPageWidgetMarkdownArgs>());
@@ -164,10 +120,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetPies")]
         private InputList<Inputs.OneDashboardPageWidgetPyArgs>? _widgetPies;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Pie widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetPyArgs> WidgetPies
         {
             get => _widgetPies ?? (_widgetPies = new InputList<Inputs.OneDashboardPageWidgetPyArgs>());
@@ -176,10 +128,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetStackedBars")]
         private InputList<Inputs.OneDashboardPageWidgetStackedBarArgs>? _widgetStackedBars;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Stacked Bar widget. See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetStackedBarArgs> WidgetStackedBars
         {
             get => _widgetStackedBars ?? (_widgetStackedBars = new InputList<Inputs.OneDashboardPageWidgetStackedBarArgs>());
@@ -188,10 +136,6 @@ namespace Pulumi.NewRelic.Inputs
 
         [Input("widgetTables")]
         private InputList<Inputs.OneDashboardPageWidgetTableArgs>? _widgetTables;
-
-        /// <summary>
-        /// (Optional) A nested block that describes a Table widget.  See Nested widget blocks below for details.
-        /// </summary>
         public InputList<Inputs.OneDashboardPageWidgetTableArgs> WidgetTables
         {
             get => _widgetTables ?? (_widgetTables = new InputList<Inputs.OneDashboardPageWidgetTableArgs>());

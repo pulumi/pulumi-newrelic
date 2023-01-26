@@ -10,11 +10,8 @@ import * as utilities from "./utilities";
  * Use this data source to get information about a specific alert channel in New Relic that already exists.
  */
 export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getAlertChannel:getAlertChannel", {
         "accountId": args.accountId,
         "name": args.name,
@@ -58,9 +55,11 @@ export interface GetAlertChannelResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to get information about a specific alert channel in New Relic that already exists.
+ */
 export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertChannelResult> {
-    return pulumi.output(args).apply(a => getAlertChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlertChannel(a, opts))
 }
 
 /**

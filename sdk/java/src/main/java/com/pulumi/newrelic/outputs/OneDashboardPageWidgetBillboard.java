@@ -53,7 +53,6 @@ public final class OneDashboardPageWidgetBillboard {
     private String title;
     /**
      * @return (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widget_bullet`
      * 
      */
     private @Nullable String warning;
@@ -118,7 +117,6 @@ public final class OneDashboardPageWidgetBillboard {
     }
     /**
      * @return (Optional) Threshold above which the displayed value will be styled with a yellow color.
-     * * `widget_bullet`
      * 
      */
     public Optional<String> warning() {

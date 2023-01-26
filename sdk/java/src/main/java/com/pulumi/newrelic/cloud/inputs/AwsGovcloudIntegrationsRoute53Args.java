@@ -18,8 +18,6 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
 
     /**
      * Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     @Import(name="fetchExtendedInventory")
@@ -27,8 +25,6 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
 
     /**
      * @return Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-     * * `s3`
-     * * `sqs`
      * 
      */
     public Optional<Output<Boolean>> fetchExtendedInventory() {
@@ -77,8 +73,6 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          * 
          * @return builder
          * 
@@ -90,8 +84,6 @@ public final class AwsGovcloudIntegrationsRoute53Args extends com.pulumi.resourc
 
         /**
          * @param fetchExtendedInventory Determine if extra inventory data be collected or not. May affect total data collection time and contribute to the Cloud provider API rate limit.
-         * * `s3`
-         * * `sqs`
          * 
          * @return builder
          * 

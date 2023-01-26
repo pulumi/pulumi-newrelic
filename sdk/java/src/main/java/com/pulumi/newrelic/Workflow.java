@@ -200,6 +200,51 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ### An example of a workflow with notification triggers
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.newrelic.Workflow;
+ * import com.pulumi.newrelic.WorkflowArgs;
+ * import com.pulumi.newrelic.inputs.WorkflowIssuesFilterArgs;
+ * import com.pulumi.newrelic.inputs.WorkflowDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var workflow_example = new Workflow(&#34;workflow-example&#34;, WorkflowArgs.builder()        
+ *             .mutingRulesHandling(&#34;NOTIFY_ALL_ISSUES&#34;)
+ *             .issuesFilter(WorkflowIssuesFilterArgs.builder()
+ *                 .name(&#34;Filter-name&#34;)
+ *                 .type(&#34;FILTER&#34;)
+ *                 .predicates(WorkflowIssuesFilterPredicateArgs.builder()
+ *                     .attribute(&#34;accumulations.tag.team&#34;)
+ *                     .operator(&#34;EXACTLY_MATCHES&#34;)
+ *                     .values(&#34;my_team&#34;)
+ *                     .build())
+ *                 .build())
+ *             .destinations(WorkflowDestinationArgs.builder()
+ *                 .channelId(newrelic_notification_channel.webhook-channel().id())
+ *                 .notificationTriggers(&#34;ACTIVATED&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Additional Information
  * 
  * More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
@@ -359,14 +404,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return this.mutingRulesHandling;
     }
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * The name of the workflow.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     public Output<String> name() {

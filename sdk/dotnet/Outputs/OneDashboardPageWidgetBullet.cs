@@ -28,7 +28,6 @@ namespace Pulumi.NewRelic.Outputs
         public readonly bool? IgnoreTimeRange;
         /// <summary>
         /// (Required) Visualization limit for the widget.
-        /// * `widget_funnel`
         /// </summary>
         public readonly double Limit;
         /// <summary>

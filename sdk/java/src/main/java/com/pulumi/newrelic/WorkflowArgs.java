@@ -152,14 +152,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * The name of the workflow.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+     * @return The name of the workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -387,7 +387,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+         * @param name The name of the workflow.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+         * @param name The name of the workflow.
          * 
          * @return builder
          * 

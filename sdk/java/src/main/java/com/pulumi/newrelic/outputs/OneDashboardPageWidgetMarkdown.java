@@ -36,7 +36,6 @@ public final class OneDashboardPageWidgetMarkdown {
     private Integer row;
     /**
      * @return (Required) The markdown source to be rendered in the widget.
-     * * `widget_stacked_bar`
      * 
      */
     private @Nullable String text;
@@ -85,7 +84,6 @@ public final class OneDashboardPageWidgetMarkdown {
     }
     /**
      * @return (Required) The markdown source to be rendered in the widget.
-     * * `widget_stacked_bar`
      * 
      */
     public Optional<String> text() {

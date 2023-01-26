@@ -14,14 +14,18 @@ namespace Pulumi.NewRelic.Outputs
     public sealed class WorkflowDestination
     {
         /// <summary>
-        /// id of a notification_channel to use for notifications. Please note that you have to use a 
+        /// Id of a notification_channel to use for notifications. Please note that you have to use a 
         /// **notification** channel, not an `alert_channel`.
         /// </summary>
         public readonly string ChannelId;
         /// <summary>
-        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        /// The name of the workflow.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Issue events to notify on. The value is a list of possible issue events. See Notification Triggers below for details.
+        /// </summary>
+        public readonly ImmutableArray<string> NotificationTriggers;
         /// <summary>
         /// Type of the filter. Please just set this field to `FILTER`. The field is likely to be deprecated/removed in the near future.
         /// </summary>
@@ -33,10 +37,13 @@ namespace Pulumi.NewRelic.Outputs
 
             string? name,
 
+            ImmutableArray<string> notificationTriggers,
+
             string? type)
         {
             ChannelId = channelId;
             Name = name;
+            NotificationTriggers = notificationTriggers;
             Type = type;
         }
     }

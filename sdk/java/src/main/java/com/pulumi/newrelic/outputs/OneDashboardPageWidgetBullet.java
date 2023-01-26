@@ -34,7 +34,6 @@ public final class OneDashboardPageWidgetBullet {
     private @Nullable Boolean ignoreTimeRange;
     /**
      * @return (Required) Visualization limit for the widget.
-     * * `widget_funnel`
      * 
      */
     private Double limit;
@@ -86,7 +85,6 @@ public final class OneDashboardPageWidgetBullet {
     }
     /**
      * @return (Required) Visualization limit for the widget.
-     * * `widget_funnel`
      * 
      */
     public Double limit() {

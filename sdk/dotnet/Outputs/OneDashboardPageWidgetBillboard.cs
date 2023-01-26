@@ -44,7 +44,6 @@ namespace Pulumi.NewRelic.Outputs
         public readonly string Title;
         /// <summary>
         /// (Optional) Threshold above which the displayed value will be styled with a yellow color.
-        /// * `widget_bullet`
         /// </summary>
         public readonly string? Warning;
         /// <summary>

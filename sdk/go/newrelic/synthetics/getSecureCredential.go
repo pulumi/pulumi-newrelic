@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = synthetics.LookupSecureCredential(ctx, &synthetics.LookupSecureCredentialArgs{
+//			_, err := synthetics.LookupSecureCredential(ctx, &synthetics.LookupSecureCredentialArgs{
 //				Key: "MY_KEY",
 //			}, nil)
 //			if err != nil {
@@ -50,6 +50,8 @@ func LookupSecureCredential(ctx *pulumi.Context, args *LookupSecureCredentialArg
 
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialArgs struct {
+	// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+	AccountId *int `pulumi:"accountId"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key string `pulumi:"key"`
 }
@@ -81,6 +83,8 @@ func LookupSecureCredentialOutput(ctx *pulumi.Context, args LookupSecureCredenti
 
 // A collection of arguments for invoking getSecureCredential.
 type LookupSecureCredentialOutputArgs struct {
+	// The account in New Relic associated with the secure credential. Defaults to the account associated with the API key used.
+	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
 	// The secure credential's key name.  Regardless of the case used in the configuration, the provider will provide an upcased key to the underlying API.
 	Key pulumi.StringInput `pulumi:"key"`
 }

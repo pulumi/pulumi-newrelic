@@ -24,6 +24,8 @@ import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionPlainArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionPlainArgs;
+import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
+import com.pulumi.newrelic.inputs.GetTestGrokPatternPlainArgs;
 import com.pulumi.newrelic.outputs.GetAccountResult;
 import com.pulumi.newrelic.outputs.GetAlertChannelResult;
 import com.pulumi.newrelic.outputs.GetAlertPolicyResult;
@@ -32,6 +34,7 @@ import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
+import com.pulumi.newrelic.outputs.GetTestGrokPatternResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class NewrelicFunctions {
@@ -1528,5 +1531,157 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetObfuscationExpressionResult> getObfuscationExpressionPlain(GetObfuscationExpressionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getObfuscationExpression:getObfuscationExpression", TypeShape.of(GetObfuscationExpressionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
+     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .logLines(            
+     *                 &#34;host_ip: 43.3.120.2&#34;,
+     *                 &#34;bytes_received: 2048&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTestGrokPatternResult> getTestGrokPattern(GetTestGrokPatternArgs args) {
+        return getTestGrokPattern(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
+     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .logLines(            
+     *                 &#34;host_ip: 43.3.120.2&#34;,
+     *                 &#34;bytes_received: 2048&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTestGrokPatternResult> getTestGrokPatternPlain(GetTestGrokPatternPlainArgs args) {
+        return getTestGrokPatternPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
+     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .logLines(            
+     *                 &#34;host_ip: 43.3.120.2&#34;,
+     *                 &#34;bytes_received: 2048&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTestGrokPatternResult> getTestGrokPattern(GetTestGrokPatternArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getTestGrokPattern:getTestGrokPattern", TypeShape.of(GetTestGrokPatternResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getTestGrokPattern(GetTestGrokPatternArgs.builder()
+     *             .grok(&#34;%%{IP:host_ip}&#34;)
+     *             .logLines(            
+     *                 &#34;host_ip: 43.3.120.2&#34;,
+     *                 &#34;bytes_received: 2048&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTestGrokPatternResult> getTestGrokPatternPlain(GetTestGrokPatternPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getTestGrokPattern:getTestGrokPattern", TypeShape.of(GetTestGrokPatternResult.class), args, Utilities.withVersion(options));
     }
 }

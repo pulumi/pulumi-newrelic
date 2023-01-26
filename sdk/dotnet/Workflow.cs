@@ -194,6 +194,51 @@ namespace Pulumi.NewRelic
     /// });
     /// ```
     /// 
+    /// ### An example of a workflow with notification triggers
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using NewRelic = Pulumi.NewRelic;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflow_example = new NewRelic.Workflow("workflow-example", new()
+    ///     {
+    ///         MutingRulesHandling = "NOTIFY_ALL_ISSUES",
+    ///         IssuesFilter = new NewRelic.Inputs.WorkflowIssuesFilterArgs
+    ///         {
+    ///             Name = "Filter-name",
+    ///             Type = "FILTER",
+    ///             Predicates = new[]
+    ///             {
+    ///                 new NewRelic.Inputs.WorkflowIssuesFilterPredicateArgs
+    ///                 {
+    ///                     Attribute = "accumulations.tag.team",
+    ///                     Operator = "EXACTLY_MATCHES",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "my_team",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new NewRelic.Inputs.WorkflowDestinationArgs
+    ///             {
+    ///                 ChannelId = newrelic_notification_channel.Webhook_channel.Id,
+    ///                 NotificationTriggers = new[]
+    ///                 {
+    ///                     "ACTIVATED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Additional Information
     /// 
     /// More details about the workflows can be found [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/applied-intelligence/incident-workflows/incident-workflows/).
@@ -276,7 +321,7 @@ namespace Pulumi.NewRelic
         public Output<string> MutingRulesHandling { get; private set; } = null!;
 
         /// <summary>
-        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        /// The name of the workflow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -389,7 +434,7 @@ namespace Pulumi.NewRelic
         public Input<string> MutingRulesHandling { get; set; } = null!;
 
         /// <summary>
-        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        /// The name of the workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -464,7 +509,7 @@ namespace Pulumi.NewRelic
         public Input<string>? MutingRulesHandling { get; set; }
 
         /// <summary>
-        /// A nrql enrichment name. This name can be used in your notification templates (see notification_channel documentation)
+        /// The name of the workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var monitor = new BrokenLinksMonitor(&#34;monitor&#34;, BrokenLinksMonitorArgs.builder()        
- *             .locationsPrivates(&#34;newrelic_synthetics_private_location.location.id&#34;)
+ *             .uri(&#34;https://www.one.example.com&#34;)
+ *             .locationsPrivates(location.id())
  *             .period(&#34;EVERY_6_HOURS&#34;)
  *             .status(&#34;ENABLED&#34;)
  *             .tags(BrokenLinksMonitorTagArgs.builder()
  *                 .key(&#34;some_key&#34;)
  *                 .values(&#34;some_value&#34;)
  *                 .build())
- *             .uri(&#34;https://www.one.example.com&#34;)
  *             .build());
  * 
  *     }

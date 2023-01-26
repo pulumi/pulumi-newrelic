@@ -74,7 +74,6 @@ public final class OneDashboardPageWidgetBulletArgs extends com.pulumi.resources
 
     /**
      * (Required) Visualization limit for the widget.
-     * * `widget_funnel`
      * 
      */
     @Import(name="limit", required=true)
@@ -82,7 +81,6 @@ public final class OneDashboardPageWidgetBulletArgs extends com.pulumi.resources
 
     /**
      * @return (Required) Visualization limit for the widget.
-     * * `widget_funnel`
      * 
      */
     public Output<Double> limit() {
@@ -255,7 +253,6 @@ public final class OneDashboardPageWidgetBulletArgs extends com.pulumi.resources
 
         /**
          * @param limit (Required) Visualization limit for the widget.
-         * * `widget_funnel`
          * 
          * @return builder
          * 
@@ -267,7 +264,6 @@ public final class OneDashboardPageWidgetBulletArgs extends com.pulumi.resources
 
         /**
          * @param limit (Required) Visualization limit for the widget.
-         * * `widget_funnel`
          * 
          * @return builder
          * 

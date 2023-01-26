@@ -53,16 +53,16 @@ func NewProvider(ctx *pulumi.Context,
 		args.Region = pulumi.StringPtr(getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string))
 	}
 	if args.AccountId != nil {
-		args.AccountId = pulumi.ToSecret(args.AccountId).(pulumi.IntPtrOutput)
+		args.AccountId = pulumi.ToSecret(args.AccountId).(pulumi.IntPtrInput)
 	}
 	if args.AdminApiKey != nil {
-		args.AdminApiKey = pulumi.ToSecret(args.AdminApiKey).(pulumi.StringPtrOutput)
+		args.AdminApiKey = pulumi.ToSecret(args.AdminApiKey).(pulumi.StringPtrInput)
 	}
 	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringOutput)
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
 	}
 	if args.InsightsInsertKey != nil {
-		args.InsightsInsertKey = pulumi.ToSecret(args.InsightsInsertKey).(pulumi.StringPtrOutput)
+		args.InsightsInsertKey = pulumi.ToSecret(args.InsightsInsertKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"adminApiKey",

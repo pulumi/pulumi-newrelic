@@ -65,7 +65,6 @@ namespace Pulumi.NewRelic.Inputs
 
         /// <summary>
         /// (Optional) Threshold above which the displayed value will be styled with a yellow color.
-        /// * `widget_bullet`
         /// </summary>
         [Input("warning")]
         public Input<string>? Warning { get; set; }
