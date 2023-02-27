@@ -77,6 +77,9 @@ __all__ = [
     'WorkflowIssuesFilterArgs',
     'WorkflowIssuesFilterPredicateArgs',
     'GetEntityTagArgs',
+    'GetNotificationDestinationAuthBasicArgs',
+    'GetNotificationDestinationAuthTokenArgs',
+    'GetNotificationDestinationPropertyArgs',
 ]
 
 @pulumi.input_type
@@ -487,7 +490,7 @@ class AlertMutingRuleConditionArgs:
                  operator: pulumi.Input[str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AlertMutingRuleConditionConditionArgs']]] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
-        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group.
+        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         pulumi.set(__self__, "conditions", conditions)
         pulumi.set(__self__, "operator", operator)
@@ -508,7 +511,7 @@ class AlertMutingRuleConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        The operator used to combine all the MutingRuleConditions within the group.
+        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         return pulumi.get(self, "operator")
 
@@ -525,7 +528,7 @@ class AlertMutingRuleConditionConditionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] attribute: The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
-        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group.
+        :param pulumi.Input[str] operator: The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value(s) to compare against the attribute's value.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -548,7 +551,7 @@ class AlertMutingRuleConditionConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        The operator used to combine all the MutingRuleConditions within the group.
+        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         return pulumi.get(self, "operator")
 
@@ -5211,9 +5214,7 @@ class WorkflowIssuesFilterPredicateArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] attribute: Issue event attribute to check
-        :param pulumi.Input[str] operator: An operator to use to compare the attribute with the provided `values`. 
-               One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-               `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+        :param pulumi.Input[str] operator: An operator to use to compare the attribute with the provided `values`, see supported operators below
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The `attribute` must match **any** of the values in this list
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -5236,9 +5237,7 @@ class WorkflowIssuesFilterPredicateArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        An operator to use to compare the attribute with the provided `values`. 
-        One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-        `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+        An operator to use to compare the attribute with the provided `values`, see supported operators below
         """
         return pulumi.get(self, "operator")
 
@@ -5294,5 +5293,90 @@ class GetEntityTagArgs:
     @value.setter
     def value(self, value: str):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class GetNotificationDestinationAuthBasicArgs:
+    def __init__(__self__, *,
+                 user: Optional[str] = None):
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[str]):
+        pulumi.set(self, "user", value)
+
+
+@pulumi.input_type
+class GetNotificationDestinationAuthTokenArgs:
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None):
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[str]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class GetNotificationDestinationPropertyArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 display_value: Optional[str] = None,
+                 label: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if display_value is not None:
+            pulumi.set(__self__, "display_value", display_value)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="displayValue")
+    def display_value(self) -> Optional[str]:
+        return pulumi.get(self, "display_value")
+
+    @display_value.setter
+    def display_value(self, value: Optional[str]):
+        pulumi.set(self, "display_value", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[str]):
+        pulumi.set(self, "label", value)
 
 

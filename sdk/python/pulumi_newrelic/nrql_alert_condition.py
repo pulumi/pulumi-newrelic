@@ -28,6 +28,7 @@ class NrqlAlertConditionArgs:
                  critical: Optional[pulumi.Input['NrqlAlertConditionCriticalArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 evaluation_delay: Optional[pulumi.Input[int]] = None,
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
@@ -54,6 +55,7 @@ class NrqlAlertConditionArgs:
         :param pulumi.Input['NrqlAlertConditionCriticalArgs'] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
@@ -91,6 +93,8 @@ class NrqlAlertConditionArgs:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if evaluation_delay is not None:
+            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if expiration_duration is not None:
             pulumi.set(__self__, "expiration_duration", expiration_duration)
         if fill_option is not None:
@@ -267,6 +271,18 @@ class NrqlAlertConditionArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="evaluationDelay")
+    def evaluation_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        """
+        return pulumi.get(self, "evaluation_delay")
+
+    @evaluation_delay.setter
+    def evaluation_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_delay", value)
+
+    @property
     @pulumi.getter(name="expirationDuration")
     def expiration_duration(self) -> Optional[pulumi.Input[int]]:
         """
@@ -427,6 +443,7 @@ class _NrqlAlertConditionState:
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_guid: Optional[pulumi.Input[str]] = None,
+                 evaluation_delay: Optional[pulumi.Input[int]] = None,
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
@@ -454,6 +471,7 @@ class _NrqlAlertConditionState:
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
+        :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
@@ -493,6 +511,8 @@ class _NrqlAlertConditionState:
             pulumi.set(__self__, "enabled", enabled)
         if entity_guid is not None:
             pulumi.set(__self__, "entity_guid", entity_guid)
+        if evaluation_delay is not None:
+            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if expiration_duration is not None:
             pulumi.set(__self__, "expiration_duration", expiration_duration)
         if fill_option is not None:
@@ -659,6 +679,18 @@ class _NrqlAlertConditionState:
     @entity_guid.setter
     def entity_guid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "entity_guid", value)
+
+    @property
+    @pulumi.getter(name="evaluationDelay")
+    def evaluation_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        """
+        return pulumi.get(self, "evaluation_delay")
+
+    @evaluation_delay.setter
+    def evaluation_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_delay", value)
 
     @property
     @pulumi.getter(name="expirationDuration")
@@ -846,6 +878,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  critical: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 evaluation_delay: Optional[pulumi.Input[int]] = None,
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
@@ -886,8 +919,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `threshold` - (Required) The value which will trigger an incident.
         <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
+        <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
 
         - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
         - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -939,6 +972,60 @@ class NrqlAlertCondition(pulumi.CustomResource):
             ))
         ```
 
+        ## Upgrade from 1.x to 2.x
+
+        There have been several deprecations in the `NrqlAlertCondition`
+        resource.  Users will need to make some updates in order to have a smooth
+        upgrade.
+
+        An example resource from 1.x might look like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit="TWENTY_FOUR_HOURS",
+            critical=newrelic.NrqlAlertConditionCriticalArgs(
+                operator="above",
+                threshold_duration=120,
+                threshold=3,
+                threshold_occurrences="AT_LEAST_ONCE",
+            ),
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
+        After making the appropriate adjustments mentioned in the deprecation warnings,
+        the resource now looks like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit_seconds=86400,
+            terms=[newrelic.NrqlAlertConditionTermArgs(
+                priority="critical",
+                operator="above",
+                threshold=3,
+                duration=5,
+                time_function="any",
+            )],
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -965,6 +1052,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']] critical: A list containing the `critical` threshold values. See Terms below for details.
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
@@ -1013,8 +1101,8 @@ class NrqlAlertCondition(pulumi.CustomResource):
         - `threshold` - (Required) The value which will trigger an incident.
         <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
         - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
-        <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-        <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
+        <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+        <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
 
         - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
         - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -1066,6 +1154,60 @@ class NrqlAlertCondition(pulumi.CustomResource):
             ))
         ```
 
+        ## Upgrade from 1.x to 2.x
+
+        There have been several deprecations in the `NrqlAlertCondition`
+        resource.  Users will need to make some updates in order to have a smooth
+        upgrade.
+
+        An example resource from 1.x might look like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit="TWENTY_FOUR_HOURS",
+            critical=newrelic.NrqlAlertConditionCriticalArgs(
+                operator="above",
+                threshold_duration=120,
+                threshold=3,
+                threshold_occurrences="AT_LEAST_ONCE",
+            ),
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
+        After making the appropriate adjustments mentioned in the deprecation warnings,
+        the resource now looks like the following.
+
+        ```python
+        import pulumi
+        import pulumi_newrelic as newrelic
+
+        nrql_alert_condition = newrelic.NrqlAlertCondition("nrqlAlertCondition",
+            policy_id=newrelic_alert_policy["z"]["id"],
+            type="static",
+            runbook_url="https://localhost",
+            enabled=True,
+            violation_time_limit_seconds=86400,
+            terms=[newrelic.NrqlAlertConditionTermArgs(
+                priority="critical",
+                operator="above",
+                threshold=3,
+                duration=5,
+                time_function="any",
+            )],
+            nrql=newrelic.NrqlAlertConditionNrqlArgs(
+                query="SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
+            ))
+        ```
+
         ## Import
 
         NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -1105,6 +1247,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
                  critical: Optional[pulumi.Input[pulumi.InputType['NrqlAlertConditionCriticalArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 evaluation_delay: Optional[pulumi.Input[int]] = None,
                  expiration_duration: Optional[pulumi.Input[int]] = None,
                  fill_option: Optional[pulumi.Input[str]] = None,
                  fill_value: Optional[pulumi.Input[float]] = None,
@@ -1138,6 +1281,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             __props__.__dict__["critical"] = critical
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["evaluation_delay"] = evaluation_delay
             __props__.__dict__["expiration_duration"] = expiration_duration
             __props__.__dict__["fill_option"] = fill_option
             __props__.__dict__["fill_value"] = fill_value
@@ -1184,6 +1328,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             entity_guid: Optional[pulumi.Input[str]] = None,
+            evaluation_delay: Optional[pulumi.Input[int]] = None,
             expiration_duration: Optional[pulumi.Input[int]] = None,
             fill_option: Optional[pulumi.Input[str]] = None,
             fill_value: Optional[pulumi.Input[float]] = None,
@@ -1216,6 +1361,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the NRQL alert condition.
         :param pulumi.Input[bool] enabled: Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] entity_guid: The unique entity identifier of the NRQL Condition in New Relic.
+        :param pulumi.Input[int] evaluation_delay: How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
         :param pulumi.Input[int] expiration_duration: The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
         :param pulumi.Input[str] fill_option: Which strategy to use when filling gaps in the signal. Possible values are `none`, `last_value` or `static`. If `static`, the `fill_value` field will be used for filling gaps in the signal.
         :param pulumi.Input[float] fill_value: This value will be used for filling gaps in the signal.
@@ -1248,6 +1394,7 @@ class NrqlAlertCondition(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["entity_guid"] = entity_guid
+        __props__.__dict__["evaluation_delay"] = evaluation_delay
         __props__.__dict__["expiration_duration"] = expiration_duration
         __props__.__dict__["fill_option"] = fill_option
         __props__.__dict__["fill_value"] = fill_value
@@ -1351,6 +1498,14 @@ class NrqlAlertCondition(pulumi.CustomResource):
         The unique entity identifier of the NRQL Condition in New Relic.
         """
         return pulumi.get(self, "entity_guid")
+
+    @property
+    @pulumi.getter(name="evaluationDelay")
+    def evaluation_delay(self) -> pulumi.Output[Optional[int]]:
+        """
+        How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+        """
+        return pulumi.get(self, "evaluation_delay")
 
     @property
     @pulumi.getter(name="expirationDuration")

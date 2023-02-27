@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * - `threshold` - (Required) The value which will trigger an incident.
  * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
  * - `threshold_duration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregation_window` (which has a default of 60 seconds).
- * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
- * &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
+ * &lt;br&gt;For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+ * &lt;br&gt;For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
  * 
  * - `threshold_occurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `at_least_once` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `threshold_duration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -133,7 +133,6 @@ import javax.annotation.Nullable;
  * upgrade.
  * 
  * An example resource from 1.x might look like the following.
- * 
  * ```java
  * package generated_program;
  * 
@@ -162,7 +161,6 @@ import javax.annotation.Nullable;
  *             .type(&#34;static&#34;)
  *             .runbookUrl(&#34;https://localhost&#34;)
  *             .enabled(true)
- *             .valueFunction(&#34;sum&#34;)
  *             .violationTimeLimit(&#34;TWENTY_FOUR_HOURS&#34;)
  *             .critical(NrqlAlertConditionCriticalArgs.builder()
  *                 .operator(&#34;above&#34;)
@@ -181,7 +179,6 @@ import javax.annotation.Nullable;
  * 
  * After making the appropriate adjustments mentioned in the deprecation warnings,
  * the resource now looks like the following.
- * 
  * ```java
  * package generated_program;
  * 
@@ -210,7 +207,6 @@ import javax.annotation.Nullable;
  *             .type(&#34;static&#34;)
  *             .runbookUrl(&#34;https://localhost&#34;)
  *             .enabled(true)
- *             .valueFunction(&#34;sum&#34;)
  *             .violationTimeLimitSeconds(86400)
  *             .terms(NrqlAlertConditionTermArgs.builder()
  *                 .priority(&#34;critical&#34;)
@@ -398,6 +394,20 @@ public class NrqlAlertCondition extends com.pulumi.resources.CustomResource {
      */
     public Output<String> entityGuid() {
         return this.entityGuid;
+    }
+    /**
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * 
+     */
+    @Export(name="evaluationDelay", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> evaluationDelay;
+
+    /**
+     * @return How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * 
+     */
+    public Output<Optional<Integer>> evaluationDelay() {
+        return Codegen.optional(this.evaluationDelay);
     }
     /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).

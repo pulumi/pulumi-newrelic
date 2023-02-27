@@ -79,6 +79,9 @@ __all__ = [
     'WorkflowIssuesFilterPredicate',
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
+    'GetNotificationDestinationAuthBasicResult',
+    'GetNotificationDestinationAuthTokenResult',
+    'GetNotificationDestinationPropertyResult',
     'GetTestGrokPatternTestGrokResult',
     'GetTestGrokPatternTestGrokAttributeResult',
 ]
@@ -443,7 +446,7 @@ class AlertMutingRuleCondition(dict):
                  operator: str):
         """
         :param Sequence['AlertMutingRuleConditionConditionArgs'] conditions: The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
-        :param str operator: The operator used to combine all the MutingRuleConditions within the group.
+        :param str operator: The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         pulumi.set(__self__, "conditions", conditions)
         pulumi.set(__self__, "operator", operator)
@@ -460,7 +463,7 @@ class AlertMutingRuleCondition(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        The operator used to combine all the MutingRuleConditions within the group.
+        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         return pulumi.get(self, "operator")
 
@@ -473,7 +476,7 @@ class AlertMutingRuleConditionCondition(dict):
                  values: Sequence[str]):
         """
         :param str attribute: The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
-        :param str operator: The operator used to combine all the MutingRuleConditions within the group.
+        :param str operator: The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         :param Sequence[str] values: The value(s) to compare against the attribute's value.
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -492,7 +495,7 @@ class AlertMutingRuleConditionCondition(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        The operator used to combine all the MutingRuleConditions within the group.
+        The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         """
         return pulumi.get(self, "operator")
 
@@ -4930,9 +4933,7 @@ class WorkflowIssuesFilterPredicate(dict):
                  values: Sequence[str]):
         """
         :param str attribute: Issue event attribute to check
-        :param str operator: An operator to use to compare the attribute with the provided `values`. 
-               One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-               `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+        :param str operator: An operator to use to compare the attribute with the provided `values`, see supported operators below
         :param Sequence[str] values: The `attribute` must match **any** of the values in this list
         """
         pulumi.set(__self__, "attribute", attribute)
@@ -4951,9 +4952,7 @@ class WorkflowIssuesFilterPredicate(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        An operator to use to compare the attribute with the provided `values`. 
-        One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-        `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+        An operator to use to compare the attribute with the provided `values`, see supported operators below
         """
         return pulumi.get(self, "operator")
 
@@ -5158,6 +5157,67 @@ class GetEntityTagResult(dict):
         The tag value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetNotificationDestinationAuthBasicResult(dict):
+    def __init__(__self__, *,
+                 user: Optional[str] = None):
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class GetNotificationDestinationAuthTokenResult(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None):
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetNotificationDestinationPropertyResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 display_value: Optional[str] = None,
+                 label: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if display_value is not None:
+            pulumi.set(__self__, "display_value", display_value)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="displayValue")
+    def display_value(self) -> Optional[str]:
+        return pulumi.get(self, "display_value")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
 
 
 @pulumi.output_type

@@ -11,6 +11,75 @@ import (
 )
 
 // Use this data source to get information about a specific entity in New Relic One that already exists.
+//
+// ## Additional Examples
+//
+// > If the entities are not found please try again without providing the `types` field.
+// ### An example of querying OTEL entities
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//				Domain: pulumi.StringRef("EXT"),
+//				Name:   "my-otel-app",
+//				Tags: []newrelic.GetEntityTag{
+//					{
+//						Key:   "accountID",
+//						Value: "12345",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### An example of querying AWS lambda entities
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
+//				Domain: pulumi.StringRef("INFRA"),
+//				Name:   "my_lambda_trace",
+//				Tags: []newrelic.GetEntityTag{
+//					{
+//						Key:   "accountID",
+//						Value: "12345",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOption) (*GetEntityResult, error) {
 	var rv GetEntityResult
 	err := ctx.Invoke("newrelic:index/getEntity:getEntity", args, &rv, opts...)
@@ -22,7 +91,7 @@ func GetEntity(ctx *pulumi.Context, args *GetEntityArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getEntity.
 type GetEntityArgs struct {
-	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain *string `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase *bool `pulumi:"ignoreCase"`
@@ -30,7 +99,7 @@ type GetEntityArgs struct {
 	Name string `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
 	Tags []GetEntityTag `pulumi:"tags"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
 	Type *string `pulumi:"type"`
 }
 
@@ -68,7 +137,7 @@ func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getEntity.
 type GetEntityOutputArgs struct {
-	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+	// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// Ignore case of the `name` when searching for the entity. Defaults to false.
 	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
@@ -76,7 +145,7 @@ type GetEntityOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
 	Tags GetEntityTagArrayInput `pulumi:"tags"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 

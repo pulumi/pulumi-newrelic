@@ -17,7 +17,7 @@ public final class AlertMutingRuleCondition {
      */
     private List<AlertMutingRuleConditionCondition> conditions;
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group.
+     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      * 
      */
     private String operator;
@@ -31,7 +31,7 @@ public final class AlertMutingRuleCondition {
         return this.conditions;
     }
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group.
+     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      * 
      */
     public String operator() {

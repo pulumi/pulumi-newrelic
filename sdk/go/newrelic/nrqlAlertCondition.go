@@ -35,8 +35,8 @@ import (
 // - `threshold` - (Required) The value which will trigger an incident.
 // <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
 // - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
-// <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
-// <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
+// <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+// <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
 //
 // - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
 // - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -110,6 +110,98 @@ import (
 //
 // ```
 //
+// ## Upgrade from 1.x to 2.x
+//
+// There have been several deprecations in the `NrqlAlertCondition`
+// resource.  Users will need to make some updates in order to have a smooth
+// upgrade.
+//
+// An example resource from 1.x might look like the following.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:           pulumi.Any(newrelic_alert_policy.Z.Id),
+//				Type:               pulumi.String("static"),
+//				RunbookUrl:         pulumi.String("https://localhost"),
+//				Enabled:            pulumi.Bool(true),
+//				ViolationTimeLimit: pulumi.String("TWENTY_FOUR_HOURS"),
+//				Critical: &newrelic.NrqlAlertConditionCriticalArgs{
+//					Operator:             pulumi.String("above"),
+//					ThresholdDuration:    pulumi.Int(120),
+//					Threshold:            pulumi.Float64(3),
+//					ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
+//				},
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// After making the appropriate adjustments mentioned in the deprecation warnings,
+// the resource now looks like the following.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := newrelic.NewNrqlAlertCondition(ctx, "nrqlAlertCondition", &newrelic.NrqlAlertConditionArgs{
+//				PolicyId:                  pulumi.Any(newrelic_alert_policy.Z.Id),
+//				Type:                      pulumi.String("static"),
+//				RunbookUrl:                pulumi.String("https://localhost"),
+//				Enabled:                   pulumi.Bool(true),
+//				ViolationTimeLimitSeconds: pulumi.Int(86400),
+//				Terms: newrelic.NrqlAlertConditionTermArray{
+//					&newrelic.NrqlAlertConditionTermArgs{
+//						Priority:     pulumi.String("critical"),
+//						Operator:     pulumi.String("above"),
+//						Threshold:    pulumi.Float64(3),
+//						Duration:     pulumi.Int(5),
+//						TimeFunction: pulumi.String("any"),
+//					},
+//				},
+//				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
+//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // NRQL alert conditions can be imported using a composite ID of `<policy_id>:<condition_id>:<conditionType>`, e.g. // For `baseline` conditions
@@ -152,6 +244,8 @@ type NrqlAlertCondition struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid pulumi.StringOutput `pulumi:"entityGuid"`
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	EvaluationDelay pulumi.IntPtrOutput `pulumi:"evaluationDelay"`
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrOutput `pulumi:"expirationDuration"`
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
@@ -245,6 +339,8 @@ type nrqlAlertConditionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid *string `pulumi:"entityGuid"`
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	EvaluationDelay *int `pulumi:"evaluationDelay"`
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration *int `pulumi:"expirationDuration"`
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
@@ -304,6 +400,8 @@ type NrqlAlertConditionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The unique entity identifier of the NRQL Condition in New Relic.
 	EntityGuid pulumi.StringPtrInput
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	EvaluationDelay pulumi.IntPtrInput
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrInput
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
@@ -365,6 +463,8 @@ type nrqlAlertConditionArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	EvaluationDelay *int `pulumi:"evaluationDelay"`
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration *int `pulumi:"expirationDuration"`
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
@@ -423,6 +523,8 @@ type NrqlAlertConditionArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+	EvaluationDelay pulumi.IntPtrInput
 	// The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
 	ExpirationDuration pulumi.IntPtrInput
 	// Which strategy to use when filling gaps in the signal. Possible values are `none`, `lastValue` or `static`. If `static`, the `fillValue` field will be used for filling gaps in the signal.
@@ -599,6 +701,11 @@ func (o NrqlAlertConditionOutput) Enabled() pulumi.BoolPtrOutput {
 // The unique entity identifier of the NRQL Condition in New Relic.
 func (o NrqlAlertConditionOutput) EntityGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.StringOutput { return v.EntityGuid }).(pulumi.StringOutput)
+}
+
+// How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+func (o NrqlAlertConditionOutput) EvaluationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NrqlAlertCondition) pulumi.IntPtrOutput { return v.EvaluationDelay }).(pulumi.IntPtrOutput)
 }
 
 // The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).

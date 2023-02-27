@@ -18,7 +18,7 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string Attribute;
         /// <summary>
-        /// The operator used to combine all the MutingRuleConditions within the group.
+        /// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

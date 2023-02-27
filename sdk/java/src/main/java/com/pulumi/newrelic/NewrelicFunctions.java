@@ -22,6 +22,8 @@ import com.pulumi.newrelic.inputs.GetEntityArgs;
 import com.pulumi.newrelic.inputs.GetEntityPlainArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionArgs;
 import com.pulumi.newrelic.inputs.GetKeyTransactionPlainArgs;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+import com.pulumi.newrelic.inputs.GetNotificationDestinationPlainArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionArgs;
 import com.pulumi.newrelic.inputs.GetObfuscationExpressionPlainArgs;
 import com.pulumi.newrelic.inputs.GetTestGrokPatternArgs;
@@ -33,6 +35,7 @@ import com.pulumi.newrelic.outputs.GetApplicationResult;
 import com.pulumi.newrelic.outputs.GetCloudAccountResult;
 import com.pulumi.newrelic.outputs.GetEntityResult;
 import com.pulumi.newrelic.outputs.GetKeyTransactionResult;
+import com.pulumi.newrelic.outputs.GetNotificationDestinationResult;
 import com.pulumi.newrelic.outputs.GetObfuscationExpressionResult;
 import com.pulumi.newrelic.outputs.GetTestGrokPatternResult;
 import java.util.concurrent.CompletableFuture;
@@ -1067,12 +1070,158 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
      * 
+     * ## Additional Examples
+     * 
+     * &gt; If the entities are not found please try again without providing the `types` field.
+     * ### An example of querying OTEL entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;EXT&#34;)
+     *             .name(&#34;my-otel-app&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * ### An example of querying AWS lambda entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;INFRA&#34;)
+     *             .name(&#34;my_lambda_trace&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetEntityResult> getEntity(GetEntityArgs args) {
         return getEntity(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
+     * 
+     * ## Additional Examples
+     * 
+     * &gt; If the entities are not found please try again without providing the `types` field.
+     * ### An example of querying OTEL entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;EXT&#34;)
+     *             .name(&#34;my-otel-app&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * ### An example of querying AWS lambda entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;INFRA&#34;)
+     *             .name(&#34;my_lambda_trace&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetEntityResult> getEntityPlain(GetEntityPlainArgs args) {
@@ -1081,12 +1230,158 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
      * 
+     * ## Additional Examples
+     * 
+     * &gt; If the entities are not found please try again without providing the `types` field.
+     * ### An example of querying OTEL entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;EXT&#34;)
+     *             .name(&#34;my-otel-app&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * ### An example of querying AWS lambda entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;INFRA&#34;)
+     *             .name(&#34;my_lambda_trace&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetEntityResult> getEntity(GetEntityArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getEntity:getEntity", TypeShape.of(GetEntityResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific entity in New Relic One that already exists.
+     * 
+     * ## Additional Examples
+     * 
+     * &gt; If the entities are not found please try again without providing the `types` field.
+     * ### An example of querying OTEL entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;EXT&#34;)
+     *             .name(&#34;my-otel-app&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * ### An example of querying AWS lambda entities
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
+     *             .domain(&#34;INFRA&#34;)
+     *             .name(&#34;my_lambda_trace&#34;)
+     *             .tags(GetEntityTagArgs.builder()
+     *                 .key(&#34;accountID&#34;)
+     *                 .value(&#34;12345&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetEntityResult> getEntityPlain(GetEntityPlainArgs args, InvokeOptions options) {
@@ -1323,6 +1618,18 @@ public final class NewrelicFunctions {
      */
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args) {
+        return getNotificationDestination(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args) {
+        return getNotificationDestinationPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific Obfuscation Expression in New Relic that already exists.

@@ -18,14 +18,14 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetEntityPlainArgs Empty = new GetEntityPlainArgs();
 
     /**
-     * The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+     * The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      * 
      */
     @Import(name="domain")
     private @Nullable String domain;
 
     /**
-     * @return The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+     * @return The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      * 
      */
     public Optional<String> domain() {
@@ -78,14 +78,14 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+     * The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+     * @return The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      * 
      */
     public Optional<String> type() {
@@ -121,7 +121,7 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param domain The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+         * @param domain The entity&#39;s domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class GetEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
          * 
          * @return builder
          * 

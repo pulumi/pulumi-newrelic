@@ -80,6 +80,11 @@ export const getKeyTransaction: typeof import("./getKeyTransaction").getKeyTrans
 export const getKeyTransactionOutput: typeof import("./getKeyTransaction").getKeyTransactionOutput = null as any;
 utilities.lazyLoad(exports, ["getKeyTransaction","getKeyTransactionOutput"], () => require("./getKeyTransaction"));
 
+export { GetNotificationDestinationArgs, GetNotificationDestinationResult, GetNotificationDestinationOutputArgs } from "./getNotificationDestination";
+export const getNotificationDestination: typeof import("./getNotificationDestination").getNotificationDestination = null as any;
+export const getNotificationDestinationOutput: typeof import("./getNotificationDestination").getNotificationDestinationOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationDestination","getNotificationDestinationOutput"], () => require("./getNotificationDestination"));
+
 export { GetObfuscationExpressionArgs, GetObfuscationExpressionResult, GetObfuscationExpressionOutputArgs } from "./getObfuscationExpression";
 export const getObfuscationExpression: typeof import("./getObfuscationExpression").getObfuscationExpression = null as any;
 export const getObfuscationExpressionOutput: typeof import("./getObfuscationExpression").getObfuscationExpressionOutput = null as any;

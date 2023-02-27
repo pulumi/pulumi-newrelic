@@ -174,6 +174,21 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * 
+     */
+    @Import(name="evaluationDelay")
+    private @Nullable Output<Integer> evaluationDelay;
+
+    /**
+     * @return How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     * 
+     */
+    public Optional<Output<Integer>> evaluationDelay() {
+        return Optional.ofNullable(this.evaluationDelay);
+    }
+
+    /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      * 
      */
@@ -416,6 +431,7 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
         this.critical = $.critical;
         this.description = $.description;
         this.enabled = $.enabled;
+        this.evaluationDelay = $.evaluationDelay;
         this.expirationDuration = $.expirationDuration;
         this.fillOption = $.fillOption;
         this.fillValue = $.fillValue;
@@ -658,6 +674,27 @@ public final class NrqlAlertConditionArgs extends com.pulumi.resources.ResourceA
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param evaluationDelay How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationDelay(@Nullable Output<Integer> evaluationDelay) {
+            $.evaluationDelay = evaluationDelay;
+            return this;
+        }
+
+        /**
+         * @param evaluationDelay How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationDelay(Integer evaluationDelay) {
+            return evaluationDelay(Output.of(evaluationDelay));
         }
 
         /**
