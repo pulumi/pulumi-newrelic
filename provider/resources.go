@@ -23,10 +23,12 @@ import (
 	"github.com/newrelic/terraform-provider-newrelic/v2/newrelic"
 	"github.com/pulumi/pulumi-newrelic/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -200,6 +202,11 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "log_test_grok.html.markdown",
 				}},
+
+			"newrelic_notification_destination": {
+				Tok:  makeDataSource(mainMod, "getNotificationDestination"),
+				Docs: &tfbridge.DocInfo{Source: "notifications_destination.html.markdown"},
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -231,6 +238,14 @@ func Provider() tfbridge.ProviderInfo {
 			Namespaces: namespaceMap,
 		},
 	}
+
+	err := x.ComputeDefaults(&prov, x.TokensKnownModules("newrelic_", mainMod, []string{
+		"cloud_",
+		"synthetics_",
+		"insights_",
+		"plugins_",
+	}, x.MakeStandardToken(mainPkg)))
+	contract.AssertNoError(err)
 
 	prov.SetAutonaming(255, "-")
 
