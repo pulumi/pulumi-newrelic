@@ -8,6 +8,41 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific entity in New Relic One that already exists.
+ *
+ * ## Additional Examples
+ *
+ * > If the entities are not found please try again without providing the `types` field.
+ * ### An example of querying OTEL entities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "EXT",
+ *     name: "my-otel-app",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ * });
+ * ```
+ *
+ * ### An example of querying AWS lambda entities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "INFRA",
+ *     name: "my_lambda_trace",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ * });
+ * ```
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
 
@@ -26,7 +61,7 @@ export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetEntityArgs {
     /**
-     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */
     domain?: string;
     /**
@@ -42,7 +77,7 @@ export interface GetEntityArgs {
      */
     tags?: inputs.GetEntityTag[];
     /**
-     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      */
     type?: string;
 }
@@ -79,6 +114,41 @@ export interface GetEntityResult {
 }
 /**
  * Use this data source to get information about a specific entity in New Relic One that already exists.
+ *
+ * ## Additional Examples
+ *
+ * > If the entities are not found please try again without providing the `types` field.
+ * ### An example of querying OTEL entities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "EXT",
+ *     name: "my-otel-app",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ * });
+ * ```
+ *
+ * ### An example of querying AWS lambda entities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const app = newrelic.getEntity({
+ *     domain: "INFRA",
+ *     name: "my_lambda_trace",
+ *     tags: [{
+ *         key: "accountID",
+ *         value: "12345",
+ *     }],
+ * });
+ * ```
  */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
     return pulumi.output(args).apply((a: any) => getEntity(a, opts))
@@ -89,7 +159,7 @@ export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetEntityOutputArgs {
     /**
-     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+     * The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
      */
     domain?: pulumi.Input<string>;
     /**
@@ -105,7 +175,7 @@ export interface GetEntityOutputArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.GetEntityTagArgs>[]>;
     /**
-     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+     * The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
      */
     type?: pulumi.Input<string>;
 }

@@ -30,14 +30,14 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
     }
 
     /**
-     * The operator used to combine all the MutingRuleConditions within the group.
+     * The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return The operator used to combine all the MutingRuleConditions within the group.
+     * @return The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      * 
      */
     public Output<String> operator() {
@@ -107,7 +107,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param operator The operator used to combine all the MutingRuleConditions within the group.
+         * @param operator The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class AlertMutingRuleConditionConditionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param operator The operator used to combine all the MutingRuleConditions within the group.
+         * @param operator The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
          * 
          * @return builder
          * 

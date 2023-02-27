@@ -148,12 +148,43 @@ def get_entity(domain: Optional[str] = None,
     """
     Use this data source to get information about a specific entity in New Relic One that already exists.
 
+    ## Additional Examples
 
-    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+    > If the entities are not found please try again without providing the `types` field.
+    ### An example of querying OTEL entities
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(domain="EXT",
+        name="my-otel-app",
+        tags=[newrelic.GetEntityTagArgs(
+            key="accountID",
+            value="12345",
+        )])
+    ```
+
+    ### An example of querying AWS lambda entities
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(domain="INFRA",
+        name="my_lambda_trace",
+        tags=[newrelic.GetEntityTagArgs(
+            key="accountID",
+            value="12345",
+        )])
+    ```
+
+
+    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
-    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -187,11 +218,42 @@ def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to get information about a specific entity in New Relic One that already exists.
 
+    ## Additional Examples
 
-    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+    > If the entities are not found please try again without providing the `types` field.
+    ### An example of querying OTEL entities
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(domain="EXT",
+        name="my-otel-app",
+        tags=[newrelic.GetEntityTagArgs(
+            key="accountID",
+            value="12345",
+        )])
+    ```
+
+    ### An example of querying AWS lambda entities
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    app = newrelic.get_entity(domain="INFRA",
+        name="my_lambda_trace",
+        tags=[newrelic.GetEntityTagArgs(
+            key="accountID",
+            value="12345",
+        )])
+    ```
+
+
+    :param str domain: The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
-    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
     """
     ...

@@ -644,7 +644,7 @@ func (o AlertConditionTermArrayOutput) Index(i pulumi.IntInput) AlertConditionTe
 type AlertMutingRuleCondition struct {
 	// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 	Conditions []AlertMutingRuleConditionCondition `pulumi:"conditions"`
-	// The operator used to combine all the MutingRuleConditions within the group.
+	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 	Operator string `pulumi:"operator"`
 }
 
@@ -662,7 +662,7 @@ type AlertMutingRuleConditionInput interface {
 type AlertMutingRuleConditionArgs struct {
 	// The individual MutingRuleConditions within the group. See Nested conditions blocks below for details.
 	Conditions AlertMutingRuleConditionConditionArrayInput `pulumi:"conditions"`
-	// The operator used to combine all the MutingRuleConditions within the group.
+	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 }
 
@@ -748,7 +748,7 @@ func (o AlertMutingRuleConditionOutput) Conditions() AlertMutingRuleConditionCon
 	return o.ApplyT(func(v AlertMutingRuleCondition) []AlertMutingRuleConditionCondition { return v.Conditions }).(AlertMutingRuleConditionConditionArrayOutput)
 }
 
-// The operator used to combine all the MutingRuleConditions within the group.
+// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 func (o AlertMutingRuleConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -787,7 +787,7 @@ func (o AlertMutingRuleConditionPtrOutput) Conditions() AlertMutingRuleCondition
 	}).(AlertMutingRuleConditionConditionArrayOutput)
 }
 
-// The operator used to combine all the MutingRuleConditions within the group.
+// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMutingRuleCondition) *string {
 		if v == nil {
@@ -800,7 +800,7 @@ func (o AlertMutingRuleConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 type AlertMutingRuleConditionCondition struct {
 	// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 	Attribute string `pulumi:"attribute"`
-	// The operator used to combine all the MutingRuleConditions within the group.
+	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 	Operator string `pulumi:"operator"`
 	// The value(s) to compare against the attribute's value.
 	Values []string `pulumi:"values"`
@@ -820,7 +820,7 @@ type AlertMutingRuleConditionConditionInput interface {
 type AlertMutingRuleConditionConditionArgs struct {
 	// The attribute on an incident. Valid values are   `accountId`, `conditionId`, `conditionName`, `conditionRunbookUrl`, `conditionType`, `entity.guid`, `nrqlEventType`, `nrqlQuery`, `policyId`, `policyName`, `product`, `tags.<NAME>`, `targetId`, `targetName`
 	Attribute pulumi.StringInput `pulumi:"attribute"`
-	// The operator used to combine all the MutingRuleConditions within the group.
+	// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The value(s) to compare against the attribute's value.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -882,7 +882,7 @@ func (o AlertMutingRuleConditionConditionOutput) Attribute() pulumi.StringOutput
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-// The operator used to combine all the MutingRuleConditions within the group.
+// The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
 func (o AlertMutingRuleConditionConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMutingRuleConditionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -9979,9 +9979,7 @@ func (o WorkflowIssuesFilterPtrOutput) Type() pulumi.StringPtrOutput {
 type WorkflowIssuesFilterPredicate struct {
 	// Issue event attribute to check
 	Attribute string `pulumi:"attribute"`
-	// An operator to use to compare the attribute with the provided `values`.
-	// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-	// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+	// An operator to use to compare the attribute with the provided `values`, see supported operators below
 	Operator string `pulumi:"operator"`
 	// The `attribute` must match **any** of the values in this list
 	Values []string `pulumi:"values"`
@@ -10001,9 +9999,7 @@ type WorkflowIssuesFilterPredicateInput interface {
 type WorkflowIssuesFilterPredicateArgs struct {
 	// Issue event attribute to check
 	Attribute pulumi.StringInput `pulumi:"attribute"`
-	// An operator to use to compare the attribute with the provided `values`.
-	// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-	// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+	// An operator to use to compare the attribute with the provided `values`, see supported operators below
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The `attribute` must match **any** of the values in this list
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -10065,9 +10061,7 @@ func (o WorkflowIssuesFilterPredicateOutput) Attribute() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-// An operator to use to compare the attribute with the provided `values`.
-// One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-// `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+// An operator to use to compare the attribute with the provided `values`, see supported operators below
 func (o WorkflowIssuesFilterPredicateOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowIssuesFilterPredicate) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -10364,6 +10358,384 @@ func (o GetEntityTagArrayOutput) Index(i pulumi.IntInput) GetEntityTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntityTag {
 		return vs[0].([]GetEntityTag)[vs[1].(int)]
 	}).(GetEntityTagOutput)
+}
+
+type GetNotificationDestinationAuthBasic struct {
+	User *string `pulumi:"user"`
+}
+
+// GetNotificationDestinationAuthBasicInput is an input type that accepts GetNotificationDestinationAuthBasicArgs and GetNotificationDestinationAuthBasicOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationAuthBasicInput` via:
+//
+//	GetNotificationDestinationAuthBasicArgs{...}
+type GetNotificationDestinationAuthBasicInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationAuthBasicOutput() GetNotificationDestinationAuthBasicOutput
+	ToGetNotificationDestinationAuthBasicOutputWithContext(context.Context) GetNotificationDestinationAuthBasicOutput
+}
+
+type GetNotificationDestinationAuthBasicArgs struct {
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (GetNotificationDestinationAuthBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationAuthBasicArgs) ToGetNotificationDestinationAuthBasicOutput() GetNotificationDestinationAuthBasicOutput {
+	return i.ToGetNotificationDestinationAuthBasicOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationAuthBasicArgs) ToGetNotificationDestinationAuthBasicOutputWithContext(ctx context.Context) GetNotificationDestinationAuthBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationAuthBasicOutput)
+}
+
+func (i GetNotificationDestinationAuthBasicArgs) ToGetNotificationDestinationAuthBasicPtrOutput() GetNotificationDestinationAuthBasicPtrOutput {
+	return i.ToGetNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationAuthBasicArgs) ToGetNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationAuthBasicOutput).ToGetNotificationDestinationAuthBasicPtrOutputWithContext(ctx)
+}
+
+// GetNotificationDestinationAuthBasicPtrInput is an input type that accepts GetNotificationDestinationAuthBasicArgs, GetNotificationDestinationAuthBasicPtr and GetNotificationDestinationAuthBasicPtrOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationAuthBasicPtrInput` via:
+//
+//	        GetNotificationDestinationAuthBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetNotificationDestinationAuthBasicPtrInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationAuthBasicPtrOutput() GetNotificationDestinationAuthBasicPtrOutput
+	ToGetNotificationDestinationAuthBasicPtrOutputWithContext(context.Context) GetNotificationDestinationAuthBasicPtrOutput
+}
+
+type getNotificationDestinationAuthBasicPtrType GetNotificationDestinationAuthBasicArgs
+
+func GetNotificationDestinationAuthBasicPtr(v *GetNotificationDestinationAuthBasicArgs) GetNotificationDestinationAuthBasicPtrInput {
+	return (*getNotificationDestinationAuthBasicPtrType)(v)
+}
+
+func (*getNotificationDestinationAuthBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (i *getNotificationDestinationAuthBasicPtrType) ToGetNotificationDestinationAuthBasicPtrOutput() GetNotificationDestinationAuthBasicPtrOutput {
+	return i.ToGetNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *getNotificationDestinationAuthBasicPtrType) ToGetNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationAuthBasicPtrOutput)
+}
+
+type GetNotificationDestinationAuthBasicOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationAuthBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationAuthBasicOutput) ToGetNotificationDestinationAuthBasicOutput() GetNotificationDestinationAuthBasicOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthBasicOutput) ToGetNotificationDestinationAuthBasicOutputWithContext(ctx context.Context) GetNotificationDestinationAuthBasicOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthBasicOutput) ToGetNotificationDestinationAuthBasicPtrOutput() GetNotificationDestinationAuthBasicPtrOutput {
+	return o.ToGetNotificationDestinationAuthBasicPtrOutputWithContext(context.Background())
+}
+
+func (o GetNotificationDestinationAuthBasicOutput) ToGetNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetNotificationDestinationAuthBasic) *GetNotificationDestinationAuthBasic {
+		return &v
+	}).(GetNotificationDestinationAuthBasicPtrOutput)
+}
+
+func (o GetNotificationDestinationAuthBasicOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNotificationDestinationAuthBasic) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+type GetNotificationDestinationAuthBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationAuthBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNotificationDestinationAuthBasic)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationAuthBasicPtrOutput) ToGetNotificationDestinationAuthBasicPtrOutput() GetNotificationDestinationAuthBasicPtrOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthBasicPtrOutput) ToGetNotificationDestinationAuthBasicPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthBasicPtrOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthBasicPtrOutput) Elem() GetNotificationDestinationAuthBasicOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationAuthBasic) GetNotificationDestinationAuthBasic {
+		if v != nil {
+			return *v
+		}
+		var ret GetNotificationDestinationAuthBasic
+		return ret
+	}).(GetNotificationDestinationAuthBasicOutput)
+}
+
+func (o GetNotificationDestinationAuthBasicPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationAuthBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetNotificationDestinationAuthToken struct {
+	Prefix *string `pulumi:"prefix"`
+}
+
+// GetNotificationDestinationAuthTokenInput is an input type that accepts GetNotificationDestinationAuthTokenArgs and GetNotificationDestinationAuthTokenOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationAuthTokenInput` via:
+//
+//	GetNotificationDestinationAuthTokenArgs{...}
+type GetNotificationDestinationAuthTokenInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationAuthTokenOutput() GetNotificationDestinationAuthTokenOutput
+	ToGetNotificationDestinationAuthTokenOutputWithContext(context.Context) GetNotificationDestinationAuthTokenOutput
+}
+
+type GetNotificationDestinationAuthTokenArgs struct {
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (GetNotificationDestinationAuthTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationAuthTokenArgs) ToGetNotificationDestinationAuthTokenOutput() GetNotificationDestinationAuthTokenOutput {
+	return i.ToGetNotificationDestinationAuthTokenOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationAuthTokenArgs) ToGetNotificationDestinationAuthTokenOutputWithContext(ctx context.Context) GetNotificationDestinationAuthTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationAuthTokenOutput)
+}
+
+func (i GetNotificationDestinationAuthTokenArgs) ToGetNotificationDestinationAuthTokenPtrOutput() GetNotificationDestinationAuthTokenPtrOutput {
+	return i.ToGetNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationAuthTokenArgs) ToGetNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationAuthTokenOutput).ToGetNotificationDestinationAuthTokenPtrOutputWithContext(ctx)
+}
+
+// GetNotificationDestinationAuthTokenPtrInput is an input type that accepts GetNotificationDestinationAuthTokenArgs, GetNotificationDestinationAuthTokenPtr and GetNotificationDestinationAuthTokenPtrOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationAuthTokenPtrInput` via:
+//
+//	        GetNotificationDestinationAuthTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetNotificationDestinationAuthTokenPtrInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationAuthTokenPtrOutput() GetNotificationDestinationAuthTokenPtrOutput
+	ToGetNotificationDestinationAuthTokenPtrOutputWithContext(context.Context) GetNotificationDestinationAuthTokenPtrOutput
+}
+
+type getNotificationDestinationAuthTokenPtrType GetNotificationDestinationAuthTokenArgs
+
+func GetNotificationDestinationAuthTokenPtr(v *GetNotificationDestinationAuthTokenArgs) GetNotificationDestinationAuthTokenPtrInput {
+	return (*getNotificationDestinationAuthTokenPtrType)(v)
+}
+
+func (*getNotificationDestinationAuthTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (i *getNotificationDestinationAuthTokenPtrType) ToGetNotificationDestinationAuthTokenPtrOutput() GetNotificationDestinationAuthTokenPtrOutput {
+	return i.ToGetNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *getNotificationDestinationAuthTokenPtrType) ToGetNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationAuthTokenPtrOutput)
+}
+
+type GetNotificationDestinationAuthTokenOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationAuthTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationAuthTokenOutput) ToGetNotificationDestinationAuthTokenOutput() GetNotificationDestinationAuthTokenOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthTokenOutput) ToGetNotificationDestinationAuthTokenOutputWithContext(ctx context.Context) GetNotificationDestinationAuthTokenOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthTokenOutput) ToGetNotificationDestinationAuthTokenPtrOutput() GetNotificationDestinationAuthTokenPtrOutput {
+	return o.ToGetNotificationDestinationAuthTokenPtrOutputWithContext(context.Background())
+}
+
+func (o GetNotificationDestinationAuthTokenOutput) ToGetNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetNotificationDestinationAuthToken) *GetNotificationDestinationAuthToken {
+		return &v
+	}).(GetNotificationDestinationAuthTokenPtrOutput)
+}
+
+func (o GetNotificationDestinationAuthTokenOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNotificationDestinationAuthToken) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type GetNotificationDestinationAuthTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationAuthTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNotificationDestinationAuthToken)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationAuthTokenPtrOutput) ToGetNotificationDestinationAuthTokenPtrOutput() GetNotificationDestinationAuthTokenPtrOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthTokenPtrOutput) ToGetNotificationDestinationAuthTokenPtrOutputWithContext(ctx context.Context) GetNotificationDestinationAuthTokenPtrOutput {
+	return o
+}
+
+func (o GetNotificationDestinationAuthTokenPtrOutput) Elem() GetNotificationDestinationAuthTokenOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationAuthToken) GetNotificationDestinationAuthToken {
+		if v != nil {
+			return *v
+		}
+		var ret GetNotificationDestinationAuthToken
+		return ret
+	}).(GetNotificationDestinationAuthTokenOutput)
+}
+
+func (o GetNotificationDestinationAuthTokenPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNotificationDestinationAuthToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetNotificationDestinationProperty struct {
+	DisplayValue *string `pulumi:"displayValue"`
+	Key          string  `pulumi:"key"`
+	Label        *string `pulumi:"label"`
+	Value        string  `pulumi:"value"`
+}
+
+// GetNotificationDestinationPropertyInput is an input type that accepts GetNotificationDestinationPropertyArgs and GetNotificationDestinationPropertyOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationPropertyInput` via:
+//
+//	GetNotificationDestinationPropertyArgs{...}
+type GetNotificationDestinationPropertyInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationPropertyOutput() GetNotificationDestinationPropertyOutput
+	ToGetNotificationDestinationPropertyOutputWithContext(context.Context) GetNotificationDestinationPropertyOutput
+}
+
+type GetNotificationDestinationPropertyArgs struct {
+	DisplayValue pulumi.StringPtrInput `pulumi:"displayValue"`
+	Key          pulumi.StringInput    `pulumi:"key"`
+	Label        pulumi.StringPtrInput `pulumi:"label"`
+	Value        pulumi.StringInput    `pulumi:"value"`
+}
+
+func (GetNotificationDestinationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationProperty)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationPropertyArgs) ToGetNotificationDestinationPropertyOutput() GetNotificationDestinationPropertyOutput {
+	return i.ToGetNotificationDestinationPropertyOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationPropertyArgs) ToGetNotificationDestinationPropertyOutputWithContext(ctx context.Context) GetNotificationDestinationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationPropertyOutput)
+}
+
+// GetNotificationDestinationPropertyArrayInput is an input type that accepts GetNotificationDestinationPropertyArray and GetNotificationDestinationPropertyArrayOutput values.
+// You can construct a concrete instance of `GetNotificationDestinationPropertyArrayInput` via:
+//
+//	GetNotificationDestinationPropertyArray{ GetNotificationDestinationPropertyArgs{...} }
+type GetNotificationDestinationPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetNotificationDestinationPropertyArrayOutput() GetNotificationDestinationPropertyArrayOutput
+	ToGetNotificationDestinationPropertyArrayOutputWithContext(context.Context) GetNotificationDestinationPropertyArrayOutput
+}
+
+type GetNotificationDestinationPropertyArray []GetNotificationDestinationPropertyInput
+
+func (GetNotificationDestinationPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationDestinationProperty)(nil)).Elem()
+}
+
+func (i GetNotificationDestinationPropertyArray) ToGetNotificationDestinationPropertyArrayOutput() GetNotificationDestinationPropertyArrayOutput {
+	return i.ToGetNotificationDestinationPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetNotificationDestinationPropertyArray) ToGetNotificationDestinationPropertyArrayOutputWithContext(ctx context.Context) GetNotificationDestinationPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNotificationDestinationPropertyArrayOutput)
+}
+
+type GetNotificationDestinationPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNotificationDestinationProperty)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationPropertyOutput) ToGetNotificationDestinationPropertyOutput() GetNotificationDestinationPropertyOutput {
+	return o
+}
+
+func (o GetNotificationDestinationPropertyOutput) ToGetNotificationDestinationPropertyOutputWithContext(ctx context.Context) GetNotificationDestinationPropertyOutput {
+	return o
+}
+
+func (o GetNotificationDestinationPropertyOutput) DisplayValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNotificationDestinationProperty) *string { return v.DisplayValue }).(pulumi.StringPtrOutput)
+}
+
+func (o GetNotificationDestinationPropertyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationDestinationProperty) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetNotificationDestinationPropertyOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNotificationDestinationProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o GetNotificationDestinationPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNotificationDestinationProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetNotificationDestinationPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNotificationDestinationPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNotificationDestinationProperty)(nil)).Elem()
+}
+
+func (o GetNotificationDestinationPropertyArrayOutput) ToGetNotificationDestinationPropertyArrayOutput() GetNotificationDestinationPropertyArrayOutput {
+	return o
+}
+
+func (o GetNotificationDestinationPropertyArrayOutput) ToGetNotificationDestinationPropertyArrayOutputWithContext(ctx context.Context) GetNotificationDestinationPropertyArrayOutput {
+	return o
+}
+
+func (o GetNotificationDestinationPropertyArrayOutput) Index(i pulumi.IntInput) GetNotificationDestinationPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotificationDestinationProperty {
+		return vs[0].([]GetNotificationDestinationProperty)[vs[1].(int)]
+	}).(GetNotificationDestinationPropertyOutput)
 }
 
 type GetTestGrokPatternTestGrok struct {
@@ -10723,6 +11095,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertChannelConfigInput)(nil)).Elem(), GetAlertChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagInput)(nil)).Elem(), GetEntityTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEntityTagArrayInput)(nil)).Elem(), GetEntityTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationAuthBasicInput)(nil)).Elem(), GetNotificationDestinationAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationAuthBasicPtrInput)(nil)).Elem(), GetNotificationDestinationAuthBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationAuthTokenInput)(nil)).Elem(), GetNotificationDestinationAuthTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationAuthTokenPtrInput)(nil)).Elem(), GetNotificationDestinationAuthTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyInput)(nil)).Elem(), GetNotificationDestinationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNotificationDestinationPropertyArrayInput)(nil)).Elem(), GetNotificationDestinationPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokInput)(nil)).Elem(), GetTestGrokPatternTestGrokArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokArrayInput)(nil)).Elem(), GetTestGrokPatternTestGrokArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTestGrokPatternTestGrokAttributeInput)(nil)).Elem(), GetTestGrokPatternTestGrokAttributeArgs{})
@@ -10862,6 +11240,12 @@ func init() {
 	pulumi.RegisterOutputType(GetAlertChannelConfigOutput{})
 	pulumi.RegisterOutputType(GetEntityTagOutput{})
 	pulumi.RegisterOutputType(GetEntityTagArrayOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationAuthBasicOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationAuthBasicPtrOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationAuthTokenOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationAuthTokenPtrOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationPropertyOutput{})
+	pulumi.RegisterOutputType(GetNotificationDestinationPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokArrayOutput{})
 	pulumi.RegisterOutputType(GetTestGrokPatternTestGrokAttributeOutput{})

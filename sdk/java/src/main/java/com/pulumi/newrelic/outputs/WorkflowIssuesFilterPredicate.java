@@ -16,9 +16,7 @@ public final class WorkflowIssuesFilterPredicate {
      */
     private String attribute;
     /**
-     * @return An operator to use to compare the attribute with the provided `values`.
-     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+     * @return An operator to use to compare the attribute with the provided `values`, see supported operators below
      * 
      */
     private String operator;
@@ -37,9 +35,7 @@ public final class WorkflowIssuesFilterPredicate {
         return this.attribute;
     }
     /**
-     * @return An operator to use to compare the attribute with the provided `values`.
-     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+     * @return An operator to use to compare the attribute with the provided `values`, see supported operators below
      * 
      */
     public String operator() {

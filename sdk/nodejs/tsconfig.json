@@ -39,6 +39,7 @@
         "getCloudAccount.ts",
         "getEntity.ts",
         "getKeyTransaction.ts",
+        "getNotificationDestination.ts",
         "getObfuscationExpression.ts",
         "getTestGrokPattern.ts",
         "index.ts",

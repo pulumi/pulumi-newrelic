@@ -13,12 +13,122 @@ namespace Pulumi.NewRelic
     {
         /// <summary>
         /// Use this data source to get information about a specific entity in New Relic One that already exists.
+        /// 
+        /// ## Additional Examples
+        /// 
+        /// &gt; If the entities are not found please try again without providing the `types` field.
+        /// ### An example of querying OTEL entities
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     {
+        ///         Domain = "EXT",
+        ///         Name = "my-otel-app",
+        ///         Tags = new[]
+        ///         {
+        ///             new NewRelic.Inputs.GetEntityTagInputArgs
+        ///             {
+        ///                 Key = "accountID",
+        ///                 Value = "12345",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### An example of querying AWS lambda entities
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     {
+        ///         Domain = "INFRA",
+        ///         Name = "my_lambda_trace",
+        ///         Tags = new[]
+        ///         {
+        ///             new NewRelic.Inputs.GetEntityTagInputArgs
+        ///             {
+        ///                 Key = "accountID",
+        ///                 Value = "12345",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific entity in New Relic One that already exists.
+        /// 
+        /// ## Additional Examples
+        /// 
+        /// &gt; If the entities are not found please try again without providing the `types` field.
+        /// ### An example of querying OTEL entities
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     {
+        ///         Domain = "EXT",
+        ///         Name = "my-otel-app",
+        ///         Tags = new[]
+        ///         {
+        ///             new NewRelic.Inputs.GetEntityTagInputArgs
+        ///             {
+        ///                 Key = "accountID",
+        ///                 Value = "12345",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### An example of querying AWS lambda entities
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var app = NewRelic.GetEntity.Invoke(new()
+        ///     {
+        ///         Domain = "INFRA",
+        ///         Name = "my_lambda_trace",
+        ///         Tags = new[]
+        ///         {
+        ///             new NewRelic.Inputs.GetEntityTagInputArgs
+        ///             {
+        ///                 Key = "accountID",
+        ///                 Value = "12345",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("newrelic:index/getEntity:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
@@ -28,7 +138,7 @@ namespace Pulumi.NewRelic
     public sealed class GetEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+        /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
         /// </summary>
         [Input("domain")]
         public string? Domain { get; set; }
@@ -58,7 +168,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -72,7 +182,7 @@ namespace Pulumi.NewRelic
     public sealed class GetEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and VIZ. If not specified, all domains are searched.
+        /// The entity's domain. Valid values are APM, BROWSER, INFRA, MOBILE, SYNTH, and EXT. If not specified, all domains are searched.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
@@ -102,7 +212,7 @@ namespace Pulumi.NewRelic
         }
 
         /// <summary>
-        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, and WORKLOAD.
+        /// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

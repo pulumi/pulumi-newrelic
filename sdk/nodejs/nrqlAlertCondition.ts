@@ -31,8 +31,8 @@ import * as utilities from "./utilities";
  * - `threshold` - (Required) The value which will trigger an incident.
  * <br>For _baseline_ NRQL alert conditions, the value must be in the range [1, 1000]. The value is the number of standard deviations from the baseline that the metric must exceed in order to create an incident.
  * - `thresholdDuration` - (Optional) The duration, in seconds, that the threshold must violate in order to create an incident. Value must be a multiple of the `aggregationWindow` (which has a default of 60 seconds).
- * <br>For _baseline_ NRQL alert conditions, the value must be within 120-3600 seconds (inclusive).
- * <br>For _static_ NRQL alert conditions, the value must be within 60-7200 seconds (inclusive).
+ * <br>For _baseline_ NRQL alert conditions, the value must be within 120-86400 seconds (inclusive).
+ * <br>For _static_ NRQL alert conditions, the value must be within 60-86400 seconds (inclusive).
  *
  * - `thresholdOccurrences` - (Optional) The criteria for how many data points must be in violation for the specified threshold duration. Valid values are: `all` or `atLeastOnce` (case insensitive).
  * - `duration` - (Optional) **DEPRECATED:** Use `thresholdDuration` instead. The duration of time, in _minutes_, that the threshold must violate for in order to create an incident. Must be within 1-120 (inclusive).
@@ -81,6 +81,62 @@ import * as utilities from "./utilities";
  *         threshold: 3.5,
  *         thresholdDuration: 600,
  *         thresholdOccurrences: "ALL",
+ *     },
+ * });
+ * ```
+ *
+ * ## Upgrade from 1.x to 2.x
+ *
+ * There have been several deprecations in the `newrelic.NrqlAlertCondition`
+ * resource.  Users will need to make some updates in order to have a smooth
+ * upgrade.
+ *
+ * An example resource from 1.x might look like the following.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const nrqlAlertCondition = new newrelic.NrqlAlertCondition("nrqlAlertCondition", {
+ *     policyId: newrelic_alert_policy.z.id,
+ *     type: "static",
+ *     runbookUrl: "https://localhost",
+ *     enabled: true,
+ *     violationTimeLimit: "TWENTY_FOUR_HOURS",
+ *     critical: {
+ *         operator: "above",
+ *         thresholdDuration: 120,
+ *         threshold: 3,
+ *         thresholdOccurrences: "AT_LEAST_ONCE",
+ *     },
+ *     nrql: {
+ *         query: `SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName`,
+ *     },
+ * });
+ * ```
+ *
+ * After making the appropriate adjustments mentioned in the deprecation warnings,
+ * the resource now looks like the following.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const nrqlAlertCondition = new newrelic.NrqlAlertCondition("nrqlAlertCondition", {
+ *     policyId: newrelic_alert_policy.z.id,
+ *     type: "static",
+ *     runbookUrl: "https://localhost",
+ *     enabled: true,
+ *     violationTimeLimitSeconds: 86400,
+ *     terms: [{
+ *         priority: "critical",
+ *         operator: "above",
+ *         threshold: 3,
+ *         duration: 5,
+ *         timeFunction: "any",
+ *     }],
+ *     nrql: {
+ *         query: `SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName`,
  *     },
  * });
  * ```
@@ -172,6 +228,10 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityGuid!: pulumi.Output<string>;
     /**
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     */
+    public readonly evaluationDelay!: pulumi.Output<number | undefined>;
+    /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
     public readonly expirationDuration!: pulumi.Output<number | undefined>;
@@ -258,6 +318,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["entityGuid"] = state ? state.entityGuid : undefined;
+            resourceInputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
             resourceInputs["expirationDuration"] = state ? state.expirationDuration : undefined;
             resourceInputs["fillOption"] = state ? state.fillOption : undefined;
             resourceInputs["fillValue"] = state ? state.fillValue : undefined;
@@ -290,6 +351,7 @@ export class NrqlAlertCondition extends pulumi.CustomResource {
             resourceInputs["critical"] = args ? args.critical : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
             resourceInputs["expirationDuration"] = args ? args.expirationDuration : undefined;
             resourceInputs["fillOption"] = args ? args.fillOption : undefined;
             resourceInputs["fillValue"] = args ? args.fillValue : undefined;
@@ -359,6 +421,10 @@ export interface NrqlAlertConditionState {
      * The unique entity identifier of the NRQL Condition in New Relic.
      */
     entityGuid?: pulumi.Input<string>;
+    /**
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     */
+    evaluationDelay?: pulumi.Input<number>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */
@@ -467,6 +533,10 @@ export interface NrqlAlertConditionArgs {
      * Whether to enable the alert condition. Valid values are `true` and `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * How long we wait until the signal starts evaluating. The maximum delay is 7200 seconds (120 minutes).
+     */
+    evaluationDelay?: pulumi.Input<number>;
     /**
      * The amount of time (in seconds) to wait before considering the signal expired. The value must be at least 30 seconds, and no more than 172800 seconds (48 hours).
      */

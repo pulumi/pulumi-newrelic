@@ -103,7 +103,7 @@ export interface AlertMutingRuleCondition {
      */
     conditions: outputs.AlertMutingRuleConditionCondition[];
     /**
-     * The operator used to combine all the MutingRuleConditions within the group.
+     * The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      */
     operator: string;
 }
@@ -114,7 +114,7 @@ export interface AlertMutingRuleConditionCondition {
      */
     attribute: string;
     /**
-     * The operator used to combine all the MutingRuleConditions within the group.
+     * The operator used to combine all the MutingRuleConditions within the group. Valid values are `AND`, `OR`.
      */
     operator: string;
     /**
@@ -193,6 +193,21 @@ export interface GetEntityTag {
     /**
      * The tag value.
      */
+    value: string;
+}
+
+export interface GetNotificationDestinationAuthBasic {
+    user?: string;
+}
+
+export interface GetNotificationDestinationAuthToken {
+    prefix?: string;
+}
+
+export interface GetNotificationDestinationProperty {
+    displayValue?: string;
+    key: string;
+    label?: string;
     value: string;
 }
 
@@ -1357,9 +1372,7 @@ export interface WorkflowIssuesFilterPredicate {
      */
     attribute: string;
     /**
-     * An operator to use to compare the attribute with the provided `values`. 
-     * One of: `CONTAINS`, `DOES_NOT_CONTAIN`, `EQUAL`, `DOES_NOT_EQUAL`, `DOES_NOT_EXACTLY_MATCH`, `STARTS_WITH`, `ENDS_WITH`,
-     * `EXACTLY_MATCHES`, `IS`, `IS_NOT`, `LESS_OR_EQUAL`, `LESS_THAN`, `GREATER_OR_EQUAL`, `GREATER_THAN` (see the note below)
+     * An operator to use to compare the attribute with the provided `values`, see supported operators below
      */
     operator: string;
     /**
