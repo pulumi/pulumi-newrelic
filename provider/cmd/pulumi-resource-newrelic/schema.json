@@ -119,8 +119,7 @@
         },
         "defaults": [
             "accountId",
-            "apiKey",
-            "region"
+            "apiKey"
         ]
     },
     "types": {
@@ -6531,32 +6530,6 @@
                 "value"
             ]
         },
-        "newrelic:index/getNotificationDestinationAuthBasic:getNotificationDestinationAuthBasic": {
-            "properties": {
-                "user": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "newrelic:index/getNotificationDestinationAuthToken:getNotificationDestinationAuthToken": {
-            "properties": {
-                "prefix": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
         "newrelic:index/getNotificationDestinationProperty:getNotificationDestinationProperty": {
             "properties": {
                 "displayValue": {
@@ -6596,7 +6569,12 @@
             "required": [
                 "key",
                 "value"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "newrelic:index/getTestGrokPatternTestGrok:getTestGrokPatternTestGrok": {
             "properties": {
@@ -7228,7 +7206,7 @@
                 },
                 "vsePassword": {
                     "type": "string",
-                    "description": "The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.\n",
+                    "description": "The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -7255,7 +7233,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Name of the tag key.\n",
+                    "description": "Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -7267,7 +7245,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.\n",
+                    "description": "The metadata values related to the step.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -11439,6 +11417,10 @@
                     "type": "boolean",
                     "description": "Whether enrichments are enabled. Defaults to true.\n"
                 },
+                "guid": {
+                    "type": "string",
+                    "description": "Workflow entity GUID\n"
+                },
                 "issuesFilter": {
                     "$ref": "#/types/newrelic:index/WorkflowIssuesFilter:WorkflowIssuesFilter",
                     "description": "A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.\n"
@@ -11463,6 +11445,7 @@
             "required": [
                 "accountId",
                 "destinations",
+                "guid",
                 "issuesFilter",
                 "lastRun",
                 "mutingRulesHandling",
@@ -11548,6 +11531,10 @@
                     "enrichmentsEnabled": {
                         "type": "boolean",
                         "description": "Whether enrichments are enabled. Defaults to true.\n"
+                    },
+                    "guid": {
+                        "type": "string",
+                        "description": "Workflow entity GUID\n"
                     },
                     "issuesFilter": {
                         "$ref": "#/types/newrelic:index/WorkflowIssuesFilter:WorkflowIssuesFilter",
@@ -13655,6 +13642,7 @@
             }
         },
         "newrelic:index/getNotificationDestination:getNotificationDestination": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as newrelic from \"@pulumi/newrelic\";\n\nconst foo = newrelic.getNotificationDestination({\n    id: \"1e543419-0c25-456a-9057-fb0eb310e60b\",\n});\n// Resource\nconst foo_channel = new newrelic.NotificationChannel(\"foo-channel\", {\n    type: \"WEBHOOK\",\n    destinationId: foo.then(foo =\u003e foo.id),\n    product: \"IINT\",\n    properties: [{\n        key: \"payload\",\n        value: `{\n\t\"name\": \"foo\"\n}`,\n        label: \"Payload Template\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_newrelic as newrelic\n\nfoo = newrelic.get_notification_destination(id=\"1e543419-0c25-456a-9057-fb0eb310e60b\")\n# Resource\nfoo_channel = newrelic.NotificationChannel(\"foo-channel\",\n    type=\"WEBHOOK\",\n    destination_id=foo.id,\n    product=\"IINT\",\n    properties=[newrelic.NotificationChannelPropertyArgs(\n        key=\"payload\",\n        value=\"\"\"{\n\t\"name\": \"foo\"\n}\"\"\",\n        label=\"Payload Template\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing NewRelic = Pulumi.NewRelic;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = NewRelic.GetNotificationDestination.Invoke(new()\n    {\n        Id = \"1e543419-0c25-456a-9057-fb0eb310e60b\",\n    });\n\n    // Resource\n    var foo_channel = new NewRelic.NotificationChannel(\"foo-channel\", new()\n    {\n        Type = \"WEBHOOK\",\n        DestinationId = foo.Apply(getNotificationDestinationResult =\u003e getNotificationDestinationResult.Id),\n        Product = \"IINT\",\n        Properties = new[]\n        {\n            new NewRelic.Inputs.NotificationChannelPropertyArgs\n            {\n                Key = \"payload\",\n                Value = @\"{\n\t\"\"name\"\": \"\"foo\"\"\n}\",\n                Label = \"Payload Template\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfoo, err := newrelic.LookupNotificationDestination(ctx, \u0026newrelic.LookupNotificationDestinationArgs{\n\t\t\tId: \"1e543419-0c25-456a-9057-fb0eb310e60b\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = newrelic.NewNotificationChannel(ctx, \"foo-channel\", \u0026newrelic.NotificationChannelArgs{\n\t\t\tType:          pulumi.String(\"WEBHOOK\"),\n\t\t\tDestinationId: *pulumi.String(foo.Id),\n\t\t\tProduct:       pulumi.String(\"IINT\"),\n\t\t\tProperties: newrelic.NotificationChannelPropertyArray{\n\t\t\t\t\u0026newrelic.NotificationChannelPropertyArgs{\n\t\t\t\t\tKey:   pulumi.String(\"payload\"),\n\t\t\t\t\tValue: pulumi.String(\"{\\n\t\\\"name\\\": \\\"foo\\\"\\n}\"),\n\t\t\t\t\tLabel: pulumi.String(\"Payload Template\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.newrelic.NewrelicFunctions;\nimport com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;\nimport com.pulumi.newrelic.NotificationChannel;\nimport com.pulumi.newrelic.NotificationChannelArgs;\nimport com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()\n            .id(\"1e543419-0c25-456a-9057-fb0eb310e60b\")\n            .build());\n\n        var foo_channel = new NotificationChannel(\"foo-channel\", NotificationChannelArgs.builder()        \n            .type(\"WEBHOOK\")\n            .destinationId(foo.applyValue(getNotificationDestinationResult -\u003e getNotificationDestinationResult.id()))\n            .product(\"IINT\")\n            .properties(NotificationChannelPropertyArgs.builder()\n                .key(\"payload\")\n                .value(\"\"\"\n{\n\t\"name\": \"foo\"\n}                \"\"\")\n                .label(\"Payload Template\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Resource\n  foo-channel:\n    type: newrelic:NotificationChannel\n    properties:\n      type: WEBHOOK\n      destinationId: ${foo.id}\n      product: IINT\n      properties:\n        - key: payload\n          value: |-\n            {\n            \t\"name\": \"foo\"\n            }\n          label: Payload Template\nvariables:\n  foo:\n    fn::invoke:\n      Function: newrelic:getNotificationDestination\n      Arguments:\n        id: 1e543419-0c25-456a-9057-fb0eb310e60b\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getNotificationDestination.\n",
                 "properties": {
@@ -13662,35 +13650,9 @@
                         "type": "integer",
                         "description": "The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.\n"
                     },
-                    "active": {
-                        "type": "boolean",
-                        "description": "An indication whether the notification destination is active or not.\n"
-                    },
-                    "authBasic": {
-                        "$ref": "#/types/newrelic:index/getNotificationDestinationAuthBasic:getNotificationDestinationAuthBasic",
-                        "description": "\\ `auth_token` - A nested block that describes a basic ot token authentication credentials..\n"
-                    },
-                    "authToken": {
-                        "$ref": "#/types/newrelic:index/getNotificationDestinationAuthToken:getNotificationDestinationAuthToken"
-                    },
                     "id": {
                         "type": "string",
                         "description": "The id of the notification destination in New Relic.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "The name of the notification destination.\n"
-                    },
-                    "properties": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/newrelic:index/getNotificationDestinationProperty:getNotificationDestinationProperty"
-                        },
-                        "description": "A nested block that describes a notification destination property.\n"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.\n"
                     }
                 },
                 "type": "object",
@@ -13708,17 +13670,7 @@
                         "type": "boolean",
                         "description": "An indication whether the notification destination is active or not.\n"
                     },
-                    "authBasic": {
-                        "$ref": "#/types/newrelic:index/getNotificationDestinationAuthBasic:getNotificationDestinationAuthBasic",
-                        "description": "\\ `auth_token` - A nested block that describes a basic ot token authentication credentials..\n"
-                    },
-                    "authToken": {
-                        "$ref": "#/types/newrelic:index/getNotificationDestinationAuthToken:getNotificationDestinationAuthToken"
-                    },
                     "id": {
-                        "type": "string"
-                    },
-                    "lastSent": {
                         "type": "string"
                     },
                     "name": {
@@ -13744,9 +13696,12 @@
                 "type": "object",
                 "required": [
                     "accountId",
+                    "active",
                     "id",
-                    "lastSent",
-                    "status"
+                    "name",
+                    "properties",
+                    "status",
+                    "type"
                 ]
             }
         },
