@@ -4,16 +4,12 @@
 package com.pulumi.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.newrelic.outputs.GetNotificationDestinationAuthBasic;
-import com.pulumi.newrelic.outputs.GetNotificationDestinationAuthToken;
 import com.pulumi.newrelic.outputs.GetNotificationDestinationProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNotificationDestinationResult {
@@ -22,25 +18,18 @@ public final class GetNotificationDestinationResult {
      * @return An indication whether the notification destination is active or not.
      * 
      */
-    private @Nullable Boolean active;
-    /**
-     * @return \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-     * 
-     */
-    private @Nullable GetNotificationDestinationAuthBasic authBasic;
-    private @Nullable GetNotificationDestinationAuthToken authToken;
+    private Boolean active;
     private String id;
-    private String lastSent;
     /**
      * @return The name of the notification destination.
      * 
      */
-    private @Nullable String name;
+    private String name;
     /**
      * @return A nested block that describes a notification destination property.
      * 
      */
-    private @Nullable List<GetNotificationDestinationProperty> properties;
+    private List<GetNotificationDestinationProperty> properties;
     /**
      * @return The status of the notification destination.
      * 
@@ -50,7 +39,7 @@ public final class GetNotificationDestinationResult {
      * @return The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
      * 
      */
-    private @Nullable String type;
+    private String type;
 
     private GetNotificationDestinationResult() {}
     public Integer accountId() {
@@ -60,38 +49,25 @@ public final class GetNotificationDestinationResult {
      * @return An indication whether the notification destination is active or not.
      * 
      */
-    public Optional<Boolean> active() {
-        return Optional.ofNullable(this.active);
-    }
-    /**
-     * @return \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-     * 
-     */
-    public Optional<GetNotificationDestinationAuthBasic> authBasic() {
-        return Optional.ofNullable(this.authBasic);
-    }
-    public Optional<GetNotificationDestinationAuthToken> authToken() {
-        return Optional.ofNullable(this.authToken);
+    public Boolean active() {
+        return this.active;
     }
     public String id() {
         return this.id;
-    }
-    public String lastSent() {
-        return this.lastSent;
     }
     /**
      * @return The name of the notification destination.
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
     /**
      * @return A nested block that describes a notification destination property.
      * 
      */
     public List<GetNotificationDestinationProperty> properties() {
-        return this.properties == null ? List.of() : this.properties;
+        return this.properties;
     }
     /**
      * @return The status of the notification destination.
@@ -104,8 +80,8 @@ public final class GetNotificationDestinationResult {
      * @return The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
      * 
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -118,24 +94,18 @@ public final class GetNotificationDestinationResult {
     @CustomType.Builder
     public static final class Builder {
         private Integer accountId;
-        private @Nullable Boolean active;
-        private @Nullable GetNotificationDestinationAuthBasic authBasic;
-        private @Nullable GetNotificationDestinationAuthToken authToken;
+        private Boolean active;
         private String id;
-        private String lastSent;
-        private @Nullable String name;
-        private @Nullable List<GetNotificationDestinationProperty> properties;
+        private String name;
+        private List<GetNotificationDestinationProperty> properties;
         private String status;
-        private @Nullable String type;
+        private String type;
         public Builder() {}
         public Builder(GetNotificationDestinationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.active = defaults.active;
-    	      this.authBasic = defaults.authBasic;
-    	      this.authToken = defaults.authToken;
     	      this.id = defaults.id;
-    	      this.lastSent = defaults.lastSent;
     	      this.name = defaults.name;
     	      this.properties = defaults.properties;
     	      this.status = defaults.status;
@@ -148,18 +118,8 @@ public final class GetNotificationDestinationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder active(@Nullable Boolean active) {
-            this.active = active;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder authBasic(@Nullable GetNotificationDestinationAuthBasic authBasic) {
-            this.authBasic = authBasic;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder authToken(@Nullable GetNotificationDestinationAuthToken authToken) {
-            this.authToken = authToken;
+        public Builder active(Boolean active) {
+            this.active = Objects.requireNonNull(active);
             return this;
         }
         @CustomType.Setter
@@ -168,18 +128,13 @@ public final class GetNotificationDestinationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder lastSent(String lastSent) {
-            this.lastSent = Objects.requireNonNull(lastSent);
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder properties(@Nullable List<GetNotificationDestinationProperty> properties) {
-            this.properties = properties;
+        public Builder properties(List<GetNotificationDestinationProperty> properties) {
+            this.properties = Objects.requireNonNull(properties);
             return this;
         }
         public Builder properties(GetNotificationDestinationProperty... properties) {
@@ -191,18 +146,15 @@ public final class GetNotificationDestinationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-            this.type = type;
+        public Builder type(String type) {
+            this.type = Objects.requireNonNull(type);
             return this;
         }
         public GetNotificationDestinationResult build() {
             final var o = new GetNotificationDestinationResult();
             o.accountId = accountId;
             o.active = active;
-            o.authBasic = authBasic;
-            o.authToken = authToken;
             o.id = id;
-            o.lastSent = lastSent;
             o.name = name;
             o.properties = properties;
             o.status = status;

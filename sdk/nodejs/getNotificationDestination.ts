@@ -6,18 +6,37 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getNotificationDestination({
+ *     id: "1e543419-0c25-456a-9057-fb0eb310e60b",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * 	"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ */
 export function getNotificationDestination(args: GetNotificationDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationDestinationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("newrelic:index/getNotificationDestination:getNotificationDestination", {
         "accountId": args.accountId,
-        "active": args.active,
-        "authBasic": args.authBasic,
-        "authToken": args.authToken,
         "id": args.id,
-        "name": args.name,
-        "properties": args.properties,
-        "type": args.type,
     }, opts);
 }
 
@@ -30,30 +49,9 @@ export interface GetNotificationDestinationArgs {
      */
     accountId?: number;
     /**
-     * An indication whether the notification destination is active or not.
-     */
-    active?: boolean;
-    /**
-     * \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-     */
-    authBasic?: inputs.GetNotificationDestinationAuthBasic;
-    authToken?: inputs.GetNotificationDestinationAuthToken;
-    /**
      * The id of the notification destination in New Relic.
      */
     id: string;
-    /**
-     * The name of the notification destination.
-     */
-    name?: string;
-    /**
-     * A nested block that describes a notification destination property.
-     */
-    properties?: inputs.GetNotificationDestinationProperty[];
-    /**
-     * The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-     */
-    type?: string;
 }
 
 /**
@@ -64,22 +62,16 @@ export interface GetNotificationDestinationResult {
     /**
      * An indication whether the notification destination is active or not.
      */
-    readonly active?: boolean;
-    /**
-     * \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-     */
-    readonly authBasic?: outputs.GetNotificationDestinationAuthBasic;
-    readonly authToken?: outputs.GetNotificationDestinationAuthToken;
+    readonly active: boolean;
     readonly id: string;
-    readonly lastSent: string;
     /**
      * The name of the notification destination.
      */
-    readonly name?: string;
+    readonly name: string;
     /**
      * A nested block that describes a notification destination property.
      */
-    readonly properties?: outputs.GetNotificationDestinationProperty[];
+    readonly properties: outputs.GetNotificationDestinationProperty[];
     /**
      * The status of the notification destination.
      */
@@ -87,8 +79,33 @@ export interface GetNotificationDestinationResult {
     /**
      * The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
      */
-    readonly type?: string;
+    readonly type: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as newrelic from "@pulumi/newrelic";
+ *
+ * const foo = newrelic.getNotificationDestination({
+ *     id: "1e543419-0c25-456a-9057-fb0eb310e60b",
+ * });
+ * // Resource
+ * const foo_channel = new newrelic.NotificationChannel("foo-channel", {
+ *     type: "WEBHOOK",
+ *     destinationId: foo.then(foo => foo.id),
+ *     product: "IINT",
+ *     properties: [{
+ *         key: "payload",
+ *         value: `{
+ * 	"name": "foo"
+ * }`,
+ *         label: "Payload Template",
+ *     }],
+ * });
+ * ```
+ */
 export function getNotificationDestinationOutput(args: GetNotificationDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationDestinationResult> {
     return pulumi.output(args).apply((a: any) => getNotificationDestination(a, opts))
 }
@@ -102,28 +119,7 @@ export interface GetNotificationDestinationOutputArgs {
      */
     accountId?: pulumi.Input<number>;
     /**
-     * An indication whether the notification destination is active or not.
-     */
-    active?: pulumi.Input<boolean>;
-    /**
-     * \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-     */
-    authBasic?: pulumi.Input<inputs.GetNotificationDestinationAuthBasicArgs>;
-    authToken?: pulumi.Input<inputs.GetNotificationDestinationAuthTokenArgs>;
-    /**
      * The id of the notification destination in New Relic.
      */
     id: pulumi.Input<string>;
-    /**
-     * The name of the notification destination.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * A nested block that describes a notification destination property.
-     */
-    properties?: pulumi.Input<pulumi.Input<inputs.GetNotificationDestinationPropertyArgs>[]>;
-    /**
-     * The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-     */
-    type?: pulumi.Input<string>;
 }

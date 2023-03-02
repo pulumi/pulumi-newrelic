@@ -19,7 +19,7 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         public Input<int> Ordinal { get; set; } = null!;
 
         /// <summary>
-        /// Name of the tag key.
+        /// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        /// The metadata values related to the step.
         /// </summary>
         public InputList<string> Values
         {

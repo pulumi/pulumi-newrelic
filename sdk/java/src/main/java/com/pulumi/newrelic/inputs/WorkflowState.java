@@ -122,6 +122,21 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Workflow entity GUID
+     * 
+     */
+    @Import(name="guid")
+    private @Nullable Output<String> guid;
+
+    /**
+     * @return Workflow entity GUID
+     * 
+     */
+    public Optional<Output<String>> guid() {
+        return Optional.ofNullable(this.guid);
+    }
+
+    /**
      * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */
@@ -205,6 +220,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         this.enabled = $.enabled;
         this.enrichments = $.enrichments;
         this.enrichmentsEnabled = $.enrichmentsEnabled;
+        this.guid = $.guid;
         this.issuesFilter = $.issuesFilter;
         this.lastRun = $.lastRun;
         this.mutingRulesHandling = $.mutingRulesHandling;
@@ -374,6 +390,27 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enrichmentsEnabled(Boolean enrichmentsEnabled) {
             return enrichmentsEnabled(Output.of(enrichmentsEnabled));
+        }
+
+        /**
+         * @param guid Workflow entity GUID
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(@Nullable Output<String> guid) {
+            $.guid = guid;
+            return this;
+        }
+
+        /**
+         * @param guid Workflow entity GUID
+         * 
+         * @return builder
+         * 
+         */
+        public Builder guid(String guid) {
+            return guid(Output.of(guid));
         }
 
         /**

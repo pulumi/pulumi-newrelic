@@ -11,9 +11,91 @@ namespace Pulumi.NewRelic
 {
     public static class GetNotificationDestination
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetNotificationDestinationResult> InvokeAsync(GetNotificationDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using Pulumi;
+        /// using NewRelic = Pulumi.NewRelic;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = NewRelic.GetNotificationDestination.Invoke(new()
+        ///     {
+        ///         Id = "1e543419-0c25-456a-9057-fb0eb310e60b",
+        ///     });
+        /// 
+        ///     // Resource
+        ///     var foo_channel = new NewRelic.NotificationChannel("foo-channel", new()
+        ///     {
+        ///         Type = "WEBHOOK",
+        ///         DestinationId = foo.Apply(getNotificationDestinationResult =&gt; getNotificationDestinationResult.Id),
+        ///         Product = "IINT",
+        ///         Properties = new[]
+        ///         {
+        ///             new NewRelic.Inputs.NotificationChannelPropertyArgs
+        ///             {
+        ///                 Key = "payload",
+        ///                 Value = @"{
+        /// 	""name"": ""foo""
+        /// }",
+        ///                 Label = "Payload Template",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetNotificationDestinationResult> Invoke(GetNotificationDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationDestinationResult>("newrelic:index/getNotificationDestination:getNotificationDestination", args ?? new GetNotificationDestinationInvokeArgs(), options.WithDefaults());
     }
@@ -28,49 +110,10 @@ namespace Pulumi.NewRelic
         public int? AccountId { get; set; }
 
         /// <summary>
-        /// An indication whether the notification destination is active or not.
-        /// </summary>
-        [Input("active")]
-        public bool? Active { get; set; }
-
-        /// <summary>
-        /// \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-        /// </summary>
-        [Input("authBasic")]
-        public Inputs.GetNotificationDestinationAuthBasicArgs? AuthBasic { get; set; }
-
-        [Input("authToken")]
-        public Inputs.GetNotificationDestinationAuthTokenArgs? AuthToken { get; set; }
-
-        /// <summary>
         /// The id of the notification destination in New Relic.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the notification destination.
-        /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
-
-        [Input("properties")]
-        private List<Inputs.GetNotificationDestinationPropertyArgs>? _properties;
-
-        /// <summary>
-        /// A nested block that describes a notification destination property.
-        /// </summary>
-        public List<Inputs.GetNotificationDestinationPropertyArgs> Properties
-        {
-            get => _properties ?? (_properties = new List<Inputs.GetNotificationDestinationPropertyArgs>());
-            set => _properties = value;
-        }
-
-        /// <summary>
-        /// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-        /// </summary>
-        [Input("type")]
-        public string? Type { get; set; }
 
         public GetNotificationDestinationArgs()
         {
@@ -87,49 +130,10 @@ namespace Pulumi.NewRelic
         public Input<int>? AccountId { get; set; }
 
         /// <summary>
-        /// An indication whether the notification destination is active or not.
-        /// </summary>
-        [Input("active")]
-        public Input<bool>? Active { get; set; }
-
-        /// <summary>
-        /// \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-        /// </summary>
-        [Input("authBasic")]
-        public Input<Inputs.GetNotificationDestinationAuthBasicInputArgs>? AuthBasic { get; set; }
-
-        [Input("authToken")]
-        public Input<Inputs.GetNotificationDestinationAuthTokenInputArgs>? AuthToken { get; set; }
-
-        /// <summary>
         /// The id of the notification destination in New Relic.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the notification destination.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("properties")]
-        private InputList<Inputs.GetNotificationDestinationPropertyInputArgs>? _properties;
-
-        /// <summary>
-        /// A nested block that describes a notification destination property.
-        /// </summary>
-        public InputList<Inputs.GetNotificationDestinationPropertyInputArgs> Properties
-        {
-            get => _properties ?? (_properties = new InputList<Inputs.GetNotificationDestinationPropertyInputArgs>());
-            set => _properties = value;
-        }
-
-        /// <summary>
-        /// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         public GetNotificationDestinationInvokeArgs()
         {
@@ -145,18 +149,12 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// An indication whether the notification destination is active or not.
         /// </summary>
-        public readonly bool? Active;
-        /// <summary>
-        /// \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-        /// </summary>
-        public readonly Outputs.GetNotificationDestinationAuthBasicResult? AuthBasic;
-        public readonly Outputs.GetNotificationDestinationAuthTokenResult? AuthToken;
+        public readonly bool Active;
         public readonly string Id;
-        public readonly string LastSent;
         /// <summary>
         /// The name of the notification destination.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// A nested block that describes a notification destination property.
         /// </summary>
@@ -168,36 +166,27 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetNotificationDestinationResult(
             int accountId,
 
-            bool? active,
-
-            Outputs.GetNotificationDestinationAuthBasicResult? authBasic,
-
-            Outputs.GetNotificationDestinationAuthTokenResult? authToken,
+            bool active,
 
             string id,
 
-            string lastSent,
-
-            string? name,
+            string name,
 
             ImmutableArray<Outputs.GetNotificationDestinationPropertyResult> properties,
 
             string status,
 
-            string? type)
+            string type)
         {
             AccountId = accountId;
             Active = active;
-            AuthBasic = authBasic;
-            AuthToken = authToken;
             Id = id;
-            LastSent = lastSent;
             Name = name;
             Properties = properties;
             Status = status;

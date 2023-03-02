@@ -196,14 +196,6 @@ export interface GetEntityTag {
     value: string;
 }
 
-export interface GetNotificationDestinationAuthBasic {
-    user?: string;
-}
-
-export interface GetNotificationDestinationAuthToken {
-    prefix?: string;
-}
-
 export interface GetNotificationDestinationProperty {
     displayValue?: string;
     key: string;
@@ -2679,7 +2671,7 @@ export namespace synthetics {
          */
         guid: string;
         /**
-         * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         * The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
          */
         vsePassword?: string;
     }
@@ -2690,11 +2682,11 @@ export namespace synthetics {
          */
         ordinal: number;
         /**
-         * Name of the tag key.
+         * Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
          */
         type: string;
         /**
-         * The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+         * The metadata values related to the step.
          */
         values?: string[];
     }

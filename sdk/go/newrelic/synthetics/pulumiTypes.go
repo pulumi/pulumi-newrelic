@@ -915,7 +915,7 @@ func (o ScriptMonitorTagArrayOutput) Index(i pulumi.IntInput) ScriptMonitorTagOu
 type StepMonitorLocationPrivate struct {
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid string `pulumi:"guid"`
-	// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+	// The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
 	VsePassword *string `pulumi:"vsePassword"`
 }
 
@@ -933,7 +933,7 @@ type StepMonitorLocationPrivateInput interface {
 type StepMonitorLocationPrivateArgs struct {
 	// The unique identifier for the Synthetics private location in New Relic.
 	Guid pulumi.StringInput `pulumi:"guid"`
-	// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+	// The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
 	VsePassword pulumi.StringPtrInput `pulumi:"vsePassword"`
 }
 
@@ -993,7 +993,7 @@ func (o StepMonitorLocationPrivateOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v StepMonitorLocationPrivate) string { return v.Guid }).(pulumi.StringOutput)
 }
 
-// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+// The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
 func (o StepMonitorLocationPrivateOutput) VsePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StepMonitorLocationPrivate) *string { return v.VsePassword }).(pulumi.StringPtrOutput)
 }
@@ -1021,9 +1021,9 @@ func (o StepMonitorLocationPrivateArrayOutput) Index(i pulumi.IntInput) StepMoni
 type StepMonitorStep struct {
 	// The position of the step within the script ranging from 0-100.
 	Ordinal int `pulumi:"ordinal"`
-	// Name of the tag key.
+	// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
 	Type string `pulumi:"type"`
-	// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+	// The metadata values related to the step.
 	Values []string `pulumi:"values"`
 }
 
@@ -1041,9 +1041,9 @@ type StepMonitorStepInput interface {
 type StepMonitorStepArgs struct {
 	// The position of the step within the script ranging from 0-100.
 	Ordinal pulumi.IntInput `pulumi:"ordinal"`
-	// Name of the tag key.
+	// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+	// The metadata values related to the step.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1103,12 +1103,12 @@ func (o StepMonitorStepOutput) Ordinal() pulumi.IntOutput {
 	return o.ApplyT(func(v StepMonitorStep) int { return v.Ordinal }).(pulumi.IntOutput)
 }
 
-// Name of the tag key.
+// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
 func (o StepMonitorStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StepMonitorStep) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+// The metadata values related to the step.
 func (o StepMonitorStepOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StepMonitorStep) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

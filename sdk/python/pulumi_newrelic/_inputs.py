@@ -77,9 +77,6 @@ __all__ = [
     'WorkflowIssuesFilterArgs',
     'WorkflowIssuesFilterPredicateArgs',
     'GetEntityTagArgs',
-    'GetNotificationDestinationAuthBasicArgs',
-    'GetNotificationDestinationAuthTokenArgs',
-    'GetNotificationDestinationPropertyArgs',
 ]
 
 @pulumi.input_type
@@ -5293,90 +5290,5 @@ class GetEntityTagArgs:
     @value.setter
     def value(self, value: str):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class GetNotificationDestinationAuthBasicArgs:
-    def __init__(__self__, *,
-                 user: Optional[str] = None):
-        if user is not None:
-            pulumi.set(__self__, "user", user)
-
-    @property
-    @pulumi.getter
-    def user(self) -> Optional[str]:
-        return pulumi.get(self, "user")
-
-    @user.setter
-    def user(self, value: Optional[str]):
-        pulumi.set(self, "user", value)
-
-
-@pulumi.input_type
-class GetNotificationDestinationAuthTokenArgs:
-    def __init__(__self__, *,
-                 prefix: Optional[str] = None):
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Optional[str]:
-        return pulumi.get(self, "prefix")
-
-    @prefix.setter
-    def prefix(self, value: Optional[str]):
-        pulumi.set(self, "prefix", value)
-
-
-@pulumi.input_type
-class GetNotificationDestinationPropertyArgs:
-    def __init__(__self__, *,
-                 key: str,
-                 value: str,
-                 display_value: Optional[str] = None,
-                 label: Optional[str] = None):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-        if display_value is not None:
-            pulumi.set(__self__, "display_value", display_value)
-        if label is not None:
-            pulumi.set(__self__, "label", label)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: str):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: str):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter(name="displayValue")
-    def display_value(self) -> Optional[str]:
-        return pulumi.get(self, "display_value")
-
-    @display_value.setter
-    def display_value(self, value: Optional[str]):
-        pulumi.set(self, "display_value", value)
-
-    @property
-    @pulumi.getter
-    def label(self) -> Optional[str]:
-        return pulumi.get(self, "label")
-
-    @label.setter
-    def label(self, value: Optional[str]):
-        pulumi.set(self, "label", value)
 
 

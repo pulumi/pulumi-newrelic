@@ -217,6 +217,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly enrichmentsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Workflow entity GUID
+     */
+    public /*out*/ readonly guid!: pulumi.Output<string>;
+    /**
      * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */
     public readonly issuesFilter!: pulumi.Output<outputs.WorkflowIssuesFilter>;
@@ -256,6 +260,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["enrichments"] = state ? state.enrichments : undefined;
             resourceInputs["enrichmentsEnabled"] = state ? state.enrichmentsEnabled : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["issuesFilter"] = state ? state.issuesFilter : undefined;
             resourceInputs["lastRun"] = state ? state.lastRun : undefined;
             resourceInputs["mutingRulesHandling"] = state ? state.mutingRulesHandling : undefined;
@@ -281,6 +286,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["issuesFilter"] = args ? args.issuesFilter : undefined;
             resourceInputs["mutingRulesHandling"] = args ? args.mutingRulesHandling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["lastRun"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         }
@@ -320,6 +326,10 @@ export interface WorkflowState {
      * Whether enrichments are enabled. Defaults to true.
      */
     enrichmentsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Workflow entity GUID
+     */
+    guid?: pulumi.Input<string>;
     /**
      * A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
      */

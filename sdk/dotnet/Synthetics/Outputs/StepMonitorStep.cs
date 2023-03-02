@@ -18,11 +18,11 @@ namespace Pulumi.NewRelic.Synthetics.Outputs
         /// </summary>
         public readonly int Ordinal;
         /// <summary>
-        /// Name of the tag key.
+        /// Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        /// The metadata values related to the step.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

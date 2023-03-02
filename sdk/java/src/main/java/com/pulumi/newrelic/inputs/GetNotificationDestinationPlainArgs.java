@@ -4,13 +4,8 @@
 package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.newrelic.inputs.GetNotificationDestinationAuthBasic;
-import com.pulumi.newrelic.inputs.GetNotificationDestinationAuthToken;
-import com.pulumi.newrelic.inputs.GetNotificationDestinationProperty;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -36,43 +31,6 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * An indication whether the notification destination is active or not.
-     * 
-     */
-    @Import(name="active")
-    private @Nullable Boolean active;
-
-    /**
-     * @return An indication whether the notification destination is active or not.
-     * 
-     */
-    public Optional<Boolean> active() {
-        return Optional.ofNullable(this.active);
-    }
-
-    /**
-     * \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-     * 
-     */
-    @Import(name="authBasic")
-    private @Nullable GetNotificationDestinationAuthBasic authBasic;
-
-    /**
-     * @return \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-     * 
-     */
-    public Optional<GetNotificationDestinationAuthBasic> authBasic() {
-        return Optional.ofNullable(this.authBasic);
-    }
-
-    @Import(name="authToken")
-    private @Nullable GetNotificationDestinationAuthToken authToken;
-
-    public Optional<GetNotificationDestinationAuthToken> authToken() {
-        return Optional.ofNullable(this.authToken);
-    }
-
-    /**
      * The id of the notification destination in New Relic.
      * 
      */
@@ -87,62 +45,11 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         return this.id;
     }
 
-    /**
-     * The name of the notification destination.
-     * 
-     */
-    @Import(name="name")
-    private @Nullable String name;
-
-    /**
-     * @return The name of the notification destination.
-     * 
-     */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
-     * A nested block that describes a notification destination property.
-     * 
-     */
-    @Import(name="properties")
-    private @Nullable List<GetNotificationDestinationProperty> properties;
-
-    /**
-     * @return A nested block that describes a notification destination property.
-     * 
-     */
-    public Optional<List<GetNotificationDestinationProperty>> properties() {
-        return Optional.ofNullable(this.properties);
-    }
-
-    /**
-     * The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-     * 
-     */
-    @Import(name="type")
-    private @Nullable String type;
-
-    /**
-     * @return The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-     * 
-     */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
-    }
-
     private GetNotificationDestinationPlainArgs() {}
 
     private GetNotificationDestinationPlainArgs(GetNotificationDestinationPlainArgs $) {
         this.accountId = $.accountId;
-        this.active = $.active;
-        this.authBasic = $.authBasic;
-        this.authToken = $.authToken;
         this.id = $.id;
-        this.name = $.name;
-        this.properties = $.properties;
-        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -175,33 +82,6 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param active An indication whether the notification destination is active or not.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder active(@Nullable Boolean active) {
-            $.active = active;
-            return this;
-        }
-
-        /**
-         * @param authBasic \ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authBasic(@Nullable GetNotificationDestinationAuthBasic authBasic) {
-            $.authBasic = authBasic;
-            return this;
-        }
-
-        public Builder authToken(@Nullable GetNotificationDestinationAuthToken authToken) {
-            $.authToken = authToken;
-            return this;
-        }
-
-        /**
          * @param id The id of the notification destination in New Relic.
          * 
          * @return builder
@@ -209,49 +89,6 @@ public final class GetNotificationDestinationPlainArgs extends com.pulumi.resour
          */
         public Builder id(String id) {
             $.id = id;
-            return this;
-        }
-
-        /**
-         * @param name The name of the notification destination.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder name(@Nullable String name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @param properties A nested block that describes a notification destination property.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder properties(@Nullable List<GetNotificationDestinationProperty> properties) {
-            $.properties = properties;
-            return this;
-        }
-
-        /**
-         * @param properties A nested block that describes a notification destination property.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder properties(GetNotificationDestinationProperty... properties) {
-            return properties(List.of(properties));
-        }
-
-        /**
-         * @param type The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder type(@Nullable String type) {
-            $.type = type;
             return this;
         }
 

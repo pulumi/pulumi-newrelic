@@ -265,7 +265,7 @@ class StepMonitorLocationPrivate(dict):
                  vse_password: Optional[str] = None):
         """
         :param str guid: The unique identifier for the Synthetics private location in New Relic.
-        :param str vse_password: The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        :param str vse_password: The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
         """
         pulumi.set(__self__, "guid", guid)
         if vse_password is not None:
@@ -283,7 +283,7 @@ class StepMonitorLocationPrivate(dict):
     @pulumi.getter(name="vsePassword")
     def vse_password(self) -> Optional[str]:
         """
-        The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
         """
         return pulumi.get(self, "vse_password")
 
@@ -296,8 +296,8 @@ class StepMonitorStep(dict):
                  values: Optional[Sequence[str]] = None):
         """
         :param int ordinal: The position of the step within the script ranging from 0-100.
-        :param str type: Name of the tag key.
-        :param Sequence[str] values: The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        :param str type: Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        :param Sequence[str] values: The metadata values related to the step.
         """
         pulumi.set(__self__, "ordinal", ordinal)
         pulumi.set(__self__, "type", type)
@@ -316,7 +316,7 @@ class StepMonitorStep(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Name of the tag key.
+        Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
         """
         return pulumi.get(self, "type")
 
@@ -324,7 +324,7 @@ class StepMonitorStep(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+        The metadata values related to the step.
         """
         return pulumi.get(self, "values")
 

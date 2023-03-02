@@ -1619,15 +1619,211 @@ public final class NewrelicFunctions {
     public static CompletableFuture<GetKeyTransactionResult> getKeyTransactionPlain(GetKeyTransactionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getKeyTransaction:getKeyTransaction", TypeShape.of(GetKeyTransactionResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .id(&#34;1e543419-0c25-456a-9057-fb0eb310e60b&#34;)
+     *             .build());
+     * 
+     *         var foo_channel = new NotificationChannel(&#34;foo-channel&#34;, NotificationChannelArgs.builder()        
+     *             .type(&#34;WEBHOOK&#34;)
+     *             .destinationId(foo.applyValue(getNotificationDestinationResult -&gt; getNotificationDestinationResult.id()))
+     *             .product(&#34;IINT&#34;)
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key(&#34;payload&#34;)
+     *                 .value(&#34;&#34;&#34;
+     * {
+     * 	&#34;name&#34;: &#34;foo&#34;
+     * }                &#34;&#34;&#34;)
+     *                 .label(&#34;Payload Template&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args) {
         return getNotificationDestination(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .id(&#34;1e543419-0c25-456a-9057-fb0eb310e60b&#34;)
+     *             .build());
+     * 
+     *         var foo_channel = new NotificationChannel(&#34;foo-channel&#34;, NotificationChannelArgs.builder()        
+     *             .type(&#34;WEBHOOK&#34;)
+     *             .destinationId(foo.applyValue(getNotificationDestinationResult -&gt; getNotificationDestinationResult.id()))
+     *             .product(&#34;IINT&#34;)
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key(&#34;payload&#34;)
+     *                 .value(&#34;&#34;&#34;
+     * {
+     * 	&#34;name&#34;: &#34;foo&#34;
+     * }                &#34;&#34;&#34;)
+     *                 .label(&#34;Payload Template&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args) {
         return getNotificationDestinationPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .id(&#34;1e543419-0c25-456a-9057-fb0eb310e60b&#34;)
+     *             .build());
+     * 
+     *         var foo_channel = new NotificationChannel(&#34;foo-channel&#34;, NotificationChannelArgs.builder()        
+     *             .type(&#34;WEBHOOK&#34;)
+     *             .destinationId(foo.applyValue(getNotificationDestinationResult -&gt; getNotificationDestinationResult.id()))
+     *             .product(&#34;IINT&#34;)
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key(&#34;payload&#34;)
+     *                 .value(&#34;&#34;&#34;
+     * {
+     * 	&#34;name&#34;: &#34;foo&#34;
+     * }                &#34;&#34;&#34;)
+     *                 .label(&#34;Payload Template&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetNotificationDestinationResult> getNotificationDestination(GetNotificationDestinationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.newrelic.NewrelicFunctions;
+     * import com.pulumi.newrelic.inputs.GetNotificationDestinationArgs;
+     * import com.pulumi.newrelic.NotificationChannel;
+     * import com.pulumi.newrelic.NotificationChannelArgs;
+     * import com.pulumi.newrelic.inputs.NotificationChannelPropertyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = NewrelicFunctions.getNotificationDestination(GetNotificationDestinationArgs.builder()
+     *             .id(&#34;1e543419-0c25-456a-9057-fb0eb310e60b&#34;)
+     *             .build());
+     * 
+     *         var foo_channel = new NotificationChannel(&#34;foo-channel&#34;, NotificationChannelArgs.builder()        
+     *             .type(&#34;WEBHOOK&#34;)
+     *             .destinationId(foo.applyValue(getNotificationDestinationResult -&gt; getNotificationDestinationResult.id()))
+     *             .product(&#34;IINT&#34;)
+     *             .properties(NotificationChannelPropertyArgs.builder()
+     *                 .key(&#34;payload&#34;)
+     *                 .value(&#34;&#34;&#34;
+     * {
+     * 	&#34;name&#34;: &#34;foo&#34;
+     * }                &#34;&#34;&#34;)
+     *                 .label(&#34;Payload Template&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetNotificationDestinationResult> getNotificationDestinationPlain(GetNotificationDestinationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("newrelic:index/getNotificationDestination:getNotificationDestination", TypeShape.of(GetNotificationDestinationResult.class), args, Utilities.withVersion(options));
     }

@@ -184,36 +184,6 @@ export interface GetEntityTagArgs {
     value: pulumi.Input<string>;
 }
 
-export interface GetNotificationDestinationAuthBasic {
-    user?: string;
-}
-
-export interface GetNotificationDestinationAuthBasicArgs {
-    user?: pulumi.Input<string>;
-}
-
-export interface GetNotificationDestinationAuthToken {
-    prefix?: string;
-}
-
-export interface GetNotificationDestinationAuthTokenArgs {
-    prefix?: pulumi.Input<string>;
-}
-
-export interface GetNotificationDestinationProperty {
-    displayValue?: string;
-    key: string;
-    label?: string;
-    value: string;
-}
-
-export interface GetNotificationDestinationPropertyArgs {
-    displayValue?: pulumi.Input<string>;
-    key: pulumi.Input<string>;
-    label?: pulumi.Input<string>;
-    value: pulumi.Input<string>;
-}
-
 export interface InfraAlertConditionCritical {
     duration: pulumi.Input<number>;
     timeFunction?: pulumi.Input<string>;
@@ -2652,7 +2622,7 @@ export namespace synthetics {
          */
         guid: pulumi.Input<string>;
         /**
-         * The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         * The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
          */
         vsePassword?: pulumi.Input<string>;
     }
@@ -2663,11 +2633,11 @@ export namespace synthetics {
          */
         ordinal: pulumi.Input<number>;
         /**
-         * Name of the tag key.
+         * Name of the tag key. Valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
          */
         type: pulumi.Input<string>;
         /**
-         * The metadata values related to the step. valid values are ASSERT_ELEMENT, ASSERT_MODAL, ASSERT_TEXT, ASSERT_TITLE, CLICK_ELEMENT, DISMISS_MODAL, DOUBLE_CLICK_ELEMENT, HOVER_ELEMENT, NAVIGATE, SECURE_TEXT_ENTRY, SELECT_ELEMENT, TEXT_ENTRY.
+         * The metadata values related to the step.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
