@@ -17,7 +17,7 @@ public final class StepMonitorLocationPrivate {
      */
     private String guid;
     /**
-     * @return The location&#39;s Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+     * @return The location&#39;s Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
      * 
      */
     private @Nullable String vsePassword;
@@ -31,7 +31,7 @@ public final class StepMonitorLocationPrivate {
         return this.guid;
     }
     /**
-     * @return The location&#39;s Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+     * @return The location&#39;s Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
      * 
      */
     public Optional<String> vsePassword() {

@@ -22,7 +22,7 @@ namespace Pulumi.NewRelic.Synthetics.Inputs
         private Input<string>? _vsePassword;
 
         /// <summary>
-        /// The location's Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+        /// The location's Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
         /// </summary>
         public Input<string>? VsePassword
         {

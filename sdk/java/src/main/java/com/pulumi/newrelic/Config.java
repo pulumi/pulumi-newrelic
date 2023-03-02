@@ -49,8 +49,8 @@ public final class Config {
  * The data center for which your New Relic account is configured. Only one region per provider block is permitted.
  * 
  */
-    public String region() {
-        return Codegen.stringProp("region").config(config).env("NEW_RELIC_REGION").def("US").require();
+    public Optional<String> region() {
+        return Codegen.stringProp("region").config(config).env("NEW_RELIC_REGION").def("US").get();
     }
     public Optional<String> syntheticsApiUrl() {
         return Codegen.stringProp("syntheticsApiUrl").config(config).get();

@@ -285,6 +285,8 @@ type Workflow struct {
 	Enrichments WorkflowEnrichmentsPtrOutput `pulumi:"enrichments"`
 	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled pulumi.BoolPtrOutput `pulumi:"enrichmentsEnabled"`
+	// Workflow entity GUID
+	Guid pulumi.StringOutput `pulumi:"guid"`
 	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter WorkflowIssuesFilterOutput `pulumi:"issuesFilter"`
 	// The last time notification was sent for this workflow.
@@ -350,6 +352,8 @@ type workflowState struct {
 	Enrichments *WorkflowEnrichments `pulumi:"enrichments"`
 	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled *bool `pulumi:"enrichmentsEnabled"`
+	// Workflow entity GUID
+	Guid *string `pulumi:"guid"`
 	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter *WorkflowIssuesFilter `pulumi:"issuesFilter"`
 	// The last time notification was sent for this workflow.
@@ -378,6 +382,8 @@ type WorkflowState struct {
 	Enrichments WorkflowEnrichmentsPtrInput
 	// Whether enrichments are enabled. Defaults to true.
 	EnrichmentsEnabled pulumi.BoolPtrInput
+	// Workflow entity GUID
+	Guid pulumi.StringPtrInput
 	// A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.
 	IssuesFilter WorkflowIssuesFilterPtrInput
 	// The last time notification was sent for this workflow.
@@ -561,6 +567,11 @@ func (o WorkflowOutput) Enrichments() WorkflowEnrichmentsPtrOutput {
 // Whether enrichments are enabled. Defaults to true.
 func (o WorkflowOutput) EnrichmentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.EnrichmentsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Workflow entity GUID
+func (o WorkflowOutput) Guid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
 // A filter used to identify issues handled by this workflow. See Nested issuesFilter blocks below for details.

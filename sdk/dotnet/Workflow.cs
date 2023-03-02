@@ -303,6 +303,12 @@ namespace Pulumi.NewRelic
         public Output<bool?> EnrichmentsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Workflow entity GUID
+        /// </summary>
+        [Output("guid")]
+        public Output<string> Guid { get; private set; } = null!;
+
+        /// <summary>
         /// A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         /// </summary>
         [Output("issuesFilter")]
@@ -489,6 +495,12 @@ namespace Pulumi.NewRelic
         /// </summary>
         [Input("enrichmentsEnabled")]
         public Input<bool>? EnrichmentsEnabled { get; set; }
+
+        /// <summary>
+        /// Workflow entity GUID
+        /// </summary>
+        [Input("guid")]
+        public Input<string>? Guid { get; set; }
 
         /// <summary>
         /// A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.

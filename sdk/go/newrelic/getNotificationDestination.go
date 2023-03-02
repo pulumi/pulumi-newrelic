@@ -10,6 +10,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := newrelic.LookupNotificationDestination(ctx, &newrelic.LookupNotificationDestinationArgs{
+//				Id: "1e543419-0c25-456a-9057-fb0eb310e60b",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = newrelic.NewNotificationChannel(ctx, "foo-channel", &newrelic.NotificationChannelArgs{
+//				Type:          pulumi.String("WEBHOOK"),
+//				DestinationId: *pulumi.String(foo.Id),
+//				Product:       pulumi.String("IINT"),
+//				Properties: newrelic.NotificationChannelPropertyArray{
+//					&newrelic.NotificationChannelPropertyArgs{
+//						Key:   pulumi.String("payload"),
+//						Value: pulumi.String("{\n	\"name\": \"foo\"\n}"),
+//						Label: pulumi.String("Payload Template"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotificationDestinationArgs, opts ...pulumi.InvokeOption) (*LookupNotificationDestinationResult, error) {
 	var rv LookupNotificationDestinationResult
 	err := ctx.Invoke("newrelic:index/getNotificationDestination:getNotificationDestination", args, &rv, opts...)
@@ -23,39 +63,24 @@ func LookupNotificationDestination(ctx *pulumi.Context, args *LookupNotification
 type LookupNotificationDestinationArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId *int `pulumi:"accountId"`
-	// An indication whether the notification destination is active or not.
-	Active *bool `pulumi:"active"`
-	// \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-	AuthBasic *GetNotificationDestinationAuthBasic `pulumi:"authBasic"`
-	AuthToken *GetNotificationDestinationAuthToken `pulumi:"authToken"`
 	// The id of the notification destination in New Relic.
 	Id string `pulumi:"id"`
-	// The name of the notification destination.
-	Name *string `pulumi:"name"`
-	// A nested block that describes a notification destination property.
-	Properties []GetNotificationDestinationProperty `pulumi:"properties"`
-	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getNotificationDestination.
 type LookupNotificationDestinationResult struct {
 	AccountId int `pulumi:"accountId"`
 	// An indication whether the notification destination is active or not.
-	Active *bool `pulumi:"active"`
-	// \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-	AuthBasic *GetNotificationDestinationAuthBasic `pulumi:"authBasic"`
-	AuthToken *GetNotificationDestinationAuthToken `pulumi:"authToken"`
-	Id        string                               `pulumi:"id"`
-	LastSent  string                               `pulumi:"lastSent"`
+	Active bool   `pulumi:"active"`
+	Id     string `pulumi:"id"`
 	// The name of the notification destination.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// A nested block that describes a notification destination property.
 	Properties []GetNotificationDestinationProperty `pulumi:"properties"`
 	// The status of the notification destination.
 	Status string `pulumi:"status"`
 	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotificationDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationDestinationResultOutput {
@@ -75,19 +100,8 @@ func LookupNotificationDestinationOutput(ctx *pulumi.Context, args LookupNotific
 type LookupNotificationDestinationOutputArgs struct {
 	// The New Relic account ID to operate on.  This allows you to override the `accountId` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
 	AccountId pulumi.IntPtrInput `pulumi:"accountId"`
-	// An indication whether the notification destination is active or not.
-	Active pulumi.BoolPtrInput `pulumi:"active"`
-	// \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-	AuthBasic GetNotificationDestinationAuthBasicPtrInput `pulumi:"authBasic"`
-	AuthToken GetNotificationDestinationAuthTokenPtrInput `pulumi:"authToken"`
 	// The id of the notification destination in New Relic.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the notification destination.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A nested block that describes a notification destination property.
-	Properties GetNotificationDestinationPropertyArrayInput `pulumi:"properties"`
-	// The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (LookupNotificationDestinationOutputArgs) ElementType() reflect.Type {
@@ -114,30 +128,17 @@ func (o LookupNotificationDestinationResultOutput) AccountId() pulumi.IntOutput 
 }
 
 // An indication whether the notification destination is active or not.
-func (o LookupNotificationDestinationResultOutput) Active() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) *bool { return v.Active }).(pulumi.BoolPtrOutput)
-}
-
-// \ `authToken` - A nested block that describes a basic ot token authentication credentials..
-func (o LookupNotificationDestinationResultOutput) AuthBasic() GetNotificationDestinationAuthBasicPtrOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) *GetNotificationDestinationAuthBasic { return v.AuthBasic }).(GetNotificationDestinationAuthBasicPtrOutput)
-}
-
-func (o LookupNotificationDestinationResultOutput) AuthToken() GetNotificationDestinationAuthTokenPtrOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) *GetNotificationDestinationAuthToken { return v.AuthToken }).(GetNotificationDestinationAuthTokenPtrOutput)
+func (o LookupNotificationDestinationResultOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
 func (o LookupNotificationDestinationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupNotificationDestinationResultOutput) LastSent() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.LastSent }).(pulumi.StringOutput)
-}
-
 // The name of the notification destination.
-func (o LookupNotificationDestinationResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LookupNotificationDestinationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // A nested block that describes a notification destination property.
@@ -151,8 +152,8 @@ func (o LookupNotificationDestinationResultOutput) Status() pulumi.StringOutput 
 }
 
 // The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
-func (o LookupNotificationDestinationResultOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNotificationDestinationResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o LookupNotificationDestinationResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNotificationDestinationResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

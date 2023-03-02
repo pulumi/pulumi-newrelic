@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetNotificationDestinationResult',
@@ -23,25 +22,16 @@ class GetNotificationDestinationResult:
     """
     A collection of values returned by getNotificationDestination.
     """
-    def __init__(__self__, account_id=None, active=None, auth_basic=None, auth_token=None, id=None, last_sent=None, name=None, properties=None, status=None, type=None):
+    def __init__(__self__, account_id=None, active=None, id=None, name=None, properties=None, status=None, type=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
-        if auth_basic and not isinstance(auth_basic, dict):
-            raise TypeError("Expected argument 'auth_basic' to be a dict")
-        pulumi.set(__self__, "auth_basic", auth_basic)
-        if auth_token and not isinstance(auth_token, dict):
-            raise TypeError("Expected argument 'auth_token' to be a dict")
-        pulumi.set(__self__, "auth_token", auth_token)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_sent and not isinstance(last_sent, str):
-            raise TypeError("Expected argument 'last_sent' to be a str")
-        pulumi.set(__self__, "last_sent", last_sent)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -62,24 +52,11 @@ class GetNotificationDestinationResult:
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> bool:
         """
         An indication whether the notification destination is active or not.
         """
         return pulumi.get(self, "active")
-
-    @property
-    @pulumi.getter(name="authBasic")
-    def auth_basic(self) -> Optional['outputs.GetNotificationDestinationAuthBasicResult']:
-        """
-        \\ `auth_token` - A nested block that describes a basic ot token authentication credentials..
-        """
-        return pulumi.get(self, "auth_basic")
-
-    @property
-    @pulumi.getter(name="authToken")
-    def auth_token(self) -> Optional['outputs.GetNotificationDestinationAuthTokenResult']:
-        return pulumi.get(self, "auth_token")
 
     @property
     @pulumi.getter
@@ -87,13 +64,8 @@ class GetNotificationDestinationResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="lastSent")
-    def last_sent(self) -> str:
-        return pulumi.get(self, "last_sent")
-
-    @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The name of the notification destination.
         """
@@ -101,7 +73,7 @@ class GetNotificationDestinationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Sequence['outputs.GetNotificationDestinationPropertyResult']]:
+    def properties(self) -> Sequence['outputs.GetNotificationDestinationPropertyResult']:
         """
         A nested block that describes a notification destination property.
         """
@@ -117,7 +89,7 @@ class GetNotificationDestinationResult:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
         """
@@ -132,10 +104,7 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
         return GetNotificationDestinationResult(
             account_id=self.account_id,
             active=self.active,
-            auth_basic=self.auth_basic,
-            auth_token=self.auth_token,
             id=self.id,
-            last_sent=self.last_sent,
             name=self.name,
             properties=self.properties,
             status=self.status,
@@ -143,44 +112,44 @@ class AwaitableGetNotificationDestinationResult(GetNotificationDestinationResult
 
 
 def get_notification_destination(account_id: Optional[int] = None,
-                                 active: Optional[bool] = None,
-                                 auth_basic: Optional[pulumi.InputType['GetNotificationDestinationAuthBasicArgs']] = None,
-                                 auth_token: Optional[pulumi.InputType['GetNotificationDestinationAuthTokenArgs']] = None,
                                  id: Optional[str] = None,
-                                 name: Optional[str] = None,
-                                 properties: Optional[Sequence[pulumi.InputType['GetNotificationDestinationPropertyArgs']]] = None,
-                                 type: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationDestinationResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.get_notification_destination(id="1e543419-0c25-456a-9057-fb0eb310e60b")
+    # Resource
+    foo_channel = newrelic.NotificationChannel("foo-channel",
+        type="WEBHOOK",
+        destination_id=foo.id,
+        product="IINT",
+        properties=[newrelic.NotificationChannelPropertyArgs(
+            key="payload",
+            value=\"\"\"{
+    	"name": "foo"
+    }\"\"\",
+            label="Payload Template",
+        )])
+    ```
+
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-    :param bool active: An indication whether the notification destination is active or not.
-    :param pulumi.InputType['GetNotificationDestinationAuthBasicArgs'] auth_basic: \\ `auth_token` - A nested block that describes a basic ot token authentication credentials..
     :param str id: The id of the notification destination in New Relic.
-    :param str name: The name of the notification destination.
-    :param Sequence[pulumi.InputType['GetNotificationDestinationPropertyArgs']] properties: A nested block that describes a notification destination property.
-    :param str type: The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    __args__['active'] = active
-    __args__['authBasic'] = auth_basic
-    __args__['authToken'] = auth_token
     __args__['id'] = id
-    __args__['name'] = name
-    __args__['properties'] = properties
-    __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('newrelic:index/getNotificationDestination:getNotificationDestination', __args__, opts=opts, typ=GetNotificationDestinationResult).value
 
     return AwaitableGetNotificationDestinationResult(
         account_id=__ret__.account_id,
         active=__ret__.active,
-        auth_basic=__ret__.auth_basic,
-        auth_token=__ret__.auth_token,
         id=__ret__.id,
-        last_sent=__ret__.last_sent,
         name=__ret__.name,
         properties=__ret__.properties,
         status=__ret__.status,
@@ -189,23 +158,32 @@ def get_notification_destination(account_id: Optional[int] = None,
 
 @_utilities.lift_output_func(get_notification_destination)
 def get_notification_destination_output(account_id: Optional[pulumi.Input[Optional[int]]] = None,
-                                        active: Optional[pulumi.Input[Optional[bool]]] = None,
-                                        auth_basic: Optional[pulumi.Input[Optional[pulumi.InputType['GetNotificationDestinationAuthBasicArgs']]]] = None,
-                                        auth_token: Optional[pulumi.Input[Optional[pulumi.InputType['GetNotificationDestinationAuthTokenArgs']]]] = None,
                                         id: Optional[pulumi.Input[str]] = None,
-                                        name: Optional[pulumi.Input[Optional[str]]] = None,
-                                        properties: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNotificationDestinationPropertyArgs']]]]] = None,
-                                        type: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationDestinationResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_newrelic as newrelic
+
+    foo = newrelic.get_notification_destination(id="1e543419-0c25-456a-9057-fb0eb310e60b")
+    # Resource
+    foo_channel = newrelic.NotificationChannel("foo-channel",
+        type="WEBHOOK",
+        destination_id=foo.id,
+        product="IINT",
+        properties=[newrelic.NotificationChannelPropertyArgs(
+            key="payload",
+            value=\"\"\"{
+    	"name": "foo"
+    }\"\"\",
+            label="Payload Template",
+        )])
+    ```
+
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
-    :param bool active: An indication whether the notification destination is active or not.
-    :param pulumi.InputType['GetNotificationDestinationAuthBasicArgs'] auth_basic: \\ `auth_token` - A nested block that describes a basic ot token authentication credentials..
     :param str id: The id of the notification destination in New Relic.
-    :param str name: The name of the notification destination.
-    :param Sequence[pulumi.InputType['GetNotificationDestinationPropertyArgs']] properties: A nested block that describes a notification destination property.
-    :param str type: The notification destination type, either: `EMAIL`, `SERVICE_NOW`, `WEBHOOK`, `JIRA`, `MOBILE_PUSH`, `EVENT_BRIDGE`, `PAGERDUTY_ACCOUNT_INTEGRATION` or `PAGERDUTY_SERVICE_INTEGRATION`, `SLACK` and `SLACK_COLLABORATION`.
     """
     ...

@@ -362,6 +362,20 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enrichmentsEnabled);
     }
     /**
+     * Workflow entity GUID
+     * 
+     */
+    @Export(name="guid", type=String.class, parameters={})
+    private Output<String> guid;
+
+    /**
+     * @return Workflow entity GUID
+     * 
+     */
+    public Output<String> guid() {
+        return this.guid;
+    }
+    /**
      * A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
      * 
      */

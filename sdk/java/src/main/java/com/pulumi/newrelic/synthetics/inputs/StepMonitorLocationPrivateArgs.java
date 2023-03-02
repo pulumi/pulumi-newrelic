@@ -31,14 +31,14 @@ public final class StepMonitorLocationPrivateArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The location&#39;s Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+     * The location&#39;s Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
      * 
      */
     @Import(name="vsePassword")
     private @Nullable Output<String> vsePassword;
 
     /**
-     * @return The location&#39;s Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+     * @return The location&#39;s Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
      * 
      */
     public Optional<Output<String>> vsePassword() {
@@ -92,7 +92,7 @@ public final class StepMonitorLocationPrivateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param vsePassword The location&#39;s Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         * @param vsePassword The location&#39;s Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class StepMonitorLocationPrivateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param vsePassword The location&#39;s Verified Script Execution password, Only necessary if Verified Script Execution is enabled for the location.
+         * @param vsePassword The location&#39;s Verified Script Execution password, only necessary if Verified Script Execution is enabled for the location.
          * 
          * @return builder
          * 

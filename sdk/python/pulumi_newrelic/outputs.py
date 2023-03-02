@@ -79,8 +79,6 @@ __all__ = [
     'WorkflowIssuesFilterPredicate',
     'GetAlertChannelConfigResult',
     'GetEntityTagResult',
-    'GetNotificationDestinationAuthBasicResult',
-    'GetNotificationDestinationAuthTokenResult',
     'GetNotificationDestinationPropertyResult',
     'GetTestGrokPatternTestGrokResult',
     'GetTestGrokPatternTestGrokAttributeResult',
@@ -5157,32 +5155,6 @@ class GetEntityTagResult(dict):
         The tag value.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class GetNotificationDestinationAuthBasicResult(dict):
-    def __init__(__self__, *,
-                 user: Optional[str] = None):
-        if user is not None:
-            pulumi.set(__self__, "user", user)
-
-    @property
-    @pulumi.getter
-    def user(self) -> Optional[str]:
-        return pulumi.get(self, "user")
-
-
-@pulumi.output_type
-class GetNotificationDestinationAuthTokenResult(dict):
-    def __init__(__self__, *,
-                 prefix: Optional[str] = None):
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Optional[str]:
-        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

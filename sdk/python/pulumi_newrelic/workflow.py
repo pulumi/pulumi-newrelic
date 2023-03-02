@@ -176,6 +176,7 @@ class _WorkflowState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  enrichments: Optional[pulumi.Input['WorkflowEnrichmentsArgs']] = None,
                  enrichments_enabled: Optional[pulumi.Input[bool]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
                  issues_filter: Optional[pulumi.Input['WorkflowIssuesFilterArgs']] = None,
                  last_run: Optional[pulumi.Input[str]] = None,
                  muting_rules_handling: Optional[pulumi.Input[str]] = None,
@@ -190,6 +191,7 @@ class _WorkflowState:
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
         :param pulumi.Input['WorkflowEnrichmentsArgs'] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
+        :param pulumi.Input[str] guid: Workflow entity GUID
         :param pulumi.Input['WorkflowIssuesFilterArgs'] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
@@ -211,6 +213,8 @@ class _WorkflowState:
             pulumi.set(__self__, "enrichments", enrichments)
         if enrichments_enabled is not None:
             pulumi.set(__self__, "enrichments_enabled", enrichments_enabled)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
         if issues_filter is not None:
             pulumi.set(__self__, "issues_filter", issues_filter)
         if last_run is not None:
@@ -294,6 +298,18 @@ class _WorkflowState:
     @enrichments_enabled.setter
     def enrichments_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enrichments_enabled", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workflow entity GUID
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
 
     @property
     @pulumi.getter(name="issuesFilter")
@@ -739,6 +755,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'muting_rules_handling'")
             __props__.__dict__["muting_rules_handling"] = muting_rules_handling
             __props__.__dict__["name"] = name
+            __props__.__dict__["guid"] = None
             __props__.__dict__["last_run"] = None
             __props__.__dict__["workflow_id"] = None
         super(Workflow, __self__).__init__(
@@ -757,6 +774,7 @@ class Workflow(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             enrichments: Optional[pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']]] = None,
             enrichments_enabled: Optional[pulumi.Input[bool]] = None,
+            guid: Optional[pulumi.Input[str]] = None,
             issues_filter: Optional[pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']]] = None,
             last_run: Optional[pulumi.Input[str]] = None,
             muting_rules_handling: Optional[pulumi.Input[str]] = None,
@@ -776,6 +794,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether workflow is enabled. Defaults to true.
         :param pulumi.Input[pulumi.InputType['WorkflowEnrichmentsArgs']] enrichments: Workflow's enrichments. See Nested enrichments blocks below for details.
         :param pulumi.Input[bool] enrichments_enabled: Whether enrichments are enabled. Defaults to true.
+        :param pulumi.Input[str] guid: Workflow entity GUID
         :param pulumi.Input[pulumi.InputType['WorkflowIssuesFilterArgs']] issues_filter: A filter used to identify issues handled by this workflow. See Nested issues_filter blocks below for details.
         :param pulumi.Input[str] last_run: The last time notification was sent for this workflow.
         :param pulumi.Input[str] muting_rules_handling: How to handle muted issues. See Muting Rules below for details.
@@ -792,6 +811,7 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["enrichments"] = enrichments
         __props__.__dict__["enrichments_enabled"] = enrichments_enabled
+        __props__.__dict__["guid"] = guid
         __props__.__dict__["issues_filter"] = issues_filter
         __props__.__dict__["last_run"] = last_run
         __props__.__dict__["muting_rules_handling"] = muting_rules_handling
@@ -847,6 +867,14 @@ class Workflow(pulumi.CustomResource):
         Whether enrichments are enabled. Defaults to true.
         """
         return pulumi.get(self, "enrichments_enabled")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> pulumi.Output[str]:
+        """
+        Workflow entity GUID
+        """
+        return pulumi.get(self, "guid")
 
     @property
     @pulumi.getter(name="issuesFilter")
