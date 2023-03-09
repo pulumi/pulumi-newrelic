@@ -97,6 +97,7 @@ func Provider() tfbridge.ProviderInfo {
 		TFProviderModuleVersion: "v2",
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-newrelic",
+		UpstreamRepoPath:        "./upstream",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"account_id": {
 				Default: &tfbridge.DefaultInfo{
