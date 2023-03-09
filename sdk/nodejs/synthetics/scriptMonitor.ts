@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     period: "EVERY_HOUR",
  *     runtimeType: "CHROME_BROWSER",
  *     runtimeTypeVersion: "100",
- *     script: `$browser.get('https://one.newrelic.com')`,
+ *     script: "$browser.get('https://one.newrelic.com')",
  *     scriptLanguage: "JAVASCRIPT",
  *     status: "ENABLED",
  *     tags: [{
@@ -111,7 +111,7 @@ import * as utilities from "../utilities";
  *     status: "ENABLED",
  *     type: "SCRIPT_BROWSER",
  *     period: "EVERY_HOUR",
- *     script: `$browser.get('https://one.newrelic.com')`,
+ *     script: "$browser.get('https://one.newrelic.com')",
  *     enableScreenshotOnFailureAndScript: false,
  *     locationPrivates: [{
  *         guid: location.id,

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -33,7 +31,7 @@ import (
 //			_, err := newrelic.NewLogParsingRule(ctx, "foo", &newrelic.LogParsingRuleArgs{
 //				Attribute: pulumi.String("message"),
 //				Enabled:   pulumi.Bool(true),
-//				Grok:      pulumi.String(fmt.Sprintf("sampleattribute='%v%vNUMBER:test:int}'", "%", "%{")),
+//				Grok:      pulumi.String("sampleattribute='%%{NUMBER:test:int}'"),
 //				Lucene:    pulumi.String("logtype:linux_messages"),
 //				Nrql:      pulumi.String("SELECT * FROM Log WHERE logtype = 'linux_messages'"),
 //			})
@@ -54,8 +52,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -64,7 +60,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			grok, err := newrelic.GetTestGrokPattern(ctx, &newrelic.GetTestGrokPatternArgs{
-//				Grok: fmt.Sprintf("%vIP:host_ip}", "%{"),
+//				Grok: "%{IP:host_ip}",
 //				LogLines: []string{
 //					"host_ip: 43.3.120.2",
 //				},

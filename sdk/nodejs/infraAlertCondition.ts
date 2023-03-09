@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.AlertPolicy("foo", {});
  * const highDiskUsage = new newrelic.InfraAlertCondition("highDiskUsage", {
  *     policyId: foo.id,
- *     description: `Warning if disk usage goes above 80% and critical alert if goes above 90%`,
+ *     description: "Warning if disk usage goes above 80% and critical alert if goes above 90%",
  *     type: "infra_metric",
  *     event: "StorageSample",
  *     select: "diskUsedPercent",
  *     comparison: "above",
- *     where: `(hostname LIKE '%frontend%')`,
+ *     where: "(hostname LIKE '%frontend%')",
  *     critical: {
  *         duration: 25,
  *         value: 90,
@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  *     event: "DatastoreSample",
  *     select: "provider.databaseConnections.Average",
  *     comparison: "above",
- *     where: `(hostname LIKE '%db%')`,
+ *     where: "(hostname LIKE '%db%')",
  *     integrationProvider: "RdsDbInstance",
  *     critical: {
  *         duration: 25,
@@ -68,7 +68,7 @@ import * as utilities from "./utilities";
  *     policyId: foo.id,
  *     description: "Critical alert when the host is not reporting",
  *     type: "infra_host_not_reporting",
- *     where: `(hostname LIKE '%frontend%')`,
+ *     where: "(hostname LIKE '%frontend%')",
  *     critical: {
  *         duration: 5,
  *     },

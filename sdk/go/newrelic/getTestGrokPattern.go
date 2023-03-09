@@ -17,8 +17,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -27,7 +25,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.GetTestGrokPattern(ctx, &newrelic.GetTestGrokPatternArgs{
-//				Grok: fmt.Sprintf("%v%vIP:host_ip}", "%", "%{"),
+//				Grok: "%%{IP:host_ip}",
 //				LogLines: []string{
 //					"host_ip: 43.3.120.2",
 //					"bytes_received: 2048",

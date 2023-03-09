@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,10 +46,10 @@ func NewProvider(ctx *pulumi.Context,
 	if args.ApiKey == nil {
 		return nil, errors.New("invalid value for required argument 'ApiKey'")
 	}
-	if isZero(args.AccountId) {
+	if args.AccountId == nil {
 		args.AccountId = pulumi.IntPtr(getEnvOrDefault(0, parseEnvInt, "NEW_RELIC_ACCOUNT_ID").(int))
 	}
-	if isZero(args.Region) {
+	if args.Region == nil {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("US", nil, "NEW_RELIC_REGION").(string))
 	}
 	if args.AccountId != nil {

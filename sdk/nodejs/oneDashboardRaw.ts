@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *         },
  *         "nrqlQueries": [
  *           {
- *             "accountId": ` + accountID + `,
+ *             "accountId": \` + accountID + \`,
  *             "query": "SELECT average(loadAverageOneMinute), average(loadAverageFiveMinute), average(loadAverageFifteenMinute) from SystemSample SINCE 60 minutes ago    TIMESERIES"
  *           }
  *         ],
@@ -54,7 +54,7 @@ import * as utilities from "./utilities";
  *             configuration: `      {
  *         "nrqlQueries": [
  *           {
- *             "accountId": ` + accountID + `,
+ *             "accountId": \` + accountID + \`,
  *             "query": "SELECT average(cpuPercent) FROM SystemSample since 3 hours ago facet hostname limit 400"
  *           }
  *         ]

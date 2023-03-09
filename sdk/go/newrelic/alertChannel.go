@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -165,8 +165,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -180,8 +178,8 @@ import (
 //					BaseUrl:     pulumi.String("http://www.test.com"),
 //					PayloadType: pulumi.String("application/json"),
 //					Payload: pulumi.StringMap{
-//						"condition_name": pulumi.String(fmt.Sprintf("$CONDITION_NAME")),
-//						"policy_name":    pulumi.String(fmt.Sprintf("$POLICY_NAME")),
+//						"condition_name": pulumi.String("$CONDITION_NAME"),
+//						"policy_name":    pulumi.String("$POLICY_NAME"),
 //					},
 //					Headers: pulumi.StringMap{
 //						"header1": pulumi.Any(value1),
@@ -204,8 +202,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -215,17 +211,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.NewAlertChannel(ctx, "foo", &newrelic.AlertChannelArgs{
 //				Config: &newrelic.AlertChannelConfigArgs{
-//					BaseUrl: pulumi.String("http://www.test.com"),
-//					PayloadString: pulumi.String(fmt.Sprintf(`{
-//	  "my_custom_values": {
-//	    "condition_name": "$CONDITION_NAME",
-//	    "policy_name": "$POLICY_NAME"
-//	  }
-//	}
-//
-// `)),
-//
-//					PayloadType: pulumi.String("application/json"),
+//					BaseUrl:       pulumi.String("http://www.test.com"),
+//					PayloadString: pulumi.String("{\n  \"my_custom_values\": {\n    \"condition_name\": \"$CONDITION_NAME\",\n    \"policy_name\": \"$POLICY_NAME\"\n  }\n}\n\n"),
+//					PayloadType:   pulumi.String("application/json"),
 //				},
 //				Type: pulumi.String("webhook"),
 //			})

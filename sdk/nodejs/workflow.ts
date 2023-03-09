@@ -104,7 +104,7 @@ import * as utilities from "./utilities";
  *         nrqls: [{
  *             name: "Log Count",
  *             configurations: [{
- *                 query: `SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago`,
+ *                 query: "SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago",
  *             }],
  *         }],
  *     },

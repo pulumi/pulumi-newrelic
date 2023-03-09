@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const foo = new newrelic.LogParsingRule("foo", {
  *     attribute: "message",
  *     enabled: true,
- *     grok: `sampleattribute='%%{NUMBER:test:int}'`,
+ *     grok: "sampleattribute='%%{NUMBER:test:int}'",
  *     lucene: "logtype:linux_messages",
  *     nrql: "SELECT * FROM Log WHERE logtype = 'linux_messages'",
  * });
@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * import * as newrelic from "@pulumi/newrelic";
  *
  * const grok = newrelic.getTestGrokPattern({
- *     grok: `%{IP:host_ip}`,
+ *     grok: "%{IP:host_ip}",
  *     logLines: ["host_ip: 43.3.120.2"],
  * });
  * const foo = new newrelic.LogParsingRule("foo", {
