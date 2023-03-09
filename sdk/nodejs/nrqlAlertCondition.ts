@@ -110,7 +110,7 @@ import * as utilities from "./utilities";
  *         thresholdOccurrences: "AT_LEAST_ONCE",
  *     },
  *     nrql: {
- *         query: `SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName`,
+ *         query: "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
  *     },
  * });
  * ```
@@ -136,7 +136,7 @@ import * as utilities from "./utilities";
  *         timeFunction: "any",
  *     }],
  *     nrql: {
- *         query: `SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName`,
+ *         query: "SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName",
  *     },
  * });
  * ```

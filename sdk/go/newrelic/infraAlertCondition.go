@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -37,12 +35,12 @@ import (
 //			}
 //			_, err = newrelic.NewInfraAlertCondition(ctx, "highDiskUsage", &newrelic.InfraAlertConditionArgs{
 //				PolicyId:    foo.ID(),
-//				Description: pulumi.String(fmt.Sprintf("Warning if disk usage goes above 80%v and critical alert if goes above 90%v", "%", "%")),
+//				Description: pulumi.String("Warning if disk usage goes above 80% and critical alert if goes above 90%"),
 //				Type:        pulumi.String("infra_metric"),
 //				Event:       pulumi.String("StorageSample"),
 //				Select:      pulumi.String("diskUsedPercent"),
 //				Comparison:  pulumi.String("above"),
-//				Where:       pulumi.String(fmt.Sprintf("(hostname LIKE '%vfrontend%v')", "%", "%")),
+//				Where:       pulumi.String("(hostname LIKE '%frontend%')"),
 //				Critical: &newrelic.InfraAlertConditionCriticalArgs{
 //					Duration:     pulumi.Int(25),
 //					Value:        pulumi.Float64(90),
@@ -64,7 +62,7 @@ import (
 //				Event:               pulumi.String("DatastoreSample"),
 //				Select:              pulumi.String("provider.databaseConnections.Average"),
 //				Comparison:          pulumi.String("above"),
-//				Where:               pulumi.String(fmt.Sprintf("(hostname LIKE '%vdb%v')", "%", "%")),
+//				Where:               pulumi.String("(hostname LIKE '%db%')"),
 //				IntegrationProvider: pulumi.String("RdsDbInstance"),
 //				Critical: &newrelic.InfraAlertConditionCriticalArgs{
 //					Duration:     pulumi.Int(25),
@@ -94,7 +92,7 @@ import (
 //				PolicyId:    foo.ID(),
 //				Description: pulumi.String("Critical alert when the host is not reporting"),
 //				Type:        pulumi.String("infra_host_not_reporting"),
-//				Where:       pulumi.String(fmt.Sprintf("(hostname LIKE '%vfrontend%v')", "%", "%")),
+//				Where:       pulumi.String("(hostname LIKE '%frontend%')"),
 //				Critical: &newrelic.InfraAlertConditionCriticalArgs{
 //					Duration: pulumi.Int(5),
 //				},

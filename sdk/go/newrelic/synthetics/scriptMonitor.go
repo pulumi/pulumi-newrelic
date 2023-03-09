@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,8 +65,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -83,7 +81,7 @@ import (
 //				Period:             pulumi.String("EVERY_HOUR"),
 //				RuntimeType:        pulumi.String("CHROME_BROWSER"),
 //				RuntimeTypeVersion: pulumi.String("100"),
-//				Script:             pulumi.String(fmt.Sprintf("$browser.get('https://one.newrelic.com')")),
+//				Script:             pulumi.String("$browser.get('https://one.newrelic.com')"),
 //				ScriptLanguage:     pulumi.String("JAVASCRIPT"),
 //				Status:             pulumi.String("ENABLED"),
 //				Tags: synthetics.ScriptMonitorTagArray{
@@ -172,8 +170,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -192,7 +188,7 @@ import (
 //				Status:                             pulumi.String("ENABLED"),
 //				Type:                               pulumi.String("SCRIPT_BROWSER"),
 //				Period:                             pulumi.String("EVERY_HOUR"),
-//				Script:                             pulumi.String(fmt.Sprintf("$browser.get('https://one.newrelic.com')")),
+//				Script:                             pulumi.String("$browser.get('https://one.newrelic.com')"),
 //				EnableScreenshotOnFailureAndScript: pulumi.Bool(false),
 //				LocationPrivates: synthetics.ScriptMonitorLocationPrivateArray{
 //					&synthetics.ScriptMonitorLocationPrivateArgs{

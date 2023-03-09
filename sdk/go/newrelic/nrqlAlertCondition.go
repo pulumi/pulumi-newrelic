@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -123,8 +123,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -145,7 +143,7 @@ import (
 //					ThresholdOccurrences: pulumi.String("AT_LEAST_ONCE"),
 //				},
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
-//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
+//					Query: pulumi.String("SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName"),
 //				},
 //			})
 //			if err != nil {
@@ -164,8 +162,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -190,7 +186,7 @@ import (
 //					},
 //				},
 //				Nrql: &newrelic.NrqlAlertConditionNrqlArgs{
-//					Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM TransactionError WHERE appName like '%vDummy App%v' FACET appName", "%", "%")),
+//					Query: pulumi.String("SELECT count(*) FROM TransactionError WHERE appName like '%Dummy App%' FACET appName"),
 //				},
 //			})
 //			if err != nil {

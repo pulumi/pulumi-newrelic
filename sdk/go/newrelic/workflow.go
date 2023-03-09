@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -145,8 +145,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-newrelic/sdk/v5/go/newrelic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -175,7 +173,7 @@ import (
 //							Name: pulumi.String("Log Count"),
 //							Configurations: newrelic.WorkflowEnrichmentsNrqlConfigurationArray{
 //								&newrelic.WorkflowEnrichmentsNrqlConfigurationArgs{
-//									Query: pulumi.String(fmt.Sprintf("SELECT count(*) FROM Log WHERE message like '%verror%v' since 10 minutes ago", "%", "%")),
+//									Query: pulumi.String("SELECT count(*) FROM Log WHERE message like '%error%' since 10 minutes ago"),
 //								},
 //							},
 //						},

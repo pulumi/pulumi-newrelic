@@ -91,8 +91,8 @@ import * as utilities from "./utilities";
  *         baseUrl: "http://www.test.com",
  *         payloadType: "application/json",
  *         payload: {
- *             condition_name: `$CONDITION_NAME`,
- *             policy_name: `$POLICY_NAME`,
+ *             condition_name: "$CONDITION_NAME",
+ *             policy_name: "$POLICY_NAME",
  *         },
  *         headers: {
  *             header1: value1,
