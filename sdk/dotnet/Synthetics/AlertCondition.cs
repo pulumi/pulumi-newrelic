@@ -12,7 +12,7 @@ namespace Pulumi.NewRelic.Synthetics
     /// <summary>
     /// Use this resource to create and manage synthetics alert conditions in New Relic.
     /// 
-    /// &gt; **WARNING:** The  newrelic.synthetics.AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the newrelic.NrqlAlertCondition resource to avoid being impacted by these changes.
+    /// &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
     /// 
     /// ## Example Usage
     /// 

@@ -278,6 +278,8 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific alert channel in New Relic that already exists.
      * 
+     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+     * 
      * ## Example Usage
      * 
      * ```java
@@ -325,6 +327,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific alert channel in New Relic that already exists.
+     * 
+     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
      * ## Example Usage
      * 
@@ -374,6 +378,8 @@ public final class NewrelicFunctions {
     /**
      * Use this data source to get information about a specific alert channel in New Relic that already exists.
      * 
+     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
+     * 
      * ## Example Usage
      * 
      * ```java
@@ -421,6 +427,8 @@ public final class NewrelicFunctions {
     }
     /**
      * Use this data source to get information about a specific alert channel in New Relic that already exists.
+     * 
+     * &gt; **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
      * 
      * ## Example Usage
      * 

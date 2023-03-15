@@ -8,6 +8,8 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific alert channel in New Relic that already exists.
+ *
+ * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  */
 export function getAlertChannel(args: GetAlertChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertChannelResult> {
 
@@ -57,6 +59,8 @@ export interface GetAlertChannelResult {
 }
 /**
  * Use this data source to get information about a specific alert channel in New Relic that already exists.
+ *
+ * > **WARNING:** The `newrelic.AlertChannel` data source is deprecated and will be removed in the next major release.
  */
 export function getAlertChannelOutput(args: GetAlertChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertChannelResult> {
     return pulumi.output(args).apply((a: any) => getAlertChannel(a, opts))

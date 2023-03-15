@@ -112,6 +112,8 @@ export class AlertPolicy extends pulumi.CustomResource {
     public readonly accountId!: pulumi.Output<number>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     *
+     * @deprecated The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
      */
     public readonly channelIds!: pulumi.Output<number[] | undefined>;
     /**
@@ -162,6 +164,8 @@ export interface AlertPolicyState {
     accountId?: pulumi.Input<number>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     *
+     * @deprecated The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
      */
     channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -184,6 +188,8 @@ export interface AlertPolicyArgs {
     accountId?: pulumi.Input<number>;
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
+     *
+     * @deprecated The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
      */
     channelIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
  * 
- * &gt; **NOTE:** The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+ * &gt; **NOTE:** This is a legacy resource. The newrelic.NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
  * 
  * ## Example Usage
  * ```java

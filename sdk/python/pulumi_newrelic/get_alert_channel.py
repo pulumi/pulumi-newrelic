@@ -105,6 +105,8 @@ def get_alert_channel(account_id: Optional[int] = None,
     """
     Use this data source to get information about a specific alert channel in New Relic that already exists.
 
+    > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
+
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.
     :param str name: The name of the alert channel in New Relic.
@@ -130,6 +132,8 @@ def get_alert_channel_output(account_id: Optional[pulumi.Input[Optional[int]]] =
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertChannelResult]:
     """
     Use this data source to get information about a specific alert channel in New Relic that already exists.
+
+    > **WARNING:** The `AlertChannel` data source is deprecated and will be removed in the next major release.
 
 
     :param int account_id: The New Relic account ID to operate on.  This allows you to override the `account_id` attribute set on the provider. Defaults to the environment variable `NEW_RELIC_ACCOUNT_ID`.

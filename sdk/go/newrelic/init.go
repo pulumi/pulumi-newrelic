@@ -32,6 +32,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertPolicyChannel{}
 	case "newrelic:index/apiAccessKey:ApiAccessKey":
 		r = &ApiAccessKey{}
+	case "newrelic:index/browserApplication:BrowserApplication":
+		r = &BrowserApplication{}
+	case "newrelic:index/dataPartitionRule:DataPartitionRule":
+		r = &DataPartitionRule{}
 	case "newrelic:index/entityTags:EntityTags":
 		r = &EntityTags{}
 	case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
@@ -118,6 +122,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/apiAccessKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/browserApplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/dataPartitionRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

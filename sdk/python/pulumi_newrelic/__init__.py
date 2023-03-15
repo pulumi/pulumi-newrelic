@@ -11,6 +11,8 @@ from .alert_muting_rule import *
 from .alert_policy import *
 from .alert_policy_channel import *
 from .api_access_key import *
+from .browser_application import *
+from .data_partition_rule import *
 from .entity_tags import *
 from .events_to_metrics_rule import *
 from .get_account import *
@@ -172,6 +174,22 @@ _utilities.register(
   "fqn": "pulumi_newrelic",
   "classes": {
    "newrelic:index/apiAccessKey:ApiAccessKey": "ApiAccessKey"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/browserApplication",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/browserApplication:BrowserApplication": "BrowserApplication"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/dataPartitionRule",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/dataPartitionRule:DataPartitionRule": "DataPartitionRule"
   }
  },
  {
