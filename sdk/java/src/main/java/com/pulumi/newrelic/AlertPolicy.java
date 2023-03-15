@@ -173,7 +173,11 @@ public class AlertPolicy extends com.pulumi.resources.CustomResource {
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      * 
+     * @deprecated
+     * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * 
      */
+    @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
     @Export(name="channelIds", type=List.class, parameters={Integer.class})
     private Output</* @Nullable */ List<Integer>> channelIds;
 

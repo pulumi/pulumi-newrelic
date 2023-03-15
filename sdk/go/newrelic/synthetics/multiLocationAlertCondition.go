@@ -13,7 +13,7 @@ import (
 
 // Use this resource to create, update, and delete a New Relic Synthetics Location Alerts.
 //
-// > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+// > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 //
 // ## Example Usage
 //

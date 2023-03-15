@@ -35,6 +35,16 @@ export type ApiAccessKey = import("./apiAccessKey").ApiAccessKey;
 export const ApiAccessKey: typeof import("./apiAccessKey").ApiAccessKey = null as any;
 utilities.lazyLoad(exports, ["ApiAccessKey"], () => require("./apiAccessKey"));
 
+export { BrowserApplicationArgs, BrowserApplicationState } from "./browserApplication";
+export type BrowserApplication = import("./browserApplication").BrowserApplication;
+export const BrowserApplication: typeof import("./browserApplication").BrowserApplication = null as any;
+utilities.lazyLoad(exports, ["BrowserApplication"], () => require("./browserApplication"));
+
+export { DataPartitionRuleArgs, DataPartitionRuleState } from "./dataPartitionRule";
+export type DataPartitionRule = import("./dataPartitionRule").DataPartitionRule;
+export const DataPartitionRule: typeof import("./dataPartitionRule").DataPartitionRule = null as any;
+utilities.lazyLoad(exports, ["DataPartitionRule"], () => require("./dataPartitionRule"));
+
 export { EntityTagsArgs, EntityTagsState } from "./entityTags";
 export type EntityTags = import("./entityTags").EntityTags;
 export const EntityTags: typeof import("./entityTags").EntityTags = null as any;
@@ -199,6 +209,10 @@ const _module = {
                 return new AlertPolicyChannel(name, <any>undefined, { urn })
             case "newrelic:index/apiAccessKey:ApiAccessKey":
                 return new ApiAccessKey(name, <any>undefined, { urn })
+            case "newrelic:index/browserApplication:BrowserApplication":
+                return new BrowserApplication(name, <any>undefined, { urn })
+            case "newrelic:index/dataPartitionRule:DataPartitionRule":
+                return new DataPartitionRule(name, <any>undefined, { urn })
             case "newrelic:index/entityTags:EntityTags":
                 return new EntityTags(name, <any>undefined, { urn })
             case "newrelic:index/eventsToMetricsRule:EventsToMetricsRule":
@@ -240,6 +254,8 @@ pulumi.runtime.registerResourceModule("newrelic", "index/alertMutingRule", _modu
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicy", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertPolicyChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/apiAccessKey", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/browserApplication", _module)
+pulumi.runtime.registerResourceModule("newrelic", "index/dataPartitionRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/entityTags", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/eventsToMetricsRule", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/infraAlertCondition", _module)

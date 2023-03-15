@@ -35,14 +35,22 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      * 
+     * @deprecated
+     * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * 
      */
+    @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
     @Import(name="channelIds")
     private @Nullable Output<List<Integer>> channelIds;
 
     /**
      * @return An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
      * 
+     * @deprecated
+     * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+     * 
      */
+    @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
     public Optional<Output<List<Integer>>> channelIds() {
         return Optional.ofNullable(this.channelIds);
     }
@@ -130,7 +138,11 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+         * 
          */
+        @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(@Nullable Output<List<Integer>> channelIds) {
             $.channelIds = channelIds;
             return this;
@@ -141,7 +153,11 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+         * 
          */
+        @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(List<Integer> channelIds) {
             return channelIds(Output.of(channelIds));
         }
@@ -151,7 +167,11 @@ public final class AlertPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.
+         * 
          */
+        @Deprecated /* The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider. */
         public Builder channelIds(Integer... channelIds) {
             return channelIds(List.of(channelIds));
         }

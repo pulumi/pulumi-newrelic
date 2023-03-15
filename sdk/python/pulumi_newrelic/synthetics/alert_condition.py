@@ -199,7 +199,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
-        > **WARNING:** The  synthetics.AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
+        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 
         ## Example Usage
 
@@ -238,7 +238,7 @@ class AlertCondition(pulumi.CustomResource):
         """
         Use this resource to create and manage synthetics alert conditions in New Relic.
 
-        > **WARNING:** The  synthetics.AlertCondition resource will be deprecated in the near future and will no longer receive product updates. Please use the NrqlAlertCondition resource to avoid being impacted by these changes.
+        > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 
         ## Example Usage
 

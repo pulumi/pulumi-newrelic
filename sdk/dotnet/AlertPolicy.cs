@@ -200,6 +200,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         /// </summary>
+        [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<int> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<int>());
@@ -238,6 +239,7 @@ namespace Pulumi.NewRelic
         /// <summary>
         /// An array of channel IDs (integers) to assign to the policy. Adding or removing channel IDs from this array will result in a new alert policy resource being created and the old one being destroyed. Also note that channel IDs _cannot_ be imported.
         /// </summary>
+        [Obsolete(@"The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.")]
         public InputList<int> ChannelIds
         {
             get => _channelIds ?? (_channelIds = new InputList<int>());

@@ -28,6 +28,9 @@ class AlertPolicyArgs:
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if channel_ids is not None:
+            warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
+        if channel_ids is not None:
             pulumi.set(__self__, "channel_ids", channel_ids)
         if incident_preference is not None:
             pulumi.set(__self__, "incident_preference", incident_preference)
@@ -99,6 +102,9 @@ class _AlertPolicyState:
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if channel_ids is not None:
+            warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
         if channel_ids is not None:
             pulumi.set(__self__, "channel_ids", channel_ids)
         if incident_preference is not None:
@@ -339,6 +345,9 @@ class AlertPolicy(pulumi.CustomResource):
             __props__ = AlertPolicyArgs.__new__(AlertPolicyArgs)
 
             __props__.__dict__["account_id"] = account_id
+            if channel_ids is not None and not opts.urn:
+                warnings.warn("""The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""", DeprecationWarning)
+                pulumi.log.warn("""channel_ids is deprecated: The `channel_ids` attribute is deprecated and will be removed in the next major release of the provider.""")
             __props__.__dict__["channel_ids"] = channel_ids
             __props__.__dict__["incident_preference"] = incident_preference
             __props__.__dict__["name"] = name

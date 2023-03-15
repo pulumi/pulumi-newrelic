@@ -13,7 +13,7 @@ import (
 
 // Use this resource to create and manage Infrastructure alert conditions in New Relic.
 //
-// > **NOTE:** The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. Other condition types may be deprecated in the future and receive fewer product updates.
+// > **NOTE:** This is a legacy resource. The NrqlAlertCondition resource is preferred for configuring alerts conditions. In most cases feature parity can be achieved with a NRQL query. This condition type may be deprecated in the future.
 //
 // ## Example Usage
 //
