@@ -11,29 +11,6 @@ index 8d95d053..00000000
 -echo
 -
 -make lint-commit COMMIT_MSG_FILE=$1
-diff --git b/.github/workflows/release.yml a/.github/workflows/release.yml
-index 979f52e6..1f669077 100644
---- b/.github/workflows/release.yml
-+++ a/.github/workflows/release.yml
-@@ -37,4 +37,4 @@ jobs:
-           ./scripts/release.sh
- 
-           make release-publish
--        
-+
-diff --git b/.goreleaser.yml a/.goreleaser.yml
-index e9806bdf..adf96cf5 100644
---- b/.goreleaser.yml
-+++ a/.goreleaser.yml
-@@ -21,6 +21,8 @@ builds:
-   ignore:
-     - goos: darwin
-       goarch: '386'
-+    - goos: darwin
-+      goarch: arm64
-     - goos: openbsd
-       goarch: arm
-     - goos: openbsd
 diff --git b/newrelic/resource_newrelic_nrql_alert_condition.go a/newrelic/resource_newrelic_nrql_alert_condition.go
 index 7d6f5da8..6f89fc79 100644
 --- b/newrelic/resource_newrelic_nrql_alert_condition.go
