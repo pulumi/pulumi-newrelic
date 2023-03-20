@@ -360,9 +360,17 @@ export interface OneDashboardPage {
 
 export interface OneDashboardPageWidgetArea {
     /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaColor>[]>;
+    /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -373,9 +381,17 @@ export interface OneDashboardPageWidgetArea {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -385,9 +401,37 @@ export interface OneDashboardPageWidgetArea {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetAreaColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetAreaColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetAreaNrqlQuery {
@@ -401,11 +445,57 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetAreaNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetAreaNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetAreaUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetAreaUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetAreaUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetBar {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -420,6 +510,10 @@ export interface OneDashboardPageWidgetBar {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -427,6 +521,10 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -436,9 +534,37 @@ export interface OneDashboardPageWidgetBar {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBarColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetBarColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBarNrqlQuery {
@@ -452,7 +578,49 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetBarNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetBarNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBarUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBarUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBarUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetBillboard {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -461,6 +629,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Threshold above which the displayed value will be styled with a red color.
      */
     critical?: pulumi.Input<string>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -471,9 +643,17 @@ export interface OneDashboardPageWidgetBillboard {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -483,6 +663,10 @@ export interface OneDashboardPageWidgetBillboard {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardUnit>[]>;
+    /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
      */
     warning?: pulumi.Input<string>;
@@ -490,6 +674,30 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBillboardColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBillboardNrqlQuery {
@@ -503,11 +711,57 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetBillboardNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetBillboardNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBillboardUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBillboardUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBillboardUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetBullet {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -518,6 +772,10 @@ export interface OneDashboardPageWidgetBullet {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Required) Visualization limit for the widget.
      */
     limit: pulumi.Input<number>;
@@ -525,6 +783,10 @@ export interface OneDashboardPageWidgetBullet {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -534,9 +796,37 @@ export interface OneDashboardPageWidgetBullet {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetBulletColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetBulletColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetBulletNrqlQuery {
@@ -550,11 +840,57 @@ export interface OneDashboardPageWidgetBulletNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetBulletNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetBulletNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBulletUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetBulletUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetBulletUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetFunnel {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -565,9 +901,17 @@ export interface OneDashboardPageWidgetFunnel {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -577,9 +921,37 @@ export interface OneDashboardPageWidgetFunnel {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetFunnelColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetFunnelNrqlQuery {
@@ -593,11 +965,57 @@ export interface OneDashboardPageWidgetFunnelNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetFunnelNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetFunnelNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetFunnelUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetFunnelUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetFunnelUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetHeatmap {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -612,6 +1030,10 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -619,6 +1041,10 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -628,9 +1054,37 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetHeatmapColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetHeatmapNrqlQuery {
@@ -644,11 +1098,57 @@ export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetHeatmapNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHeatmapUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHeatmapUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetHistogram {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -659,9 +1159,17 @@ export interface OneDashboardPageWidgetHistogram {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -671,9 +1179,37 @@ export interface OneDashboardPageWidgetHistogram {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetHistogramColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetHistogramNrqlQuery {
@@ -687,11 +1223,57 @@ export interface OneDashboardPageWidgetHistogramNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetHistogramNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetHistogramNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHistogramUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetHistogramUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetHistogramUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetJson {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -702,9 +1284,17 @@ export interface OneDashboardPageWidgetJson {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -714,9 +1304,37 @@ export interface OneDashboardPageWidgetJson {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetJsonColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetJsonColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetJsonNrqlQuery {
@@ -730,11 +1348,57 @@ export interface OneDashboardPageWidgetJsonNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetJsonNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetJsonNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetJsonUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetJsonUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetJsonUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetLine {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -745,9 +1409,17 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -757,9 +1429,37 @@ export interface OneDashboardPageWidgetLine {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetLineColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetLineColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLineNrqlQuery {
@@ -773,11 +1473,57 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetLineNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetLineNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLineUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLineUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLineUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetLogTable {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -788,9 +1534,17 @@ export interface OneDashboardPageWidgetLogTable {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -800,9 +1554,37 @@ export interface OneDashboardPageWidgetLogTable {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetLogTableColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetLogTableNrqlQuery {
@@ -816,11 +1598,57 @@ export interface OneDashboardPageWidgetLogTableNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetLogTableNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetLogTableNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLogTableUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetLogTableUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetLogTableUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetMarkdown {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -830,6 +1658,14 @@ export interface OneDashboardPageWidgetMarkdown {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
+    /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -843,16 +1679,90 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetMarkdownColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetMarkdownNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetMarkdownNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetMarkdownUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetMarkdownUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetPy {
     /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColor>[]>;
+    /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -867,6 +1777,10 @@ export interface OneDashboardPageWidgetPy {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -874,6 +1788,10 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -883,9 +1801,37 @@ export interface OneDashboardPageWidgetPy {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetPyColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetPyColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetPyNrqlQuery {
@@ -899,11 +1845,57 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetPyNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetPyNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetPyUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetPyUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetPyUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetStackedBar {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -914,9 +1906,17 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -926,9 +1926,37 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetStackedBarColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetStackedBarNrqlQuery {
@@ -942,11 +1970,57 @@ export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     query: pulumi.Input<string>;
 }
 
+export interface OneDashboardPageWidgetStackedBarNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetStackedBarUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetStackedBarUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
 export interface OneDashboardPageWidgetTable {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColor>[]>;
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: pulumi.Input<number>;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: pulumi.Input<boolean>;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -961,6 +2035,10 @@ export interface OneDashboardPageWidgetTable {
      */
     ignoreTimeRange?: pulumi.Input<boolean>;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: pulumi.Input<boolean>;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -968,6 +2046,10 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNrqlQuery>[]>;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValue>[]>;
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -977,9 +2059,37 @@ export interface OneDashboardPageWidgetTable {
      */
     title: pulumi.Input<string>;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableUnit>[]>;
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: pulumi.Input<number>;
+    yAxisLeftMax?: pulumi.Input<number>;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: pulumi.Input<number>;
+}
+
+export interface OneDashboardPageWidgetTableColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableColorSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetTableColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
 }
 
 export interface OneDashboardPageWidgetTableNrqlQuery {
@@ -991,6 +2101,44 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
     query: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetTableNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableNullValueSeriesOverride>[]>;
+}
+
+export interface OneDashboardPageWidgetTableNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: pulumi.Input<string>;
+    seriesName?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetTableUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: pulumi.Input<pulumi.Input<inputs.OneDashboardPageWidgetTableUnitSeriesOverride>[]>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
+}
+
+export interface OneDashboardPageWidgetTableUnitSeriesOverride {
+    seriesName?: pulumi.Input<string>;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: pulumi.Input<string>;
 }
 
 export interface OneDashboardRawPage {

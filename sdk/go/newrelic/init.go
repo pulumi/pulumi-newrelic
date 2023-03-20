@@ -20,6 +20,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "newrelic:index/accountManagement:AccountManagement":
+		r = &AccountManagement{}
 	case "newrelic:index/alertChannel:AlertChannel":
 		r = &AlertChannel{}
 	case "newrelic:index/alertCondition:AlertCondition":
@@ -94,6 +96,11 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 
 func init() {
 	version, _ := PkgVersion()
+	pulumi.RegisterResourceModule(
+		"newrelic",
+		"index/accountManagement",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"newrelic",
 		"index/alertChannel",

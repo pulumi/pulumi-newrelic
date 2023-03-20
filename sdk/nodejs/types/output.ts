@@ -405,9 +405,17 @@ export interface OneDashboardPage {
 
 export interface OneDashboardPageWidgetArea {
     /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetAreaColor[];
+    /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -418,9 +426,17 @@ export interface OneDashboardPageWidgetArea {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetAreaNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetAreaNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -430,9 +446,37 @@ export interface OneDashboardPageWidgetArea {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetAreaUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetAreaColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetAreaColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetAreaColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetAreaNrqlQuery {
@@ -446,11 +490,57 @@ export interface OneDashboardPageWidgetAreaNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetAreaNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetAreaNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetAreaNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetAreaUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetAreaUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetAreaUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetBar {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetBarColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -465,6 +555,10 @@ export interface OneDashboardPageWidgetBar {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids: string[];
@@ -472,6 +566,10 @@ export interface OneDashboardPageWidgetBar {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBarNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetBarNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -481,9 +579,37 @@ export interface OneDashboardPageWidgetBar {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetBarUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetBarColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBarColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetBarColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetBarNrqlQuery {
@@ -497,7 +623,49 @@ export interface OneDashboardPageWidgetBarNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetBarNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBarNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetBarNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetBarUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBarUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetBarUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetBillboard {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetBillboardColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
@@ -506,6 +674,10 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Threshold above which the displayed value will be styled with a red color.
      */
     critical?: string;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -516,9 +688,17 @@ export interface OneDashboardPageWidgetBillboard {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBillboardNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetBillboardNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -528,6 +708,10 @@ export interface OneDashboardPageWidgetBillboard {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetBillboardUnit[];
+    /**
      * (Optional) Threshold above which the displayed value will be styled with a yellow color.
      */
     warning?: string;
@@ -535,6 +719,30 @@ export interface OneDashboardPageWidgetBillboard {
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetBillboardColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBillboardColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetBillboardColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetBillboardNrqlQuery {
@@ -548,11 +756,57 @@ export interface OneDashboardPageWidgetBillboardNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetBillboardNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetBillboardNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetBillboardUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBillboardUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetBillboardUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetBullet {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetBulletColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -563,6 +817,10 @@ export interface OneDashboardPageWidgetBullet {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Required) Visualization limit for the widget.
      */
     limit: number;
@@ -570,6 +828,10 @@ export interface OneDashboardPageWidgetBullet {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetBulletNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetBulletNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -579,9 +841,37 @@ export interface OneDashboardPageWidgetBullet {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetBulletUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetBulletColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBulletColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetBulletColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetBulletNrqlQuery {
@@ -595,11 +885,57 @@ export interface OneDashboardPageWidgetBulletNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetBulletNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBulletNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetBulletNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetBulletUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetBulletUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetBulletUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetFunnel {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetFunnelColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -610,9 +946,17 @@ export interface OneDashboardPageWidgetFunnel {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetFunnelNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetFunnelNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -622,9 +966,37 @@ export interface OneDashboardPageWidgetFunnel {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetFunnelUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetFunnelColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetFunnelColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetFunnelColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetFunnelNrqlQuery {
@@ -638,11 +1010,57 @@ export interface OneDashboardPageWidgetFunnelNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetFunnelNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetFunnelNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetFunnelUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetFunnelUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetFunnelUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetHeatmap {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetHeatmapColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -657,6 +1075,10 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids: string[];
@@ -664,6 +1086,10 @@ export interface OneDashboardPageWidgetHeatmap {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetHeatmapNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetHeatmapNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -673,9 +1099,37 @@ export interface OneDashboardPageWidgetHeatmap {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetHeatmapUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetHeatmapColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetHeatmapColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetHeatmapColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetHeatmapNrqlQuery {
@@ -689,11 +1143,57 @@ export interface OneDashboardPageWidgetHeatmapNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetHeatmapNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetHeatmapUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetHeatmapUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetHistogram {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetHistogramColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -704,9 +1204,17 @@ export interface OneDashboardPageWidgetHistogram {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetHistogramNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetHistogramNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -716,9 +1224,37 @@ export interface OneDashboardPageWidgetHistogram {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetHistogramUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetHistogramColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetHistogramColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetHistogramColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetHistogramNrqlQuery {
@@ -732,11 +1268,57 @@ export interface OneDashboardPageWidgetHistogramNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetHistogramNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetHistogramNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetHistogramUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetHistogramUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetHistogramUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetJson {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetJsonColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -747,9 +1329,17 @@ export interface OneDashboardPageWidgetJson {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetJsonNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetJsonNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -759,9 +1349,37 @@ export interface OneDashboardPageWidgetJson {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetJsonUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetJsonColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetJsonColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetJsonColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetJsonNrqlQuery {
@@ -775,11 +1393,57 @@ export interface OneDashboardPageWidgetJsonNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetJsonNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetJsonNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetJsonNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetJsonUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetJsonUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetJsonUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetLine {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetLineColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -790,9 +1454,17 @@ export interface OneDashboardPageWidgetLine {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLineNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetLineNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -802,9 +1474,37 @@ export interface OneDashboardPageWidgetLine {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetLineUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetLineColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetLineColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetLineColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetLineNrqlQuery {
@@ -818,11 +1518,57 @@ export interface OneDashboardPageWidgetLineNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetLineNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetLineNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetLineNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetLineUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetLineUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetLineUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetLogTable {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetLogTableColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -833,9 +1579,17 @@ export interface OneDashboardPageWidgetLogTable {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetLogTableNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetLogTableNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -845,9 +1599,37 @@ export interface OneDashboardPageWidgetLogTable {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetLogTableUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetLogTableColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetLogTableColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetLogTableColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetLogTableNrqlQuery {
@@ -861,11 +1643,57 @@ export interface OneDashboardPageWidgetLogTableNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetLogTableNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetLogTableNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetLogTableUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetLogTableUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetLogTableUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetMarkdown {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetMarkdownColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -875,6 +1703,14 @@ export interface OneDashboardPageWidgetMarkdown {
      * (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
      */
     ignoreTimeRange?: boolean;
+    /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetMarkdownNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -888,16 +1724,90 @@ export interface OneDashboardPageWidgetMarkdown {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetMarkdownUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetMarkdownColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetMarkdownColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetMarkdownColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetMarkdownNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetMarkdownNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetMarkdownUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetMarkdownUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
 }
 
 export interface OneDashboardPageWidgetPy {
     /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetPyColor[];
+    /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -912,6 +1822,10 @@ export interface OneDashboardPageWidgetPy {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids: string[];
@@ -919,6 +1833,10 @@ export interface OneDashboardPageWidgetPy {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetPyNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetPyNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -928,9 +1846,37 @@ export interface OneDashboardPageWidgetPy {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetPyUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetPyColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetPyColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetPyColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetPyNrqlQuery {
@@ -944,11 +1890,57 @@ export interface OneDashboardPageWidgetPyNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetPyNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetPyNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetPyNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetPyUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetPyUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetPyUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetStackedBar {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetStackedBarColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
      */
@@ -959,9 +1951,17 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetStackedBarNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetStackedBarNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -971,9 +1971,37 @@ export interface OneDashboardPageWidgetStackedBar {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetStackedBarUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetStackedBarColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetStackedBarColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetStackedBarColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetStackedBarNrqlQuery {
@@ -987,11 +2015,57 @@ export interface OneDashboardPageWidgetStackedBarNrqlQuery {
     query: string;
 }
 
+export interface OneDashboardPageWidgetStackedBarNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetStackedBarUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetStackedBarUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
 export interface OneDashboardPageWidgetTable {
+    /**
+     * (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+     */
+    colors?: outputs.OneDashboardPageWidgetTableColor[];
     /**
      * (Required) Column position of widget from top left, starting at `1`.
      */
     column: number;
+    /**
+     * (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+     */
+    facetShowOtherSeries?: boolean;
     /**
      * (Optional) Use this item to filter the current dashboard.
      */
@@ -1006,6 +2080,10 @@ export interface OneDashboardPageWidgetTable {
      */
     ignoreTimeRange?: boolean;
     /**
+     * (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+     */
+    legendEnabled?: boolean;
+    /**
      * (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
      */
     linkedEntityGuids: string[];
@@ -1013,6 +2091,10 @@ export interface OneDashboardPageWidgetTable {
      * (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
      */
     nrqlQueries: outputs.OneDashboardPageWidgetTableNrqlQuery[];
+    /**
+     * (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+     */
+    nullValues?: outputs.OneDashboardPageWidgetTableNullValue[];
     /**
      * (Required) Row position of widget from top left, starting at `1`.
      */
@@ -1022,9 +2104,37 @@ export interface OneDashboardPageWidgetTable {
      */
     title: string;
     /**
+     * (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+     */
+    units?: outputs.OneDashboardPageWidgetTableUnit[];
+    /**
      * (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
      */
     width?: number;
+    yAxisLeftMax?: number;
+    /**
+     * , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+     */
+    yAxisLeftMin?: number;
+}
+
+export interface OneDashboardPageWidgetTableColor {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetTableColorSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetTableColorSeriesOverride {
+    /**
+     * (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+     */
+    color?: string;
+    seriesName?: string;
 }
 
 export interface OneDashboardPageWidgetTableNrqlQuery {
@@ -1036,6 +2146,44 @@ export interface OneDashboardPageWidgetTableNrqlQuery {
      * (Required) Valid NRQL query string. See [Writing NRQL Queries](https://docs.newrelic.com/docs/insights/nrql-new-relic-query-language/using-nrql/introduction-nrql) for help.
      */
     query: string;
+}
+
+export interface OneDashboardPageWidgetTableNullValue {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetTableNullValueSeriesOverride[];
+}
+
+export interface OneDashboardPageWidgetTableNullValueSeriesOverride {
+    /**
+     * Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+     */
+    nullValue?: string;
+    seriesName?: string;
+}
+
+export interface OneDashboardPageWidgetTableUnit {
+    /**
+     * (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+     */
+    seriesOverrides?: outputs.OneDashboardPageWidgetTableUnitSeriesOverride[];
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
+}
+
+export interface OneDashboardPageWidgetTableUnitSeriesOverride {
+    seriesName?: string;
+    /**
+     * (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+     */
+    unit?: string;
 }
 
 export interface OneDashboardRawPage {

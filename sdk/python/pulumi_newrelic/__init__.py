@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .account_management import *
 from .alert_channel import *
 from .alert_condition import *
 from .alert_muting_rule import *
@@ -126,6 +127,14 @@ _utilities.register(
   "fqn": "pulumi_newrelic.cloud",
   "classes": {
    "newrelic:cloud/gcpLinkAccount:GcpLinkAccount": "GcpLinkAccount"
+  }
+ },
+ {
+  "pkg": "newrelic",
+  "mod": "index/accountManagement",
+  "fqn": "pulumi_newrelic",
+  "classes": {
+   "newrelic:index/accountManagement:AccountManagement": "AccountManagement"
   }
  },
  {

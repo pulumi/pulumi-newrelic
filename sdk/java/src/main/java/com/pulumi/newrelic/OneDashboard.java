@@ -19,8 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **NOTE:** The newrelic.OneDashboardJson resource is preferred for configuring dashboards in New Relic. This resource does not support the latest dashboard features and will receive less investment compared to newrelic_one_dashboard_json.
- * 
  * ## Example Usage
  * ### Create A New Relic One Dashboard
  * 
@@ -62,6 +60,18 @@ import javax.annotation.Nullable;
  *                         .width(6)
  *                         .build(),
  *                     OneDashboardPageWidgetBarArgs.builder()
+ *                         .colors(OneDashboardPageWidgetBarColorArgs.builder()
+ *                             .color(&#34;#722727&#34;)
+ *                             .seriesOverrides(                            
+ *                                 OneDashboardPageWidgetBarColorSeriesOverrideArgs.builder()
+ *                                     .color(&#34;#722322&#34;)
+ *                                     .seriesName(&#34;Node&#34;)
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetBarColorSeriesOverrideArgs.builder()
+ *                                     .color(&#34;#236f70&#34;)
+ *                                     .seriesName(&#34;Java&#34;)
+ *                                     .build())
+ *                             .build())
  *                         .column(1)
  *                         .filterCurrentDashboard(true)
  *                         .height(3)
@@ -78,16 +88,61 @@ import javax.annotation.Nullable;
  *                     .title(&#34;Requests per minute&#34;)
  *                     .width(6)
  *                     .build())
- *                 .widgetLines(OneDashboardPageWidgetLineArgs.builder()
- *                     .column(7)
- *                     .height(3)
- *                     .nrqlQuery(                    
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .row(4)
- *                     .title(&#34;Average transaction duration and the request per minute, by application&#34;)
- *                     .width(6)
- *                     .build())
+ *                 .widgetLines(                
+ *                     OneDashboardPageWidgetLineArgs.builder()
+ *                         .column(7)
+ *                         .height(3)
+ *                         .ignoreTimeRange(false)
+ *                         .legendEnabled(true)
+ *                         .nrqlQuery(                        
+ *                             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .row(4)
+ *                         .title(&#34;Average transaction duration and the request per minute, by application&#34;)
+ *                         .units(OneDashboardPageWidgetLineUnitArgs.builder()
+ *                             .seriesOverrides(OneDashboardPageWidgetLineUnitSeriesOverrideArgs.builder()
+ *                                 .seriesName(&#34;max duration&#34;)
+ *                                 .unit(&#34;ms&#34;)
+ *                                 .build())
+ *                             .unit(&#34;ms&#34;)
+ *                             .build())
+ *                         .width(6)
+ *                         .yAxisLeftMax(1)
+ *                         .yAxisLeftMin(0)
+ *                         .build(),
+ *                     OneDashboardPageWidgetLineArgs.builder()
+ *                         .column(5)
+ *                         .facetShowOtherSeries(false)
+ *                         .height(3)
+ *                         .ignoreTimeRange(false)
+ *                         .legendEnabled(true)
+ *                         .nrqlQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .nullValues(OneDashboardPageWidgetLineNullValueArgs.builder()
+ *                             .nullValue(&#34;default&#34;)
+ *                             .seriesOverrides(                            
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue(&#34;remove&#34;)
+ *                                     .seriesName(&#34;Avg Cpu User Percent&#34;)
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue(&#34;zero&#34;)
+ *                                     .seriesName(&#34;Avg Cpu Idle Percent&#34;)
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue(&#34;default&#34;)
+ *                                     .seriesName(&#34;Avg Cpu IO Wait Percent&#34;)
+ *                                     .build(),
+ *                                 OneDashboardPageWidgetLineNullValueSeriesOverrideArgs.builder()
+ *                                     .nullValue(&#34;preserve&#34;)
+ *                                     .seriesName(&#34;Avg Cpu System Percent&#34;)
+ *                                     .build())
+ *                             .build())
+ *                         .row(1)
+ *                         .title(&#34;Overall CPU % Statistics&#34;)
+ *                         .width(4)
+ *                         .yAxisLeftMax(0)
+ *                         .yAxisLeftMin(0)
+ *                         .build())
  *                 .widgetMarkdowns(OneDashboardPageWidgetMarkdownArgs.builder()
  *                     .column(1)
  *                     .height(3)
