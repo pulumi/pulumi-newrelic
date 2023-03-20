@@ -136,7 +136,7 @@ jobs:
       run: pulumictl create docs-build pulumi-${{ env.PROVIDER }}
         ${GITHUB_REF#refs/tags/}
   lint:
-    container: golangci/golangci-lint:latest
+    container: golangci/golangci-lint:v1.51
     name: lint
     runs-on: ubuntu-latest
     steps:
@@ -171,7 +171,7 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
   lint_sdk:
-    container: golangci/golangci-lint:latest
+    container: golangci/golangci-lint:v1.51
     name: lint-sdk
     needs: build_sdk
     runs-on: ubuntu-latest

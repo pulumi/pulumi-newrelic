@@ -13,6 +13,7 @@
         "strict": true
     },
     "files": [
+        "accountManagement.ts",
         "alertChannel.ts",
         "alertCondition.ts",
         "alertMutingRule.ts",

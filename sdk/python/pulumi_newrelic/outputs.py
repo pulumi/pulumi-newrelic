@@ -30,32 +30,116 @@ __all__ = [
     'ObfuscationRuleAction',
     'OneDashboardPage',
     'OneDashboardPageWidgetArea',
+    'OneDashboardPageWidgetAreaColor',
+    'OneDashboardPageWidgetAreaColorSeriesOverride',
     'OneDashboardPageWidgetAreaNrqlQuery',
+    'OneDashboardPageWidgetAreaNullValue',
+    'OneDashboardPageWidgetAreaNullValueSeriesOverride',
+    'OneDashboardPageWidgetAreaUnit',
+    'OneDashboardPageWidgetAreaUnitSeriesOverride',
     'OneDashboardPageWidgetBar',
+    'OneDashboardPageWidgetBarColor',
+    'OneDashboardPageWidgetBarColorSeriesOverride',
     'OneDashboardPageWidgetBarNrqlQuery',
+    'OneDashboardPageWidgetBarNullValue',
+    'OneDashboardPageWidgetBarNullValueSeriesOverride',
+    'OneDashboardPageWidgetBarUnit',
+    'OneDashboardPageWidgetBarUnitSeriesOverride',
     'OneDashboardPageWidgetBillboard',
+    'OneDashboardPageWidgetBillboardColor',
+    'OneDashboardPageWidgetBillboardColorSeriesOverride',
     'OneDashboardPageWidgetBillboardNrqlQuery',
+    'OneDashboardPageWidgetBillboardNullValue',
+    'OneDashboardPageWidgetBillboardNullValueSeriesOverride',
+    'OneDashboardPageWidgetBillboardUnit',
+    'OneDashboardPageWidgetBillboardUnitSeriesOverride',
     'OneDashboardPageWidgetBullet',
+    'OneDashboardPageWidgetBulletColor',
+    'OneDashboardPageWidgetBulletColorSeriesOverride',
     'OneDashboardPageWidgetBulletNrqlQuery',
+    'OneDashboardPageWidgetBulletNullValue',
+    'OneDashboardPageWidgetBulletNullValueSeriesOverride',
+    'OneDashboardPageWidgetBulletUnit',
+    'OneDashboardPageWidgetBulletUnitSeriesOverride',
     'OneDashboardPageWidgetFunnel',
+    'OneDashboardPageWidgetFunnelColor',
+    'OneDashboardPageWidgetFunnelColorSeriesOverride',
     'OneDashboardPageWidgetFunnelNrqlQuery',
+    'OneDashboardPageWidgetFunnelNullValue',
+    'OneDashboardPageWidgetFunnelNullValueSeriesOverride',
+    'OneDashboardPageWidgetFunnelUnit',
+    'OneDashboardPageWidgetFunnelUnitSeriesOverride',
     'OneDashboardPageWidgetHeatmap',
+    'OneDashboardPageWidgetHeatmapColor',
+    'OneDashboardPageWidgetHeatmapColorSeriesOverride',
     'OneDashboardPageWidgetHeatmapNrqlQuery',
+    'OneDashboardPageWidgetHeatmapNullValue',
+    'OneDashboardPageWidgetHeatmapNullValueSeriesOverride',
+    'OneDashboardPageWidgetHeatmapUnit',
+    'OneDashboardPageWidgetHeatmapUnitSeriesOverride',
     'OneDashboardPageWidgetHistogram',
+    'OneDashboardPageWidgetHistogramColor',
+    'OneDashboardPageWidgetHistogramColorSeriesOverride',
     'OneDashboardPageWidgetHistogramNrqlQuery',
+    'OneDashboardPageWidgetHistogramNullValue',
+    'OneDashboardPageWidgetHistogramNullValueSeriesOverride',
+    'OneDashboardPageWidgetHistogramUnit',
+    'OneDashboardPageWidgetHistogramUnitSeriesOverride',
     'OneDashboardPageWidgetJson',
+    'OneDashboardPageWidgetJsonColor',
+    'OneDashboardPageWidgetJsonColorSeriesOverride',
     'OneDashboardPageWidgetJsonNrqlQuery',
+    'OneDashboardPageWidgetJsonNullValue',
+    'OneDashboardPageWidgetJsonNullValueSeriesOverride',
+    'OneDashboardPageWidgetJsonUnit',
+    'OneDashboardPageWidgetJsonUnitSeriesOverride',
     'OneDashboardPageWidgetLine',
+    'OneDashboardPageWidgetLineColor',
+    'OneDashboardPageWidgetLineColorSeriesOverride',
     'OneDashboardPageWidgetLineNrqlQuery',
+    'OneDashboardPageWidgetLineNullValue',
+    'OneDashboardPageWidgetLineNullValueSeriesOverride',
+    'OneDashboardPageWidgetLineUnit',
+    'OneDashboardPageWidgetLineUnitSeriesOverride',
     'OneDashboardPageWidgetLogTable',
+    'OneDashboardPageWidgetLogTableColor',
+    'OneDashboardPageWidgetLogTableColorSeriesOverride',
     'OneDashboardPageWidgetLogTableNrqlQuery',
+    'OneDashboardPageWidgetLogTableNullValue',
+    'OneDashboardPageWidgetLogTableNullValueSeriesOverride',
+    'OneDashboardPageWidgetLogTableUnit',
+    'OneDashboardPageWidgetLogTableUnitSeriesOverride',
     'OneDashboardPageWidgetMarkdown',
+    'OneDashboardPageWidgetMarkdownColor',
+    'OneDashboardPageWidgetMarkdownColorSeriesOverride',
+    'OneDashboardPageWidgetMarkdownNullValue',
+    'OneDashboardPageWidgetMarkdownNullValueSeriesOverride',
+    'OneDashboardPageWidgetMarkdownUnit',
+    'OneDashboardPageWidgetMarkdownUnitSeriesOverride',
     'OneDashboardPageWidgetPy',
+    'OneDashboardPageWidgetPyColor',
+    'OneDashboardPageWidgetPyColorSeriesOverride',
     'OneDashboardPageWidgetPyNrqlQuery',
+    'OneDashboardPageWidgetPyNullValue',
+    'OneDashboardPageWidgetPyNullValueSeriesOverride',
+    'OneDashboardPageWidgetPyUnit',
+    'OneDashboardPageWidgetPyUnitSeriesOverride',
     'OneDashboardPageWidgetStackedBar',
+    'OneDashboardPageWidgetStackedBarColor',
+    'OneDashboardPageWidgetStackedBarColorSeriesOverride',
     'OneDashboardPageWidgetStackedBarNrqlQuery',
+    'OneDashboardPageWidgetStackedBarNullValue',
+    'OneDashboardPageWidgetStackedBarNullValueSeriesOverride',
+    'OneDashboardPageWidgetStackedBarUnit',
+    'OneDashboardPageWidgetStackedBarUnitSeriesOverride',
     'OneDashboardPageWidgetTable',
+    'OneDashboardPageWidgetTableColor',
+    'OneDashboardPageWidgetTableColorSeriesOverride',
     'OneDashboardPageWidgetTableNrqlQuery',
+    'OneDashboardPageWidgetTableNullValue',
+    'OneDashboardPageWidgetTableNullValueSeriesOverride',
+    'OneDashboardPageWidgetTableUnit',
+    'OneDashboardPageWidgetTableUnitSeriesOverride',
     'OneDashboardRawPage',
     'OneDashboardRawPageWidget',
     'OneDashboardVariable',
@@ -1472,8 +1556,18 @@ class OneDashboardPageWidgetArea(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetArea. Access the value via the '{suggest}' property getter instead.")
@@ -1491,31 +1585,58 @@ class OneDashboardPageWidgetArea(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetAreaNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetAreaColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetAreaNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetAreaColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetAreaNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetAreaUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -1551,6 +1672,22 @@ class OneDashboardPageWidgetArea(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -1571,12 +1708,141 @@ class OneDashboardPageWidgetArea(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetAreaColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetAreaColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -1627,18 +1893,216 @@ class OneDashboardPageWidgetAreaNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetAreaNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetAreaUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetAreaUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetAreaUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetAreaUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetAreaUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetAreaUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetBar(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBar. Access the value via the '{suggest}' property getter instead.")
@@ -1656,27 +2120,44 @@ class OneDashboardPageWidgetBar(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBarNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetBarColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
-                 width: Optional[int] = None):
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetBarNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetBarUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetBarNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetBarColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param Sequence['OneDashboardPageWidgetBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBarUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
             pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
@@ -1685,10 +2166,20 @@ class OneDashboardPageWidgetBar(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -1723,6 +2214,22 @@ class OneDashboardPageWidgetBar(dict):
         return pulumi.get(self, "title")
 
     @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[bool]:
         """
@@ -1752,6 +2259,14 @@ class OneDashboardPageWidgetBar(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[Sequence[str]]:
         """
@@ -1760,12 +2275,133 @@ class OneDashboardPageWidgetBar(dict):
         return pulumi.get(self, "linked_entity_guids")
 
     @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBarColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetBarColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -1816,14 +2452,212 @@ class OneDashboardPageWidgetBarNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetBarNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBarNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetBarNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBarUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetBarUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBarUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBarUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBarUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBarUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBarUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetBillboard(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboard. Access the value via the '{suggest}' property getter instead.")
@@ -1841,39 +2675,66 @@ class OneDashboardPageWidgetBillboard(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBillboardNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColor']] = None,
                  critical: Optional[str] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardUnit']] = None,
                  warning: Optional[str] = None,
-                 width: Optional[int] = None):
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetBillboardNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetBillboardColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
         :param str critical: (Optional) Threshold above which the displayed value will be styled with a red color.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetBillboardNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBillboardUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param str warning: (Optional) Threshold above which the displayed value will be styled with a yellow color.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if warning is not None:
             pulumi.set(__self__, "warning", warning)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -1909,11 +2770,27 @@ class OneDashboardPageWidgetBillboard(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter
     def critical(self) -> Optional[str]:
         """
         (Optional) Threshold above which the displayed value will be styled with a red color.
         """
         return pulumi.get(self, "critical")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
 
     @property
     @pulumi.getter
@@ -1937,6 +2814,30 @@ class OneDashboardPageWidgetBillboard(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def warning(self) -> Optional[str]:
         """
@@ -1951,6 +2852,111 @@ class OneDashboardPageWidgetBillboard(dict):
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetBillboardColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -2001,14 +3007,212 @@ class OneDashboardPageWidgetBillboardNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetBillboardNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBillboardUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBillboardUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBillboardUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBillboardUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBillboardUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBillboardUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetBullet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBullet. Access the value via the '{suggest}' property getter instead.")
@@ -2027,33 +3231,60 @@ class OneDashboardPageWidgetBullet(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetBulletNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetBulletColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetBulletNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetBulletUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param float limit: (Required) Visualization limit for the widget.
         :param Sequence['OneDashboardPageWidgetBulletNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetBulletColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetBulletNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetBulletUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -2097,6 +3328,22 @@ class OneDashboardPageWidgetBullet(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2117,12 +3364,141 @@ class OneDashboardPageWidgetBullet(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBulletColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetBulletColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -2173,14 +3549,212 @@ class OneDashboardPageWidgetBulletNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetBulletNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBulletNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetBulletUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetBulletUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetBulletUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetBulletUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetBulletUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetBulletUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetBulletUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetFunnel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnel. Access the value via the '{suggest}' property getter instead.")
@@ -2198,31 +3772,58 @@ class OneDashboardPageWidgetFunnel(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetFunnelNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetFunnelNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetFunnelColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetFunnelNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetFunnelUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -2258,6 +3859,22 @@ class OneDashboardPageWidgetFunnel(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2278,12 +3895,141 @@ class OneDashboardPageWidgetFunnel(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetFunnelColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -2334,18 +4080,216 @@ class OneDashboardPageWidgetFunnelNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetFunnelNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetFunnelUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetFunnelUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetFunnelUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetFunnelUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetFunnelUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetFunnelUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetHeatmap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmap. Access the value via the '{suggest}' property getter instead.")
@@ -2363,27 +4307,44 @@ class OneDashboardPageWidgetHeatmap(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetHeatmapNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
-                 width: Optional[int] = None):
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetHeatmapNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetHeatmapColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param Sequence['OneDashboardPageWidgetHeatmapNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetHeatmapUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
             pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
@@ -2392,10 +4353,20 @@ class OneDashboardPageWidgetHeatmap(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -2430,6 +4401,22 @@ class OneDashboardPageWidgetHeatmap(dict):
         return pulumi.get(self, "title")
 
     @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[bool]:
         """
@@ -2459,6 +4446,14 @@ class OneDashboardPageWidgetHeatmap(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[Sequence[str]]:
         """
@@ -2467,12 +4462,133 @@ class OneDashboardPageWidgetHeatmap(dict):
         return pulumi.get(self, "linked_entity_guids")
 
     @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -2523,14 +4639,212 @@ class OneDashboardPageWidgetHeatmapNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetHeatmapNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHeatmapUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHeatmapUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHeatmapUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHeatmapUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHeatmapUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetHistogram(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogram. Access the value via the '{suggest}' property getter instead.")
@@ -2548,31 +4862,58 @@ class OneDashboardPageWidgetHistogram(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetHistogramNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetHistogramNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetHistogramColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetHistogramNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetHistogramUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -2608,6 +4949,22 @@ class OneDashboardPageWidgetHistogram(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2628,12 +4985,141 @@ class OneDashboardPageWidgetHistogram(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetHistogramColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -2684,14 +5170,212 @@ class OneDashboardPageWidgetHistogramNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetHistogramNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetHistogramUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetHistogramUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetHistogramUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetHistogramUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetHistogramUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetHistogramUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetJson(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJson. Access the value via the '{suggest}' property getter instead.")
@@ -2709,31 +5393,58 @@ class OneDashboardPageWidgetJson(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetJsonNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetJsonColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetJsonNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetJsonUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetJsonNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetJsonColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetJsonNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetJsonUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -2769,6 +5480,22 @@ class OneDashboardPageWidgetJson(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2789,12 +5516,141 @@ class OneDashboardPageWidgetJson(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetJsonColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetJsonColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -2845,14 +5701,212 @@ class OneDashboardPageWidgetJsonNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetJsonNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetJsonNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetJsonUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetJsonUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetJsonUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetJsonUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetJsonUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetJsonUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetJsonUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetLine(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLine. Access the value via the '{suggest}' property getter instead.")
@@ -2870,31 +5924,58 @@ class OneDashboardPageWidgetLine(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetLineNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetLineColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetLineUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetLineNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetLineColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetLineNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetLineUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -2930,6 +6011,22 @@ class OneDashboardPageWidgetLine(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -2950,12 +6047,141 @@ class OneDashboardPageWidgetLine(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLineColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetLineColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -3006,14 +6232,212 @@ class OneDashboardPageWidgetLineNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetLineNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetLineNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLineUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetLineUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLineUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLineUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLineUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLineUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLineUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetLogTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTable. Access the value via the '{suggest}' property getter instead.")
@@ -3031,31 +6455,58 @@ class OneDashboardPageWidgetLogTable(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetLogTableNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetLogTableNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetLogTableColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetLogTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetLogTableUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -3091,6 +6542,22 @@ class OneDashboardPageWidgetLogTable(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3111,12 +6578,141 @@ class OneDashboardPageWidgetLogTable(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTableColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLogTableColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLogTableColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetLogTableColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTableColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLogTableColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLogTableColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -3167,12 +6763,210 @@ class OneDashboardPageWidgetLogTableNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetLogTableNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTableNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLogTableNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLogTableNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTableNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLogTableNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLogTableNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTableUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLogTableUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLogTableUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetLogTableUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetLogTableUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetLogTableUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetLogTableUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetLogTableUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetLogTableUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetMarkdown(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ignoreTimeRange":
+        if key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
+        elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdown. Access the value via the '{suggest}' property getter instead.")
@@ -3189,33 +6983,60 @@ class OneDashboardPageWidgetMarkdown(dict):
                  column: int,
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValue']] = None,
                  text: Optional[str] = None,
-                 width: Optional[int] = None):
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetMarkdownColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetMarkdownNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
         :param str text: (Required) The markdown source to be rendered in the widget.
+        :param Sequence['OneDashboardPageWidgetMarkdownUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
         if text is not None:
             pulumi.set(__self__, "text", text)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -3243,6 +7064,22 @@ class OneDashboardPageWidgetMarkdown(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3263,6 +7100,22 @@ class OneDashboardPageWidgetMarkdown(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
     @pulumi.getter
     def text(self) -> Optional[str]:
         """
@@ -3272,11 +7125,312 @@ class OneDashboardPageWidgetMarkdown(dict):
 
     @property
     @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
+    @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdownColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetMarkdownColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetMarkdownColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdownColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetMarkdownColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetMarkdownColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdownNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetMarkdownNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetMarkdownNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdownNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetMarkdownNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetMarkdownNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdownUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetMarkdownUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetMarkdownUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetMarkdownUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetMarkdownUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetMarkdownUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetMarkdownUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetMarkdownUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type
@@ -3286,12 +7440,22 @@ class OneDashboardPageWidgetPy(dict):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPy. Access the value via the '{suggest}' property getter instead.")
@@ -3309,27 +7473,44 @@ class OneDashboardPageWidgetPy(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetPyNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetPyColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
-                 width: Optional[int] = None):
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetPyNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetPyUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetPyNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetPyColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param Sequence['OneDashboardPageWidgetPyNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetPyUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
             pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
@@ -3338,10 +7519,20 @@ class OneDashboardPageWidgetPy(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -3376,6 +7567,22 @@ class OneDashboardPageWidgetPy(dict):
         return pulumi.get(self, "title")
 
     @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[bool]:
         """
@@ -3405,6 +7612,14 @@ class OneDashboardPageWidgetPy(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[Sequence[str]]:
         """
@@ -3413,12 +7628,133 @@ class OneDashboardPageWidgetPy(dict):
         return pulumi.get(self, "linked_entity_guids")
 
     @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetPyColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetPyColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -3469,14 +7805,212 @@ class OneDashboardPageWidgetPyNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetPyNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetPyNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetPyNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetPyUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetPyUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetPyUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetPyUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetPyUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetPyUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetPyUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetStackedBar(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBar. Access the value via the '{suggest}' property getter instead.")
@@ -3494,31 +8028,58 @@ class OneDashboardPageWidgetStackedBar(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetStackedBarNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
-                 width: Optional[int] = None):
+                 legend_enabled: Optional[bool] = None,
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetStackedBarNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetStackedBarColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        :param Sequence['OneDashboardPageWidgetStackedBarNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetStackedBarUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if height is not None:
             pulumi.set(__self__, "height", height)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -3554,6 +8115,22 @@ class OneDashboardPageWidgetStackedBar(dict):
 
     @property
     @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
+    @pulumi.getter
     def height(self) -> Optional[int]:
         """
         (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3574,12 +8151,141 @@ class OneDashboardPageWidgetStackedBar(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -3630,18 +8336,216 @@ class OneDashboardPageWidgetStackedBarNrqlQuery(dict):
 
 
 @pulumi.output_type
+class OneDashboardPageWidgetStackedBarNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetStackedBarUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetStackedBarUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetStackedBarUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetStackedBarUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetStackedBarUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
 class OneDashboardPageWidgetTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "nrqlQueries":
             suggest = "nrql_queries"
+        elif key == "facetShowOtherSeries":
+            suggest = "facet_show_other_series"
         elif key == "filterCurrentDashboard":
             suggest = "filter_current_dashboard"
         elif key == "ignoreTimeRange":
             suggest = "ignore_time_range"
+        elif key == "legendEnabled":
+            suggest = "legend_enabled"
         elif key == "linkedEntityGuids":
             suggest = "linked_entity_guids"
+        elif key == "nullValues":
+            suggest = "null_values"
+        elif key == "yAxisLeftMax":
+            suggest = "y_axis_left_max"
+        elif key == "yAxisLeftMin":
+            suggest = "y_axis_left_min"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTable. Access the value via the '{suggest}' property getter instead.")
@@ -3659,27 +8563,44 @@ class OneDashboardPageWidgetTable(dict):
                  nrql_queries: Sequence['outputs.OneDashboardPageWidgetTableNrqlQuery'],
                  row: int,
                  title: str,
+                 colors: Optional[Sequence['outputs.OneDashboardPageWidgetTableColor']] = None,
+                 facet_show_other_series: Optional[bool] = None,
                  filter_current_dashboard: Optional[bool] = None,
                  height: Optional[int] = None,
                  id: Optional[str] = None,
                  ignore_time_range: Optional[bool] = None,
+                 legend_enabled: Optional[bool] = None,
                  linked_entity_guids: Optional[Sequence[str]] = None,
-                 width: Optional[int] = None):
+                 null_values: Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValue']] = None,
+                 units: Optional[Sequence['outputs.OneDashboardPageWidgetTableUnit']] = None,
+                 width: Optional[int] = None,
+                 y_axis_left_max: Optional[float] = None,
+                 y_axis_left_min: Optional[float] = None):
         """
         :param int column: (Required) Column position of widget from top left, starting at `1`.
         :param Sequence['OneDashboardPageWidgetTableNrqlQueryArgs'] nrql_queries: (Optional) Configuration for variables of type `nrql`. See Nested nrql\\_query blocks for details.
         :param int row: (Required) Row position of widget from top left, starting at `1`.
         :param str title: (Optional) A human-friendly display string for this value.
+        :param Sequence['OneDashboardPageWidgetTableColorArgs'] colors: (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        :param bool facet_show_other_series: (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
         :param bool filter_current_dashboard: (Optional) Use this item to filter the current dashboard.
         :param int height: (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
         :param bool ignore_time_range: (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
+        :param bool legend_enabled: (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
         :param Sequence[str] linked_entity_guids: (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
+        :param Sequence['OneDashboardPageWidgetTableNullValueArgs'] null_values: (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        :param Sequence['OneDashboardPageWidgetTableUnitArgs'] units: (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
         :param int width: (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
+        :param float y_axis_left_min: , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
         """
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "nrql_queries", nrql_queries)
         pulumi.set(__self__, "row", row)
         pulumi.set(__self__, "title", title)
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if facet_show_other_series is not None:
+            pulumi.set(__self__, "facet_show_other_series", facet_show_other_series)
         if filter_current_dashboard is not None:
             pulumi.set(__self__, "filter_current_dashboard", filter_current_dashboard)
         if height is not None:
@@ -3688,10 +8609,20 @@ class OneDashboardPageWidgetTable(dict):
             pulumi.set(__self__, "id", id)
         if ignore_time_range is not None:
             pulumi.set(__self__, "ignore_time_range", ignore_time_range)
+        if legend_enabled is not None:
+            pulumi.set(__self__, "legend_enabled", legend_enabled)
         if linked_entity_guids is not None:
             pulumi.set(__self__, "linked_entity_guids", linked_entity_guids)
+        if null_values is not None:
+            pulumi.set(__self__, "null_values", null_values)
+        if units is not None:
+            pulumi.set(__self__, "units", units)
         if width is not None:
             pulumi.set(__self__, "width", width)
+        if y_axis_left_max is not None:
+            pulumi.set(__self__, "y_axis_left_max", y_axis_left_max)
+        if y_axis_left_min is not None:
+            pulumi.set(__self__, "y_axis_left_min", y_axis_left_min)
 
     @property
     @pulumi.getter
@@ -3726,6 +8657,22 @@ class OneDashboardPageWidgetTable(dict):
         return pulumi.get(self, "title")
 
     @property
+    @pulumi.getter
+    def colors(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableColor']]:
+        """
+        (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+        """
+        return pulumi.get(self, "colors")
+
+    @property
+    @pulumi.getter(name="facetShowOtherSeries")
+    def facet_show_other_series(self) -> Optional[bool]:
+        """
+        (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+        """
+        return pulumi.get(self, "facet_show_other_series")
+
+    @property
     @pulumi.getter(name="filterCurrentDashboard")
     def filter_current_dashboard(self) -> Optional[bool]:
         """
@@ -3755,6 +8702,14 @@ class OneDashboardPageWidgetTable(dict):
         return pulumi.get(self, "ignore_time_range")
 
     @property
+    @pulumi.getter(name="legendEnabled")
+    def legend_enabled(self) -> Optional[bool]:
+        """
+        (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "legend_enabled")
+
+    @property
     @pulumi.getter(name="linkedEntityGuids")
     def linked_entity_guids(self) -> Optional[Sequence[str]]:
         """
@@ -3763,12 +8718,133 @@ class OneDashboardPageWidgetTable(dict):
         return pulumi.get(self, "linked_entity_guids")
 
     @property
+    @pulumi.getter(name="nullValues")
+    def null_values(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValue']]:
+        """
+        (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+        """
+        return pulumi.get(self, "null_values")
+
+    @property
+    @pulumi.getter
+    def units(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableUnit']]:
+        """
+        (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+        """
+        return pulumi.get(self, "units")
+
+    @property
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
         (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
         """
         return pulumi.get(self, "width")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMax")
+    def y_axis_left_max(self) -> Optional[float]:
+        return pulumi.get(self, "y_axis_left_max")
+
+    @property
+    @pulumi.getter(name="yAxisLeftMin")
+    def y_axis_left_min(self) -> Optional[float]:
+        """
+        , `y_axis_left_max` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+        """
+        return pulumi.get(self, "y_axis_left_min")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetTableColorSeriesOverride']] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        :param Sequence['OneDashboardPageWidgetTableColorSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableColorSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableColorSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableColorSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableColorSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableColorSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str color: (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[str]:
+        """
+        (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+        """
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
 
 
 @pulumi.output_type
@@ -3816,6 +8892,194 @@ class OneDashboardPageWidgetTableNrqlQuery(dict):
         Determines the New Relic account where the dashboard will be created. Defaults to the account associated with the API key used.
         """
         return pulumi.get(self, "account_id")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableNullValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableNullValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableNullValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableNullValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValueSeriesOverride']] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        :param Sequence['OneDashboardPageWidgetTableNullValueSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableNullValueSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableNullValueSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullValue":
+            suggest = "null_value"
+        elif key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableNullValueSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableNullValueSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableNullValueSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_value: Optional[str] = None,
+                 series_name: Optional[str] = None):
+        """
+        :param str null_value: Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        if null_value is not None:
+            pulumi.set(__self__, "null_value", null_value)
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+
+    @property
+    @pulumi.getter(name="nullValue")
+    def null_value(self) -> Optional[str]:
+        """
+        Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+        """
+        return pulumi.get(self, "null_value")
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableUnit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesOverrides":
+            suggest = "series_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableUnit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableUnit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableUnit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_overrides: Optional[Sequence['outputs.OneDashboardPageWidgetTableUnitSeriesOverride']] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['OneDashboardPageWidgetTableUnitSeriesOverrideArgs'] series_overrides: (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_overrides is not None:
+            pulumi.set(__self__, "series_overrides", series_overrides)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesOverrides")
+    def series_overrides(self) -> Optional[Sequence['outputs.OneDashboardPageWidgetTableUnitSeriesOverride']]:
+        """
+        (Optional) A Nested block which will take two string attributes `color` and `series_name`. This nested block is used to customize colors of individual.
+        """
+        return pulumi.get(self, "series_overrides")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class OneDashboardPageWidgetTableUnitSeriesOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seriesName":
+            suggest = "series_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneDashboardPageWidgetTableUnitSeriesOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneDashboardPageWidgetTableUnitSeriesOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneDashboardPageWidgetTableUnitSeriesOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 series_name: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param str unit: (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        if series_name is not None:
+            pulumi.set(__self__, "series_name", series_name)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="seriesName")
+    def series_name(self) -> Optional[str]:
+        return pulumi.get(self, "series_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+        """
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

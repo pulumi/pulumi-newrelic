@@ -3205,21 +3205,34 @@ func (o OneDashboardPageArrayOutput) Index(i pulumi.IntInput) OneDashboardPageOu
 }
 
 type OneDashboardPageWidgetArea struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetAreaColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetAreaNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetAreaNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetAreaUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetAreaInput is an input type that accepts OneDashboardPageWidgetAreaArgs and OneDashboardPageWidgetAreaOutput values.
@@ -3234,21 +3247,34 @@ type OneDashboardPageWidgetAreaInput interface {
 }
 
 type OneDashboardPageWidgetAreaArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetAreaColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetAreaNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetAreaNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetAreaUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetAreaArgs) ElementType() reflect.Type {
@@ -3302,9 +3328,19 @@ func (o OneDashboardPageWidgetAreaOutput) ToOneDashboardPageWidgetAreaOutputWith
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) Colors() OneDashboardPageWidgetAreaColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaColor { return v.Colors }).(OneDashboardPageWidgetAreaColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetAreaOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetAreaOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3321,9 +3357,19 @@ func (o OneDashboardPageWidgetAreaOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetAreaOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetAreaOutput) NrqlQueries() OneDashboardPageWidgetAreaNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetAreaNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) NullValues() OneDashboardPageWidgetAreaNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaNullValue { return v.NullValues }).(OneDashboardPageWidgetAreaNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3336,9 +3382,23 @@ func (o OneDashboardPageWidgetAreaOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetAreaOutput) Units() OneDashboardPageWidgetAreaUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) []OneDashboardPageWidgetAreaUnit { return v.Units }).(OneDashboardPageWidgetAreaUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetAreaOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetArea) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetAreaOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetAreaOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetArea) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetAreaArrayOutput struct{ *pulumi.OutputState }
@@ -3359,6 +3419,217 @@ func (o OneDashboardPageWidgetAreaArrayOutput) Index(i pulumi.IntInput) OneDashb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetArea {
 		return vs[0].([]OneDashboardPageWidgetArea)[vs[1].(int)]
 	}).(OneDashboardPageWidgetAreaOutput)
+}
+
+type OneDashboardPageWidgetAreaColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetAreaColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetAreaColorInput is an input type that accepts OneDashboardPageWidgetAreaColorArgs and OneDashboardPageWidgetAreaColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaColorInput` via:
+//
+//	OneDashboardPageWidgetAreaColorArgs{...}
+type OneDashboardPageWidgetAreaColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaColorOutput() OneDashboardPageWidgetAreaColorOutput
+	ToOneDashboardPageWidgetAreaColorOutputWithContext(context.Context) OneDashboardPageWidgetAreaColorOutput
+}
+
+type OneDashboardPageWidgetAreaColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetAreaColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaColorArgs) ToOneDashboardPageWidgetAreaColorOutput() OneDashboardPageWidgetAreaColorOutput {
+	return i.ToOneDashboardPageWidgetAreaColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaColorArgs) ToOneDashboardPageWidgetAreaColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorOutput)
+}
+
+// OneDashboardPageWidgetAreaColorArrayInput is an input type that accepts OneDashboardPageWidgetAreaColorArray and OneDashboardPageWidgetAreaColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaColorArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaColorArray{ OneDashboardPageWidgetAreaColorArgs{...} }
+type OneDashboardPageWidgetAreaColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaColorArrayOutput() OneDashboardPageWidgetAreaColorArrayOutput
+	ToOneDashboardPageWidgetAreaColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaColorArrayOutput
+}
+
+type OneDashboardPageWidgetAreaColorArray []OneDashboardPageWidgetAreaColorInput
+
+func (OneDashboardPageWidgetAreaColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaColorArray) ToOneDashboardPageWidgetAreaColorArrayOutput() OneDashboardPageWidgetAreaColorArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaColorArray) ToOneDashboardPageWidgetAreaColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaColorOutput) ToOneDashboardPageWidgetAreaColorOutput() OneDashboardPageWidgetAreaColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorOutput) ToOneDashboardPageWidgetAreaColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetAreaColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetAreaColorOutput) SeriesOverrides() OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaColor) []OneDashboardPageWidgetAreaColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaColorArrayOutput) ToOneDashboardPageWidgetAreaColorArrayOutput() OneDashboardPageWidgetAreaColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorArrayOutput) ToOneDashboardPageWidgetAreaColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaColor {
+		return vs[0].([]OneDashboardPageWidgetAreaColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaColorOutput)
+}
+
+type OneDashboardPageWidgetAreaColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetAreaColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetAreaColorSeriesOverrideArgs and OneDashboardPageWidgetAreaColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetAreaColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetAreaColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaColorSeriesOverrideOutput() OneDashboardPageWidgetAreaColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetAreaColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetAreaColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetAreaColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaColorSeriesOverrideArgs) ToOneDashboardPageWidgetAreaColorSeriesOverrideOutput() OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetAreaColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaColorSeriesOverrideArgs) ToOneDashboardPageWidgetAreaColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetAreaColorSeriesOverrideArray and OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaColorSeriesOverrideArray{ OneDashboardPageWidgetAreaColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetAreaColorSeriesOverrideArray []OneDashboardPageWidgetAreaColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetAreaColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaColorSeriesOverrideArray) ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaColorSeriesOverrideArray) ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ToOneDashboardPageWidgetAreaColorSeriesOverrideOutput() OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) ToOneDashboardPageWidgetAreaColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetAreaColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetAreaNrqlQuery struct {
@@ -3467,9 +3738,435 @@ func (o OneDashboardPageWidgetAreaNrqlQueryArrayOutput) Index(i pulumi.IntInput)
 	}).(OneDashboardPageWidgetAreaNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetAreaNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetAreaNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetAreaNullValueInput is an input type that accepts OneDashboardPageWidgetAreaNullValueArgs and OneDashboardPageWidgetAreaNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaNullValueInput` via:
+//
+//	OneDashboardPageWidgetAreaNullValueArgs{...}
+type OneDashboardPageWidgetAreaNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaNullValueOutput() OneDashboardPageWidgetAreaNullValueOutput
+	ToOneDashboardPageWidgetAreaNullValueOutputWithContext(context.Context) OneDashboardPageWidgetAreaNullValueOutput
+}
+
+type OneDashboardPageWidgetAreaNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetAreaNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaNullValueArgs) ToOneDashboardPageWidgetAreaNullValueOutput() OneDashboardPageWidgetAreaNullValueOutput {
+	return i.ToOneDashboardPageWidgetAreaNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaNullValueArgs) ToOneDashboardPageWidgetAreaNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueOutput)
+}
+
+// OneDashboardPageWidgetAreaNullValueArrayInput is an input type that accepts OneDashboardPageWidgetAreaNullValueArray and OneDashboardPageWidgetAreaNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaNullValueArray{ OneDashboardPageWidgetAreaNullValueArgs{...} }
+type OneDashboardPageWidgetAreaNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaNullValueArrayOutput() OneDashboardPageWidgetAreaNullValueArrayOutput
+	ToOneDashboardPageWidgetAreaNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetAreaNullValueArray []OneDashboardPageWidgetAreaNullValueInput
+
+func (OneDashboardPageWidgetAreaNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaNullValueArray) ToOneDashboardPageWidgetAreaNullValueArrayOutput() OneDashboardPageWidgetAreaNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaNullValueArray) ToOneDashboardPageWidgetAreaNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaNullValueOutput) ToOneDashboardPageWidgetAreaNullValueOutput() OneDashboardPageWidgetAreaNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueOutput) ToOneDashboardPageWidgetAreaNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetAreaNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetAreaNullValueOutput) SeriesOverrides() OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNullValue) []OneDashboardPageWidgetAreaNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaNullValueArrayOutput) ToOneDashboardPageWidgetAreaNullValueArrayOutput() OneDashboardPageWidgetAreaNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueArrayOutput) ToOneDashboardPageWidgetAreaNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaNullValue {
+		return vs[0].([]OneDashboardPageWidgetAreaNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaNullValueOutput)
+}
+
+type OneDashboardPageWidgetAreaNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetAreaNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs and OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetAreaNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutput() OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutput() OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetAreaNullValueSeriesOverrideArray and OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaNullValueSeriesOverrideArray{ OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetAreaNullValueSeriesOverrideArray []OneDashboardPageWidgetAreaNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetAreaNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArray) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaNullValueSeriesOverrideArray) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutput() OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetAreaNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetAreaUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetAreaUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetAreaUnitInput is an input type that accepts OneDashboardPageWidgetAreaUnitArgs and OneDashboardPageWidgetAreaUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaUnitInput` via:
+//
+//	OneDashboardPageWidgetAreaUnitArgs{...}
+type OneDashboardPageWidgetAreaUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaUnitOutput() OneDashboardPageWidgetAreaUnitOutput
+	ToOneDashboardPageWidgetAreaUnitOutputWithContext(context.Context) OneDashboardPageWidgetAreaUnitOutput
+}
+
+type OneDashboardPageWidgetAreaUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetAreaUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaUnitArgs) ToOneDashboardPageWidgetAreaUnitOutput() OneDashboardPageWidgetAreaUnitOutput {
+	return i.ToOneDashboardPageWidgetAreaUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaUnitArgs) ToOneDashboardPageWidgetAreaUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitOutput)
+}
+
+// OneDashboardPageWidgetAreaUnitArrayInput is an input type that accepts OneDashboardPageWidgetAreaUnitArray and OneDashboardPageWidgetAreaUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaUnitArray{ OneDashboardPageWidgetAreaUnitArgs{...} }
+type OneDashboardPageWidgetAreaUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaUnitArrayOutput() OneDashboardPageWidgetAreaUnitArrayOutput
+	ToOneDashboardPageWidgetAreaUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaUnitArrayOutput
+}
+
+type OneDashboardPageWidgetAreaUnitArray []OneDashboardPageWidgetAreaUnitInput
+
+func (OneDashboardPageWidgetAreaUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaUnitArray) ToOneDashboardPageWidgetAreaUnitArrayOutput() OneDashboardPageWidgetAreaUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaUnitArray) ToOneDashboardPageWidgetAreaUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaUnitOutput) ToOneDashboardPageWidgetAreaUnitOutput() OneDashboardPageWidgetAreaUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitOutput) ToOneDashboardPageWidgetAreaUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetAreaUnitOutput) SeriesOverrides() OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaUnit) []OneDashboardPageWidgetAreaUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetAreaUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaUnitArrayOutput) ToOneDashboardPageWidgetAreaUnitArrayOutput() OneDashboardPageWidgetAreaUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitArrayOutput) ToOneDashboardPageWidgetAreaUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaUnit {
+		return vs[0].([]OneDashboardPageWidgetAreaUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaUnitOutput)
+}
+
+type OneDashboardPageWidgetAreaUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetAreaUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetAreaUnitSeriesOverrideArgs and OneDashboardPageWidgetAreaUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetAreaUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetAreaUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutput() OneDashboardPageWidgetAreaUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetAreaUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetAreaUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArgs) ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutput() OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArgs) ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetAreaUnitSeriesOverrideArray and OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetAreaUnitSeriesOverrideArray{ OneDashboardPageWidgetAreaUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetAreaUnitSeriesOverrideArray []OneDashboardPageWidgetAreaUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetAreaUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArray) ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetAreaUnitSeriesOverrideArray) ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetAreaUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetAreaUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutput() OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) ToOneDashboardPageWidgetAreaUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetAreaUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetAreaUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetAreaUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetAreaUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetAreaUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetAreaUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetBar struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetBarColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3477,16 +4174,25 @@ type OneDashboardPageWidgetBar struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBarNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetBarNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetBarUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetBarInput is an input type that accepts OneDashboardPageWidgetBarArgs and OneDashboardPageWidgetBarOutput values.
@@ -3501,8 +4207,12 @@ type OneDashboardPageWidgetBarInput interface {
 }
 
 type OneDashboardPageWidgetBarArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetBarColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3510,16 +4220,25 @@ type OneDashboardPageWidgetBarArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetBarNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetBarUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetBarArgs) ElementType() reflect.Type {
@@ -3573,9 +4292,19 @@ func (o OneDashboardPageWidgetBarOutput) ToOneDashboardPageWidgetBarOutputWithCo
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) Colors() OneDashboardPageWidgetBarColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarColor { return v.Colors }).(OneDashboardPageWidgetBarColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetBarOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetBarOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Use this item to filter the current dashboard.
@@ -3597,6 +4326,11 @@ func (o OneDashboardPageWidgetBarOutput) IgnoreTimeRange() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetBarOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 func (o OneDashboardPageWidgetBarOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
@@ -3605,6 +4339,11 @@ func (o OneDashboardPageWidgetBarOutput) LinkedEntityGuids() pulumi.StringArrayO
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetBarOutput) NrqlQueries() OneDashboardPageWidgetBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBarNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) NullValues() OneDashboardPageWidgetBarNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarNullValue { return v.NullValues }).(OneDashboardPageWidgetBarNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3617,9 +4356,23 @@ func (o OneDashboardPageWidgetBarOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetBarOutput) Units() OneDashboardPageWidgetBarUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) []OneDashboardPageWidgetBarUnit { return v.Units }).(OneDashboardPageWidgetBarUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetBarOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBar) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBarOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetBarOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBar) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetBarArrayOutput struct{ *pulumi.OutputState }
@@ -3640,6 +4393,217 @@ func (o OneDashboardPageWidgetBarArrayOutput) Index(i pulumi.IntInput) OneDashbo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBar {
 		return vs[0].([]OneDashboardPageWidgetBar)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBarOutput)
+}
+
+type OneDashboardPageWidgetBarColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBarColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetBarColorInput is an input type that accepts OneDashboardPageWidgetBarColorArgs and OneDashboardPageWidgetBarColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarColorInput` via:
+//
+//	OneDashboardPageWidgetBarColorArgs{...}
+type OneDashboardPageWidgetBarColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarColorOutput() OneDashboardPageWidgetBarColorOutput
+	ToOneDashboardPageWidgetBarColorOutputWithContext(context.Context) OneDashboardPageWidgetBarColorOutput
+}
+
+type OneDashboardPageWidgetBarColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBarColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetBarColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarColorArgs) ToOneDashboardPageWidgetBarColorOutput() OneDashboardPageWidgetBarColorOutput {
+	return i.ToOneDashboardPageWidgetBarColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarColorArgs) ToOneDashboardPageWidgetBarColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorOutput)
+}
+
+// OneDashboardPageWidgetBarColorArrayInput is an input type that accepts OneDashboardPageWidgetBarColorArray and OneDashboardPageWidgetBarColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarColorArrayInput` via:
+//
+//	OneDashboardPageWidgetBarColorArray{ OneDashboardPageWidgetBarColorArgs{...} }
+type OneDashboardPageWidgetBarColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarColorArrayOutput() OneDashboardPageWidgetBarColorArrayOutput
+	ToOneDashboardPageWidgetBarColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarColorArrayOutput
+}
+
+type OneDashboardPageWidgetBarColorArray []OneDashboardPageWidgetBarColorInput
+
+func (OneDashboardPageWidgetBarColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarColorArray) ToOneDashboardPageWidgetBarColorArrayOutput() OneDashboardPageWidgetBarColorArrayOutput {
+	return i.ToOneDashboardPageWidgetBarColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarColorArray) ToOneDashboardPageWidgetBarColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorArrayOutput)
+}
+
+type OneDashboardPageWidgetBarColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarColorOutput) ToOneDashboardPageWidgetBarColorOutput() OneDashboardPageWidgetBarColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarColorOutput) ToOneDashboardPageWidgetBarColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetBarColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBarColorOutput) SeriesOverrides() OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarColor) []OneDashboardPageWidgetBarColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBarColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarColorArrayOutput) ToOneDashboardPageWidgetBarColorArrayOutput() OneDashboardPageWidgetBarColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarColorArrayOutput) ToOneDashboardPageWidgetBarColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarColor {
+		return vs[0].([]OneDashboardPageWidgetBarColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarColorOutput)
+}
+
+type OneDashboardPageWidgetBarColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetBarColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBarColorSeriesOverrideArgs and OneDashboardPageWidgetBarColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBarColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBarColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarColorSeriesOverrideOutput() OneDashboardPageWidgetBarColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetBarColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBarColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBarColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetBarColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarColorSeriesOverrideArgs) ToOneDashboardPageWidgetBarColorSeriesOverrideOutput() OneDashboardPageWidgetBarColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBarColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarColorSeriesOverrideArgs) ToOneDashboardPageWidgetBarColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBarColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBarColorSeriesOverrideArray and OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBarColorSeriesOverrideArray{ OneDashboardPageWidgetBarColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBarColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBarColorSeriesOverrideArray []OneDashboardPageWidgetBarColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetBarColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarColorSeriesOverrideArray) ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarColorSeriesOverrideArray) ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBarColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) ToOneDashboardPageWidgetBarColorSeriesOverrideOutput() OneDashboardPageWidgetBarColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) ToOneDashboardPageWidgetBarColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBarColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetBarNrqlQuery struct {
@@ -3748,26 +4712,461 @@ func (o OneDashboardPageWidgetBarNrqlQueryArrayOutput) Index(i pulumi.IntInput) 
 	}).(OneDashboardPageWidgetBarNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetBarNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBarNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetBarNullValueInput is an input type that accepts OneDashboardPageWidgetBarNullValueArgs and OneDashboardPageWidgetBarNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarNullValueInput` via:
+//
+//	OneDashboardPageWidgetBarNullValueArgs{...}
+type OneDashboardPageWidgetBarNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarNullValueOutput() OneDashboardPageWidgetBarNullValueOutput
+	ToOneDashboardPageWidgetBarNullValueOutputWithContext(context.Context) OneDashboardPageWidgetBarNullValueOutput
+}
+
+type OneDashboardPageWidgetBarNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetBarNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarNullValueArgs) ToOneDashboardPageWidgetBarNullValueOutput() OneDashboardPageWidgetBarNullValueOutput {
+	return i.ToOneDashboardPageWidgetBarNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarNullValueArgs) ToOneDashboardPageWidgetBarNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueOutput)
+}
+
+// OneDashboardPageWidgetBarNullValueArrayInput is an input type that accepts OneDashboardPageWidgetBarNullValueArray and OneDashboardPageWidgetBarNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetBarNullValueArray{ OneDashboardPageWidgetBarNullValueArgs{...} }
+type OneDashboardPageWidgetBarNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarNullValueArrayOutput() OneDashboardPageWidgetBarNullValueArrayOutput
+	ToOneDashboardPageWidgetBarNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetBarNullValueArray []OneDashboardPageWidgetBarNullValueInput
+
+func (OneDashboardPageWidgetBarNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarNullValueArray) ToOneDashboardPageWidgetBarNullValueArrayOutput() OneDashboardPageWidgetBarNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetBarNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarNullValueArray) ToOneDashboardPageWidgetBarNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetBarNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarNullValueOutput) ToOneDashboardPageWidgetBarNullValueOutput() OneDashboardPageWidgetBarNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueOutput) ToOneDashboardPageWidgetBarNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetBarNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBarNullValueOutput) SeriesOverrides() OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNullValue) []OneDashboardPageWidgetBarNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBarNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarNullValueArrayOutput) ToOneDashboardPageWidgetBarNullValueArrayOutput() OneDashboardPageWidgetBarNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueArrayOutput) ToOneDashboardPageWidgetBarNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarNullValue {
+		return vs[0].([]OneDashboardPageWidgetBarNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarNullValueOutput)
+}
+
+type OneDashboardPageWidgetBarNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetBarNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBarNullValueSeriesOverrideArgs and OneDashboardPageWidgetBarNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBarNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBarNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutput() OneDashboardPageWidgetBarNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBarNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetBarNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutput() OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBarNullValueSeriesOverrideArray and OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBarNullValueSeriesOverrideArray{ OneDashboardPageWidgetBarNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBarNullValueSeriesOverrideArray []OneDashboardPageWidgetBarNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetBarNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArray) ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarNullValueSeriesOverrideArray) ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBarNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutput() OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBarNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBarNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBarUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBarUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetBarUnitInput is an input type that accepts OneDashboardPageWidgetBarUnitArgs and OneDashboardPageWidgetBarUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarUnitInput` via:
+//
+//	OneDashboardPageWidgetBarUnitArgs{...}
+type OneDashboardPageWidgetBarUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarUnitOutput() OneDashboardPageWidgetBarUnitOutput
+	ToOneDashboardPageWidgetBarUnitOutputWithContext(context.Context) OneDashboardPageWidgetBarUnitOutput
+}
+
+type OneDashboardPageWidgetBarUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetBarUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarUnitArgs) ToOneDashboardPageWidgetBarUnitOutput() OneDashboardPageWidgetBarUnitOutput {
+	return i.ToOneDashboardPageWidgetBarUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarUnitArgs) ToOneDashboardPageWidgetBarUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitOutput)
+}
+
+// OneDashboardPageWidgetBarUnitArrayInput is an input type that accepts OneDashboardPageWidgetBarUnitArray and OneDashboardPageWidgetBarUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetBarUnitArray{ OneDashboardPageWidgetBarUnitArgs{...} }
+type OneDashboardPageWidgetBarUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarUnitArrayOutput() OneDashboardPageWidgetBarUnitArrayOutput
+	ToOneDashboardPageWidgetBarUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarUnitArrayOutput
+}
+
+type OneDashboardPageWidgetBarUnitArray []OneDashboardPageWidgetBarUnitInput
+
+func (OneDashboardPageWidgetBarUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarUnitArray) ToOneDashboardPageWidgetBarUnitArrayOutput() OneDashboardPageWidgetBarUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetBarUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarUnitArray) ToOneDashboardPageWidgetBarUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetBarUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarUnitOutput) ToOneDashboardPageWidgetBarUnitOutput() OneDashboardPageWidgetBarUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitOutput) ToOneDashboardPageWidgetBarUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBarUnitOutput) SeriesOverrides() OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarUnit) []OneDashboardPageWidgetBarUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetBarUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBarUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarUnitArrayOutput) ToOneDashboardPageWidgetBarUnitArrayOutput() OneDashboardPageWidgetBarUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitArrayOutput) ToOneDashboardPageWidgetBarUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarUnit {
+		return vs[0].([]OneDashboardPageWidgetBarUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarUnitOutput)
+}
+
+type OneDashboardPageWidgetBarUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetBarUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBarUnitSeriesOverrideArgs and OneDashboardPageWidgetBarUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBarUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBarUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarUnitSeriesOverrideOutput() OneDashboardPageWidgetBarUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetBarUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBarUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetBarUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarUnitSeriesOverrideArgs) ToOneDashboardPageWidgetBarUnitSeriesOverrideOutput() OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBarUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarUnitSeriesOverrideArgs) ToOneDashboardPageWidgetBarUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBarUnitSeriesOverrideArray and OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBarUnitSeriesOverrideArray{ OneDashboardPageWidgetBarUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBarUnitSeriesOverrideArray []OneDashboardPageWidgetBarUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetBarUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBarUnitSeriesOverrideArray) ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBarUnitSeriesOverrideArray) ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBarUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBarUnitSeriesOverrideOutput() OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBarUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBarUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBarUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBarUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBarUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBarUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBarUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetBillboard struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetBillboardColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
 	// (Optional) Threshold above which the displayed value will be styled with a red color.
 	Critical *string `pulumi:"critical"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBillboardNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetBillboardNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetBillboardUnit `pulumi:"units"`
 	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
 	Warning *string `pulumi:"warning"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetBillboardInput is an input type that accepts OneDashboardPageWidgetBillboardArgs and OneDashboardPageWidgetBillboardOutput values.
@@ -3782,25 +5181,38 @@ type OneDashboardPageWidgetBillboardInput interface {
 }
 
 type OneDashboardPageWidgetBillboardArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetBillboardColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
 	// (Optional) Threshold above which the displayed value will be styled with a red color.
 	Critical pulumi.StringPtrInput `pulumi:"critical"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBillboardNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetBillboardNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetBillboardUnitArrayInput `pulumi:"units"`
 	// (Optional) Threshold above which the displayed value will be styled with a yellow color.
 	Warning pulumi.StringPtrInput `pulumi:"warning"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetBillboardArgs) ElementType() reflect.Type {
@@ -3854,6 +5266,11 @@ func (o OneDashboardPageWidgetBillboardOutput) ToOneDashboardPageWidgetBillboard
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) Colors() OneDashboardPageWidgetBillboardColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardColor { return v.Colors }).(OneDashboardPageWidgetBillboardColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetBillboardOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) int { return v.Column }).(pulumi.IntOutput)
@@ -3862,6 +5279,11 @@ func (o OneDashboardPageWidgetBillboardOutput) Column() pulumi.IntOutput {
 // (Optional) Threshold above which the displayed value will be styled with a red color.
 func (o OneDashboardPageWidgetBillboardOutput) Critical() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Critical }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetBillboardOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -3878,11 +5300,23 @@ func (o OneDashboardPageWidgetBillboardOutput) IgnoreTimeRange() pulumi.BoolPtrO
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetBillboardOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetBillboardOutput) NrqlQueries() OneDashboardPageWidgetBillboardNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNrqlQuery {
 		return v.NrqlQueries
 	}).(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) NullValues() OneDashboardPageWidgetBillboardNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardNullValue {
+		return v.NullValues
+	}).(OneDashboardPageWidgetBillboardNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -3895,6 +5329,11 @@ func (o OneDashboardPageWidgetBillboardOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetBillboardOutput) Units() OneDashboardPageWidgetBillboardUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) []OneDashboardPageWidgetBillboardUnit { return v.Units }).(OneDashboardPageWidgetBillboardUnitArrayOutput)
+}
+
 // (Optional) Threshold above which the displayed value will be styled with a yellow color.
 func (o OneDashboardPageWidgetBillboardOutput) Warning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *string { return v.Warning }).(pulumi.StringPtrOutput)
@@ -3903,6 +5342,15 @@ func (o OneDashboardPageWidgetBillboardOutput) Warning() pulumi.StringPtrOutput 
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetBillboardOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBillboardOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetBillboardOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboard) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetBillboardArrayOutput struct{ *pulumi.OutputState }
@@ -3923,6 +5371,217 @@ func (o OneDashboardPageWidgetBillboardArrayOutput) Index(i pulumi.IntInput) One
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboard {
 		return vs[0].([]OneDashboardPageWidgetBillboard)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBillboardOutput)
+}
+
+type OneDashboardPageWidgetBillboardColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBillboardColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetBillboardColorInput is an input type that accepts OneDashboardPageWidgetBillboardColorArgs and OneDashboardPageWidgetBillboardColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardColorInput` via:
+//
+//	OneDashboardPageWidgetBillboardColorArgs{...}
+type OneDashboardPageWidgetBillboardColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardColorOutput() OneDashboardPageWidgetBillboardColorOutput
+	ToOneDashboardPageWidgetBillboardColorOutputWithContext(context.Context) OneDashboardPageWidgetBillboardColorOutput
+}
+
+type OneDashboardPageWidgetBillboardColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetBillboardColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardColorArgs) ToOneDashboardPageWidgetBillboardColorOutput() OneDashboardPageWidgetBillboardColorOutput {
+	return i.ToOneDashboardPageWidgetBillboardColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardColorArgs) ToOneDashboardPageWidgetBillboardColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorOutput)
+}
+
+// OneDashboardPageWidgetBillboardColorArrayInput is an input type that accepts OneDashboardPageWidgetBillboardColorArray and OneDashboardPageWidgetBillboardColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardColorArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardColorArray{ OneDashboardPageWidgetBillboardColorArgs{...} }
+type OneDashboardPageWidgetBillboardColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardColorArrayOutput() OneDashboardPageWidgetBillboardColorArrayOutput
+	ToOneDashboardPageWidgetBillboardColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardColorArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardColorArray []OneDashboardPageWidgetBillboardColorInput
+
+func (OneDashboardPageWidgetBillboardColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardColorArray) ToOneDashboardPageWidgetBillboardColorArrayOutput() OneDashboardPageWidgetBillboardColorArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardColorArray) ToOneDashboardPageWidgetBillboardColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardColorOutput) ToOneDashboardPageWidgetBillboardColorOutput() OneDashboardPageWidgetBillboardColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorOutput) ToOneDashboardPageWidgetBillboardColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetBillboardColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBillboardColorOutput) SeriesOverrides() OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardColor) []OneDashboardPageWidgetBillboardColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardColorArrayOutput) ToOneDashboardPageWidgetBillboardColorArrayOutput() OneDashboardPageWidgetBillboardColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorArrayOutput) ToOneDashboardPageWidgetBillboardColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardColor {
+		return vs[0].([]OneDashboardPageWidgetBillboardColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardColorOutput)
+}
+
+type OneDashboardPageWidgetBillboardColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetBillboardColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBillboardColorSeriesOverrideArgs and OneDashboardPageWidgetBillboardColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBillboardColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutput() OneDashboardPageWidgetBillboardColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBillboardColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetBillboardColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArgs) ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutput() OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArgs) ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBillboardColorSeriesOverrideArray and OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardColorSeriesOverrideArray{ OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardColorSeriesOverrideArray []OneDashboardPageWidgetBillboardColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetBillboardColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArray) ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardColorSeriesOverrideArray) ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutput() OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBillboardColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetBillboardNrqlQuery struct {
@@ -4031,24 +5690,459 @@ func (o OneDashboardPageWidgetBillboardNrqlQueryArrayOutput) Index(i pulumi.IntI
 	}).(OneDashboardPageWidgetBillboardNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetBillboardNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBillboardNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetBillboardNullValueInput is an input type that accepts OneDashboardPageWidgetBillboardNullValueArgs and OneDashboardPageWidgetBillboardNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardNullValueInput` via:
+//
+//	OneDashboardPageWidgetBillboardNullValueArgs{...}
+type OneDashboardPageWidgetBillboardNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardNullValueOutput() OneDashboardPageWidgetBillboardNullValueOutput
+	ToOneDashboardPageWidgetBillboardNullValueOutputWithContext(context.Context) OneDashboardPageWidgetBillboardNullValueOutput
+}
+
+type OneDashboardPageWidgetBillboardNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetBillboardNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueArgs) ToOneDashboardPageWidgetBillboardNullValueOutput() OneDashboardPageWidgetBillboardNullValueOutput {
+	return i.ToOneDashboardPageWidgetBillboardNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueArgs) ToOneDashboardPageWidgetBillboardNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueOutput)
+}
+
+// OneDashboardPageWidgetBillboardNullValueArrayInput is an input type that accepts OneDashboardPageWidgetBillboardNullValueArray and OneDashboardPageWidgetBillboardNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardNullValueArray{ OneDashboardPageWidgetBillboardNullValueArgs{...} }
+type OneDashboardPageWidgetBillboardNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardNullValueArrayOutput() OneDashboardPageWidgetBillboardNullValueArrayOutput
+	ToOneDashboardPageWidgetBillboardNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardNullValueArray []OneDashboardPageWidgetBillboardNullValueInput
+
+func (OneDashboardPageWidgetBillboardNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueArray) ToOneDashboardPageWidgetBillboardNullValueArrayOutput() OneDashboardPageWidgetBillboardNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueArray) ToOneDashboardPageWidgetBillboardNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueOutput) ToOneDashboardPageWidgetBillboardNullValueOutput() OneDashboardPageWidgetBillboardNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueOutput) ToOneDashboardPageWidgetBillboardNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetBillboardNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBillboardNullValueOutput) SeriesOverrides() OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNullValue) []OneDashboardPageWidgetBillboardNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) ToOneDashboardPageWidgetBillboardNullValueArrayOutput() OneDashboardPageWidgetBillboardNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) ToOneDashboardPageWidgetBillboardNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardNullValue {
+		return vs[0].([]OneDashboardPageWidgetBillboardNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardNullValueOutput)
+}
+
+type OneDashboardPageWidgetBillboardNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetBillboardNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs and OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBillboardNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput() OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput() OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray and OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray{ OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray []OneDashboardPageWidgetBillboardNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput() OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBillboardNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBillboardUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBillboardUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetBillboardUnitInput is an input type that accepts OneDashboardPageWidgetBillboardUnitArgs and OneDashboardPageWidgetBillboardUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardUnitInput` via:
+//
+//	OneDashboardPageWidgetBillboardUnitArgs{...}
+type OneDashboardPageWidgetBillboardUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardUnitOutput() OneDashboardPageWidgetBillboardUnitOutput
+	ToOneDashboardPageWidgetBillboardUnitOutputWithContext(context.Context) OneDashboardPageWidgetBillboardUnitOutput
+}
+
+type OneDashboardPageWidgetBillboardUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetBillboardUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardUnitArgs) ToOneDashboardPageWidgetBillboardUnitOutput() OneDashboardPageWidgetBillboardUnitOutput {
+	return i.ToOneDashboardPageWidgetBillboardUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardUnitArgs) ToOneDashboardPageWidgetBillboardUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitOutput)
+}
+
+// OneDashboardPageWidgetBillboardUnitArrayInput is an input type that accepts OneDashboardPageWidgetBillboardUnitArray and OneDashboardPageWidgetBillboardUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardUnitArray{ OneDashboardPageWidgetBillboardUnitArgs{...} }
+type OneDashboardPageWidgetBillboardUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardUnitArrayOutput() OneDashboardPageWidgetBillboardUnitArrayOutput
+	ToOneDashboardPageWidgetBillboardUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardUnitArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardUnitArray []OneDashboardPageWidgetBillboardUnitInput
+
+func (OneDashboardPageWidgetBillboardUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardUnitArray) ToOneDashboardPageWidgetBillboardUnitArrayOutput() OneDashboardPageWidgetBillboardUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardUnitArray) ToOneDashboardPageWidgetBillboardUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardUnitOutput) ToOneDashboardPageWidgetBillboardUnitOutput() OneDashboardPageWidgetBillboardUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitOutput) ToOneDashboardPageWidgetBillboardUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBillboardUnitOutput) SeriesOverrides() OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardUnit) []OneDashboardPageWidgetBillboardUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetBillboardUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardUnitArrayOutput) ToOneDashboardPageWidgetBillboardUnitArrayOutput() OneDashboardPageWidgetBillboardUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitArrayOutput) ToOneDashboardPageWidgetBillboardUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardUnit {
+		return vs[0].([]OneDashboardPageWidgetBillboardUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardUnitOutput)
+}
+
+type OneDashboardPageWidgetBillboardUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetBillboardUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs and OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBillboardUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutput() OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutput() OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBillboardUnitSeriesOverrideArray and OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBillboardUnitSeriesOverrideArray{ OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBillboardUnitSeriesOverrideArray []OneDashboardPageWidgetBillboardUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetBillboardUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArray) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBillboardUnitSeriesOverrideArray) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutput() OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBillboardUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBillboardUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBillboardUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBillboardUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetBullet struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetBulletColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Required) Visualization limit for the widget.
 	Limit float64 `pulumi:"limit"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetBulletNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetBulletNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetBulletUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetBulletInput is an input type that accepts OneDashboardPageWidgetBulletArgs and OneDashboardPageWidgetBulletOutput values.
@@ -4063,23 +6157,36 @@ type OneDashboardPageWidgetBulletInput interface {
 }
 
 type OneDashboardPageWidgetBulletArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetBulletColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Required) Visualization limit for the widget.
 	Limit pulumi.Float64Input `pulumi:"limit"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetBulletNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetBulletNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetBulletUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetBulletArgs) ElementType() reflect.Type {
@@ -4133,9 +6240,19 @@ func (o OneDashboardPageWidgetBulletOutput) ToOneDashboardPageWidgetBulletOutput
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetBulletOutput) Colors() OneDashboardPageWidgetBulletColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletColor { return v.Colors }).(OneDashboardPageWidgetBulletColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetBulletOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetBulletOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4152,6 +6269,11 @@ func (o OneDashboardPageWidgetBulletOutput) IgnoreTimeRange() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetBulletOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Required) Visualization limit for the widget.
 func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64Output {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) float64 { return v.Limit }).(pulumi.Float64Output)
@@ -4160,6 +6282,11 @@ func (o OneDashboardPageWidgetBulletOutput) Limit() pulumi.Float64Output {
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetBulletOutput) NrqlQueries() OneDashboardPageWidgetBulletNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetBulletNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetBulletOutput) NullValues() OneDashboardPageWidgetBulletNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletNullValue { return v.NullValues }).(OneDashboardPageWidgetBulletNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4172,9 +6299,23 @@ func (o OneDashboardPageWidgetBulletOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetBulletOutput) Units() OneDashboardPageWidgetBulletUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) []OneDashboardPageWidgetBulletUnit { return v.Units }).(OneDashboardPageWidgetBulletUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetBulletOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBulletOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetBulletOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBullet) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetBulletArrayOutput struct{ *pulumi.OutputState }
@@ -4195,6 +6336,217 @@ func (o OneDashboardPageWidgetBulletArrayOutput) Index(i pulumi.IntInput) OneDas
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBullet {
 		return vs[0].([]OneDashboardPageWidgetBullet)[vs[1].(int)]
 	}).(OneDashboardPageWidgetBulletOutput)
+}
+
+type OneDashboardPageWidgetBulletColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBulletColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetBulletColorInput is an input type that accepts OneDashboardPageWidgetBulletColorArgs and OneDashboardPageWidgetBulletColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletColorInput` via:
+//
+//	OneDashboardPageWidgetBulletColorArgs{...}
+type OneDashboardPageWidgetBulletColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletColorOutput() OneDashboardPageWidgetBulletColorOutput
+	ToOneDashboardPageWidgetBulletColorOutputWithContext(context.Context) OneDashboardPageWidgetBulletColorOutput
+}
+
+type OneDashboardPageWidgetBulletColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetBulletColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletColorArgs) ToOneDashboardPageWidgetBulletColorOutput() OneDashboardPageWidgetBulletColorOutput {
+	return i.ToOneDashboardPageWidgetBulletColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletColorArgs) ToOneDashboardPageWidgetBulletColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorOutput)
+}
+
+// OneDashboardPageWidgetBulletColorArrayInput is an input type that accepts OneDashboardPageWidgetBulletColorArray and OneDashboardPageWidgetBulletColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletColorArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletColorArray{ OneDashboardPageWidgetBulletColorArgs{...} }
+type OneDashboardPageWidgetBulletColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletColorArrayOutput() OneDashboardPageWidgetBulletColorArrayOutput
+	ToOneDashboardPageWidgetBulletColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletColorArrayOutput
+}
+
+type OneDashboardPageWidgetBulletColorArray []OneDashboardPageWidgetBulletColorInput
+
+func (OneDashboardPageWidgetBulletColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletColorArray) ToOneDashboardPageWidgetBulletColorArrayOutput() OneDashboardPageWidgetBulletColorArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletColorArray) ToOneDashboardPageWidgetBulletColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletColorOutput) ToOneDashboardPageWidgetBulletColorOutput() OneDashboardPageWidgetBulletColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorOutput) ToOneDashboardPageWidgetBulletColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetBulletColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBulletColorOutput) SeriesOverrides() OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletColor) []OneDashboardPageWidgetBulletColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletColorArrayOutput) ToOneDashboardPageWidgetBulletColorArrayOutput() OneDashboardPageWidgetBulletColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorArrayOutput) ToOneDashboardPageWidgetBulletColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletColor {
+		return vs[0].([]OneDashboardPageWidgetBulletColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletColorOutput)
+}
+
+type OneDashboardPageWidgetBulletColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetBulletColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBulletColorSeriesOverrideArgs and OneDashboardPageWidgetBulletColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBulletColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBulletColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletColorSeriesOverrideOutput() OneDashboardPageWidgetBulletColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetBulletColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBulletColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetBulletColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletColorSeriesOverrideArgs) ToOneDashboardPageWidgetBulletColorSeriesOverrideOutput() OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBulletColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletColorSeriesOverrideArgs) ToOneDashboardPageWidgetBulletColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBulletColorSeriesOverrideArray and OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletColorSeriesOverrideArray{ OneDashboardPageWidgetBulletColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBulletColorSeriesOverrideArray []OneDashboardPageWidgetBulletColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetBulletColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletColorSeriesOverrideArray) ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletColorSeriesOverrideArray) ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ToOneDashboardPageWidgetBulletColorSeriesOverrideOutput() OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) ToOneDashboardPageWidgetBulletColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBulletColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetBulletNrqlQuery struct {
@@ -4303,22 +6655,457 @@ func (o OneDashboardPageWidgetBulletNrqlQueryArrayOutput) Index(i pulumi.IntInpu
 	}).(OneDashboardPageWidgetBulletNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetBulletNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBulletNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetBulletNullValueInput is an input type that accepts OneDashboardPageWidgetBulletNullValueArgs and OneDashboardPageWidgetBulletNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletNullValueInput` via:
+//
+//	OneDashboardPageWidgetBulletNullValueArgs{...}
+type OneDashboardPageWidgetBulletNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletNullValueOutput() OneDashboardPageWidgetBulletNullValueOutput
+	ToOneDashboardPageWidgetBulletNullValueOutputWithContext(context.Context) OneDashboardPageWidgetBulletNullValueOutput
+}
+
+type OneDashboardPageWidgetBulletNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetBulletNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletNullValueArgs) ToOneDashboardPageWidgetBulletNullValueOutput() OneDashboardPageWidgetBulletNullValueOutput {
+	return i.ToOneDashboardPageWidgetBulletNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletNullValueArgs) ToOneDashboardPageWidgetBulletNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueOutput)
+}
+
+// OneDashboardPageWidgetBulletNullValueArrayInput is an input type that accepts OneDashboardPageWidgetBulletNullValueArray and OneDashboardPageWidgetBulletNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletNullValueArray{ OneDashboardPageWidgetBulletNullValueArgs{...} }
+type OneDashboardPageWidgetBulletNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletNullValueArrayOutput() OneDashboardPageWidgetBulletNullValueArrayOutput
+	ToOneDashboardPageWidgetBulletNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetBulletNullValueArray []OneDashboardPageWidgetBulletNullValueInput
+
+func (OneDashboardPageWidgetBulletNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletNullValueArray) ToOneDashboardPageWidgetBulletNullValueArrayOutput() OneDashboardPageWidgetBulletNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletNullValueArray) ToOneDashboardPageWidgetBulletNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletNullValueOutput) ToOneDashboardPageWidgetBulletNullValueOutput() OneDashboardPageWidgetBulletNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueOutput) ToOneDashboardPageWidgetBulletNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetBulletNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBulletNullValueOutput) SeriesOverrides() OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletNullValue) []OneDashboardPageWidgetBulletNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletNullValueArrayOutput) ToOneDashboardPageWidgetBulletNullValueArrayOutput() OneDashboardPageWidgetBulletNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueArrayOutput) ToOneDashboardPageWidgetBulletNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletNullValue {
+		return vs[0].([]OneDashboardPageWidgetBulletNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletNullValueOutput)
+}
+
+type OneDashboardPageWidgetBulletNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetBulletNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs and OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBulletNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutput() OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutput() OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBulletNullValueSeriesOverrideArray and OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletNullValueSeriesOverrideArray{ OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBulletNullValueSeriesOverrideArray []OneDashboardPageWidgetBulletNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetBulletNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArray) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletNullValueSeriesOverrideArray) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutput() OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBulletNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetBulletUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetBulletUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetBulletUnitInput is an input type that accepts OneDashboardPageWidgetBulletUnitArgs and OneDashboardPageWidgetBulletUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletUnitInput` via:
+//
+//	OneDashboardPageWidgetBulletUnitArgs{...}
+type OneDashboardPageWidgetBulletUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletUnitOutput() OneDashboardPageWidgetBulletUnitOutput
+	ToOneDashboardPageWidgetBulletUnitOutputWithContext(context.Context) OneDashboardPageWidgetBulletUnitOutput
+}
+
+type OneDashboardPageWidgetBulletUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetBulletUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletUnitArgs) ToOneDashboardPageWidgetBulletUnitOutput() OneDashboardPageWidgetBulletUnitOutput {
+	return i.ToOneDashboardPageWidgetBulletUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletUnitArgs) ToOneDashboardPageWidgetBulletUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitOutput)
+}
+
+// OneDashboardPageWidgetBulletUnitArrayInput is an input type that accepts OneDashboardPageWidgetBulletUnitArray and OneDashboardPageWidgetBulletUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletUnitArray{ OneDashboardPageWidgetBulletUnitArgs{...} }
+type OneDashboardPageWidgetBulletUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletUnitArrayOutput() OneDashboardPageWidgetBulletUnitArrayOutput
+	ToOneDashboardPageWidgetBulletUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletUnitArrayOutput
+}
+
+type OneDashboardPageWidgetBulletUnitArray []OneDashboardPageWidgetBulletUnitInput
+
+func (OneDashboardPageWidgetBulletUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletUnitArray) ToOneDashboardPageWidgetBulletUnitArrayOutput() OneDashboardPageWidgetBulletUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletUnitArray) ToOneDashboardPageWidgetBulletUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletUnitOutput) ToOneDashboardPageWidgetBulletUnitOutput() OneDashboardPageWidgetBulletUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitOutput) ToOneDashboardPageWidgetBulletUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetBulletUnitOutput) SeriesOverrides() OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletUnit) []OneDashboardPageWidgetBulletUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetBulletUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletUnitArrayOutput) ToOneDashboardPageWidgetBulletUnitArrayOutput() OneDashboardPageWidgetBulletUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitArrayOutput) ToOneDashboardPageWidgetBulletUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletUnit {
+		return vs[0].([]OneDashboardPageWidgetBulletUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletUnitOutput)
+}
+
+type OneDashboardPageWidgetBulletUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetBulletUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetBulletUnitSeriesOverrideArgs and OneDashboardPageWidgetBulletUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetBulletUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetBulletUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutput() OneDashboardPageWidgetBulletUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetBulletUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetBulletUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArgs) ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutput() OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArgs) ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetBulletUnitSeriesOverrideArray and OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetBulletUnitSeriesOverrideArray{ OneDashboardPageWidgetBulletUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetBulletUnitSeriesOverrideArray []OneDashboardPageWidgetBulletUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetBulletUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArray) ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetBulletUnitSeriesOverrideArray) ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetBulletUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetBulletUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutput() OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) ToOneDashboardPageWidgetBulletUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetBulletUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetBulletUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetBulletUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetBulletUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetBulletUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetBulletUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetFunnel struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetFunnelColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetFunnelNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetFunnelNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetFunnelUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetFunnelInput is an input type that accepts OneDashboardPageWidgetFunnelArgs and OneDashboardPageWidgetFunnelOutput values.
@@ -4333,21 +7120,34 @@ type OneDashboardPageWidgetFunnelInput interface {
 }
 
 type OneDashboardPageWidgetFunnelArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetFunnelColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetFunnelNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetFunnelNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetFunnelUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetFunnelArgs) ElementType() reflect.Type {
@@ -4401,9 +7201,19 @@ func (o OneDashboardPageWidgetFunnelOutput) ToOneDashboardPageWidgetFunnelOutput
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetFunnelOutput) Colors() OneDashboardPageWidgetFunnelColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelColor { return v.Colors }).(OneDashboardPageWidgetFunnelColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetFunnelOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetFunnelOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4420,9 +7230,19 @@ func (o OneDashboardPageWidgetFunnelOutput) IgnoreTimeRange() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetFunnelOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetFunnelOutput) NrqlQueries() OneDashboardPageWidgetFunnelNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetFunnelOutput) NullValues() OneDashboardPageWidgetFunnelNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelNullValue { return v.NullValues }).(OneDashboardPageWidgetFunnelNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4435,9 +7255,23 @@ func (o OneDashboardPageWidgetFunnelOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetFunnelOutput) Units() OneDashboardPageWidgetFunnelUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) []OneDashboardPageWidgetFunnelUnit { return v.Units }).(OneDashboardPageWidgetFunnelUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetFunnelOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetFunnelOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetFunnelOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnel) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetFunnelArrayOutput struct{ *pulumi.OutputState }
@@ -4458,6 +7292,217 @@ func (o OneDashboardPageWidgetFunnelArrayOutput) Index(i pulumi.IntInput) OneDas
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnel {
 		return vs[0].([]OneDashboardPageWidgetFunnel)[vs[1].(int)]
 	}).(OneDashboardPageWidgetFunnelOutput)
+}
+
+type OneDashboardPageWidgetFunnelColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetFunnelColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetFunnelColorInput is an input type that accepts OneDashboardPageWidgetFunnelColorArgs and OneDashboardPageWidgetFunnelColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelColorInput` via:
+//
+//	OneDashboardPageWidgetFunnelColorArgs{...}
+type OneDashboardPageWidgetFunnelColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelColorOutput() OneDashboardPageWidgetFunnelColorOutput
+	ToOneDashboardPageWidgetFunnelColorOutputWithContext(context.Context) OneDashboardPageWidgetFunnelColorOutput
+}
+
+type OneDashboardPageWidgetFunnelColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetFunnelColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelColorArgs) ToOneDashboardPageWidgetFunnelColorOutput() OneDashboardPageWidgetFunnelColorOutput {
+	return i.ToOneDashboardPageWidgetFunnelColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelColorArgs) ToOneDashboardPageWidgetFunnelColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorOutput)
+}
+
+// OneDashboardPageWidgetFunnelColorArrayInput is an input type that accepts OneDashboardPageWidgetFunnelColorArray and OneDashboardPageWidgetFunnelColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelColorArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelColorArray{ OneDashboardPageWidgetFunnelColorArgs{...} }
+type OneDashboardPageWidgetFunnelColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelColorArrayOutput() OneDashboardPageWidgetFunnelColorArrayOutput
+	ToOneDashboardPageWidgetFunnelColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelColorArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelColorArray []OneDashboardPageWidgetFunnelColorInput
+
+func (OneDashboardPageWidgetFunnelColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelColorArray) ToOneDashboardPageWidgetFunnelColorArrayOutput() OneDashboardPageWidgetFunnelColorArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelColorArray) ToOneDashboardPageWidgetFunnelColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelColorOutput) ToOneDashboardPageWidgetFunnelColorOutput() OneDashboardPageWidgetFunnelColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorOutput) ToOneDashboardPageWidgetFunnelColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetFunnelColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetFunnelColorOutput) SeriesOverrides() OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelColor) []OneDashboardPageWidgetFunnelColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelColorArrayOutput) ToOneDashboardPageWidgetFunnelColorArrayOutput() OneDashboardPageWidgetFunnelColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorArrayOutput) ToOneDashboardPageWidgetFunnelColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelColor {
+		return vs[0].([]OneDashboardPageWidgetFunnelColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelColorOutput)
+}
+
+type OneDashboardPageWidgetFunnelColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetFunnelColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetFunnelColorSeriesOverrideArgs and OneDashboardPageWidgetFunnelColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetFunnelColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetFunnelColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutput() OneDashboardPageWidgetFunnelColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetFunnelColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetFunnelColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArgs) ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutput() OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArgs) ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetFunnelColorSeriesOverrideArray and OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelColorSeriesOverrideArray{ OneDashboardPageWidgetFunnelColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelColorSeriesOverrideArray []OneDashboardPageWidgetFunnelColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetFunnelColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArray) ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelColorSeriesOverrideArray) ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutput() OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetFunnelColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetFunnelNrqlQuery struct {
@@ -4566,9 +7611,435 @@ func (o OneDashboardPageWidgetFunnelNrqlQueryArrayOutput) Index(i pulumi.IntInpu
 	}).(OneDashboardPageWidgetFunnelNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetFunnelNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetFunnelNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetFunnelNullValueInput is an input type that accepts OneDashboardPageWidgetFunnelNullValueArgs and OneDashboardPageWidgetFunnelNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelNullValueInput` via:
+//
+//	OneDashboardPageWidgetFunnelNullValueArgs{...}
+type OneDashboardPageWidgetFunnelNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelNullValueOutput() OneDashboardPageWidgetFunnelNullValueOutput
+	ToOneDashboardPageWidgetFunnelNullValueOutputWithContext(context.Context) OneDashboardPageWidgetFunnelNullValueOutput
+}
+
+type OneDashboardPageWidgetFunnelNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetFunnelNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueArgs) ToOneDashboardPageWidgetFunnelNullValueOutput() OneDashboardPageWidgetFunnelNullValueOutput {
+	return i.ToOneDashboardPageWidgetFunnelNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueArgs) ToOneDashboardPageWidgetFunnelNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueOutput)
+}
+
+// OneDashboardPageWidgetFunnelNullValueArrayInput is an input type that accepts OneDashboardPageWidgetFunnelNullValueArray and OneDashboardPageWidgetFunnelNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelNullValueArray{ OneDashboardPageWidgetFunnelNullValueArgs{...} }
+type OneDashboardPageWidgetFunnelNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelNullValueArrayOutput() OneDashboardPageWidgetFunnelNullValueArrayOutput
+	ToOneDashboardPageWidgetFunnelNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelNullValueArray []OneDashboardPageWidgetFunnelNullValueInput
+
+func (OneDashboardPageWidgetFunnelNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueArray) ToOneDashboardPageWidgetFunnelNullValueArrayOutput() OneDashboardPageWidgetFunnelNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueArray) ToOneDashboardPageWidgetFunnelNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueOutput) ToOneDashboardPageWidgetFunnelNullValueOutput() OneDashboardPageWidgetFunnelNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueOutput) ToOneDashboardPageWidgetFunnelNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetFunnelNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetFunnelNullValueOutput) SeriesOverrides() OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNullValue) []OneDashboardPageWidgetFunnelNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) ToOneDashboardPageWidgetFunnelNullValueArrayOutput() OneDashboardPageWidgetFunnelNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) ToOneDashboardPageWidgetFunnelNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelNullValue {
+		return vs[0].([]OneDashboardPageWidgetFunnelNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelNullValueOutput)
+}
+
+type OneDashboardPageWidgetFunnelNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetFunnelNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs and OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetFunnelNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput() OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput() OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray and OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray{ OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray []OneDashboardPageWidgetFunnelNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput() OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetFunnelNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetFunnelUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetFunnelUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetFunnelUnitInput is an input type that accepts OneDashboardPageWidgetFunnelUnitArgs and OneDashboardPageWidgetFunnelUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelUnitInput` via:
+//
+//	OneDashboardPageWidgetFunnelUnitArgs{...}
+type OneDashboardPageWidgetFunnelUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelUnitOutput() OneDashboardPageWidgetFunnelUnitOutput
+	ToOneDashboardPageWidgetFunnelUnitOutputWithContext(context.Context) OneDashboardPageWidgetFunnelUnitOutput
+}
+
+type OneDashboardPageWidgetFunnelUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetFunnelUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelUnitArgs) ToOneDashboardPageWidgetFunnelUnitOutput() OneDashboardPageWidgetFunnelUnitOutput {
+	return i.ToOneDashboardPageWidgetFunnelUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelUnitArgs) ToOneDashboardPageWidgetFunnelUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitOutput)
+}
+
+// OneDashboardPageWidgetFunnelUnitArrayInput is an input type that accepts OneDashboardPageWidgetFunnelUnitArray and OneDashboardPageWidgetFunnelUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelUnitArray{ OneDashboardPageWidgetFunnelUnitArgs{...} }
+type OneDashboardPageWidgetFunnelUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelUnitArrayOutput() OneDashboardPageWidgetFunnelUnitArrayOutput
+	ToOneDashboardPageWidgetFunnelUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelUnitArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelUnitArray []OneDashboardPageWidgetFunnelUnitInput
+
+func (OneDashboardPageWidgetFunnelUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelUnitArray) ToOneDashboardPageWidgetFunnelUnitArrayOutput() OneDashboardPageWidgetFunnelUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelUnitArray) ToOneDashboardPageWidgetFunnelUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelUnitOutput) ToOneDashboardPageWidgetFunnelUnitOutput() OneDashboardPageWidgetFunnelUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitOutput) ToOneDashboardPageWidgetFunnelUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetFunnelUnitOutput) SeriesOverrides() OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelUnit) []OneDashboardPageWidgetFunnelUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetFunnelUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelUnitArrayOutput) ToOneDashboardPageWidgetFunnelUnitArrayOutput() OneDashboardPageWidgetFunnelUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitArrayOutput) ToOneDashboardPageWidgetFunnelUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelUnit {
+		return vs[0].([]OneDashboardPageWidgetFunnelUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelUnitOutput)
+}
+
+type OneDashboardPageWidgetFunnelUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetFunnelUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs and OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetFunnelUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutput() OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutput() OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetFunnelUnitSeriesOverrideArray and OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetFunnelUnitSeriesOverrideArray{ OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetFunnelUnitSeriesOverrideArray []OneDashboardPageWidgetFunnelUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetFunnelUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArray) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetFunnelUnitSeriesOverrideArray) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutput() OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetFunnelUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetFunnelUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetFunnelUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetFunnelUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetHeatmap struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetHeatmapColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4576,16 +8047,25 @@ type OneDashboardPageWidgetHeatmap struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetHeatmapNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetHeatmapNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetHeatmapUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetHeatmapInput is an input type that accepts OneDashboardPageWidgetHeatmapArgs and OneDashboardPageWidgetHeatmapOutput values.
@@ -4600,8 +8080,12 @@ type OneDashboardPageWidgetHeatmapInput interface {
 }
 
 type OneDashboardPageWidgetHeatmapArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetHeatmapColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4609,16 +8093,25 @@ type OneDashboardPageWidgetHeatmapArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetHeatmapNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetHeatmapNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetHeatmapUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetHeatmapArgs) ElementType() reflect.Type {
@@ -4672,9 +8165,19 @@ func (o OneDashboardPageWidgetHeatmapOutput) ToOneDashboardPageWidgetHeatmapOutp
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetHeatmapOutput) Colors() OneDashboardPageWidgetHeatmapColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapColor { return v.Colors }).(OneDashboardPageWidgetHeatmapColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetHeatmapOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetHeatmapOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Use this item to filter the current dashboard.
@@ -4696,6 +8199,11 @@ func (o OneDashboardPageWidgetHeatmapOutput) IgnoreTimeRange() pulumi.BoolPtrOut
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetHeatmapOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 func (o OneDashboardPageWidgetHeatmapOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
@@ -4704,6 +8212,11 @@ func (o OneDashboardPageWidgetHeatmapOutput) LinkedEntityGuids() pulumi.StringAr
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetHeatmapOutput) NrqlQueries() OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetHeatmapOutput) NullValues() OneDashboardPageWidgetHeatmapNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapNullValue { return v.NullValues }).(OneDashboardPageWidgetHeatmapNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4716,9 +8229,23 @@ func (o OneDashboardPageWidgetHeatmapOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetHeatmapOutput) Units() OneDashboardPageWidgetHeatmapUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) []OneDashboardPageWidgetHeatmapUnit { return v.Units }).(OneDashboardPageWidgetHeatmapUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetHeatmapOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHeatmapOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetHeatmapOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmap) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetHeatmapArrayOutput struct{ *pulumi.OutputState }
@@ -4739,6 +8266,217 @@ func (o OneDashboardPageWidgetHeatmapArrayOutput) Index(i pulumi.IntInput) OneDa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmap {
 		return vs[0].([]OneDashboardPageWidgetHeatmap)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHeatmapOutput)
+}
+
+type OneDashboardPageWidgetHeatmapColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetHeatmapColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetHeatmapColorInput is an input type that accepts OneDashboardPageWidgetHeatmapColorArgs and OneDashboardPageWidgetHeatmapColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapColorInput` via:
+//
+//	OneDashboardPageWidgetHeatmapColorArgs{...}
+type OneDashboardPageWidgetHeatmapColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapColorOutput() OneDashboardPageWidgetHeatmapColorOutput
+	ToOneDashboardPageWidgetHeatmapColorOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapColorOutput
+}
+
+type OneDashboardPageWidgetHeatmapColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetHeatmapColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapColorArgs) ToOneDashboardPageWidgetHeatmapColorOutput() OneDashboardPageWidgetHeatmapColorOutput {
+	return i.ToOneDashboardPageWidgetHeatmapColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapColorArgs) ToOneDashboardPageWidgetHeatmapColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorOutput)
+}
+
+// OneDashboardPageWidgetHeatmapColorArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapColorArray and OneDashboardPageWidgetHeatmapColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapColorArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapColorArray{ OneDashboardPageWidgetHeatmapColorArgs{...} }
+type OneDashboardPageWidgetHeatmapColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapColorArrayOutput() OneDashboardPageWidgetHeatmapColorArrayOutput
+	ToOneDashboardPageWidgetHeatmapColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapColorArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapColorArray []OneDashboardPageWidgetHeatmapColorInput
+
+func (OneDashboardPageWidgetHeatmapColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapColorArray) ToOneDashboardPageWidgetHeatmapColorArrayOutput() OneDashboardPageWidgetHeatmapColorArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapColorArray) ToOneDashboardPageWidgetHeatmapColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapColorOutput) ToOneDashboardPageWidgetHeatmapColorOutput() OneDashboardPageWidgetHeatmapColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorOutput) ToOneDashboardPageWidgetHeatmapColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetHeatmapColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetHeatmapColorOutput) SeriesOverrides() OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapColor) []OneDashboardPageWidgetHeatmapColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapColorArrayOutput) ToOneDashboardPageWidgetHeatmapColorArrayOutput() OneDashboardPageWidgetHeatmapColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorArrayOutput) ToOneDashboardPageWidgetHeatmapColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapColor {
+		return vs[0].([]OneDashboardPageWidgetHeatmapColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapColorOutput)
+}
+
+type OneDashboardPageWidgetHeatmapColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetHeatmapColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs and OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetHeatmapColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutput() OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutput() OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapColorSeriesOverrideArray and OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapColorSeriesOverrideArray{ OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapColorSeriesOverrideArray []OneDashboardPageWidgetHeatmapColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetHeatmapColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArray) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapColorSeriesOverrideArray) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutput() OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetHeatmapColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetHeatmapNrqlQuery struct {
@@ -4847,22 +8585,457 @@ func (o OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput) Index(i pulumi.IntInp
 	}).(OneDashboardPageWidgetHeatmapNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetHeatmapNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetHeatmapNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetHeatmapNullValueInput is an input type that accepts OneDashboardPageWidgetHeatmapNullValueArgs and OneDashboardPageWidgetHeatmapNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNullValueInput` via:
+//
+//	OneDashboardPageWidgetHeatmapNullValueArgs{...}
+type OneDashboardPageWidgetHeatmapNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapNullValueOutput() OneDashboardPageWidgetHeatmapNullValueOutput
+	ToOneDashboardPageWidgetHeatmapNullValueOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapNullValueOutput
+}
+
+type OneDashboardPageWidgetHeatmapNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetHeatmapNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueArgs) ToOneDashboardPageWidgetHeatmapNullValueOutput() OneDashboardPageWidgetHeatmapNullValueOutput {
+	return i.ToOneDashboardPageWidgetHeatmapNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueArgs) ToOneDashboardPageWidgetHeatmapNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueOutput)
+}
+
+// OneDashboardPageWidgetHeatmapNullValueArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapNullValueArray and OneDashboardPageWidgetHeatmapNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapNullValueArray{ OneDashboardPageWidgetHeatmapNullValueArgs{...} }
+type OneDashboardPageWidgetHeatmapNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapNullValueArrayOutput() OneDashboardPageWidgetHeatmapNullValueArrayOutput
+	ToOneDashboardPageWidgetHeatmapNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapNullValueArray []OneDashboardPageWidgetHeatmapNullValueInput
+
+func (OneDashboardPageWidgetHeatmapNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueArray) ToOneDashboardPageWidgetHeatmapNullValueArrayOutput() OneDashboardPageWidgetHeatmapNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueArray) ToOneDashboardPageWidgetHeatmapNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueOutput) ToOneDashboardPageWidgetHeatmapNullValueOutput() OneDashboardPageWidgetHeatmapNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueOutput) ToOneDashboardPageWidgetHeatmapNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetHeatmapNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetHeatmapNullValueOutput) SeriesOverrides() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNullValue) []OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) ToOneDashboardPageWidgetHeatmapNullValueArrayOutput() OneDashboardPageWidgetHeatmapNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) ToOneDashboardPageWidgetHeatmapNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapNullValue {
+		return vs[0].([]OneDashboardPageWidgetHeatmapNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapNullValueOutput)
+}
+
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetHeatmapNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs and OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray and OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray{ OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray []OneDashboardPageWidgetHeatmapNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetHeatmapNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetHeatmapUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetHeatmapUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetHeatmapUnitInput is an input type that accepts OneDashboardPageWidgetHeatmapUnitArgs and OneDashboardPageWidgetHeatmapUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapUnitInput` via:
+//
+//	OneDashboardPageWidgetHeatmapUnitArgs{...}
+type OneDashboardPageWidgetHeatmapUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapUnitOutput() OneDashboardPageWidgetHeatmapUnitOutput
+	ToOneDashboardPageWidgetHeatmapUnitOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapUnitOutput
+}
+
+type OneDashboardPageWidgetHeatmapUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetHeatmapUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitArgs) ToOneDashboardPageWidgetHeatmapUnitOutput() OneDashboardPageWidgetHeatmapUnitOutput {
+	return i.ToOneDashboardPageWidgetHeatmapUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitArgs) ToOneDashboardPageWidgetHeatmapUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitOutput)
+}
+
+// OneDashboardPageWidgetHeatmapUnitArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapUnitArray and OneDashboardPageWidgetHeatmapUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapUnitArray{ OneDashboardPageWidgetHeatmapUnitArgs{...} }
+type OneDashboardPageWidgetHeatmapUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapUnitArrayOutput() OneDashboardPageWidgetHeatmapUnitArrayOutput
+	ToOneDashboardPageWidgetHeatmapUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapUnitArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapUnitArray []OneDashboardPageWidgetHeatmapUnitInput
+
+func (OneDashboardPageWidgetHeatmapUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitArray) ToOneDashboardPageWidgetHeatmapUnitArrayOutput() OneDashboardPageWidgetHeatmapUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitArray) ToOneDashboardPageWidgetHeatmapUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitOutput) ToOneDashboardPageWidgetHeatmapUnitOutput() OneDashboardPageWidgetHeatmapUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitOutput) ToOneDashboardPageWidgetHeatmapUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetHeatmapUnitOutput) SeriesOverrides() OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapUnit) []OneDashboardPageWidgetHeatmapUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetHeatmapUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) ToOneDashboardPageWidgetHeatmapUnitArrayOutput() OneDashboardPageWidgetHeatmapUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) ToOneDashboardPageWidgetHeatmapUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapUnit {
+		return vs[0].([]OneDashboardPageWidgetHeatmapUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapUnitOutput)
+}
+
+type OneDashboardPageWidgetHeatmapUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetHeatmapUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs and OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetHeatmapUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput() OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput() OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray and OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray{ OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray []OneDashboardPageWidgetHeatmapUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput() OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHeatmapUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHeatmapUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHeatmapUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetHeatmapUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetHistogram struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetHistogramColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetHistogramNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetHistogramNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetHistogramUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetHistogramInput is an input type that accepts OneDashboardPageWidgetHistogramArgs and OneDashboardPageWidgetHistogramOutput values.
@@ -4877,21 +9050,34 @@ type OneDashboardPageWidgetHistogramInput interface {
 }
 
 type OneDashboardPageWidgetHistogramArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetHistogramColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetHistogramNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetHistogramNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetHistogramUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetHistogramArgs) ElementType() reflect.Type {
@@ -4945,9 +9131,19 @@ func (o OneDashboardPageWidgetHistogramOutput) ToOneDashboardPageWidgetHistogram
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetHistogramOutput) Colors() OneDashboardPageWidgetHistogramColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramColor { return v.Colors }).(OneDashboardPageWidgetHistogramColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetHistogramOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetHistogramOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -4964,11 +9160,23 @@ func (o OneDashboardPageWidgetHistogramOutput) IgnoreTimeRange() pulumi.BoolPtrO
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetHistogramOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetHistogramOutput) NrqlQueries() OneDashboardPageWidgetHistogramNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramNrqlQuery {
 		return v.NrqlQueries
 	}).(OneDashboardPageWidgetHistogramNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetHistogramOutput) NullValues() OneDashboardPageWidgetHistogramNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramNullValue {
+		return v.NullValues
+	}).(OneDashboardPageWidgetHistogramNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -4981,9 +9189,23 @@ func (o OneDashboardPageWidgetHistogramOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetHistogramOutput) Units() OneDashboardPageWidgetHistogramUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) []OneDashboardPageWidgetHistogramUnit { return v.Units }).(OneDashboardPageWidgetHistogramUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetHistogramOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHistogramOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetHistogramOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogram) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetHistogramArrayOutput struct{ *pulumi.OutputState }
@@ -5004,6 +9226,217 @@ func (o OneDashboardPageWidgetHistogramArrayOutput) Index(i pulumi.IntInput) One
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogram {
 		return vs[0].([]OneDashboardPageWidgetHistogram)[vs[1].(int)]
 	}).(OneDashboardPageWidgetHistogramOutput)
+}
+
+type OneDashboardPageWidgetHistogramColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetHistogramColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetHistogramColorInput is an input type that accepts OneDashboardPageWidgetHistogramColorArgs and OneDashboardPageWidgetHistogramColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramColorInput` via:
+//
+//	OneDashboardPageWidgetHistogramColorArgs{...}
+type OneDashboardPageWidgetHistogramColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramColorOutput() OneDashboardPageWidgetHistogramColorOutput
+	ToOneDashboardPageWidgetHistogramColorOutputWithContext(context.Context) OneDashboardPageWidgetHistogramColorOutput
+}
+
+type OneDashboardPageWidgetHistogramColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetHistogramColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramColorArgs) ToOneDashboardPageWidgetHistogramColorOutput() OneDashboardPageWidgetHistogramColorOutput {
+	return i.ToOneDashboardPageWidgetHistogramColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramColorArgs) ToOneDashboardPageWidgetHistogramColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorOutput)
+}
+
+// OneDashboardPageWidgetHistogramColorArrayInput is an input type that accepts OneDashboardPageWidgetHistogramColorArray and OneDashboardPageWidgetHistogramColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramColorArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramColorArray{ OneDashboardPageWidgetHistogramColorArgs{...} }
+type OneDashboardPageWidgetHistogramColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramColorArrayOutput() OneDashboardPageWidgetHistogramColorArrayOutput
+	ToOneDashboardPageWidgetHistogramColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramColorArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramColorArray []OneDashboardPageWidgetHistogramColorInput
+
+func (OneDashboardPageWidgetHistogramColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramColorArray) ToOneDashboardPageWidgetHistogramColorArrayOutput() OneDashboardPageWidgetHistogramColorArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramColorArray) ToOneDashboardPageWidgetHistogramColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramColorOutput) ToOneDashboardPageWidgetHistogramColorOutput() OneDashboardPageWidgetHistogramColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorOutput) ToOneDashboardPageWidgetHistogramColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetHistogramColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetHistogramColorOutput) SeriesOverrides() OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramColor) []OneDashboardPageWidgetHistogramColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramColorArrayOutput) ToOneDashboardPageWidgetHistogramColorArrayOutput() OneDashboardPageWidgetHistogramColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorArrayOutput) ToOneDashboardPageWidgetHistogramColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramColor {
+		return vs[0].([]OneDashboardPageWidgetHistogramColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramColorOutput)
+}
+
+type OneDashboardPageWidgetHistogramColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetHistogramColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetHistogramColorSeriesOverrideArgs and OneDashboardPageWidgetHistogramColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetHistogramColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetHistogramColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutput() OneDashboardPageWidgetHistogramColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetHistogramColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetHistogramColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArgs) ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutput() OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArgs) ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHistogramColorSeriesOverrideArray and OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramColorSeriesOverrideArray{ OneDashboardPageWidgetHistogramColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramColorSeriesOverrideArray []OneDashboardPageWidgetHistogramColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetHistogramColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArray) ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramColorSeriesOverrideArray) ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutput() OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetHistogramColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetHistogramNrqlQuery struct {
@@ -5112,22 +9545,457 @@ func (o OneDashboardPageWidgetHistogramNrqlQueryArrayOutput) Index(i pulumi.IntI
 	}).(OneDashboardPageWidgetHistogramNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetHistogramNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetHistogramNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetHistogramNullValueInput is an input type that accepts OneDashboardPageWidgetHistogramNullValueArgs and OneDashboardPageWidgetHistogramNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramNullValueInput` via:
+//
+//	OneDashboardPageWidgetHistogramNullValueArgs{...}
+type OneDashboardPageWidgetHistogramNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramNullValueOutput() OneDashboardPageWidgetHistogramNullValueOutput
+	ToOneDashboardPageWidgetHistogramNullValueOutputWithContext(context.Context) OneDashboardPageWidgetHistogramNullValueOutput
+}
+
+type OneDashboardPageWidgetHistogramNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetHistogramNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueArgs) ToOneDashboardPageWidgetHistogramNullValueOutput() OneDashboardPageWidgetHistogramNullValueOutput {
+	return i.ToOneDashboardPageWidgetHistogramNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueArgs) ToOneDashboardPageWidgetHistogramNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueOutput)
+}
+
+// OneDashboardPageWidgetHistogramNullValueArrayInput is an input type that accepts OneDashboardPageWidgetHistogramNullValueArray and OneDashboardPageWidgetHistogramNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramNullValueArray{ OneDashboardPageWidgetHistogramNullValueArgs{...} }
+type OneDashboardPageWidgetHistogramNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramNullValueArrayOutput() OneDashboardPageWidgetHistogramNullValueArrayOutput
+	ToOneDashboardPageWidgetHistogramNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramNullValueArray []OneDashboardPageWidgetHistogramNullValueInput
+
+func (OneDashboardPageWidgetHistogramNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueArray) ToOneDashboardPageWidgetHistogramNullValueArrayOutput() OneDashboardPageWidgetHistogramNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueArray) ToOneDashboardPageWidgetHistogramNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueOutput) ToOneDashboardPageWidgetHistogramNullValueOutput() OneDashboardPageWidgetHistogramNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueOutput) ToOneDashboardPageWidgetHistogramNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetHistogramNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetHistogramNullValueOutput) SeriesOverrides() OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNullValue) []OneDashboardPageWidgetHistogramNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) ToOneDashboardPageWidgetHistogramNullValueArrayOutput() OneDashboardPageWidgetHistogramNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) ToOneDashboardPageWidgetHistogramNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramNullValue {
+		return vs[0].([]OneDashboardPageWidgetHistogramNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramNullValueOutput)
+}
+
+type OneDashboardPageWidgetHistogramNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetHistogramNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs and OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetHistogramNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput() OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput() OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray and OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray{ OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray []OneDashboardPageWidgetHistogramNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput() OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetHistogramNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetHistogramUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetHistogramUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetHistogramUnitInput is an input type that accepts OneDashboardPageWidgetHistogramUnitArgs and OneDashboardPageWidgetHistogramUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramUnitInput` via:
+//
+//	OneDashboardPageWidgetHistogramUnitArgs{...}
+type OneDashboardPageWidgetHistogramUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramUnitOutput() OneDashboardPageWidgetHistogramUnitOutput
+	ToOneDashboardPageWidgetHistogramUnitOutputWithContext(context.Context) OneDashboardPageWidgetHistogramUnitOutput
+}
+
+type OneDashboardPageWidgetHistogramUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetHistogramUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramUnitArgs) ToOneDashboardPageWidgetHistogramUnitOutput() OneDashboardPageWidgetHistogramUnitOutput {
+	return i.ToOneDashboardPageWidgetHistogramUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramUnitArgs) ToOneDashboardPageWidgetHistogramUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitOutput)
+}
+
+// OneDashboardPageWidgetHistogramUnitArrayInput is an input type that accepts OneDashboardPageWidgetHistogramUnitArray and OneDashboardPageWidgetHistogramUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramUnitArray{ OneDashboardPageWidgetHistogramUnitArgs{...} }
+type OneDashboardPageWidgetHistogramUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramUnitArrayOutput() OneDashboardPageWidgetHistogramUnitArrayOutput
+	ToOneDashboardPageWidgetHistogramUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramUnitArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramUnitArray []OneDashboardPageWidgetHistogramUnitInput
+
+func (OneDashboardPageWidgetHistogramUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramUnitArray) ToOneDashboardPageWidgetHistogramUnitArrayOutput() OneDashboardPageWidgetHistogramUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramUnitArray) ToOneDashboardPageWidgetHistogramUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramUnitOutput) ToOneDashboardPageWidgetHistogramUnitOutput() OneDashboardPageWidgetHistogramUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitOutput) ToOneDashboardPageWidgetHistogramUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetHistogramUnitOutput) SeriesOverrides() OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramUnit) []OneDashboardPageWidgetHistogramUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetHistogramUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramUnitArrayOutput) ToOneDashboardPageWidgetHistogramUnitArrayOutput() OneDashboardPageWidgetHistogramUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitArrayOutput) ToOneDashboardPageWidgetHistogramUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramUnit {
+		return vs[0].([]OneDashboardPageWidgetHistogramUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramUnitOutput)
+}
+
+type OneDashboardPageWidgetHistogramUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetHistogramUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs and OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetHistogramUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutput() OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutput() OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetHistogramUnitSeriesOverrideArray and OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetHistogramUnitSeriesOverrideArray{ OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetHistogramUnitSeriesOverrideArray []OneDashboardPageWidgetHistogramUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetHistogramUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArray) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetHistogramUnitSeriesOverrideArray) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutput() OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetHistogramUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetHistogramUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetHistogramUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetHistogramUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetJson struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetJsonColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetJsonNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetJsonNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetJsonUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetJsonInput is an input type that accepts OneDashboardPageWidgetJsonArgs and OneDashboardPageWidgetJsonOutput values.
@@ -5142,21 +10010,34 @@ type OneDashboardPageWidgetJsonInput interface {
 }
 
 type OneDashboardPageWidgetJsonArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetJsonColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetJsonNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetJsonNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetJsonUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetJsonArgs) ElementType() reflect.Type {
@@ -5210,9 +10091,19 @@ func (o OneDashboardPageWidgetJsonOutput) ToOneDashboardPageWidgetJsonOutputWith
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetJsonOutput) Colors() OneDashboardPageWidgetJsonColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonColor { return v.Colors }).(OneDashboardPageWidgetJsonColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetJsonOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetJsonOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -5229,9 +10120,19 @@ func (o OneDashboardPageWidgetJsonOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetJsonOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetJsonOutput) NrqlQueries() OneDashboardPageWidgetJsonNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetJsonNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetJsonOutput) NullValues() OneDashboardPageWidgetJsonNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonNullValue { return v.NullValues }).(OneDashboardPageWidgetJsonNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -5244,9 +10145,23 @@ func (o OneDashboardPageWidgetJsonOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetJsonOutput) Units() OneDashboardPageWidgetJsonUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) []OneDashboardPageWidgetJsonUnit { return v.Units }).(OneDashboardPageWidgetJsonUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetJsonOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetJson) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetJsonOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetJsonOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJson) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetJsonArrayOutput struct{ *pulumi.OutputState }
@@ -5267,6 +10182,217 @@ func (o OneDashboardPageWidgetJsonArrayOutput) Index(i pulumi.IntInput) OneDashb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJson {
 		return vs[0].([]OneDashboardPageWidgetJson)[vs[1].(int)]
 	}).(OneDashboardPageWidgetJsonOutput)
+}
+
+type OneDashboardPageWidgetJsonColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetJsonColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetJsonColorInput is an input type that accepts OneDashboardPageWidgetJsonColorArgs and OneDashboardPageWidgetJsonColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonColorInput` via:
+//
+//	OneDashboardPageWidgetJsonColorArgs{...}
+type OneDashboardPageWidgetJsonColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonColorOutput() OneDashboardPageWidgetJsonColorOutput
+	ToOneDashboardPageWidgetJsonColorOutputWithContext(context.Context) OneDashboardPageWidgetJsonColorOutput
+}
+
+type OneDashboardPageWidgetJsonColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetJsonColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonColorArgs) ToOneDashboardPageWidgetJsonColorOutput() OneDashboardPageWidgetJsonColorOutput {
+	return i.ToOneDashboardPageWidgetJsonColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonColorArgs) ToOneDashboardPageWidgetJsonColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorOutput)
+}
+
+// OneDashboardPageWidgetJsonColorArrayInput is an input type that accepts OneDashboardPageWidgetJsonColorArray and OneDashboardPageWidgetJsonColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonColorArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonColorArray{ OneDashboardPageWidgetJsonColorArgs{...} }
+type OneDashboardPageWidgetJsonColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonColorArrayOutput() OneDashboardPageWidgetJsonColorArrayOutput
+	ToOneDashboardPageWidgetJsonColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonColorArrayOutput
+}
+
+type OneDashboardPageWidgetJsonColorArray []OneDashboardPageWidgetJsonColorInput
+
+func (OneDashboardPageWidgetJsonColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonColorArray) ToOneDashboardPageWidgetJsonColorArrayOutput() OneDashboardPageWidgetJsonColorArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonColorArray) ToOneDashboardPageWidgetJsonColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonColorOutput) ToOneDashboardPageWidgetJsonColorOutput() OneDashboardPageWidgetJsonColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorOutput) ToOneDashboardPageWidgetJsonColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetJsonColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetJsonColorOutput) SeriesOverrides() OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonColor) []OneDashboardPageWidgetJsonColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonColorArrayOutput) ToOneDashboardPageWidgetJsonColorArrayOutput() OneDashboardPageWidgetJsonColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorArrayOutput) ToOneDashboardPageWidgetJsonColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonColor {
+		return vs[0].([]OneDashboardPageWidgetJsonColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonColorOutput)
+}
+
+type OneDashboardPageWidgetJsonColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetJsonColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetJsonColorSeriesOverrideArgs and OneDashboardPageWidgetJsonColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetJsonColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetJsonColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonColorSeriesOverrideOutput() OneDashboardPageWidgetJsonColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetJsonColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetJsonColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetJsonColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonColorSeriesOverrideArgs) ToOneDashboardPageWidgetJsonColorSeriesOverrideOutput() OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetJsonColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonColorSeriesOverrideArgs) ToOneDashboardPageWidgetJsonColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetJsonColorSeriesOverrideArray and OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonColorSeriesOverrideArray{ OneDashboardPageWidgetJsonColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetJsonColorSeriesOverrideArray []OneDashboardPageWidgetJsonColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetJsonColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonColorSeriesOverrideArray) ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonColorSeriesOverrideArray) ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ToOneDashboardPageWidgetJsonColorSeriesOverrideOutput() OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) ToOneDashboardPageWidgetJsonColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetJsonColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetJsonNrqlQuery struct {
@@ -5375,22 +10501,457 @@ func (o OneDashboardPageWidgetJsonNrqlQueryArrayOutput) Index(i pulumi.IntInput)
 	}).(OneDashboardPageWidgetJsonNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetJsonNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetJsonNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetJsonNullValueInput is an input type that accepts OneDashboardPageWidgetJsonNullValueArgs and OneDashboardPageWidgetJsonNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonNullValueInput` via:
+//
+//	OneDashboardPageWidgetJsonNullValueArgs{...}
+type OneDashboardPageWidgetJsonNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonNullValueOutput() OneDashboardPageWidgetJsonNullValueOutput
+	ToOneDashboardPageWidgetJsonNullValueOutputWithContext(context.Context) OneDashboardPageWidgetJsonNullValueOutput
+}
+
+type OneDashboardPageWidgetJsonNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetJsonNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonNullValueArgs) ToOneDashboardPageWidgetJsonNullValueOutput() OneDashboardPageWidgetJsonNullValueOutput {
+	return i.ToOneDashboardPageWidgetJsonNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonNullValueArgs) ToOneDashboardPageWidgetJsonNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueOutput)
+}
+
+// OneDashboardPageWidgetJsonNullValueArrayInput is an input type that accepts OneDashboardPageWidgetJsonNullValueArray and OneDashboardPageWidgetJsonNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonNullValueArray{ OneDashboardPageWidgetJsonNullValueArgs{...} }
+type OneDashboardPageWidgetJsonNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonNullValueArrayOutput() OneDashboardPageWidgetJsonNullValueArrayOutput
+	ToOneDashboardPageWidgetJsonNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetJsonNullValueArray []OneDashboardPageWidgetJsonNullValueInput
+
+func (OneDashboardPageWidgetJsonNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonNullValueArray) ToOneDashboardPageWidgetJsonNullValueArrayOutput() OneDashboardPageWidgetJsonNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonNullValueArray) ToOneDashboardPageWidgetJsonNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonNullValueOutput) ToOneDashboardPageWidgetJsonNullValueOutput() OneDashboardPageWidgetJsonNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueOutput) ToOneDashboardPageWidgetJsonNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetJsonNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetJsonNullValueOutput) SeriesOverrides() OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonNullValue) []OneDashboardPageWidgetJsonNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonNullValueArrayOutput) ToOneDashboardPageWidgetJsonNullValueArrayOutput() OneDashboardPageWidgetJsonNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueArrayOutput) ToOneDashboardPageWidgetJsonNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonNullValue {
+		return vs[0].([]OneDashboardPageWidgetJsonNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonNullValueOutput)
+}
+
+type OneDashboardPageWidgetJsonNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetJsonNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs and OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetJsonNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutput() OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutput() OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetJsonNullValueSeriesOverrideArray and OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonNullValueSeriesOverrideArray{ OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetJsonNullValueSeriesOverrideArray []OneDashboardPageWidgetJsonNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetJsonNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArray) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonNullValueSeriesOverrideArray) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutput() OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetJsonNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetJsonUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetJsonUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetJsonUnitInput is an input type that accepts OneDashboardPageWidgetJsonUnitArgs and OneDashboardPageWidgetJsonUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonUnitInput` via:
+//
+//	OneDashboardPageWidgetJsonUnitArgs{...}
+type OneDashboardPageWidgetJsonUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonUnitOutput() OneDashboardPageWidgetJsonUnitOutput
+	ToOneDashboardPageWidgetJsonUnitOutputWithContext(context.Context) OneDashboardPageWidgetJsonUnitOutput
+}
+
+type OneDashboardPageWidgetJsonUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetJsonUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonUnitArgs) ToOneDashboardPageWidgetJsonUnitOutput() OneDashboardPageWidgetJsonUnitOutput {
+	return i.ToOneDashboardPageWidgetJsonUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonUnitArgs) ToOneDashboardPageWidgetJsonUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitOutput)
+}
+
+// OneDashboardPageWidgetJsonUnitArrayInput is an input type that accepts OneDashboardPageWidgetJsonUnitArray and OneDashboardPageWidgetJsonUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonUnitArray{ OneDashboardPageWidgetJsonUnitArgs{...} }
+type OneDashboardPageWidgetJsonUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonUnitArrayOutput() OneDashboardPageWidgetJsonUnitArrayOutput
+	ToOneDashboardPageWidgetJsonUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonUnitArrayOutput
+}
+
+type OneDashboardPageWidgetJsonUnitArray []OneDashboardPageWidgetJsonUnitInput
+
+func (OneDashboardPageWidgetJsonUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonUnitArray) ToOneDashboardPageWidgetJsonUnitArrayOutput() OneDashboardPageWidgetJsonUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonUnitArray) ToOneDashboardPageWidgetJsonUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonUnitOutput) ToOneDashboardPageWidgetJsonUnitOutput() OneDashboardPageWidgetJsonUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitOutput) ToOneDashboardPageWidgetJsonUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetJsonUnitOutput) SeriesOverrides() OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonUnit) []OneDashboardPageWidgetJsonUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetJsonUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonUnitArrayOutput) ToOneDashboardPageWidgetJsonUnitArrayOutput() OneDashboardPageWidgetJsonUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitArrayOutput) ToOneDashboardPageWidgetJsonUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonUnit {
+		return vs[0].([]OneDashboardPageWidgetJsonUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonUnitOutput)
+}
+
+type OneDashboardPageWidgetJsonUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetJsonUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetJsonUnitSeriesOverrideArgs and OneDashboardPageWidgetJsonUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetJsonUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetJsonUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutput() OneDashboardPageWidgetJsonUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetJsonUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetJsonUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArgs) ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutput() OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArgs) ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetJsonUnitSeriesOverrideArray and OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetJsonUnitSeriesOverrideArray{ OneDashboardPageWidgetJsonUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetJsonUnitSeriesOverrideArray []OneDashboardPageWidgetJsonUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetJsonUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArray) ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetJsonUnitSeriesOverrideArray) ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetJsonUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetJsonUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutput() OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) ToOneDashboardPageWidgetJsonUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetJsonUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetJsonUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetJsonUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetJsonUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetJsonUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetJsonUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetLine struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetLineColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetLineNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetLineNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetLineUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetLineInput is an input type that accepts OneDashboardPageWidgetLineArgs and OneDashboardPageWidgetLineOutput values.
@@ -5405,21 +10966,34 @@ type OneDashboardPageWidgetLineInput interface {
 }
 
 type OneDashboardPageWidgetLineArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetLineColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetLineNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetLineNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetLineUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetLineArgs) ElementType() reflect.Type {
@@ -5473,9 +11047,19 @@ func (o OneDashboardPageWidgetLineOutput) ToOneDashboardPageWidgetLineOutputWith
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) Colors() OneDashboardPageWidgetLineColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineColor { return v.Colors }).(OneDashboardPageWidgetLineColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetLineOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetLineOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -5492,9 +11076,19 @@ func (o OneDashboardPageWidgetLineOutput) IgnoreTimeRange() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetLineOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetLineOutput) NrqlQueries() OneDashboardPageWidgetLineNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLineNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) NullValues() OneDashboardPageWidgetLineNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineNullValue { return v.NullValues }).(OneDashboardPageWidgetLineNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -5507,9 +11101,23 @@ func (o OneDashboardPageWidgetLineOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetLineOutput) Units() OneDashboardPageWidgetLineUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) []OneDashboardPageWidgetLineUnit { return v.Units }).(OneDashboardPageWidgetLineUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetLineOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLine) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLineOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetLineOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLine) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetLineArrayOutput struct{ *pulumi.OutputState }
@@ -5530,6 +11138,217 @@ func (o OneDashboardPageWidgetLineArrayOutput) Index(i pulumi.IntInput) OneDashb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLine {
 		return vs[0].([]OneDashboardPageWidgetLine)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLineOutput)
+}
+
+type OneDashboardPageWidgetLineColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetLineColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetLineColorInput is an input type that accepts OneDashboardPageWidgetLineColorArgs and OneDashboardPageWidgetLineColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineColorInput` via:
+//
+//	OneDashboardPageWidgetLineColorArgs{...}
+type OneDashboardPageWidgetLineColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineColorOutput() OneDashboardPageWidgetLineColorOutput
+	ToOneDashboardPageWidgetLineColorOutputWithContext(context.Context) OneDashboardPageWidgetLineColorOutput
+}
+
+type OneDashboardPageWidgetLineColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetLineColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetLineColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineColorArgs) ToOneDashboardPageWidgetLineColorOutput() OneDashboardPageWidgetLineColorOutput {
+	return i.ToOneDashboardPageWidgetLineColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineColorArgs) ToOneDashboardPageWidgetLineColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorOutput)
+}
+
+// OneDashboardPageWidgetLineColorArrayInput is an input type that accepts OneDashboardPageWidgetLineColorArray and OneDashboardPageWidgetLineColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineColorArrayInput` via:
+//
+//	OneDashboardPageWidgetLineColorArray{ OneDashboardPageWidgetLineColorArgs{...} }
+type OneDashboardPageWidgetLineColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineColorArrayOutput() OneDashboardPageWidgetLineColorArrayOutput
+	ToOneDashboardPageWidgetLineColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineColorArrayOutput
+}
+
+type OneDashboardPageWidgetLineColorArray []OneDashboardPageWidgetLineColorInput
+
+func (OneDashboardPageWidgetLineColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineColorArray) ToOneDashboardPageWidgetLineColorArrayOutput() OneDashboardPageWidgetLineColorArrayOutput {
+	return i.ToOneDashboardPageWidgetLineColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineColorArray) ToOneDashboardPageWidgetLineColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorArrayOutput)
+}
+
+type OneDashboardPageWidgetLineColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineColorOutput) ToOneDashboardPageWidgetLineColorOutput() OneDashboardPageWidgetLineColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineColorOutput) ToOneDashboardPageWidgetLineColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetLineColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetLineColorOutput) SeriesOverrides() OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineColor) []OneDashboardPageWidgetLineColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLineColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineColorArrayOutput) ToOneDashboardPageWidgetLineColorArrayOutput() OneDashboardPageWidgetLineColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineColorArrayOutput) ToOneDashboardPageWidgetLineColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineColor {
+		return vs[0].([]OneDashboardPageWidgetLineColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineColorOutput)
+}
+
+type OneDashboardPageWidgetLineColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetLineColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetLineColorSeriesOverrideArgs and OneDashboardPageWidgetLineColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetLineColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetLineColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineColorSeriesOverrideOutput() OneDashboardPageWidgetLineColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetLineColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetLineColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetLineColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetLineColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineColorSeriesOverrideArgs) ToOneDashboardPageWidgetLineColorSeriesOverrideOutput() OneDashboardPageWidgetLineColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetLineColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineColorSeriesOverrideArgs) ToOneDashboardPageWidgetLineColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetLineColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLineColorSeriesOverrideArray and OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetLineColorSeriesOverrideArray{ OneDashboardPageWidgetLineColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetLineColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutput() OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetLineColorSeriesOverrideArray []OneDashboardPageWidgetLineColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetLineColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineColorSeriesOverrideArray) ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutput() OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineColorSeriesOverrideArray) ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLineColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) ToOneDashboardPageWidgetLineColorSeriesOverrideOutput() OneDashboardPageWidgetLineColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) ToOneDashboardPageWidgetLineColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutput() OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetLineColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetLineNrqlQuery struct {
@@ -5638,22 +11457,457 @@ func (o OneDashboardPageWidgetLineNrqlQueryArrayOutput) Index(i pulumi.IntInput)
 	}).(OneDashboardPageWidgetLineNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetLineNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetLineNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetLineNullValueInput is an input type that accepts OneDashboardPageWidgetLineNullValueArgs and OneDashboardPageWidgetLineNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineNullValueInput` via:
+//
+//	OneDashboardPageWidgetLineNullValueArgs{...}
+type OneDashboardPageWidgetLineNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineNullValueOutput() OneDashboardPageWidgetLineNullValueOutput
+	ToOneDashboardPageWidgetLineNullValueOutputWithContext(context.Context) OneDashboardPageWidgetLineNullValueOutput
+}
+
+type OneDashboardPageWidgetLineNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetLineNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineNullValueArgs) ToOneDashboardPageWidgetLineNullValueOutput() OneDashboardPageWidgetLineNullValueOutput {
+	return i.ToOneDashboardPageWidgetLineNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineNullValueArgs) ToOneDashboardPageWidgetLineNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueOutput)
+}
+
+// OneDashboardPageWidgetLineNullValueArrayInput is an input type that accepts OneDashboardPageWidgetLineNullValueArray and OneDashboardPageWidgetLineNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetLineNullValueArray{ OneDashboardPageWidgetLineNullValueArgs{...} }
+type OneDashboardPageWidgetLineNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineNullValueArrayOutput() OneDashboardPageWidgetLineNullValueArrayOutput
+	ToOneDashboardPageWidgetLineNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetLineNullValueArray []OneDashboardPageWidgetLineNullValueInput
+
+func (OneDashboardPageWidgetLineNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineNullValueArray) ToOneDashboardPageWidgetLineNullValueArrayOutput() OneDashboardPageWidgetLineNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetLineNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineNullValueArray) ToOneDashboardPageWidgetLineNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetLineNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineNullValueOutput) ToOneDashboardPageWidgetLineNullValueOutput() OneDashboardPageWidgetLineNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueOutput) ToOneDashboardPageWidgetLineNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetLineNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetLineNullValueOutput) SeriesOverrides() OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNullValue) []OneDashboardPageWidgetLineNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLineNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineNullValueArrayOutput) ToOneDashboardPageWidgetLineNullValueArrayOutput() OneDashboardPageWidgetLineNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueArrayOutput) ToOneDashboardPageWidgetLineNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineNullValue {
+		return vs[0].([]OneDashboardPageWidgetLineNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineNullValueOutput)
+}
+
+type OneDashboardPageWidgetLineNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetLineNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetLineNullValueSeriesOverrideArgs and OneDashboardPageWidgetLineNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetLineNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutput() OneDashboardPageWidgetLineNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetLineNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetLineNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutput() OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLineNullValueSeriesOverrideArray and OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetLineNullValueSeriesOverrideArray{ OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetLineNullValueSeriesOverrideArray []OneDashboardPageWidgetLineNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetLineNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArray) ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineNullValueSeriesOverrideArray) ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLineNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutput() OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetLineNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetLineNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLineUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetLineUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetLineUnitInput is an input type that accepts OneDashboardPageWidgetLineUnitArgs and OneDashboardPageWidgetLineUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineUnitInput` via:
+//
+//	OneDashboardPageWidgetLineUnitArgs{...}
+type OneDashboardPageWidgetLineUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineUnitOutput() OneDashboardPageWidgetLineUnitOutput
+	ToOneDashboardPageWidgetLineUnitOutputWithContext(context.Context) OneDashboardPageWidgetLineUnitOutput
+}
+
+type OneDashboardPageWidgetLineUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetLineUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineUnitArgs) ToOneDashboardPageWidgetLineUnitOutput() OneDashboardPageWidgetLineUnitOutput {
+	return i.ToOneDashboardPageWidgetLineUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineUnitArgs) ToOneDashboardPageWidgetLineUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitOutput)
+}
+
+// OneDashboardPageWidgetLineUnitArrayInput is an input type that accepts OneDashboardPageWidgetLineUnitArray and OneDashboardPageWidgetLineUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetLineUnitArray{ OneDashboardPageWidgetLineUnitArgs{...} }
+type OneDashboardPageWidgetLineUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineUnitArrayOutput() OneDashboardPageWidgetLineUnitArrayOutput
+	ToOneDashboardPageWidgetLineUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineUnitArrayOutput
+}
+
+type OneDashboardPageWidgetLineUnitArray []OneDashboardPageWidgetLineUnitInput
+
+func (OneDashboardPageWidgetLineUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineUnitArray) ToOneDashboardPageWidgetLineUnitArrayOutput() OneDashboardPageWidgetLineUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetLineUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineUnitArray) ToOneDashboardPageWidgetLineUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetLineUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineUnitOutput) ToOneDashboardPageWidgetLineUnitOutput() OneDashboardPageWidgetLineUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitOutput) ToOneDashboardPageWidgetLineUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetLineUnitOutput) SeriesOverrides() OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineUnit) []OneDashboardPageWidgetLineUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetLineUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLineUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineUnitArrayOutput) ToOneDashboardPageWidgetLineUnitArrayOutput() OneDashboardPageWidgetLineUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitArrayOutput) ToOneDashboardPageWidgetLineUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineUnit {
+		return vs[0].([]OneDashboardPageWidgetLineUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineUnitOutput)
+}
+
+type OneDashboardPageWidgetLineUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetLineUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetLineUnitSeriesOverrideArgs and OneDashboardPageWidgetLineUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetLineUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetLineUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineUnitSeriesOverrideOutput() OneDashboardPageWidgetLineUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetLineUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetLineUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetLineUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineUnitSeriesOverrideArgs) ToOneDashboardPageWidgetLineUnitSeriesOverrideOutput() OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetLineUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineUnitSeriesOverrideArgs) ToOneDashboardPageWidgetLineUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLineUnitSeriesOverrideArray and OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetLineUnitSeriesOverrideArray{ OneDashboardPageWidgetLineUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetLineUnitSeriesOverrideArray []OneDashboardPageWidgetLineUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetLineUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLineUnitSeriesOverrideArray) ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLineUnitSeriesOverrideArray) ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLineUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ToOneDashboardPageWidgetLineUnitSeriesOverrideOutput() OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) ToOneDashboardPageWidgetLineUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLineUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLineUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLineUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLineUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLineUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetLineUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLineUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetLogTable struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetLogTableColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetLogTableNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetLogTableNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetLogTableUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetLogTableInput is an input type that accepts OneDashboardPageWidgetLogTableArgs and OneDashboardPageWidgetLogTableOutput values.
@@ -5668,21 +11922,34 @@ type OneDashboardPageWidgetLogTableInput interface {
 }
 
 type OneDashboardPageWidgetLogTableArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetLogTableColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetLogTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetLogTableNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetLogTableUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetLogTableArgs) ElementType() reflect.Type {
@@ -5736,9 +12003,19 @@ func (o OneDashboardPageWidgetLogTableOutput) ToOneDashboardPageWidgetLogTableOu
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetLogTableOutput) Colors() OneDashboardPageWidgetLogTableColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableColor { return v.Colors }).(OneDashboardPageWidgetLogTableColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetLogTableOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetLogTableOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -5755,9 +12032,19 @@ func (o OneDashboardPageWidgetLogTableOutput) IgnoreTimeRange() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetLogTableOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetLogTableOutput) NrqlQueries() OneDashboardPageWidgetLogTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetLogTableOutput) NullValues() OneDashboardPageWidgetLogTableNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableNullValue { return v.NullValues }).(OneDashboardPageWidgetLogTableNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -5770,9 +12057,23 @@ func (o OneDashboardPageWidgetLogTableOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetLogTableOutput) Units() OneDashboardPageWidgetLogTableUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) []OneDashboardPageWidgetLogTableUnit { return v.Units }).(OneDashboardPageWidgetLogTableUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetLogTableOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLogTableOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetLogTableOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTable) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetLogTableArrayOutput struct{ *pulumi.OutputState }
@@ -5793,6 +12094,217 @@ func (o OneDashboardPageWidgetLogTableArrayOutput) Index(i pulumi.IntInput) OneD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTable {
 		return vs[0].([]OneDashboardPageWidgetLogTable)[vs[1].(int)]
 	}).(OneDashboardPageWidgetLogTableOutput)
+}
+
+type OneDashboardPageWidgetLogTableColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetLogTableColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetLogTableColorInput is an input type that accepts OneDashboardPageWidgetLogTableColorArgs and OneDashboardPageWidgetLogTableColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableColorInput` via:
+//
+//	OneDashboardPageWidgetLogTableColorArgs{...}
+type OneDashboardPageWidgetLogTableColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableColorOutput() OneDashboardPageWidgetLogTableColorOutput
+	ToOneDashboardPageWidgetLogTableColorOutputWithContext(context.Context) OneDashboardPageWidgetLogTableColorOutput
+}
+
+type OneDashboardPageWidgetLogTableColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetLogTableColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableColorArgs) ToOneDashboardPageWidgetLogTableColorOutput() OneDashboardPageWidgetLogTableColorOutput {
+	return i.ToOneDashboardPageWidgetLogTableColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableColorArgs) ToOneDashboardPageWidgetLogTableColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorOutput)
+}
+
+// OneDashboardPageWidgetLogTableColorArrayInput is an input type that accepts OneDashboardPageWidgetLogTableColorArray and OneDashboardPageWidgetLogTableColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableColorArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableColorArray{ OneDashboardPageWidgetLogTableColorArgs{...} }
+type OneDashboardPageWidgetLogTableColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableColorArrayOutput() OneDashboardPageWidgetLogTableColorArrayOutput
+	ToOneDashboardPageWidgetLogTableColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableColorArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableColorArray []OneDashboardPageWidgetLogTableColorInput
+
+func (OneDashboardPageWidgetLogTableColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableColorArray) ToOneDashboardPageWidgetLogTableColorArrayOutput() OneDashboardPageWidgetLogTableColorArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableColorArray) ToOneDashboardPageWidgetLogTableColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableColorOutput) ToOneDashboardPageWidgetLogTableColorOutput() OneDashboardPageWidgetLogTableColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorOutput) ToOneDashboardPageWidgetLogTableColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetLogTableColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetLogTableColorOutput) SeriesOverrides() OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableColor) []OneDashboardPageWidgetLogTableColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableColorArrayOutput) ToOneDashboardPageWidgetLogTableColorArrayOutput() OneDashboardPageWidgetLogTableColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorArrayOutput) ToOneDashboardPageWidgetLogTableColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableColor {
+		return vs[0].([]OneDashboardPageWidgetLogTableColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableColorOutput)
+}
+
+type OneDashboardPageWidgetLogTableColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetLogTableColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetLogTableColorSeriesOverrideArgs and OneDashboardPageWidgetLogTableColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetLogTableColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetLogTableColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutput() OneDashboardPageWidgetLogTableColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetLogTableColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetLogTableColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArgs) ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutput() OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArgs) ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLogTableColorSeriesOverrideArray and OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableColorSeriesOverrideArray{ OneDashboardPageWidgetLogTableColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableColorSeriesOverrideArray []OneDashboardPageWidgetLogTableColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetLogTableColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArray) ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableColorSeriesOverrideArray) ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutput() OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetLogTableColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetLogTableNrqlQuery struct {
@@ -5901,22 +12413,457 @@ func (o OneDashboardPageWidgetLogTableNrqlQueryArrayOutput) Index(i pulumi.IntIn
 	}).(OneDashboardPageWidgetLogTableNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetLogTableNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetLogTableNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetLogTableNullValueInput is an input type that accepts OneDashboardPageWidgetLogTableNullValueArgs and OneDashboardPageWidgetLogTableNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableNullValueInput` via:
+//
+//	OneDashboardPageWidgetLogTableNullValueArgs{...}
+type OneDashboardPageWidgetLogTableNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableNullValueOutput() OneDashboardPageWidgetLogTableNullValueOutput
+	ToOneDashboardPageWidgetLogTableNullValueOutputWithContext(context.Context) OneDashboardPageWidgetLogTableNullValueOutput
+}
+
+type OneDashboardPageWidgetLogTableNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetLogTableNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueArgs) ToOneDashboardPageWidgetLogTableNullValueOutput() OneDashboardPageWidgetLogTableNullValueOutput {
+	return i.ToOneDashboardPageWidgetLogTableNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueArgs) ToOneDashboardPageWidgetLogTableNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueOutput)
+}
+
+// OneDashboardPageWidgetLogTableNullValueArrayInput is an input type that accepts OneDashboardPageWidgetLogTableNullValueArray and OneDashboardPageWidgetLogTableNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableNullValueArray{ OneDashboardPageWidgetLogTableNullValueArgs{...} }
+type OneDashboardPageWidgetLogTableNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableNullValueArrayOutput() OneDashboardPageWidgetLogTableNullValueArrayOutput
+	ToOneDashboardPageWidgetLogTableNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableNullValueArray []OneDashboardPageWidgetLogTableNullValueInput
+
+func (OneDashboardPageWidgetLogTableNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueArray) ToOneDashboardPageWidgetLogTableNullValueArrayOutput() OneDashboardPageWidgetLogTableNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueArray) ToOneDashboardPageWidgetLogTableNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueOutput) ToOneDashboardPageWidgetLogTableNullValueOutput() OneDashboardPageWidgetLogTableNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueOutput) ToOneDashboardPageWidgetLogTableNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetLogTableNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetLogTableNullValueOutput) SeriesOverrides() OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNullValue) []OneDashboardPageWidgetLogTableNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) ToOneDashboardPageWidgetLogTableNullValueArrayOutput() OneDashboardPageWidgetLogTableNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) ToOneDashboardPageWidgetLogTableNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableNullValue {
+		return vs[0].([]OneDashboardPageWidgetLogTableNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableNullValueOutput)
+}
+
+type OneDashboardPageWidgetLogTableNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetLogTableNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs and OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetLogTableNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput() OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput() OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray and OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray{ OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray []OneDashboardPageWidgetLogTableNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput() OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetLogTableNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetLogTableUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetLogTableUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetLogTableUnitInput is an input type that accepts OneDashboardPageWidgetLogTableUnitArgs and OneDashboardPageWidgetLogTableUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableUnitInput` via:
+//
+//	OneDashboardPageWidgetLogTableUnitArgs{...}
+type OneDashboardPageWidgetLogTableUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableUnitOutput() OneDashboardPageWidgetLogTableUnitOutput
+	ToOneDashboardPageWidgetLogTableUnitOutputWithContext(context.Context) OneDashboardPageWidgetLogTableUnitOutput
+}
+
+type OneDashboardPageWidgetLogTableUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetLogTableUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableUnitArgs) ToOneDashboardPageWidgetLogTableUnitOutput() OneDashboardPageWidgetLogTableUnitOutput {
+	return i.ToOneDashboardPageWidgetLogTableUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableUnitArgs) ToOneDashboardPageWidgetLogTableUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitOutput)
+}
+
+// OneDashboardPageWidgetLogTableUnitArrayInput is an input type that accepts OneDashboardPageWidgetLogTableUnitArray and OneDashboardPageWidgetLogTableUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableUnitArray{ OneDashboardPageWidgetLogTableUnitArgs{...} }
+type OneDashboardPageWidgetLogTableUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableUnitArrayOutput() OneDashboardPageWidgetLogTableUnitArrayOutput
+	ToOneDashboardPageWidgetLogTableUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableUnitArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableUnitArray []OneDashboardPageWidgetLogTableUnitInput
+
+func (OneDashboardPageWidgetLogTableUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableUnitArray) ToOneDashboardPageWidgetLogTableUnitArrayOutput() OneDashboardPageWidgetLogTableUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableUnitArray) ToOneDashboardPageWidgetLogTableUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableUnitOutput) ToOneDashboardPageWidgetLogTableUnitOutput() OneDashboardPageWidgetLogTableUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitOutput) ToOneDashboardPageWidgetLogTableUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetLogTableUnitOutput) SeriesOverrides() OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableUnit) []OneDashboardPageWidgetLogTableUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetLogTableUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableUnitArrayOutput) ToOneDashboardPageWidgetLogTableUnitArrayOutput() OneDashboardPageWidgetLogTableUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitArrayOutput) ToOneDashboardPageWidgetLogTableUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableUnit {
+		return vs[0].([]OneDashboardPageWidgetLogTableUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableUnitOutput)
+}
+
+type OneDashboardPageWidgetLogTableUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetLogTableUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs and OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetLogTableUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutput() OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutput() OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetLogTableUnitSeriesOverrideArray and OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetLogTableUnitSeriesOverrideArray{ OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetLogTableUnitSeriesOverrideArray []OneDashboardPageWidgetLogTableUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetLogTableUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArray) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetLogTableUnitSeriesOverrideArray) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutput() OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetLogTableUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetLogTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetLogTableUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetLogTableUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetMarkdown struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetMarkdownColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetMarkdownNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
 	Text *string `pulumi:"text"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetMarkdownUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetMarkdownInput is an input type that accepts OneDashboardPageWidgetMarkdownArgs and OneDashboardPageWidgetMarkdownOutput values.
@@ -5931,21 +12878,34 @@ type OneDashboardPageWidgetMarkdownInput interface {
 }
 
 type OneDashboardPageWidgetMarkdownArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetMarkdownColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetMarkdownNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Required) The markdown source to be rendered in the widget.
 	Text pulumi.StringPtrInput `pulumi:"text"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetMarkdownUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetMarkdownArgs) ElementType() reflect.Type {
@@ -5999,9 +12959,19 @@ func (o OneDashboardPageWidgetMarkdownOutput) ToOneDashboardPageWidgetMarkdownOu
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetMarkdownOutput) Colors() OneDashboardPageWidgetMarkdownColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) []OneDashboardPageWidgetMarkdownColor { return v.Colors }).(OneDashboardPageWidgetMarkdownColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetMarkdownOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetMarkdownOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6016,6 +12986,16 @@ func (o OneDashboardPageWidgetMarkdownOutput) Id() pulumi.StringPtrOutput {
 // (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 func (o OneDashboardPageWidgetMarkdownOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetMarkdownOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetMarkdownOutput) NullValues() OneDashboardPageWidgetMarkdownNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) []OneDashboardPageWidgetMarkdownNullValue { return v.NullValues }).(OneDashboardPageWidgetMarkdownNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -6033,9 +13013,23 @@ func (o OneDashboardPageWidgetMarkdownOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetMarkdownOutput) Units() OneDashboardPageWidgetMarkdownUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) []OneDashboardPageWidgetMarkdownUnit { return v.Units }).(OneDashboardPageWidgetMarkdownUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetMarkdownOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetMarkdownOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetMarkdownOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdown) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetMarkdownArrayOutput struct{ *pulumi.OutputState }
@@ -6058,9 +13052,646 @@ func (o OneDashboardPageWidgetMarkdownArrayOutput) Index(i pulumi.IntInput) OneD
 	}).(OneDashboardPageWidgetMarkdownOutput)
 }
 
+type OneDashboardPageWidgetMarkdownColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetMarkdownColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetMarkdownColorInput is an input type that accepts OneDashboardPageWidgetMarkdownColorArgs and OneDashboardPageWidgetMarkdownColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownColorInput` via:
+//
+//	OneDashboardPageWidgetMarkdownColorArgs{...}
+type OneDashboardPageWidgetMarkdownColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownColorOutput() OneDashboardPageWidgetMarkdownColorOutput
+	ToOneDashboardPageWidgetMarkdownColorOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownColorOutput
+}
+
+type OneDashboardPageWidgetMarkdownColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetMarkdownColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownColorArgs) ToOneDashboardPageWidgetMarkdownColorOutput() OneDashboardPageWidgetMarkdownColorOutput {
+	return i.ToOneDashboardPageWidgetMarkdownColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownColorArgs) ToOneDashboardPageWidgetMarkdownColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorOutput)
+}
+
+// OneDashboardPageWidgetMarkdownColorArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownColorArray and OneDashboardPageWidgetMarkdownColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownColorArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownColorArray{ OneDashboardPageWidgetMarkdownColorArgs{...} }
+type OneDashboardPageWidgetMarkdownColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownColorArrayOutput() OneDashboardPageWidgetMarkdownColorArrayOutput
+	ToOneDashboardPageWidgetMarkdownColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownColorArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownColorArray []OneDashboardPageWidgetMarkdownColorInput
+
+func (OneDashboardPageWidgetMarkdownColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownColorArray) ToOneDashboardPageWidgetMarkdownColorArrayOutput() OneDashboardPageWidgetMarkdownColorArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownColorArray) ToOneDashboardPageWidgetMarkdownColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownColorOutput) ToOneDashboardPageWidgetMarkdownColorOutput() OneDashboardPageWidgetMarkdownColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorOutput) ToOneDashboardPageWidgetMarkdownColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetMarkdownColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetMarkdownColorOutput) SeriesOverrides() OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownColor) []OneDashboardPageWidgetMarkdownColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownColorArrayOutput) ToOneDashboardPageWidgetMarkdownColorArrayOutput() OneDashboardPageWidgetMarkdownColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorArrayOutput) ToOneDashboardPageWidgetMarkdownColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownColor {
+		return vs[0].([]OneDashboardPageWidgetMarkdownColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownColorOutput)
+}
+
+type OneDashboardPageWidgetMarkdownColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetMarkdownColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs and OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetMarkdownColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutput() OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutput() OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownColorSeriesOverrideArray and OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownColorSeriesOverrideArray{ OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownColorSeriesOverrideArray []OneDashboardPageWidgetMarkdownColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetMarkdownColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArray) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownColorSeriesOverrideArray) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutput() OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetMarkdownColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetMarkdownNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetMarkdownNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetMarkdownNullValueInput is an input type that accepts OneDashboardPageWidgetMarkdownNullValueArgs and OneDashboardPageWidgetMarkdownNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownNullValueInput` via:
+//
+//	OneDashboardPageWidgetMarkdownNullValueArgs{...}
+type OneDashboardPageWidgetMarkdownNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownNullValueOutput() OneDashboardPageWidgetMarkdownNullValueOutput
+	ToOneDashboardPageWidgetMarkdownNullValueOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownNullValueOutput
+}
+
+type OneDashboardPageWidgetMarkdownNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetMarkdownNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueArgs) ToOneDashboardPageWidgetMarkdownNullValueOutput() OneDashboardPageWidgetMarkdownNullValueOutput {
+	return i.ToOneDashboardPageWidgetMarkdownNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueArgs) ToOneDashboardPageWidgetMarkdownNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueOutput)
+}
+
+// OneDashboardPageWidgetMarkdownNullValueArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownNullValueArray and OneDashboardPageWidgetMarkdownNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownNullValueArray{ OneDashboardPageWidgetMarkdownNullValueArgs{...} }
+type OneDashboardPageWidgetMarkdownNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownNullValueArrayOutput() OneDashboardPageWidgetMarkdownNullValueArrayOutput
+	ToOneDashboardPageWidgetMarkdownNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownNullValueArray []OneDashboardPageWidgetMarkdownNullValueInput
+
+func (OneDashboardPageWidgetMarkdownNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueArray) ToOneDashboardPageWidgetMarkdownNullValueArrayOutput() OneDashboardPageWidgetMarkdownNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueArray) ToOneDashboardPageWidgetMarkdownNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueOutput) ToOneDashboardPageWidgetMarkdownNullValueOutput() OneDashboardPageWidgetMarkdownNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueOutput) ToOneDashboardPageWidgetMarkdownNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetMarkdownNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetMarkdownNullValueOutput) SeriesOverrides() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownNullValue) []OneDashboardPageWidgetMarkdownNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) ToOneDashboardPageWidgetMarkdownNullValueArrayOutput() OneDashboardPageWidgetMarkdownNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) ToOneDashboardPageWidgetMarkdownNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownNullValue {
+		return vs[0].([]OneDashboardPageWidgetMarkdownNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownNullValueOutput)
+}
+
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs and OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray and OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray{ OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray []OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetMarkdownNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetMarkdownUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetMarkdownUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetMarkdownUnitInput is an input type that accepts OneDashboardPageWidgetMarkdownUnitArgs and OneDashboardPageWidgetMarkdownUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownUnitInput` via:
+//
+//	OneDashboardPageWidgetMarkdownUnitArgs{...}
+type OneDashboardPageWidgetMarkdownUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownUnitOutput() OneDashboardPageWidgetMarkdownUnitOutput
+	ToOneDashboardPageWidgetMarkdownUnitOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownUnitOutput
+}
+
+type OneDashboardPageWidgetMarkdownUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetMarkdownUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitArgs) ToOneDashboardPageWidgetMarkdownUnitOutput() OneDashboardPageWidgetMarkdownUnitOutput {
+	return i.ToOneDashboardPageWidgetMarkdownUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitArgs) ToOneDashboardPageWidgetMarkdownUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitOutput)
+}
+
+// OneDashboardPageWidgetMarkdownUnitArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownUnitArray and OneDashboardPageWidgetMarkdownUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownUnitArray{ OneDashboardPageWidgetMarkdownUnitArgs{...} }
+type OneDashboardPageWidgetMarkdownUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownUnitArrayOutput() OneDashboardPageWidgetMarkdownUnitArrayOutput
+	ToOneDashboardPageWidgetMarkdownUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownUnitArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownUnitArray []OneDashboardPageWidgetMarkdownUnitInput
+
+func (OneDashboardPageWidgetMarkdownUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitArray) ToOneDashboardPageWidgetMarkdownUnitArrayOutput() OneDashboardPageWidgetMarkdownUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitArray) ToOneDashboardPageWidgetMarkdownUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitOutput) ToOneDashboardPageWidgetMarkdownUnitOutput() OneDashboardPageWidgetMarkdownUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitOutput) ToOneDashboardPageWidgetMarkdownUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetMarkdownUnitOutput) SeriesOverrides() OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownUnit) []OneDashboardPageWidgetMarkdownUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetMarkdownUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) ToOneDashboardPageWidgetMarkdownUnitArrayOutput() OneDashboardPageWidgetMarkdownUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) ToOneDashboardPageWidgetMarkdownUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownUnit {
+		return vs[0].([]OneDashboardPageWidgetMarkdownUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownUnitOutput)
+}
+
+type OneDashboardPageWidgetMarkdownUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetMarkdownUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs and OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetMarkdownUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput() OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput() OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray and OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray{ OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray []OneDashboardPageWidgetMarkdownUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput() OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetMarkdownUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetMarkdownUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetMarkdownUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetMarkdownUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetPy struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetPyColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6068,16 +13699,25 @@ type OneDashboardPageWidgetPy struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetPyNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetPyNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetPyUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetPyInput is an input type that accepts OneDashboardPageWidgetPyArgs and OneDashboardPageWidgetPyOutput values.
@@ -6092,8 +13732,12 @@ type OneDashboardPageWidgetPyInput interface {
 }
 
 type OneDashboardPageWidgetPyArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetPyColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6101,16 +13745,25 @@ type OneDashboardPageWidgetPyArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetPyNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetPyNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetPyUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetPyArgs) ElementType() reflect.Type {
@@ -6164,9 +13817,19 @@ func (o OneDashboardPageWidgetPyOutput) ToOneDashboardPageWidgetPyOutputWithCont
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) Colors() OneDashboardPageWidgetPyColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyColor { return v.Colors }).(OneDashboardPageWidgetPyColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetPyOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetPyOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Use this item to filter the current dashboard.
@@ -6188,6 +13851,11 @@ func (o OneDashboardPageWidgetPyOutput) IgnoreTimeRange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetPyOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 func (o OneDashboardPageWidgetPyOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
@@ -6196,6 +13864,11 @@ func (o OneDashboardPageWidgetPyOutput) LinkedEntityGuids() pulumi.StringArrayOu
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetPyOutput) NrqlQueries() OneDashboardPageWidgetPyNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetPyNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) NullValues() OneDashboardPageWidgetPyNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyNullValue { return v.NullValues }).(OneDashboardPageWidgetPyNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -6208,9 +13881,23 @@ func (o OneDashboardPageWidgetPyOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetPyOutput) Units() OneDashboardPageWidgetPyUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) []OneDashboardPageWidgetPyUnit { return v.Units }).(OneDashboardPageWidgetPyUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetPyOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetPy) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetPyOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetPyOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPy) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetPyArrayOutput struct{ *pulumi.OutputState }
@@ -6231,6 +13918,217 @@ func (o OneDashboardPageWidgetPyArrayOutput) Index(i pulumi.IntInput) OneDashboa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPy {
 		return vs[0].([]OneDashboardPageWidgetPy)[vs[1].(int)]
 	}).(OneDashboardPageWidgetPyOutput)
+}
+
+type OneDashboardPageWidgetPyColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetPyColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetPyColorInput is an input type that accepts OneDashboardPageWidgetPyColorArgs and OneDashboardPageWidgetPyColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyColorInput` via:
+//
+//	OneDashboardPageWidgetPyColorArgs{...}
+type OneDashboardPageWidgetPyColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyColorOutput() OneDashboardPageWidgetPyColorOutput
+	ToOneDashboardPageWidgetPyColorOutputWithContext(context.Context) OneDashboardPageWidgetPyColorOutput
+}
+
+type OneDashboardPageWidgetPyColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetPyColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetPyColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyColorArgs) ToOneDashboardPageWidgetPyColorOutput() OneDashboardPageWidgetPyColorOutput {
+	return i.ToOneDashboardPageWidgetPyColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyColorArgs) ToOneDashboardPageWidgetPyColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorOutput)
+}
+
+// OneDashboardPageWidgetPyColorArrayInput is an input type that accepts OneDashboardPageWidgetPyColorArray and OneDashboardPageWidgetPyColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyColorArrayInput` via:
+//
+//	OneDashboardPageWidgetPyColorArray{ OneDashboardPageWidgetPyColorArgs{...} }
+type OneDashboardPageWidgetPyColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyColorArrayOutput() OneDashboardPageWidgetPyColorArrayOutput
+	ToOneDashboardPageWidgetPyColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyColorArrayOutput
+}
+
+type OneDashboardPageWidgetPyColorArray []OneDashboardPageWidgetPyColorInput
+
+func (OneDashboardPageWidgetPyColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyColorArray) ToOneDashboardPageWidgetPyColorArrayOutput() OneDashboardPageWidgetPyColorArrayOutput {
+	return i.ToOneDashboardPageWidgetPyColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyColorArray) ToOneDashboardPageWidgetPyColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorArrayOutput)
+}
+
+type OneDashboardPageWidgetPyColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyColorOutput) ToOneDashboardPageWidgetPyColorOutput() OneDashboardPageWidgetPyColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyColorOutput) ToOneDashboardPageWidgetPyColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetPyColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetPyColorOutput) SeriesOverrides() OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyColor) []OneDashboardPageWidgetPyColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetPyColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyColorArrayOutput) ToOneDashboardPageWidgetPyColorArrayOutput() OneDashboardPageWidgetPyColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyColorArrayOutput) ToOneDashboardPageWidgetPyColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyColor {
+		return vs[0].([]OneDashboardPageWidgetPyColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyColorOutput)
+}
+
+type OneDashboardPageWidgetPyColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetPyColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetPyColorSeriesOverrideArgs and OneDashboardPageWidgetPyColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetPyColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetPyColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyColorSeriesOverrideOutput() OneDashboardPageWidgetPyColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetPyColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetPyColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetPyColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetPyColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyColorSeriesOverrideArgs) ToOneDashboardPageWidgetPyColorSeriesOverrideOutput() OneDashboardPageWidgetPyColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetPyColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyColorSeriesOverrideArgs) ToOneDashboardPageWidgetPyColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetPyColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetPyColorSeriesOverrideArray and OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetPyColorSeriesOverrideArray{ OneDashboardPageWidgetPyColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetPyColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutput() OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetPyColorSeriesOverrideArray []OneDashboardPageWidgetPyColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetPyColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyColorSeriesOverrideArray) ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutput() OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyColorSeriesOverrideArray) ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetPyColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) ToOneDashboardPageWidgetPyColorSeriesOverrideOutput() OneDashboardPageWidgetPyColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) ToOneDashboardPageWidgetPyColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutput() OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetPyColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetPyNrqlQuery struct {
@@ -6339,22 +14237,457 @@ func (o OneDashboardPageWidgetPyNrqlQueryArrayOutput) Index(i pulumi.IntInput) O
 	}).(OneDashboardPageWidgetPyNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetPyNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetPyNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetPyNullValueInput is an input type that accepts OneDashboardPageWidgetPyNullValueArgs and OneDashboardPageWidgetPyNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyNullValueInput` via:
+//
+//	OneDashboardPageWidgetPyNullValueArgs{...}
+type OneDashboardPageWidgetPyNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyNullValueOutput() OneDashboardPageWidgetPyNullValueOutput
+	ToOneDashboardPageWidgetPyNullValueOutputWithContext(context.Context) OneDashboardPageWidgetPyNullValueOutput
+}
+
+type OneDashboardPageWidgetPyNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetPyNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyNullValueArgs) ToOneDashboardPageWidgetPyNullValueOutput() OneDashboardPageWidgetPyNullValueOutput {
+	return i.ToOneDashboardPageWidgetPyNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyNullValueArgs) ToOneDashboardPageWidgetPyNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueOutput)
+}
+
+// OneDashboardPageWidgetPyNullValueArrayInput is an input type that accepts OneDashboardPageWidgetPyNullValueArray and OneDashboardPageWidgetPyNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetPyNullValueArray{ OneDashboardPageWidgetPyNullValueArgs{...} }
+type OneDashboardPageWidgetPyNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyNullValueArrayOutput() OneDashboardPageWidgetPyNullValueArrayOutput
+	ToOneDashboardPageWidgetPyNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetPyNullValueArray []OneDashboardPageWidgetPyNullValueInput
+
+func (OneDashboardPageWidgetPyNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyNullValueArray) ToOneDashboardPageWidgetPyNullValueArrayOutput() OneDashboardPageWidgetPyNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetPyNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyNullValueArray) ToOneDashboardPageWidgetPyNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetPyNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyNullValueOutput) ToOneDashboardPageWidgetPyNullValueOutput() OneDashboardPageWidgetPyNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueOutput) ToOneDashboardPageWidgetPyNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetPyNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetPyNullValueOutput) SeriesOverrides() OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNullValue) []OneDashboardPageWidgetPyNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetPyNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyNullValueArrayOutput) ToOneDashboardPageWidgetPyNullValueArrayOutput() OneDashboardPageWidgetPyNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueArrayOutput) ToOneDashboardPageWidgetPyNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyNullValue {
+		return vs[0].([]OneDashboardPageWidgetPyNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyNullValueOutput)
+}
+
+type OneDashboardPageWidgetPyNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetPyNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetPyNullValueSeriesOverrideArgs and OneDashboardPageWidgetPyNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetPyNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetPyNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutput() OneDashboardPageWidgetPyNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetPyNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetPyNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutput() OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetPyNullValueSeriesOverrideArray and OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetPyNullValueSeriesOverrideArray{ OneDashboardPageWidgetPyNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetPyNullValueSeriesOverrideArray []OneDashboardPageWidgetPyNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetPyNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArray) ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyNullValueSeriesOverrideArray) ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetPyNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutput() OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetPyNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetPyNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetPyUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetPyUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetPyUnitInput is an input type that accepts OneDashboardPageWidgetPyUnitArgs and OneDashboardPageWidgetPyUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyUnitInput` via:
+//
+//	OneDashboardPageWidgetPyUnitArgs{...}
+type OneDashboardPageWidgetPyUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyUnitOutput() OneDashboardPageWidgetPyUnitOutput
+	ToOneDashboardPageWidgetPyUnitOutputWithContext(context.Context) OneDashboardPageWidgetPyUnitOutput
+}
+
+type OneDashboardPageWidgetPyUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetPyUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyUnitArgs) ToOneDashboardPageWidgetPyUnitOutput() OneDashboardPageWidgetPyUnitOutput {
+	return i.ToOneDashboardPageWidgetPyUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyUnitArgs) ToOneDashboardPageWidgetPyUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitOutput)
+}
+
+// OneDashboardPageWidgetPyUnitArrayInput is an input type that accepts OneDashboardPageWidgetPyUnitArray and OneDashboardPageWidgetPyUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetPyUnitArray{ OneDashboardPageWidgetPyUnitArgs{...} }
+type OneDashboardPageWidgetPyUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyUnitArrayOutput() OneDashboardPageWidgetPyUnitArrayOutput
+	ToOneDashboardPageWidgetPyUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyUnitArrayOutput
+}
+
+type OneDashboardPageWidgetPyUnitArray []OneDashboardPageWidgetPyUnitInput
+
+func (OneDashboardPageWidgetPyUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyUnitArray) ToOneDashboardPageWidgetPyUnitArrayOutput() OneDashboardPageWidgetPyUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetPyUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyUnitArray) ToOneDashboardPageWidgetPyUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetPyUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyUnitOutput) ToOneDashboardPageWidgetPyUnitOutput() OneDashboardPageWidgetPyUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitOutput) ToOneDashboardPageWidgetPyUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetPyUnitOutput) SeriesOverrides() OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyUnit) []OneDashboardPageWidgetPyUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetPyUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetPyUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyUnitArrayOutput) ToOneDashboardPageWidgetPyUnitArrayOutput() OneDashboardPageWidgetPyUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitArrayOutput) ToOneDashboardPageWidgetPyUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyUnit {
+		return vs[0].([]OneDashboardPageWidgetPyUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyUnitOutput)
+}
+
+type OneDashboardPageWidgetPyUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetPyUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetPyUnitSeriesOverrideArgs and OneDashboardPageWidgetPyUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetPyUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetPyUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyUnitSeriesOverrideOutput() OneDashboardPageWidgetPyUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetPyUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetPyUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetPyUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyUnitSeriesOverrideArgs) ToOneDashboardPageWidgetPyUnitSeriesOverrideOutput() OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetPyUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyUnitSeriesOverrideArgs) ToOneDashboardPageWidgetPyUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetPyUnitSeriesOverrideArray and OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetPyUnitSeriesOverrideArray{ OneDashboardPageWidgetPyUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetPyUnitSeriesOverrideArray []OneDashboardPageWidgetPyUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetPyUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetPyUnitSeriesOverrideArray) ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetPyUnitSeriesOverrideArray) ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetPyUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetPyUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ToOneDashboardPageWidgetPyUnitSeriesOverrideOutput() OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) ToOneDashboardPageWidgetPyUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetPyUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetPyUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetPyUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetPyUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetPyUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetPyUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetPyUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetStackedBar struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetStackedBarColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height *int    `pulumi:"height"`
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetStackedBarNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetStackedBarNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetStackedBarUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetStackedBarInput is an input type that accepts OneDashboardPageWidgetStackedBarArgs and OneDashboardPageWidgetStackedBarOutput values.
@@ -6369,21 +14702,34 @@ type OneDashboardPageWidgetStackedBarInput interface {
 }
 
 type OneDashboardPageWidgetStackedBarArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetStackedBarColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
 	Height pulumi.IntPtrInput    `pulumi:"height"`
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetStackedBarNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetStackedBarNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetStackedBarUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetStackedBarArgs) ElementType() reflect.Type {
@@ -6437,9 +14783,19 @@ func (o OneDashboardPageWidgetStackedBarOutput) ToOneDashboardPageWidgetStackedB
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetStackedBarOutput) Colors() OneDashboardPageWidgetStackedBarColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarColor { return v.Colors }).(OneDashboardPageWidgetStackedBarColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetStackedBarOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetStackedBarOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6456,11 +14812,23 @@ func (o OneDashboardPageWidgetStackedBarOutput) IgnoreTimeRange() pulumi.BoolPtr
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetStackedBarOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetStackedBarOutput) NrqlQueries() OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNrqlQuery {
 		return v.NrqlQueries
 	}).(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetStackedBarOutput) NullValues() OneDashboardPageWidgetStackedBarNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarNullValue {
+		return v.NullValues
+	}).(OneDashboardPageWidgetStackedBarNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -6473,9 +14841,23 @@ func (o OneDashboardPageWidgetStackedBarOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetStackedBarOutput) Units() OneDashboardPageWidgetStackedBarUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) []OneDashboardPageWidgetStackedBarUnit { return v.Units }).(OneDashboardPageWidgetStackedBarUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetStackedBarOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetStackedBarOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetStackedBarOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBar) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetStackedBarArrayOutput struct{ *pulumi.OutputState }
@@ -6496,6 +14878,217 @@ func (o OneDashboardPageWidgetStackedBarArrayOutput) Index(i pulumi.IntInput) On
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBar {
 		return vs[0].([]OneDashboardPageWidgetStackedBar)[vs[1].(int)]
 	}).(OneDashboardPageWidgetStackedBarOutput)
+}
+
+type OneDashboardPageWidgetStackedBarColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetStackedBarColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetStackedBarColorInput is an input type that accepts OneDashboardPageWidgetStackedBarColorArgs and OneDashboardPageWidgetStackedBarColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarColorInput` via:
+//
+//	OneDashboardPageWidgetStackedBarColorArgs{...}
+type OneDashboardPageWidgetStackedBarColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarColorOutput() OneDashboardPageWidgetStackedBarColorOutput
+	ToOneDashboardPageWidgetStackedBarColorOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarColorOutput
+}
+
+type OneDashboardPageWidgetStackedBarColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetStackedBarColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarColorArgs) ToOneDashboardPageWidgetStackedBarColorOutput() OneDashboardPageWidgetStackedBarColorOutput {
+	return i.ToOneDashboardPageWidgetStackedBarColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarColorArgs) ToOneDashboardPageWidgetStackedBarColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorOutput)
+}
+
+// OneDashboardPageWidgetStackedBarColorArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarColorArray and OneDashboardPageWidgetStackedBarColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarColorArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarColorArray{ OneDashboardPageWidgetStackedBarColorArgs{...} }
+type OneDashboardPageWidgetStackedBarColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarColorArrayOutput() OneDashboardPageWidgetStackedBarColorArrayOutput
+	ToOneDashboardPageWidgetStackedBarColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarColorArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarColorArray []OneDashboardPageWidgetStackedBarColorInput
+
+func (OneDashboardPageWidgetStackedBarColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarColorArray) ToOneDashboardPageWidgetStackedBarColorArrayOutput() OneDashboardPageWidgetStackedBarColorArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarColorArray) ToOneDashboardPageWidgetStackedBarColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarColorOutput) ToOneDashboardPageWidgetStackedBarColorOutput() OneDashboardPageWidgetStackedBarColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorOutput) ToOneDashboardPageWidgetStackedBarColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetStackedBarColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetStackedBarColorOutput) SeriesOverrides() OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarColor) []OneDashboardPageWidgetStackedBarColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarColorArrayOutput) ToOneDashboardPageWidgetStackedBarColorArrayOutput() OneDashboardPageWidgetStackedBarColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorArrayOutput) ToOneDashboardPageWidgetStackedBarColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarColor {
+		return vs[0].([]OneDashboardPageWidgetStackedBarColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarColorOutput)
+}
+
+type OneDashboardPageWidgetStackedBarColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetStackedBarColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs and OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetStackedBarColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutput() OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutput() OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarColorSeriesOverrideArray and OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarColorSeriesOverrideArray{ OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarColorSeriesOverrideArray []OneDashboardPageWidgetStackedBarColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetStackedBarColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArray) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarColorSeriesOverrideArray) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutput() OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetStackedBarColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetStackedBarNrqlQuery struct {
@@ -6604,9 +15197,435 @@ func (o OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput) Index(i pulumi.Int
 	}).(OneDashboardPageWidgetStackedBarNrqlQueryOutput)
 }
 
+type OneDashboardPageWidgetStackedBarNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetStackedBarNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetStackedBarNullValueInput is an input type that accepts OneDashboardPageWidgetStackedBarNullValueArgs and OneDashboardPageWidgetStackedBarNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNullValueInput` via:
+//
+//	OneDashboardPageWidgetStackedBarNullValueArgs{...}
+type OneDashboardPageWidgetStackedBarNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarNullValueOutput() OneDashboardPageWidgetStackedBarNullValueOutput
+	ToOneDashboardPageWidgetStackedBarNullValueOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarNullValueOutput
+}
+
+type OneDashboardPageWidgetStackedBarNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetStackedBarNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueArgs) ToOneDashboardPageWidgetStackedBarNullValueOutput() OneDashboardPageWidgetStackedBarNullValueOutput {
+	return i.ToOneDashboardPageWidgetStackedBarNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueArgs) ToOneDashboardPageWidgetStackedBarNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueOutput)
+}
+
+// OneDashboardPageWidgetStackedBarNullValueArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarNullValueArray and OneDashboardPageWidgetStackedBarNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarNullValueArray{ OneDashboardPageWidgetStackedBarNullValueArgs{...} }
+type OneDashboardPageWidgetStackedBarNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarNullValueArrayOutput() OneDashboardPageWidgetStackedBarNullValueArrayOutput
+	ToOneDashboardPageWidgetStackedBarNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarNullValueArray []OneDashboardPageWidgetStackedBarNullValueInput
+
+func (OneDashboardPageWidgetStackedBarNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueArray) ToOneDashboardPageWidgetStackedBarNullValueArrayOutput() OneDashboardPageWidgetStackedBarNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueArray) ToOneDashboardPageWidgetStackedBarNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueOutput) ToOneDashboardPageWidgetStackedBarNullValueOutput() OneDashboardPageWidgetStackedBarNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueOutput) ToOneDashboardPageWidgetStackedBarNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetStackedBarNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetStackedBarNullValueOutput) SeriesOverrides() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNullValue) []OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) ToOneDashboardPageWidgetStackedBarNullValueArrayOutput() OneDashboardPageWidgetStackedBarNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) ToOneDashboardPageWidgetStackedBarNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarNullValue {
+		return vs[0].([]OneDashboardPageWidgetStackedBarNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarNullValueOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs and OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray and OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray{ OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray []OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetStackedBarNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetStackedBarUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetStackedBarUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetStackedBarUnitInput is an input type that accepts OneDashboardPageWidgetStackedBarUnitArgs and OneDashboardPageWidgetStackedBarUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarUnitInput` via:
+//
+//	OneDashboardPageWidgetStackedBarUnitArgs{...}
+type OneDashboardPageWidgetStackedBarUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarUnitOutput() OneDashboardPageWidgetStackedBarUnitOutput
+	ToOneDashboardPageWidgetStackedBarUnitOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarUnitOutput
+}
+
+type OneDashboardPageWidgetStackedBarUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetStackedBarUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitArgs) ToOneDashboardPageWidgetStackedBarUnitOutput() OneDashboardPageWidgetStackedBarUnitOutput {
+	return i.ToOneDashboardPageWidgetStackedBarUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitArgs) ToOneDashboardPageWidgetStackedBarUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitOutput)
+}
+
+// OneDashboardPageWidgetStackedBarUnitArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarUnitArray and OneDashboardPageWidgetStackedBarUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarUnitArray{ OneDashboardPageWidgetStackedBarUnitArgs{...} }
+type OneDashboardPageWidgetStackedBarUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarUnitArrayOutput() OneDashboardPageWidgetStackedBarUnitArrayOutput
+	ToOneDashboardPageWidgetStackedBarUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarUnitArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarUnitArray []OneDashboardPageWidgetStackedBarUnitInput
+
+func (OneDashboardPageWidgetStackedBarUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitArray) ToOneDashboardPageWidgetStackedBarUnitArrayOutput() OneDashboardPageWidgetStackedBarUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitArray) ToOneDashboardPageWidgetStackedBarUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitOutput) ToOneDashboardPageWidgetStackedBarUnitOutput() OneDashboardPageWidgetStackedBarUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitOutput) ToOneDashboardPageWidgetStackedBarUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetStackedBarUnitOutput) SeriesOverrides() OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarUnit) []OneDashboardPageWidgetStackedBarUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetStackedBarUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) ToOneDashboardPageWidgetStackedBarUnitArrayOutput() OneDashboardPageWidgetStackedBarUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) ToOneDashboardPageWidgetStackedBarUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarUnit {
+		return vs[0].([]OneDashboardPageWidgetStackedBarUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarUnitOutput)
+}
+
+type OneDashboardPageWidgetStackedBarUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs and OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput() OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput() OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray and OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray{ OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray []OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput() OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetStackedBarUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetStackedBarUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetStackedBarUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetStackedBarUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput)
+}
+
 type OneDashboardPageWidgetTable struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors []OneDashboardPageWidgetTableColor `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column int `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries *bool `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard *bool `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6614,16 +15633,25 @@ type OneDashboardPageWidgetTable struct {
 	Id     *string `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange *bool `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled *bool `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids []string `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries []OneDashboardPageWidgetTableNrqlQuery `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues []OneDashboardPageWidgetTableNullValue `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row int `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title string `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units []OneDashboardPageWidgetTableUnit `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width *int `pulumi:"width"`
+	Width        *int     `pulumi:"width"`
+	YAxisLeftMax *float64 `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin *float64 `pulumi:"yAxisLeftMin"`
 }
 
 // OneDashboardPageWidgetTableInput is an input type that accepts OneDashboardPageWidgetTableArgs and OneDashboardPageWidgetTableOutput values.
@@ -6638,8 +15666,12 @@ type OneDashboardPageWidgetTableInput interface {
 }
 
 type OneDashboardPageWidgetTableArgs struct {
+	// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+	Colors OneDashboardPageWidgetTableColorArrayInput `pulumi:"colors"`
 	// (Required) Column position of widget from top left, starting at `1`.
 	Column pulumi.IntInput `pulumi:"column"`
+	// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+	FacetShowOtherSeries pulumi.BoolPtrInput `pulumi:"facetShowOtherSeries"`
 	// (Optional) Use this item to filter the current dashboard.
 	FilterCurrentDashboard pulumi.BoolPtrInput `pulumi:"filterCurrentDashboard"`
 	// (Optional) Height of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `3`.
@@ -6647,16 +15679,25 @@ type OneDashboardPageWidgetTableArgs struct {
 	Id     pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional) With this turned on, the time range in this query will override the time picker on dashboards and other pages. Defaults to `false`.
 	IgnoreTimeRange pulumi.BoolPtrInput `pulumi:"ignoreTimeRange"`
+	// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+	LegendEnabled pulumi.BoolPtrInput `pulumi:"legendEnabled"`
 	// (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 	LinkedEntityGuids pulumi.StringArrayInput `pulumi:"linkedEntityGuids"`
 	// (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 	NrqlQueries OneDashboardPageWidgetTableNrqlQueryArrayInput `pulumi:"nrqlQueries"`
+	// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+	NullValues OneDashboardPageWidgetTableNullValueArrayInput `pulumi:"nullValues"`
 	// (Required) Row position of widget from top left, starting at `1`.
 	Row pulumi.IntInput `pulumi:"row"`
 	// (Optional) A human-friendly display string for this value.
 	Title pulumi.StringInput `pulumi:"title"`
+	// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+	Units OneDashboardPageWidgetTableUnitArrayInput `pulumi:"units"`
 	// (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
-	Width pulumi.IntPtrInput `pulumi:"width"`
+	Width        pulumi.IntPtrInput     `pulumi:"width"`
+	YAxisLeftMax pulumi.Float64PtrInput `pulumi:"yAxisLeftMax"`
+	// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+	YAxisLeftMin pulumi.Float64PtrInput `pulumi:"yAxisLeftMin"`
 }
 
 func (OneDashboardPageWidgetTableArgs) ElementType() reflect.Type {
@@ -6710,9 +15751,19 @@ func (o OneDashboardPageWidgetTableOutput) ToOneDashboardPageWidgetTableOutputWi
 	return o
 }
 
+// (Optional) A nested block that describes colors of your charts per series. See Nested Colors blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) Colors() OneDashboardPageWidgetTableColorArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableColor { return v.Colors }).(OneDashboardPageWidgetTableColorArrayOutput)
+}
+
 // (Required) Column position of widget from top left, starting at `1`.
 func (o OneDashboardPageWidgetTableOutput) Column() pulumi.IntOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) int { return v.Column }).(pulumi.IntOutput)
+}
+
+// (Optional) Enable or disable the Other group in visualisations. The other group is used if a facet on a query returns more than 2000 items for bar charts, pie charts, and tables. The other group aggregates the rest of the facets. Defaults to `false`
+func (o OneDashboardPageWidgetTableOutput) FacetShowOtherSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.FacetShowOtherSeries }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) Use this item to filter the current dashboard.
@@ -6734,6 +15785,11 @@ func (o OneDashboardPageWidgetTableOutput) IgnoreTimeRange() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.IgnoreTimeRange }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) With this turned on, the legend will be displayed. Defaults to `true`.
+func (o OneDashboardPageWidgetTableOutput) LegendEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *bool { return v.LegendEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // (Optional) Related entity GUIDs. Currently only supports Dashboard entity GUIDs.
 func (o OneDashboardPageWidgetTableOutput) LinkedEntityGuids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []string { return v.LinkedEntityGuids }).(pulumi.StringArrayOutput)
@@ -6742,6 +15798,11 @@ func (o OneDashboardPageWidgetTableOutput) LinkedEntityGuids() pulumi.StringArra
 // (Optional) Configuration for variables of type `nrql`. See Nested nrql\_query blocks for details.
 func (o OneDashboardPageWidgetTableOutput) NrqlQueries() OneDashboardPageWidgetTableNrqlQueryArrayOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNrqlQuery { return v.NrqlQueries }).(OneDashboardPageWidgetTableNrqlQueryArrayOutput)
+}
+
+// (Optional) A nested block that describes a Null Values. See Nested Null Values blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) NullValues() OneDashboardPageWidgetTableNullValueArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableNullValue { return v.NullValues }).(OneDashboardPageWidgetTableNullValueArrayOutput)
 }
 
 // (Required) Row position of widget from top left, starting at `1`.
@@ -6754,9 +15815,23 @@ func (o OneDashboardPageWidgetTableOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// (Optional) A nested block that describes units on your Y axis. See Nested Units blocks below for details.
+func (o OneDashboardPageWidgetTableOutput) Units() OneDashboardPageWidgetTableUnitArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) []OneDashboardPageWidgetTableUnit { return v.Units }).(OneDashboardPageWidgetTableUnitArrayOutput)
+}
+
 // (Optional) Width of the widget.  Valid values are `1` to `12` inclusive.  Defaults to `4`.
 func (o OneDashboardPageWidgetTableOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OneDashboardPageWidgetTable) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+func (o OneDashboardPageWidgetTableOutput) YAxisLeftMax() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *float64 { return v.YAxisLeftMax }).(pulumi.Float64PtrOutput)
+}
+
+// , `yAxisLeftMax` - (Optional) Adjust the Y axis to display the data within certain values by setting a minimum and maximum value for the axis for line charts and area charts. If no customization option is selected, dashboards automatically displays the full Y axis from 0 to the top value plus a margin.
+func (o OneDashboardPageWidgetTableOutput) YAxisLeftMin() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTable) *float64 { return v.YAxisLeftMin }).(pulumi.Float64PtrOutput)
 }
 
 type OneDashboardPageWidgetTableArrayOutput struct{ *pulumi.OutputState }
@@ -6777,6 +15852,217 @@ func (o OneDashboardPageWidgetTableArrayOutput) Index(i pulumi.IntInput) OneDash
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTable {
 		return vs[0].([]OneDashboardPageWidgetTable)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableOutput)
+}
+
+type OneDashboardPageWidgetTableColor struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color *string `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetTableColorSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetTableColorInput is an input type that accepts OneDashboardPageWidgetTableColorArgs and OneDashboardPageWidgetTableColorOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableColorInput` via:
+//
+//	OneDashboardPageWidgetTableColorArgs{...}
+type OneDashboardPageWidgetTableColorInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableColorOutput() OneDashboardPageWidgetTableColorOutput
+	ToOneDashboardPageWidgetTableColorOutputWithContext(context.Context) OneDashboardPageWidgetTableColorOutput
+}
+
+type OneDashboardPageWidgetTableColorArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetTableColorSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetTableColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableColorArgs) ToOneDashboardPageWidgetTableColorOutput() OneDashboardPageWidgetTableColorOutput {
+	return i.ToOneDashboardPageWidgetTableColorOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableColorArgs) ToOneDashboardPageWidgetTableColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorOutput)
+}
+
+// OneDashboardPageWidgetTableColorArrayInput is an input type that accepts OneDashboardPageWidgetTableColorArray and OneDashboardPageWidgetTableColorArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableColorArrayInput` via:
+//
+//	OneDashboardPageWidgetTableColorArray{ OneDashboardPageWidgetTableColorArgs{...} }
+type OneDashboardPageWidgetTableColorArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableColorArrayOutput() OneDashboardPageWidgetTableColorArrayOutput
+	ToOneDashboardPageWidgetTableColorArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableColorArrayOutput
+}
+
+type OneDashboardPageWidgetTableColorArray []OneDashboardPageWidgetTableColorInput
+
+func (OneDashboardPageWidgetTableColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableColor)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableColorArray) ToOneDashboardPageWidgetTableColorArrayOutput() OneDashboardPageWidgetTableColorArrayOutput {
+	return i.ToOneDashboardPageWidgetTableColorArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableColorArray) ToOneDashboardPageWidgetTableColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorArrayOutput)
+}
+
+type OneDashboardPageWidgetTableColorOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableColorOutput) ToOneDashboardPageWidgetTableColorOutput() OneDashboardPageWidgetTableColorOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableColorOutput) ToOneDashboardPageWidgetTableColorOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetTableColorOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableColor) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetTableColorOutput) SeriesOverrides() OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableColor) []OneDashboardPageWidgetTableColorSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetTableColorArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableColor)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableColorArrayOutput) ToOneDashboardPageWidgetTableColorArrayOutput() OneDashboardPageWidgetTableColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableColorArrayOutput) ToOneDashboardPageWidgetTableColorArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableColorArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableColor {
+		return vs[0].([]OneDashboardPageWidgetTableColor)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableColorOutput)
+}
+
+type OneDashboardPageWidgetTableColorSeriesOverride struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      *string `pulumi:"color"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetTableColorSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetTableColorSeriesOverrideArgs and OneDashboardPageWidgetTableColorSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableColorSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetTableColorSeriesOverrideArgs{...}
+type OneDashboardPageWidgetTableColorSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableColorSeriesOverrideOutput() OneDashboardPageWidgetTableColorSeriesOverrideOutput
+	ToOneDashboardPageWidgetTableColorSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetTableColorSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetTableColorSeriesOverrideArgs struct {
+	// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+	Color      pulumi.StringPtrInput `pulumi:"color"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetTableColorSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableColorSeriesOverrideArgs) ToOneDashboardPageWidgetTableColorSeriesOverrideOutput() OneDashboardPageWidgetTableColorSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetTableColorSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableColorSeriesOverrideArgs) ToOneDashboardPageWidgetTableColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetTableColorSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetTableColorSeriesOverrideArray and OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableColorSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetTableColorSeriesOverrideArray{ OneDashboardPageWidgetTableColorSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetTableColorSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutput() OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetTableColorSeriesOverrideArray []OneDashboardPageWidgetTableColorSeriesOverrideInput
+
+func (OneDashboardPageWidgetTableColorSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableColorSeriesOverrideArray) ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutput() OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableColorSeriesOverrideArray) ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetTableColorSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableColorSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) ToOneDashboardPageWidgetTableColorSeriesOverrideOutput() OneDashboardPageWidgetTableColorSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) ToOneDashboardPageWidgetTableColorSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorSeriesOverrideOutput {
+	return o
+}
+
+// (Optional) Choose a color to customize the color of your charts per series in area, bar, line, pie, and stacked bar charts. Accepted values are RGB, HEX, or HSL code.
+func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableColorSeriesOverride) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableColorSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableColorSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutput() OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableColorSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableColorSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableColorSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetTableColorSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableColorSeriesOverrideOutput)
 }
 
 type OneDashboardPageWidgetTableNrqlQuery struct {
@@ -6883,6 +16169,428 @@ func (o OneDashboardPageWidgetTableNrqlQueryArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableNrqlQuery {
 		return vs[0].([]OneDashboardPageWidgetTableNrqlQuery)[vs[1].(int)]
 	}).(OneDashboardPageWidgetTableNrqlQueryOutput)
+}
+
+type OneDashboardPageWidgetTableNullValue struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue *string `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetTableNullValueSeriesOverride `pulumi:"seriesOverrides"`
+}
+
+// OneDashboardPageWidgetTableNullValueInput is an input type that accepts OneDashboardPageWidgetTableNullValueArgs and OneDashboardPageWidgetTableNullValueOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableNullValueInput` via:
+//
+//	OneDashboardPageWidgetTableNullValueArgs{...}
+type OneDashboardPageWidgetTableNullValueInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableNullValueOutput() OneDashboardPageWidgetTableNullValueOutput
+	ToOneDashboardPageWidgetTableNullValueOutputWithContext(context.Context) OneDashboardPageWidgetTableNullValueOutput
+}
+
+type OneDashboardPageWidgetTableNullValueArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue pulumi.StringPtrInput `pulumi:"nullValue"`
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+}
+
+func (OneDashboardPageWidgetTableNullValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableNullValueArgs) ToOneDashboardPageWidgetTableNullValueOutput() OneDashboardPageWidgetTableNullValueOutput {
+	return i.ToOneDashboardPageWidgetTableNullValueOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableNullValueArgs) ToOneDashboardPageWidgetTableNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueOutput)
+}
+
+// OneDashboardPageWidgetTableNullValueArrayInput is an input type that accepts OneDashboardPageWidgetTableNullValueArray and OneDashboardPageWidgetTableNullValueArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableNullValueArrayInput` via:
+//
+//	OneDashboardPageWidgetTableNullValueArray{ OneDashboardPageWidgetTableNullValueArgs{...} }
+type OneDashboardPageWidgetTableNullValueArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableNullValueArrayOutput() OneDashboardPageWidgetTableNullValueArrayOutput
+	ToOneDashboardPageWidgetTableNullValueArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableNullValueArrayOutput
+}
+
+type OneDashboardPageWidgetTableNullValueArray []OneDashboardPageWidgetTableNullValueInput
+
+func (OneDashboardPageWidgetTableNullValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableNullValue)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableNullValueArray) ToOneDashboardPageWidgetTableNullValueArrayOutput() OneDashboardPageWidgetTableNullValueArrayOutput {
+	return i.ToOneDashboardPageWidgetTableNullValueArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableNullValueArray) ToOneDashboardPageWidgetTableNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueArrayOutput)
+}
+
+type OneDashboardPageWidgetTableNullValueOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableNullValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableNullValueOutput) ToOneDashboardPageWidgetTableNullValueOutput() OneDashboardPageWidgetTableNullValueOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueOutput) ToOneDashboardPageWidgetTableNullValueOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetTableNullValueOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNullValue) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetTableNullValueOutput) SeriesOverrides() OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNullValue) []OneDashboardPageWidgetTableNullValueSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetTableNullValueArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableNullValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableNullValue)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableNullValueArrayOutput) ToOneDashboardPageWidgetTableNullValueArrayOutput() OneDashboardPageWidgetTableNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueArrayOutput) ToOneDashboardPageWidgetTableNullValueArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableNullValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableNullValue {
+		return vs[0].([]OneDashboardPageWidgetTableNullValue)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableNullValueOutput)
+}
+
+type OneDashboardPageWidgetTableNullValueSeriesOverride struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  *string `pulumi:"nullValue"`
+	SeriesName *string `pulumi:"seriesName"`
+}
+
+// OneDashboardPageWidgetTableNullValueSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetTableNullValueSeriesOverrideArgs and OneDashboardPageWidgetTableNullValueSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableNullValueSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetTableNullValueSeriesOverrideArgs{...}
+type OneDashboardPageWidgetTableNullValueSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutput() OneDashboardPageWidgetTableNullValueSeriesOverrideOutput
+	ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetTableNullValueSeriesOverrideArgs struct {
+	// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+	NullValue  pulumi.StringPtrInput `pulumi:"nullValue"`
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+}
+
+func (OneDashboardPageWidgetTableNullValueSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutput() OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArgs) ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetTableNullValueSeriesOverrideArray and OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetTableNullValueSeriesOverrideArray{ OneDashboardPageWidgetTableNullValueSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetTableNullValueSeriesOverrideArray []OneDashboardPageWidgetTableNullValueSeriesOverrideInput
+
+func (OneDashboardPageWidgetTableNullValueSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArray) ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableNullValueSeriesOverrideArray) ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetTableNullValueSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutput() OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) ToOneDashboardPageWidgetTableNullValueSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
+	return o
+}
+
+// Choose an option in displaying null values. Accepted values are `default`, `remove`, `preserve`, or `zero`.
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) NullValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNullValueSeriesOverride) *string { return v.NullValue }).(pulumi.StringPtrOutput)
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableNullValueSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableNullValueSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput() OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableNullValueSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableNullValueSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetTableNullValueSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput)
+}
+
+type OneDashboardPageWidgetTableUnit struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides []OneDashboardPageWidgetTableUnitSeriesOverride `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetTableUnitInput is an input type that accepts OneDashboardPageWidgetTableUnitArgs and OneDashboardPageWidgetTableUnitOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableUnitInput` via:
+//
+//	OneDashboardPageWidgetTableUnitArgs{...}
+type OneDashboardPageWidgetTableUnitInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableUnitOutput() OneDashboardPageWidgetTableUnitOutput
+	ToOneDashboardPageWidgetTableUnitOutputWithContext(context.Context) OneDashboardPageWidgetTableUnitOutput
+}
+
+type OneDashboardPageWidgetTableUnitArgs struct {
+	// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+	SeriesOverrides OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput `pulumi:"seriesOverrides"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetTableUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableUnitArgs) ToOneDashboardPageWidgetTableUnitOutput() OneDashboardPageWidgetTableUnitOutput {
+	return i.ToOneDashboardPageWidgetTableUnitOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableUnitArgs) ToOneDashboardPageWidgetTableUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitOutput)
+}
+
+// OneDashboardPageWidgetTableUnitArrayInput is an input type that accepts OneDashboardPageWidgetTableUnitArray and OneDashboardPageWidgetTableUnitArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableUnitArrayInput` via:
+//
+//	OneDashboardPageWidgetTableUnitArray{ OneDashboardPageWidgetTableUnitArgs{...} }
+type OneDashboardPageWidgetTableUnitArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableUnitArrayOutput() OneDashboardPageWidgetTableUnitArrayOutput
+	ToOneDashboardPageWidgetTableUnitArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableUnitArrayOutput
+}
+
+type OneDashboardPageWidgetTableUnitArray []OneDashboardPageWidgetTableUnitInput
+
+func (OneDashboardPageWidgetTableUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableUnit)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableUnitArray) ToOneDashboardPageWidgetTableUnitArrayOutput() OneDashboardPageWidgetTableUnitArrayOutput {
+	return i.ToOneDashboardPageWidgetTableUnitArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableUnitArray) ToOneDashboardPageWidgetTableUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitArrayOutput)
+}
+
+type OneDashboardPageWidgetTableUnitOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableUnitOutput) ToOneDashboardPageWidgetTableUnitOutput() OneDashboardPageWidgetTableUnitOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitOutput) ToOneDashboardPageWidgetTableUnitOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitOutput {
+	return o
+}
+
+// (Optional) A Nested block which will take two string attributes `color` and `seriesName`. This nested block is used to customize colors of individual.
+func (o OneDashboardPageWidgetTableUnitOutput) SeriesOverrides() OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableUnit) []OneDashboardPageWidgetTableUnitSeriesOverride {
+		return v.SeriesOverrides
+	}).(OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetTableUnitOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableUnit) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetTableUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableUnit)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableUnitArrayOutput) ToOneDashboardPageWidgetTableUnitArrayOutput() OneDashboardPageWidgetTableUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitArrayOutput) ToOneDashboardPageWidgetTableUnitArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableUnit {
+		return vs[0].([]OneDashboardPageWidgetTableUnit)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableUnitOutput)
+}
+
+type OneDashboardPageWidgetTableUnitSeriesOverride struct {
+	SeriesName *string `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit *string `pulumi:"unit"`
+}
+
+// OneDashboardPageWidgetTableUnitSeriesOverrideInput is an input type that accepts OneDashboardPageWidgetTableUnitSeriesOverrideArgs and OneDashboardPageWidgetTableUnitSeriesOverrideOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableUnitSeriesOverrideInput` via:
+//
+//	OneDashboardPageWidgetTableUnitSeriesOverrideArgs{...}
+type OneDashboardPageWidgetTableUnitSeriesOverrideInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableUnitSeriesOverrideOutput() OneDashboardPageWidgetTableUnitSeriesOverrideOutput
+	ToOneDashboardPageWidgetTableUnitSeriesOverrideOutputWithContext(context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideOutput
+}
+
+type OneDashboardPageWidgetTableUnitSeriesOverrideArgs struct {
+	SeriesName pulumi.StringPtrInput `pulumi:"seriesName"`
+	// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (OneDashboardPageWidgetTableUnitSeriesOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableUnitSeriesOverrideArgs) ToOneDashboardPageWidgetTableUnitSeriesOverrideOutput() OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
+	return i.ToOneDashboardPageWidgetTableUnitSeriesOverrideOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableUnitSeriesOverrideArgs) ToOneDashboardPageWidgetTableUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitSeriesOverrideOutput)
+}
+
+// OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput is an input type that accepts OneDashboardPageWidgetTableUnitSeriesOverrideArray and OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput values.
+// You can construct a concrete instance of `OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput` via:
+//
+//	OneDashboardPageWidgetTableUnitSeriesOverrideArray{ OneDashboardPageWidgetTableUnitSeriesOverrideArgs{...} }
+type OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput
+	ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutputWithContext(context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput
+}
+
+type OneDashboardPageWidgetTableUnitSeriesOverrideArray []OneDashboardPageWidgetTableUnitSeriesOverrideInput
+
+func (OneDashboardPageWidgetTableUnitSeriesOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (i OneDashboardPageWidgetTableUnitSeriesOverrideArray) ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput {
+	return i.ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OneDashboardPageWidgetTableUnitSeriesOverrideArray) ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput)
+}
+
+type OneDashboardPageWidgetTableUnitSeriesOverrideOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OneDashboardPageWidgetTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ToOneDashboardPageWidgetTableUnitSeriesOverrideOutput() OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) ToOneDashboardPageWidgetTableUnitSeriesOverrideOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) SeriesName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableUnitSeriesOverride) *string { return v.SeriesName }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Choose a unit to customize the unit on your Y axis and in each of your series.
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OneDashboardPageWidgetTableUnitSeriesOverride) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OneDashboardPageWidgetTableUnitSeriesOverride)(nil)).Elem()
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput() OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) ToOneDashboardPageWidgetTableUnitSeriesOverrideArrayOutputWithContext(ctx context.Context) OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput {
+	return o
+}
+
+func (o OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput) Index(i pulumi.IntInput) OneDashboardPageWidgetTableUnitSeriesOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OneDashboardPageWidgetTableUnitSeriesOverride {
+		return vs[0].([]OneDashboardPageWidgetTableUnitSeriesOverride)[vs[1].(int)]
+	}).(OneDashboardPageWidgetTableUnitSeriesOverrideOutput)
 }
 
 type OneDashboardRawPage struct {
@@ -10732,58 +20440,226 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageArrayInput)(nil)).Elem(), OneDashboardPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaInput)(nil)).Elem(), OneDashboardPageWidgetAreaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetAreaUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetAreaUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarInput)(nil)).Elem(), OneDashboardPageWidgetBarArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorInput)(nil)).Elem(), OneDashboardPageWidgetBarColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNullValueInput)(nil)).Elem(), OneDashboardPageWidgetBarNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBarNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarUnitInput)(nil)).Elem(), OneDashboardPageWidgetBarUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBarUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBarUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBarUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardInput)(nil)).Elem(), OneDashboardPageWidgetBillboardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitInput)(nil)).Elem(), OneDashboardPageWidgetBillboardUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBillboardUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBillboardUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletInput)(nil)).Elem(), OneDashboardPageWidgetBulletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueInput)(nil)).Elem(), OneDashboardPageWidgetBulletNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBulletNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletUnitInput)(nil)).Elem(), OneDashboardPageWidgetBulletUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetBulletUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetBulletUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetBulletUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelInput)(nil)).Elem(), OneDashboardPageWidgetFunnelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitInput)(nil)).Elem(), OneDashboardPageWidgetFunnelUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetFunnelUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetFunnelUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHeatmapUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramInput)(nil)).Elem(), OneDashboardPageWidgetHistogramArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitInput)(nil)).Elem(), OneDashboardPageWidgetHistogramUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetHistogramUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetHistogramUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonInput)(nil)).Elem(), OneDashboardPageWidgetJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueInput)(nil)).Elem(), OneDashboardPageWidgetJsonNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetJsonNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonUnitInput)(nil)).Elem(), OneDashboardPageWidgetJsonUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetJsonUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetJsonUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetJsonUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineInput)(nil)).Elem(), OneDashboardPageWidgetLineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorInput)(nil)).Elem(), OneDashboardPageWidgetLineColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLineUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLineUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitInput)(nil)).Elem(), OneDashboardPageWidgetLogTableUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetLogTableUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetLogTableUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownColorSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetMarkdownUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyInput)(nil)).Elem(), OneDashboardPageWidgetPyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorInput)(nil)).Elem(), OneDashboardPageWidgetPyColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNullValueInput)(nil)).Elem(), OneDashboardPageWidgetPyNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetPyNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyUnitInput)(nil)).Elem(), OneDashboardPageWidgetPyUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetPyUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetPyUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetPyUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetStackedBarUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableInput)(nil)).Elem(), OneDashboardPageWidgetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorInput)(nil)).Elem(), OneDashboardPageWidgetTableColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableColorSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableColorSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNrqlQueryArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNrqlQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableNullValueSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableNullValueSeriesOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitSeriesOverrideInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitSeriesOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardPageWidgetTableUnitSeriesOverrideArrayInput)(nil)).Elem(), OneDashboardPageWidgetTableUnitSeriesOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageInput)(nil)).Elem(), OneDashboardRawPageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageArrayInput)(nil)).Elem(), OneDashboardRawPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OneDashboardRawPageWidgetInput)(nil)).Elem(), OneDashboardRawPageWidgetArgs{})
@@ -10873,58 +20749,226 @@ func init() {
 	pulumi.RegisterOutputType(OneDashboardPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetAreaUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBarUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBillboardUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetBulletUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetFunnelUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHeatmapUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetHistogramUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetJsonUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLineUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetLogTableUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownColorSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetMarkdownUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetPyUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetStackedBarUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableColorSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryOutput{})
 	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNrqlQueryArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableNullValueSeriesOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitArrayOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitSeriesOverrideOutput{})
+	pulumi.RegisterOutputType(OneDashboardPageWidgetTableUnitSeriesOverrideArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageArrayOutput{})
 	pulumi.RegisterOutputType(OneDashboardRawPageWidgetOutput{})

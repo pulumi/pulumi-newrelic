@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { AccountManagementArgs, AccountManagementState } from "./accountManagement";
+export type AccountManagement = import("./accountManagement").AccountManagement;
+export const AccountManagement: typeof import("./accountManagement").AccountManagement = null as any;
+utilities.lazyLoad(exports, ["AccountManagement"], () => require("./accountManagement"));
+
 export { AlertChannelArgs, AlertChannelState } from "./alertChannel";
 export type AlertChannel = import("./alertChannel").AlertChannel;
 export const AlertChannel: typeof import("./alertChannel").AlertChannel = null as any;
@@ -197,6 +202,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "newrelic:index/accountManagement:AccountManagement":
+                return new AccountManagement(name, <any>undefined, { urn })
             case "newrelic:index/alertChannel:AlertChannel":
                 return new AlertChannel(name, <any>undefined, { urn })
             case "newrelic:index/alertCondition:AlertCondition":
@@ -248,6 +255,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("newrelic", "index/accountManagement", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertChannel", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertCondition", _module)
 pulumi.runtime.registerResourceModule("newrelic", "index/alertMutingRule", _module)
