@@ -17685,8 +17685,9 @@ func (o ServiceLevelEventsBadEventsPtrOutput) Where() pulumi.StringPtrOutput {
 type ServiceLevelEventsBadEventsSelect struct {
 	// The event attribute to use in the SELECT clause.
 	Attribute *string `pulumi:"attribute"`
-	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
-	Function string `pulumi:"function"`
+	// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+	Function  string   `pulumi:"function"`
+	Threshold *float64 `pulumi:"threshold"`
 }
 
 // ServiceLevelEventsBadEventsSelectInput is an input type that accepts ServiceLevelEventsBadEventsSelectArgs and ServiceLevelEventsBadEventsSelectOutput values.
@@ -17703,8 +17704,9 @@ type ServiceLevelEventsBadEventsSelectInput interface {
 type ServiceLevelEventsBadEventsSelectArgs struct {
 	// The event attribute to use in the SELECT clause.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
-	Function pulumi.StringInput `pulumi:"function"`
+	// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+	Function  pulumi.StringInput     `pulumi:"function"`
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
 func (ServiceLevelEventsBadEventsSelectArgs) ElementType() reflect.Type {
@@ -17789,9 +17791,13 @@ func (o ServiceLevelEventsBadEventsSelectOutput) Attribute() pulumi.StringPtrOut
 	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
-// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 func (o ServiceLevelEventsBadEventsSelectOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) string { return v.Function }).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelEventsBadEventsSelectOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsBadEventsSelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
 type ServiceLevelEventsBadEventsSelectPtrOutput struct{ *pulumi.OutputState }
@@ -17828,7 +17834,7 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) Attribute() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 func (o ServiceLevelEventsBadEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *string {
 		if v == nil {
@@ -17836,6 +17842,15 @@ func (o ServiceLevelEventsBadEventsSelectPtrOutput) Function() pulumi.StringPtrO
 		}
 		return &v.Function
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelEventsBadEventsSelectPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsBadEventsSelect) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ServiceLevelEventsGoodEvents struct {
@@ -18024,8 +18039,9 @@ func (o ServiceLevelEventsGoodEventsPtrOutput) Where() pulumi.StringPtrOutput {
 type ServiceLevelEventsGoodEventsSelect struct {
 	// The event attribute to use in the SELECT clause.
 	Attribute *string `pulumi:"attribute"`
-	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
-	Function string `pulumi:"function"`
+	// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+	Function  string   `pulumi:"function"`
+	Threshold *float64 `pulumi:"threshold"`
 }
 
 // ServiceLevelEventsGoodEventsSelectInput is an input type that accepts ServiceLevelEventsGoodEventsSelectArgs and ServiceLevelEventsGoodEventsSelectOutput values.
@@ -18042,8 +18058,9 @@ type ServiceLevelEventsGoodEventsSelectInput interface {
 type ServiceLevelEventsGoodEventsSelectArgs struct {
 	// The event attribute to use in the SELECT clause.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
-	Function pulumi.StringInput `pulumi:"function"`
+	// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+	Function  pulumi.StringInput     `pulumi:"function"`
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
 func (ServiceLevelEventsGoodEventsSelectArgs) ElementType() reflect.Type {
@@ -18128,9 +18145,13 @@ func (o ServiceLevelEventsGoodEventsSelectOutput) Attribute() pulumi.StringPtrOu
 	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
-// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 func (o ServiceLevelEventsGoodEventsSelectOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) string { return v.Function }).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelEventsGoodEventsSelectOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsGoodEventsSelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
 type ServiceLevelEventsGoodEventsSelectPtrOutput struct{ *pulumi.OutputState }
@@ -18167,7 +18188,7 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Attribute() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *string {
 		if v == nil {
@@ -18175,6 +18196,15 @@ func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Function() pulumi.StringPtr
 		}
 		return &v.Function
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelEventsGoodEventsSelectPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsGoodEventsSelect) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ServiceLevelEventsValidEvents struct {
@@ -18363,8 +18393,9 @@ func (o ServiceLevelEventsValidEventsPtrOutput) Where() pulumi.StringPtrOutput {
 type ServiceLevelEventsValidEventsSelect struct {
 	// The event attribute to use in the SELECT clause.
 	Attribute *string `pulumi:"attribute"`
-	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
-	Function string `pulumi:"function"`
+	// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+	Function  string   `pulumi:"function"`
+	Threshold *float64 `pulumi:"threshold"`
 }
 
 // ServiceLevelEventsValidEventsSelectInput is an input type that accepts ServiceLevelEventsValidEventsSelectArgs and ServiceLevelEventsValidEventsSelectOutput values.
@@ -18381,8 +18412,9 @@ type ServiceLevelEventsValidEventsSelectInput interface {
 type ServiceLevelEventsValidEventsSelectArgs struct {
 	// The event attribute to use in the SELECT clause.
 	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
-	Function pulumi.StringInput `pulumi:"function"`
+	// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
+	Function  pulumi.StringInput     `pulumi:"function"`
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
 func (ServiceLevelEventsValidEventsSelectArgs) ElementType() reflect.Type {
@@ -18467,9 +18499,13 @@ func (o ServiceLevelEventsValidEventsSelectOutput) Attribute() pulumi.StringPtrO
 	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) *string { return v.Attribute }).(pulumi.StringPtrOutput)
 }
 
-// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 func (o ServiceLevelEventsValidEventsSelectOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) string { return v.Function }).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelEventsValidEventsSelectOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceLevelEventsValidEventsSelect) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
 type ServiceLevelEventsValidEventsSelectPtrOutput struct{ *pulumi.OutputState }
@@ -18506,7 +18542,7 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) Attribute() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
 func (o ServiceLevelEventsValidEventsSelectPtrOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *string {
 		if v == nil {
@@ -18514,6 +18550,15 @@ func (o ServiceLevelEventsValidEventsSelectPtrOutput) Function() pulumi.StringPt
 		}
 		return &v.Function
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLevelEventsValidEventsSelectPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelEventsValidEventsSelect) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ServiceLevelObjective struct {

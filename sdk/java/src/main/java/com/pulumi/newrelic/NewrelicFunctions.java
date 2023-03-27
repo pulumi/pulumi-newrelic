@@ -1081,7 +1081,8 @@ public final class NewrelicFunctions {
      * ## Additional Examples
      * 
      * &gt; If the entities are not found please try again without providing the `types` field.
-     * ### An example of querying OTEL entities
+     * 
+     * ### Query for an OTEL entity
      * ```java
      * package generated_program;
      * 
@@ -1110,13 +1111,14 @@ public final class NewrelicFunctions {
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
+     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
      * 
-     * ### An example of querying AWS lambda entities
+     * ### Query for an entity by type (AWS Lambda entity in this example)
      * ```java
      * package generated_program;
      * 
@@ -1139,12 +1141,8 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;INFRA&#34;)
      *             .name(&#34;my_lambda_trace&#34;)
-     *             .tags(GetEntityTagArgs.builder()
-     *                 .key(&#34;accountID&#34;)
-     *                 .value(&#34;12345&#34;)
-     *                 .build())
+     *             .type(&#34;AWSLAMBDAFUNCTION&#34;)
      *             .build());
      * 
      *     }
@@ -1161,7 +1159,8 @@ public final class NewrelicFunctions {
      * ## Additional Examples
      * 
      * &gt; If the entities are not found please try again without providing the `types` field.
-     * ### An example of querying OTEL entities
+     * 
+     * ### Query for an OTEL entity
      * ```java
      * package generated_program;
      * 
@@ -1190,13 +1189,14 @@ public final class NewrelicFunctions {
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
+     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
      * 
-     * ### An example of querying AWS lambda entities
+     * ### Query for an entity by type (AWS Lambda entity in this example)
      * ```java
      * package generated_program;
      * 
@@ -1219,12 +1219,8 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;INFRA&#34;)
      *             .name(&#34;my_lambda_trace&#34;)
-     *             .tags(GetEntityTagArgs.builder()
-     *                 .key(&#34;accountID&#34;)
-     *                 .value(&#34;12345&#34;)
-     *                 .build())
+     *             .type(&#34;AWSLAMBDAFUNCTION&#34;)
      *             .build());
      * 
      *     }
@@ -1241,7 +1237,8 @@ public final class NewrelicFunctions {
      * ## Additional Examples
      * 
      * &gt; If the entities are not found please try again without providing the `types` field.
-     * ### An example of querying OTEL entities
+     * 
+     * ### Query for an OTEL entity
      * ```java
      * package generated_program;
      * 
@@ -1270,13 +1267,14 @@ public final class NewrelicFunctions {
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
+     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
      * 
-     * ### An example of querying AWS lambda entities
+     * ### Query for an entity by type (AWS Lambda entity in this example)
      * ```java
      * package generated_program;
      * 
@@ -1299,12 +1297,8 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;INFRA&#34;)
      *             .name(&#34;my_lambda_trace&#34;)
-     *             .tags(GetEntityTagArgs.builder()
-     *                 .key(&#34;accountID&#34;)
-     *                 .value(&#34;12345&#34;)
-     *                 .build())
+     *             .type(&#34;AWSLAMBDAFUNCTION&#34;)
      *             .build());
      * 
      *     }
@@ -1321,7 +1315,8 @@ public final class NewrelicFunctions {
      * ## Additional Examples
      * 
      * &gt; If the entities are not found please try again without providing the `types` field.
-     * ### An example of querying OTEL entities
+     * 
+     * ### Query for an OTEL entity
      * ```java
      * package generated_program;
      * 
@@ -1350,13 +1345,14 @@ public final class NewrelicFunctions {
      *                 .key(&#34;accountID&#34;)
      *                 .value(&#34;12345&#34;)
      *                 .build())
+     *             .type(&#34;SERVICE&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
      * 
-     * ### An example of querying AWS lambda entities
+     * ### Query for an entity by type (AWS Lambda entity in this example)
      * ```java
      * package generated_program;
      * 
@@ -1379,12 +1375,8 @@ public final class NewrelicFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var app = NewrelicFunctions.getEntity(GetEntityArgs.builder()
-     *             .domain(&#34;INFRA&#34;)
      *             .name(&#34;my_lambda_trace&#34;)
-     *             .tags(GetEntityTagArgs.builder()
-     *                 .key(&#34;accountID&#34;)
-     *                 .value(&#34;12345&#34;)
-     *                 .build())
+     *             .type(&#34;AWSLAMBDAFUNCTION&#34;)
      *             .build());
      * 
      *     }

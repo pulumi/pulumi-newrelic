@@ -18,18 +18,22 @@ namespace Pulumi.NewRelic.Outputs
         /// </summary>
         public readonly string? Attribute;
         /// <summary>
-        /// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        /// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         /// </summary>
         public readonly string Function;
+        public readonly double? Threshold;
 
         [OutputConstructor]
         private ServiceLevelEventsBadEventsSelect(
             string? attribute,
 
-            string function)
+            string function,
+
+            double? threshold)
         {
             Attribute = attribute;
             Function = function;
+            Threshold = threshold;
         }
     }
 }

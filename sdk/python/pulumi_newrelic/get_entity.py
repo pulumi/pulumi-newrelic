@@ -151,7 +151,8 @@ def get_entity(domain: Optional[str] = None,
     ## Additional Examples
 
     > If the entities are not found please try again without providing the `types` field.
-    ### An example of querying OTEL entities
+
+    ### Query for an OTEL entity
 
     ```python
     import pulumi
@@ -162,21 +163,18 @@ def get_entity(domain: Optional[str] = None,
         tags=[newrelic.GetEntityTagArgs(
             key="accountID",
             value="12345",
-        )])
+        )],
+        type="SERVICE")
     ```
 
-    ### An example of querying AWS lambda entities
+    ### Query for an entity by type (AWS Lambda entity in this example)
 
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(domain="INFRA",
-        name="my_lambda_trace",
-        tags=[newrelic.GetEntityTagArgs(
-            key="accountID",
-            value="12345",
-        )])
+    app = newrelic.get_entity(name="my_lambda_trace",
+        type="AWSLAMBDAFUNCTION")
     ```
 
 
@@ -184,7 +182,7 @@ def get_entity(domain: Optional[str] = None,
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
-    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -221,7 +219,8 @@ def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     ## Additional Examples
 
     > If the entities are not found please try again without providing the `types` field.
-    ### An example of querying OTEL entities
+
+    ### Query for an OTEL entity
 
     ```python
     import pulumi
@@ -232,21 +231,18 @@ def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
         tags=[newrelic.GetEntityTagArgs(
             key="accountID",
             value="12345",
-        )])
+        )],
+        type="SERVICE")
     ```
 
-    ### An example of querying AWS lambda entities
+    ### Query for an entity by type (AWS Lambda entity in this example)
 
     ```python
     import pulumi
     import pulumi_newrelic as newrelic
 
-    app = newrelic.get_entity(domain="INFRA",
-        name="my_lambda_trace",
-        tags=[newrelic.GetEntityTagArgs(
-            key="accountID",
-            value="12345",
-        )])
+    app = newrelic.get_entity(name="my_lambda_trace",
+        type="AWSLAMBDAFUNCTION")
     ```
 
 
@@ -254,6 +250,6 @@ def get_entity_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     :param bool ignore_case: Ignore case of the `name` when searching for the entity. Defaults to false.
     :param str name: The name of the entity in New Relic One.  The first entity matching this name for the given search parameters will be returned.
     :param Sequence[pulumi.InputType['GetEntityTagArgs']] tags: A tag applied to the entity. See Nested tag blocks below for details.
-    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+    :param str type: The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
     """
     ...
