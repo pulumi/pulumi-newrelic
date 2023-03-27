@@ -15,7 +15,8 @@ import (
 // ## Additional Examples
 //
 // > If the entities are not found please try again without providing the `types` field.
-// ### An example of querying OTEL entities
+//
+// ### Query for an OTEL entity
 //
 // ```go
 // package main
@@ -38,6 +39,7 @@ import (
 //						Value: "12345",
 //					},
 //				},
+//				Type: pulumi.StringRef("SERVICE"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -48,7 +50,7 @@ import (
 //
 // ```
 //
-// ### An example of querying AWS lambda entities
+// ### Query for an entity by type (AWS Lambda entity in this example)
 //
 // ```go
 // package main
@@ -63,14 +65,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := newrelic.GetEntity(ctx, &newrelic.GetEntityArgs{
-//				Domain: pulumi.StringRef("INFRA"),
-//				Name:   "my_lambda_trace",
-//				Tags: []newrelic.GetEntityTag{
-//					{
-//						Key:   "accountID",
-//						Value: "12345",
-//					},
-//				},
+//				Name: "my_lambda_trace",
+//				Type: pulumi.StringRef("AWSLAMBDAFUNCTION"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -99,7 +95,7 @@ type GetEntityArgs struct {
 	Name string `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
 	Tags []GetEntityTag `pulumi:"tags"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
 	Type *string `pulumi:"type"`
 }
 
@@ -145,7 +141,7 @@ type GetEntityOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A tag applied to the entity. See Nested tag blocks below for details.
 	Tags GetEntityTagArrayInput `pulumi:"tags"`
-	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+	// The entity's type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 

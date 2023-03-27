@@ -325,7 +325,6 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
-
         For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import
@@ -442,7 +441,6 @@ class ServiceLevel(pulumi.CustomResource):
                 ),
             ])
         ```
-
         For up-to-date documentation about the tagging resource, please check EntityTags
 
         ## Import

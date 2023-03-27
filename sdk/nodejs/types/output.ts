@@ -2338,9 +2338,10 @@ export interface ServiceLevelEventsBadEventsSelect {
      */
     attribute?: string;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      */
     function: string;
+    threshold?: number;
 }
 
 export interface ServiceLevelEventsGoodEvents {
@@ -2366,9 +2367,10 @@ export interface ServiceLevelEventsGoodEventsSelect {
      */
     attribute?: string;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      */
     function: string;
+    threshold?: number;
 }
 
 export interface ServiceLevelEventsValidEvents {
@@ -2394,9 +2396,10 @@ export interface ServiceLevelEventsValidEventsSelect {
      */
     attribute?: string;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      */
     function: string;
+    threshold?: number;
 }
 
 export interface ServiceLevelObjective {

@@ -5,6 +5,7 @@ package com.pulumi.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,18 +32,25 @@ public final class ServiceLevelEventsValidEventsSelectArgs extends com.pulumi.re
     }
 
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      * 
      */
     @Import(name="function", required=true)
     private Output<String> function;
 
     /**
-     * @return The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * @return The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      * 
      */
     public Output<String> function() {
         return this.function;
+    }
+
+    @Import(name="threshold")
+    private @Nullable Output<Double> threshold;
+
+    public Optional<Output<Double>> threshold() {
+        return Optional.ofNullable(this.threshold);
     }
 
     private ServiceLevelEventsValidEventsSelectArgs() {}
@@ -50,6 +58,7 @@ public final class ServiceLevelEventsValidEventsSelectArgs extends com.pulumi.re
     private ServiceLevelEventsValidEventsSelectArgs(ServiceLevelEventsValidEventsSelectArgs $) {
         this.attribute = $.attribute;
         this.function = $.function;
+        this.threshold = $.threshold;
     }
 
     public static Builder builder() {
@@ -92,7 +101,7 @@ public final class ServiceLevelEventsValidEventsSelectArgs extends com.pulumi.re
         }
 
         /**
-         * @param function The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+         * @param function The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
          * 
          * @return builder
          * 
@@ -103,13 +112,22 @@ public final class ServiceLevelEventsValidEventsSelectArgs extends com.pulumi.re
         }
 
         /**
-         * @param function The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+         * @param function The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
          * 
          * @return builder
          * 
          */
         public Builder function(String function) {
             return function(Output.of(function));
+        }
+
+        public Builder threshold(@Nullable Output<Double> threshold) {
+            $.threshold = threshold;
+            return this;
+        }
+
+        public Builder threshold(Double threshold) {
+            return threshold(Output.of(threshold));
         }
 
         public ServiceLevelEventsValidEventsSelectArgs build() {

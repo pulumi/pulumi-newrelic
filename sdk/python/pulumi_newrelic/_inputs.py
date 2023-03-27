@@ -9291,20 +9291,23 @@ class ServiceLevelEventsBadEventsArgs:
 class ServiceLevelEventsBadEventsSelectArgs:
     def __init__(__self__, *,
                  function: pulumi.Input[str],
-                 attribute: Optional[pulumi.Input[str]] = None):
+                 attribute: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         """
         return pulumi.get(self, "function")
 
@@ -9323,6 +9326,15 @@ class ServiceLevelEventsBadEventsSelectArgs:
     @attribute.setter
     def attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
 
 
 @pulumi.input_type
@@ -9387,20 +9399,23 @@ class ServiceLevelEventsGoodEventsArgs:
 class ServiceLevelEventsGoodEventsSelectArgs:
     def __init__(__self__, *,
                  function: pulumi.Input[str],
-                 attribute: Optional[pulumi.Input[str]] = None):
+                 attribute: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         """
         return pulumi.get(self, "function")
 
@@ -9419,6 +9434,15 @@ class ServiceLevelEventsGoodEventsSelectArgs:
     @attribute.setter
     def attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
 
 
 @pulumi.input_type
@@ -9483,20 +9507,23 @@ class ServiceLevelEventsValidEventsArgs:
 class ServiceLevelEventsValidEventsSelectArgs:
     def __init__(__self__, *,
                  function: pulumi.Input[str],
-                 attribute: Optional[pulumi.Input[str]] = None):
+                 attribute: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        :param pulumi.Input[str] function: The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         :param pulumi.Input[str] attribute: The event attribute to use in the SELECT clause.
         """
         pulumi.set(__self__, "function", function)
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         """
         return pulumi.get(self, "function")
 
@@ -9515,6 +9542,15 @@ class ServiceLevelEventsValidEventsSelectArgs:
     @attribute.setter
     def attribute(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
 
 
 @pulumi.input_type

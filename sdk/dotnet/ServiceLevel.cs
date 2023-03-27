@@ -133,7 +133,6 @@ namespace Pulumi.NewRelic
     /// 
     /// });
     /// ```
-    /// 
     /// For up-to-date documentation about the tagging resource, please check newrelic.EntityTags
     /// 
     /// ## Import

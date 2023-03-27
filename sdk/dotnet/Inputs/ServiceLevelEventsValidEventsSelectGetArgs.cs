@@ -19,10 +19,13 @@ namespace Pulumi.NewRelic.Inputs
         public Input<string>? Attribute { get; set; }
 
         /// <summary>
-        /// The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+        /// The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
         /// </summary>
         [Input("function", required: true)]
         public Input<string> Function { get; set; } = null!;
+
+        [Input("threshold")]
+        public Input<double>? Threshold { get; set; }
 
         public ServiceLevelEventsValidEventsSelectGetArgs()
         {

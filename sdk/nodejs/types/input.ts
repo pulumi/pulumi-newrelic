@@ -2293,9 +2293,10 @@ export interface ServiceLevelEventsBadEventsSelect {
      */
     attribute?: pulumi.Input<string>;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      */
     function: pulumi.Input<string>;
+    threshold?: pulumi.Input<number>;
 }
 
 export interface ServiceLevelEventsGoodEvents {
@@ -2321,9 +2322,10 @@ export interface ServiceLevelEventsGoodEventsSelect {
      */
     attribute?: pulumi.Input<string>;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      */
     function: pulumi.Input<string>;
+    threshold?: pulumi.Input<number>;
 }
 
 export interface ServiceLevelEventsValidEvents {
@@ -2349,9 +2351,10 @@ export interface ServiceLevelEventsValidEventsSelect {
      */
     attribute?: pulumi.Input<string>;
     /**
-     * The function to use in the SELECT clause. Valid values are `COUNT`and `SUM`.
+     * The function to use in the SELECT clause. Valid values are `COUNT` and `SUM`.
      */
     function: pulumi.Input<string>;
+    threshold?: pulumi.Input<number>;
 }
 
 export interface ServiceLevelObjective {

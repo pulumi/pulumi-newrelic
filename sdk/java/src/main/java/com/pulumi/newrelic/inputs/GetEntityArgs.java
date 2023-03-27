@@ -79,14 +79,14 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+     * The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+     * @return The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
      * 
      */
     public Optional<Output<String>> type() {
@@ -216,7 +216,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GetEntityArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, SERVICE and WORKLOAD.
+         * @param type The entity&#39;s type. Valid values are APPLICATION, DASHBOARD, HOST, MONITOR, WORKLOAD, AWSLAMBDAFUNCTION, SERVICE_LEVEL, and KEY_TRANSACTION. Note: Other entity types may also be queryable as the list of entity types may fluctuate over time.
          * 
          * @return builder
          * 
